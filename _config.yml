@@ -1,0 +1,30 @@
+title: Marco Gomiero
+description: Computer Engineering Student, Developer, Tech Journalist, Videomaker
+
+url: http://prof18.github.com/marcogomiero
+baseurl: ""
+paginate_path: "blog/page:num/"
+permalink: blog/:title/
+
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 5
+
+navigation:
+ - title: Home
+   url: /index.html
+ - title: Projects
+   url: /projects
+ - title: About
+   url: /about
+ - title: Contact
+   url: /contact
+
+social:
+   github: prof18
+   twitter: marcoGomier
+   facebook: ""
+   linkedin: https://www.linkedin.com/in/marco-gomiero-a80857ab/
+
+google_analytics: ""
