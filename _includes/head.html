@@ -6,11 +6,17 @@
     <title>{{ page.title }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ "/assets/img/favicon.ico" | prepend: site.baseurl }}" />
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ "/assets/img/apple-touch-icon.png" | prepend: site.baseurl }}">
+    <link rel="icon" type="image/png" href="{{ "/assets/img/favicon-32x32.png" | prepend: site.baseurl }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ "/assets/img/favicon-16x16.png" | prepend: site.baseurl }}" sizes="16x16">
+    <link rel="manifest" href="{{ "/assets/img//manifest.json" | prepend: site.baseurl }}">
+    <link rel="mask-icon" href="{{ "/assets/img/safari-pinned-tab.svg" | prepend: site.baseurl }}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Come and get me RSS readers -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-    
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ "/assets/css/style.css" | prepend: site.baseurl }}">
     <!--[if IE 8]><link rel="stylesheet" href="{{ "/assets/css/ie.css" | prepend: site.baseurl }}"><![endif]-->
