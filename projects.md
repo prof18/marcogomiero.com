@@ -53,7 +53,7 @@ title: Projects
 			<li><b>Lupokkio:</b>
 				<ul style="list-style-type: none;">
 					<li>
-						Android Application to read latest articles and reviews, watch latest Youtube video from Lupokkio's channel and receive notifications for the new articles. The application is non longer active because the blog is dead but you can see its past behavior by watching <a href="https://www.youtube.com/watch?v=QK-KcC0DYds" target="blank">this video</a>.
+						Android Application to read latest articles and reviews, watch latest Youtube video from Lupokkio's channel and receive notifications for the new articles. The application is no longer active because the blog is dead but you can see its past behavior by watching <a href="https://www.youtube.com/watch?v=QK-KcC0DYds" target="blank">this video</a>.
 					</li>
 				</ul> <br>
 			</li>
