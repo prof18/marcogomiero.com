@@ -7,11 +7,19 @@ title: Projects
 	<h1 class="pageTitle">Projects:</h1>
 		<ul>
 
-		<!--<li><b>Think Tank:</b> - <i>Actually working on it</i>
+		<li><b>Think Tank:</b> - <i>Actually working on it</i>
 			<ul style="list-style-type: none;">
-				<li>Android and Web developer of the project Think Tank. It's a service for educational purpose, in particular for booking private lessons. You can found more information (in Italian) on the <a>href="" target="blank">website.</li><br>
+				<li>Android and Web developer of the project Think Tank. It's a service for educational purpose, in particular for booking private lessons. You can found more information (in Italian) on the <a href="http://www.thinktankservice.com" target="blank">official website</a>.</li><br>
 			</ul>
-		</li> -->
+		</li>
+
+		<li><b>MarioDiscepolo.com:</b>
+			<ul style="list-style-type: none;">
+				<li>
+					Android Application to read latest articles and reviews from <a href="http://www.mariodiscepolo.com" target="blank">mariodiscepolo.com</a>, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles. You can checkout the application on the <a href="https://play.google.com/store/apps/details?id=com.prof.mariodiscepolo" target="blank">Play Store</a>.
+				</li>
+			</ul> <br>
+		</li>
 
 			<li><b>Youtube Parser:</b>
 				<ul style="list-style-type: none;">
@@ -109,4 +117,4 @@ title: Projects
 </p>
 </div>
 
-<div style="text-align: right"> <i>Last Update January 2017</i> </div>
+<div style="text-align: right"> <i>Last Update March 2017</i> </div>
