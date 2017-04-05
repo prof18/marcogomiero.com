@@ -16,12 +16,15 @@ I promise :) ).
 The topic of the talk was a hot one: backup and restore on Android Application. But
 today I wanna only share the video and the slide of the talk (that is in Italian). In the following
 article I'll go deep on the argument and I will explain all.
+<br>
+<iframe width="570" height="321" src="https://www.youtube.com/embed/B792Y0Rri0c" frameborder="0" allowfullscreen></iframe>
+
 </P>
 <br>
 
 <p><h3>Video:</h3>
 
-<iframe width="570" height="321" src="https://www.youtube.com/embed/B792Y0Rri0c" frameborder="0" allowfullscreen></iframe>
+
 </p>
 
 <p><h3>Slide:</h3>
