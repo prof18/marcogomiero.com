@@ -21,7 +21,7 @@ article I'll go deep on the argument and I will explain all.
 
 <p><h3>Video:</h3>
 
-<iframe width="640" height="480" src="https://www.youtube.com/embed/B792Y0Rri0c" frameborder="0" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/B792Y0Rri0c" frameborder="0" allowfullscreen></iframe>
 
 <p><h3>Slide:</h3>
 
