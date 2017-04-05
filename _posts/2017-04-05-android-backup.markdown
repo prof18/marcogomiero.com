@@ -22,7 +22,8 @@ article I'll go deep on the argument and I will explain all.
 <p><h3>Video:</h3>
 
 <iframe width="570" height="321" src="https://www.youtube.com/embed/B792Y0Rri0c" frameborder="0" allowfullscreen></iframe>
+</p>
 
 <p><h3>Slide:</h3>
 
-<script async class="speakerdeck-embed" data-id="b044fe42b08a44cbae65c599d03a1233" data-ratio="1" src="//speakerdeck.com/assets/embed.js"></script>
+<script async class="speakerdeck-embed" data-id="b044fe42b08a44cbae65c599d03a1233" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
