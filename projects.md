@@ -24,7 +24,7 @@ title: Projects
 			<li><b>Youtube Parser:</b>
 				<ul style="list-style-type: none;">
 					<li>
-					An Android library to loaded on jCenter. You can find more info about it and the source code on <a href="https://github.com/prof18/YoutubeParser" target="blank">Github</a>.</li><br>
+					An Android library to get video's information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. The library is also uploaded on jCenter. You can find more info about it and the source code on <a href="https://github.com/prof18/YoutubeParser" target="blank">Github</a>.</li><br>
 				</ul>
 			</li>
 
@@ -84,6 +84,15 @@ title: Projects
 								</li>
 							</ul>
 				</li>
+				<br>
+				<li><b>Android Things - The power of Android for Internet of Things:</b>
+						<ul style="list-style-type: none;">
+							<li>
+								In this talk we'll see what is Android Things and what we need to know to begin developing IoT application. <br> <br>
+							<a href="https://speakerdeck.com/prof18/android-things-the-power-of-android-for-internet-of-things" target="blank"><b>Slide</b></a>
+								</li>
+							</ul>
+				</li>
 			</ul>
 
 			<h2>University Projects:</h2>
@@ -117,4 +126,4 @@ title: Projects
 </p>
 </div>
 
-<div style="text-align: right"> <i>Last Update March 2017</i> </div>
+<div style="text-align: right"> <i>Last Update April 2017</i> </div>
