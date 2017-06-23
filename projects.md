@@ -16,7 +16,7 @@ title: Projects
 		<li><b>MarioDiscepolo.com:</b>
 			<ul style="list-style-type: none;">
 				<li>
-					Android Application to read latest articles and reviews from <a href="http://www.mariodiscepolo.com" target="blank">mariodiscepolo.com</a>, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles. You can checkout the application on the <a href="https://play.google.com/store/apps/details?id=com.prof.mariodiscepolo" target="blank">Play Store</a>.
+					Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles. The application is no longer active because the blog is dead but its behavior was similar <a href="https://www.youtube.com/watch?v=QK-KcC0DYds" target="blank">to the Lupokkio app</a>.
 				</li>
 			</ul> <br>
 		</li>
@@ -121,9 +121,9 @@ title: Projects
 	 <li>H-ackFood 2016 </li>
 	 <li>Droidcon 2016 </li>
  </ul>
- I won: HackUNIPD and Droidcon 2016.
+ <p>I won: HackUNIPD and Droidcon 2016.
  In all the hackathons, my team and I have developed a demo Android app that show the main points of the idea. <a href="https://github.com/prof18/Hackathon" target="blank">On Github</a> there is a repository with the pitch and the source of the whole events.
 </p>
-</div>
 
-<div style="text-align: right"> <i>Last Update April 2017</i> </div>
+
+<div style="text-align: right"> <i>Last Update June 2017</i> </div>
