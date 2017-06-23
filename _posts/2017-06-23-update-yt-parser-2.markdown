@@ -1,18 +1,18 @@
 ---
 layout: post
 title:  "New big update for YoutubeParser: video stats and much more"
-date:   2017-06-22
+date:   2017-06-23
 ---
 <p class="intro"><span class="dropcap" align="justify">F</span>inally I've released a new big update for YoutubeParser. For people who don't know what I'm talking about, don't worry now I'm going to explain all.
 
-YoutubeParser is the first Android library that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:
+**YoutubeParser** is the first **Android library** that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:
 * Title;
 * Link;
 * Thumbnail, with three different image size.
 
 After a year I've released this new big update, named 2.0, that introduces a bunch of new things. First of all, now it is possible to load more than 50 videos from the same channel. 50 is the maximum number of videos that can be retrieved with a single request.
 
-Furthermore you can get the statistics of a video:
+Furthermore you can also get the statistics of a video:
 * View;
 * Like;
 * Dislike;
@@ -23,6 +23,10 @@ The source code of the library is on Github together with a sample application t
 * [Click here to view the library on Github][github]
 * [Click here to show the code of the sample app][app-code]
 * [Click here to download the app.][app-download]
+
+
+<img src="https://raw.githubusercontent.com/prof18/YoutubeParser/master/Screen.png" width="30%" height="30%" align="center">
+
 
 Of course the library is available also on jCenter so you can easily add the dependency on Gradle.
 
@@ -38,7 +42,11 @@ Now let's look how it works. First of all you need to create a new *Parser* Obje
 * The type of ordering of the videos. It is possible to choose between two different type of ordering: by date or by views. To select the chosen value you have to use the constants: *Parser.ORDER_DATE* and *Parser.ORDER_VIEW_COUNT*
 * The API Key. The key is a *BROSWER API KEY* and to create it you can follow [this guide](https://support.google.com/cloud/answer/6158862?hl=en#creating-browser-api-keys)
 
-```Java
+If the data are correctly retrieved, you can do your stuff inside the *onTaskCompleted*. Here you have two variable: an *ArrayList* of *Video* items that you can use to populate your view for instance and a *token* that is necessary to load more data (see below for more details).
+
+If there are some error on the process, you can handle the situation in the *onError()* method.
+
+{% highlight java %}
 import com.prof.youtubeparser.Parser;
 import com.prof.youtubeparser.models.videos.Video;
 
@@ -63,18 +71,21 @@ parser.onFinish(new Parser.OnTaskCompleted() {
         //what to do in case of error
     }
 });
-```
-To create a BROSWER API KEY you can follow
-<a href="https://support.google.com/cloud/answer/6158862?hl=en#creating-browser-api-keys"> this guide.</a>
+{% endhighlight %}
 
-##### To load more videos from the same channel:    
-```Java
+If you want to retrieved **more videos from the same channel**, the procedure is the same of the above case. The only difference is the method that generate the url; here you have to add the token retrieved from the above procedure.
+
+{% highlight java %}
 String url = parser.generateMoreDataRequest(CHANNEL_ID, 20, Parser.ORDER_DATE, API_KEY, nextToken);
-```
-Remember that this request can be made only AFTER the a previous one, because you need the nextPageToken. Remember also that every request can get a maximum of 50 elements.
+{% endhighlight %}
 
-##### To get the statistics of a video:
-```Java
+To get **the statistics of a single video**, the procedure is equivalent of the previous. As you can guess, the first thing to do is to generate the url with the *generateStatsRequest* method. The parameter of this method are:
+* The ID of a Youtube Video;
+* The API Key.
+
+Also here you can handle the result in the *onTaskCompleted* method and any error in the *onError()* method.
+
+{% highlight java %}
 import com.prof.youtubeparser.VideoStats;
 import com.prof.youtubeparser.models.stats.Statistics;
 
@@ -99,13 +110,10 @@ videoStats.onFinish(new VideoStats.OnTaskCompleted() {
       //what to do in case of error
   }
 });
-```
-## Sample app
-I wrote a simple app that shows videos from Android Developer Youtube Channel.
+{% endhighlight %
+}
 
-<img src="https://raw.githubusercontent.com/prof18/YoutubeParser/master/Screen.png" width="30%" height="30%">
-
-
+That's all! Please let me know if you notice any bug or if you have any advice that can improve this library.
 
 [github]: https://github.com/prof18/YoutubeParser
 [app-download]: https://github.com/prof18/YoutubeParser/blob/master/YoutubeParser.apk
