@@ -104,14 +104,12 @@ videoStats.onFinish(new VideoStats.OnTaskCompleted() {
                     "Number of comment: " + stats.getCommentCount() + "\n" +
                     "Number of favourite: " + stats.getFavoriteCount();
   }
-
   @Override
   public void onError() {
       //what to do in case of error
   }
 });
-{% endhighlight %
-}
+{% endhighlight %}
 
 That's all! Please let me know if you notice any bug or if you have any advice that can improve this library.
 
