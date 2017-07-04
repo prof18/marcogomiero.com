@@ -16,7 +16,7 @@ title: Projects
 		<li><b>MarioDiscepolo.com:</b>
 			<ul style="list-style-type: none;">
 				<li>
-					Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles. The application is no longer active because the blog is dead but its behavior was similar <a href="https://www.youtube.com/watch?v=QK-KcC0DYds" target="blank">to the Lupokkio app</a>.
+					Android Application to read latest articles and reviews from <a href="http://www.mariodiscepolo.com" target="blank">mariodiscepolo.com</a>, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles. You can checkout the application on the <a href="https://play.google.com/store/apps/details?id=com.prof.mariodiscepolo" target="blank">Play Store</a>.
 				</li>
 			</ul> <br>
 		</li>
@@ -24,7 +24,7 @@ title: Projects
 			<li><b>Youtube Parser:</b>
 				<ul style="list-style-type: none;">
 					<li>
-					An Android library to get video's information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. The library is also uploaded on jCenter. You can find more info about it and the source code on <a href="https://github.com/prof18/YoutubeParser" target="blank">Github</a>.</li><br>
+					An Android library to get video's information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. I've published <a href="http://www.marcogomiero.com/blog/update-yt-parser-2/" target="blank">a blog post</a> on my site with all the information about the library. The library is also uploaded on jCenter. You can find more info about it and the source code on <a href="https://github.com/prof18/YoutubeParser" target="blank">Github</a>.</li><br>
 				</ul>
 			</li>
 
@@ -126,4 +126,4 @@ title: Projects
 </p>
 
 
-<div style="text-align: right"> <i>Last Update June 2017</i> </div>
+<div style="text-align: right"> <i>Last Update July 2017</i> </div>
