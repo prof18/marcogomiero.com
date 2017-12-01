@@ -62,4 +62,4 @@ title: About Me
 
 
 
-<div style="text-align: right"> <i>Last Update July 2017</i> </div>
+<div style="text-align: right"> <i>Last Update November 2017</i> </div>
