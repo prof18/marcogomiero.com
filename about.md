@@ -13,6 +13,15 @@ title: About Me
 <a href="http://www.marcogomiero.com/assets/pdf/cv-marco-gomiero.pdf">Click here</a> for my Curriculum Vitae.
 </p>
 
+<h2>Working Experience:</h2>
+<ul>
+<li>Android Developer @ Uniwhere | September 2017 - Now
+			<ul style="list-style-type: none;">
+				<li><a href="http://uniwhere.com" target="blank">Uniwhere</a> is a career management platform where university students can manage their academic life and get support in taking decisions for their education. A workspace where students can find reviews and data-driven recommendations, and a useful toolbox to organize their university experience.More than 100,000 students from over 50 universities are already using the app, that is currently available on Android and iOS.</li><br>
+			</ul>
+		</li>
+</ul>
+
 <h2>Programming Skills:</h2>
 <ul>
 	<li>Advanced:
