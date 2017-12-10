@@ -28,7 +28,7 @@ title: Projects
 				</ul>
 			</li>
 
-			<li><b>RSS Parser</b> - <i>Alone - 2016</i>
+			<li><b>RSS Parser</b> - <i>Alone - 2016/ In Progress</i>
 				<ul style="list-style-type: none;">
 					<li>
 						An Android library to parse a RSS Feed. You can retrive the following information about an article:
