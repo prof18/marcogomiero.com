@@ -17,7 +17,7 @@ date:   2017-08-16
 <li>Publication Date</li>
 </ul>
 </p>
-<p align="justify"><a href="https://www.androidcentral.com/feed">Here</a> you can find an example of feed.
+<p align="justify"><a href="https://www.androidauthority.com/feed/">Here</a> you can find an example of feed.
 </p>
 
 <p align="justify">The source code of the library is on Github together with a sample application that shows what you can do with the library.
