@@ -17,7 +17,7 @@ pacman -Syu
 
 <h2>Install Apache</h2>
 
-<p align="justify">First of all you need to install and configure Apache, the web server.</p>
+<p align="justify">First of all, you need to install and configure Apache, the web server.</p>
 {% highlight shell %}
 pacman -S apache
 {% endhighlight %}
@@ -27,7 +27,7 @@ systemctl start httpd
 
 systemctl enable httpd
 {% endhighlight %}
-<p align="justify">At this point you have to change some configurations of Apache. In order to do that, you can use your preferred editor like nano or vim. I'll use nano. (If you aren't a nano user here's some tip: to search a string you have to press ctrl+w; to exit you have to press ctrl+x and type 'y' or 'n' in order to save or not the file. Remember that the saving process can give an error if the file isn't opened as root and only the root user can edit it). 
+<p align="justify">At this point you have to change some configurations of Apache. In order to do that, you can use your preferred editor like nano or vim. I'll use nano. (If you aren't a nano user here's some tip: to search a string you have to press ctrl+w; to exit you have to press ctrl+x and type 'y' or 'n' in order to save or not the file. Remember that the saving process can give an error if the file isn't opened as root and only the root user can edit it).
 <br>
 <br>
 So open the httpd.conf file</p>
@@ -54,13 +54,13 @@ nano /srv/http/index.html
 
 {% highlight html %}
 <html>
- 
+
 <title>Hello World</title>
- 
+
 <body>
 <h1>This is a test. Apache Web Server is working</h1>
 </body>
- 
+
 </html>
 {% endhighlight %}
 
@@ -70,7 +70,7 @@ nano /srv/http/index.html
 
 <h2>Install PHP</h2>
 
-<p align="justify">Now it is time to install PHP with the following command.</p>
+<p align="justify">Now it is the time to install PHP with the following command.</p>
 
 {% highlight shell %}
 pacman -S php php-cgi php-gd php-pgsql php-apache
@@ -102,7 +102,7 @@ AddHandler php7-script php
 Include conf/extra/php7_module.conf
 {% endhighlight %}
 
-<p align="justify">Now it's time to configure the php.ini. Open the file</p>
+<p align="justify">Now it's the time to configure the php.ini. Open the file</p>
 
 {% highlight shell %}
 nano /etc/php/php.ini
@@ -164,7 +164,7 @@ systemctl enable mysqld
 mysql_secure_installation
 {% endhighlight %}
 
-<p align="justify">Finally now you can create your database. Connect to the MySQL console with this command.</p>
+<p align="justify">Finally now you can create your own database. Connect to the MySQL console with this command.</p>
 
 {% highlight shell %}
 mysql -u root -p
@@ -217,7 +217,7 @@ define('DB_USER', 'wpuser');
 define('DB_PASSWORD', 'password');
 {% endhighlight %}
 
-<p align="justify">Now everything is done. To check if is true, open the broswer and go to http://localhost/wordpress and you should see a page like this.</p>
+<p align="justify">Now everything is done. To check if it is true, open the broswer and go to http://localhost/wordpress and you should see a page like this.</p>
 
 <img src="/assets/img/articles/01-18/wordpress_working.jpg" align="center">
 
