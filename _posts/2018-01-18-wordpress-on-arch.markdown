@@ -82,13 +82,13 @@ pacman -S php php-cgi php-gd php-pgsql php-apache
 nano /etc/httpd/conf/httpd.conf
 {% endhighlight %}
 
-<p align="justify">comment (add a ';') this line</p>
+<p align="justify">comment (add a '#') this line</p>
 
 {% highlight shell %}
 LoadModule mpm_event_module modules/mod_mpm_event.so
 {% endhighlight %}
 
-<p align="justify">and uncomment (remove the ';') this one.</p>
+<p align="justify">and uncomment (remove the '#') this one.</p>
 
 {% highlight shell %}
 ;LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
