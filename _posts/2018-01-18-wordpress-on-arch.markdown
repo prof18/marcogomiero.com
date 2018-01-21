@@ -91,7 +91,7 @@ LoadModule mpm_event_module modules/mod_mpm_event.so
 <p align="justify">and uncomment (remove the '#') this one.</p>
 
 {% highlight shell %}
-;LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 {% endhighlight %}
 
 <p align="justify">Finally you have to add these lines at the bottom of the file.</p>
