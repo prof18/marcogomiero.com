@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "New big update for YoutubeParser: video stats and much more"
+title:  "New big update for Youtube Parser: video stats and much more"
+description: "Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let's see how it works!"
 date:   2017-06-23
 ---
 <p class="intro"><span class="dropcap" align="justify">F</span></p><p align="justify">inally I've released a new big update for YoutubeParser. For people who don't know what I'm talking about, don't worry now I'm going to explain all.</p>

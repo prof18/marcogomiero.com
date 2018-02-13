@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "How to easily handle RSS Feeds on Android with RSS-Parser"
+title:  "How to easily handle RSS Feeds on Android with RSS Parser"
+description: "RSS Parser is an Android Library that helps you to handle RSS Feed in your application. Let's see how it works!"
 date:   2017-08-16
 ---
 <p class="intro"><span class="dropcap" align="justify">T</span></p><p align="justify">wo month ago <a href="http://www.marcogomiero.com/blog/update-yt-parser-2/">I have talked about YoutubeParser</a>, an Android Library that I developed. Today I want to talk about  <b>RSS-Parser</b>, another library that I wrote.</p>

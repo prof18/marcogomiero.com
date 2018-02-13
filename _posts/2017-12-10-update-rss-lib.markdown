@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "New update for RSS-Parser: article categories"
+title:  "New update for RSS Parser: article categories"
+description: "Today I've released a new version of the Android library RSS-Parser. Let's see what changes!"
 date:   2017-12-11
 ---
 <p class="intro"><span class="dropcap" align="justify">T</span></p><p align="justify">oday I've released a new version of the Android library RSS-Parser</p>
