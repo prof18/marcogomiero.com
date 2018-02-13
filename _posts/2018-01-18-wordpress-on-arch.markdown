@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "How to install Wordpress on Arch Linux"
+description: Sometimes, installing Wordpress on Arch Linux can be a tragedy. In this tutorial we are going to see all the steps to make everything work!
+author: Marco Gomiero
 date:   2018-01-19
 ---
 <p class="intro"><span class="dropcap" align="justify">E</span></p><p align="justify">very time I've tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!

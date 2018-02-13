@@ -1,7 +1,13 @@
 title: Marco Gomiero
 description: Computer Engineering Student, Developer, Tech Journalist, Videomaker
+url: http://www.marcogomiero.com/
+author: Marco Gomiero
 
-url: http://prof18.github.com/marcogomiero
+twitter:
+  username: marcoGomier
+
+#url: http://prof18.github.com/marcogomiero
+
 baseurl: ""
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
@@ -28,3 +34,6 @@ social:
    linkedin: https://www.linkedin.com/in/marco-gomiero-a80857ab/
 
 google_analytics: "UA-90975904-1"
+
+plugins:
+  - jekyll-seo-tag
