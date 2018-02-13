@@ -14,7 +14,6 @@ permalink: blog/:title/
 
 markdown: kramdown
 highlighter: rouge
-gems: [jekyll-paginate]
 paginate: 5
 
 navigation:
@@ -35,5 +34,7 @@ social:
 
 google_analytics: "UA-90975904-1"
 
-plugins:
+plugins :
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
