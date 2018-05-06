@@ -13,9 +13,9 @@ date:   2018-05-06
 Now the parser, first search a specific image content, next if nothing is found it search inside the description and next inside the content of ther article. In this way there are three different sources for the image, in order to minimize the absense. 
  </p>
 
-<p align="justify">That’s all for this update! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
+ <img src="https://raw.githubusercontent.com/prof18/RSS-Parser/master/Screen.png" width="50%" height="50%" align="center">
 
-<img src="https://raw.githubusercontent.com/prof18/RSS-Parser/master/Screen.png" width="50%" height="50%" align="center">
+<p align="justify">That’s all for this update! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
 
 <p align="justify">Of course the source code of the library is on Github together with a sample application that shows what you can do with the library.
 
