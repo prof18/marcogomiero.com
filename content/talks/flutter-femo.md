@@ -1,0 +1,13 @@
+---
+date: 2019-02-09
+title: Hi, have you met Flutter? · FéMO 2019 – Dai garage alle piazze - Padova
+toc: true
+---
+
+9 February 2019
+
+## Abstract:
+A brief introduction to the Flutter framework before the official [Google Codelab](https://codelabs.developers.google.com/codelabs/first-flutter-app-pt1/#0).
+
+## Slide:
+<script async class="speakerdeck-embed" data-id="afaffacee39041ef9b4da577ff9f7262" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
