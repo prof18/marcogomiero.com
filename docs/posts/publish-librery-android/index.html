@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="How to publish and distribute your Android library">
+<meta itemprop="description" content="You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
+First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
+An example of a library module
+The library will be published to *jCenter, *a Maven repository hosted by bintray.">
+
+
+<meta itemprop="datePublished" content="2019-05-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="820">
+
+  <meta itemprop="image" content="https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="How to publish and distribute your Android library" />
+<meta property="og:description" content="You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
+First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
+An example of a library module
+The library will be published to *jCenter, *a Maven repository hosted by bintray." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://marcogomiero.com/posts/publish-librery-android/" />
+
+<meta property="og:image" content="https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo" />
+<meta property="article:published_time" content="2019-05-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-05-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo"/>
+
+<meta name="twitter:title" content="How to publish and distribute your Android library"/>
+<meta name="twitter:description" content="You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
+First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
+An example of a library module
+The library will be published to *jCenter, *a Maven repository hosted by bintray."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>How to publish and distribute your Android library</title>
+	<link rel="stylesheet" href="https://marcogomiero.com/css/style.min.2228be6b0c0388454036050b3f2743e5fd95a0dc0c3564e5623e94748b585ef1.css" integrity="sha256-Iii+awwDiEVANgULPydD5f2VoNwMNWTlYj6UdItYXvE=">
+	<style>.bg-img {background-image: url('https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo');}</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://marcogomiero.com">Marco Gomiero</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://marcogomiero.com/posts/">Blog</a>
+				<a href="https://marcogomiero.com/talks/">Talks</a>
+				<a href="https://marcogomiero.com/projects/">Projects</a>
+				<a href="https://marcogomiero.com/about-me/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/marcoGomier" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/marco-gomiero-a80857ab/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://github.com/prof18" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://marcogomiero.com/posts/">Blog</a></li>
+			<li><a href="https://marcogomiero.com/talks/">Talks</a></li>
+			<li><a href="https://marcogomiero.com/projects/">Projects</a></li>
+			<li><a href="https://marcogomiero.com/about-me/">About</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>May 28, 2019</span></div>
+				<h1>How to publish and distribute your Android library</h1>
+			</header>
+			<div class="content">
+				<p>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.</p>
+
+<p>First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*FoYazVYDj5FlCpQuX88v9w.png" alt="An example of a library module" />
+<center><em>An example of a library module</em></center></p>
+
+<p>The library will be published to *jCenter, *a Maven repository hosted by <a href="http://www.bintray.com">bintray.com</a>. The process is simple: the library is built locally in Android Studio, the artifacts will be upload to <em>bintray</em> and then linked to <em>jCenter.</em></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*iExRbQhqoflgn3mJjuwY7w.png" alt="" /></p>
+
+<p>In this way, the developers that want to use your library has only to declare it in the *build.gradle *file of their projects. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">implementation</span> <span class="s2">&#34;com.prof.rssparser:rssparser:2.0.4&#34;</span></code></pre></div>
+<p>The first thing to do is to create a <a href="https://bintray.com/">Bintray</a> account and for open source projects is FREE.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*_tBskl_JTR6UbEYZD0sSpg.png" alt="Create a Bintray account" />
+<center><em>Create a Bintray account</em></center></p>
+
+<p>After the creation of the account, you have to choose a repository. Let’s go with Maven (I know, you are thinking “Why? I want to publish it to jCenter”. Well, as said above jCenter is a Maven repository so we have to choose Maven).</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*iGCmnnoRg0WIAE8Qywaodg.png" alt="Choose Maven as repository" />
+<center><em>Choose Maven as repository</em></center></p>
+
+<p>Now you can create a new package inside your Maven repository.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*PP8lVgEaoTzjaOqmrC2Isw.png" alt="Add a new package to the Maven repository" />
+<center><em>Add a new package to the Maven repository</em></center></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*dZhP4R7gzMTVzdkriYFzHw.png" alt="Add basic information of the library" />
+<center><em>Add basic information of the library</em></center></p>
+
+<p>After adding all the basic information of your library, like name, description, license, tags, etc., the repository of the library is ready.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*CYoMvJQtZu3i3PSgiB74Bw.png" alt="" /></p>
+
+<p>Now, back to the code. I’ll take as reference, a library that I’ve developed, so you can dive into the real code if you want.</p>
+
+<blockquote>
+<p><a href="https://github.com/prof18/RSS-Parser">prof18/RSS-Parser</a></p>
+</blockquote>
+
+<p>First of all, you have to add some dependencies into the <em>build.gradle</em> file of your project.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">classpath</span> <span class="s1">&#39;com.github.dcendents:android-maven-gradle-plugin:2.0&#39;</span>
+<span class="n">classpath</span> <span class="s1">&#39;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4&#39;</span></code></pre></div>
+<p>At this point, we are ready to create the publishing script. Inside the library project, create a <em>publish.gradle</em> file and apply it on the *build.gradle <em>file</em> *of your library.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">apply</span> <span class="nl">from:</span> <span class="s1">&#39;publish.gradle&#39;</span></code></pre></div>
+<script type="application/javascript" src="//gist.github.com/prof18/b8783f870354d3e131cea887a2d6a6b4.js"></script>
+
+<p>Before explaining the whole script, a clarification of the library signature is mandatory. As mentioned earlier, the signature of your library has the following shape:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">com</span><span class="o">.</span><span class="na">prof</span><span class="o">.</span><span class="na">rssparser</span><span class="o">:</span><span class="nl">rssparser:</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">4</span></code></pre></div>
+<p>and it is composed of three parts:</p>
+
+<ul>
+<li><p>the Group ID (<em>com.prof.rssparser</em>);</p></li>
+
+<li><p>the Artifact ID (<em>rssparser</em>);</p></li>
+
+<li><p>the Version (<em>2.0.4</em>).</p>
+
+<pre><code>GROUP_ID:ARTIFACT_ID:VERSION
+</code></pre></li>
+</ul>
+
+<p>So, for the example library that we have created above, the Group ID is: “*com.your.awesome.lib*”, the Artifact ID is: “*awesomelib*” and the version is: “*1.0.0*”. These fields are arbitrary and you have to choose a name; keep in mind that with a new update, only the version will change in the signature.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">com</span><span class="o">.</span><span class="na">your</span><span class="o">.</span><span class="na">awesome</span><span class="o">.</span><span class="na">lib</span><span class="o">:</span><span class="nl">awesomelib:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span></code></pre></div>
+<p>Returning to the script, the lines [7–33] are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.</p>
+
+<p>The lines [38–58] instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under <em>Edit Your Profile -&gt; API Key</em>), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.</p>
+
+<blockquote>
+<p><a href="https://github.com/bintray/gradle-bintray-plugin">bintray/gradle-bintray-plugin</a></p>
+</blockquote>
+
+<p>Remember to keep private the username and the private key. There are many ways, for example, I saved them in the <em>local.properties:</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">bintray</span><span class="o">.</span><span class="na">user</span><span class="o">=&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="n">bintray</span><span class="o">.</span><span class="na">apikey</span><span class="o">=&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">key</span><span class="o">&gt;</span></code></pre></div>
+<p>and loaded them in the *publish.gradle *script with a few simple lines of code.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="kt">def</span> <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">()</span>
+<span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s2">&#34;local.properties&#34;</span><span class="o">))</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&#34;bintray.user&#34;</span><span class="o">)</span>    
+<span class="n">key</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&#34;bintray.apikey&#34;</span><span class="o">)</span></code></pre></div>
+<p>Finally, it’s time to open the Terminal and launch the build and upload task (I recommend to use the *&ndash; info *flag to have a better understanding of what it is going on).</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="o">./</span><span class="n">gradlew</span> <span class="n">clean</span> <span class="n">build</span> <span class="n">bintrayUpload</span> <span class="o">--</span><span class="n">info</span></code></pre></div>
+<p>If everything went well, the artifacts have been uploaded to bintray but not yet published.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*mQwixMjhUz7JUiyyDnHPyw.png" alt="New version uploaded but not yet published" />
+<center><em>New version uploaded but not yet published</em></center></p>
+
+<p>I have intentionally disabled the automatic publishing because it can save your life if there are some errors. But if you want, there is a flag that you can put in the <em>publish.gradle</em> file that automatically publishes the library as soon it has been uploaded.</p>
+
+<p>To publish the library, you have to click the *Publish *button on a banner that appears in the repository page of the library.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*-B3JOLzBAO6-sQu7A3nHKg.png" alt="" /></p>
+
+<p>And now the last step. You have to link the library to jCenter. This process must be done only the first time. At the right bottom of the library repository page, there is a “*Add to jCenter<em>”</em> *button.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*D9LScYGoESnPK3VJ-TRRjA.png" alt="Link the library to jCenter" />
+<center><em>Link the library to jCenter</em></center></p>
+
+<p>Send the request and wait for the approval.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*pgF7SwSRMTh_VfitSncemQ.png" alt="" /></p>
+
+<p>Within max two hours, your library is published and linked to jCenter, as you can see in the repository page.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*Tmp88sDZCNhYphsK_fA29g.png" alt="" /></p>
+
+<p>Finally, you can tell the world about your awesome library and provide the signature to implement it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">dependencies</span> <span class="o">{</span> 
+    <span class="n">implementation</span> <span class="err">‘</span><span class="n">com</span><span class="o">.</span><span class="na">your</span><span class="o">.</span><span class="na">awesome</span><span class="o">.</span><span class="na">lib</span><span class="o">:</span><span class="nl">awesomelib:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="err">’</span> 
+<span class="o">}</span></code></pre></div>
+<p>And that’s all folks! I agree with you that the process is not simple but I hope to have cleared all your doubts.</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/swlh/how-to-publish-and-distribute-your-android-library-ce845c68c7f7">Medium</a></em></p>
+
+			</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>820 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-05-28 02:00 &#43;0200</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://marcogomiero.com/posts/note-conferences/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>How I take note at conferences</span>
+			</a>
+			<a class="prev-post" href="https://marcogomiero.com/posts/bottom-bar-swipe-flutter/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Bottom App Bar with Menu and Swipeable Tabs in Flutter</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "marcogomiero" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://marcogomiero.com">Marco Gomiero</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://marcogomiero.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://marcogomiero.com/js/main.min.35ccbf1cdceb91e4c64c06b5d009d6e2977fafe56beda7762febd4e67528d2ac.js" integrity="sha256-Ncy/HNzrkeTGTAa10AnW4pd/r+Vr7ad2L+vU5nUo0qw="></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-90975904-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+
+</html>

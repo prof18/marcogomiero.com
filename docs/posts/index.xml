@@ -1,0 +1,950 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Marco Gomiero</title>
+		<link>https://marcogomiero.com/posts/</link>
+		<description>Recent content in Posts on Marco Gomiero</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>How I take note at conferences</title>
+			<link>https://marcogomiero.com/posts/note-conferences/</link>
+			<pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/note-conferences/</guid>
+			<description>Today I want to share my setup of note-taking that I use during conferences.
+Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
+			<content type="html"><![CDATA[<p>Today I want to share my setup of note-taking that I use during conferences.</p>
+
+<p>Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</p>
+
+<p>So, after long and many tests, I found that <a href="https://products.office.com/it-it/onenote/digital-note-taking-app"><strong>OneNote by Microsoft</strong></a> is the best solution for me. Of course, I’m open to suggestions; in the future, I want also to try <a href="https://www.notion.so/">Notion</a>.</p>
+
+<p>Now, let’s give a look to my OneNote setup. In OneNote, you can create <em>notebooks</em>, <em>sections</em>, and <em>pages</em>: the <em>sections</em> are contained in a <em>notebook</em> and the <em>pages</em> are contained in a <em>section</em>.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2392/1*ZY1b4ZZ90sUmDgQ9CvmDMA.png" alt="" /></p>
+
+<p>I use <em>sections</em> as collectors for different arguments: so, for example, I have a <em>section</em> that gathers all the conferences, one for the online courses that I follow, one for my side projects and so on and so forth. In the <em>section</em> dedicated to the conferences, I create a <em>page</em> for each conference I attend. Inside this <em>page</em>, I write the title of the talk that I’m attending and I start to take my notes!</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2404/1*iz6GEVtBxdeiY2SbbJRJUw.png" alt="" /></p>
+
+<p>I take my notes using the <strong>desktop or the mobile application</strong>, it depends on my mood. Together with notes, I like to add some interesting slides. I know, I can it later on when the speaker uploads them, but I like to have some slide embedded with notes. After the talk or after the conference, I update the “talk section” with the link to the slide and/or the video recording. In this way, I have all the useful information that I want to remember in one place.</p>
+
+<p>Eventually, from OneNote you can <strong>export the page as PDF</strong> to share with other people. However, I admit that the export function of OneNote is a bit silly. In fact, all the images will be cut in order to fit correctly the A4 page if they are placed in a “border zone”. But for this I have a “hack”: if you export the note as PDF from the mobile application, a single page PDF will be generated. I know, this is not so beautiful but I don’t use very often the export function. This is also the main reason that makes me want to try Notion, as said above.</p>
+
+<p>So this is my setup. If you have some suggestions, I’m glad to listen to them and I hope that these tips will be helpful!</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/how-i-take-note-at-conferences-f96e4956f12f">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>How to publish and distribute your Android library</title>
+			<link>https://marcogomiero.com/posts/publish-librery-android/</link>
+			<pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/publish-librery-android/</guid>
+			<description>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
+First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
+An example of a library module
+The library will be published to *jCenter, *a Maven repository hosted by bintray.</description>
+			<content type="html"><![CDATA[<p>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.</p>
+
+<p>First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*FoYazVYDj5FlCpQuX88v9w.png" alt="An example of a library module" />
+<center><em>An example of a library module</em></center></p>
+
+<p>The library will be published to *jCenter, *a Maven repository hosted by <a href="http://www.bintray.com">bintray.com</a>. The process is simple: the library is built locally in Android Studio, the artifacts will be upload to <em>bintray</em> and then linked to <em>jCenter.</em></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*iExRbQhqoflgn3mJjuwY7w.png" alt="" /></p>
+
+<p>In this way, the developers that want to use your library has only to declare it in the *build.gradle *file of their projects. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">implementation</span> <span class="s2">&#34;com.prof.rssparser:rssparser:2.0.4&#34;</span></code></pre></div>
+<p>The first thing to do is to create a <a href="https://bintray.com/">Bintray</a> account and for open source projects is FREE.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*_tBskl_JTR6UbEYZD0sSpg.png" alt="Create a Bintray account" />
+<center><em>Create a Bintray account</em></center></p>
+
+<p>After the creation of the account, you have to choose a repository. Let’s go with Maven (I know, you are thinking “Why? I want to publish it to jCenter”. Well, as said above jCenter is a Maven repository so we have to choose Maven).</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*iGCmnnoRg0WIAE8Qywaodg.png" alt="Choose Maven as repository" />
+<center><em>Choose Maven as repository</em></center></p>
+
+<p>Now you can create a new package inside your Maven repository.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*PP8lVgEaoTzjaOqmrC2Isw.png" alt="Add a new package to the Maven repository" />
+<center><em>Add a new package to the Maven repository</em></center></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*dZhP4R7gzMTVzdkriYFzHw.png" alt="Add basic information of the library" />
+<center><em>Add basic information of the library</em></center></p>
+
+<p>After adding all the basic information of your library, like name, description, license, tags, etc., the repository of the library is ready.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*CYoMvJQtZu3i3PSgiB74Bw.png" alt="" /></p>
+
+<p>Now, back to the code. I’ll take as reference, a library that I’ve developed, so you can dive into the real code if you want.</p>
+
+<blockquote>
+<p><a href="https://github.com/prof18/RSS-Parser">prof18/RSS-Parser</a></p>
+</blockquote>
+
+<p>First of all, you have to add some dependencies into the <em>build.gradle</em> file of your project.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">classpath</span> <span class="s1">&#39;com.github.dcendents:android-maven-gradle-plugin:2.0&#39;</span>
+<span class="n">classpath</span> <span class="s1">&#39;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4&#39;</span></code></pre></div>
+<p>At this point, we are ready to create the publishing script. Inside the library project, create a <em>publish.gradle</em> file and apply it on the *build.gradle <em>file</em> *of your library.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">apply</span> <span class="nl">from:</span> <span class="s1">&#39;publish.gradle&#39;</span></code></pre></div>
+<script type="application/javascript" src="//gist.github.com/prof18/b8783f870354d3e131cea887a2d6a6b4.js"></script>
+
+<p>Before explaining the whole script, a clarification of the library signature is mandatory. As mentioned earlier, the signature of your library has the following shape:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">com</span><span class="o">.</span><span class="na">prof</span><span class="o">.</span><span class="na">rssparser</span><span class="o">:</span><span class="nl">rssparser:</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">4</span></code></pre></div>
+<p>and it is composed of three parts:</p>
+
+<ul>
+<li><p>the Group ID (<em>com.prof.rssparser</em>);</p></li>
+
+<li><p>the Artifact ID (<em>rssparser</em>);</p></li>
+
+<li><p>the Version (<em>2.0.4</em>).</p>
+
+<pre><code>GROUP_ID:ARTIFACT_ID:VERSION
+</code></pre></li>
+</ul>
+
+<p>So, for the example library that we have created above, the Group ID is: “*com.your.awesome.lib*”, the Artifact ID is: “*awesomelib*” and the version is: “*1.0.0*”. These fields are arbitrary and you have to choose a name; keep in mind that with a new update, only the version will change in the signature.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">com</span><span class="o">.</span><span class="na">your</span><span class="o">.</span><span class="na">awesome</span><span class="o">.</span><span class="na">lib</span><span class="o">:</span><span class="nl">awesomelib:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span></code></pre></div>
+<p>Returning to the script, the lines [7–33] are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.</p>
+
+<p>The lines [38–58] instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under <em>Edit Your Profile -&gt; API Key</em>), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.</p>
+
+<blockquote>
+<p><a href="https://github.com/bintray/gradle-bintray-plugin">bintray/gradle-bintray-plugin</a></p>
+</blockquote>
+
+<p>Remember to keep private the username and the private key. There are many ways, for example, I saved them in the <em>local.properties:</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">bintray</span><span class="o">.</span><span class="na">user</span><span class="o">=&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="n">bintray</span><span class="o">.</span><span class="na">apikey</span><span class="o">=&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">key</span><span class="o">&gt;</span></code></pre></div>
+<p>and loaded them in the *publish.gradle *script with a few simple lines of code.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="kt">def</span> <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">()</span>
+<span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s2">&#34;local.properties&#34;</span><span class="o">))</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&#34;bintray.user&#34;</span><span class="o">)</span>    
+<span class="n">key</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&#34;bintray.apikey&#34;</span><span class="o">)</span></code></pre></div>
+<p>Finally, it’s time to open the Terminal and launch the build and upload task (I recommend to use the *&ndash; info *flag to have a better understanding of what it is going on).</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="o">./</span><span class="n">gradlew</span> <span class="n">clean</span> <span class="n">build</span> <span class="n">bintrayUpload</span> <span class="o">--</span><span class="n">info</span></code></pre></div>
+<p>If everything went well, the artifacts have been uploaded to bintray but not yet published.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*mQwixMjhUz7JUiyyDnHPyw.png" alt="New version uploaded but not yet published" />
+<center><em>New version uploaded but not yet published</em></center></p>
+
+<p>I have intentionally disabled the automatic publishing because it can save your life if there are some errors. But if you want, there is a flag that you can put in the <em>publish.gradle</em> file that automatically publishes the library as soon it has been uploaded.</p>
+
+<p>To publish the library, you have to click the *Publish *button on a banner that appears in the repository page of the library.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*-B3JOLzBAO6-sQu7A3nHKg.png" alt="" /></p>
+
+<p>And now the last step. You have to link the library to jCenter. This process must be done only the first time. At the right bottom of the library repository page, there is a “*Add to jCenter<em>”</em> *button.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*D9LScYGoESnPK3VJ-TRRjA.png" alt="Link the library to jCenter" />
+<center><em>Link the library to jCenter</em></center></p>
+
+<p>Send the request and wait for the approval.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*pgF7SwSRMTh_VfitSncemQ.png" alt="" /></p>
+
+<p>Within max two hours, your library is published and linked to jCenter, as you can see in the repository page.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*Tmp88sDZCNhYphsK_fA29g.png" alt="" /></p>
+
+<p>Finally, you can tell the world about your awesome library and provide the signature to implement it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">dependencies</span> <span class="o">{</span> 
+    <span class="n">implementation</span> <span class="err">‘</span><span class="n">com</span><span class="o">.</span><span class="na">your</span><span class="o">.</span><span class="na">awesome</span><span class="o">.</span><span class="na">lib</span><span class="o">:</span><span class="nl">awesomelib:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="err">’</span> 
+<span class="o">}</span></code></pre></div>
+<p>And that’s all folks! I agree with you that the process is not simple but I hope to have cleared all your doubts.</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/swlh/how-to-publish-and-distribute-your-android-library-ce845c68c7f7">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bottom App Bar with Menu and Swipeable Tabs in Flutter</title>
+			<link>https://marcogomiero.com/posts/bottom-bar-swipe-flutter/</link>
+			<pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/bottom-bar-swipe-flutter/</guid>
+			<description>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
+Image from Material Design Guidelines
+With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
+Here’s a spoiler of the final result:</description>
+			<content type="html"><![CDATA[<p>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/3040/1*ToNzjvmwSmUMNQivKv361A.png" alt="Image from [Material Design Guidelines](https://material.io/design/components/app-bars-bottom.html#)" /><em>Image from <a href="https://material.io/design/components/app-bars-bottom.html#">Material Design Guidelines</a></em></p>
+
+<p>With Flutter is super easy to implement like shown in the <a href="https://docs.flutter.io/flutter/material/BottomAppBar-class.html">official documentation</a>. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.</p>
+
+<p>Here’s a spoiler of the final result:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*1hnvZF-24FwU25FAdWQiGg.gif" alt="" /></p>
+
+<p>So (another spoiler), we have to mix together three elements: a <strong>BottomAppBar</strong>, a <strong>BottomSheet</strong>, and a <strong>TabBarView</strong>.</p>
+
+<p>First of all, the first step is to create a Placeholder widget that will be shown in the different tabs in which simply shows a text in the center. Of course, this widget should be replaced with the specific implementation.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">PlaceholderWidget</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="kt">String</span> <span class="n">text</span><span class="p">;</span>
+
+    <span class="n">PlaceholderWidget</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
+
+    <span class="err">@</span><span class="n">override</span>
+    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Center</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<p>Now, its time to create the structure in which the Placeholder widgets will be shown by using a <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><em>Scaffold</em></a> widget. In this case, the Scaffold Widget has three main children: a <a href="https://docs.flutter.io/flutter/material/FloatingActionButton-class.html"><strong>FloatingActionButton</strong></a>, a <a href="https://docs.flutter.io/flutter/material/TabBarView-class.html"><strong>TabBarView</strong></a> and a <a href="https://docs.flutter.io/flutter/material/BottomAppBar-class.html"><strong>BottomAppBar</strong></a>.</p>
+
+<p>Let’s start with the <strong>TabBarView</strong>. Usually, the TabBarView is combined with the TabBar that creates an alternative to the swipe to change tab ( You can find an example <a href="https://flutter.dev/docs/cookbook/design/tabs">in the official Flutter doc</a>). However, in this case, the alternative is provided by the menu callable from the BottomAppBar as shown in the GIF above.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="n">TabBarView</span><span class="p">(</span>
+    <span class="nl">controller:</span> <span class="n">_controller</span><span class="p">,</span>
+    <span class="nl">children:</span> <span class="n">_allPages</span><span class="p">.</span><span class="n">map</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">((</span><span class="n">_Page</span> <span class="n">page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SafeArea</span><span class="p">(</span>
+            <span class="nl">top:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nl">bottom:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nl">child:</span> <span class="n">Container</span><span class="p">(</span>
+            <span class="nl">key:</span> <span class="n">ObjectKey</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="n">widget</span><span class="p">),</span>
+            <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="p">.</span><span class="n">all</span><span class="p">(</span><span class="m">12.0</span><span class="p">),</span>
+            <span class="nl">child:</span> <span class="n">page</span><span class="p">.</span><span class="n">widget</span>
+        <span class="p">),</span>
+    <span class="p">);</span>
+<span class="p">}).</span><span class="n">toList</span><span class="p">()</span></code></pre></div>
+<p>As you can see, it is a very simple snippet that returns as children (i.e. the different tabs) the widgets contained in the variable _allPages. These widgets are all of the type PlaceholderWidget. In addition to the children, we have to provide a controller, that is the “guy” that keeps the selected tab and content sections in sync. In this case, we don’t use the DefaultTabController , but we create a <a href="https://docs.flutter.io/flutter/material/TabController-class.html">TabController</a> to handle the tabs also from the menu. If the swipe is enough to change tabs, we could simply use the DefaultTabController.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="n">_controller</span> <span class="o">=</span> <span class="n">TabController</span><span class="p">(</span><span class="nl">vsync:</span> <span class="k">this</span><span class="p">,</span> <span class="nl">length:</span> <span class="n">_allPages</span><span class="p">.</span><span class="n">length</span><span class="p">);</span></code></pre></div>
+<p>Now, let’s focus on the <strong>BottomAppBar</strong>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="nl">bottomNavigationBar:</span> <span class="n">BottomAppBar</span><span class="p">(</span>
+    <span class="nl">child:</span> <span class="k">new</span> <span class="n">Row</span><span class="p">(</span>
+        <span class="nl">mainAxisSize:</span> <span class="n">MainAxisSize</span><span class="p">.</span><span class="n">max</span><span class="p">,</span>
+        <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">spaceBetween</span><span class="p">,</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
+            <span class="n">IconButton</span><span class="p">(</span>
+                <span class="nl">icon:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">menu</span><span class="p">),</span>
+                <span class="nl">onPressed:</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="n">_showModal</span><span class="p">();</span>
+                <span class="p">}),</span>
+            <span class="n">IconButton</span><span class="p">(</span>
+                <span class="nl">icon:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">search</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span></code></pre></div>
+<p>As Bottom Bar, we simply show a row with two icons at the edges. This can be done by setting the mainAxisSize and the mainAxisAlignment respectively to MainAxisSize.max and MainAxisAlignment.spaceBetween . One of these two icons is our menu. By clicking it, we will show a Bottom Sheet that shows the list of tabs.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="kt">void</span> <span class="n">_showModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">showModalBottomSheet</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span>
+        <span class="nl">context:</span> <span class="n">context</span><span class="p">,</span>
+        <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">Column</span><span class="p">(</span>
+                <span class="nl">mainAxisSize:</span> <span class="n">MainAxisSize</span><span class="p">.</span><span class="n">min</span><span class="p">,</span>
+                <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
+                    <span class="k">new</span> <span class="n">ListTile</span><span class="p">(</span>
+                        <span class="nl">leading:</span> <span class="k">new</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">music_note</span><span class="p">),</span>
+                        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Screen 1&#39;</span><span class="p">),</span>
+                        <span class="nl">onTap:</span> <span class="p">()</span> <span class="p">{</span>
+                            <span class="n">_controller</span><span class="p">.</span><span class="n">animateTo</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+                            <span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+                        <span class="p">},</span>
+                    <span class="p">),</span>
+                    <span class="k">new</span> <span class="n">ListTile</span><span class="p">(</span>
+                        <span class="nl">leading:</span> <span class="k">new</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">photo_album</span><span class="p">),</span>
+                        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Screen 2&#39;</span><span class="p">),</span>
+                        <span class="nl">onTap:</span> <span class="p">()</span> <span class="p">{</span>
+                            <span class="n">_controller</span><span class="p">.</span><span class="n">animateTo</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+                            <span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+                        <span class="p">},</span>
+                    <span class="p">),</span>
+                    <span class="k">new</span> <span class="n">ListTile</span><span class="p">(</span>
+                        <span class="nl">leading:</span> <span class="k">new</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">videocam</span><span class="p">),</span>
+                        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Screen 3&#39;</span><span class="p">),</span>
+                        <span class="nl">onTap:</span> <span class="p">()</span> <span class="p">{</span>
+                            <span class="n">_controller</span><span class="p">.</span><span class="n">animateTo</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+                            <span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+                        <span class="p">},</span>
+                    <span class="p">),</span>
+                <span class="p">],</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<p>In order to create and show a <a href="https://docs.flutter.io/flutter/material/BottomSheet-class.html"><strong>Bottom Sheet</strong></a> we need to call the <code>showModalBottomSheet&lt;void&gt;</code> method and provide in the builder, the widgets that we want to show. In this case, we use a <a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Column</a> with <a href="https://docs.flutter.io/flutter/material/ListTile-class.html">ListTile</a> widgets, i.e. a widget that can have a leading and a trailing icon and some text.</p>
+
+<p>To navigate to the different tabs, we have to use the TabController defined above and call the method animateTo, by passing as parameter the number of tab that we want to show. After showing the tab we need to close the Bottom Sheet and to do that we can use Navigator.pop(context) that navigates to the first route. You can found more info about the Navigator <a href="https://flutter.dev/docs/cookbook/navigation/navigation-basics">in the official doc.</a></p>
+
+<p>Finally, we have to place the <strong>FloatingActionButton.</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="p">.</span><span class="n">extended</span><span class="p">(</span>
+    <span class="nl">elevation:</span> <span class="m">4.0</span><span class="p">,</span>
+    <span class="nl">icon:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
+    <span class="nl">label:</span> <span class="kd">const</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Add a task&#39;</span><span class="p">),</span>
+    <span class="nl">onPressed:</span> <span class="p">()</span> <span class="p">{},</span>
+<span class="p">),</span>
+<span class="nl">floatingActionButtonLocation:</span> <span class="n">FloatingActionButtonLocation</span><span class="p">.</span><span class="n">centerDocked</span><span class="p">,</span></code></pre></div>
+<p>As you can see, the code is very simple. In this case we want a centered FAB, so we need to specify it in the floatingActionButtonLocation .</p>
+
+<p>And that&rsquo;s it! With little effort, we have created a very beautiful and modern UI.</p>
+
+<p>Of course, you can find the complete code on my Github.</p>
+
+<blockquote>
+<p><a href="https://github.com/prof18/BottomAppBarSwipeableTabs">prof18/BottomAppBarSwipeableTabs</a></p>
+</blockquote>
+
+<p>If you have any kind of feedback, leave a comment below!</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/bottom-app-bar-with-menu-and-swipeable-tabs-in-flutter-285ff2042cb8">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>A journey from Async Task to Kotlin Coroutines</title>
+			<link>https://marcogomiero.com/posts/asynctask-to-coroutines/</link>
+			<pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/asynctask-to-coroutines/</guid>
+			<description>Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
+ RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
+			<content type="html"><![CDATA[
+
+<p>Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.</p>
+
+<blockquote>
+<p><a href="https://marco.gomiero.com/posts/bye-async-task">RSS Parser 2.0: bye bye Async Task, welcome Coroutines</a>
+This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version. In this way, I hope to inspire you to leave the Async Task and get into the coroutines world.</p>
+</blockquote>
+
+<p>But, before starting with the technical details, I want to share you some resources to get into the coroutine world. If you already know the coroutines you can skip to the second part of the article.</p>
+
+<h2 id="get-into-the-coroutine-world-it-s-funny-i-promise">Get into the coroutine world, it’s funny. I promise:</h2>
+
+<p>The first thing that you can do to get into the coroutine world is doing the codelab provided by Google.</p>
+
+<blockquote>
+<p><a href="https://codelabs.developers.google.com/codelabs/kotlin-coroutines/">Using Kotlin Coroutines in your Android App</a></p>
+</blockquote>
+
+<p>Don’t worry if you don’t understand all the concepts, the codelab is useful to make the first exploration and to receive the inputs and the tools to study a particular argument.</p>
+
+<p>After the codelab, I suggest you give a look to the official documentation that is well written and full of examples.</p>
+
+<blockquote>
+<p><a href="https://github.com/Kotlin/kotlinx.coroutines">Kotlin/kotlinx.coroutines</a></p>
+</blockquote>
+
+<p>Then you could read some articles Android specific and not. Here are some articles that I’ve read:</p>
+
+<blockquote>
+<p><a href="https://antonis.me/2018/12/12/an-introduction-to-kotlin-coroutines/">An introduction to Kotlin Coroutines*</a></p>
+
+<p><a href="https://proandroiddev.com/how-to-make-sense-of-kotlin-coroutines-b666c7151b93">How to make sense of Kotlin coroutines</a></p>
+
+<p><a href="https://proandroiddev.com/kotlin-coroutines-patterns-anti-patterns-f9d12984c68e">Kotlin Coroutines patterns &amp; anti-patterns</a></p>
+
+<p><a href="https://medium.com/@andrea.bresolin/playing-with-kotlin-in-android-coroutines-and-how-to-get-rid-of-the-callback-hell-a96e817c108b">Playing with Kotlin in Android: coroutines and how to get rid of the callback hell</a></p>
+
+<p><a href="https://medium.com/exploring-android/android-networking-with-coroutines-and-retrofit-a2f20dd40a83">Android Networking with Coroutines and Retrofit</a></p>
+
+<p><a href="https://blog.oozou.com/handle-complex-network-call-with-kotlin-coroutine-retrofit-2-30a6cd1e0189">Handle Complex Network Call with Kotlin Coroutine + Retrofit 2</a></p>
+
+<p><a href="https://proandroiddev.com/async-code-using-kotlin-coroutines-233d201099ff">Async code using Kotlin Coroutines</a></p>
+</blockquote>
+
+<p>I suggest also the talks of Chris Banes and Christina Lee:</p>
+
+<blockquote>
+<p><a href="https://chris.banes.me/talks/2018/android-suspenders/">So you’ve read the Coroutines guide and you’re ready to start using them in your Android app to coroutines? Great!</a></p>
+
+<p><a href="https://skillsmatter.com/skillscasts/12727-coroutines-by-example">Coroutines By Example</a></p>
+</blockquote>
+
+<p>Of course, there are lots of resources available and lots of ways to learn the coroutines. These are some advice based on my experience and learning path.</p>
+
+<h2 id="the-path-from-async-task-to-coroutines">The Path From Async Task to Coroutines</h2>
+
+<p>The first release of the library is dated 18 June 2016, a period when there wasn’t all the beautiful stuff that there is today (for instance, Kotlin) and moreover I did not know all the stuff that I know today. The code was so simple (and now I can also say that was ugly) but it was working.</p>
+
+<h3 id="old-school-java-code">Old School Java Code</h3>
+
+<p>I used an Async Task to handle the network request; the result of the request is sent to an XML Parser that notifies its result when the parsing was done. Here’s the code of the Parser:</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/58fe7e2afb9a5f070413d570bff9af8c.js"></script>
+
+<p>Then, the result of the parsing (or an error of parsing) is notified to the “main executor” (the application that uses the library) with two simple callbacks.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/ac5463e4293c09bfb9f62aebb0064791.js"></script>
+
+<h3 id="kotlin-and-coroutines-a-love-story">Kotlin and Coroutines, a love story</h3>
+
+<p>After 2 years, I wanted to get rid of Async Task, Java and all the ugly stuff. The perfect candidates for taking the place are Kotlin and the coroutines. However, my biggest concern was maintaining the compatibility with all the devs that still use Java (seriously guys? Love yourself, move to Kotlin). In fact, the Kotlin coroutines cannot be invoked from Java code.</p>
+
+<p>At first, I tried to figure out if there was a method to call the coroutines from Java but finally I came up with a brilliant idea: provide the support for both the ways.</p>
+
+<p>For the Java support, I decided to use <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html">Future</a> and <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Callable.html">Callable</a> to handle the asynchronous operations. In particular, I implemented two classes that perform respectively the fetching and the parsing task.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/2ab1b2dfbc6e612d37a68813643a566a.js"></script>
+
+<p>The result of the parsing is then notified to the “main executor” using the same callbacks reported above.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/483b80ae8001598495b7dc5b7975b95d.js"></script>
+
+<p>In this way, the old users of the library can still call the same code without noticing any kind of difference but the new ones (and of course also the old) can learn and use the new way.</p>
+
+<p>As you can image, the new part is written using the Kotlin coroutines. As above, I separated the fetching and the parsing task. The fetching task is performed by the <em>fetchXML</em> suspending function, that takes the URL of the RSS feed as input and returns a <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-deferred/">Deferred</a> object that will be the input of the <em>parseXML</em> suspend function. This function will then parse the RSS Feed and returns a list of parsed data.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/744a179e37b9f29467086a783a742ad6.js"></script>
+
+<p>These functions are exposed to the “main executor” by using another suspend function, that it will get and parse asynchronously the RSS feed.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/7fa549bda752f37e054d13660e74fe79.js"></script>
+
+<p>All the suspend functions reported above are called with the IO Dispatcher that uses a shared pool of on-demand created threads. There are also other dispatchers, give a look to the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/">documentation</a> to find the one that better suits your needs.</p>
+
+<p>And finally, from the ViewModel (or in whatever place depending on the architecture of your app) you can launch the coroutine with a <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/">Scope</a>, so, for example, you can stop it if the activity is destroyed, and then “transform” an URL to a List of Articles.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/d9fc7813e9058a7e00f28c11f13c9284.js"></script>
+
+<p>And finally, we have reached the end of my journey from Async Task to Coroutines. If you have some advice, doubt or any kind of feedback, please leave a comment! Of course, you can use this example as an idea to leave forever the (ugly) Async Tasks.</p>
+
+<p>If you want to contribute to the development of the library or simply report a bug, visit the repo on Github: <a href="https://github.com/prof18/RSS-Parser">https://github.com/prof18/RSS-Parser</a></p>
+
+<p>A special thanks to the (awesome) devs of the Android Developers Italia Community that gave to me some advice. If you are Italian, join us on <a href="https://androiddevs.it/">Slack</a>!</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/a-journey-from-async-task-to-kotlin-coroutines-735c273d76cb">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</title>
+			<link>https://marcogomiero.com/posts/bye-async-task/</link>
+			<pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/bye-async-task/</guid>
+			<description>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
+I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</description>
+			<content type="html"><![CDATA[<p>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.</p>
+
+<p>I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*T__9s7dfREGnF13oRlBhDg.jpeg" alt="" /></p>
+
+<p>So I decided to rewrite the library using <strong>Kotlin</strong> and <strong>Coroutines</strong>, so I can (finally) get rid of <strong>Async Task</strong>.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*87C2QK8usMRMZ-hpdrqKKA.jpeg" alt="" /></p>
+
+<p>Of course, I maintained the compatibility of the library for the projects that still use Java.</p>
+
+<p>Shortly, the library allows to parse an RSS feed and retrieve some information like title, content, author, etc. You can found more information about the features of the library in the <a href="http://www.marcogomiero.com/posts/rss-parser-library/">blog post</a> that I’ve published some time ago or in the <a href="https://github.com/prof18/RSS-Parser">README</a> available on Github.</p>
+
+<p>But now let’s see some code. In this article, I’ll show only how to use the library because I’m planning to publish another blog post with all the technical details and decisions that I have made during the development of this new version.</p>
+
+<p>The usage is very simple both if you are using Java or Kotlin.
+If you are using <strong>Kotlin</strong>, you need to create a <em>Parser</em> object and then call the suspend method <em>getArticles</em> passing the <em>URL</em> of the RSS feed as parameter. Since this is a <em>suspend</em> function, you need to “<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html"><em>launch</em></a>” the coroutine. Of course, you need also to handle the error case.</p>
+
+<p>Here is an example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">Article</span>
+<span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">Parser</span>
+
+<span class="c1">//url of RSS feed
+</span><span class="c1"></span><span class="kd">private</span> <span class="nf">val</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&#34;[https://www.androidauthority.com/feed](https://www.androidauthority.com/feed)&#34;</span>
+
+<span class="n">coroutineScope</span><span class="p">.</span><span class="na">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Main</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">val</span> <span class="nf">parser</span> <span class="o">=</span> <span class="n">Parser</span><span class="p">()</span>
+        <span class="n">val</span> <span class="nf">articleList</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">getArticles</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="c1">// The list contains all article&#39;s data. For example you can use it for your adapter.
+</span><span class="c1"></span>    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="o">:</span> <span class="n">Exception</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Handle the exception
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<p>A complete example with Kotlin is available on <a href="https://github.com/prof18/RSS-Parser/tree/master/samplekotlin">Github</a>.</p>
+
+<p>If you don’t know anything about the coroutines, I suggest you give a look to the <a href="https://codelabs.developers.google.com/codelabs/kotlin-coroutines/">Codelab</a> provided by Google.</p>
+
+<p>Instead, if you are still using <strong>Java</strong> in your Android project, the usage is pretty the same as the older version of the library. You need to create a <em>Parser</em> object, implements the callbacks that handle the result and the error and finally start the parsing by calling the <em>execute</em> method passing the <em>URL</em> as parameter.</p>
+
+<p>Here is an example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">Article</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">OnTaskCompleted</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">Parser</span><span class="p">;</span>
+
+<span class="n">Parser</span> <span class="nf">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parser</span><span class="p">();</span>
+<span class="n">parser</span><span class="p">.</span><span class="na">onFinish</span><span class="p">(</span><span class="k">new</span> <span class="n">OnTaskCompleted</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//what to do when the parsing is done
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">onTaskCompleted</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Article</span><span class="o">&gt;</span> <span class="nf">list</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// The list contains all article&#39;s data. For example you can use it for your adapter.
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="c1">//what to do in case of error
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">onError</span><span class="p">(</span><span class="n">Exception</span> <span class="nf">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Handle the exception
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">});</span>
+<span class="n">parser</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">urlString</span><span class="p">);</span></code></pre></div>
+<p>A complete example in Java is also available on <a href="https://github.com/prof18/RSS-Parser/tree/master/samplejava">Github</a>.</p>
+
+<p>That’s all! For all the details or to report a bug, please visit the repo on <a href="https://github.com/prof18/RSS-Parser">Github</a>.</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/rss-parser-2-0-bye-bye-async-task-welcome-coroutines-6002c9de5145">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>New update for RSS Parser: featured image</title>
+			<link>https://marcogomiero.com/posts/image-update-rss-lib/</link>
+			<pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/image-update-rss-lib/</guid>
+			<description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
+This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
+Thanks to the issues and the suggestions provided by the community, I&amp;rsquo;ve improved the parsing of the feature image of the article.</description>
+			<content type="html"><![CDATA[<p>Today I&rsquo;ve released a new version of the Android library RSS-Parser</p>
+
+<p>This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&rsquo;t know RSS-Parser, you can give a look to the <a href="http://www.marcogomiero.com/posts/rss-parser-library/">blog post</a> dedicated to it. In that post I&rsquo;ll give also some tip about the library usage.</p>
+
+<p>Thanks to the issues and the suggestions provided by the community, I&rsquo;ve improved the parsing of the feature image of the article. <br>
+Now the parser, first search a specific image content, next if nothing is found it search inside the description and next inside the content of ther article. In this way there are three different sources for the image, in order to minimize the absense.</p>
+
+<p><img src="https://raw.githubusercontent.com/prof18/RSS-Parser/master/Screen.png" width="50%" height="50%" align="center"></p>
+
+<p>That’s all for this update! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
+
+<p>Of course the source code of the library is on Github together with a sample application that shows what you can do with the library.</p>
+
+<ul>
+<li><a href="https://github.com/prof18/RSS-Parse">Click here to view the library on Github</a></li>
+<li><a href="https://github.com/prof18/RSS-Parser/tree/master/app">Click here to show the code of the sample app</a></li>
+<li><a href="https://github.com/prof18/RSS-Parser/blob/master/RSS%20Parser.apk">Click here to download the app</a></li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>How to install Wordpress on Arch Linux</title>
+			<link>https://marcogomiero.com/posts/wordpress-arch/</link>
+			<pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/wordpress-arch/</guid>
+			<description>Every time I&amp;rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
+In all the following commands I&amp;rsquo;ve omitted &amp;ldquo;sudo&amp;rdquo;. Please use it when it is necessary.
+Before starting make you sure that all the packages are updated.
+pacman -Syu Install Apache First of all, you need to install and configure Apache, the web server.</description>
+			<content type="html"><![CDATA[
+
+<p>Every time I&rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!</p>
+
+<p><em>In all the following commands I&rsquo;ve omitted &ldquo;sudo&rdquo;. Please use it when it is necessary.</em></p>
+
+<p>Before starting make you sure that all the packages are updated.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pacman -Syu</code></pre></div>
+<h2 id="install-apache">Install Apache</h2>
+
+<p>First of all, you need to install and configure Apache, the web server.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S apache</code></pre></div>
+<p>After the installation you have to start Apache and if you want you can set the auto-start at boot time with the enable command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl start httpd
+
+systemctl <span class="nb">enable</span> httpd</code></pre></div>
+<p>At this point you have to change some configurations of Apache. In order to do that, you can use your preferred editor like nano or vim. I&rsquo;ll use nano. (If you aren&rsquo;t a nano user here&rsquo;s some tip: to search a string you have to press ctrl+w; to exit you have to press ctrl+x and type &lsquo;y&rsquo; or &lsquo;n&rsquo; in order to save or not the file. Remember that the saving process can give an error if the file isn&rsquo;t opened as root and only the root user can edit it).</p>
+
+<p>So open the httpd.conf file</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nano /etc/httpd/conf/httpd.conf</code></pre></div>
+<p>and uncomment (remove the #) the following string.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#LoadModule unique_id_module modules/mod_unique_id.so</span></code></pre></div>
+<p>At this point you have to restart Apache to apply the changes.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl restart httpd</code></pre></div>
+<p>To make sure that all is correctly set and Apache is working you have to simply write an html file and put it into the <em>/srv/http</em> folder. So you can use again nano</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nano /srv/http/index.html</code></pre></div>
+<p>to write this simple html file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello World<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>This is a test. Apache Web Server is working<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
+<p>Now open your broswer and go to <a href="http://localhost">http://localhost</a>. If everything is up and running you should see a page like this:</p>
+
+<p><img src="https://miro.medium.com/max/1400/1*sxXRqUpBd_kwVPkkeOw5Ug.jpeg" alt="" /></p>
+
+<h2 id="install-php">Install PHP</h2>
+
+<p>Now it is the time to install PHP with the following command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S php php-cgi php-gd php-pgsql php-apache</code></pre></div>
+<p>As you can image, you need to configure some stuff. Open again with your preferred editor the httpd.conf file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nano /etc/httpd/conf/httpd.conf</code></pre></div>
+<p>comment (add a &lsquo;#&rsquo;) this line</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">LoadModule mpm_event_module modules/mod_mpm_event.so</code></pre></div>
+<p>and uncomment (remove the &lsquo;#&rsquo;) this one.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so</span></code></pre></div>
+<p>Finally you have to add these lines at the bottom of the file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">LoadModule php7_module modules/libphp7.so
+AddHandler php7-script php
+Include conf/extra/php7_module.conf</code></pre></div>
+<p>Now it&rsquo;s the time to configure the php.ini. Open the file</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nano /etc/php/php.ini</code></pre></div>
+<p>and uncomment (remove the &lsquo;;&rsquo;) the following lines.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">;</span><span class="nv">extension</span><span class="o">=</span>mysqli.so
+<span class="p">;</span><span class="nv">extension</span><span class="o">=</span>gd</code></pre></div>
+<p>Now PHP (should be) is correctly set. To check if all is working, you can write a simple info page inside <em>srv/http/</em>. Open the editor,</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nano /srv/http/info.php</code></pre></div>
+<p>write the following line</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">phpinfo</span><span class="p">();</span> <span class="cp">?&gt;</span>
+</code></pre></div>
+<p>and restart the httpd service.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl restart httpd</code></pre></div>
+<p>Now, if you open your broswer and you go to <a href="http://localhost/info.php">http://localhost/info.php</a>, you should see a page like this:</p>
+
+<p><img src="https://miro.medium.com/max/1400/1*_DP9dGtvELzAtjYG8zbcTA.jpeg" alt="" /></p>
+
+<h2 id="install-maria-db">Install Maria DB</h2>
+
+<p>Now you have to install and create the database. You are going to install Maria DB, the implementation of MySQL for Arch Linux.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S mariadb libmariadbclient mariadb-clients</code></pre></div>
+<p>After the installation you have to set some base configuration with this command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mysql_install_db --user<span class="o">=</span>mysql --basedir<span class="o">=</span>/usr --datadir<span class="o">=</span>/var/lib/mysql</code></pre></div>
+<p>As you guess, you need to start and enable the service.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">systemctl start mysqld
+systemctl <span class="nb">enable</span> mysqld</code></pre></div>
+<p>Before creating the database, you have to set the root password and some other configurations. You can do it with this command</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mysql_secure_installation</code></pre></div>
+<p>Finally now you can create your own database. Connect to the MySQL console with this command.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mysql -u root -p</code></pre></div>
+<p>After you type the password, you can start to create the database. Of course you can change the name of the database and the user.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">wordpress</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">&#39;wpuser&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">wordpress</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;wpuser&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span></code></pre></div>
+<p>FINALLY it&rsquo;s time to install Wordpress inside the <em>/srv/http</em> folder.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /srv/http
+wget https://wordpress.org/latest.tar.gz
+tar xvzf latest.tar.gz
+<span class="nb">cd</span> wordpress</code></pre></div>
+<p>Now you have to change the ownership of the folder wordpress to the http group.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">chown -R root:http /srv/http/wordpress</code></pre></div>
+<p>The last step is to create the Wordpress config file starting from the default one.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cp wp-config-sample.php wp-config.php</code></pre></div>
+<p>All you have to do is opening the file</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nano wp-config.php</code></pre></div>
+<p>and set the name of the database, the user and the password.</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">/** The name of the database for WordPress */
+define(&#39;DB_NAME&#39;, &#39;wordpress&#39;);
+/** MySQL database username */
+define(&#39;DB_USER&#39;, &#39;wpuser&#39;);
+/** MySQL database password */
+define(&#39;DB_PASSWORD&#39;, &#39;password&#39;);</code></pre></div>
+<p>Now everything is done. To check if it is true, open the broswer and go to <a href="http://localhost/wordpress">http://localhost/wordpress</a> and you should see a page like this.</p>
+
+<p><img src="https://miro.medium.com/max/1400/1*MoTz_MX-uKlmjykrLRA1hA.jpeg" alt="" /></p>
+
+<p>Now you can go through the classic setup of Wordpress. Enjoy it!</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/how-to-install-wordpress-on-arch-linux-23db216fd0a7">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>New update for RSS Parser: article categories</title>
+			<link>https://marcogomiero.com/posts/update-rss-lib/</link>
+			<pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/update-rss-lib/</guid>
+			<description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
+This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
+Starting from today you can get also the categories of the article, like shown in the screen below.</description>
+			<content type="html"><![CDATA[<p>Today I&rsquo;ve released a new version of the Android library RSS-Parser</p>
+
+<p>This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&rsquo;t know RSS-Parser, you can give a look to the <a href="http://www.marcogomiero.com/posts/rss-parser-library/">blog post</a> dedicated to it. In that post I&rsquo;ll give also some tip about the library usage.</p>
+
+<p>Starting from today you can get also the categories of the article, like shown in the screen below.</p>
+
+<p><img src="https://raw.githubusercontent.com/prof18/RSS-Parser/master/Screen.png" width="50%" height="50%" align="center"></p>
+
+<p>Of course the source code of the library is on Github together with a sample application that shows what you can do with the library.</p>
+
+<ul>
+<li><a href="https://github.com/prof18/RSS-Parser">Click here to view the library on Github</a></li>
+<li><a href="https://github.com/prof18/RSS-Parser/tree/master/app">Click here to show the code of the sample app</a><br /></li>
+<li><a href="https://github.com/prof18/RSS-Parser/blob/master/RSS%20Parser.apk">Click here to download the app.</a></li>
+</ul>
+
+<p>That’s all! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>How to easily handle RSS Feeds on Android with RSS Parser</title>
+			<link>https://marcogomiero.com/posts/rss-parser-library/</link>
+			<pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/rss-parser-library/</guid>
+			<description>Two month ago I have talked about YoutubeParser, an Android Library that I developed. Today I want to talk about RSS-Parser, another library that I wrote.
+This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:
+ Title Author Description Content Main Image Link Publication Date  Here you can find an example of feed.</description>
+			<content type="html"><![CDATA[<p><a href="http://www.marcogomiero.com/posts/update-yt-parser-2/">Two month ago I have talked about YoutubeParser</a>, an Android Library that I developed. Today I want to talk about  <strong>RSS-Parser</strong>, another library that I wrote.</p>
+
+<p>This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:</p>
+
+<ul>
+<li>Title</li>
+<li>Author</li>
+<li>Description</li>
+<li>Content</li>
+<li>Main Image</li>
+<li>Link</li>
+<li>Publication Date</li>
+</ul>
+
+<p><a href="https://www.androidauthority.com/feed/">Here</a> you can find an example of feed.</p>
+
+<p>The source code of the library is on Github together with a sample application that shows what you can do with the library.</p>
+
+<ul>
+<li><a href="https://github.com/prof18/RSS-Parser">Click here to view the library on Github</a></li>
+<li><a href="https://github.com/prof18/RSS-Parser/tree/master/app">Click here to show the code of the sample app</a></li>
+<li><a href="https://github.com/prof18/RSS-Parser/blob/master/RSS%20Parser.apk">Click here to download the app</a></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/prof18/RSS-Parser/master/Screen.png" width="50%" height="50%" align="center"></p>
+
+<p>Of course the library is available also on jCenter so you can easily add the dependency on Gradle.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">dependencies</span> <span class="o">{</span>
+  <span class="n">compile</span> <span class="s1">&#39;com.prof.rssparser:rssparser:1.1&#39;</span>
+<span class="o">}</span></code></pre></div>
+<p>Now, let&rsquo;s give a look on how it works. First on all you need to create a new Parser object and next you can execute the Parser by calling the method <em>execute()</em>, that requires as parameter the URL of the RSS feed.</p>
+
+<p>If the data are correctly retrieved you can handle them inside the <em>OnTaskCompleted</em> method. Here you have an <em>ArrayList</em> of <em>Article</em> and you can use it for example to populate a Recycler View. Instead if some bad things happened, you can take actions inside the <em>onError</em> method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">Article</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">rssparser</span><span class="p">.</span><span class="na">Parser</span><span class="p">;</span>
+
+<span class="c1">//url of RSS feed
+</span><span class="c1"></span><span class="n">String</span> <span class="nf">urlString</span> <span class="o">=</span> <span class="s">&#34;http://www.androidcentral.com/feed&#34;</span><span class="p">;</span>
+<span class="n">Parser</span> <span class="nf">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parser</span><span class="p">();</span>
+<span class="n">parser</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">urlString</span><span class="p">);</span>
+<span class="n">parser</span><span class="p">.</span><span class="na">onFinish</span><span class="p">(</span><span class="k">new</span> <span class="n">Parser</span><span class="p">.</span><span class="na">OnTaskCompleted</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">onTaskCompleted</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Article</span><span class="o">&gt;</span> <span class="nf">list</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//what to do when the parsing is done
+</span><span class="c1"></span>      <span class="c1">//the Array List contains all article&#39;s data.
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">onError</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//what to do in case of error
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+<p>That’s all! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/how-to-easily-handle-rss-feeds-on-android-with-rss-parser-8acc98e8926f">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>New big update for Youtube Parser: video stats and much more</title>
+			<link>https://marcogomiero.com/posts/update-yt-parser-2/</link>
+			<pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/update-yt-parser-2/</guid>
+			<description>Finally I&amp;rsquo;ve released a new big update for YoutubeParser. For people who don&amp;rsquo;t know what I&amp;rsquo;m talking about, don&amp;rsquo;t worry now I&amp;rsquo;m going to explain all.
+YoutubeParser is the first Android library that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:
+ Title Link
+ Thumbnail, with three different image size.  After a year I&amp;rsquo;ve released this new big update, named 2.</description>
+			<content type="html"><![CDATA[<p>Finally I&rsquo;ve released a new big update for YoutubeParser. For people who don&rsquo;t know what I&rsquo;m talking about, don&rsquo;t worry now I&rsquo;m going to explain all.</p>
+
+<p><strong>YoutubeParser</strong> is the first <strong>Android library</strong> that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:</p>
+
+<ul>
+<li>Title</li>
+<li>Link<br /></li>
+<li>Thumbnail, with three different image size.</li>
+</ul>
+
+<p>After a year I&rsquo;ve released this new big update, named 2.0, that introduces a bunch of new things. First of all, now it is possible to load more than 50 videos from the same channel. 50 is the maximum number of videos that can be retrieved with a single request.</p>
+
+<p>Furthermore you can also get the statistics of a video:</p>
+
+<ul>
+<li>View</li>
+<li>Like</li>
+<li>Dislike</li>
+<li>Favorite Count</li>
+<li>Comment Count</li>
+</ul>
+
+<p>The source code of the library is on Github together with a sample application that shows what you can do with the library.</p>
+
+<ul>
+<li><a href="https://github.com/prof18/YoutubeParser">Click here to view the library on Github</a></li>
+<li><a href="https://github.com/prof18/YoutubeParser/tree/master/app">Click here to show the code of the sample app</a></li>
+<li><a href="https://github.com/prof18/YoutubeParser/blob/master/YoutubeParser.apk">Click here to download the app</a></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/prof18/YoutubeParser/master/Screen.png" width="50%" height="50%" align="center"></p>
+
+<p>Of course the library is available also on jCenter so you can easily add the dependency on Gradle.</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">dependencies</span> <span class="o">{</span>
+  <span class="n">compile</span> <span class="s1">&#39;com.prof.youtubeparser:youtubeparser:2.0&#39;</span>
+<span class="o">}</span></code></pre></div>
+<p>Now let&rsquo;s look how it works. First of all you need to create a new <em>Parser</em> Object and then you have to create the url to load the data by using the method <em>generateRequest</em>. This method takes as parameter four values:</p>
+
+<ul>
+<li>The Channel ID of a Youtube Channel. For example, for this link <em>youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg</em>, the Channel ID is: <em>UCVHFbqXqoYvEWM1Ddxl0QDg</em></li>
+<li>The maximum number of videos to show. This value can be maximum 50.</li>
+<li>The type of ordering of the videos. It is possible to choose between two different type of ordering: by date or by views. To select the chosen value you have to use the constants: <em>Parser.ORDER_DATE</em> and <em>Parser.ORDER_VIEW_COUNT</em></li>
+<li>The API Key. The key is a <em>BROSWER API KEY</em> and to create it you can follow <a href="https://support.google.com/cloud/answer/6158862?hl=en#creating-browser-api-keys">this guide</a></li>
+</ul>
+
+<p>If the data are correctly retrieved, you can do your stuff inside the <em>onTaskCompleted</em>. Here you have two variable: an <em>ArrayList</em> of <em>Video</em> items that you can use to populate your view for instance and a <em>token</em> that is necessary to load more data (see below for more details).</p>
+
+<p>If there are some error on the process, you can handle the situation in the <em>onError()</em> method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">youtubeparser</span><span class="p">.</span><span class="na">Parser</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">youtubeparser</span><span class="p">.</span><span class="na">models</span><span class="p">.</span><span class="na">videos</span><span class="p">.</span><span class="na">Video</span><span class="p">;</span>
+
+<span class="n">Parser</span> <span class="nf">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parser</span><span class="p">();</span>
+
+<span class="c1">//(CHANNEL_ID, NUMBER_OF_RESULT_TO_SHOW, ORDER_TYPE ,BROSWER_API_KEY)
+</span><span class="c1">//https://www.youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg --&gt; channel id = UCVHFbqXqoYvEWM1Ddxl0QDg
+</span><span class="c1">//The maximum number of result to show is 50
+</span><span class="c1">//ORDER_TYPE --&gt; by date: &#34;Parser.ORDER_DATE&#34; or by number of views: &#34;ORDER_VIEW_COUNT&#34;  
+</span><span class="c1"></span><span class="n">String</span> <span class="nf">url</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">generateRequest</span><span class="p">(</span><span class="n">CHANNEL_ID</span><span class="p">,</span> <span class="n">20</span><span class="p">,</span> <span class="n">Parser</span><span class="p">.</span><span class="na">ORDER_DATE</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">);</span>
+<span class="n">parser</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+<span class="n">parser</span><span class="p">.</span><span class="na">onFinish</span><span class="p">(</span><span class="k">new</span> <span class="n">Parser</span><span class="p">.</span><span class="na">OnTaskCompleted</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">onTaskCompleted</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Video</span><span class="o">&gt;</span> <span class="nf">list</span><span class="p">,</span> <span class="n">String</span> <span class="nf">nextPageToken</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//what to do when the parsing is done
+</span><span class="c1"></span>      <span class="c1">//the ArrayList contains all video data. For example you can use it for your adapter
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">onError</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//what to do in case of error
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+<p>If you want to retrieved <strong>more videos from the same channel</strong>, the procedure is the same of the above case. The only difference is the method that generate the url; here you have to add the token retrieved from the above procedure.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="nf">url</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="na">generateMoreDataRequest</span><span class="p">(</span><span class="n">CHANNEL_ID</span><span class="p">,</span> <span class="n">20</span><span class="p">,</span> <span class="n">Parser</span><span class="p">.</span><span class="na">ORDER_DATE</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">,</span> <span class="n">nextToken</span><span class="p">);</span></code></pre></div>
+<p>To get <strong>the statistics of a single video</strong>, the procedure is equivalent of the previous. As you can guess, the first thing to do is to generate the url with the <em>generateStatsRequest</em> method. The parameter of this method are:</p>
+
+<ul>
+<li>The ID of a Youtube Video</li>
+<li>The API Key</li>
+</ul>
+
+<p>Also here you can handle the result in the <em>onTaskCompleted</em> method and any error in the <em>onError()</em> method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">youtubeparser</span><span class="p">.</span><span class="na">VideoStats</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">com</span><span class="p">.</span><span class="na">prof</span><span class="p">.</span><span class="na">youtubeparser</span><span class="p">.</span><span class="na">models</span><span class="p">.</span><span class="na">stats</span><span class="p">.</span><span class="na">Statistics</span><span class="p">;</span>
+
+<span class="n">VideoStats</span> <span class="nf">videoStats</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VideoStats</span><span class="p">();</span>
+<span class="n">String</span> <span class="nf">url</span> <span class="o">=</span> <span class="n">videoStats</span><span class="p">.</span><span class="na">generateStatsRequest</span><span class="p">(</span><span class="n">videoId</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">);</span>
+<span class="n">videoStats</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+<span class="n">videoStats</span><span class="p">.</span><span class="na">onFinish</span><span class="p">(</span><span class="k">new</span> <span class="n">VideoStats</span><span class="p">.</span><span class="na">OnTaskCompleted</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nf">void</span> <span class="n">onTaskCompleted</span><span class="p">(</span><span class="n">Statistics</span> <span class="nf">stats</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//Here you can set the statistic to a Text View for instance
+</span><span class="c1"></span>
+      <span class="c1">//for example:
+</span><span class="c1"></span>      <span class="n">String</span> <span class="nf">body</span> <span class="o">=</span> <span class="s">&#34;Views: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="p">.</span><span class="na">getViewCount</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Like: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="p">.</span><span class="na">getLikeCount</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Dislike: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="p">.</span><span class="na">getDislikeCount</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Number of comment: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="p">.</span><span class="na">getCommentCount</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Number of favourite: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="p">.</span><span class="na">getFavoriteCount</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nf">void</span> <span class="n">onError</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//what to do in case of error
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+<p>That&rsquo;s all! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
+
+<hr />
+
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/new-big-update-for-youtube-parser-video-stats-and-much-more-79dde73f21e6">Medium</a></em></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>How to deal with backup &amp; restore on Android (Slide &amp;amp; Video) </title>
+			<link>https://marcogomiero.com/posts/backup-restore/</link>
+			<pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/backup-restore/</guid>
+			<description>I know, I&amp;rsquo;m very very late.
+On 17th December 2016 I&amp;rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16). Despite the firsts scared thoughts this was an amazing experience! In fact I&amp;rsquo;ve replicated that, but I&amp;rsquo;ll talk about it with a future post (that won&amp;rsquo;t be published the next year - I promise :) ). The topic of the talk was a hot one: backup and restore on Android Application.</description>
+			<content type="html"><![CDATA[<p>I know, I&rsquo;m very very late.</p>
+
+<p>On 17th December 2016 I&rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16).
+Despite the firsts scared thoughts this was an amazing experience!
+In fact I&rsquo;ve replicated that, but I&rsquo;ll talk about it with a future post (that won&rsquo;t be published the next year -
+I promise :) ).
+<br>
+<br>
+The topic of the talk was a hot one: backup and restore on Android Application. But
+today I wanna only share the video and the slide of the talk (that is in Italian). In the following
+article I&rsquo;ll go deep on the argument and I will explain all.
+<br>
+<br>
+<b>Video</b>:
+<br>
+<br>
+<iframe width="570" height="321" src="https://www.youtube.com/embed/B792Y0Rri0c" frameborder="0" allowfullscreen></iframe></p>
+
+<p><br>
+<br>
+<b>Slide</b>:
+<br>
+<br>
+<script async class="speakerdeck-embed" data-id="b044fe42b08a44cbae65c599d03a1233" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+</p></p>
+
+<p><br>
+<br>
+<div style="text-align: right"> <i>See you soon!</i> </div></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Hello World!</title>
+			<link>https://marcogomiero.com/posts/hello-world/</link>
+			<pubDate>Thu, 26 Jan 2017 00:00:00 +0000</pubDate>
+			
+			<guid>https://marcogomiero.com/posts/hello-world/</guid>
+			<description>Hello World!
+Finally I decided to create my personal website. You will find blog post, tutorial and much more. The main topics will be Android, Java, Python and all the stuff that will capture my attention.
+If you wanna know more about me and my projects you can give a look to the categories above!</description>
+			<content type="html"><![CDATA[<p>Hello World!</p>
+
+<p>Finally I decided to create my personal website. You will find blog post, tutorial
+and much more. The main topics will be Android, Java, Python and all the stuff
+that will capture my attention.</p>
+
+<p>If you wanna know more about me and my projects you can give a look to the
+categories above!</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>
