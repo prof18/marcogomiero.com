@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marco Gomiero</title>
-    <link>https://marcogomiero.com/</link>
+    <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How I take note at conferences</title>
-      <link>https://marcogomiero.com/posts/note-conferences/</link>
+      <link>https://www.marcogomiero.com/posts/note-conferences/</link>
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/posts/note-conferences/</guid>
+      <guid>https://www.marcogomiero.com/posts/note-conferences/</guid>
       <description>Today I want to share my setup of note-taking that I use during conferences.
 Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · FVG Dev</title>
-      <link>https://marcogomiero.com/talks/flutter-rn-fvgdev/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</link>
       <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-rn-fvgdev/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</guid>
       <description>15 June 2019
 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · GDG Venezia Tech Talks</title>
-      <link>https://marcogomiero.com/talks/flutter-rn-gdg/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-gdg/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-rn-gdg/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-gdg/</guid>
       <description>5 June 2019
 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>How to publish and distribute your Android library</title>
-      <link>https://marcogomiero.com/posts/publish-librery-android/</link>
+      <link>https://www.marcogomiero.com/posts/publish-librery-android/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/posts/publish-librery-android/</guid>
+      <guid>https://www.marcogomiero.com/posts/publish-librery-android/</guid>
       <description>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
 First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
 An example of a library module
@@ -56,10 +56,10 @@ The library will be published to *jCenter, *a Maven repository hosted by bintray
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · DevFest Pisa 2019</title>
-      <link>https://marcogomiero.com/talks/flutter-rn-devfestpi/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</link>
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-rn-devfestpi/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</guid>
       <description> 13 April 2019
 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
 Slide:  </description>
@@ -67,10 +67,10 @@ Slide:  </description>
     
     <item>
       <title>Bottom App Bar with Menu and Swipeable Tabs in Flutter</title>
-      <link>https://marcogomiero.com/posts/bottom-bar-swipe-flutter/</link>
+      <link>https://www.marcogomiero.com/posts/bottom-bar-swipe-flutter/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/posts/bottom-bar-swipe-flutter/</guid>
+      <guid>https://www.marcogomiero.com/posts/bottom-bar-swipe-flutter/</guid>
       <description>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
 Image from Material Design Guidelines
 With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
@@ -79,10 +79,10 @@ Here’s a spoiler of the final result:</description>
     
     <item>
       <title>Hi, have you met Flutter? · FéMO 2019 – Dai garage alle piazze - Padova</title>
-      <link>https://marcogomiero.com/talks/flutter-femo/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-femo/</link>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-femo/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-femo/</guid>
       <description> 9 February 2019
 Abstract: A brief introduction to the Flutter framework before the official Google Codelab.
 Slide:  </description>
@@ -90,30 +90,30 @@ Slide:  </description>
     
     <item>
       <title>A journey from Async Task to Kotlin Coroutines</title>
-      <link>https://marcogomiero.com/posts/asynctask-to-coroutines/</link>
+      <link>https://www.marcogomiero.com/posts/asynctask-to-coroutines/</link>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/posts/asynctask-to-coroutines/</guid>
+      <guid>https://www.marcogomiero.com/posts/asynctask-to-coroutines/</guid>
       <description>Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
  RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
     </item>
     
     <item>
       <title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</title>
-      <link>https://marcogomiero.com/posts/bye-async-task/</link>
+      <link>https://www.marcogomiero.com/posts/bye-async-task/</link>
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/posts/bye-async-task/</guid>
+      <guid>https://www.marcogomiero.com/posts/bye-async-task/</guid>
       <description>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
 I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</description>
     </item>
     
     <item>
       <title>Library development: open source your ideas · DevFest Milano 2018</title>
-      <link>https://marcogomiero.com/talks/library-devfestmi/</link>
+      <link>https://www.marcogomiero.com/talks/library-devfestmi/</link>
       <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/library-devfestmi/</guid>
+      <guid>https://www.marcogomiero.com/talks/library-devfestmi/</guid>
       <description> 6 October 2018
 Abstract: Have you ever thought that your idea could help other developers? Join the magic world of open source! In this talk we are going to share some tips and the secrets to become an open source master. Of course some practical examples based on our experience cannot miss. This talk has been done in collaboration with Andrea Maglie that I thank.
 Slide:  </description>

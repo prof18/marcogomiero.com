@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks on Marco Gomiero</title>
-    <link>https://marcogomiero.com/talks/</link>
+    <link>https://www.marcogomiero.com/talks/</link>
     <description>Recent content in Talks on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 15 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · FVG Dev</title>
-      <link>https://marcogomiero.com/talks/flutter-rn-fvgdev/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</link>
       <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-rn-fvgdev/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</guid>
       <description>15 June 2019
 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · GDG Venezia Tech Talks</title>
-      <link>https://marcogomiero.com/talks/flutter-rn-gdg/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-gdg/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-rn-gdg/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-gdg/</guid>
       <description>5 June 2019
 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · DevFest Pisa 2019</title>
-      <link>https://marcogomiero.com/talks/flutter-rn-devfestpi/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</link>
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-rn-devfestpi/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</guid>
       <description> 13 April 2019
 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
 Slide:  </description>
@@ -45,10 +45,10 @@ Slide:  </description>
     
     <item>
       <title>Hi, have you met Flutter? · FéMO 2019 – Dai garage alle piazze - Padova</title>
-      <link>https://marcogomiero.com/talks/flutter-femo/</link>
+      <link>https://www.marcogomiero.com/talks/flutter-femo/</link>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/flutter-femo/</guid>
+      <guid>https://www.marcogomiero.com/talks/flutter-femo/</guid>
       <description> 9 February 2019
 Abstract: A brief introduction to the Flutter framework before the official Google Codelab.
 Slide:  </description>
@@ -56,10 +56,10 @@ Slide:  </description>
     
     <item>
       <title>Library development: open source your ideas · DevFest Milano 2018</title>
-      <link>https://marcogomiero.com/talks/library-devfestmi/</link>
+      <link>https://www.marcogomiero.com/talks/library-devfestmi/</link>
       <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/library-devfestmi/</guid>
+      <guid>https://www.marcogomiero.com/talks/library-devfestmi/</guid>
       <description> 6 October 2018
 Abstract: Have you ever thought that your idea could help other developers? Join the magic world of open source! In this talk we are going to share some tips and the secrets to become an open source master. Of course some practical examples based on our experience cannot miss. This talk has been done in collaboration with Andrea Maglie that I thank.
 Slide:  </description>
@@ -67,10 +67,10 @@ Slide:  </description>
     
     <item>
       <title>Android Things - The power of Android for Internet of Things · GDG Venezia Tech Talks</title>
-      <link>https://marcogomiero.com/talks/android-things-gdg/</link>
+      <link>https://www.marcogomiero.com/talks/android-things-gdg/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/android-things-gdg/</guid>
+      <guid>https://www.marcogomiero.com/talks/android-things-gdg/</guid>
       <description> 20 March 2017
 Abstract: In this talk we&amp;rsquo;ll see what is Android Things and what we need to know to begin developing IoT application.
 Slide:  Video:   </description>
@@ -78,10 +78,10 @@ Slide:  Video:   </description>
     
     <item>
       <title>How To Deal with Backup &amp; Restore on Android · GDG Venezia Tech Talks</title>
-      <link>https://marcogomiero.com/talks/backup-restore-gdg/</link>
+      <link>https://www.marcogomiero.com/talks/backup-restore-gdg/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://marcogomiero.com/talks/backup-restore-gdg/</guid>
+      <guid>https://www.marcogomiero.com/talks/backup-restore-gdg/</guid>
       <description> 17 December 2016
 Abstract: One of the worst things is to lose all your data when you change a phone or when you reset it. With this talk we&amp;rsquo;ll see how to deal with this problem and how to secure your application&amp;rsquo;s data.
 Slide:  Video:   </description>
