@@ -7,7 +7,7 @@ images:
   - https://miro.medium.com/max/1400/1*Y6cXRjuZqq5DeeLHsNZSiA.jpeg
 ---
 
-[Two month ago I have talked about YoutubeParser](http://www.marcogomiero.com/blog/update-yt-parser-2/), an Android Library that I developed. Today I want to talk about  **RSS-Parser**, another library that I wrote.
+[Two month ago I have talked about YoutubeParser](http://www.marcogomiero.com/posts/update-yt-parser-2/), an Android Library that I developed. Today I want to talk about  **RSS-Parser**, another library that I wrote.
 
 
 This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:

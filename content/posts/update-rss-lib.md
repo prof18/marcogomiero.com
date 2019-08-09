@@ -7,7 +7,7 @@ date:   2017-12-11
 
 Today I've released a new version of the Android library RSS-Parser
 
- This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don't know RSS-Parser, you can give a look to the [blog post](http://www.marcogomiero.com/blog/rss-parser-library/) dedicated to it. In that post I'll give also some tip about the library usage. 
+ This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don't know RSS-Parser, you can give a look to the [blog post](http://www.marcogomiero.com/posts/rss-parser-library/) dedicated to it. In that post I'll give also some tip about the library usage. 
 
 
 Starting from today you can get also the categories of the article, like shown in the screen below.
