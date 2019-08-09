@@ -10,8 +10,8 @@ pygmentsUseClasses  = true
 rssLimit = 10  # Maximum number of items in the RSS feed.
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
-# googleAnalytics = "UA-123-45"
-# disqusShortname = "yourdiscussshortname"
+googleAnalytics = "UA-90975904-1"
+disqusShortname = "marcogomiero"
 
 [author]
   name = "Marco Gomiero"
@@ -32,11 +32,11 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   dateformNumTime = "2006-01-02 15:04 -0700"
 
   # Metadata mostly used in document's head
-  # description = ""
+  description = "Computer Engineer · Android Developer · Community Manager "
   # images = [""]
   themeColor = "#494f5c"
 
-  homeSubtitle = "Computer Engineer · Android Developer · Community Manager "
+  homeSubtitle = "Computer Engineer · Android Developer · Community Manager"
   footerCopyright = ''
   # bgImg = ""  # Homepage background-image URL
 
@@ -44,7 +44,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   # gitUrl = "https://github.com/username/repository/commit/"
 
   # Toggling this option needs to rebuild SCSS, requires Hugo extended version
-  justifyContent = false  # Set "text-align: justify" to `.content`.
+  justifyContent = true  # Set "text-align: justify" to `.content`.
 
   relatedPosts = true  # Add a related content section to all single posts page
 
