@@ -1,17 +1,25 @@
 +++
-title = "About Hugo"
-date = "2014-04-09"
+title = "About Me"
 +++
 
-Hugo is the **world’s fastest framework for building websites**. It is written in Go.
+{{< figure src="/img/profile.jpeg" alt="image" class="right" >}}
 
-It makes use of a variety of open source projects including:
+Computer Engineer, Android Developer, passionate about data analysis and about making automated tools for overcoming trivial tasks in an unnecessarily complicated way due to my pathological laziness. In my free time, I organize events with the Google Developer Group Venezia, I share my experience by public speaking and I write code. 
 
-* https://github.com/russross/blackfriday
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+My main focus is Android but I have also a basic knowledge of iOs development. I also have experience with cross-platform frameworks, like React Native and Flutter.
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+# Work Experience
 
+### Uniwhere · Mobile & Data Engineer · September 2017 - Present
+
+> Learning, reinvented.
+
+> We accelerate students into the job market thanks to smart suggestions for additional education: guided by data, we're reparing the broken bridge between the student life and the working life.
+
+# Education 
+
+### Computer Engineering - Master Degree · University of Padua · 2016 - 2018
+> Thesis title: "Design and development of a system for linking university careers and real world jobs"
+
+### Information Engineering - Bachelor Degree · University of Padua · 2012 - 2016
+> Thesis title: "Porting issues from Scratch/BYOB to Snap in a browser environment"
