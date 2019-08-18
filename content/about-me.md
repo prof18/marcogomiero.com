@@ -4,7 +4,7 @@ title = "About Me"
 
 {{< figure src="/img/profile.jpeg" alt="image" class="right" >}}
 
-Computer Engineer, Android Developer, passionate about data analysis and about making automated tools for overcoming trivial tasks in an unnecessarily complicated way due to my pathological laziness. In my free time, I organize events with the Google Developer Group Venezia, I share my experience by public speaking and I write code. 
+Computer Engineer, Android Developer, passionate about data analysis and about making automated tools for overcoming trivial tasks in an unnecessarily complicated way due to pathological laziness. Currently working at Uniwhere as Mobile and Data Engineer, in my free time I organize events with the Google Developer Group Venezia, I share my experience by public speaking and I write code.  
 
 My main focus is Android but I have also a basic knowledge of iOs development. I also have experience with cross-platform frameworks, like React Native and Flutter.
 
