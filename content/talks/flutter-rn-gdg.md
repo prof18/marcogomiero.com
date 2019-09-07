@@ -6,6 +6,8 @@ toc: true
 
 5 June 2019
 
+### [GDG Venezia Tech Talks](https://www.meetup.com/GDG-Venezia/events/261588674/)
+
 ## Abstract:
 Nowadays the hype around Flutter is raising a lot. But what about the "(not so) old-fashioned" React Native?
 In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.

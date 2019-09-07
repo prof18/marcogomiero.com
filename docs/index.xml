@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma · FEVR</title>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-fevr/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-fevr/</guid>
+      <description>18 September 2019
+FEVR Abstract: In questo periodo l’hype intorno a Flutter sta crescendo molto. Ma che dire del “buon-vecchio” React Native? In questo talk, vedremo le basi e le differenze tra i due framework. In particolare vedremo come costruire la UI e come funzionano i due framework sotto il cofano. Infine cercheremo di capire quando e perché scegliere un framework cross-platform ma soprattutto quale dei due. Questo viaggio è basato sulla storia vera di uno sviluppatore Android che ha deciso di esplorare la selva oscura del cross-platform sia per lavoro che per divertimento.</description>
+    </item>
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma · Programmers in Padua</title>
+      <link>https://www.marcogomiero.com/talks/flutter-rn-pip/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/flutter-rn-pip/</guid>
+      <description>16 September 2019
+Programmers in Padua Abstract: In questo periodo l&amp;rsquo;hype intorno a Flutter sta crescendo molto. Ma che dire del &amp;ldquo;buon-vecchio&amp;rdquo; React Native? In questo talk, vedremo le basi e le differenze tra i due framework. In particolare vedremo come costruire la UI e come funzionano i due framework sotto il cofano. Infine cercheremo di capire quando e perché scegliere un framework cross-platform ma soprattutto quale dei due. Questo viaggio e&amp;rsquo; basato sulla storia vera di uno sviluppatore Android che ha deciso di esplorare la selva oscura del cross-platform sia per lavoro che per divertimento.</description>
+    </item>
     
     <item>
       <title>How I take note at conferences</title>
@@ -29,7 +49,7 @@ Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnote
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</guid>
       <description>15 June 2019
-Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
+FVG Dev Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
@@ -39,7 +59,7 @@ Abstract: Nowadays the hype around Flutter is raising a lot. But what about the 
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-gdg/</guid>
       <description>5 June 2019
-Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
+GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
@@ -61,7 +81,7 @@ The library will be published to *jCenter, *a Maven repository hosted by bintray
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</guid>
       <description> 13 April 2019
-Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
+DevFest Pisa 2019 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
 Slide:  </description>
     </item>
     
@@ -84,7 +104,7 @@ Here’s a spoiler of the final result:</description>
       
       <guid>https://www.marcogomiero.com/talks/flutter-femo/</guid>
       <description> 9 February 2019
-Abstract: A brief introduction to the Flutter framework before the official Google Codelab.
+FéMO 2019 – Dai garage alle piazze - Padova Abstract: A brief introduction to the Flutter framework before the official Google Codelab.
 Slide:  </description>
     </item>
     
@@ -96,27 +116,6 @@ Slide:  </description>
       <guid>https://www.marcogomiero.com/posts/asynctask-to-coroutines/</guid>
       <description>Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
  RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
-    </item>
-    
-    <item>
-      <title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</title>
-      <link>https://www.marcogomiero.com/posts/bye-async-task/</link>
-      <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/bye-async-task/</guid>
-      <description>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
-I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</description>
-    </item>
-    
-    <item>
-      <title>Library development: open source your ideas · DevFest Milano 2018</title>
-      <link>https://www.marcogomiero.com/talks/library-devfestmi/</link>
-      <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/library-devfestmi/</guid>
-      <description> 6 October 2018
-Abstract: Have you ever thought that your idea could help other developers? Join the magic world of open source! In this talk we are going to share some tips and the secrets to become an open source master. Of course some practical examples based on our experience cannot miss. This talk has been done in collaboration with Andrea Maglie that I thank.
-Slide:  </description>
     </item>
     
   </channel>

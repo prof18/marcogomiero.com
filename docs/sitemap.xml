@@ -3,14 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.marcogomiero.com/posts/note-conferences/</loc>
-    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/talks/flutter-rn-fevr/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/talks/flutter-rn-pip/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/posts/note-conferences/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -22,12 +38,6 @@
   <url>
     <loc>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</loc>
     <lastmod>2019-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.marcogomiero.com/talks/</loc>
-    <lastmod>2019-06-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
