@@ -11,4 +11,6 @@ futureDate: "18/09/19"
 ### [FEVR](http://www.fevr.it/eventi/2019/09/flutter-or-react-native-a-cross-platform-dilemma/)
 
 ## Abstract:
-In questo periodo l’hype intorno a Flutter sta crescendo molto. Ma che dire del “buon-vecchio” React Native? In questo talk, vedremo le basi e le differenze tra i due framework. In particolare vedremo come costruire la UI e come funzionano i due framework sotto il cofano. Infine cercheremo di capire quando e perché scegliere un framework cross-platform ma soprattutto quale dei due. Questo viaggio è basato sulla storia vera di uno sviluppatore Android che ha deciso di esplorare la selva oscura del cross-platform sia per lavoro che per divertimento.
+Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons..
