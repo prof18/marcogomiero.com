@@ -3,20 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.marcogomiero.com/talks/flutter-rn-fevr/</loc>
-    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/talks/flutter-rn-droidcon-ro/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.marcogomiero.com/talks/</loc>
-    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/talks/flutter-study-jam-gdg/</loc>
+    <lastmod>2019-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/talks/flutter-rn-droidcon-gr/</loc>
+    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/talks/flutter-rn-fevr/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
