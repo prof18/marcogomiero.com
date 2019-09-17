@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2019 20:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · droidcon Transylvania</title>
       <link>https://www.marcogomiero.com/talks/flutter-rn-droidcon-ro/</link>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Sep 2019 20:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-droidcon-ro/</guid>
       <description>4-5 October 2019
@@ -25,7 +25,7 @@ droidcon Transylvania Abstract: Nowadays the hype around Flutter is raising a lo
     <item>
       <title>Flutter Study Jam: let&#39;s build together an app for the GDG Venice · GDG Venezia</title>
       <link>https://www.marcogomiero.com/talks/flutter-study-jam-gdg/</link>
-      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Sep 2019 19:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/flutter-study-jam-gdg/</guid>
       <description>1 October 2019
@@ -35,7 +35,7 @@ GDG Venezia Abstract: A brief introduction to the Flutter framework before start
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · .droidconGreece</title>
       <link>https://www.marcogomiero.com/talks/flutter-rn-droidcon-gr/</link>
-      <pubDate>Sun, 08 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Sep 2019 18:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-droidcon-gr/</guid>
       <description>24-25 September 2019
@@ -45,7 +45,7 @@ GDG Venezia Abstract: A brief introduction to the Flutter framework before start
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · FEVR</title>
       <link>https://www.marcogomiero.com/talks/flutter-rn-fevr/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Sep 2019 17:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-fevr/</guid>
       <description>18 September 2019
@@ -55,7 +55,7 @@ FEVR Abstract: Nowadays the hype around Flutter is raising a lot. But what about
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · Programmers in Padua</title>
       <link>https://www.marcogomiero.com/talks/flutter-rn-pip/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/flutter-rn-pip/</guid>
       <description>16 September 2019

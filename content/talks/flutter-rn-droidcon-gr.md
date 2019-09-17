@@ -1,5 +1,5 @@
 ---
-date: 2019-09-08
+date: 2019-09-17T18:00:00Z
 title: "Flutter or React Native, a cross-platform dilemma · .droidconGreece"
 toc: true
 future: true

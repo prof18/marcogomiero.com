@@ -1,5 +1,5 @@
 ---
-date: 2019-09-07
+date: 2019-09-17T17:00:00Z
 title: "Flutter or React Native, a cross-platform dilemma · FEVR"
 toc: true
 future: true

@@ -1,5 +1,5 @@
 ---
-date: 2019-09-09
+date: 2019-09-17T19:00:00Z
 title: "Flutter Study Jam: let's build together an app for the GDG Venice · GDG Venezia"
 toc: true
 future: true
