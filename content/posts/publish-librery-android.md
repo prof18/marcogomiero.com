@@ -56,6 +56,20 @@ classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
 ```
 
+---
+
+**EDIT**: The `android-maven-gradle-plugin` has been deprecated and you have to change the plugin to generate the artifact if you are using Gradle 5 and above. The new plugin is the one developed by Sky-UK and you need to apply it on the publish.gradle file (more details about it later on).
+
+> [sky-uk/gradle-maven-plugin](https://github.com/sky-uk/gradle-maven-plugin)
+
+So we can get rid of the deprecated dependency:
+
+```gradle
+classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+```
+
+---
+
 At this point, we are ready to create the publishing script. Inside the library project, create a *publish.gradle* file and apply it on the *build.gradle *file* *of your library.
 
 ```gradle
@@ -63,6 +77,16 @@ apply from: 'publish.gradle'
 ```
 
 {{< gist prof18 b8783f870354d3e131cea887a2d6a6b4 >}}
+
+---
+
+**EDIT**: Starting from Gradle 5 and above, the previous script is not valid anymore and you need to change it a little bit.
+
+{{< gist prof18 ac3a632e7604436f483220c435b6edef >}}
+
+To better understand the changes, you can refer to [the diff](https://gist.github.com/prof18/ac3a632e7604436f483220c435b6edef/revisions#diff-d2449a02877e0ea0956446e281890efd).
+
+---
 
 Before explaining the whole script, a clarification of the library signature is mandatory. As mentioned earlier, the signature of your library has the following shape:
 
@@ -89,9 +113,9 @@ So, for the example library that we have created above, the Group ID is: “*com
 com.your.awesome.lib:awesomelib:1.0.0
 ```
 
-Returning to the script, the lines [7–33] are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.
+Returning to the script, the lines [7–33] - (**EDIT**: [6–13]) - are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.
 
-The lines [38–58] instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under *Edit Your Profile -> API Key*), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.
+The lines [38–58] - (**EDIT**: [15–38]) - instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under *Edit Your Profile -> API Key*), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.
 
 > [bintray/gradle-bintray-plugin](https://github.com/bintray/gradle-bintray-plugin)
 
@@ -117,6 +141,16 @@ Finally, it’s time to open the Terminal and launch the build and upload task (
 ```gradle
 ./gradlew clean build bintrayUpload --info
 ```
+
+---
+
+**EDIT**: After the deprecation of the `android-maven-gradle-plugin`, the command to launch the build and upload task is changed
+
+```gradle
+./gradlew clean publish bintrayUpload --info
+```
+
+---
 
 If everything went well, the artifacts have been uploaded to bintray but not yet published.
 

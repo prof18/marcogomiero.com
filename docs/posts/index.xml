@@ -97,9 +97,31 @@ The library will be published to *jCenter, *a Maven repository hosted by bintray
 <p>First of all, you have to add some dependencies into the <em>build.gradle</em> file of your project.</p>
 <div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">classpath</span> <span class="s1">&#39;com.github.dcendents:android-maven-gradle-plugin:2.0&#39;</span>
 <span class="n">classpath</span> <span class="s1">&#39;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4&#39;</span></code></pre></div>
+<hr />
+
+<p><strong>EDIT</strong>: The <code>android-maven-gradle-plugin</code> has been deprecated and you have to change the plugin to generate the artifact if you are using Gradle 5 and above. The new plugin is the one developed by Sky-UK and you need to apply it on the publish.gradle file (more details about it later on).</p>
+
+<blockquote>
+<p><a href="https://github.com/sky-uk/gradle-maven-plugin">sky-uk/gradle-maven-plugin</a></p>
+</blockquote>
+
+<p>So we can get rid of the deprecated dependency:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">classpath</span> <span class="s1">&#39;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4&#39;</span></code></pre></div>
+<hr />
+
 <p>At this point, we are ready to create the publishing script. Inside the library project, create a <em>publish.gradle</em> file and apply it on the *build.gradle <em>file</em> *of your library.</p>
 <div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">apply</span> <span class="nl">from:</span> <span class="s1">&#39;publish.gradle&#39;</span></code></pre></div>
 <script type="application/javascript" src="//gist.github.com/prof18/b8783f870354d3e131cea887a2d6a6b4.js"></script>
+
+<hr />
+
+<p><strong>EDIT</strong>: Starting from Gradle 5 and above, the previous script is not valid anymore and you need to change it a little bit.</p>
+
+<script type="application/javascript" src="//gist.github.com/prof18/ac3a632e7604436f483220c435b6edef.js"></script>
+
+<p>To better understand the changes, you can refer to <a href="https://gist.github.com/prof18/ac3a632e7604436f483220c435b6edef/revisions#diff-d2449a02877e0ea0956446e281890efd">the diff</a>.</p>
+
+<hr />
 
 <p>Before explaining the whole script, a clarification of the library signature is mandatory. As mentioned earlier, the signature of your library has the following shape:</p>
 <div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">com</span><span class="o">.</span><span class="na">prof</span><span class="o">.</span><span class="na">rssparser</span><span class="o">:</span><span class="nl">rssparser:</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">4</span></code></pre></div>
@@ -118,9 +140,9 @@ The library will be published to *jCenter, *a Maven repository hosted by bintray
 
 <p>So, for the example library that we have created above, the Group ID is: “*com.your.awesome.lib*”, the Artifact ID is: “*awesomelib*” and the version is: “*1.0.0*”. These fields are arbitrary and you have to choose a name; keep in mind that with a new update, only the version will change in the signature.</p>
 <div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">com</span><span class="o">.</span><span class="na">your</span><span class="o">.</span><span class="na">awesome</span><span class="o">.</span><span class="na">lib</span><span class="o">:</span><span class="nl">awesomelib:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span></code></pre></div>
-<p>Returning to the script, the lines [7–33] are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.</p>
+<p>Returning to the script, the lines [7–33] - (<strong>EDIT</strong>: [6–13]) - are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.</p>
 
-<p>The lines [38–58] instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under <em>Edit Your Profile -&gt; API Key</em>), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.</p>
+<p>The lines [38–58] - (<strong>EDIT</strong>: [15–38]) - instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under <em>Edit Your Profile -&gt; API Key</em>), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.</p>
 
 <blockquote>
 <p><a href="https://github.com/bintray/gradle-bintray-plugin">bintray/gradle-bintray-plugin</a></p>
@@ -137,6 +159,12 @@ The library will be published to *jCenter, *a Maven repository hosted by bintray
 <span class="n">key</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&#34;bintray.apikey&#34;</span><span class="o">)</span></code></pre></div>
 <p>Finally, it’s time to open the Terminal and launch the build and upload task (I recommend to use the *&ndash; info *flag to have a better understanding of what it is going on).</p>
 <div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="o">./</span><span class="n">gradlew</span> <span class="n">clean</span> <span class="n">build</span> <span class="n">bintrayUpload</span> <span class="o">--</span><span class="n">info</span></code></pre></div>
+<hr />
+
+<p><strong>EDIT</strong>: After the deprecation of the <code>android-maven-gradle-plugin</code>, the command to launch the build and upload task is changed</p>
+<div class="highlight"><pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="o">./</span><span class="n">gradlew</span> <span class="n">clean</span> <span class="n">publish</span> <span class="n">bintrayUpload</span> <span class="o">--</span><span class="n">info</span></code></pre></div>
+<hr />
+
 <p>If everything went well, the artifacts have been uploaded to bintray but not yet published.</p>
 
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*mQwixMjhUz7JUiyyDnHPyw.png" alt="New version uploaded but not yet published" />
