@@ -7,87 +7,90 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 26 Sep 2019 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2019 18:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · droidcon Transylvania</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-droidcon-ro/</link>
-      <pubDate>Thu, 26 Sep 2019 14:00:00 +0000</pubDate>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</link>
+      <pubDate>Fri, 04 Oct 2019 18:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-droidcon-ro/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</guid>
       <description>4-5 October 2019
 droidcon Transylvania Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter Study Jam: let&#39;s build together an app for the GDG Venice · GDG Venezia</title>
-      <link>https://www.marcogomiero.com/talks/flutter-study-jam-gdg/</link>
-      <pubDate>Wed, 25 Sep 2019 13:00:00 +0000</pubDate>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</link>
+      <pubDate>Tue, 01 Oct 2019 19:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-study-jam-gdg/</guid>
-      <description>1 October 2019
-GDG Venezia Abstract: A brief introduction to the Flutter framework before starting a codelab where an app for GDG Venice will be built starting from a custom skelethon</description>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</guid>
+      <description> 1 October 2019
+GDG Venezia Abstract: A brief introduction to the Flutter framework before starting a codelab where an app for GDG Venice will be built starting from a custom skeleton,
+The skeleton is available on Github together with 3 sample applications: a hello world, a bottom navigation bar example, and a list view example.
+https://github.com/GDG-Venezia/flutter-study-jam
+Slide  </description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · .droidconGreece</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-droidcon-gr/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</link>
       <pubDate>Tue, 24 Sep 2019 12:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-droidcon-gr/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</guid>
       <description>24-25 September 2019
 .droidconGreece Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · FEVR</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-fevr/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-fevr/</link>
       <pubDate>Wed, 18 Sep 2019 10:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-fevr/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fevr/</guid>
       <description>18 September 2019
 FEVR Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · Programmers in Padua</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-pip/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</link>
       <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-pip/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</guid>
       <description>16 September 2019
 Programmers in Padua Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · FVG Dev</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</link>
       <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-fvgdev/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</guid>
       <description>15 June 2019
 FVG Dev Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · GDG Venezia Tech Talks</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-gdg/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-gdg/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</guid>
       <description>5 June 2019
 GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · DevFest Pisa 2019</title>
-      <link>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestpi/</link>
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-rn-devfestpi/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestpi/</guid>
       <description> 13 April 2019
 DevFest Pisa 2019 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
 Slide:  </description>
@@ -95,10 +98,10 @@ Slide:  </description>
     
     <item>
       <title>Hi, have you met Flutter? · FéMO 2019 – Dai garage alle piazze - Padova</title>
-      <link>https://www.marcogomiero.com/talks/flutter-femo/</link>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-femo/</link>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/flutter-femo/</guid>
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-femo/</guid>
       <description> 9 February 2019
 FéMO 2019 – Dai garage alle piazze - Padova Abstract: A brief introduction to the Flutter framework before the official Google Codelab.
 Slide:  </description>
@@ -106,10 +109,10 @@ Slide:  </description>
     
     <item>
       <title>Library development: open source your ideas · DevFest Milano 2018</title>
-      <link>https://www.marcogomiero.com/talks/library-devfestmi/</link>
+      <link>https://www.marcogomiero.com/talks/2018/library-devfestmi/</link>
       <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/talks/library-devfestmi/</guid>
+      <guid>https://www.marcogomiero.com/talks/2018/library-devfestmi/</guid>
       <description> 6 October 2018
 DevFest Milano 2018 Abstract: Have you ever thought that your idea could help other developers? Join the magic world of open source! In this talk we are going to share some tips and the secrets to become an open source master. Of course some practical examples based on our experience cannot miss. This talk has been done in collaboration with Andrea Maglie that I thank.
 Slide:  </description>
