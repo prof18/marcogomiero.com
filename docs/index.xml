@@ -67,10 +67,10 @@ Programmers in Padua Abstract: Nowadays the hype around Flutter is raising a lot
     
     <item>
       <title>How I take note at conferences</title>
-      <link>https://www.marcogomiero.com/posts/note-conferences/</link>
+      <link>https://www.marcogomiero.com/posts/2019/note-conferences/</link>
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/posts/note-conferences/</guid>
+      <guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid>
       <description>Today I want to share my setup of note-taking that I use during conferences.
 Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
     </item>
@@ -97,10 +97,10 @@ GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a l
     
     <item>
       <title>How to publish and distribute your Android library</title>
-      <link>https://www.marcogomiero.com/posts/publish-librery-android/</link>
+      <link>https://www.marcogomiero.com/posts/2019/publish-librery-android/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.marcogomiero.com/posts/publish-librery-android/</guid>
+      <guid>https://www.marcogomiero.com/posts/2019/publish-librery-android/</guid>
       <description>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
 First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
 An example of a library module
