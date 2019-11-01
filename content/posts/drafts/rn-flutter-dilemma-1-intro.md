@@ -21,7 +21,7 @@ Despite the youngness, Flutter is gaining lot's of attention in the "cross-platf
 
 {{< figure src="/img/flutter-rn/trends.jpeg" alt="image" caption="Google Search Trends for \"React Native\" and \"Flutter\"." >}}
 
-## Language 
+## Language
 
 The language used by React Native is Javascript, a language that you can love or you can hate, there isn't a half-measure. In general, people with an object-oriented background could encounter difficulties when they use Javascript for the first time. Some "weird" arguments can be the type conversion, the prototype-based inheritance, the fact that code can fail silently, etc. These are not random facts but happened to me to deal with them. Also, there is a little bit of confusion around the javascript ecosystem: lot's of libraries, frameworks, multiple approaches to perform the same thing. If you want to (or you have to) use React Native, I suggest you go with [Typescript](http://www.typescriptlang.org/) especially if you come from an object-oriented background. 
 

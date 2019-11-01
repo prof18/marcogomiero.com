@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 04 Oct 2019 18:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Oct 2019 19:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kotlin Multiplatform | Kotlin/Everywhere Venezia · GDG Venezia</title>
+      <link>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</link>
+      <pubDate>Wed, 30 Oct 2019 19:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</guid>
+      <description>30 October 2019
+GDG Venezia Abstract: In this talk, we will see how it&amp;rsquo;s possible to create a mobile application for Android and iOs that share some code (for example business logic, network, etc.) using Kotlin Platform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.
+We will show also how it&amp;rsquo;s possible to create a backend for this app by of course using Kotlin!</description>
+    </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma · droidcon Transylvania</title>
@@ -105,17 +116,6 @@ GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a l
 First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
 An example of a library module
 The library will be published to *jCenter, *a Maven repository hosted by bintray.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · DevFest Pisa 2019</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestpi/</link>
-      <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestpi/</guid>
-      <description> 13 April 2019
-DevFest Pisa 2019 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
-Slide:  </description>
     </item>
     
   </channel>

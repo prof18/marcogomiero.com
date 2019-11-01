@@ -17,7 +17,7 @@ All this journey is based on the true story of an Android Developer that he want
 <script async class="speakerdeck-embed" data-id="1b0dca2e11784cc1b9e5d2a41de84a9a" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
 ## Video: 
-Coming soon!
+{{< youtube vn_UBq6FvVA >}}
 
 ## Podcast:
 
