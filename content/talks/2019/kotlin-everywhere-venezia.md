@@ -20,4 +20,4 @@ This talk has been done in collaboration with [Andrea Maglie](http://www.andream
 <script async class="speakerdeck-embed" data-id="70d996d1fa7746a9b708b35cf19517b9" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
 ## Video: 
-Coming soon!
+{{< youtube gTrdMiGs92M >}}
