@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 30 Oct 2019 19:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 19:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma · DevFest Veneto 2019</title>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</link>
+      <pubDate>Sat, 16 Nov 2019 19:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</guid>
+      <description>16 November 2019
+DevFestVeneto 19 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
+    </item>
     
     <item>
       <title>Kotlin Multiplatform | Kotlin/Everywhere Venezia · GDG Venezia</title>
@@ -104,17 +114,6 @@ GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a l
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestpi/</guid>
       <description> 13 April 2019
 DevFest Pisa 2019 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks and which to choose. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle.
-Slide:  </description>
-    </item>
-    
-    <item>
-      <title>Hi, have you met Flutter? · FéMO 2019 – Dai garage alle piazze - Padova</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-femo/</link>
-      <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-femo/</guid>
-      <description> 9 February 2019
-FéMO 2019 – Dai garage alle piazze - Padova Abstract: A brief introduction to the Flutter framework before the official Google Codelab.
 Slide:  </description>
     </item>
     

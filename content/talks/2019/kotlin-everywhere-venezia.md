@@ -15,9 +15,14 @@ We will show also how it's possible to create a backend for this app by of cours
 
 This talk has been done in collaboration with [Andrea Maglie](http://www.andreamaglie.com/) that I thank
 
-## Slide
+## Slide:
 
 <script async class="speakerdeck-embed" data-id="70d996d1fa7746a9b708b35cf19517b9" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
 ## Video: 
 {{< youtube gTrdMiGs92M >}}
+
+## Source Code:
+
+- App source code: bit.ly/gdgvenezia-kmp
+- Backend source code: bit.ly/gdgvenezia-backend

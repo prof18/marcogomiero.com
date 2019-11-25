@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 30 Oct 2019 19:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 19:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma · DevFest Veneto 2019</title>
+      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</link>
+      <pubDate>Sat, 16 Nov 2019 19:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</guid>
+      <description>16 November 2019
+DevFestVeneto 19 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
+    </item>
     
     <item>
       <title>Kotlin Multiplatform | Kotlin/Everywhere Venezia · GDG Venezia</title>
@@ -104,18 +114,6 @@ FVG Dev Abstract: Nowadays the hype around Flutter is raising a lot. But what ab
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</guid>
       <description>5 June 2019
 GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-    <item>
-      <title>How to publish and distribute your Android library</title>
-      <link>https://www.marcogomiero.com/posts/2019/publish-librery-android/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/2019/publish-librery-android/</guid>
-      <description>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
-First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
-An example of a library module
-The library will be published to *jCenter, *a Maven repository hosted by bintray.</description>
     </item>
     
   </channel>
