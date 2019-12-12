@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>Flutter or React Native, a cross platfrom dilemma - Introduction - (Part 1)</title>
+      <title>Flutter or React Native, a cross platform dilemma - Introduction - (Part 1)</title>
       <link>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</guid>
       <description>These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; React Native and the &amp;ldquo;freshman&amp;rdquo; Flutter.
-Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weakness, their stretch&amp;hellip; so, all you need to know to help your choice.
+Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength&amp;hellip; so, all you need to know to help your choice.
 In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use.</description>
     </item>
     
