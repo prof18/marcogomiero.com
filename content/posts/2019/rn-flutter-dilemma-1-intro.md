@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Flutter or React Native, a cross platfrom dilemma - Introduction - (Part 1)"
-date:   2019-09-09
-draft: true
+date:   2019-12-12
 ---
 
 These days you have certainly heard about cross-platform mobile development, in particular about the "senior" [React Native](https://facebook.github.io/react-native/) and the "freshman" [Flutter](https://flutter.dev/). 

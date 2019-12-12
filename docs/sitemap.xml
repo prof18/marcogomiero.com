@@ -3,14 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</loc>
-    <lastmod>2019-11-16T19:00:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</loc>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2019-11-16T19:00:00+00:00</lastmod>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/posts/</loc>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</loc>
+    <lastmod>2019-11-16T19:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -52,12 +63,6 @@
   <url>
     <loc>https://www.marcogomiero.com/posts/2019/note-conferences/</loc>
     <lastmod>2019-07-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.marcogomiero.com/posts/</loc>
-    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
