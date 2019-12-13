@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Flutter or React Native, a cross platform dilemma - Introduction - (Part 1)"
+title:  "Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)"
 date:   2019-12-12
 images:
   - https://www.marcogomiero.com/img/flutter-rn/trends.jpeg

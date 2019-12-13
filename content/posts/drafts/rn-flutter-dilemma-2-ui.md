@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Flutter or React Native, a cross platform dilemma - How to build User Interfaces - (Part 2)"
+title:  "Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)"
 date:   2019-09-09
 draft: true
 ---
@@ -9,7 +9,7 @@ Welcome to the second part of this comparison about React Native and Flutter. In
 
 If you have lost the first episode, I suggest you to read it before moving on.
 
-> [Flutter or React Native, a cross platform dilemma - Introduction - (Part 1)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/)
+> [Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/)
 
 In this article, I will explain how to build user interfaces in React Native and Flutter. 
 Disclaimer: This article will not cover all the deep aspects of the two frameworks, but I want to give you an overview to better understand the differences. For much deeper details, I suggest you give a look to the official documentation ([React Native](https://facebook.github.io/react-native/) - [Flutter](https://flutter.dev/docs))
