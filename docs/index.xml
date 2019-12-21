@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 15:45:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>7&#43;1 tips about [Android] App Modularization | droidcon Madrid 19 </title>
+      <link>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</link>
+      <pubDate>Fri, 20 Dec 2019 15:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</guid>
+      <description>20-21 September 2019
+droidcon Madrid 19 Abstract: Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it? This talk will not focus on the pro and cons of modularization but instead on the approach and the process to achieve it. In particular, I want to share the approach that I followed to modularize an existing application and a new one. I want also to share the failures and all the struggles that came in my head while approaching the process.</description>
+    </item>
     
     <item>
       <title>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</title>
@@ -105,16 +115,6 @@ Programmers in Padua Abstract: Nowadays the hype around Flutter is raising a lot
       <guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid>
       <description>Today I want to share my setup of note-taking that I use during conferences.
 Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · FVG Dev</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</link>
-      <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</guid>
-      <description>15 June 2019
-FVG Dev Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
   </channel>
