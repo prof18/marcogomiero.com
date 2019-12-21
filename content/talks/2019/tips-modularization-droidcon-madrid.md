@@ -5,7 +5,7 @@ title: "7+1 tips about [Android] App Modularization | droidcon Madrid 19
 toc: true
 ---
 
-20-21 September 2019
+20-21 December 2019
 
 ### [droidcon Madrid 19](https://www.madrid.droidcon.com/schedule)
 
