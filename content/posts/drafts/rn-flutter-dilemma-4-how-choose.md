@@ -5,6 +5,20 @@ date:   2019-09-09
 draft: true
 ---
 
+<!-- 
+
+Crossplatform is not bad but... IS NOT better than native It’s a choice with compromises based on specific situation If trouble became higher than benefits,make a step back.
+
+Right now, React Native is more stable and solid Flutter is the future
+
+If Google does not drop it 🙏
+Better performance that other framework
+Dart is a more modern language
+
+Flutter for web
+Desktop support
+
+ -->
 
 <!-- Make a wrap about everything. Talk about what to use right know. Talk about choices of cross platform. Talk about the new paradigm that these frameworks has introduced.  -->
 
