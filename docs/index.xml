@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 20 Dec 2019 15:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2020 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title>
+      <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</link>
+      <pubDate>Tue, 07 Jan 2020 08:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid>
+      <description>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
+If you have lost the first episode, I suggest you read it before moving on.
+ Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
+ In this article, I will explain how to build user interfaces in React Native and Flutter.</description>
+    </item>
     
     <item>
       <title>7&#43;1 tips about [Android] App Modularization | droidcon Madrid 19 </title>
@@ -105,16 +117,6 @@ FEVR Abstract: Nowadays the hype around Flutter is raising a lot. But what about
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</guid>
       <description>16 September 2019
 Programmers in Padua Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-    <item>
-      <title>How I take note at conferences</title>
-      <link>https://www.marcogomiero.com/posts/2019/note-conferences/</link>
-      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid>
-      <description>Today I want to share my setup of note-taking that I use during conferences.
-Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
     </item>
     
   </channel>

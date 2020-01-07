@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)">
+<meta itemprop="description" content="Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
+If you have lost the first episode, I suggest you read it before moving on.
+ Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
+ In this article, I will explain how to build user interfaces in React Native and Flutter.">
+
+
+<meta itemprop="datePublished" content="2020-01-07T08:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-07T08:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1155">
+
+  <meta itemprop="image" content="https://www.marcogomiero.com/img/flutter-rn/widgets.png">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)" />
+<meta property="og:description" content="Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
+If you have lost the first episode, I suggest you read it before moving on.
+ Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
+ In this article, I will explain how to build user interfaces in React Native and Flutter." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/" />
+
+<meta property="og:image" content="https://www.marcogomiero.com/img/flutter-rn/widgets.png" />
+<meta property="article:published_time" content="2020-01-07T08:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-07T08:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.marcogomiero.com/img/flutter-rn/widgets.png"/>
+
+<meta name="twitter:title" content="Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)"/>
+<meta name="twitter:description" content="Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
+If you have lost the first episode, I suggest you read it before moving on.
+ Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
+ In this article, I will explain how to build user interfaces in React Native and Flutter."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title>
+	<link rel="stylesheet" href="https://www.marcogomiero.com/css/style.min.2228be6b0c0388454036050b3f2743e5fd95a0dc0c3564e5623e94748b585ef1.css" integrity="sha256-Iii+awwDiEVANgULPydD5f2VoNwMNWTlYj6UdItYXvE=">
+	<style>.bg-img {background-image: url('https://www.marcogomiero.com/img/flutter-rn/widgets.png');}</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.marcogomiero.com">Marco Gomiero</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://www.marcogomiero.com/posts/">Blog</a>
+				<a href="https://www.marcogomiero.com/talks/">Talks</a>
+				<a href="https://www.marcogomiero.com/projects/">Projects</a>
+				<a href="https://www.marcogomiero.com/about-me/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/marcoGomier" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/marco-gomiero-a80857ab/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://github.com/prof18" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.marcogomiero.com/posts/">Blog</a></li>
+			<li><a href="https://www.marcogomiero.com/talks/">Talks</a></li>
+			<li><a href="https://www.marcogomiero.com/projects/">Projects</a></li>
+			<li><a href="https://www.marcogomiero.com/about-me/">About</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 7, 2020</span></div>
+				<h1>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</h1>
+			</header>
+			<div class="content">
+				
+
+<p>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.</p>
+
+<p>If you have lost the first episode, I suggest you read it before moving on.</p>
+
+<blockquote>
+<p><a href="http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/">Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</a></p>
+</blockquote>
+
+<p>In this article, I will explain how to build user interfaces in React Native and Flutter.
+Disclaimer: This article will not cover all the deep aspects of the two frameworks, but I want to give you an overview to better understand the differences. For much deeper details, I suggest you look at the official documentation (<a href="https://facebook.github.io/react-native/">React Native</a> - <a href="https://flutter.dev/docs">Flutter</a>)</p>
+
+<h2 id="react-native">React Native<a href="#react-native" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Let&rsquo;s jump immediately into some code (a simple <em>Hello World</em>).</p>
+<div class="highlight"><pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">// React Native
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">StyleSheet</span><span class="p">,</span> <span class="nx">Text</span><span class="p">,</span> <span class="nx">View</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-native&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">View</span> <span class="na">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">container</span><span class="p">}&gt;</span>
+        <span class="p">&lt;</span><span class="nt">Text</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="nx">world</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">Text</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">View</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">styles</span> <span class="o">=</span> <span class="nx">StyleSheet</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">container</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">flex</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+    <span class="nx">alignItems</span><span class="o">:</span> <span class="s2">&#34;center&#34;</span><span class="p">,</span>
+    <span class="nx">justifyContent</span><span class="o">:</span> <span class="s2">&#34;center&#34;</span>
+  <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+<p>The entry point of this Hello World is the <code>render</code> method. Inside this method, we declare all the <em>items</em> (these items have a precise name, but I&rsquo;ll reveal it in a moment) that has to be rendered on the screen. In this case, there is a <a href="https://facebook.github.io/react-native/docs/view"><code>View</code></a> with inside a <a href="https://facebook.github.io/react-native/docs/text"><code>Text</code></a>. These <em>items</em> are called <strong>Components</strong> and a <strong>Component</strong> is the basic building block that composes the UI. Of course, as showed in the example above, the <strong>Components</strong> can be nested together to build more complex components and UIs.</p>
+
+<p>The <strong>Components</strong> are declared and stylized (the styling is done by using <em>CSS</em>) by using a <strong>D</strong>omain <strong>S</strong>pecific <strong>L</strong>anguage called <strong>JSX</strong>. This <strong>DSL</strong> is basically a (very simple) mixture of <em>Javascript</em> and <em>XML</em>. For more information about <strong>JSX</strong>, please refear to the <a href="https://reactjs.org/docs/glossary.html#jsx">documentation</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="p">&lt;</span><span class="nt">Text</span>
+    <span class="na">ellipsizeMode</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;tail&#34;</span><span class="p">}</span>
+    <span class="na">numberOfLines</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">numberOfLines</span> <span class="o">||</span> <span class="mi">100</span><span class="p">}</span>
+    <span class="na">style</span><span class="o">=</span><span class="p">{{</span><span class="nx">fontSize</span><span class="o">:</span> <span class="mi">14</span><span class="p">}}</span>
+<span class="p">&gt;</span>
+  <span class="s2">&#34;Hello World&#34;</span>
+<span class="p">&lt;/</span><span class="nt">Text</span><span class="p">&gt;</span></code></pre></div>
+<p>The React team has already developed lots of Components that we can use (there is a list of the available Components in the <a href="https://facebook.github.io/react-native/docs/components-and-apis.html">documentation</a>) but we can also download and use Components developed by third-party developers. Every Component can be used in a standalone way or it can be combined with other ones to create a more complex one.</p>
+
+<figure>
+    <img src="/img/flutter-rn/components.png"
+         alt="image"/> <figcaption>
+            <p>Components catalogue.</p>
+        </figcaption>
+</figure>
+
+
+<h2 id="flutter">Flutter<a href="#flutter" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>And now, let&rsquo;s move to Flutter. As before, we start with a simple Hello World.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dart" data-lang="dart"><span class="c1">// Flutter
+</span><span class="c1"></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="p">(</span><span class="n">MyApp</span><span class="p">());</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
+  <span class="err">@</span><span class="n">override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="p">(</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&#34;Flutter Demo Home Page&#34;</span><span class="p">),</span>
+        <span class="p">),</span>
+        <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
+          <span class="nl">child:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&#34;Hello World&#34;</span><span class="p">),</span>
+        <span class="p">),</span>
+      <span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<p>In Flutter, the equivalent of Components are <strong>Widgets</strong> and in the example above, for example instead of <code>View</code> and <code>Text</code> we have <a href="https://api.flutter.dev/flutter/widgets/Center-class.html"><code>Center</code></a> and <a href="https://api.flutter.dev/flutter/widgets/Text-class.html"><code>Text</code></a>. Flutter takes inspiration from React and the main idea is that the UI is built out of widgets. In fact, in Flutter everything is a widget: for example, the structural elements of the application ( buttons, menu, dialogs, etc ), the stylistic elements ( opacity, transformations, etc ) and also the aspect of the layout ( margins, paddings, alignments, etc ) are widgets. And even the application itself is a widget. In fact, the entire Hello World application that is defined before is a widget (<code>MyApp</code>) and more precisely a <code>Stateless</code> widget. In Flutter, you can use a <a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html"><code>Stateless</code></a> or a <a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html"><code>Stateful</code></a>widget depending if you have to manage the state of the application.</p>
+
+<p>The entry point of the widget is the <code>build</code> method, that we have override every time we define a new widget. As you can see in the example above, we have declared a bunch of widgets: the <code>MaterialApp</code> widget where we can declare some theme customization, the <code>Scaffold</code> widget that provides the main structure of an application and finally the &ldquo;real content&rdquo; of our application, i.e. the <code>Center</code> widget with a <code>Text</code> widget as children.</p>
+
+<p>As the components in React Native, the widgets can be nested together to create to build more complex widgets and UIs. The Flutter team has already developed lots of widgets that we can use (there is a list of the available widgets in the <a href="https://flutter.dev/docs/development/ui/widgets">documentation</a>) but we can also download and use widgets developed by third-party developers.</p>
+
+<figure>
+    <img src="/img/flutter-rn/widgets.png"
+         alt="image"/> <figcaption>
+            <p>Widgets catalogue.</p>
+        </figcaption>
+</figure>
+
+
+<h2 id="recap">Recap<a href="#recap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>So, in Flutter we remain in the Dart context to define User Interfaces, while in React Native we have to learn a <strong>DSL</strong> (but is very simple). In both frameworks, we can modularize the UI by mixing simple &ldquo;blocks&rdquo;. And this modularization is highly suggested to avoid a mess codebase and a lot of nested widgets/components in your code.</p>
+
+<p>Alongside with the modularization of the UI, you should also add state management in your application. In this way, you can separate the presentation logic from the business logic, you can sync data between different components/widget, you can have a more testable code, etc. This topic will not be covered in this series of articles, but I want to give you some quick tips/suggestions. Both in Rect Native and Flutter, there is a &ldquo;naive&rdquo; way to manage the state provided by the framework. In a few words, you can define a default state and then update it by calling a <code>setState</code> method. When this method is called the UI is redrawn (with of course some optimizations) to show the update state. For more information, I suggest you read the documentation, both for <a href="https://facebook.github.io/react-native/docs/state">React Native</a> and <a href="https://flutter.dev/docs/development/ui/interactive">Flutter</a>.
+There are also more powerful ways to manage the state, for example for React Native: <a href="https://github.com/reduxjs/redux">Redux</a>, <a href="https://github.com/mobxjs/mobx">Mobx</a>, <a href="https://www.apollographql.com/docs/react/integrations/react-native/">Apollo</a>, etc. while for Flutter: again Redux, BLoC, Scoped Model, etc. A list of different state management possibilities for Flutter can be found on <a href="http://fluttersamples.com/">fluttersamples.com</a> website.</p>
+
+<p>Before ending this journey into the User Interfaces, I need to tell you that this style of building UIs has a name: <strong>Declarative</strong>. In the mobile world we are all used to define UIs in an imperative style, i.e. if we want to update an element of the UI, for example, a TextView, we ask the view owner an instance of that element and then we update it based on the new state. With the declarative style, we define the current UI state (e.g. a loading state, an error state, etc.) and the framework manages the state changes. This pattern has lots of benefits (but this is not the right place to talk about it - maybe in a future blog post) and is borrowed from the web world, from frameworks like React and Vue.js. Next, it started to appear in the mobile world with React Native and then Flutter and finally, it captured the attention of the &ldquo;native world&rdquo; with Jetpack Compose and Swift UI. And I think that Declarative patterns are the future.</p>
+
+<p>And for today is enough. After this journey into User Interfaces, in the next episode, we&rsquo;ll dive under the hood of these frameworks.</p>
+
+			</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1155 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-01-07 09:00 &#43;0100</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "marcogomiero" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://www.marcogomiero.com">Marco Gomiero</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.marcogomiero.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.marcogomiero.com/js/main.min.35ccbf1cdceb91e4c64c06b5d009d6e2977fafe56beda7762febd4e67528d2ac.js" integrity="sha256-Ncy/HNzrkeTGTAa10AnW4pd/r+Vr7ad2L+vU5nUo0qw="></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-90975904-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+
+</html>
