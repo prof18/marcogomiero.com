@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Flutter or React Native, a cross-platfrom dilemma - How to chose - (Part 4)"
+title:  "Flutter or React Native, a cross-platfrom dilemma - How to chose + Bonus - (Part 4)"
 date:   2019-09-09
 draft: true
 ---

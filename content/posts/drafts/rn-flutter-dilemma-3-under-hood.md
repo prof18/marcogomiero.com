@@ -5,7 +5,7 @@ date:   2019-09-09
 draft: true
 ---
 
-Welcome to the third part of this article series about React Native and Flutter. In the latest episode, we have talked about User Interfaces and how to build them in the two frameworks. In this article, we'll go deeper under the hoods to understand how things work. But I will not go deeper with lot's of details and implementation things, because I want to make you understand how the thing works at a high level. 
+Welcome to the third part of this article series about React Native and Flutter. In the latest episode, we have talked about User Interfaces and how to build them in the two frameworks. In this article, we'll go deeper under the hoods to understand how things work. But I will not go deeper with lot's of details and implementation things, because I want to make you understand how the thing works at a high level. If you are interested to go deeper, I will leave across the article some links for further information.
 
 But, before moving on, I suggest you read the previous articles of the series if you have lost them.
 
@@ -27,20 +27,66 @@ In fact, the Facebook team is working on a new architecture (codename Fabric) to
 
 ## Flutter
 
-Flutter instead works in a completely different way. In fact, all the widgets are managed and rendered using an engine. In particular, the widgets are rendered in a canvas using Skia, a 2-d graphics library. 
+Flutter instead works in a completely different way. In fact, all the widgets are managed and rendered using an engine (written in C++). In the figure below, you can see a representation of the Flutter Engine. 
 
 {{< figure src="/img/flutter-rn/engine.png" alt="image" caption="Flutter Engine" >}}
 
-In this way, there isn't a continuous communication between the "cross-platform technology" and the native part and everything is faster. Moreover, all the Dart code is compiled to native code to speed things up ( be aware that the compilation to native code is performed only for production build and for this reason debug builds can be slower ). 
+As you can see, there is a block called "Skia". [Skia](https://skia.org/) is an open-source 2D graphic library managed by Google and you may already know about it, because it is used by Chrome, Chrome OS, Android, Firefox and many others. And in Flutter, Skia is responsible for rendering the widgets in a canvas. In this way, there isn't a continuous communication between the "cross-platform technology" and the native part and everything is faster. Moreover, all the Dart code is compiled to native code to speed things up. be aware that the compilation to native code is performed only for production build and for this reason debug builds can be slower. 
 
 ## Comparison
 
-So, in React Native there is a correspondence between the components and the native widgets while Flutter includes its own widgets. This choice has pro and cons. Imagine that Apple and Google update the TextView with some flowers on the shape: an app developed with React Native will ( or better should ) show the flowers without any intervention while an app developed with Flutter won't show it until the Flutter team will add it on their custom TextView. This is a con, because we need to wait another update if there are new things available on the native UI. The pro instead is that there isn't any delay due to the bridge initialisation and the runtime translation needed to enable the communication between the javascript part and the native one. 
+So, in React Native there is a correspondence between the components and the native widgets while Flutter includes its own widgets. This choice has pros and cons. Imagine that Apple and Google update the TextView with some flowers on the shape: an app developed with React Native will ( or better should ) show the flowers without any intervention while an app developed with Flutter won't show it until the Flutter team will add it on their custom TextView. This is a con because we need to wait for another update if there are new things available on the native UI. The pro instead is that there isn't any delay due to the bridge initialization and the runtime translation needed to enable the communication between the javascript part and the native one. 
+
+## Common interesting features
+
+And finally, I want to conclude with some interesting featueres that both Flutter and React Native have. 
+
+### Hot Reload
+The first one is "**Hot Reload**", i.e. the capability of loading new changes without recompiling the entire application again. This feature is really really useful for example when you are trying different colors, font sizes, etc; waiting for an entire recompilation for these little changes it would be such a pain.
+In Flutter this feature is possible thanks to a combination of *Ahead-of-time* (AOT) and *Just-in-time* compilation. In fact, as mentioned earlier, Flutter generates machine code for production builds. For the debug builds instead, there is a virtual machine that can receive the new code, replace the old one and maintain the state. [Here](https://flutter.dev/docs/resources/technical-overview) you can find more information about hot reload in Flutter. 
+
+In React Native instead, the Hot Reload is built on top of *Hot Module Replacement* by Webpack. Basically there is a runtime included in the app that receives the new code and it replaces the old one. If you are interested in the details, I suggest you read [this blog post](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) from Facebook.
+
+## Update only components/widget that have changed
+
+TODO
+
+## “Frankestein” App
+
+With Flutter and React Native, you can create a view, a screen or even an entire feature and then integrate it in an existing native application. This possibility can be really useful for example for very fast-evolving features or for an MVP feature that we are not so sure that it will be useful or even for a feature that will not be used so much. So it really depends on your situation but I can assure you that is not a crazy thing and maybe in the future, you could find yourself in this situation.
+
+With React Native, you have to use in your native application a view that will act as a container of the RN app and then you load the javascript bundle that you have previously generated with a kilometric command.
+
+```bash
+react-native bundle \
+--verbose \
+--platform android \
+--dev false 
+--entry-file index.js \
+--bundle-output your-project/app/src/main/assets/index.android.bundle \ 
+--assets-dest your-project/app/src/main/res \
+--sourcemap-output utils/android.main.bundle.map
+```
+
+For more information, please visit the [official documentation](https://facebook.github.io/react-native/docs/integration-with-existing-apps).
+
+Also in Flutter, you have to define a container view in your native application but instead, you don't need to write a kilometric command to generate bundle: you just add the Flutter project directly from Android Studio and that's it! ( for iOs there is more work to do: you have to add a Flutter SDK hook to the CocoaPods and to Xcode build phase ). 
+
+Again, for more information I suggest you read the [official documentation](https://flutter.dev/docs/development/add-to-app)
+
+And we have reached the end of this journey through the internals of Flutter and React Native. I understand that I went through lots of things in this article but I think that it's necessary to know a little bit about how things work if you to choose and work with these frameworks. In fact, the way how these frameworks work can affect your product. 
+
+In the next (final) episode, we'll wrap things up and I'll help you resolve the dilemma!
+
+
+<!-- 
+
+https://levelup.gitconnected.com/wait-what-happens-when-my-react-native-application-starts-an-in-depth-look-inside-react-native-5f306ef3250f
+
+
+https://flutter.dev/docs/resources/technical-overview
+ -->
 
 
 
 
-
-
-
-<!-- What happens under the hood, difference between bridge and flutter engine. Make a word about new RN architecture. Maybe talk about the internal UI representation?  -->
