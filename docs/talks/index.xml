@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 20 Dec 2019 15:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Imperative is dead, long live Declarative! · Appdevcon</title>
+      <link>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon/</guid>
+      <description>13 March 2020
+Appdevcon Abstract: Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.</description>
+    </item>
+    
+    <item>
+      <title>Imperative is dead, long live Declarative! · Codemotion Rome</title>
+      <link>https://www.marcogomiero.com/talks/2020/imperative-vs-declerative-codemotion-rome/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declerative-codemotion-rome/</guid>
+      <description>27-28 March 2020
+Codemotion Rome Abstract: Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.</description>
+    </item>
     
     <item>
       <title>7&#43;1 tips about [Android] App Modularization | droidcon Madrid 19 </title>
@@ -94,26 +114,6 @@ FEVR Abstract: Nowadays the hype around Flutter is raising a lot. But what about
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</guid>
       <description>16 September 2019
 Programmers in Padua Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · FVG Dev</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</link>
-      <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</guid>
-      <description>15 June 2019
-FVG Dev Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · GDG Venezia Tech Talks</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</link>
-      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</guid>
-      <description>5 June 2019
-GDG Venezia Tech Talks Abstract: Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
     </item>
     
   </channel>
