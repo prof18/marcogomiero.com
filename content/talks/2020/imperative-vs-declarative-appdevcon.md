@@ -2,7 +2,7 @@
 date: 2020-01-13
 title: "Imperative is dead, long live Declarative! · Appdevcon"
 future: true
-futureDate: "13/03/20"
+futureDate: "13 March 2020"
 ---
 
 13 March 2020
