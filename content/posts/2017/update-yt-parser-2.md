@@ -6,6 +6,7 @@ images:
   - https://miro.medium.com/max/1400/1*rNC9B9nCUquBYtkfVv2aWQ.jpeg
 date:   2017-06-23
 show_in_homepage: false
+tags: [Android]
 ---
 Finally I've released a new big update for YoutubeParser. For people who don't know what I'm talking about, don't worry now I'm going to explain all.
 

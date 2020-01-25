@@ -2,9 +2,6 @@
 <div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>{{ printf (T "lastMod") $modify_date }}</span>
-            </div>
             <div class="post-info-license">
                 {{ if .Params.license }}
                     <span>{{ printf (T "license") .Params.license | safeHTML }}</span>

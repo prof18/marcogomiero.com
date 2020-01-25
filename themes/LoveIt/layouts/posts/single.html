@@ -8,11 +8,11 @@
     {{ end }}
 
     <article class="post-warp">
-        <h1 class="post-title animated flipInX">{{ .Title }}</h1>
+        <h1 class="post-title">{{ .Title }}</h1>
 
         <div class="post-meta">
             <div class="post-meta-main">
-                <a class="author" href="{{.Site.BaseURL }}" rel="author"><i class="fas fa-user-circle fa-fw"></i>{{ $author }}&nbsp;</a>
+                <br>
                 {{ with .Params.categories -}}
                     <span class="post-category">
                         {{ T "included" }}
@@ -26,14 +26,9 @@
                 {{- end }}
             </div>
             <div class="post-meta-other">
-                <i class="far fa-calendar-alt fa-fw"></i><time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>{{ T "wordCount" .WordCount }}&nbsp;
-                <i class="far fa-clock fa-fw"></i>{{ T "readingTime" .ReadingTime }}&nbsp;
-                {{- if eq (getenv "HUGO_ENV") "production" | and .Site.Params.valine.enable | and .Site.Params.valine.visitor -}}
-                    <span id="{{ .RelPermalink | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>{{ T "pageviews" | safeHTML }}
-                    </span>&nbsp;
-                {{- end -}}
+                <i class="far fa-calendar-alt fa-fw"></i><time datetime={{ $publish_date }}> {{ $publish_date }}</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i> {{ T "wordCount" .WordCount }}&nbsp;
+                <i class="far fa-clock fa-fw"></i> {{ T "readingTime" .ReadingTime }}&nbsp;
             </div>
         </div>
 
@@ -62,7 +57,7 @@
                 </details>
             </div>
         {{- end }}
-
+        <br>
         <div class="post-content">
             {{ $content := .Content }}
             {{ $REin := `<img src="([^"]+)" alt="([^"]+)?" />` }}

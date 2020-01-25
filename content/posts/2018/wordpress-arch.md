@@ -6,6 +6,7 @@ images:
   - https://miro.medium.com/max/1400/1*48L-6F40OsGgwpgG4fthMg.png
 date:   2018-01-19
 show_in_homepage: false
+tags: [Linux]
 ---
 
 Every time I've tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
