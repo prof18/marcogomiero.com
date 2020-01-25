@@ -1,13 +1,27 @@
-{{ define "title" }}{{ T "all" | humanize}}{{ T .Section | default .Section | humanize }} | {{ .Site.Title }}{{ end -}}
+{{ define "title" }}{{ T .Section | default .Section | humanize }} | {{ .Site.Title }}{{ end -}}
 
 {{ define "content" -}}
     {{ $data := .Data -}}
+    {{ $section := .Section -}}
     <div class="post-warp archive">
-        <h2 class="post-title animated pulse faster">
-                {{ T "all" | humanize}}{{ T .Section | default .Section | humanize }}
-        </h2>
+        <h1 class="post-section-title">
+                {{ T .Section | default .Section | humanize }}
+        </h1>
 
-        {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
+        {{ if eq $section "posts" -}}
+            {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
+            {{ with .Site.Params.home_paginate -}}
+                {{ $paginator = $.Paginate $paginator . -}}
+            {{ else -}}
+                {{ $paginator = $.Paginate $paginator -}}
+            {{ end -}}
+            {{ range $paginator.Pages -}}
+                {{ .Render "postItem" -}}
+            {{ end -}}
+            
+            {{ partial "paginator.html" . -}}
+        {{ else -}}
+            {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
             <h3>{{ .Key }}</h3>
             {{- range .Pages -}}
                 <article class="archive-item">
@@ -17,7 +31,11 @@
                     </span>
                 </article>
             {{- end -}}
-        {{- end -}}
-        {{- partial "paginator.html" . -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{ end -}}
+
+        
+
     </div>
 {{- end }}

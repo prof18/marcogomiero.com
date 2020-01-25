@@ -12,9 +12,13 @@
 }
 
 .archive {
-  .post-title {
-    text-align: right;
+  .post-section-title {
+    text-align: center;
     padding-bottom: 2rem;
+    font-size: 3rem;
+  }
+  .post-title {
+    text-align: left;
   }
 
   @import "_terms";
