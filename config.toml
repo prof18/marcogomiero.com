@@ -1,82 +1,46 @@
 baseURL = "https://www.marcogomiero.com"
-languageCode = "en-us"
-defaultContentLanguage = "en"
-title = "Marco Gomiero"
-theme = "hermit"
-# enableGitInfo = true
-pygmentsCodefences  = true
-pygmentsUseClasses  = true
-# hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
-rssLimit = 10  # Maximum number of items in the RSS feed.
-copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
-enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
-googleAnalytics = "UA-90975904-1"
-disqusShortname = "marcogomiero"
-publishDir = "docs"
+languageCode = "en"                                      # website language
+defaultContentLanguage = "en"                            # [en, zh, ...] determines which i18n file to use
+title = "Marco Gomiero"                                   # website title
+theme = "LoveIt"                                         # theme
+enableGitInfo = true                                    # whether to use git commit log to generate lastmod record
+paginate = 12                                            # default amount of posts in each pages
+enableEmoji = true                                       # whether to use emoji code
+enableRobotsTXT = true                                   # whether to use robots.txt
+googleAnalytics = ""                                     # [UA-XXXXXXXX-X] google analytics code
+disqusShortname = "marcogomiero"                             # Disqus shortname to use Disqus in posts
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+publishDir = "docs"                                                         # copyright description used only for seo schema
 
-[author]
+                                                      #### Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+pygmentsOptions = "linenos=table"
+pygmentsCodefences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
+
+staticDir = ["static", "../assets/others"]               # static directories
+
+[author]                                              #### Author Info
   name = "Marco Gomiero"
 
-[blackfriday]
-  # hrefTargetBlank = true
-  # noreferrerLinks = true
-  # nofollowLinks = true
+[sitemap]                                             #### Sitemap Info
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
 
-[taxonomies]
-  tag = "tags"
-  # Categories are disabled by default.
 
-[params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
-
-  # Metadata mostly used in document's head
-  description = "Computer Engineer · Android Developer · Community Manager "
-  # images = [""]
-  themeColor = "#494f5c"
-
-  homeSubtitle = "Computer Engineer · Android Developer · Community Manager"
-  footerCopyright = ''
-  # bgImg = ""  # Homepage background-image URL
-
-  # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  # gitUrl = "https://github.com/username/repository/commit/"
-
-  # Toggling this option needs to rebuild SCSS, requires Hugo extended version
-  justifyContent = true  # Set "text-align: justify" to `.content`.
-
-  relatedPosts = true  # Add a related content section to all single posts page
-
-  # Add custom css
-  # customCSS = ["css/foo.css", "css/bar.css"]
-
-  # Social Icons
-  # Check https://github.com/Track3/hermit#social-icons for more info.
-  [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/marcoGomier"
-
-  [[params.social]]
-    name = "linkedin"
-    url = "https://www.linkedin.com/in/marco-gomiero-a80857ab/"
-
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/prof18"
-
-[menu]
+[menu]                                                #### Menu Info
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "posts"
+    weight = 1
 
   [[menu.main]]
-    name = "Blog"
-    url = "posts/"
-    weight = 10
-
-  [[menu.main]]
+    identifier = "talks"
     name = "Talks"
-    url = "talks/"
-    weight = 20
+    url = "talks"
+    weight = 2
 
   [[menu.main]]
     name = "Projects"
@@ -87,3 +51,69 @@ publishDir = "docs"
     name = "About"
     url = "about-me/"
     weight = 40
+    
+[params]
+
+  dateFormatToUse = "2 Jan 2006"
+
+  version = "5.x"                                        # LoveIt theme version
+  description = "LoveIt Theme Demo"                      # site description
+  keywords = ["XXXX", "Theme", "Hugo"]                   # site keywords
+
+                                                      #### Home Page Info
+  home_mode = "post"                                     # [post, other] home mode
+  home_paginate = 6                                      # special amount of posts in each home post page
+  avatar = "img/profile.jpeg"                           # URL of avatar shown in home page
+  homeTitle = "Marco Gomiero"
+  subtitle = "Computer Engineer · Android Developer · Community Manager"  # subtitle shown in home page
+
+  socialShare = true                                     # whether to show social share links in post page
+
+                                                      #### Footer CopyRight Info
+  since = 2017                                           # Site creation time
+  icp = ''                                               # ICP info only in China (HTML format is allowed)
+  license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+                                                         # license info (HTML format is allowed)
+  gitRepo = "https://github.com/prof18/marcogomiero.com"                                           # public git repo url to link lastmod git commit only then enableGitInfo is true
+
+  linkToMarkdown = false                                  # whether to show link to Raw Markdown content of the post
+
+                                                      #### site verification code for Google/Bing/Yandex/Pinterest/Baidu
+  google_verification = ""
+
+ [params.cdn]                                       #### CSS and JS Files CDN
+    fontawesome_free_css = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css" integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin="anonymous">'                           # for example '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css" integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin="anonymous">'
+
+  [params.social]                                        # Social Info in home page
+    Twitter = "marcoGomier"
+    Linkedin = "marco-gomiero-a80857ab"
+    GitHub = "prof18"
+
+  [params.share]                                         # Social Share Links in post page
+    enable = true
+    Twitter = true
+    Reddit = true
+    Linkedin = true
+
+[privacy]                                             #### Privacy Info (https://gohugo.io/about/hugo-and-gdpr/)
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+
+  [privacy.youtube]
+    privacyEnhanced = true
+
+[mediaTypes]                                          #### Options to make hugo output .md files.
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+[outputFormats.MarkDown]                              #### Options to make hugo output .md files.
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+[outputs]                                             #### Options to make hugo output .md files.
+  home = ["HTML", "RSS"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]

@@ -2,6 +2,7 @@
 layout: post
 title:  "Hello World!"
 date:   2017-01-26
+show_in_homepage: false
 ---
 
 Hello World! 

@@ -4,6 +4,8 @@ title:  "How to publish and distribute your Android library"
 date:   2019-05-28
 images:
   - https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo
+show_in_homepage: true
+tags: [Android]
 ---
 
 You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.

@@ -1,0 +1,20 @@
+{{ define "content" -}}
+    <div class="post-warp">
+        {{- partial "home/profile.html" . -}}
+
+        <h1 align="center">Top Posts</h1>
+
+        {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
+        {{ $paginator = where $paginator "Params.show_in_homepage" "!=" false -}}
+        {{ with .Site.Params.home_paginate -}}
+            {{ $paginator = $.Paginate $paginator . -}}
+        {{ else -}}
+            {{ $paginator = $.Paginate $paginator -}}
+        {{ end -}}
+        {{ range $paginator.Pages -}}
+            {{ .Render "summary" -}}
+        {{ end -}}
+
+        {{ partial "paginator.html" . -}}
+    </div>
+{{ end }}

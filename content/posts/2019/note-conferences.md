@@ -4,6 +4,7 @@ title:  "How I take note at conferences"
 date:   2019-07-06
 images:
   - https://miro.medium.com/max/1400/0*LaTfRaHUQcKv11k3
+show_in_homepage: false
 ---
 
 Today I want to share my setup of note-taking that I use during conferences.

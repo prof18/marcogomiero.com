@@ -3,6 +3,7 @@ layout: post
 title:  "How to deal with backup & restore on Android (Slide &amp; Video) "
 description: "On 17th December 2016 I've attended my first talk as speaker and I've talked about backup and restore on Android"
 date:   2017-04-05
+show_in_homepage: false
 ---
 
 I know, I'm very very late.

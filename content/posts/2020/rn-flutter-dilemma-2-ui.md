@@ -2,8 +2,10 @@
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)"
 date:   2020-01-07T08:00:00
+show_in_homepage: true
 images:
   - https://www.marcogomiero.com/img/flutter-rn/widgets.png
+tags: [Flutter, React Native]
 ---
 
 Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use. 
