@@ -21,7 +21,20 @@
             
             {{ partial "paginator.html" . -}}
         {{ else -}}
-            {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
+
+            {{ $paginator := where .Site.RegularPages "Type" "talks" -}}
+            {{ with .Site.Params.talk_paginate -}}
+                {{ $paginator = $.Paginate $paginator . -}}
+            {{ else -}}
+                {{ $paginator = $.Paginate $paginator -}}
+            {{ end -}}
+            {{ range $paginator.Pages -}}
+                {{ .Render "talkItem" -}}
+            {{ end -}}
+            
+            {{ partial "paginator.html" . -}}
+
+            <!-- {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
             <h3>{{ .Key }}</h3>
             {{- range .Pages -}}
                 <article class="archive-item">
@@ -32,7 +45,7 @@
                 </article>
             {{- end -}}
             {{- end -}}
-            {{- partial "paginator.html" . -}}
+            {{- partial "paginator.html" . -}} -->
         {{ end -}}
 
         

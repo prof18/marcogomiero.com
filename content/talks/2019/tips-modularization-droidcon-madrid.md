@@ -1,13 +1,12 @@
 ---
 date: 2019-12-20T15:45:00Z
-title: "7+1 tips about [Android] App Modularization | droidcon Madrid 19
-"
+title: "7+1 tips about [Android] App Modularization"
 toc: true
+location: "droidcon Madrid 19, Madrid"
+performDate: 2019-12-20
 ---
 
-20-21 December 2019
-
-### [droidcon Madrid 19](https://www.madrid.droidcon.com/schedule)
+20-21 December 2019 - [droidcon Madrid 19](https://www.madrid.droidcon.com/schedule)
 
 ## Abstract:
 Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it?

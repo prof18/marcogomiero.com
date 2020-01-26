@@ -1,12 +1,11 @@
 ---
 date: 2019-09-16
-title: "Flutter or React Native, a cross-platform dilemma · Programmers in Padua"
-toc: true
+title: "Flutter or React Native, a cross-platform dilemma"
+performDate: 2019-09-16
+location: Programmers in Padua, Padua
 ---
 
-16 September 2019
-
-### [Programmers in Padua](https://www.eventbrite.it/e/biglietti-flutter-or-react-native-a-cross-platform-dilemma-programmers-in-padua-66814412707)
+16 September 2019 - [Programmers in Padua](https://www.eventbrite.it/e/biglietti-flutter-or-react-native-a-cross-platform-dilemma-programmers-in-padua-66814412707)
 
 ## Abstract:
 Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?

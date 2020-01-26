@@ -18,6 +18,9 @@
         <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h1>
  
+    <div class="post-meta">
+        {{ T "publish" }}&nbsp;<time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
+    </div>
     
     <br>
     <div class="post-content">
@@ -34,10 +37,7 @@
             {{ $summary  | safeHTML | truncate 220 }}
         {{ end }}
     </div>
-    <br>
-    <div class="post-meta">
-        {{ T "publish" }}&nbsp;<time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
-    </div>
+
     <div class="post-footer">
         <a href="{{ .Permalink }}">{{ T "readmore" }}</a>
         {{ with .Params.tags }}

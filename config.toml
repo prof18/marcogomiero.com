@@ -63,7 +63,8 @@ staticDir = ["static", "../assets/others"]               # static directories
 
                                                       #### Home Page Info
   home_mode = "post"                                     # [post, other] home mode
-  home_paginate = 6                                      # special amount of posts in each home post page
+  home_paginate = 6
+  talk_paginate = 10                                      # special amount of posts in each home post page
   avatar = "img/profile.jpeg"                           # URL of avatar shown in home page
   homeTitle = "Marco Gomiero"
   subtitle = "Computer Engineer · Android Developer · Community Manager"  # subtitle shown in home page

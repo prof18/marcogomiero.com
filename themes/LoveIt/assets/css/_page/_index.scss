@@ -20,6 +20,11 @@
   .post-title {
     text-align: left;
   }
+  .talk-title {
+    font-size: 1.3rem;
+    text-align: left;
+    padding-bottom: 1rem;
+  }
 
   @import "_terms";
   @import "_tags";
@@ -27,7 +32,7 @@
 
 .single {
   .post-title {
-    text-align: right;
-    padding-bottom: 2rem;
+    text-align: left;
+    padding-bottom: 0.5rem;
   }
 }

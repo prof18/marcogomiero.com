@@ -1,12 +1,11 @@
 ---
 date: 2019-10-04T18:00:00Z
-title: "Flutter or React Native, a cross-platform dilemma · droidcon Transylvania"
-toc: true
+title: "Flutter or React Native, a cross-platform dilemma"
+performDate: 2019-10-04
+location: droidcon Transylvania, Cluj-Napoca
 ---
 
-4-5 October 2019
-
-### [droidcon Transylvania](http://www.droidcon.ro/program/sessions-2019/flutter-or-react-native-a-cross-platform-dilemma/)
+4-5 October 2019 - [droidcon Transylvania](http://www.droidcon.ro/program/sessions-2019/flutter-or-react-native-a-cross-platform-dilemma/)
 
 ## Abstract:
 Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?

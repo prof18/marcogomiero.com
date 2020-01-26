@@ -1,12 +1,11 @@
 ---
 date: 2019-10-30T19:00:00Z
-title: "Kotlin Multiplatform | Kotlin/Everywhere Venezia · GDG Venezia"
-toc: true
+title: "Kotlin Multiplatform | Kotlin/Everywhere Venezia"
+performDate: 2019-10-30
+location: Kotlin/Everywhere, Venice
 ---
 
-30 October 2019
-
-### [GDG Venezia](https://www.meetup.com/it-IT/GDG-Venezia/events/265665209/)
+30 October 2019 - [Kotlin/Everywhere](https://www.meetup.com/it-IT/GDG-Venezia/events/265665209/)
 
 ## Abstract:
 In this talk, we will see how it's possible to create a mobile application for Android and iOs that share some code (for example business logic, network, etc.) using Kotlin Platform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.

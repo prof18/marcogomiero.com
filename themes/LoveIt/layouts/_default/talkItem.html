@@ -1,0 +1,20 @@
+<article class="post" itemscope itemtype="http://schema.org/Article">
+    {{ $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+    {{ $perform_date := dateFormat .Site.Params.dateFormatToUse (.Params.performDate | default "1970-01-01" ) }}
+    {{ $location := .Params.location | default "" }}
+    {{ $isUpcoming := .Params.upcoming }}
+
+    <!-- end featured_image-->
+    <h2 class="talk-title" itemprop="name headline">
+        {{ if $isUpcoming}}
+            [UPCOMING] - 
+        {{ end }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+
+    <div class="post-meta">
+        <time datetime={{ $perform_date }}>{{ $perform_date }}  -</time>
+        {{ $location }}
+    </div>
+
+</article>

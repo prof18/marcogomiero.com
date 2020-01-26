@@ -1,12 +1,11 @@
 ---
 date: 2019-06-05
-title: Flutter or React Native, a cross-platform dilemma · GDG Venezia Tech Talks
-toc: true
+title: Flutter or React Native, a cross-platform dilemma 
+performDate: 2019-06-05
+location: GDG Venezia Tech Talks, Venice
 ---
 
-5 June 2019
-
-### [GDG Venezia Tech Talks](https://www.meetup.com/GDG-Venezia/events/261588674/)
+5 June 2019 - [GDG Venezia Tech Talks](https://www.meetup.com/GDG-Venezia/events/261588674/)
 
 ## Abstract:
 Nowadays the hype around Flutter is raising a lot. But what about the "(not so) old-fashioned" React Native?

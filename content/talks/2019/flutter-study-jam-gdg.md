@@ -1,12 +1,11 @@
 ---
 date: 2019-10-01T19:00:00Z
-title: "Flutter Study Jam: let's build together an app for the GDG Venice · GDG Venezia"
-toc: true
+title: "Flutter Study Jam: let's build together an app for the GDG Venice"
+performDate: 2019-10-01
+location: GDG Venezia, Padua
 ---
 
-1 October 2019
-
-### [GDG Venezia](https://www.meetup.com/it-IT/GDG-Venezia/events/264660558/)
+1 October 2019 - [GDG Venezia](https://www.meetup.com/it-IT/GDG-Venezia/events/264660558/)
 
 ## Abstract:
 A brief introduction to the Flutter framework before starting a codelab where an app for GDG Venice will be built starting from a custom skeleton,

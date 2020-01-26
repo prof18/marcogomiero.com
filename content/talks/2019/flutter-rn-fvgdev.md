@@ -1,12 +1,11 @@
 ---
 date: 2019-06-15
-title: Flutter or React Native, a cross-platform dilemma · FVG Dev
-toc: true
+title: Flutter or React Native, a cross-platform dilemma
+performDate: 2019-06-15
+location: FVG Dev, Trieste
 ---
 
-15 June 2019
-
-### [FVG Dev] (https://www.eventbrite.it/e/biglietti-fvg-dev-evento-dedicato-allo-sviluppo-mobile-cross-platform-61756484307)
+15 June 2019 - [FVG Dev] (https://www.eventbrite.it/e/biglietti-fvg-dev-evento-dedicato-allo-sviluppo-mobile-cross-platform-61756484307)
 
 ## Abstract:
 Nowadays the hype around Flutter is raising a lot. But what about the "(not so) old-fashioned" React Native?
