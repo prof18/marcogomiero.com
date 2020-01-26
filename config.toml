@@ -1,35 +1,32 @@
 baseURL = "https://www.marcogomiero.com"
-languageCode = "en"                                      # website language
-defaultContentLanguage = "en"                            # [en, zh, ...] determines which i18n file to use
-title = "Marco Gomiero"                                   # website title
-theme = "LoveIt"                                         # theme
-enableGitInfo = true                                    # whether to use git commit log to generate lastmod record
-paginate = 12                                            # default amount of posts in each pages
-enableEmoji = true                                       # whether to use emoji code
-enableRobotsTXT = true                                   # whether to use robots.txt
-googleAnalytics = ""                                     # [UA-XXXXXXXX-X] google analytics code
-disqusShortname = "marcogomiero"                             # Disqus shortname to use Disqus in posts
+languageCode = "en"                                      
+defaultContentLanguage = "en"                           
+title = "Marco Gomiero"                                   
+theme = "LoveIt"                                         
+paginate = 12                                            
+enableEmoji = true                                       
+enableRobotsTXT = true                                   
+googleAnalytics = "UA-90975904-1"                                    
+disqusShortname = "marcogomiero"                             
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-publishDir = "docs"                                                         # copyright description used only for seo schema
-
-                                                      #### Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+publishDir = "docs"                                                         
+                                               
 pygmentsOptions = "linenos=table"
 pygmentsCodefences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
-staticDir = ["static", "../assets/others"]               # static directories
+staticDir = ["static", "../assets/others"]               
 
-[author]                                              #### Author Info
+[author]                                              
   name = "Marco Gomiero"
 
-[sitemap]                                             #### Sitemap Info
+[sitemap]                                             
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
 
-
-[menu]                                                #### Menu Info
+[menu]                                                
   [[menu.main]]
     identifier = "posts"
     name = "Posts"
@@ -57,63 +54,58 @@ staticDir = ["static", "../assets/others"]               # static directories
   dateFormatToUse = "2 Jan 2006"
   dateFormatToUsePost = "2 Jan"
 
-  version = "5.x"                                        # LoveIt theme version
-  description = "LoveIt Theme Demo"                      # site description
-  keywords = ["XXXX", "Theme", "Hugo"]                   # site keywords
+  version = "5.x"                                        
+  description = "Computer Engineer · Android Developer · Community Manager"                      
+  keywords = ["Marco Gomiero", "Android", "Flutter", "Gomiero", "Kotlin", "RSS Parser"]                  
 
-                                                      #### Home Page Info
-  home_mode = "post"                                     # [post, other] home mode
+                                                      
+  home_mode = "post"                                     
   home_paginate = 6
-  talk_paginate = 10                                      # special amount of posts in each home post page
-  avatar = "img/profile.jpeg"                           # URL of avatar shown in home page
+  talk_paginate = 10                                      
+  avatar = "img/profile.jpeg"                           
   homeTitle = "Marco Gomiero"
-  subtitle = "Computer Engineer · Android Developer · Community Manager"  # subtitle shown in home page
+  subtitle = "Computer Engineer · Android Developer · Community Manager"  
 
-  socialShare = true                                     # whether to show social share links in post page
+  socialShare = true                                     
 
-                                                      #### Footer CopyRight Info
-  since = 2017                                           # Site creation time
-  icp = ''                                               # ICP info only in China (HTML format is allowed)
+  since = 2017                                          
   license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
-                                                         # license info (HTML format is allowed)
-  gitRepo = "https://github.com/prof18/marcogomiero.com"                                           # public git repo url to link lastmod git commit only then enableGitInfo is true
 
-  linkToMarkdown = false                                  # whether to show link to Raw Markdown content of the post
+  linkToMarkdown = false 
 
-                                                      #### site verification code for Google/Bing/Yandex/Pinterest/Baidu
-  google_verification = ""
+  google_verification = "7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"
 
- [params.cdn]                                       #### CSS and JS Files CDN
+ [params.cdn]                                       
     fontawesome_free_css = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css" integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin="anonymous">'                           # for example '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css" integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin="anonymous">'
 
-  [params.social]                                        # Social Info in home page
+  [params.social]                                        
     Twitter = "marcoGomier"
     Linkedin = "marco-gomiero-a80857ab"
     GitHub = "prof18"
 
-  [params.share]                                         # Social Share Links in post page
+  [params.share]                                         
     enable = true
     Twitter = true
     Reddit = true
     Linkedin = true
 
-[privacy]                                             #### Privacy Info (https://gohugo.io/about/hugo-and-gdpr/)
+[privacy]                                             
   [privacy.googleAnalytics]
     anonymizeIP = true
 
   [privacy.youtube]
     privacyEnhanced = true
 
-[mediaTypes]                                          #### Options to make hugo output .md files.
+[mediaTypes]                                          
   [mediaTypes."text/plain"]
     suffixes = ["md"]
 
-[outputFormats.MarkDown]                              #### Options to make hugo output .md files.
+[outputFormats.MarkDown]                              
   mediaType = "text/plain"
   isPlainText = true
   isHTML = false
 
-[outputs]                                             #### Options to make hugo output .md files.
+[outputs]                                             
   home = ["HTML", "RSS"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
