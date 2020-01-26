@@ -1,123 +1,285 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Marco Gomiero</title>
-    <link>https://www.marcogomiero.com/</link>
-    <description>Recent content on Marco Gomiero</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Imperative is dead, long live Declarative! · Appdevcon</title>
-      <link>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon/</guid>
-      <description>13 March 2020
-Appdevcon Abstract: Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.</description>
-    </item>
-    
-    <item>
-      <title>Imperative is dead, long live Declarative! · Codemotion Rome</title>
-      <link>https://www.marcogomiero.com/talks/2020/imperative-vs-declerative-codemotion-rome/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declerative-codemotion-rome/</guid>
-      <description>27-28 March 2020
-Codemotion Rome Abstract: Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title>
-      <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</link>
-      <pubDate>Tue, 07 Jan 2020 08:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid>
-      <description>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
-If you have lost the first episode, I suggest you read it before moving on.
- Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
- In this article, I will explain how to build user interfaces in React Native and Flutter.</description>
-    </item>
-    
-    <item>
-      <title>7&#43;1 tips about [Android] App Modularization | droidcon Madrid 19 </title>
-      <link>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</link>
-      <pubDate>Fri, 20 Dec 2019 15:45:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</guid>
-      <description>20-21 December 2019
-droidcon Madrid 19 Abstract: Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it? This talk will not focus on the pro and cons of modularization but instead on the approach and the process to achieve it. In particular, I want to share the approach that I followed to modularize an existing application and a new one. I want also to share the failures and all the struggles that came in my head while approaching the process.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</title>
-      <link>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</link>
-      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</guid>
-      <description>These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; React Native and the &amp;ldquo;freshman&amp;rdquo; Flutter.
-Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength&amp;hellip; so, all you need to know to help your choice.
-In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use.</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · DevFest Veneto 2019</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</link>
-      <pubDate>Sat, 16 Nov 2019 19:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</guid>
-      <description>16 November 2019
-DevFestVeneto 19 Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-    <item>
-      <title>Kotlin Multiplatform | Kotlin/Everywhere Venezia · GDG Venezia</title>
-      <link>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</link>
-      <pubDate>Wed, 30 Oct 2019 19:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</guid>
-      <description>30 October 2019
-GDG Venezia Abstract: In this talk, we will see how it&amp;rsquo;s possible to create a mobile application for Android and iOs that share some code (for example business logic, network, etc.) using Kotlin Platform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.
-We will show also how it&amp;rsquo;s possible to create a backend for this app by of course using Kotlin!</description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · droidcon Transylvania</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</link>
-      <pubDate>Fri, 04 Oct 2019 18:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</guid>
-      <description>4-5 October 2019
-droidcon Transylvania Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-    <item>
-      <title>Flutter Study Jam: let&#39;s build together an app for the GDG Venice · GDG Venezia</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</link>
-      <pubDate>Tue, 01 Oct 2019 19:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</guid>
-      <description> 1 October 2019
-GDG Venezia Abstract: A brief introduction to the Flutter framework before starting a codelab where an app for GDG Venice will be built starting from a custom skeleton,
-The skeleton is available on Github together with 3 sample applications: a hello world, a bottom navigation bar example, and a list view example.
-https://github.com/GDG-Venezia/flutter-study-jam
-Slide  </description>
-    </item>
-    
-    <item>
-      <title>Flutter or React Native, a cross-platform dilemma · .droidconGreece</title>
-      <link>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</link>
-      <pubDate>Tue, 24 Sep 2019 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</guid>
-      <description>24-25 September 2019
-.droidconGreece Abstract: Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.</description>
-    </item>
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Marco Gomiero on Marco Gomiero</title><link>https://www.marcogomiero.com/</link><description>Recent content in Marco Gomiero on Marco Gomiero</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/" rel="self" type="application/rss+xml"/><item><title>Imperative is dead, long live Declarative!</title><link>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon/</guid><description>
+&lt;p&gt;13 March 2020 - &lt;a href=&#34;https://appdevcon.nl/session/imperative-is-dead-long-live-declarative&#34;&gt;Appdevcon&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.
+In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.&lt;/p&gt;</description></item><item><title>Imperative is dead, long live Declarative!</title><link>https://www.marcogomiero.com/talks/2020/imperative-vs-declerative-codemotion-rome/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declerative-codemotion-rome/</guid><description>
+&lt;p&gt;27-28 March 2020 - &lt;a href=&#34;https://events.codemotion.com/conferences/rome/2020/speaker/4468/&#34;&gt;Codemotion Rome&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.
+In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.&lt;/p&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title><link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</link><pubDate>Tue, 07 Jan 2020 08:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid><description>
+&lt;p&gt;Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.&lt;/p&gt;
+&lt;p&gt;If you have lost the first episode, I suggest you read it before moving on.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/&#34;&gt;Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this article, I will explain how to build user interfaces in React Native and Flutter.
+Disclaimer: This article will not cover all the deep aspects of the two frameworks, but I want to give you an overview to better understand the differences. For much deeper details, I suggest you look at the official documentation (&lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; - &lt;a href=&#34;https://flutter.dev/docs&#34;&gt;Flutter&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&#34;react-native&#34;&gt;React Native&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s jump immediately into some code (a simple &lt;em&gt;Hello World&lt;/em&gt;).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-react&#34; data-lang=&#34;react&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-react&#34; data-lang=&#34;react&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// React Native
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;React&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;react&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;StyleSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;react-native&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;App&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;React&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Component&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;View&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;styles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;container&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Hello&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;world&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;View&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;styles&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;StyleSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;container&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;flex&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;backgroundColor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;#fff&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;alignItems&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;center&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;justifyContent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;center&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The entry point of this Hello World is the &lt;code&gt;render&lt;/code&gt; method. Inside this method, we declare all the &lt;em&gt;items&lt;/em&gt; (these items have a precise name, but I&amp;rsquo;ll reveal it in a moment) that has to be rendered on the screen. In this case, there is a &lt;a href=&#34;https://facebook.github.io/react-native/docs/view&#34;&gt;&lt;code&gt;View&lt;/code&gt;&lt;/a&gt; with inside a &lt;a href=&#34;https://facebook.github.io/react-native/docs/text&#34;&gt;&lt;code&gt;Text&lt;/code&gt;&lt;/a&gt;. These &lt;em&gt;items&lt;/em&gt; are called &lt;strong&gt;Components&lt;/strong&gt; and a &lt;strong&gt;Component&lt;/strong&gt; is the basic building block that composes the UI. Of course, as showed in the example above, the &lt;strong&gt;Components&lt;/strong&gt; can be nested together to build more complex components and UIs.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Components&lt;/strong&gt; are declared and stylized (the styling is done by using &lt;em&gt;CSS&lt;/em&gt;) by using a &lt;strong&gt;D&lt;/strong&gt;omain &lt;strong&gt;S&lt;/strong&gt;pecific &lt;strong&gt;L&lt;/strong&gt;anguage called &lt;strong&gt;JSX&lt;/strong&gt;. This &lt;strong&gt;DSL&lt;/strong&gt; is basically a (very simple) mixture of &lt;em&gt;Javascript&lt;/em&gt; and &lt;em&gt;XML&lt;/em&gt;. For more information about &lt;strong&gt;JSX&lt;/strong&gt;, please refear to the &lt;a href=&#34;https://reactjs.org/docs/glossary.html#jsx&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Text&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;ellipsizeMode&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;tail&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;numberOfLines&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;props&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;numberOfLines&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fontSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The React team has already developed lots of Components that we can use (there is a list of the available Components in the &lt;a href=&#34;https://facebook.github.io/react-native/docs/components-and-apis.html&#34;&gt;documentation&lt;/a&gt;) but we can also download and use Components developed by third-party developers. Every Component can be used in a standalone way or it can be combined with other ones to create a more complex one.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://www.marcogomiero.com/img/flutter-rn/components.png&#34;
+alt=&#34;image&#34;/&gt; &lt;figcaption&gt;
+&lt;p&gt;Components catalogue.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&#34;flutter&#34;&gt;Flutter&lt;/h2&gt;
+&lt;p&gt;And now, let&amp;rsquo;s move to Flutter. As before, we start with a simple Hello World.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dart&#34; data-lang=&#34;dart&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dart&#34; data-lang=&#34;dart&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Flutter
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;package:flutter/material.dart&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;runApp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyApp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyApp&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StatelessWidget&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;override&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Widget&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BuildContext&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MaterialApp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;span class=&#34;nl&#34;&gt;home:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Scaffold&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;span class=&#34;nl&#34;&gt;appBar:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AppBar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;span class=&#34;nl&#34;&gt;title:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Flutter Demo Home Page&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;nl&#34;&gt;body:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Center&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;span class=&#34;nl&#34;&gt;child:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In Flutter, the equivalent of Components are &lt;strong&gt;Widgets&lt;/strong&gt; and in the example above, for example instead of &lt;code&gt;View&lt;/code&gt; and &lt;code&gt;Text&lt;/code&gt; we have &lt;a href=&#34;https://api.flutter.dev/flutter/widgets/Center-class.html&#34;&gt;&lt;code&gt;Center&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://api.flutter.dev/flutter/widgets/Text-class.html&#34;&gt;&lt;code&gt;Text&lt;/code&gt;&lt;/a&gt;. Flutter takes inspiration from React and the main idea is that the UI is built out of widgets. In fact, in Flutter everything is a widget: for example, the structural elements of the application ( buttons, menu, dialogs, etc ), the stylistic elements ( opacity, transformations, etc ) and also the aspect of the layout ( margins, paddings, alignments, etc ) are widgets. And even the application itself is a widget. In fact, the entire Hello World application that is defined before is a widget (&lt;code&gt;MyApp&lt;/code&gt;) and more precisely a &lt;code&gt;Stateless&lt;/code&gt; widget. In Flutter, you can use a &lt;a href=&#34;https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html&#34;&gt;&lt;code&gt;Stateless&lt;/code&gt;&lt;/a&gt; or a &lt;a href=&#34;https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html&#34;&gt;&lt;code&gt;Stateful&lt;/code&gt;&lt;/a&gt;widget depending if you have to manage the state of the application.&lt;/p&gt;
+&lt;p&gt;The entry point of the widget is the &lt;code&gt;build&lt;/code&gt; method, that we have override every time we define a new widget. As you can see in the example above, we have declared a bunch of widgets: the &lt;code&gt;MaterialApp&lt;/code&gt; widget where we can declare some theme customization, the &lt;code&gt;Scaffold&lt;/code&gt; widget that provides the main structure of an application and finally the &amp;ldquo;real content&amp;rdquo; of our application, i.e. the &lt;code&gt;Center&lt;/code&gt; widget with a &lt;code&gt;Text&lt;/code&gt; widget as children.&lt;/p&gt;
+&lt;p&gt;As the components in React Native, the widgets can be nested together to create to build more complex widgets and UIs. The Flutter team has already developed lots of widgets that we can use (there is a list of the available widgets in the &lt;a href=&#34;https://flutter.dev/docs/development/ui/widgets&#34;&gt;documentation&lt;/a&gt;) but we can also download and use widgets developed by third-party developers.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://www.marcogomiero.com/img/flutter-rn/widgets.png&#34;
+alt=&#34;image&#34;/&gt; &lt;figcaption&gt;
+&lt;p&gt;Widgets catalogue.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&#34;recap&#34;&gt;Recap&lt;/h2&gt;
+&lt;p&gt;So, in Flutter we remain in the Dart context to define User Interfaces, while in React Native we have to learn a &lt;strong&gt;DSL&lt;/strong&gt; (but is very simple). In both frameworks, we can modularize the UI by mixing simple &amp;ldquo;blocks&amp;rdquo;. And this modularization is highly suggested to avoid a mess codebase and a lot of nested widgets/components in your code.&lt;/p&gt;
+&lt;p&gt;Alongside with the modularization of the UI, you should also add state management in your application. In this way, you can separate the presentation logic from the business logic, you can sync data between different components/widget, you can have a more testable code, etc. This topic will not be covered in this series of articles, but I want to give you some quick tips/suggestions. Both in Rect Native and Flutter, there is a &amp;ldquo;naive&amp;rdquo; way to manage the state provided by the framework. In a few words, you can define a default state and then update it by calling a &lt;code&gt;setState&lt;/code&gt; method. When this method is called the UI is redrawn (with of course some optimizations) to show the update state. For more information, I suggest you read the documentation, both for &lt;a href=&#34;https://facebook.github.io/react-native/docs/state&#34;&gt;React Native&lt;/a&gt; and &lt;a href=&#34;https://flutter.dev/docs/development/ui/interactive&#34;&gt;Flutter&lt;/a&gt;.
+There are also more powerful ways to manage the state, for example for React Native: &lt;a href=&#34;https://github.com/reduxjs/redux&#34;&gt;Redux&lt;/a&gt;, &lt;a href=&#34;https://github.com/mobxjs/mobx&#34;&gt;Mobx&lt;/a&gt;, &lt;a href=&#34;https://www.apollographql.com/docs/react/integrations/react-native/&#34;&gt;Apollo&lt;/a&gt;, etc. while for Flutter: again Redux, BLoC, Scoped Model, etc. A list of different state management possibilities for Flutter can be found on &lt;a href=&#34;http://fluttersamples.com/&#34;&gt;fluttersamples.com&lt;/a&gt; website.&lt;/p&gt;
+&lt;p&gt;Before ending this journey into the User Interfaces, I need to tell you that this style of building UIs has a name: &lt;strong&gt;Declarative&lt;/strong&gt;. In the mobile world we are all used to define UIs in an imperative style, i.e. if we want to update an element of the UI, for example, a TextView, we ask the view owner an instance of that element and then we update it based on the new state. With the declarative style, we define the current UI state (e.g. a loading state, an error state, etc.) and the framework manages the state changes. This pattern has lots of benefits (but this is not the right place to talk about it - maybe in a future blog post) and is borrowed from the web world, from frameworks like React and Vue.js. Next, it started to appear in the mobile world with React Native and then Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI. And I think that Declarative patterns are the future.&lt;/p&gt;
+&lt;p&gt;And for today is enough. After this journey into User Interfaces, in the next episode, we&amp;rsquo;ll dive under the hood of these frameworks.&lt;/p&gt;</description></item><item><title>7&#43;1 tips about [Android] App Modularization</title><link>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</link><pubDate>Fri, 20 Dec 2019 15:45:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</guid><description>
+&lt;p&gt;20-21 December 2019 - &lt;a href=&#34;https://www.madrid.droidcon.com/schedule&#34;&gt;droidcon Madrid 19&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it?
+This talk will not focus on the pro and cons of modularization but instead on the approach and the process to achieve it. In particular, I want to share the approach that I followed to modularize an existing application and a new one. I want also to share the failures and all the struggles that came in my head while approaching the process.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;e25b28578ae443b9abe9c8a6f533741a&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;
+&lt;p&gt;Coming soon!&lt;/p&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</title><link>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</link><pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</guid><description>
+&lt;p&gt;These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; &lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; and the &amp;ldquo;freshman&amp;rdquo; &lt;a href=&#34;https://flutter.dev/&#34;&gt;Flutter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength&amp;hellip; so, all you need to know to help your choice.&lt;/p&gt;
+&lt;p&gt;In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use. Next, in the following articles, I will move the focus on how to build User Interfaces with these two frameworks and how they work internally.&lt;/p&gt;
+&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
+&lt;p&gt;Before starting with the comparison, I think that a little bit of history is mandatory. The first version of React Native has been developed during an internal Facebook hackathon in 2013 and a first version has been previewed two years later in January 2015. Finally, in May 2015, React Native has been officially launched and open-sourced. Flutter instead is younger and a first embryonal version has been revealed during the Dart Dev Summit of 2015. After two years, an alpha release has been released during the Google I/O 2017 and the final 1.0 release came out in December 2018.&lt;/p&gt;
+&lt;p&gt;Today, React Native is the standard de facto for cross-platform development. In fact, during the years React Native has gained success because it can provide a &amp;ldquo;native feel&amp;rdquo; (in a following article I will explain how this is possible) and not a weird rendering with HTLM and CSS inside a WebView like for example &lt;a href=&#34;https://cordova.apache.org/&#34;&gt;Cordova&lt;/a&gt; or &lt;a href=&#34;https://phonegap.com/&#34;&gt;PhoneGap&lt;/a&gt;. Lots of famous apps are using React Native, for example, Facebook, Instagram, Pinterest, Instagram, Discord and much more.&lt;/p&gt;
+&lt;p&gt;Despite the youngness, Flutter is gaining lots of attention in the &amp;ldquo;cross-platform square&amp;rdquo;. In fact, there are already some (complex) apps that use Flutter, for example, Google Ads, the Alibaba&amp;rsquo;s app Xianyu.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://www.marcogomiero.com/img/flutter-rn/trends.jpeg&#34;
+alt=&#34;image&#34;/&gt; &lt;figcaption&gt;
+&lt;p&gt;Google Search Trends for &amp;ldquo;React Native&amp;rdquo; and &amp;ldquo;Flutter&amp;rdquo;.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&#34;language&#34;&gt;Language&lt;/h2&gt;
+&lt;p&gt;The language used by React Native is Javascript, a language that you can love or you can hate, there isn&amp;rsquo;t a half-measure. In general, people with an object-oriented background could encounter difficulties when they use Javascript for the first time. Some &amp;ldquo;weird&amp;rdquo; arguments can be the type conversion, the prototype-based inheritance, the fact that code can fail silently, etc. These are not random facts but happened to me to deal with them. Also, there is a little bit of confusion around the Javascript ecosystem: lots of libraries, frameworks, multiple approaches to perform the same thing. If you want to (or you have to) use React Native, I suggest you go with &lt;a href=&#34;http://www.typescriptlang.org/&#34;&gt;Typescript&lt;/a&gt; especially if you come from an object-oriented background.&lt;/p&gt;
+&lt;p&gt;Flutter instead uses &lt;a href=&#34;https://dart.dev/&#34;&gt;Dart&lt;/a&gt;, an open-source, object-oriented language developed by Google in 2011. Google wanted to create a language that improves some of the pitfalls that Javascript has, for example, the handling of the types. So Dart is a strongly typed language but the type can be inferred. Dart is capable both to compile to native code (ARM &amp;amp; x64) for mobile, desktop and backend and to transpile to Javascript for the web. The syntax is very similar to object-oriented languages and the learning curve to learn the language is flat.&lt;/p&gt;
+&lt;p&gt;Going with React Native can be tempting if you already have skills in web development since you will be going to use Javascript or Typescript. With Flutter instead, you have to learn a new language, even if is very simple to learn. However, with React Native often happens that you have to deal with Native code, especially for linking new third party libraries. With Flutter instead is rare that you have to touch native code unless you want to develop a custom plugin that uses native APIs.&lt;/p&gt;
+&lt;p&gt;And for today is enough. After this brief introduction, in the next episode, we&amp;rsquo;ll talk about how to build User Interfaces.&lt;/p&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</link><pubDate>Sat, 16 Nov 2019 19:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</guid><description>
+&lt;p&gt;16 November 2019 - &lt;a href=&#34;https://devfestvenice.com/schedule/2019-11-16?sessionId=221&#34;&gt;DevFestVeneto 19&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native? In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two. All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;2e60f2ca8d0f477d9369bd0d1e7e432e&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+&lt;iframe src=&#34;//www.youtube-nocookie.com/embed/NqQY4K2hjXo&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description></item><item><title>Kotlin Multiplatform | Kotlin/Everywhere Venezia</title><link>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</link><pubDate>Wed, 30 Oct 2019 19:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</guid><description>
+&lt;p&gt;30 October 2019 - &lt;a href=&#34;https://www.meetup.com/it-IT/GDG-Venezia/events/265665209/&#34;&gt;Kotlin/Everywhere&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;In this talk, we will see how it&amp;rsquo;s possible to create a mobile application for Android and iOs that share some code (for example business logic, network, etc.) using Kotlin Platform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.&lt;/p&gt;
+&lt;p&gt;We will show also how it&amp;rsquo;s possible to create a backend for this app by of course using Kotlin!&lt;/p&gt;
+&lt;p&gt;This talk has been done in collaboration with &lt;a href=&#34;http://www.andreamaglie.com/&#34;&gt;Andrea Maglie&lt;/a&gt; that I thank&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;70d996d1fa7746a9b708b35cf19517b9&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+&lt;iframe src=&#34;//www.youtube-nocookie.com/embed/gTrdMiGs92M&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;source-code&#34;&gt;Source Code:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;App source code: bit.ly/gdgvenezia-kmp&lt;/li&gt;
+&lt;li&gt;Backend source code: bit.ly/gdgvenezia-backend&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</link><pubDate>Fri, 04 Oct 2019 18:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</guid><description>
+&lt;p&gt;4-5 October 2019 - &lt;a href=&#34;http://www.droidcon.ro/program/sessions-2019/flutter-or-react-native-a-cross-platform-dilemma/&#34;&gt;droidcon Transylvania&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;03943a2a06424eb6959b609a4af1d2c5&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description></item><item><title>Flutter Study Jam: let&#39;s build together an app for the GDG Venice</title><link>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</link><pubDate>Tue, 01 Oct 2019 19:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</guid><description>
+&lt;p&gt;1 October 2019 - &lt;a href=&#34;https://www.meetup.com/it-IT/GDG-Venezia/events/264660558/&#34;&gt;GDG Venezia&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;A brief introduction to the Flutter framework before starting a codelab where an app for GDG Venice will be built starting from a custom skeleton,&lt;/p&gt;
+&lt;p&gt;The skeleton is available on Github together with 3 sample applications: a hello world, a bottom navigation bar example, and a list view example.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/GDG-Venezia/flutter-study-jam&#34;&gt;https://github.com/GDG-Venezia/flutter-study-jam&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;02923dd271234bfe93db88058e894bab&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</link><pubDate>Tue, 24 Sep 2019 12:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</guid><description>
+&lt;p&gt;24-25 September 2019 - &lt;a href=&#34;https://droidcon.gr/portfolio/marco-gomiero/&#34;&gt;.droidconGreece&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b0cf691e84a449b99fe37bfa4b8b94a1&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-fevr/</link><pubDate>Wed, 18 Sep 2019 10:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fevr/</guid><description>
+&lt;p&gt;18 September 2019 - &lt;a href=&#34;http://www.fevr.it/eventi/2019/09/flutter-or-react-native-a-cross-platform-dilemma/&#34;&gt;FEVR&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;f58747bdfc0d4901a4cafad16abd0ff4&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
+&lt;iframe src=&#34;https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fmatteoguidotto%2Fvideos%2F10220661987803505%2F&amp;width=500&amp;show_text=false&amp;height=281&amp;appId&#34; width=&#34;500&#34; height=&#34;281&#34; style=&#34;border:none;overflow:hidden&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; allowTransparency=&#34;true&#34; allow=&#34;encrypted-media&#34; allowFullScreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;podcast&#34;&gt;Podcast&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;spreaker-player&#34; href=&#34;https://www.spreaker.com/user/fevr/flutter-or-react-native&#34; data-resource=&#34;episode_id=19149450&#34; data-theme=&#34;dark&#34; data-autoplay=&#34;false&#34; data-playlist=&#34;false&#34; data-cover=&#34;https://d3wo5wojvuv7l.cloudfront.net/images.spreaker.com/original/b9c9b933899129acf0890c1131d461d2.jpg&#34; data-width=&#34;100%&#34; data-height=&#34;200px&#34;&gt;Listen to &amp;ldquo;Flutter or React Native, a cross-platform dilemma&amp;rdquo; on Spreaker.&lt;/a&gt;&lt;script async src=&#34;https://widget.spreaker.com/widgets.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</link><pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</guid><description>
+&lt;p&gt;16 September 2019 - &lt;a href=&#34;https://www.eventbrite.it/e/biglietti-flutter-or-react-native-a-cross-platform-dilemma-programmers-in-padua-66814412707&#34;&gt;Programmers in Padua&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;source-code&#34;&gt;Source code:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;App: &lt;a href=&#34;https://github.com/GDG-Venezia/gdg-venezia-showcase-app&#34;&gt;https://github.com/GDG-Venezia/gdg-venezia-showcase-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Backend: &lt;a href=&#34;https://github.com/GDG-Venezia/gdg-venezia-showcase-app-backend&#34;&gt;https://github.com/GDG-Venezia/gdg-venezia-showcase-app-backend&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;1b0dca2e11784cc1b9e5d2a41de84a9a&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+&lt;iframe src=&#34;//www.youtube-nocookie.com/embed/vn_UBq6FvVA&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;podcast&#34;&gt;Podcast:&lt;/h2&gt;
+&lt;iframe src=&#34;https://open.spotify.com/embed-podcast/episode/4eC9NhP6SBuGgSBMwK2QtP&#34; width=&#34;100%&#34; height=&#34;232&#34; frameborder=&#34;0&#34; allowtransparency=&#34;true&#34; allow=&#34;encrypted-media&#34;&gt;&lt;/iframe&gt;</description></item><item><title>How I take note at conferences</title><link>https://www.marcogomiero.com/posts/2019/note-conferences/</link><pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid><description>&lt;p&gt;Today I want to share my setup of note-taking that I use during conferences.&lt;/p&gt;
+&lt;p&gt;Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.&lt;/p&gt;
+&lt;p&gt;So, after long and many tests, I found that &lt;a href=&#34;https://products.office.com/it-it/onenote/digital-note-taking-app&#34;&gt;&lt;strong&gt;OneNote by Microsoft&lt;/strong&gt;&lt;/a&gt; is the best solution for me. Of course, I’m open to suggestions; in the future, I want also to try &lt;a href=&#34;https://www.notion.so/&#34;&gt;Notion&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, let’s give a look to my OneNote setup. In OneNote, you can create &lt;em&gt;notebooks&lt;/em&gt;, &lt;em&gt;sections&lt;/em&gt;, and &lt;em&gt;pages&lt;/em&gt;: the &lt;em&gt;sections&lt;/em&gt; are contained in a &lt;em&gt;notebook&lt;/em&gt; and the &lt;em&gt;pages&lt;/em&gt; are contained in a &lt;em&gt;section&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/2392/1*ZY1b4ZZ90sUmDgQ9CvmDMA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I use &lt;em&gt;sections&lt;/em&gt; as collectors for different arguments: so, for example, I have a &lt;em&gt;section&lt;/em&gt; that gathers all the conferences, one for the online courses that I follow, one for my side projects and so on and so forth. In the &lt;em&gt;section&lt;/em&gt; dedicated to the conferences, I create a &lt;em&gt;page&lt;/em&gt; for each conference I attend. Inside this &lt;em&gt;page&lt;/em&gt;, I write the title of the talk that I’m attending and I start to take my notes!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/2404/1*iz6GEVtBxdeiY2SbbJRJUw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I take my notes using the &lt;strong&gt;desktop or the mobile application&lt;/strong&gt;, it depends on my mood. Together with notes, I like to add some interesting slides. I know, I can it later on when the speaker uploads them, but I like to have some slide embedded with notes. After the talk or after the conference, I update the “talk section” with the link to the slide and/or the video recording. In this way, I have all the useful information that I want to remember in one place.&lt;/p&gt;
+&lt;p&gt;Eventually, from OneNote you can &lt;strong&gt;export the page as PDF&lt;/strong&gt; to share with other people. However, I admit that the export function of OneNote is a bit silly. In fact, all the images will be cut in order to fit correctly the A4 page if they are placed in a “border zone”. But for this I have a “hack”: if you export the note as PDF from the mobile application, a single page PDF will be generated. I know, this is not so beautiful but I don’t use very often the export function. This is also the main reason that makes me want to try Notion, as said above.&lt;/p&gt;
+&lt;p&gt;So this is my setup. If you have some suggestions, I’m glad to listen to them and I hope that these tips will be helpful!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Published also on &lt;a href=&#34;https://medium.com/@marcogomiero/how-i-take-note-at-conferences-f96e4956f12f&#34;&gt;Medium&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</link><pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</guid><description>
+&lt;p&gt;15 June 2019 - &lt;a href=&#34;https://www.eventbrite.it/e/biglietti-fvg-dev-evento-dedicato-allo-sviluppo-mobile-cross-platform-61756484307&#34;&gt;FVG Dev&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;44ec00d6c5fc448b9361b5a879b43d16&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description></item><item><title>Flutter or React Native, a cross-platform dilemma</title><link>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</link><pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</guid><description>
+&lt;p&gt;5 June 2019 - &lt;a href=&#34;https://www.meetup.com/GDG-Venezia/events/261588674/&#34;&gt;GDG Venezia Tech Talks&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract:&lt;/h2&gt;
+&lt;p&gt;Nowadays the hype around Flutter is raising a lot. But what about the &amp;ldquo;(not so) old-fashioned&amp;rdquo; React Native?
+In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.
+All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.&lt;/p&gt;
+&lt;h2 id=&#34;slide&#34;&gt;Slide:&lt;/h2&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;44ec00d6c5fc448b9361b5a879b43d16&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+&lt;iframe src=&#34;//www.youtube-nocookie.com/embed/1eHW3mYxrtg&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description></item></channel></rss>
