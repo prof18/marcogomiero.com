@@ -1,12 +1,12 @@
 ---
-date: 2020-02-07
+date: 2020-02-06
 title: "Imperative is dead, long live Declarative!"
 upcoming: true
-performDate: 2020-03-27
+performDate: 2020-06-11
 location: Codemotion, Rome
 ---
 
-27-28 March 2020 - [Codemotion Rome](https://events.codemotion.com/conferences/rome/2020/speaker/4468/)
+11-12 June 2020 - [Codemotion Rome](https://events.codemotion.com/conferences/rome/2020/speaker/4468/)
 
 ## Abstract:
 Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the “native world” with Jetpack Compose and Swift UI.
