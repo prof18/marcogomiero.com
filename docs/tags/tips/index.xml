@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tips on Marco Gomiero</title>
-    <link>https://www.marcogomiero.com/tags/tips/</link>
-    <description>Recent content in Tips on Marco Gomiero</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.marcogomiero.com/tags/tips/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How I take note at conferences</title>
-      <link>https://www.marcogomiero.com/posts/2019/note-conferences/</link>
-      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid>
-      <description>Today I want to share my setup of note-taking that I use during conferences.
-Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tips on Marco Gomiero</title><link>https://www.marcogomiero.com/tags/tips/</link><description>Recent content in Tips on Marco Gomiero</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>How I take note at conferences</title><link>https://www.marcogomiero.com/posts/2019/note-conferences/</link><pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid><description>Today I want to share my setup of note-taking that I use during conferences.
+Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description></item></channel></rss>
