@@ -1,30 +1,178 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Marco Gomiero</title><link>https://www.marcogomiero.com/posts/</link><description>Recent content in Posts on Marco Gomiero</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Jan 2020 08:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title><link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</link><pubDate>Tue, 07 Jan 2020 08:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid><description>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Marco Gomiero</title>
+    <link>https://www.marcogomiero.com/posts/</link>
+    <description>Recent content in Posts on Marco Gomiero</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flutter or React Native, a cross-platfrom dilemma - How they work - (Part 3)</title>
+      <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-3-under-hood/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-3-under-hood/</guid>
+      <description>Welcome to the third part of this article series about React Native and Flutter. In the latest episode, we have talked about User Interfaces and how to build them in the two frameworks. In this article, we&amp;rsquo;ll go deeper under the hoods to understand how things work. But I will not go deeper with lot&amp;rsquo;s of details and implementation things, because I want to make you understand how the thing works at a high level.</description>
+    </item>
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title>
+      <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</link>
+      <pubDate>Tue, 07 Jan 2020 08:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid>
+      <description>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
 If you have lost the first episode, I suggest you read it before moving on.
-Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
-In this article, I will explain how to build user interfaces in React Native and Flutter.</description></item><item><title>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</title><link>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</link><pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</guid><description>These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; React Native and the &amp;ldquo;freshman&amp;rdquo; Flutter.
+ Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
+ In this article, I will explain how to build user interfaces in React Native and Flutter.</description>
+    </item>
+    
+    <item>
+      <title>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</title>
+      <link>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</guid>
+      <description>These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; React Native and the &amp;ldquo;freshman&amp;rdquo; Flutter.
 Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength&amp;hellip; so, all you need to know to help your choice.
-In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use.</description></item><item><title>How I take note at conferences</title><link>https://www.marcogomiero.com/posts/2019/note-conferences/</link><pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid><description>Today I want to share my setup of note-taking that I use during conferences.
-Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description></item><item><title>How to publish and distribute your Android library</title><link>https://www.marcogomiero.com/posts/2019/publish-librery-android/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/publish-librery-android/</guid><description>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
+In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use.</description>
+    </item>
+    
+    <item>
+      <title>How I take note at conferences</title>
+      <link>https://www.marcogomiero.com/posts/2019/note-conferences/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid>
+      <description>Today I want to share my setup of note-taking that I use during conferences.
+Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
+    </item>
+    
+    <item>
+      <title>How to publish and distribute your Android library</title>
+      <link>https://www.marcogomiero.com/posts/2019/publish-librery-android/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2019/publish-librery-android/</guid>
+      <description>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
 First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
-An example of a library module
-The library will be published to *jCenter, *a Maven repository hosted by bintray.</description></item><item><title>Bottom App Bar with Menu and Swipeable Tabs in Flutter</title><link>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</link><pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</guid><description>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
+The library will be published to *jCenter, *a Maven repository hosted by bintray.</description>
+    </item>
+    
+    <item>
+      <title>Bottom App Bar with Menu and Swipeable Tabs in Flutter</title>
+      <link>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</guid>
+      <description>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
 Image from Material Design Guidelines
 With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
-Here’s a spoiler of the final result:</description></item><item><title>A journey from Async Task to Kotlin Coroutines</title><link>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</link><pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</guid><description>Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
-RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description></item><item><title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</title><link>https://www.marcogomiero.com/posts/2018/bye-async-task/</link><pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2018/bye-async-task/</guid><description>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
-I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</description></item><item><title>New update for RSS Parser: featured image</title><link>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</link><pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</guid><description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
+Here’s a spoiler of the final result:</description>
+    </item>
+    
+    <item>
+      <title>A journey from Async Task to Kotlin Coroutines</title>
+      <link>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</guid>
+      <description>Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
+ RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
+    </item>
+    
+    <item>
+      <title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</title>
+      <link>https://www.marcogomiero.com/posts/2018/bye-async-task/</link>
+      <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2018/bye-async-task/</guid>
+      <description>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
+I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</description>
+    </item>
+    
+    <item>
+      <title>New update for RSS Parser: featured image</title>
+      <link>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</guid>
+      <description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
 This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
-Thanks to the issues and the suggestions provided by the community, I&amp;rsquo;ve improved the parsing of the feature image of the article.</description></item><item><title>How to install Wordpress on Arch Linux</title><link>https://www.marcogomiero.com/posts/2018/wordpress-arch/</link><pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2018/wordpress-arch/</guid><description>Every time I&amp;rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
+Thanks to the issues and the suggestions provided by the community, I&amp;rsquo;ve improved the parsing of the feature image of the article.</description>
+    </item>
+    
+    <item>
+      <title>How to install Wordpress on Arch Linux</title>
+      <link>https://www.marcogomiero.com/posts/2018/wordpress-arch/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2018/wordpress-arch/</guid>
+      <description>Every time I&amp;rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
 In all the following commands I&amp;rsquo;ve omitted &amp;ldquo;sudo&amp;rdquo;. Please use it when it is necessary.
 Before starting make you sure that all the packages are updated.
-1 pacman -Syu Install Apache First of all, you need to install and configure Apache, the web server.</description></item><item><title>New update for RSS Parser: article categories</title><link>https://www.marcogomiero.com/posts/2017/update-rss-lib/</link><pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2017/update-rss-lib/</guid><description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
+1  pacman -Syu   Install Apache First of all, you need to install and configure Apache, the web server.</description>
+    </item>
+    
+    <item>
+      <title>New update for RSS Parser: article categories</title>
+      <link>https://www.marcogomiero.com/posts/2017/update-rss-lib/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2017/update-rss-lib/</guid>
+      <description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
 This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
-Starting from today you can get also the categories of the article, like shown in the screen below.</description></item><item><title>How to easily handle RSS Feeds on Android with RSS Parser</title><link>https://www.marcogomiero.com/posts/2017/rss-parser-library/</link><pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2017/rss-parser-library/</guid><description>Two month ago I have talked about YoutubeParser, an Android Library that I developed. Today I want to talk about RSS-Parser, another library that I wrote.
+Starting from today you can get also the categories of the article, like shown in the screen below.</description>
+    </item>
+    
+    <item>
+      <title>How to easily handle RSS Feeds on Android with RSS Parser</title>
+      <link>https://www.marcogomiero.com/posts/2017/rss-parser-library/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2017/rss-parser-library/</guid>
+      <description>Two month ago I have talked about YoutubeParser, an Android Library that I developed. Today I want to talk about RSS-Parser, another library that I wrote.
 This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:
-Title Author Description Content Main Image Link Publication Date Here you can find an example of feed.</description></item><item><title>New big update for Youtube Parser: video stats and much more</title><link>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</link><pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</guid><description>Finally I&amp;rsquo;ve released a new big update for YoutubeParser. For people who don&amp;rsquo;t know what I&amp;rsquo;m talking about, don&amp;rsquo;t worry now I&amp;rsquo;m going to explain all.
+ Title Author Description Content Main Image Link Publication Date  Here you can find an example of feed.</description>
+    </item>
+    
+    <item>
+      <title>New big update for Youtube Parser: video stats and much more</title>
+      <link>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</guid>
+      <description>Finally I&amp;rsquo;ve released a new big update for YoutubeParser. For people who don&amp;rsquo;t know what I&amp;rsquo;m talking about, don&amp;rsquo;t worry now I&amp;rsquo;m going to explain all.
 YoutubeParser is the first Android library that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:
-Title Link
-Thumbnail, with three different image size. After a year I&amp;rsquo;ve released this new big update, named 2.</description></item><item><title>How to deal with backup &amp; restore on Android (Slide &amp; Video)</title><link>https://www.marcogomiero.com/posts/2017/backup-restore/</link><pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2017/backup-restore/</guid><description>I know, I&amp;rsquo;m very very late.
-On 17th December 2016 I&amp;rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16). Despite the firsts scared thoughts this was an amazing experience! In fact I&amp;rsquo;ve replicated that, but I&amp;rsquo;ll talk about it with a future post (that won&amp;rsquo;t be published the next year - I promise :) ). The topic of the talk was a hot one: backup and restore on Android Application.</description></item><item><title>Hello World!</title><link>https://www.marcogomiero.com/posts/2017/hello-world/</link><pubDate>Thu, 26 Jan 2017 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/2017/hello-world/</guid><description>Hello World!
+ Title Link Thumbnail, with three different image size.  After a year I&amp;rsquo;ve released this new big update, named 2.</description>
+    </item>
+    
+    <item>
+      <title>How to deal with backup &amp; restore on Android (Slide &amp; Video) </title>
+      <link>https://www.marcogomiero.com/posts/2017/backup-restore/</link>
+      <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2017/backup-restore/</guid>
+      <description>I know, I&amp;rsquo;m very very late.
+On 17th December 2016 I&amp;rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16). Despite the firsts scared thoughts this was an amazing experience! In fact I&amp;rsquo;ve replicated that, but I&amp;rsquo;ll talk about it with a future post (that won&amp;rsquo;t be published the next year - I promise :) ). The topic of the talk was a hot one: backup and restore on Android Application.</description>
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://www.marcogomiero.com/posts/2017/hello-world/</link>
+      <pubDate>Thu, 26 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2017/hello-world/</guid>
+      <description>Hello World!
 Finally I decided to create my personal website. You will find blog post, tutorial and much more. The main topics will be Android, Java, Python and all the stuff that will capture my attention.
-If you wanna know more about me and my projects you can give a look to the categories above!</description></item></channel></rss>
+If you wanna know more about me and my projects you can give a look to the categories above!</description>
+    </item>
+    
+  </channel>
+</rss>

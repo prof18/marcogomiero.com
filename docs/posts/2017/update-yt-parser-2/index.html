@@ -1,111 +1,543 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>New big update for Youtube Parser: video stats and much more | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noodp><meta name=Description content="Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let's see how it works!"><meta name=google-site-verification content=7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs><link rel=prev href=https://www.marcogomiero.com/posts/2017/backup-restore/><link rel=next href=https://www.marcogomiero.com/posts/2017/rss-parser-library/><link rel=canonical href=https://www.marcogomiero.com/posts/2017/update-yt-parser-2/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><meta name=twitter:card content=summary_large_image><meta name=twitter:image content=https://miro.medium.com/max/1400/1*rNC9B9nCUquBYtkfVv2aWQ.jpeg><meta name=twitter:title content="New big update for Youtube Parser: video stats and much more"><meta name=twitter:description content="Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let's see how it works!"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"New big update for Youtube Parser: video stats and much more","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2017\/update-yt-parser-2\/"},"genre":"posts","keywords":"Android","wordcount":773,"url":"https:\/\/www.marcogomiero.com\/posts\/2017\/update-yt-parser-2\/","datePublished":"2017-06-23T00:00:00\x2b00:00","dateModified":"2017-06-23T00:00:00\x2b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":"Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let\x27s see how it works!"}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
-<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
-<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
-<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
-<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
-<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
-<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
-<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
-<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><main class=main><div class=container><article class=post-warp><h1 class=post-title>New big update for Youtube Parser: video stats and much more</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime=23&#32;Jun&#32;2017>23 Jun 2017</time>&nbsp;
-<i class="fas fa-pencil-alt fa-fw"></i>about 773 words&nbsp;
-<i class="far fa-clock fa-fw"></i>4 min&nbsp;</div></div><br><div class=post-content><p>Finally I&rsquo;ve released a new big update for YoutubeParser. For people who don&rsquo;t know what I&rsquo;m talking about, don&rsquo;t worry now I&rsquo;m going to explain all.</p><p><strong>YoutubeParser</strong> is the first <strong>Android library</strong> that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:</p><ul><li>Title</li><li>Link<br></li><li>Thumbnail, with three different image size.</li></ul><p>After a year I&rsquo;ve released this new big update, named 2.0, that introduces a bunch of new things. First of all, now it is possible to load more than 50 videos from the same channel. 50 is the maximum number of videos that can be retrieved with a single request.</p><p>Furthermore you can also get the statistics of a video:</p><ul><li>View</li><li>Like</li><li>Dislike</li><li>Favorite Count</li><li>Comment Count</li></ul><p>The source code of the library is on Github together with a sample application that shows what you can do with the library.</p><ul><li><a href=https://github.com/prof18/YoutubeParser>Click here to view the library on Github</a></li><li><a href=https://github.com/prof18/YoutubeParser/tree/master/app>Click here to show the code of the sample app</a></li><li><a href=https://github.com/prof18/YoutubeParser/blob/master/YoutubeParser.apk>Click here to download the app</a></li></ul><p><img src=https://raw.githubusercontent.com/prof18/YoutubeParser/master/Screen.png width=50% height=50% align=center></p><p>Of course the library is available also on jCenter so you can easily add the dependency on Gradle.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>dependencies</span> <span class=o>{</span>
-  <span class=n>compile</span> <span class=s1>&#39;com.prof.youtubeparser:youtubeparser:2.0&#39;</span>
-<span class=o>}</span></code></pre></td></tr></table></div></div><p>Now let&rsquo;s look how it works. First of all you need to create a new <em>Parser</em> Object and then you have to create the url to load the data by using the method <em>generateRequest</em>. This method takes as parameter four values:</p><ul><li>The Channel ID of a Youtube Channel. For example, for this link <em>youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg</em>, the Channel ID is: <em>UCVHFbqXqoYvEWM1Ddxl0QDg</em></li><li>The maximum number of videos to show. This value can be maximum 50.</li><li>The type of ordering of the videos. It is possible to choose between two different type of ordering: by date or by views. To select the chosen value you have to use the constants: <em>Parser.ORDER_DATE</em> and <em>Parser.ORDER_VIEW_COUNT</em></li><li>The API Key. The key is a <em>BROSWER API KEY</em> and to create it you can follow <a href="https://support.google.com/cloud/answer/6158862?hl=en#creating-browser-api-keys">this guide</a></li></ul><p>If the data are correctly retrieved, you can do your stuff inside the <em>onTaskCompleted</em>. Here you have two variable: an <em>ArrayList</em> of <em>Video</em> items that you can use to populate your view for instance and a <em>token</em> that is necessary to load more data (see below for more details).</p><p>If there are some error on the process, you can handle the situation in the <em>onError()</em> method.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>youtubeparser</span><span class=p>.</span><span class=na>Parser</span><span class=p>;</span>
-<span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>youtubeparser</span><span class=p>.</span><span class=na>models</span><span class=p>.</span><span class=na>videos</span><span class=p>.</span><span class=na>Video</span><span class=p>;</span>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>New big update for Youtube Parser: video stats and much more | Marco Gomiero</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noodp" />
+<meta name="Description" content="Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let&#39;s see how it works!">
+<meta name="google-site-verification" content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs" />
+<link rel="prev" href="https://www.marcogomiero.com/posts/2017/backup-restore/" />
+<link rel="next" href="https://www.marcogomiero.com/posts/2017/rss-parser-library/" />
+<link rel="canonical" href="https://www.marcogomiero.com/posts/2017/update-yt-parser-2/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://miro.medium.com/max/1400/1*rNC9B9nCUquBYtkfVv2aWQ.jpeg"/>
 
-<span class=n>Parser</span> <span class=nf>parser</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Parser</span><span class=p>();</span>
+<meta name="twitter:title" content="New big update for Youtube Parser: video stats and much more"/>
+<meta name="twitter:description" content="Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let&#39;s see how it works!"/>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "New big update for Youtube Parser: video stats and much more",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/www.marcogomiero.com\/posts\/2017\/update-yt-parser-2\/"
+    },
+    
+    "genre": "posts",
+    
+        "keywords": "Android",
+    
+    "wordcount":  773 ,
+    "url": "https:\/\/www.marcogomiero.com\/posts\/2017\/update-yt-parser-2\/",
+    
+        "datePublished": "2017-06-23T00:00:00\x2b00:00",
+    
+    
+        "dateModified": "2017-06-23T00:00:00\x2b00:00",
+    
+    
+        "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
+    
+    
+    
+    "description": "Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let\x27s see how it works!"
+    }
+    </script>
+<link rel="stylesheet" href="/css/style.min.css">
+<link rel="stylesheet" href="/css/lib/fontawesome-free/all.min.min.css">
 
-<span class=c1>//(CHANNEL_ID, NUMBER_OF_RESULT_TO_SHOW, ORDER_TYPE ,BROSWER_API_KEY)
-</span><span class=c1>//https://www.youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg --&gt; channel id = UCVHFbqXqoYvEWM1Ddxl0QDg
-</span><span class=c1>//The maximum number of result to show is 50
-</span><span class=c1>//ORDER_TYPE --&gt; by date: &#34;Parser.ORDER_DATE&#34; or by number of views: &#34;ORDER_VIEW_COUNT&#34;  
-</span><span class=c1></span><span class=n>String</span> <span class=nf>url</span> <span class=o>=</span> <span class=n>parser</span><span class=p>.</span><span class=na>generateRequest</span><span class=p>(</span><span class=n>CHANNEL_ID</span><span class=p>,</span> <span class=n>20</span><span class=p>,</span> <span class=n>Parser</span><span class=p>.</span><span class=na>ORDER_DATE</span><span class=p>,</span> <span class=n>API_KEY</span><span class=p>);</span>
-<span class=n>parser</span><span class=p>.</span><span class=na>execute</span><span class=p>(</span><span class=n>url</span><span class=p>);</span>
-<span class=n>parser</span><span class=p>.</span><span class=na>onFinish</span><span class=p>(</span><span class=k>new</span> <span class=n>Parser</span><span class=p>.</span><span class=na>OnTaskCompleted</span><span class=p>()</span> <span class=p>{</span>
+<link rel="stylesheet" href="/css/lib/animate/animate.min.min.css">
 
-    <span class=nd>@Override</span>
-    <span class=kd>public</span> <span class=nf>void</span> <span class=n>onTaskCompleted</span><span class=p>(</span><span class=n>ArrayList</span><span class=o>&lt;</span><span class=n>Video</span><span class=o>&gt;</span> <span class=nf>list</span><span class=p>,</span> <span class=n>String</span> <span class=nf>nextPageToken</span><span class=p>)</span> <span class=p>{</span>
-      <span class=c1>//what to do when the parsing is done
-</span><span class=c1></span>      <span class=c1>//the ArrayList contains all video data. For example you can use it for your adapter
-</span><span class=c1></span>    <span class=p>}</span>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+    </head>
+    <body>
+        <script>
+            window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            window.isDark && document.body.classList.add('dark-theme');
+        </script>
+        <div class="wrapper">
+            <nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-header">
+            <a href="https://www.marcogomiero.com">Marco Gomiero</a>
+        </div>
+        <div class="navbar-menu">
+            
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/talks" title="">Talks</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/projects/" title="">Projects</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/about-me/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile">
+     <div class="navbar-container">
+        <div class="navbar-header">
+            <div class="navbar-header-title">
+                <a href="https://www.marcogomiero.com">Marco Gomiero</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="navbar-menu" id="mobile-menu">
+            
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/talks" title="">Talks</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/projects/" title="">Projects</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/about-me/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav><main class="main">
+                <div class="container">
+                    
+    
+    
+    
 
-    <span class=nd>@Override</span>
-    <span class=kd>public</span> <span class=nf>void</span> <span class=n>onError</span><span class=p>()</span> <span class=p>{</span>
-        <span class=c1>//what to do in case of error
-</span><span class=c1></span>    <span class=p>}</span>
-<span class=p>});</span></code></pre></td></tr></table></div></div><p>If you want to retrieved <strong>more videos from the same channel</strong>, the procedure is the same of the above case. The only difference is the method that generate the url; here you have to add the token retrieved from the above procedure.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=n>String</span> <span class=nf>url</span> <span class=o>=</span> <span class=n>parser</span><span class=p>.</span><span class=na>generateMoreDataRequest</span><span class=p>(</span><span class=n>CHANNEL_ID</span><span class=p>,</span> <span class=n>20</span><span class=p>,</span> <span class=n>Parser</span><span class=p>.</span><span class=na>ORDER_DATE</span><span class=p>,</span> <span class=n>API_KEY</span><span class=p>,</span> <span class=n>nextToken</span><span class=p>);</span></code></pre></td></tr></table></div></div><p>To get <strong>the statistics of a single video</strong>, the procedure is equivalent of the previous. As you can guess, the first thing to do is to generate the url with the <em>generateStatsRequest</em> method. The parameter of this method are:</p><ul><li>The ID of a Youtube Video</li><li>The API Key</li></ul><p>Also here you can handle the result in the <em>onTaskCompleted</em> method and any error in the <em>onError()</em> method.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>youtubeparser</span><span class=p>.</span><span class=na>VideoStats</span><span class=p>;</span>
-<span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>youtubeparser</span><span class=p>.</span><span class=na>models</span><span class=p>.</span><span class=na>stats</span><span class=p>.</span><span class=na>Statistics</span><span class=p>;</span>
+    <article class="post-warp">
+        <h1 class="post-title">New big update for Youtube Parser: video stats and much more</h1>
 
-<span class=n>VideoStats</span> <span class=nf>videoStats</span> <span class=o>=</span> <span class=k>new</span> <span class=n>VideoStats</span><span class=p>();</span>
-<span class=n>String</span> <span class=nf>url</span> <span class=o>=</span> <span class=n>videoStats</span><span class=p>.</span><span class=na>generateStatsRequest</span><span class=p>(</span><span class=n>videoId</span><span class=p>,</span> <span class=n>API_KEY</span><span class=p>);</span>
-<span class=n>videoStats</span><span class=p>.</span><span class=na>execute</span><span class=p>(</span><span class=n>url</span><span class=p>);</span>
-<span class=n>videoStats</span><span class=p>.</span><span class=na>onFinish</span><span class=p>(</span><span class=k>new</span> <span class=n>VideoStats</span><span class=p>.</span><span class=na>OnTaskCompleted</span><span class=p>()</span> <span class=p>{</span>
-  <span class=nd>@Override</span>
-  <span class=kd>public</span> <span class=nf>void</span> <span class=n>onTaskCompleted</span><span class=p>(</span><span class=n>Statistics</span> <span class=nf>stats</span><span class=p>)</span> <span class=p>{</span>
-      <span class=c1>//Here you can set the statistic to a Text View for instance
-</span><span class=c1></span>
-      <span class=c1>//for example:
-</span><span class=c1></span>      <span class=n>String</span> <span class=nf>body</span> <span class=o>=</span> <span class=s>&#34;Views: &#34;</span> <span class=o>+</span> <span class=n>stats</span><span class=p>.</span><span class=na>getViewCount</span><span class=p>()</span> <span class=o>+</span> <span class=s>&#34;\n&#34;</span> <span class=o>+</span>
-                    <span class=s>&#34;Like: &#34;</span> <span class=o>+</span> <span class=n>stats</span><span class=p>.</span><span class=na>getLikeCount</span><span class=p>()</span> <span class=o>+</span> <span class=s>&#34;\n&#34;</span> <span class=o>+</span>
-                    <span class=s>&#34;Dislike: &#34;</span> <span class=o>+</span> <span class=n>stats</span><span class=p>.</span><span class=na>getDislikeCount</span><span class=p>()</span> <span class=o>+</span> <span class=s>&#34;\n&#34;</span> <span class=o>+</span>
-                    <span class=s>&#34;Number of comment: &#34;</span> <span class=o>+</span> <span class=n>stats</span><span class=p>.</span><span class=na>getCommentCount</span><span class=p>()</span> <span class=o>+</span> <span class=s>&#34;\n&#34;</span> <span class=o>+</span>
-                    <span class=s>&#34;Number of favourite: &#34;</span> <span class=o>+</span> <span class=n>stats</span><span class=p>.</span><span class=na>getFavoriteCount</span><span class=p>();</span>
-  <span class=p>}</span>
-  <span class=nd>@Override</span>
-  <span class=kd>public</span> <span class=nf>void</span> <span class=n>onError</span><span class=p>()</span> <span class=p>{</span>
-      <span class=c1>//what to do in case of error
-</span><span class=c1></span>  <span class=p>}</span>
-<span class=p>});</span></code></pre></td></tr></table></div></div><p>That&rsquo;s all! Please let me know if you notice any bug or if you have any advice that can improve this library.</p><hr><p><em>Published also on <a href=https://medium.com/@marcogomiero/new-big-update-for-youtube-parser-video-stats-and-much-more-79dde73f21e6>Medium</a></em></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2017%2fupdate-yt-parser-2%2f&amp;text=New%20big%20update%20for%20Youtube%20Parser%3a%20video%20stats%20and%20much%20more&amp;via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2017%2fupdate-yt-parser-2%2f&amp;title=New%20big%20update%20for%20Youtube%20Parser%3a%20video%20stats%20and%20much%20more" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2017%2fupdate-yt-parser-2%2f&amp;title=New%20big%20update%20for%20Youtube%20Parser%3a%20video%20stats%20and%20much%20more" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section><span class=tag><a href=https://www.marcogomiero.com/tags/android/><i class="fas fa-tag fa-fw"></i>Android</a></span></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2017/backup-restore/ class=prev rel=prev title="How to deal with backup &amp; restore on Android (Slide &amp; Video)"><i class="fas fa-angle-left fa-fw"></i>How to deal with backup &amp; restore on Android (Slide &amp; Video)</a>
-<a href=https://www.marcogomiero.com/posts/2017/rss-parser-library/ class=next rel=next title="How to easily handle RSS Feeds on Android with RSS Parser">How to easily handle RSS Feeds on Android with RSS Parser<i class="fas fa-angle-right fa-fw"></i></a></div></div><div class=post-comment><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")
-return;var dsq=document.createElement("script");dsq.type="text/javascript";dsq.async=true;var disqus_shortname="marcogomiero";dsq.src="//"+disqus_shortname+".disqus.com/embed.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>
+        <div class="post-meta">
+            <div class="post-meta-main">
+                <br>
+                
+            </div>
+            <div class="post-meta-other">
+                <i class="far fa-calendar-alt fa-fw"></i><time datetime=23&#32;Jun&#32;2017> 23 Jun 2017</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i> about 773 words&nbsp;
+                <i class="far fa-clock fa-fw"></i> 4 min&nbsp;
+            </div>
+        </div>
+
+        
+
+        
+        <br>
+        <div class="post-content">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p>Finally I&rsquo;ve released a new big update for YoutubeParser. For people who don&rsquo;t know what I&rsquo;m talking about, don&rsquo;t worry now I&rsquo;m going to explain all.</p>
+<p><strong>YoutubeParser</strong> is the first <strong>Android library</strong> that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:</p>
+<ul>
+<li>Title</li>
+<li>Link</li>
+<li>Thumbnail, with three different image size.</li>
+</ul>
+<p>After a year I&rsquo;ve released this new big update, named 2.0, that introduces a bunch of new things. First of all, now it is possible to load more than 50 videos from the same channel. 50 is the maximum number of videos that can be retrieved with a single request.</p>
+<p>Furthermore you can also get the statistics of a video:</p>
+<ul>
+<li>View</li>
+<li>Like</li>
+<li>Dislike</li>
+<li>Favorite Count</li>
+<li>Comment Count</li>
+</ul>
+<p>The source code of the library is on Github together with a sample application that shows what you can do with the library.</p>
+<ul>
+<li><a href="https://github.com/prof18/YoutubeParser">Click here to view the library on Github</a></li>
+<li><a href="https://github.com/prof18/YoutubeParser/tree/master/app%22">Click here to show the code of the sample app</a></li>
+<li><a href="https://github.com/prof18/YoutubeParser/blob/master/YoutubeParser.apk">Click here to download the app</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Of course the library is available also on jCenter so you can easily add the dependency on Gradle.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-gradle" data-lang="gradle"><span class="n">dependencies</span> <span class="o">{</span>
+  <span class="n">compile</span> <span class="s1">&#39;com.prof.youtubeparser:youtubeparser:2.0&#39;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s look how it works. First of all you need to create a new <em>Parser</em> Object and then you have to create the url to load the data by using the method <em>generateRequest</em>. This method takes as parameter four values:</p>
+<ul>
+<li>The Channel ID of a Youtube Channel. For example, for this link <em>youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg</em>, the Channel ID is: <em>UCVHFbqXqoYvEWM1Ddxl0QDg</em></li>
+<li>The maximum number of videos to show. This value can be maximum 50.</li>
+<li>The type of ordering of the videos. It is possible to choose between two different type of ordering: by date or by views. To select the chosen value you have to use the constants: <em>Parser.ORDER_DATE</em> and <em>Parser.ORDER_VIEW_COUNT</em></li>
+<li>The API Key. The key is a <em>BROSWER API KEY</em> and to create it you can follow <a href="https://support.google.com/cloud/answer/6158862?hl=en#creating-browser-api-keys">this guide</a></li>
+</ul>
+<p>If the data are correctly retrieved, you can do your stuff inside the <em>onTaskCompleted</em>. Here you have two variable: an <em>ArrayList</em> of <em>Video</em> items that you can use to populate your view for instance and a <em>token</em> that is necessary to load more data (see below for more details).</p>
+<p>If there are some error on the process, you can handle the situation in the <em>onError()</em> method.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.prof.youtubeparser.Parser</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.prof.youtubeparser.models.videos.Video</span><span class="o">;</span>
+
+<span class="n">Parser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parser</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+
+<span class="c1">//(CHANNEL_ID, NUMBER_OF_RESULT_TO_SHOW, ORDER_TYPE ,BROSWER_API_KEY)
+</span><span class="c1"></span><span class="c1">//https://www.youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg --&gt; channel id = UCVHFbqXqoYvEWM1Ddxl0QDg
+</span><span class="c1"></span><span class="c1">//The maximum number of result to show is 50
+</span><span class="c1"></span><span class="c1">//ORDER_TYPE --&gt; by date: &#34;Parser.ORDER_DATE&#34; or by number of views: &#34;ORDER_VIEW_COUNT&#34;  
+</span><span class="c1"></span><span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">generateRequest</span><span class="o">(</span><span class="n">CHANNEL_ID</span><span class="o">,</span> <span class="n">20</span><span class="o">,</span> <span class="n">Parser</span><span class="o">.</span><span class="na">ORDER_DATE</span><span class="o">,</span> <span class="n">API_KEY</span><span class="o">)</span><span class="o">;</span>
+<span class="n">parser</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">url</span><span class="o">)</span><span class="o">;</span>
+<span class="n">parser</span><span class="o">.</span><span class="na">onFinish</span><span class="o">(</span><span class="k">new</span> <span class="n">Parser</span><span class="o">.</span><span class="na">OnTaskCompleted</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTaskCompleted</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Video</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="n">String</span> <span class="n">nextPageToken</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">//what to do when the parsing is done
+</span><span class="c1"></span>      <span class="c1">//the ArrayList contains all video data. For example you can use it for your adapter
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//what to do in case of error
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>If you want to retrieved <strong>more videos from the same channel</strong>, the procedure is the same of the above case. The only difference is the method that generate the url; here you have to add the token retrieved from the above procedure.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">generateMoreDataRequest</span><span class="o">(</span><span class="n">CHANNEL_ID</span><span class="o">,</span> <span class="n">20</span><span class="o">,</span> <span class="n">Parser</span><span class="o">.</span><span class="na">ORDER_DATE</span><span class="o">,</span> <span class="n">API_KEY</span><span class="o">,</span> <span class="n">nextToken</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>To get <strong>the statistics of a single video</strong>, the procedure is equivalent of the previous. As you can guess, the first thing to do is to generate the url with the <em>generateStatsRequest</em> method. The parameter of this method are:</p>
+<ul>
+<li>The ID of a Youtube Video</li>
+<li>The API Key</li>
+</ul>
+<p>Also here you can handle the result in the <em>onTaskCompleted</em> method and any error in the <em>onError()</em> method.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.prof.youtubeparser.VideoStats</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.prof.youtubeparser.models.stats.Statistics</span><span class="o">;</span>
+
+<span class="n">VideoStats</span> <span class="n">videoStats</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VideoStats</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">videoStats</span><span class="o">.</span><span class="na">generateStatsRequest</span><span class="o">(</span><span class="n">videoId</span><span class="o">,</span> <span class="n">API_KEY</span><span class="o">)</span><span class="o">;</span>
+<span class="n">videoStats</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">url</span><span class="o">)</span><span class="o">;</span>
+<span class="n">videoStats</span><span class="o">.</span><span class="na">onFinish</span><span class="o">(</span><span class="k">new</span> <span class="n">VideoStats</span><span class="o">.</span><span class="na">OnTaskCompleted</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTaskCompleted</span><span class="o">(</span><span class="n">Statistics</span> <span class="n">stats</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">//Here you can set the statistic to a Text View for instance
+</span><span class="c1"></span>
+      <span class="c1">//for example:
+</span><span class="c1"></span>      <span class="n">String</span> <span class="n">body</span> <span class="o">=</span> <span class="s">&#34;Views: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getViewCount</span><span class="o">(</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Like: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getLikeCount</span><span class="o">(</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Dislike: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getDislikeCount</span><span class="o">(</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Number of comment: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getCommentCount</span><span class="o">(</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Number of favourite: &#34;</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getFavoriteCount</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">//what to do in case of error
+</span><span class="c1"></span>  <span class="o">}</span>
+<span class="o">}</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>That&rsquo;s all! Please let me know if you notice any bug or if you have any advice that can improve this library.</p>
+<hr>
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/new-big-update-for-youtube-parser-video-stats-and-much-more-79dde73f21e6">Medium</a></em></p>
+
+        </div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-license">
+                
+            </div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md">
+                
+            </div>
+            <div class="post-info-share">
+                
+                    <span>
+    
+        <a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2017%2fupdate-yt-parser-2%2f&amp;text=New%20big%20update%20for%20Youtube%20Parser%3a%20video%20stats%20and%20much%20more&amp;via=marcoGomier" target="_blank" title="Share on Twitter">
+            <i class="fab fa-twitter fa-fw"></i>
+        </a>
+    
+    
+    
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2017%2fupdate-yt-parser-2%2f&amp;title=New%20big%20update%20for%20Youtube%20Parser%3a%20video%20stats%20and%20much%20more" target="_blank" title="Share on Reddit">
+            <i class="fab fa-reddit fa-fw"></i>
+        </a>
+    
+    
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2017%2fupdate-yt-parser-2%2f&amp;title=New%20big%20update%20for%20Youtube%20Parser%3a%20video%20stats%20and%20much%20more" target="_blank" title="Share on LinkedIn">
+            <i class="fab fa-linkedin fa-fw"></i>
+        </a>
+    
+    
+    
+    
+    
+    
+    
+</span>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section>
+            
+                
+                    <span class="tag">
+                        <a href="https://www.marcogomiero.com/tags/android/"><i class="fas fa-tag fa-fw"></i>Android</a>
+                    </span>
+                
+            
+        </section>
+        <section>
+            <span><a href="javascript:window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="https://www.marcogomiero.com">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+            <a href="https://www.marcogomiero.com/posts/2017/backup-restore/" class="prev" rel="prev" title="How to deal with backup &amp; restore on Android (Slide &amp; Video) "><i class="fas fa-angle-left fa-fw"></i>How to deal with backup &amp; restore on Android (Slide &amp; Video) </a>
+        
+        
+            <a href="https://www.marcogomiero.com/posts/2017/rss-parser-library/" class="next" rel="next" title="How to easily handle RSS Feeds on Android with RSS Parser">How to easily handle RSS Feeds on Android with RSS Parser<i class="fas fa-angle-right fa-fw"></i></a>
+        
+    </div>
+</div>
+
+        <div class="post-comment">
+            
+            
+
+            
+        </div>
+    </article></div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        <div class="copyright-line">
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear"> 2017 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.marcogomiero.com">Marco Gomiero</a></span></div>
+        <br>
+    </div>
+</footer>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+<script src="/js/lib/jquery/jquery.slim.min.min.js"></script>
+<script src="/js/lib/lazysizes/lazysizes.min.min.js"></script>
+<script src="/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js"></script><script>window.scroll = new SmoothScroll('[data-scroll]', {speed: 300, speedAsDuration: true});</script>
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+<script src="/js/blog.min.js"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-90975904-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</div>
+        <a href="#" class="dynamic-to-top" id="dynamic-to-top" data-scroll><span>&nbsp;</span></a>
+    </body>
+</html>

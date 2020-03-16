@@ -1,83 +1,474 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noodp><meta name=Description content="Computer Engineer · Android Developer · Community Manager"><meta name=google-site-verification content=7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs><link rel=prev href=https://www.marcogomiero.com/posts/2018/image-update-rss-lib/><link rel=next href=https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/><link rel=canonical href=https://www.marcogomiero.com/posts/2018/bye-async-task/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><meta name=twitter:card content=summary><meta name=twitter:title content="RSS Parser 2.0: bye bye Async Task, welcome Coroutines"><meta name=twitter:description content="Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
-I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin."><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"RSS Parser 2.0: bye bye Async Task, welcome Coroutines","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2018\/bye-async-task\/"},"genre":"posts","keywords":"Android","wordcount":549,"url":"https:\/\/www.marcogomiero.com\/posts\/2018\/bye-async-task\/","datePublished":"2018-12-22T00:00:00\x2b00:00","dateModified":"2018-12-22T00:00:00\x2b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
-<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
-<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
-<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
-<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
-<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
-<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
-<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
-<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><main class=main><div class=container><article class=post-warp><h1 class=post-title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime=22&#32;Dec&#32;2018>22 Dec 2018</time>&nbsp;
-<i class="fas fa-pencil-alt fa-fw"></i>about 549 words&nbsp;
-<i class="far fa-clock fa-fw"></i>3 min&nbsp;</div></div><br><div class=post-content><p>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.</p><p>I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</p><p><figure><img src=/img/loading.svg data-sizes=auto data-src=https://cdn-images-1.medium.com/max/2000/1*T__9s7dfREGnF13oRlBhDg.jpeg alt="class=lazyload"><figcaption class=image-caption></figcaption></figure></p><p>So I decided to rewrite the library using <strong>Kotlin</strong> and <strong>Coroutines</strong>, so I can (finally) get rid of <strong>Async Task</strong>.</p><p><figure><img src=/img/loading.svg data-sizes=auto data-src=https://cdn-images-1.medium.com/max/2000/1*87C2QK8usMRMZ-hpdrqKKA.jpeg alt="class=lazyload"><figcaption class=image-caption></figcaption></figure></p><p>Of course, I maintained the compatibility of the library for the projects that still use Java.</p><p>Shortly, the library allows to parse an RSS feed and retrieve some information like title, content, author, etc. You can found more information about the features of the library in the <a href=http://www.marcogomiero.com/posts/rss-parser-library/>blog post</a> that I’ve published some time ago or in the <a href=https://github.com/prof18/RSS-Parser>README</a> available on Github.</p><p>But now let’s see some code. In this article, I’ll show only how to use the library because I’m planning to publish another blog post with all the technical details and decisions that I have made during the development of this new version.</p><p>The usage is very simple both if you are using Java or Kotlin.
-If you are using <strong>Kotlin</strong>, you need to create a <em>Parser</em> object and then call the suspend method <em>getArticles</em> passing the <em>URL</em> of the RSS feed as parameter. Since this is a <em>suspend</em> function, you need to “<a href=https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html><em>launch</em></a>” the coroutine. Of course, you need also to handle the error case.</p><p>Here is an example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>rssparser</span><span class=p>.</span><span class=na>Article</span>
-<span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>rssparser</span><span class=p>.</span><span class=na>Parser</span>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines | Marco Gomiero</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noodp" />
+<meta name="Description" content="Computer Engineer · Android Developer · Community Manager">
+<meta name="google-site-verification" content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs" />
+<link rel="prev" href="https://www.marcogomiero.com/posts/2018/image-update-rss-lib/" />
+<link rel="next" href="https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/" />
+<link rel="canonical" href="https://www.marcogomiero.com/posts/2018/bye-async-task/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RSS Parser 2.0: bye bye Async Task, welcome Coroutines"/>
+<meta name="twitter:description" content="Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
+I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin."/>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "RSS Parser 2.0: bye bye Async Task, welcome Coroutines",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/www.marcogomiero.com\/posts\/2018\/bye-async-task\/"
+    },
+    
+    "genre": "posts",
+    
+        "keywords": "Android",
+    
+    "wordcount":  549 ,
+    "url": "https:\/\/www.marcogomiero.com\/posts\/2018\/bye-async-task\/",
+    
+        "datePublished": "2018-12-22T00:00:00\x2b00:00",
+    
+    
+        "dateModified": "2018-12-22T00:00:00\x2b00:00",
+    
+    
+        "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
+    
+    
+    
+    "description": ""
+    }
+    </script>
+<link rel="stylesheet" href="/css/style.min.css">
+<link rel="stylesheet" href="/css/lib/fontawesome-free/all.min.min.css">
 
-<span class=c1>//url of RSS feed
-</span><span class=c1></span><span class=kd>private</span> <span class=nf>val</span> <span class=n>url</span> <span class=o>=</span> <span class=s>&#34;[https://www.androidauthority.com/feed](https://www.androidauthority.com/feed)&#34;</span>
+<link rel="stylesheet" href="/css/lib/animate/animate.min.min.css">
 
-<span class=n>coroutineScope</span><span class=p>.</span><span class=na>launch</span><span class=p>(</span><span class=n>Dispatchers</span><span class=p>.</span><span class=na>Main</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>try</span> <span class=p>{</span>
-        <span class=n>val</span> <span class=nf>parser</span> <span class=o>=</span> <span class=n>Parser</span><span class=p>()</span>
-        <span class=n>val</span> <span class=nf>articleList</span> <span class=o>=</span> <span class=n>parser</span><span class=p>.</span><span class=na>getArticles</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
-        <span class=c1>// The list contains all article&#39;s data. For example you can use it for your adapter.
-</span><span class=c1></span>    <span class=p>}</span> <span class=k>catch</span> <span class=p>(</span><span class=n>e</span><span class=o>:</span> <span class=n>Exception</span><span class=p>)</span> <span class=p>{</span>
-        <span class=c1>// Handle the exception
-</span><span class=c1></span>    <span class=p>}</span>
-<span class=p>}</span></code></pre></td></tr></table></div></div><p>A complete example with Kotlin is available on <a href=https://github.com/prof18/RSS-Parser/tree/master/samplekotlin>Github</a>.</p><p>If you don’t know anything about the coroutines, I suggest you give a look to the <a href=https://codelabs.developers.google.com/codelabs/kotlin-coroutines/>Codelab</a> provided by Google.</p><p>Instead, if you are still using <strong>Java</strong> in your Android project, the usage is pretty the same as the older version of the library. You need to create a <em>Parser</em> object, implements the callbacks that handle the result and the error and finally start the parsing by calling the <em>execute</em> method passing the <em>URL</em> as parameter.</p><p>Here is an example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>rssparser</span><span class=p>.</span><span class=na>Article</span><span class=p>;</span>
-<span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>rssparser</span><span class=p>.</span><span class=na>OnTaskCompleted</span><span class=p>;</span>
-<span class=kn>import</span> <span class=nf>com</span><span class=p>.</span><span class=na>prof</span><span class=p>.</span><span class=na>rssparser</span><span class=p>.</span><span class=na>Parser</span><span class=p>;</span>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+    </head>
+    <body>
+        <script>
+            window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            window.isDark && document.body.classList.add('dark-theme');
+        </script>
+        <div class="wrapper">
+            <nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-header">
+            <a href="https://www.marcogomiero.com">Marco Gomiero</a>
+        </div>
+        <div class="navbar-menu">
+            
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/talks" title="">Talks</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/projects/" title="">Projects</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/about-me/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile">
+     <div class="navbar-container">
+        <div class="navbar-header">
+            <div class="navbar-header-title">
+                <a href="https://www.marcogomiero.com">Marco Gomiero</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="navbar-menu" id="mobile-menu">
+            
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/talks" title="">Talks</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/projects/" title="">Projects</a>
+            
+                <a class="menu-item" href="https://www.marcogomiero.com/about-me/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav><main class="main">
+                <div class="container">
+                    
+    
+    
+    
 
-<span class=n>Parser</span> <span class=nf>parser</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Parser</span><span class=p>();</span>
-<span class=n>parser</span><span class=p>.</span><span class=na>onFinish</span><span class=p>(</span><span class=k>new</span> <span class=n>OnTaskCompleted</span><span class=p>()</span> <span class=p>{</span>
+    <article class="post-warp">
+        <h1 class="post-title">RSS Parser 2.0: bye bye Async Task, welcome Coroutines</h1>
 
-    <span class=c1>//what to do when the parsing is done
-</span><span class=c1></span>    <span class=nd>@Override</span>
-    <span class=kd>public</span> <span class=nf>void</span> <span class=n>onTaskCompleted</span><span class=p>(</span><span class=n>List</span><span class=o>&lt;</span><span class=n>Article</span><span class=o>&gt;</span> <span class=nf>list</span><span class=p>)</span> <span class=p>{</span>
-        <span class=c1>// The list contains all article&#39;s data. For example you can use it for your adapter.
-</span><span class=c1></span>    <span class=p>}</span>
+        <div class="post-meta">
+            <div class="post-meta-main">
+                <br>
+                
+            </div>
+            <div class="post-meta-other">
+                <i class="far fa-calendar-alt fa-fw"></i><time datetime=22&#32;Dec&#32;2018> 22 Dec 2018</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i> about 549 words&nbsp;
+                <i class="far fa-clock fa-fw"></i> 3 min&nbsp;
+            </div>
+        </div>
 
-    <span class=c1>//what to do in case of error
-</span><span class=c1></span>    <span class=nd>@Override</span>
-    <span class=kd>public</span> <span class=nf>void</span> <span class=n>onError</span><span class=p>(</span><span class=n>Exception</span> <span class=nf>e</span><span class=p>)</span> <span class=p>{</span>
-        <span class=c1>// Handle the exception
-</span><span class=c1></span>    <span class=p>}</span>
-<span class=p>});</span>
-<span class=n>parser</span><span class=p>.</span><span class=na>execute</span><span class=p>(</span><span class=n>urlString</span><span class=p>);</span></code></pre></td></tr></table></div></div><p>A complete example in Java is also available on <a href=https://github.com/prof18/RSS-Parser/tree/master/samplejava>Github</a>.</p><p>That’s all! For all the details or to report a bug, please visit the repo on <a href=https://github.com/prof18/RSS-Parser>Github</a>.</p><hr><p><em>Published also on <a href=https://medium.com/@marcogomiero/rss-parser-2-0-bye-bye-async-task-welcome-coroutines-6002c9de5145>Medium</a></em></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2018%2fbye-async-task%2f&amp;text=RSS%20Parser%202.0%3a%20bye%20bye%20Async%20Task%2c%20welcome%20Coroutines&amp;via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2018%2fbye-async-task%2f&amp;title=RSS%20Parser%202.0%3a%20bye%20bye%20Async%20Task%2c%20welcome%20Coroutines" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2018%2fbye-async-task%2f&amp;title=RSS%20Parser%202.0%3a%20bye%20bye%20Async%20Task%2c%20welcome%20Coroutines" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section><span class=tag><a href=https://www.marcogomiero.com/tags/android/><i class="fas fa-tag fa-fw"></i>Android</a></span></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2018/image-update-rss-lib/ class=prev rel=prev title="New update for RSS Parser: featured image"><i class="fas fa-angle-left fa-fw"></i>New update for RSS Parser: featured image</a>
-<a href=https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/ class=next rel=next title="A journey from Async Task to Kotlin Coroutines">A journey from Async Task to Kotlin Coroutines<i class="fas fa-angle-right fa-fw"></i></a></div></div><div class=post-comment><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")
-return;var dsq=document.createElement("script");dsq.type="text/javascript";dsq.async=true;var disqus_shortname="marcogomiero";dsq.src="//"+disqus_shortname+".disqus.com/embed.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>
+        
+
+        
+        <br>
+        <div class="post-content">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.</p>
+<p>I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*T__9s7dfREGnF13oRlBhDg.jpeg" alt=""></p>
+<p>So I decided to rewrite the library using <strong>Kotlin</strong> and <strong>Coroutines</strong>, so I can (finally) get rid of <strong>Async Task</strong>.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*87C2QK8usMRMZ-hpdrqKKA.jpeg" alt=""></p>
+<p>Of course, I maintained the compatibility of the library for the projects that still use Java.</p>
+<p>Shortly, the library allows to parse an RSS feed and retrieve some information like title, content, author, etc. You can found more information about the features of the library in the <a href="http://www.marcogomiero.com/posts/rss-parser-library/">blog post</a> that I’ve published some time ago or in the <a href="https://github.com/prof18/RSS-Parser">README</a> available on Github.</p>
+<p>But now let’s see some code. In this article, I’ll show only how to use the library because I’m planning to publish another blog post with all the technical details and decisions that I have made during the development of this new version.</p>
+<p>The usage is very simple both if you are using Java or Kotlin.
+If you are using <strong>Kotlin</strong>, you need to create a <em>Parser</em> object and then call the suspend method <em>getArticles</em> passing the <em>URL</em> of the RSS feed as parameter. Since this is a <em>suspend</em> function, you need to “<a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html"><em>launch</em></a>” the coroutine. Of course, you need also to handle the error case.</p>
+<p>Here is an example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.prof.rssparser.Article</span>
+<span class="kn">import</span> <span class="nn">com.prof.rssparser.Parser</span>
+
+<span class="c1">//url of RSS feed
+</span><span class="c1"></span><span class="kd">private</span> <span class="n">val</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&#34;[https://www.androidauthority.com/feed](https://www.androidauthority.com/feed)&#34;</span>
+
+<span class="n">coroutineScope</span><span class="o">.</span><span class="na">launch</span><span class="o">(</span><span class="n">Dispatchers</span><span class="o">.</span><span class="na">Main</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">val</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">Parser</span><span class="o">(</span><span class="o">)</span>
+        <span class="n">val</span> <span class="n">articleList</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">getArticles</span><span class="o">(</span><span class="n">url</span><span class="o">)</span>
+        <span class="c1">// The list contains all article&#39;s data. For example you can use it for your adapter.
+</span><span class="c1"></span>    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">e</span><span class="o">:</span> <span class="n">Exception</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle the exception
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>A complete example with Kotlin is available on <a href="https://github.com/prof18/RSS-Parser/tree/master/samplekotlin">Github</a>.</p>
+<p>If you don’t know anything about the coroutines, I suggest you give a look to the <a href="https://codelabs.developers.google.com/codelabs/kotlin-coroutines/">Codelab</a> provided by Google.</p>
+<p>Instead, if you are still using <strong>Java</strong> in your Android project, the usage is pretty the same as the older version of the library. You need to create a <em>Parser</em> object, implements the callbacks that handle the result and the error and finally start the parsing by calling the <em>execute</em> method passing the <em>URL</em> as parameter.</p>
+<p>Here is an example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.prof.rssparser.Article</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.prof.rssparser.OnTaskCompleted</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.prof.rssparser.Parser</span><span class="o">;</span>
+
+<span class="n">Parser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parser</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="n">parser</span><span class="o">.</span><span class="na">onFinish</span><span class="o">(</span><span class="k">new</span> <span class="n">OnTaskCompleted</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">//what to do when the parsing is done
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTaskCompleted</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Article</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// The list contains all article&#39;s data. For example you can use it for your adapter.
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="c1">//what to do in case of error
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle the exception
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span><span class="o">)</span><span class="o">;</span>
+<span class="n">parser</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">urlString</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>A complete example in Java is also available on <a href="https://github.com/prof18/RSS-Parser/tree/master/samplejava">Github</a>.</p>
+<p>That’s all! For all the details or to report a bug, please visit the repo on <a href="https://github.com/prof18/RSS-Parser">Github</a>.</p>
+<hr>
+<p><em>Published also on <a href="https://medium.com/@marcogomiero/rss-parser-2-0-bye-bye-async-task-welcome-coroutines-6002c9de5145">Medium</a></em></p>
+
+        </div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-license">
+                
+            </div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md">
+                
+            </div>
+            <div class="post-info-share">
+                
+                    <span>
+    
+        <a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2018%2fbye-async-task%2f&amp;text=RSS%20Parser%202.0%3a%20bye%20bye%20Async%20Task%2c%20welcome%20Coroutines&amp;via=marcoGomier" target="_blank" title="Share on Twitter">
+            <i class="fab fa-twitter fa-fw"></i>
+        </a>
+    
+    
+    
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2018%2fbye-async-task%2f&amp;title=RSS%20Parser%202.0%3a%20bye%20bye%20Async%20Task%2c%20welcome%20Coroutines" target="_blank" title="Share on Reddit">
+            <i class="fab fa-reddit fa-fw"></i>
+        </a>
+    
+    
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2018%2fbye-async-task%2f&amp;title=RSS%20Parser%202.0%3a%20bye%20bye%20Async%20Task%2c%20welcome%20Coroutines" target="_blank" title="Share on LinkedIn">
+            <i class="fab fa-linkedin fa-fw"></i>
+        </a>
+    
+    
+    
+    
+    
+    
+    
+</span>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section>
+            
+                
+                    <span class="tag">
+                        <a href="https://www.marcogomiero.com/tags/android/"><i class="fas fa-tag fa-fw"></i>Android</a>
+                    </span>
+                
+            
+        </section>
+        <section>
+            <span><a href="javascript:window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="https://www.marcogomiero.com">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+            <a href="https://www.marcogomiero.com/posts/2018/image-update-rss-lib/" class="prev" rel="prev" title="New update for RSS Parser: featured image"><i class="fas fa-angle-left fa-fw"></i>New update for RSS Parser: featured image</a>
+        
+        
+            <a href="https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/" class="next" rel="next" title="A journey from Async Task to Kotlin Coroutines">A journey from Async Task to Kotlin Coroutines<i class="fas fa-angle-right fa-fw"></i></a>
+        
+    </div>
+</div>
+
+        <div class="post-comment">
+            
+            
+
+            
+        </div>
+    </article></div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        <div class="copyright-line">
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear"> 2017 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.marcogomiero.com">Marco Gomiero</a></span></div>
+        <br>
+    </div>
+</footer>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+<script src="/js/lib/jquery/jquery.slim.min.min.js"></script>
+<script src="/js/lib/lazysizes/lazysizes.min.min.js"></script>
+<script src="/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js"></script><script>window.scroll = new SmoothScroll('[data-scroll]', {speed: 300, speedAsDuration: true});</script>
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+<script src="/js/blog.min.js"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-90975904-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</div>
+        <a href="#" class="dynamic-to-top" id="dynamic-to-top" data-scroll><span>&nbsp;</span></a>
+    </body>
+</html>
