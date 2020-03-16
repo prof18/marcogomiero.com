@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Flutter or React Native, a cross-platfrom dilemma - How they work - (Part 3)"
+title:  "Flutter or React Native, a cross-platform dilemma - How they work - (Part 3)"
 date:   2020-03-16
 show_in_homepage: true
 images:

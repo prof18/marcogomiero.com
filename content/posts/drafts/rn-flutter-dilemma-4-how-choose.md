@@ -1,8 +1,12 @@
 ---
 layout: post
-title:  "Flutter or React Native, a cross-platfrom dilemma - How to chose - (Part 4)"
+title:  "Flutter or React Native, a cross-platform dilemma - How to chose + Bonus - (Part 4)"
 date:   2019-09-09
 draft: true
+show_in_homepage: true
+images:
+  - https://www.marcogomiero.com/img/flutter-rn/virtual-dom.png
+tags: [Flutter, React Native]
 ---
 
 Welcome to the fourth and last part of this article series about React Native and Flutter. 
@@ -17,13 +21,15 @@ In the seconde episode, we have talked about User Interfaces and how to build th
 
 In the third episode we went deeper under the hoods to understand how things work.
 
-> [Flutter or React Native, a cross-platfrom dilemma - How they work - (Part 3)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-3-under-hood/)
+> [Flutter or React Native, a cross-platform dilemma - How they work - (Part 3)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-3-under-hood/)
 
 And now it's time to wrap things up by trying to understand how to choose the right framework for you.
 
 
 
 <!-- 
+
+The bonus is the presentation and the talk 
 
 Crossplatform is not bad but... IS NOT better than native It’s a choice with compromises based on specific situation If trouble became higher than benefits,make a step back.
 
