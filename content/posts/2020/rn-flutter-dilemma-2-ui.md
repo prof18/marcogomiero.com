@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 
 The entry point of this Hello World is the `render` method. Inside this method, we declare all the *items* (these items have a precise name, but I'll reveal it in a moment) that has to be rendered on the screen. In this case, there is a [`View`](https://facebook.github.io/react-native/docs/view) with inside a [`Text`](https://facebook.github.io/react-native/docs/text). These *items* are called **Components** and a **Component** is the basic building block that composes the UI. Of course, as showed in the example above, the **Components** can be nested together to build more complex components and UIs. 
 
-The **Components** are declared and stylized (the styling is done by using *CSS*) by using a **D**omain **S**pecific **L**anguage called **JSX**. This **DSL** is basically a (very simple) mixture of *Javascript* and *XML*. For more information about **JSX**, please refear to the [documentation](https://reactjs.org/docs/glossary.html#jsx).  
+The **Components** are declared and stylized (the styling is done by using *CSS*) by using a **D**omain **S**pecific **L**anguage called **JSX**. This **DSL** is basically a (very simple) mixture of *Javascript* and *XML*. For more information about **JSX**, please refer to the [documentation](https://reactjs.org/docs/glossary.html#jsx).  
 
 ```jsx
 <Text
