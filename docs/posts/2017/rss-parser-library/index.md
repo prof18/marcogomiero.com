@@ -62,7 +62,3 @@ parser.onFinish(new Parser.OnTaskCompleted() {
 ```
 
 That’s all! Please let me know if you notice any bug or if you have any advice that can improve this library.
-
-----
-
-*Published also on [Medium](https://medium.com/@marcogomiero/how-to-easily-handle-rss-feeds-on-android-with-rss-parser-8acc98e8926f)*

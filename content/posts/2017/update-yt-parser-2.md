@@ -122,6 +122,3 @@ videoStats.onFinish(new VideoStats.OnTaskCompleted() {
 
 That's all! Please let me know if you notice any bug or if you have any advice that can improve this library.
 
-----
-
-*Published also on [Medium](https://medium.com/@marcogomiero/new-big-update-for-youtube-parser-video-stats-and-much-more-79dde73f21e6)*

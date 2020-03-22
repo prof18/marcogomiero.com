@@ -5,12 +5,11 @@ You have just built an awesome Android library but you don’t know how to publi
 
 First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.
 
-![An example of a library module](https://cdn-images-1.medium.com/max/2000/1*FoYazVYDj5FlCpQuX88v9w.png)
-<center>*An example of a library module*</center>
+{{< figure src="/img/library/android-studio.png" alt="image" caption="*An example of a library module*" >}}
 
 The library will be published to *jCenter, *a Maven repository hosted by [bintray.com](http://www.bintray.com). The process is simple: the library is built locally in Android Studio, the artifacts will be upload to *bintray* and then linked to *jCenter.*
 
-![](https://cdn-images-1.medium.com/max/2000/1*iExRbQhqoflgn3mJjuwY7w.png)
+{{< figure src="/img/library/scheme.png" alt="image" >}}
 
 In this way, the developers that want to use your library has only to declare it in the *build.gradle *file of their projects. For example:
 
@@ -20,25 +19,21 @@ implementation "com.prof.rssparser:rssparser:2.0.4"
 
 The first thing to do is to create a [Bintray](https://bintray.com/) account and for open source projects is FREE.
 
-![Create a Bintray account](https://cdn-images-1.medium.com/max/2000/1*_tBskl_JTR6UbEYZD0sSpg.png)
-<center>*Create a Bintray account*</center>
+{{< figure src="/img/library/account.png" alt="image" caption="*Create a Bintray account*" >}}
 
 After the creation of the account, you have to choose a repository. Let’s go with Maven (I know, you are thinking “Why? I want to publish it to jCenter”. Well, as said above jCenter is a Maven repository so we have to choose Maven).
 
-![Choose Maven as repository](https://cdn-images-1.medium.com/max/2000/1*iGCmnnoRg0WIAE8Qywaodg.png)
-<center>*Choose Maven as repository*</center>
+{{< figure src="/img/library/profile.png" alt="image" caption="*Choose Maven as repository*" >}}
 
 Now you can create a new package inside your Maven repository.
 
-![Add a new package to the Maven repository](https://cdn-images-1.medium.com/max/2000/1*PP8lVgEaoTzjaOqmrC2Isw.png)
-<center>*Add a new package to the Maven repository*</center>
+{{< figure src="/img/library/add-package.png" alt="image" caption="*Add a new package to the Maven repository*" >}}
 
-![Add basic information of the library](https://cdn-images-1.medium.com/max/2000/1*dZhP4R7gzMTVzdkriYFzHw.png)
-<center>*Add basic information of the library*</center>
+{{< figure src="/img/library/create-package.png" alt="image" caption="*Add basic information of the library*" >}}
 
 After adding all the basic information of your library, like name, description, license, tags, etc., the repository of the library is ready.
 
-![](https://cdn-images-1.medium.com/max/2000/1*CYoMvJQtZu3i3PSgiB74Bw.png)
+{{< figure src="/img/library/lib.png" alt="image" >}}
 
 Now, back to the code. I’ll take as reference, a library that I’ve developed, so you can dive into the real code if you want.
 
@@ -71,13 +66,113 @@ At this point, we are ready to create the publishing script. Inside the library 
 apply from: 'publish.gradle'
 ```
 
-{{< gist prof18 b8783f870354d3e131cea887a2d6a6b4 >}}
+```gradle
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+group 'com.your.awesome.lib'
+version '1.0.0'
+
+publishing {
+    publications {
+        Production(MavenPublication) {
+            artifact("$buildDir/outputs/aar/awesomelibrary-release.aar")  {
+                builtBy tasks.getByName("assembleRelease")
+            }
+            groupId
+            artifactId 'awesomelibrary'
+            version this.version
+
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+
+                // Iterate over the implementation dependencies (we don't want the test ones), adding a <dependency> node for each
+                configurations.implementation.allDependencies.each {
+                    // Ensure dependencies such as fileTree are not included in the pom.
+                    if (it.name != 'unspecified') {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
+                }
+            }
+        }
+    }
+}
+
+def properties = new Properties()
+properties.load(new FileInputStream("local.properties"))
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['Production']
+    configurations = ['archives']
+    override = true
+    pkg {
+        repo = 'maven'
+        name = 'AwesomeLib'
+        description = "It's an awesome lib"
+        publicDownloadNumbers = true
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/prof18/AwesomeLib'
+        version {
+            name = this.version
+            desc = "Version ${this.version}"
+            released = new Date()
+            vcsTag = this.version
+        }
+    }
+}
+```
 
 ---
 
 **EDIT**: Starting from Gradle 5 and above, the previous script is not valid anymore and you need to change it a little bit.
 
-{{< gist prof18 ac3a632e7604436f483220c435b6edef >}}
+```gradle
+apply plugin: 'com.jfrog.bintray'
+
+group 'com.your.awesome.lib'
+version '1.0.0'
+
+project.ext {
+    mavGitUrl = 'https://github.com/prof18/AwesomeLib.git'
+    mavProjectName = 'AwesomeLib'
+    mavLibraryLicenses = ["Apache-2.0":'http://www.apache.org/licenses/LICENSE-2.0.txt']
+    mavLibraryDescription = "An Awesome Android library"
+    mavPublishToMavenLocal = true
+    mavSiteUrl = 'https://github.com/prof18/AwesomeLib'
+}
+
+def properties = new Properties()
+properties.load(new FileInputStream("local.properties"))
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['Production']
+    configurations = ['archives']
+    override = true
+    pkg {
+        repo = 'maven'
+        name = 'AwesomeLib'
+        description = "It's an awesome lib"
+        publicDownloadNumbers = true
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/prof18/AwesomeLib'
+        version {
+            name = this.version
+            desc = "Version ${this.version}"
+            released = new Date()
+            vcsTag = this.version
+        }
+    }
+}
+
+apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle'
+```
 
 To better understand the changes, you can refer to [the diff](https://gist.github.com/prof18/ac3a632e7604436f483220c435b6edef/revisions#diff-d2449a02877e0ea0956446e281890efd).
 
@@ -149,27 +244,28 @@ Finally, it’s time to open the Terminal and launch the build and upload task (
 
 If everything went well, the artifacts have been uploaded to bintray but not yet published.
 
-![New version uploaded but not yet published](https://cdn-images-1.medium.com/max/2000/1*mQwixMjhUz7JUiyyDnHPyw.png)
+<!-- ![](https://cdn-images-1.medium.com/max/2000/1*mQwixMjhUz7JUiyyDnHPyw.png) -->
 <center>*New version uploaded but not yet published*</center>
+
+{{< figure src="/img/library/versions.png" alt="image" caption="*New version uploaded but not yet published*" >}}
 
 I have intentionally disabled the automatic publishing because it can save your life if there are some errors. But if you want, there is a flag that you can put in the *publish.gradle* file that automatically publishes the library as soon it has been uploaded.
 
 To publish the library, you have to click the *Publish *button on a banner that appears in the repository page of the library.
 
-![](https://cdn-images-1.medium.com/max/2000/1*-B3JOLzBAO6-sQu7A3nHKg.png)
+{{< figure src="/img/library/unpublished.png" alt="image" >}}
 
 And now the last step. You have to link the library to jCenter. This process must be done only the first time. At the right bottom of the library repository page, there is a “*Add to jCenter*”* *button.
 
-![Link the library to jCenter](https://cdn-images-1.medium.com/max/2000/1*D9LScYGoESnPK3VJ-TRRjA.png)
-<center>*Link the library to jCenter*</center>
+{{< figure src="/img/library/linked.png" alt="image" caption="*Link the library to jCenter*" >}}
 
 Send the request and wait for the approval.
 
-![](https://cdn-images-1.medium.com/max/2000/1*pgF7SwSRMTh_VfitSncemQ.png)
+{{< figure src="/img/library/message.png" alt="image" >}}
 
 Within max two hours, your library is published and linked to jCenter, as you can see in the repository page.
 
-![](https://cdn-images-1.medium.com/max/2000/1*Tmp88sDZCNhYphsK_fA29g.png)
+{{< figure src="/img/library/jcenter.png" alt="image" >}}
 
 Finally, you can tell the world about your awesome library and provide the signature to implement it.
 
@@ -180,7 +276,3 @@ dependencies {
 ```
 
 And that’s all folks! I agree with you that the process is not simple but I hope to have cleared all your doubts.
-
-----
-
-*Published also on [Medium](https://medium.com/swlh/how-to-publish-and-distribute-your-android-library-ce845c68c7f7)*

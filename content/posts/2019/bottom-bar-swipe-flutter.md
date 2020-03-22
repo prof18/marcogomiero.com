@@ -8,13 +8,13 @@ tags: [Flutter]
 
 The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
 
-![Image from [Material Design Guidelines](https://material.io/design/components/app-bars-bottom.html#)](https://cdn-images-1.medium.com/max/3040/1*ToNzjvmwSmUMNQivKv361A.png)*Image from [Material Design Guidelines](https://material.io/design/components/app-bars-bottom.html#)*
+{{< figure src="/img/bottom-bar.png" alt="image" caption="*Image from [Material Design Guidelines](https://material.io/design/components/app-bars-bottom.html#)*" >}}
 
 With Flutter is super easy to implement like shown in the [official documentation](https://docs.flutter.io/flutter/material/BottomAppBar-class.html). However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
 
 Here’s a spoiler of the final result:
 
-![](https://cdn-images-1.medium.com/max/2000/1*1hnvZF-24FwU25FAdWQiGg.gif)
+{{< figure src="/img/bottom.gif" alt="image" >}}
 
 So (another spoiler), we have to mix together three elements: a **BottomAppBar**, a **BottomSheet**, and a **TabBarView**.
 
@@ -148,7 +148,3 @@ Of course, you can find the complete code on my Github.
 > [prof18/BottomAppBarSwipeableTabs](https://github.com/prof18/BottomAppBarSwipeableTabs)
 
 If you have any kind of feedback, leave a comment below!
-
-----
-
-*Published also on [Medium](https://medium.com/@marcogomiero/bottom-app-bar-with-menu-and-swipeable-tabs-in-flutter-285ff2042cb8)*

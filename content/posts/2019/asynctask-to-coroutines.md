@@ -8,6 +8,7 @@ show_in_homepage: true
 tags: [Android]
 ---
 
+{{< figure src="/img/path.jpeg" alt="image" caption="*Photo by [felipe lopez](https://unsplash.com/@flopez_nice) on [Unsplash](https://unsplash.com)*" >}}
 
 Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
 
@@ -60,11 +61,103 @@ The first release of the library is dated 18 June 2016, a period when there wasn
 
 I used an Async Task to handle the network request; the result of the request is sent to an XML Parser that notifies its result when the parsing was done. Here’s the code of the Parser:
 
-{{< gist prof18 58fe7e2afb9a5f070413d570bff9af8c >}}
+```java
+public class Parser extends AsyncTask<String, Void, String> implements Observer {
+
+    private XMLParser xmlParser;
+    private static ArrayList<Article> articles = new ArrayList<>();
+    private OnTaskCompleted onComplete;
+
+    public Parser() {
+        xmlParser = new XMLParser();
+        xmlParser.addObserver(this);
+    }
+
+    public interface OnTaskCompleted {
+        void onTaskCompleted(ArrayList<Article> list);
+        void onError();
+    }
+
+    public void onFinish(OnTaskCompleted onComplete) {
+        this.onComplete = onComplete;
+    }
+
+    @Override
+    protected String doInBackground(String... ulr) {
+
+        Response response = null;
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(ulr[0])
+                .build();
+
+        try {
+            response = client.newCall(request).execute();
+            if (response.isSuccessful())
+                return response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+            onComplete.onError();
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        if (result != null) {
+            try {
+                xmlParser.parseXML(result);
+                Log.i("RSS Parser ", "RSS parsed correctly!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                onComplete.onError();
+            }
+        } else
+            onComplete.onError();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public void update(Observable observable, Object data) {
+        articles = (ArrayList<Article>) data;
+        onComplete.onTaskCompleted(articles);
+    }
+}
+```
 
 Then, the result of the parsing (or an error of parsing) is notified to the “main executor” (the application that uses the library) with two simple callbacks.
 
-{{< gist prof18 ac5463e4293c09bfb9f62aebb0064791 >}}
+```java
+Parser parser = new Parser();
+parser.execute(urlString);
+parser.onFinish(new Parser.OnTaskCompleted() {
+    //what to do when the parsing is done
+    @Override
+    public void onTaskCompleted(ArrayList<Article> list) {
+        //list is an Array List with all article's information
+        //set the adapter to recycler view
+        mAdapter = new ArticleAdapter(list, R.layout.row, MainActivity.this);
+        mRecyclerView.setAdapter(mAdapter);
+        progressBar.setVisibility(View.GONE);
+        mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    //what to do in case of error
+    @Override
+    public void onError() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+                mSwipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(MainActivity.this, "Unable to load data.",
+                        Toast.LENGTH_LONG).show();
+                Log.i("Unable to load ", "articles");
+            }
+        });
+    }
+});
+```
 
 ### Kotlin and Coroutines, a love story
 
@@ -74,34 +167,94 @@ At first, I tried to figure out if there was a method to call the coroutines fro
 
 For the Java support, I decided to use [Future](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html) and [Callable](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Callable.html) to handle the asynchronous operations. In particular, I implemented two classes that perform respectively the fetching and the parsing task.
 
-{{< gist prof18 2ab1b2dfbc6e612d37a68813643a566a >}}
+```kotlin
+class XMLFetcher(private val url: String) : Callable<String> {
+  @Throws(Exception::class)
+  override fun call(): String {
+      return CoreXMLFetcher.fetchXML(url)
+  }
+}
+```
+```kotlin
+class XMLParser(var xml: String) : Callable<MutableList<Article>> {
+  @Throws(Exception::class)
+  override fun call(): MutableList<Article> {
+      return CoreXMLParser.parseXML(xml)
+  }
+}
+```
 
 The result of the parsing is then notified to the “main executor” using the same callbacks reported above.
 
-{{< gist prof18 483b80ae8001598495b7dc5b7975b95d >}}
+```kotlin
+fun execute(url: String) {
+  Executors.newSingleThreadExecutor().submit{
+      val service = Executors.newFixedThreadPool(2)
+      val f1 = service.submit<String>(XMLFetcher(url))
+      try {
+          val rssFeed = f1.get()
+          val f2 = service.submit(XMLParser(rssFeed))
+          onComplete.onTaskCompleted(f2.get())
+      } catch (e: Exception) {
+          onComplete.onError(e)
+      } finally {
+          service.shutdown()
+      }
+  }
+}
+```
 
 In this way, the old users of the library can still call the same code without noticing any kind of difference but the new ones (and of course also the old) can learn and use the new way.
 
 As you can image, the new part is written using the Kotlin coroutines. As above, I separated the fetching and the parsing task. The fetching task is performed by the *fetchXML* suspending function, that takes the URL of the RSS feed as input and returns a [Deferred](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-deferred/) object that will be the input of the *parseXML* suspend function. This function will then parse the RSS Feed and returns a list of parsed data.
 
-{{< gist prof18 744a179e37b9f29467086a783a742ad6 >}}
+```kotlin
+object CoroutineEngine {
+  @Throws(Exception::class)
+  suspend fun fetchXML(url: String) =
+          withContext(Dispatchers.IO) {
+              return@withContext CoreXMLFetcher.fetchXML(url)
+          }
+
+  @Throws(Exception::class)
+  suspend fun parseXML(xml: Deferred<String>) =
+          withContext(Dispatchers.IO) {
+              return@withContext CoreXMLParser.parseXML(xml.await())
+          }
+}
+```
 
 These functions are exposed to the “main executor” by using another suspend function, that it will get and parse asynchronously the RSS feed.
 
-{{< gist prof18 7fa549bda752f37e054d13660e74fe79 >}}
+```kotlin
+@Throws(Exception::class)
+suspend fun getArticles(url: String) =
+      withContext(Dispatchers.IO) {
+          val xml = async { CoroutineEngine.fetchXML(url) }
+          return@withContext CoroutineEngine.parseXML(xml)
+      }
+```
 
 All the suspend functions reported above are called with the IO Dispatcher that uses a shared pool of on-demand created threads. There are also other dispatchers, give a look to the [documentation](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/) to find the one that better suits your needs.
 
 And finally, from the ViewModel (or in whatever place depending on the architecture of your app) you can launch the coroutine with a [Scope](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/), so, for example, you can stop it if the activity is destroyed, and then “transform” an URL to a List of Articles.
 
-{{< gist prof18 d9fc7813e9058a7e00f28c11f13c9284 >}}
+```kotlin
+coroutineScope.launch(Dispatchers.Main) {
+  try {
+      val parser = Parser()
+      val articleList = parser.getArticles(url)
+      setArticleList(articleList)
+  } catch (e: Exception) {
+      e.printStackTrace()
+      _snackbar.value = "An error has occurred. Please retry"
+      setArticleList(mutableListOf())
+  }
+}
+```
 
 And finally, we have reached the end of my journey from Async Task to Coroutines. If you have some advice, doubt or any kind of feedback, please leave a comment! Of course, you can use this example as an idea to leave forever the (ugly) Async Tasks.
 
 If you want to contribute to the development of the library or simply report a bug, visit the repo on Github: [https://github.com/prof18/RSS-Parser](https://github.com/prof18/RSS-Parser)
 
 A special thanks to the (awesome) devs of the Android Developers Italia Community that gave to me some advice. If you are Italian, join us on [Slack](https://androiddevs.it/)!
-
-----
-
-*Published also on [Medium](https://medium.com/@marcogomiero/a-journey-from-async-task-to-kotlin-coroutines-735c273d76cb)*

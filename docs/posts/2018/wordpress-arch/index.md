@@ -1,6 +1,8 @@
 # How to install Wordpress on Arch Linux
 
 
+{{< figure src="/img/arch/wordpress_arch.png" alt="image" >}}
+
 Every time I've tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
 
 *In all the following commands I've omitted "sudo". Please use it when it is necessary.*
@@ -64,7 +66,7 @@ to write this simple html file.
 
 Now open your broswer and go to http://localhost. If everything is up and running you should see a page like this:
 
-![](https://miro.medium.com/max/1400/1*sxXRqUpBd_kwVPkkeOw5Ug.jpeg)
+{{< figure src="/img/arch/apache.jpeg" alt="image" >}}
 
 ## Install PHP
 
@@ -133,7 +135,7 @@ systemctl restart httpd
 
 Now, if you open your broswer and you go to http://localhost/info.php, you should see a page like this:
 
-![](https://miro.medium.com/max/1400/1*_DP9dGtvELzAtjYG8zbcTA.jpeg)
+{{< figure src="/img/arch/php.jpeg" alt="image" >}}
 
 ## Install Maria DB
 
@@ -217,10 +219,6 @@ define('DB_PASSWORD', 'password');
 
 Now everything is done. To check if it is true, open the broswer and go to http://localhost/wordpress and you should see a page like this.
 
-![](https://miro.medium.com/max/1400/1*MoTz_MX-uKlmjykrLRA1hA.jpeg)
+{{< figure src="/img/arch/wordpress.jpeg" alt="image" >}}
 
 Now you can go through the classic setup of Wordpress. Enjoy it!
-
-----
-
-*Published also on [Medium](https://medium.com/@marcogomiero/how-to-install-wordpress-on-arch-linux-23db216fd0a7)*

@@ -5,11 +5,11 @@ Finally, I found some time to sit down and work on my library RSS Parser. Before
 
 I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.
 
-![](https://cdn-images-1.medium.com/max/2000/1*T__9s7dfREGnF13oRlBhDg.jpeg)
+{{< figure src="/img/meme.jpeg" alt="image" >}}
 
 So I decided to rewrite the library using **Kotlin** and **Coroutines**, so I can (finally) get rid of **Async Task**.
 
-![](https://cdn-images-1.medium.com/max/2000/1*87C2QK8usMRMZ-hpdrqKKA.jpeg)
+{{< figure src="/img/trump.jpeg" alt="image" >}}
 
 Of course, I maintained the compatibility of the library for the projects that still use Java.
 
@@ -74,7 +74,3 @@ parser.execute(urlString);
 A complete example in Java is also available on [Github](https://github.com/prof18/RSS-Parser/tree/master/samplejava).
 
 That’s all! For all the details or to report a bug, please visit the repo on [Github](https://github.com/prof18/RSS-Parser).
-
-----
-
-*Published also on [Medium](https://medium.com/@marcogomiero/rss-parser-2-0-bye-bye-async-task-welcome-coroutines-6002c9de5145)*
