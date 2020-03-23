@@ -1,13 +1,5 @@
----
-layout: post
-title:  "Flutter or React Native, a cross-platform dilemma - How to chose + Bonus - (Part 4)"
-date:   2019-09-09
-draft: true
-show_in_homepage: true
-images:
-  - https://www.marcogomiero.com/img/flutter-rn/virtual-dom.png
-tags: [Flutter, React Native]
----
+# Flutter or React Native, a cross-platform dilemma - How to chose + Bonus - (Part 4)
+
 
 Welcome to the fourth and last part of this article series about React Native and Flutter. 
 
