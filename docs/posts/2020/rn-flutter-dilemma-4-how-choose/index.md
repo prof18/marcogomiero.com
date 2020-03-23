@@ -35,8 +35,9 @@ Yes, there is a bonus for you. This series of articles have been extrapolated fr
 Here's the video and the slides of the talk:
 
 ### Slide:
+[Flutter or React Native, a cross-platform dilemma | DevFest Veneto 19](https://speakerdeck.com/prof18/flutter-or-react-native-a-cross-platform-dilemma-devfest-veneto-19)
 
-<script async class="speakerdeck-embed" data-id="2e60f2ca8d0f477d9369bd0d1e7e432e" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<script async class="speakerdeck-embed" data-id="02923dd271234bfe93db88058e894bab" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
 ### Video: 
 {{< youtube NqQY4K2hjXo >}}
