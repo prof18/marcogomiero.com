@@ -9,7 +9,7 @@ This talk will not focus on the pro and cons of modularization but instead on th
 
 ## Slide:
 
-<script async class="speakerdeck-embed" data-id="a1b9fb0ee5014516a7bd7670c616b2c1" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+{{< speakerdeck a1b9fb0ee5014516a7bd7670c616b2c1 >}}
 
 ## Video:
 

@@ -16,4 +16,4 @@ https://github.com/GDG-Venezia/flutter-study-jam
 
 ## Slide
 
-<script async class="speakerdeck-embed" data-id="02923dd271234bfe93db88058e894bab" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+{{< speakerdeck  02923dd271234bfe93db88058e894bab >}}

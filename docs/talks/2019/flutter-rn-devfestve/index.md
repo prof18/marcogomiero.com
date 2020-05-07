@@ -8,7 +8,8 @@ Nowadays the hype around Flutter is raising a lot. But what about the “(not so
 
 ## Slide:
 
-<script async class="speakerdeck-embed" data-id="2e60f2ca8d0f477d9369bd0d1e7e432e" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+{{< speakerdeck 2e60f2ca8d0f477d9369bd0d1e7e432e >}}
+
 
 ## Video: 
 {{< youtube NqQY4K2hjXo >}}

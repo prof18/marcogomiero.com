@@ -14,4 +14,4 @@ All this journey is based on the true story of an Android Developer that he want
 
 ## Slide
 
-<script async class="speakerdeck-embed" data-id="03943a2a06424eb6959b609a4af1d2c5" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+{{< speakerdeck 03943a2a06424eb6959b609a4af1d2c5 >}}

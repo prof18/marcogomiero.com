@@ -5,7 +5,7 @@ performDate: 2019-06-15
 location: FVG Dev, Trieste
 ---
 
-15 June 2019 - [FVG Dev] (https://www.eventbrite.it/e/biglietti-fvg-dev-evento-dedicato-allo-sviluppo-mobile-cross-platform-61756484307)
+15 June 2019 - [FVG Dev](https://www.eventbrite.it/e/biglietti-fvg-dev-evento-dedicato-allo-sviluppo-mobile-cross-platform-61756484307)
 
 ## Abstract:
 Nowadays the hype around Flutter is raising a lot. But what about the "(not so) old-fashioned" React Native?
@@ -13,4 +13,6 @@ In this talk, we will see the basics and the differences between the two framewo
 All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.
 
 ## Slide:
-<script async class="speakerdeck-embed" data-id="44ec00d6c5fc448b9361b5a879b43d16" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+{{< speakerdeck 44ec00d6c5fc448b9361b5a879b43d16 >}}
+

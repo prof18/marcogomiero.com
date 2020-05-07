@@ -9,7 +9,8 @@ In this talk, we will see the basics and the differences between the two framewo
 All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.
 
 ## Slide:
-<script async class="speakerdeck-embed" data-id="44ec00d6c5fc448b9361b5a879b43d16" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+{{< speakerdeck 44ec00d6c5fc448b9361b5a879b43d16 >}}
 
 ## Video: 
 {{< youtube 1eHW3mYxrtg >}}
