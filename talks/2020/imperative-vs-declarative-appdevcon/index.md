@@ -1,4 +1,4 @@
-# CHANGE ME! Imperative is dead, long live Declarative!
+# Imperative is dead, long live Declarative!
 
 
 18 September 2020 - [Appdevcon](https://appdevcon.nl/session/imperative-is-dead-long-live-declarative)
