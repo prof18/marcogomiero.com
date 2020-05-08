@@ -3,13 +3,13 @@ name: github pages
 on:
   push:
     branches:
-    - master
+    - develop
 
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@develop
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
