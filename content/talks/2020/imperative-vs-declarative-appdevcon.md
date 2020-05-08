@@ -1,6 +1,6 @@
 ---
 date: 2020-02-07
-title: "Imperative is dead, long live Declarative!"
+title: "TESTImperative is dead, long live Declarative!"
 upcoming: true
 performDate: 2020-09-18
 location: Appdevcon, Amsterdam
