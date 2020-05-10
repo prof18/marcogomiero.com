@@ -1,36 +1,35 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Marco Gomiero on Marco Gomiero</title><link>https://www.marcogomiero.com/</link><description>Recent content in Marco Gomiero on Marco Gomiero</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 23 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>https://www.marcogomiero.com/posts/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/</guid><description/></item><item><title>Talks</title><link>https://www.marcogomiero.com/talks/</link><pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/</guid><description/></item><item><title>About Me</title><link>https://www.marcogomiero.com/about-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/about-me/</guid><description>&lt;!-- raw HTML omitted -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Marco Gomiero on Marco Gomiero</title><link>https://www.marcogomiero.com/</link><description>Recent content in Marco Gomiero on Marco Gomiero</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 23 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>https://www.marcogomiero.com/posts/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/</guid><description/></item><item><title>Talks</title><link>https://www.marcogomiero.com/talks/</link><pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/</guid><description/></item><item><title>About Me</title><link>https://www.marcogomiero.com/about-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/about-me/</guid><description>
+&lt;div class="home-intro">
+&lt;div class="home-avatar">
+&lt;a href="https://www.marcogomiero.com/posts">
+&lt;img src="https://www.marcogomiero.com/img/profile.jpeg" alt="avatar">
+&lt;/a>
+&lt;/div>
+&lt;h2> Marco Gomiero &lt;/h1>
+&lt;/div>
 &lt;p>Computer Engineer, Android Developer, passionate about data analysis and about making automated tools for overcoming trivial tasks in an unnecessarily complicated way due to pathological laziness. Currently working at Uniwhere as Mobile Engineer, in my free time I organize events with the Google Developer Group Venezia, I share my experience by public speaking and I write code.&lt;/p>
 &lt;p>My main focus is Android but I have also a knowledge of iOs development. I also have experience with cross-platform frameworks, like React Native and Flutter.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;h1 id="work-experience">Work Experience&lt;/h1>
 &lt;h3 id="uniwherehttpswwwuniwherecom--mobile-engineer--september-2017---present">&lt;a href="https://www.uniwhere.com/">Uniwhere&lt;/a> · Mobile Engineer · September 2017 - Present&lt;/h3>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;blockquote>
 &lt;p>Uniwhere is an app that makes college less stressful by making university services smarter and more connected.&lt;/p>
 &lt;/blockquote>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;h1 id="education">Education&lt;/h1>
 &lt;h3 id="computer-engineering---master-degree--university-of-padua--2016---2018">Computer Engineering - Master Degree · University of Padua · 2016 - 2018&lt;/h3>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;blockquote>
 &lt;p>Thesis title: &amp;ldquo;Design and development of a system for linking university careers and real world jobs&amp;rdquo;&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="information-engineering---bachelor-degree--university-of-padua--2012---2016">Information Engineering - Bachelor Degree · University of Padua · 2012 - 2016&lt;/h3>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;blockquote>
 &lt;p>Thesis title: &amp;ldquo;Porting issues from Scratch/BYOB to Snap in a browser environment&amp;rdquo;&lt;/p>
 &lt;/blockquote></description></item><item><title>Projects</title><link>https://www.marcogomiero.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/projects/</guid><description>&lt;p>For an always updated list of my projects, visit my &lt;a href="https://github.com/prof18">Github page&lt;/a>.&lt;/p>
-&lt;h3 id="--rss-parser--android-library--2016---present">- RSS Parser · Android Library · 2016 - Present&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
-&lt;p>&lt;!-- raw HTML omitted -->Star&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Fork&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Issue&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
+&lt;h2 id="rss-parserhttpsgithubcomprof18rss-parser--android-library--2016---present">&lt;a href="https://github.com/prof18/RSS-Parser">RSS Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
 &lt;p>An Android library to parse a RSS Feed. You can retrive the following information about an article:&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
 &lt;ul>
 &lt;li>Title&lt;/li>
 &lt;li>Author&lt;/li>
@@ -40,77 +39,31 @@
 &lt;li>Link&lt;/li>
 &lt;li>Publication Date&lt;/li>
 &lt;/ul>
-&lt;/blockquote>
-&lt;blockquote>
 &lt;p>The library is also uploaded on jCenter. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/rss-parser-library/">this blog post&lt;/a>.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--youtube-parser--android-library--2016---present">- Youtube Parser · Android Library · 2016 - Present&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
-&lt;p>&lt;!-- raw HTML omitted -->Star&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Fork&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Issue&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="youtube-parserhttpsgithubcomprof18youtubeparser--android-library--2016---present">&lt;a href="https://github.com/prof18/YoutubeParser">Youtube Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
 &lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is also uploaded on jCenter. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/update-yt-parser-2">this blog post&lt;/a>.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--mario-discepolo--android-app--2017">- Mario Discepolo · Android App · 2017&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="mario-discepolohttpsplaygooglecomstoreappsdetailsidcomprofmariodiscepolo--android-app--2017">&lt;a href="https://play.google.com/store/apps/details?id=com.prof.mariodiscepolo">Mario Discepolo&lt;/a> · Android App · 2017&lt;/h2>
 &lt;p>Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo&amp;rsquo;s channel and receive notifications for the new articles&lt;/p>
-&lt;/blockquote>
-&lt;!-- raw HTML omitted -->
-&lt;h2 id="deprecated-projects">Deprecated Projects&lt;/h2>
-&lt;!-- raw HTML omitted -->
-&lt;h3 id="--zeromag--website--2018">- Zeromag · Website · 2018&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="deprecated---zeromag--website--2018">@Deprecated - Zeromag · Website · 2018&lt;/h2>
 &lt;p>Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog &amp;ldquo;ZeroMag&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--taxitaly-and-tour--website--2015">- Taxitaly and Tour · Website · 2015&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="deprecated---taxitaly-and-tour--website--2015">@Deprecated - Taxitaly and Tour · Website · 2015&lt;/h2>
 &lt;p>Website built with Wordpress to book transfer and touristic tours in the area of Venice. The site is no longer active&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--lupokkio--android--2015">- Lupokkio · Android · 2015&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="deprecated---lupokkio--android--2015">@Deprecated - Lupokkio · Android · 2015&lt;/h2>
 &lt;p>Android Application to read latest articles and reviews, watch latest Youtube video from Lupokkio&amp;rsquo;s channel and receive notifications for the new articles. The application is no longer active because the blog is dead but you can see its past behavior by watching this &lt;a href="https://www.youtube.com/watch?v=QK-KcC0DYds">video&lt;/a>.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--lupokkio--website--2015">- Lupokkio · Website · 2015&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="deprecated---lupokkio--website--2015">@Deprecated - Lupokkio · Website · 2015&lt;/h2>
 &lt;p>Graphic restyling and maintenance of the Italian tech blog &amp;ldquo;Lupokkio&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="university-projects">University Projects&lt;/h2>
-&lt;!-- raw HTML omitted -->
-&lt;h3 id="--distributed-file-system-rmi--java--2017">- Distributed File System RMI · Java · 2017&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
-&lt;p>&lt;!-- raw HTML omitted -->Star&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Fork&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Issue&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="university---distributed-file-system-rmihttpsgithubcomprof18distributedfilesystemrmi--java--2017">@University - &lt;a href="https://github.com/prof18/DistributedFIleSystemRMI">Distributed File System RMI&lt;/a> · Java · 2017&lt;/h2>
 &lt;p>A distributed file system implemented in Java using RMI with replication, read/write lock and a GUI.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--cyber-robot-brain--android-app--2017">- Cyber Robot Brain · Android App · 2017&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
-&lt;p>&lt;!-- raw HTML omitted -->Star&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Fork&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Issue&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
+&lt;hr>
+&lt;h2 id="university---cyber-robot-brainhttpsgithubcomprof18cyberrobotbrain--android-app--2017">@University - &lt;a href="https://github.com/prof18/CyberRobotBrain">Cyber Robot Brain&lt;/a> · Android App · 2017&lt;/h2>
 &lt;p>This Android application has been developed during an University Class and the aim was to provide a &amp;ldquo;brain&amp;rdquo; to the Cyber Robot, a cheap sensorless toy robot sell by Clementoni. More information about the robot can be found &lt;a href="https://www.amazon.it/Scienza-e-Gioco-13941-Clementoni/dp/B010VB0IQS">on the official website&lt;/a>. More specifically, the aim was to reverse-engineer the communication protocol of the robot via the Bluetooth HCI snoop log and then build an app that guides it to reach a target object that is framed by the phone’s camera. For more information about the communication protol, visit the &lt;a href="https://github.com/prof18/CyberRobotBrain/wiki/How-to-move-Cyber-Robot">Wiki Page&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="--banks--java--2017">- BANKS · Java · 2017&lt;/h3>
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
-&lt;p>&lt;!-- raw HTML omitted -->Star&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Fork&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->Issue&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
-&lt;p>A Java app with a GUI to perform keyword-based search in relational database. The app implements &lt;em>Banks&lt;/em>, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords.&lt;/p>
-&lt;/blockquote></description></item></channel></rss>
+&lt;hr>
+&lt;h2 id="university---bankshttpsgithubcomprof18banks--java--2017">@University - &lt;a href="https://github.com/prof18/banks">BANKS&lt;/a> · Java · 2017&lt;/h2>
+&lt;p>A Java app with a GUI to perform keyword-based search in relational database. The app implements &lt;em>Banks&lt;/em>, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords.&lt;/p></description></item></channel></rss>
