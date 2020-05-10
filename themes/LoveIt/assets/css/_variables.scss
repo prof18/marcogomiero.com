@@ -61,7 +61,9 @@ $code-info-color: #cacaca !default;
 $code-font-size: 13px !default;
 
 // Font family of the code.
-$code-font-family: Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace !default;
+//$code-font-family: Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace !default;
+$code-font-family: 'Fira Code', monospace;
+
 
 // Code type list.
 $code-type-list: (
