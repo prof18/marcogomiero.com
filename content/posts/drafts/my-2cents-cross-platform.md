@@ -6,6 +6,28 @@ show_in_homepage: true
 tags: [Cross Platform]
 ---
 
+During my journey as mobile developer, I had the chance to try and give a look to some cross platform solutions both for work and fun reasons. Today, I want to share my toughts and considerations about them and why/when you should use cross-platform. I hope that these toughts will be helpful to anyone that is in the process of choosing an right solution for their product.
+
+> **Disclaimer**: in this article I will share some opinions based on my experience and they can be applicable to your situation or not.  If you want to share your considerations, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+
+## Possible solutions
+
+Out in the wild there are plenty of differerent cross-platform solutions. However, in this post I will focus only on the most used (that are also the one that provide an experience as much close as the native one) and the most promising. 
+
+{{< figure src="/img/2cents-cross/google-trend-cross.png" alt="image" caption="Google Trends for the past 12 months. *Last update May 2020*" >}}
+
+First of all, I've excluded all the solutions that uses web technologies to render the app in a WebView (like [Cordova](https://cordova.apache.org/) or [Ionic](https://ionicframework.com/)) because they don't have adequate performances. 
+
+
+## Issue with cross platform solutions
+
+## What to use now? 
+
+---
+
+React Native, Flutter, Ionic, Xamarin.
+
+
 In this article I want to share my experience with cross-platform solutions and what I think about choosing them for your product. 
 
 Disclaimer: my opinion can be different than yours  
@@ -24,6 +46,34 @@ What I've tried so far:
 Issue with cross-platform solution:
 
 the fact that they want to rewrite the UI. Sharing business logic will resolve the problems. Thats why kotlin multiplatofrm is the solution
+
+Unify UI declaration across platforms  
+
+React Native: call native widgets through a “bridge”
+PRO: Use of native widgets
+CONS: The bridge causes delays  
+
+Flutter: uses its own widget
+
+PRO: No delays, really fast
+CONS: Use of custom widgets 
+
+Different platforms have different pattern 
+
+“Overall, multiplatform is not about compiling all code for all platforms”
+
+Compiling code for all platforms has limitations:
+
+Every platform has unique APIs
+Impossible to cover all platforms API
+
+Solution:
+
+Share as much code as needed
+Access platform APIs through the expected/actual mechanism
+
+Share part of the code like business logic, connectivity..
+
 
 But what to use now:
 
