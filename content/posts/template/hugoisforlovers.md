@@ -9,6 +9,8 @@ tags = [
 draft = true
 date = "2014-04-02"
 toc = true
+show_in_homepage: false
+ 
 +++
 
 ## Step 1. Install Hugo
