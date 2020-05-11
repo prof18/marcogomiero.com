@@ -1,5 +1,5 @@
 ---
-date: 2020-02-08
+date: 2020-05-08
 title: "Imperative is dead, long live Declarative!"
 upcoming: true
 performDate: 2020-11-27
