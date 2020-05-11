@@ -3,17 +3,11 @@
 
 Welcome to the fourth and last part of this article series about React Native and Flutter. 
 
-In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that they use. 
+[In the first episode](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/), we have introduced the two frameworks with some history and with a comparison between the languages that they use.
 
-> [Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/)
+[In the second episode](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-2-ui/), we have talked about User Interfaces and how to build them. 
 
-In the second episode, we have talked about User Interfaces and how to build them.
-
-> [Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-2-ui/)
-
-In the third episode, we went deeper under the hood to understand how things work.
-
-> [Flutter or React Native, a cross-platform dilemma - How they work - (Part 3)](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-3-under-hood/)
+[In the third episode](http://marcogomiero.com/posts/2019/rn-flutter-dilemma-3-under-hood/), we went deeper under the hood to understand how things work.
 
 And now it's time to wrap things up by trying to understand how to choose the right framework for you.
 
