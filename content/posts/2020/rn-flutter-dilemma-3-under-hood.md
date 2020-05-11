@@ -2,7 +2,7 @@
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - How they work - (Part 3)"
 date:   2020-03-16
-show_in_homepage: true
+show_in_homepage: false
 images:
   - https://www.marcogomiero.com/img/flutter-rn/virtual-dom.png
 tags: [Flutter, React Native]
