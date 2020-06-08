@@ -3,6 +3,12 @@
 
 For an always updated list of my projects, visit my [Github page](https://github.com/prof18).
 
+## [Friends Tournament](https://github.com/prof18/Friends-Tournament) · Android App · 2019 - Present
+
+A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That's all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players' score and a nice leaderboard is automatically generated. 
+
+The application is written with Flutter and for the time being, it's only available for Android. Maybe in the future, I will release the iOs version too.
+
 ## [RSS Parser](https://github.com/prof18/RSS-Parser) · Android Library · 2016 - Present
  
 An Android library to parse a RSS Feed. You can retrive the following information about an article:
