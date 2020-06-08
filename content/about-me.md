@@ -16,7 +16,7 @@ title = "About Me"
 
 Computer Engineer, Android Developer, passionate about data analysis and about making automated tools for overcoming trivial tasks in an unnecessarily complicated way due to pathological laziness. Currently working at Uniwhere as Mobile Engineer, in my free time I organize events with the Google Developer Group Venezia, I share my experience by public speaking and I write code.  
 
-My main focus is Android but I have also a knowledge of iOs development. I also have experience with cross-platform frameworks, like React Native and Flutter.
+My main focus is Android but I have also a knowledge of iOs development. I also have experience with cross-platform frameworks, like Flutter and React Native.
 
 {{< rawhtml >}}
 <br>

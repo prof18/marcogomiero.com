@@ -14,6 +14,8 @@ During my journey as mobile developer, I had the chance to try and give a look t
 
 Out in the wild there are plenty of differerent cross-platform solutions. However, in this post I will focus only on the most used (that are also the one that provide an experience as much close as the native one) and the most promising. 
 
+TODO: redo the picture!! Just cordova is the city!!!!
+
 {{< figure src="/img/2cents-cross/google-trend-cross.png" alt="image" caption="Google Trends for the past 12 months. *Last update May 2020*" >}}
 
 First of all, I've excluded all the solutions that uses web technologies to render the app in a WebView (like [Cordova](https://cordova.apache.org/) or [Ionic](https://ionicframework.com/)) because they don't have adequate performances. 
