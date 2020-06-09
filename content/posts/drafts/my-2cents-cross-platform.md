@@ -3,6 +3,7 @@ layout: post
 title:  "My 2 Cents about cross-platform"
 date:   2020-05-09
 show_in_homepage: true
+draft: true
 tags: [Cross Platform]
 ---
 

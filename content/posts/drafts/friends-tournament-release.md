@@ -3,6 +3,7 @@ layout: post
 title:  "Friends Tournament - Tournament creation and management made easy"
 date:   2020-06-07
 show_in_homepage: false
+draft: true
 tags: [Projects]
 ---
 
