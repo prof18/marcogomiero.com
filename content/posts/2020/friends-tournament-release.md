@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Friends Tournament - Tournament creation and management made easy"
-date:   2020-06-07
+date:   2020-06-12
 show_in_homepage: false
-draft: true
 tags: [Projects]
 ---
 
@@ -33,7 +32,7 @@ For the time being, Friends Tournament is only available for Android. Maybe in t
 
 {{<rawhtml>}}
 
-<div align="center"><a href=""><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/></a></div>
+<div align="center"><a href="https://play.google.com/store/apps/details?id=com.prof.friends_tournament"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/></a></div>
 
 {{</rawhtml>}}
 
