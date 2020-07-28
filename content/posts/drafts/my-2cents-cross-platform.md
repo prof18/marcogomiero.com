@@ -9,15 +9,15 @@ tags: [Cross Platform]
 
 During my journey as mobile developer, I had the chance to try and give a look to some cross platform solutions both for work and fun reasons. Today, I want to share my toughts and considerations about them and why/when you should use cross-platform. I hope that these toughts will be helpful to anyone that is in the process of choosing an right solution for their product.
 
+I'm writing something in this article
+
 > **Disclaimer**: in this article I will share some opinions based on my experience and they can be applicable to your situation or not.  If you want to share your considerations, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
 
 ## Possible solutions
 
 Out in the wild there are plenty of differerent cross-platform solutions. However, in this post I will focus only on the most used (that are also the one that provide an experience as much close as the native one) and the most promising. 
 
-TODO: redo the picture!! Just cordova is the city!!!!
-
-{{< figure src="/img/2cents-cross/google-trend-cross.png" alt="image" caption="Google Trends for the past 12 months. *Last update May 2020*" >}}
+{{< figure src="/img/2cents-cross/google-trend-cross.png" alt="image" caption="Google Trends for the past 12 months. *Last update July 2020*" >}}
 
 First of all, I've excluded all the solutions that uses web technologies to render the app in a WebView (like [Cordova](https://cordova.apache.org/) or [Ionic](https://ionicframework.com/)) because they don't have adequate performances. 
 
