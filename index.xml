@@ -33,11 +33,11 @@
 &lt;p>I decided to develop it after a failed search for a simple and secure reader for my parents.&lt;/p>
 &lt;p>The app is very simple (the aim is to scan a code and open the link, only this!) and it does not require sneaky, strange and useless permissions just for the sake of stealing your data. There aren&amp;rsquo;t ads, trackers of any sort and what do you scan remains on your phone. The only requested permission is for the camera.&lt;/p>
 &lt;p>You can find QR Reader Secure on the Play Store.&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;h2 id="friends-tournamenthttpsgithubcomprof18friends-tournament--android-app--2019---present">&lt;a href="https://github.com/prof18/Friends-Tournament">Friends Tournament&lt;/a> · Android App · 2019 - Present&lt;/h2>
+&lt;div align="center">&lt;a href="https://play.google.com/store/apps/details?id=com.prof18.secureqrreader">&lt;img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>&lt;/a>&lt;/div>
+&lt;h2 id="friends-tournamenthttpsgithubcomprof18friends-tournament--flutter-android-app--2019---present">&lt;a href="https://github.com/prof18/Friends-Tournament">Friends Tournament&lt;/a> · Flutter Android App · 2019 - Present&lt;/h2>
 &lt;p>A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That&amp;rsquo;s all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players&amp;rsquo; score and a nice leaderboard is automatically generated.&lt;/p>
 &lt;p>The application is written with Flutter and for the time being, it&amp;rsquo;s only available for Android. Maybe in the future, I will release the iOs version too.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;div align="center">&lt;a href="https://play.google.com/store/apps/details?id=com.prof.friends_tournament">&lt;img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>&lt;/a>&lt;/div>
 &lt;h2 id="rss-parserhttpsgithubcomprof18rss-parser--android-library--2016---present">&lt;a href="https://github.com/prof18/RSS-Parser">RSS Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
 &lt;p>An Android library to parse a RSS Feed. You can retrive the following information about an article:&lt;/p>
 &lt;ul>
