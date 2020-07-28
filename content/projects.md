@@ -14,15 +14,23 @@ The app is very simple (the aim is to scan a code and open the link, only this!)
 
 You can find QR Reader Secure on the Play Store.
 
+{{<rawhtml>}}
+
 <div align="center"><a href="https://play.google.com/store/apps/details?id=com.prof18.secureqrreader"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/></a></div>
 
-## [Friends Tournament](https://github.com/prof18/Friends-Tournament) · Android App · 2019 - Present
+{{</rawhtml>}}
+
+## [Friends Tournament](https://github.com/prof18/Friends-Tournament) · Flutter Android App · 2019 - Present
 
 A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That's all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players' score and a nice leaderboard is automatically generated. 
 
 The application is written with Flutter and for the time being, it's only available for Android. Maybe in the future, I will release the iOs version too.
 
+{{<rawhtml>}}
+
 <div align="center"><a href="https://play.google.com/store/apps/details?id=com.prof.friends_tournament"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/></a></div>
+
+{{</rawhtml>}}
 
 ## [RSS Parser](https://github.com/prof18/RSS-Parser) · Android Library · 2016 - Present
  
