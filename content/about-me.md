@@ -16,7 +16,7 @@ title = "About Me"
 
 I'm working as Uniwhere Dev Lead, where I manage the end-to-end development of a platform with half a million users.
 
-I'm a Kotlin lover with a CS degree, I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
+I'm a Kotlin lover with a Computer Engineering degree, I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
 
 In my spare time I write and maintain open source code, I share my dev experience by speaking at confs and organizing events with the Google Developer Group Venezia and I play basketball.
 
