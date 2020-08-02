@@ -14,9 +14,12 @@ title = "About Me"
 {{< /rawhtml >}}
 
 
-Computer Engineer, Android Developer, passionate about data analysis and about making automated tools for overcoming trivial tasks in an unnecessarily complicated way due to pathological laziness. Currently working at Uniwhere as Mobile Engineer, in my free time I organize events with the Google Developer Group Venezia, I share my experience by public speaking and I write code.  
+I'm working as Uniwhere Dev Lead, where I manage the end-to-end development of a platform with half a million users.
 
-My main focus is Android but I have also a knowledge of iOs development. I also have experience with cross-platform frameworks, like Flutter and React Native.
+I'm a Kotlin lover with a Computer Engineering degree, I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
+
+In my spare time I write and maintain open source code, I share my dev experience by speaking at confs and organizing events with the Google Developer Group Venezia and I play basketball.
+
 
 {{< rawhtml >}}
 <br>
@@ -30,7 +33,7 @@ My main focus is Android but I have also a knowledge of iOs development. I also 
 <br>
 {{< /rawhtml >}}
 
-> Uniwhere is an app that makes college less stressful by making university services smarter and more connected.
+> Uniwhere is the university workspace for digital natives. The mission of Uniwhere is to provide equal access to the information students need to make the best choices.
 
 {{< rawhtml >}}
 <br>
