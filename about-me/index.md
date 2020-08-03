@@ -13,7 +13,7 @@
 {{< /rawhtml >}}
 
 
-I'm working as Uniwhere Dev Lead, where I manage the end-to-end development of a platform with half a million users.
+I'm working as Uniwhere Tech Lead, where I manage the end-to-end development of a platform with half a million users.
 
 I'm a Kotlin lover with a Computer Engineering degree, I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
 
