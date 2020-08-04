@@ -66,7 +66,7 @@ Another example is when you have an idea and you want to validate it in the mark
 
 After a successful MVP stage, you found yourself with a proven idea and you need to build a product that can scale. So, you need a proper structure, scalable, testable, and easily maintainable. And inevitable at this point you will have some tech debt for the rush and quick decision taken during the MVP phase. Potentially you'll need to rewrite the two clients with a native solution, without "hacky" solutions because after proving that "it can work", you have to prove that "it can scale". (For a deeper analysis about tech choices in an early-stage startup, look [to the article written by my friend Gian.](https://giansegato.com/essays/a-technical-framework-for-early-stage-startups/))
 
-> Switch to native is you have issues on scaling
+> Switch to native if you have issues on scaling
 
 In this situation, **Kotlin Multiplatform** can be really useful.
 With two native applications, with platform-specific UI code, sharing the common business logic code is a good solution. In fact, you can write it one and test it once without any dependencies from the native platform.
