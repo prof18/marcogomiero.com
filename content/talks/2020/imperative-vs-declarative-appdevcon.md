@@ -1,5 +1,5 @@
 ---
-date: 2020-09-17T15:45:00Z
+date: 2020-09-17T17:45:00Z
 title: "Imperative is dead, long live Declarative!"
 location: "Remote"
 upcoming: true
