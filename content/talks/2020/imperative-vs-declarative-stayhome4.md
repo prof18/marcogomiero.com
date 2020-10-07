@@ -1,12 +1,12 @@
 ---
-date: 2020-10-07T17:45:00Z
+date: 2020-10-07T16:45:00Z
 title: "Imperative is dead, long live Declarative!"
 location: "Remote"
 upcoming: true
-performDate: 2020-11-12
+performDate: 2020-10-14
 ---
 
-12 November 2020 - [AppDevCon](https://appdevcon.nl/session/imperative-is-dead-long-live-declarative-2)
+14 October 2020 - [S.T.A.Y. Home #4](https://www.eventbrite.com/e/stay-home-4-tickets-123757669521)
 
 ## Abstract:
 Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the "native world" with Jetpack Compose and Swift UI.
