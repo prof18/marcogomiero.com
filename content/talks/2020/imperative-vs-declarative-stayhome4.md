@@ -1,7 +1,7 @@
 ---
 date: 2020-10-07T16:45:00Z
 title: "Imperative is dead, long live Declarative!"
-location: "Remote"
+location: "S.T.A.Y. Home #4, Remote"
 upcoming: true
 performDate: 2020-10-14
 ---

@@ -1,7 +1,7 @@
 ---
 date: 2020-10-07T17:45:00Z
 title: "Imperative is dead, long live Declarative!"
-location: "Remote"
+location: "AppDevCon, Remote"
 upcoming: true
 performDate: 2020-11-12
 ---
