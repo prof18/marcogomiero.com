@@ -1,25 +1,25 @@
 ---
 layout: post
-title:  "CHANGEME - Exploring Kotlin Multiplatform app architecture with Jetpack Compose and SwiftUI"
-date:   2020-09-06
+title:  "Choosing the right architecture for a project with Kotlin Multiplatform, Jetpack Compose and SwiftUI"
+date:   2020-10-12
 show_in_homepage: true
 draft: true
 tags: [Kotlin Multiplatform]
 ---
 
-Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me tracking all the expenses and the incomes. I've thought and designed it almost a year ago and only now I've found the time to start writing code. 
+Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and the incomes. I've thought and designed it almost a year ago and only now I've found the time to start writing code. 
 
-{{< figure src="/img/kmm-app-arch/app-design.png" caption=“First design iteration, it will change a bit”>}}
+{{< figure src="/img/kmm-app-arch/app-design.png" caption=“A first design iteration, that will change a bit”>}}
 
 And I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app. Money Flow will be an Android, iOS and MacOS application with a common business logic written in Kotlin. And I’ve decided to use the new declarative way to do UI: Jetpack Compose for Android (still in alpha when I’m writing this article) and SwiftUI for iOs/MacOS (that is officially stable, but still causes some headache in big projects - I’ll probably write about my experience soon - ).
 
 So, after setting up the project, I started to think about the architecture of the Home Screen. 
 
-> This article will be a sort of journal that describes all the decisions and the thoughts that I’ve made to come up with a solution that really satisfies me. In this way I want to be helpful to all the people that are in this decision process. 
+> This article will be a sort of journal that describes all the decisions and the thoughts that I’ve made to come up with a solution that satisfies me. In this way, I want to be helpful to all the people that are in this decision process. 
 
-I the first place, I’ve thought to go with a MVVM approach, with a platform specific ViewModel defined in the native part. But I wanted to share more code as possible so I’ve decided to switch to an MVP architecture with Model, (abstract) View and Presenter defined in the common code. 
+In the first place, I’ve thought to go with a MVVM approach, with a platform-specific ViewModel defined in the native part. But I wanted to share more code as possible so I’ve decided to switch to an MVP architecture with Model, (abstract) View and Presenter all defined in the common code. 
 
-The Model is a sealed class that contains the different states: a loading state, an error state and a “success state” that contains all the info needed to render the HomeScreen.
+The Model is a sealed class that contains the different states: a loading state, an error state and a “success state” with all the info needed to render the HomeScreen.
 
 ```kotlin
 sealed class HomeModel {
@@ -56,7 +56,7 @@ interface HomeView {
 }
 ```
 
-And finally we have the Presenter that instead is a little bit more complicated:
+And finally, the Presenter that instead is a little bit more complicated:
 
 ```kotlin
 class HomePresenter(
@@ -93,8 +93,8 @@ class HomePresenter(
 
 ```
 
-The presenter receives in the constructor the dependencies that it needs and plus a *CoroutineScope* that for Android will be the provided by the native part, instead for iOS the scope will be initialized by default (because we can’t define a scope from the Swift code). 
-We need a CoroutineScope, because the data come from the repository as `Flows` ([here](https://kotlinlang.org/docs/reference/coroutines/flow.html) for more info about Kotlin Flows) and we need to cancel any ongoing operation if the view is destroyed. 
+The presenter receives in the constructor the dependencies that it needs and plus a *CoroutineScope* that for Android is provided by the native side, instead on iOS the scope is initialized by default (because we can’t define a scope from Swift code). 
+A CoroutineScope is necessary because the data come from the repository as `Flow` ([here](https://kotlinlang.org/docs/reference/coroutines/flow.html) for more info about Kotlin Flow) and any ongoing operation has to be canceled when the view is destroyed.
 
 Then, I moved to the Android side to develop the HomeScreen:
 
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity(), HomeView {
     }
 }
 ```
-I’m sure that right know you are wondering what `by scoped` is. Well, this is a solution suggested by [Ryan Harter](https://ryanharter.com/blog/2020/03/easy-android-scopes/) to treat a Presenter like and [Android] ViewModel and make it survive to configuration changes.
+I’m sure that right now you are wondering what `by scoped` is. Well, this is a solution suggested by [Ryan Harter](https://ryanharter.com/blog/2020/03/easy-android-scopes/) to treat a Presenter like an [Android] ViewModel and make it survive to configuration changes.
 
 And now it’s time for ~~iOS~~ problems. In fact, with SwiftUI the UI is defined with `struct`... 
 
@@ -143,31 +143,18 @@ struct HomeScreen: View, HomeView {
 }
 ```
 
-...and a non-class type (like a struct, `HomeScreen` in our case) cannot conform to protocols (read interface if you come from a JVM world), in our case `HomeView`.
+...and a non-class type (like a struct, `HomeScreen` in this case) cannot conform to protocols (read interface if you come from a JVM world), in this case `HomeView`.
 
 {{< figure src="/img/kmm-app-arch/xcode-error-view.png" >}}
 
 
-So going with MVP (in this way. If you have found other ways I’ll be more than glad to hear them) was a failure and so I’ve decided to switch back to a MVVM architecture. But, as I said before, my goal is to share as much code as possibile, so I don’t want to create two different platform specific ViewModels that access directly the `MoneyRepository` to make the exact same transformations. Plus, I need to be able to use a CoroutineScope to cancel any ongoing processing when the view is destroyed, and if I access directly the `MoneyRepository`from an iOs ViewModel I won’t be able to do that. 
+So going with MVP was a failure (with this approach. If you have found other ways, I’ll be more than glad to hear them) and so I’ve decided to switch back to a MVVM architecture. But, as I said before, my goal is to share as much code as possible, so I don’t want to create two different platform-specific ViewModels that access directly the `MoneyRepository` to make the exact same transformations. Plus, I need to be able to use a CoroutineScope to cancel any ongoing processing when the view is destroyed, and if I access directly the `MoneyRepository` from an iOs ViewModel I won’t be able to do that. 
 
-Given that circumstances, I’ve decided to use a sort of “shared middleware actor” that prepares and serves the data for the UI. And that actor, that I will call `UseCase`, will be used by the native ViewModels. Of course this is not a new thing, I’ve borrowed the concept from the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). In this way, the only task that the ViewModel has to do is to serve to the UI the data that come from the UseCase. And by using such architecture, the ViewModel can use platform specific code to better handle and respect the lifecycles of the target platform. 
+Given that circumstances, I’ve decided to use a sort of “shared middleware actor” that prepares and serves the data for the UI. And that actor, that I will call `UseCase`, will be used by the native ViewModels. Of course, this is not a new thing, I’ve borrowed the concept from [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). In this way, the only task that the ViewModel has to do is to serve to the UI the data that come from the UseCase. And by using such architecture, the ViewModel can use platform-specific code to better handle and respect the lifecycles of the target platform. 
 
-
-
-
-
-----
-
-What I have to do:
-
-{{< figure src="/img/kmm-app-arch/what-to-do.gif" >}}
-
-so I've decided to move to a mixed use case:
-
-UseCase:
+So I wrote a UseCase, that looks like that:
 
 ```kotlin
-
 interface HomeUseCase {
     fun observeHomeModel(): StateFlow<HomeModel>
     fun computeData()
@@ -217,20 +204,17 @@ class HomeUseCaseImpl(
         coroutineScope.cancel()
     }
 }
-
-
 ```
 
-[UseCase Interface](https://github.com/prof18/MoneyFlow/blob/4b628cce71ad145c464b2d3d4100c131cd37fbdc/shared/src/commonMain/kotlin/presentation/home/HomeUseCase.kt)
+As you may already have noticed, there is some “duplicated” stuff in the class. And that’s because some different behavior between Android and iOs must be covered. 
+On **Android**, I use a suspendable function and a `Flow` to process the data and observe the changes. The native part (i.e., the Android ViewModel) can call the `computeHomeDataSuspendable` function in a specific CoroutineScope (that ideally will be the `viewModelScope`) and observe the changes with the `homeModel` flow. 
+On **iOS** instead, a Flow cannot be directly observed and plus, the cancellation of the data observation from the `MoneyRepository` must be handled manually. For the former problem, a simple callback can be used. This callback is provided in the constructor (that by default is null and it will be defined only on iOs) and will be called (only if it is not null, of course!) when collecting the data from the two flows. The latter problem instead, can be solved (similarly to what I’ve done before in the Presenter) by using a default CoroutineScope and two methods: one to start to get the data and one to cancel the entire process. The `computeData` method will call the `computeHomeDataSuspendable` method on a specific CoroutineScope that can be canceled with the `onDestroy` method.
 
-[UseCaseImpl link](https://github.com/prof18/MoneyFlow/blob/4b628cce71ad145c464b2d3d4100c131cd37fbdc/shared/src/commonMain/kotlin/presentation/home/HomeUseCaseImpl.kt)
+And that’s it for the common code. Now the dots can be connected in the native part. 
+For Android, I’ve used a simple Android ViewModel that starts observing the data when initialized, collect the flow and update a LiveData.
 
-Android:
-
-ViewModel
 
 ```kotlin
-
 class HomeViewModel(
    private val useCase: HomeUseCase
 ) : ViewModel() {
@@ -254,12 +238,9 @@ class HomeViewModel(
         }
     }
 }
-
 ```
 
-[view model link](https://github.com/prof18/MoneyFlow/blob/4b628cce71ad145c464b2d3d4100c131cd37fbdc/androidApp/src/main/java/com/prof18/moneyflow/ui/HomeViewModel.kt)
-
-Screen:
+Then in the UI, I can observe the LiveData and update the UI accordingly.
 
 ```kotlin
 
@@ -271,41 +252,15 @@ fun HomeScreen() {
     val homeModel by viewModel.homeLiveData.observeAsState()
 
     Scaffold(
-        bodyContent = { innerPadding ->
-
-            when (homeModel) {
-                is HomeModel.Loading -> CircularProgressIndicator()
-                is HomeModel.HomeState -> {
-
-                    val homeState = (homeModel as HomeModel.HomeState)
-
-                    Column(modifier = Modifier.padding(innerPadding)) {
-
-                        HomeRecap(homeState.balanceRecap)
-                        HeaderNavigator()
-
-                        LazyColumnFor(items = homeState.latestTransactions) {
-                            TransactionCard(it)
-                            Divider()
-                        }
-                    }
-                }
-                is HomeModel.Error -> Text("Something wrong here!")
-            }
-        },
         ...
-      )
-
+    )
+}
 ```
 
-[Screen Link](https://github.com/prof18/MoneyFlow/blob/4b628cce71ad145c464b2d3d4100c131cd37fbdc/androidApp/src/main/java/com/prof18/moneyflow/ui/home/HomeScreen.kt)
+On iOs instead, the ViewModel is an `ObservableObject` that exposes the HomeModel as a `Published` object (an equivalent to the LiveData). 
 
-iOs: 
-
-ViewModel:
 
 ```swift
-
 import shared
 
 class HomeViewModel: ObservableObject {
@@ -326,12 +281,12 @@ class HomeViewModel: ObservableObject {
 }
 ```
 
-[ViewModel link](https://github.com/prof18/MoneyFlow/blob/4b628cce71ad145c464b2d3d4100c131cd37fbdc/iosApp/Shared/Home/HomeViewModel.swift)
+In this case, the observation of the data is not started automatically, but there are two methods, one to start observing and one to cancel the observation. 
 
-Screen:
+The iOs screen will look like that:
+
 
 ```swift
-
 import SwiftUI
 import shared
 
@@ -342,44 +297,23 @@ struct HomeScreen: View {
     var body: some View {
         
         NavigationView {
-            
-            VStack {
-                
-                if (viewModel.homeModel is HomeModel.Loading) {
-                    Loader().edgesIgnoringSafeArea(.all)
-                } else if (viewModel.homeModel is HomeModel.HomeState) {
-                    
-                    HomeRecap(balanceRecap: (viewModel.homeModel as! HomeModel.HomeState).balanceRecap)
-                    HeaderNavigator()
-                    
-                    List {
-                        ForEach((viewModel.homeModel as! HomeModel.HomeState).latestTransactions, id: \.self) { transaction in
-                            TransactionCard(transaction: transaction)
-                                 .listRowInsets(EdgeInsets())
-                        }
-                    }
-                    .listStyle(PlainListStyle())
-                }
-            }
-            .navigationBarTitle(Text("Wallet"), displayMode: .automatic)
-            .navigationBarItems(trailing: Button(action: {
-                print("tapped")
-            }) {
-                Text("Add transaction")
-                
-            })
-            .onAppear {
-                self.viewModel.startObserving()
-            }.onDisappear {
-                self.viewModel.stopObserving()
-            }
+            ...
+        }
+        .onAppear {
+            self.viewModel.startObserving()
+        }.onDisappear {
+            self.viewModel.stopObserving()
         }
     }
 }
-```
+``` 
 
-[Screen link](https://github.com/prof18/MoneyFlow/blob/4b628cce71ad145c464b2d3d4100c131cd37fbdc/iosApp/Shared/Home/HomeScreen.swift)
+And that’s it!
 
+{{< figure src="/img/kmm-app-arch/what-to-do.gif" >}}
 
-[Full code showed in this article](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) 
+If you want to give a look at the entire code mentioned in this article, you can give a look to 
+[Github](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) 
+
+In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms. If you have any suggestion to improve that architecture or you have any kind of doubt, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
 
