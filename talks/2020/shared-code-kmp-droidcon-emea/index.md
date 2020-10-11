@@ -1,7 +1,7 @@
 # And that, folks, is how we shared code between Android, iOS and the Backend
 
 
-8-9 October 2020 - [Droidcon EMEA](https://www.online.droidcon.com/emea-speaker/marco-gomiero)
+8-9 October 2020 - [droidcon EMEA](https://www.online.droidcon.com/emea-speaker/marco-gomiero)
 
 ## Abstract:
 Kotlin Multiplatform is an experimental feature that you can use to share code between different platforms. Even if it is an experimental feature, it is already possible to start using it in production applications.
