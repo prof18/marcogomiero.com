@@ -7,3 +7,9 @@
 Remote is finally here, and it's going to stay. In this talk, Marco and Gian will go through what it means to work remotely for a startup -- from both a developer and a manager point of view. They'll share some tips and tricks on how to stay organized and focused, how to manage deadlines and the team organization, how to take care of your mental health, and the pros and cons of hiring remotely. They both work for Uniwhere, a venture-backed startup that went remote-first more than two years ago and is now working with 4 different time-zones.
 
 Talk done together with [Gianluca Segato](https://giansegato.com/).
+
+## Slides:
+
+{{< rawhtml >}}
+<iframe src="https://preview.pitch.com/app/embed/3bfdd795-9e15-4f7a-ad8a-001bf91ea0df" allow="fullscreen" allowfullscreen="" width="560" height="315" style="border:0"></iframe> 
+{{< /rawhtml >}}
