@@ -14,6 +14,7 @@ Talk done together with [Gianluca Segato](https://giansegato.com/).
 
 ## Slides:
 
-{{< rawhtml >}}
-<iframe src="https://preview.pitch.com/app/embed/3bfdd795-9e15-4f7a-ad8a-001bf91ea0df" allow="fullscreen" allowfullscreen="" width="560" height="315" style="border:0"></iframe> 
-{{< /rawhtml >}}
+{{< rawhtml >}} <br> {{< /rawhtml >}}
+
+
+{{< pitch 3bfdd795-9e15-4f7a-ad8a-001bf91ea0df >}}
