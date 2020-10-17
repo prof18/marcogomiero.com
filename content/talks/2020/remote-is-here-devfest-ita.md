@@ -16,5 +16,8 @@ Talk done together with [Gianluca Segato](https://giansegato.com/).
 
 {{< rawhtml >}} <br> {{< /rawhtml >}}
 
-
 {{< pitch 3bfdd795-9e15-4f7a-ad8a-001bf91ea0df >}}
+
+## Video: 
+
+Coming soon
