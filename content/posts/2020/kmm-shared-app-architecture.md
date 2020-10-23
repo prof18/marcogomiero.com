@@ -317,5 +317,5 @@ If you want to give a look at the entire code mentioned in this article, you can
 In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms. If you have any suggestion to improve that architecture or you have any kind of doubt, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
 
 
-Thanks to [Gian](https://giansegato.com/) for helping me review the post
+// Thanks to [Gian](https://giansegato.com/) for helping me review the post
 
