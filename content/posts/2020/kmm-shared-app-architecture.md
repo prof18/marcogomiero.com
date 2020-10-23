@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Choosing the right architecture for Kotlin Multiplatform, Jetpack Compose and SwiftUI"
+title:  "Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
 date:   2020-10-23
 show_in_homepage: true
 tags: [Kotlin Multiplatform]
