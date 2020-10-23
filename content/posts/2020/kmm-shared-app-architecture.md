@@ -1,23 +1,22 @@
 ---
 layout: post
-title:  "Choosing the right architecture for a project with Kotlin Multiplatform, Jetpack Compose and SwiftUI"
-date:   2020-10-12
+title:  "Choosing the right architecture for Kotlin Multiplatform, Jetpack Compose and SwiftUI"
+date:   2020-10-23
 show_in_homepage: true
-draft: true
 tags: [Kotlin Multiplatform]
 ---
 
-Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and the incomes. I've thought and designed it almost a year ago and only now I've found the time to start writing code. 
+Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I've thought and designed it almost a year ago but only now I've found the time to start writing actual code. 
 
 {{< figure src="/img/kmm-app-arch/app-design.png" caption=“A first design iteration, that will change a bit”>}}
 
-And I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app. Money Flow will be an Android, iOS and MacOS application with a common business logic written in Kotlin. And I’ve decided to use the new declarative way to do UI: Jetpack Compose for Android (still in alpha when I’m writing this article) and SwiftUI for iOs/MacOS (that is officially stable, but still causes some headache in big projects - I’ll probably write about my experience soon - ).
+I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app. Money Flow will be an Android, iOS and MacOS application with a common business logic written in Kotlin. I’ve decided to use the new declarative way to handle UI: Jetpack Compose for Android (still in alpha at the time I’m writing this article) and SwiftUI for iOS/MacOS (that is officially stable, but still causes some headaches in big projects — I’ll probably write about my experience soon).
 
-So, after setting up the project, I started to think about the architecture of the Home Screen. 
+So, after setting up the project, I started thinking about the architecture of the Home Screen. 
 
 > This article will be a sort of journal that describes all the decisions and the thoughts that I’ve made to come up with a solution that satisfies me. In this way, I want to be helpful to all the people that are in this decision process. 
 
-In the first place, I’ve thought to go with a MVVM approach, with a platform-specific ViewModel defined in the native part. But I wanted to share more code as possible so I’ve decided to switch to an MVP architecture with Model, (abstract) View and Presenter all defined in the common code. 
+In the first place, I’ve thought to go with an MVVM approach, with a platform-specific ViewModel defined in the native part. But I wanted to share as much code as possible so I’ve decided to switch to an MVP architecture with Model, (abstract) View and Presenter all defined in the common code. 
 
 The Model is a sealed class that contains the different states: a loading state, an error state and a “success state” with all the info needed to render the HomeScreen.
 
@@ -93,7 +92,7 @@ class HomePresenter(
 
 ```
 
-The presenter receives in the constructor the dependencies that it needs and plus a *CoroutineScope* that for Android is provided by the native side, instead on iOS the scope is initialized by default (because we can’t define a scope from Swift code). 
+The presenter receives in the constructor the dependencies that it needs plus a *CoroutineScope* that for Android is provided by the native side. On iOS, instead, the scope is initialized by default (because we can’t define a scope from Swift code). 
 A CoroutineScope is necessary because the data come from the repository as `Flow` ([here](https://kotlinlang.org/docs/reference/coroutines/flow.html) for more info about Kotlin Flow) and any ongoing operation has to be canceled when the view is destroyed.
 
 Then, I moved to the Android side to develop the HomeScreen:
@@ -123,7 +122,7 @@ class MainActivity : AppCompatActivity(), HomeView {
     override fun presentData(homeModel: HomeModel) {
         Timber.d(homeModel)
         TODO("Not yet implemented")
-        // Send data to the HomeScreen. Maybe with a flow? A live data?
+        // Send data to the HomeScreen. Maybe with a flow? Live data?
     }
 }
 ```
@@ -148,7 +147,7 @@ struct HomeScreen: View, HomeView {
 {{< figure src="/img/kmm-app-arch/xcode-error-view.png" >}}
 
 
-So going with MVP was a failure (with this approach. If you have found other ways, I’ll be more than glad to hear them) and so I’ve decided to switch back to a MVVM architecture. But, as I said before, my goal is to share as much code as possible, so I don’t want to create two different platform-specific ViewModels that access directly the `MoneyRepository` to make the exact same transformations. Plus, I need to be able to use a CoroutineScope to cancel any ongoing processing when the view is destroyed, and if I access directly the `MoneyRepository` from an iOs ViewModel I won’t be able to do that. 
+So going with MVP was a failure (with this approach — If you have found other ways, I’ll be more than glad to hear them). That’s why I’ve decided to switch back to an MVVM architecture. But, as I said before, my goal is to share as much code as possible, so I don’t want to create two different platform-specific ViewModels that access directly the `MoneyRepository` to make the exact same transformations. Plus, I need to be able to use a CoroutineScope to cancel any ongoing processing when the view is destroyed, and if I access directly the `MoneyRepository` from an iOS ViewModel I won’t be able to do that. 
 
 Given that circumstances, I’ve decided to use a sort of “shared middleware actor” that prepares and serves the data for the UI. And that actor, that I will call `UseCase`, will be used by the native ViewModels. Of course, this is not a new thing, I’ve borrowed the concept from [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). In this way, the only task that the ViewModel has to do is to serve to the UI the data that come from the UseCase. And by using such architecture, the ViewModel can use platform-specific code to better handle and respect the lifecycles of the target platform. 
 
@@ -206,11 +205,11 @@ class HomeUseCaseImpl(
 }
 ```
 
-As you may already have noticed, there is some “duplicated” stuff in the class. And that’s because some different behavior between Android and iOs must be covered. 
+As you may have already noticed, there is some “duplicated” stuff in the class. And that’s because some different behavior between Android and iOS must be covered. 
 On **Android**, I use a suspendable function and a `Flow` to process the data and observe the changes. The native part (i.e., the Android ViewModel) can call the `computeHomeDataSuspendable` function in a specific CoroutineScope (that ideally will be the `viewModelScope`) and observe the changes with the `homeModel` flow. 
-On **iOS** instead, a Flow cannot be directly observed and plus, the cancellation of the data observation from the `MoneyRepository` must be handled manually. For the former problem, a simple callback can be used. This callback is provided in the constructor (that by default is null and it will be defined only on iOs) and will be called (only if it is not null, of course!) when collecting the data from the two flows. The latter problem instead, can be solved (similarly to what I’ve done before in the Presenter) by using a default CoroutineScope and two methods: one to start to get the data and one to cancel the entire process. The `computeData` method will call the `computeHomeDataSuspendable` method on a specific CoroutineScope that can be canceled with the `onDestroy` method.
+On **iOS** instead, a Flow cannot be directly observed and plus, the cancellation of the data observed from the `MoneyRepository` must be handled manually. For the former problem, a simple callback can be used. This callback is provided in the constructor (that by default is null and it will be defined only on iOs) and will be called (only if it is not null, of course!) when collecting the data from the two flows. The latter problem instead, can be solved (similarly to what I’ve done before in the Presenter) by using a default CoroutineScope and two methods: one to start to get the data and one to cancel the entire process. The `computeData` method will call the `computeHomeDataSuspendable` method on a specific CoroutineScope that can be canceled with the `onDestroy` method.
 
-And that’s it for the common code. Now the dots can be connected in the native part. 
+And that’s it for the shared code. Now the dots can be connected in the native part. 
 For Android, I’ve used a simple Android ViewModel that starts observing the data when initialized, collect the flow and update a LiveData.
 
 
@@ -257,7 +256,7 @@ fun HomeScreen() {
 }
 ```
 
-On iOs instead, the ViewModel is an `ObservableObject` that exposes the HomeModel as a `Published` object (an equivalent to the LiveData). 
+On iOS instead, the ViewModel is an `ObservableObject` that exposes the HomeModel as a `Published` object (an equivalent to the LiveData). 
 
 
 ```swift
@@ -283,7 +282,7 @@ class HomeViewModel: ObservableObject {
 
 In this case, the observation of the data is not started automatically, but there are two methods, one to start observing and one to cancel the observation. 
 
-The iOs screen will look like that:
+The iOS screen will look like that:
 
 
 ```swift
