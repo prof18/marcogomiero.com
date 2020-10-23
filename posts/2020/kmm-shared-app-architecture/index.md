@@ -1,4 +1,4 @@
-# Choosing the right architecture for Kotlin Multiplatform, Jetpack Compose and SwiftUI
+# Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app
 
 
 Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I've thought and designed it almost a year ago but only now I've found the time to start writing actual code. 
