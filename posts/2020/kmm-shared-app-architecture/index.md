@@ -307,7 +307,10 @@ And that’s it!
 {{< figure src="/img/kmm-app-arch/what-to-do.gif" >}}
 
 If you want to give a look at the entire code mentioned in this article, you can give a look to 
-[Github](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) 
+[Github](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) (Be aware that the project is still in its early stages of development, so things can be "ugly" and can heavily change). 
 
 In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms. If you have any suggestion to improve that architecture or you have any kind of doubt, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+
+
+Thanks to [Gian](https://giansegato.com/) for helping me review the post
 
