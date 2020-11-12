@@ -2,6 +2,8 @@
     <div class="post-warp">
         {{- partial "home/profile.html" . -}}
 
+        {{- partial "newsletter.html" . -}}
+
         <h1 align="center">Top Posts</h1>
 
         {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
