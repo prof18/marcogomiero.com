@@ -21,4 +21,4 @@ https://github.com/prof18/Filmatic
 
 ## Video:
 
-Coming Soon
+https://www.droidcon.com/media-detail?video=481203423
