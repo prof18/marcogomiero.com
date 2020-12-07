@@ -113,11 +113,7 @@ struct CustomSerializer<T>: ResponseSerializer {
         }
         
         do {
-            let jsonString = try StringResponseSerializer().serialize(request: request,
-                                                                  response: response,
-                                                                  data: data,
-                                                                  error: error)
-        
+            let jsonString = try StringResponseSerializer().serialize(request: request, response: response, data: data, error: error)
             val deserializedObject = JsonDecoder().decodeFromString(jsonString: “{}”)
             return deserializedObject
             
