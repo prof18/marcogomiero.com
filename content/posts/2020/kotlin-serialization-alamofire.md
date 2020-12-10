@@ -1,9 +1,8 @@
 ---
 layout: post
-title:  "Using Retrofit and Alamofire with Kotlin Serialization"
-date:   2020-11-29
+title:  "Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform"
+date:   2020-12-10
 show_in_homepage: true
-draft: true
 tags: [Kotlin Multiplatform]
 ---
 
