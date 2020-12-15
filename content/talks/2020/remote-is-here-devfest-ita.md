@@ -14,9 +14,17 @@ Talk done together with [Gianluca Segato](https://giansegato.com/).
 
 ## Slides:
 
+### Interactive:
+
 {{< rawhtml >}} <br> {{< /rawhtml >}}
 
 {{< pitch 3bfdd795-9e15-4f7a-ad8a-001bf91ea0df >}}
+
+### Static:
+
+{{< rawhtml >}} <br> {{< /rawhtml >}}
+
+{{< speakerdeck de42539af6ed4f82bde2a58366c7b080 >}}
 
 ## Video: 
 
