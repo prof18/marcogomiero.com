@@ -24,4 +24,4 @@ Talk done together with [Gianluca Segato](https://giansegato.com/).
 
 ## Video:
 
-Coming Soon
+https://www.droidcon.com/media-detail?video=491131164
