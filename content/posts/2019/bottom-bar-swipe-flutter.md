@@ -2,7 +2,7 @@
 layout: post
 title:  "Bottom App Bar with Menu and Swipeable Tabs in Flutter"
 date:   2019-03-20
-show_in_homepage: true
+show_in_homepage: false
 tags: [Flutter]
 ---
 

@@ -27,7 +27,7 @@ In my spare time I write and maintain open source code, I share my dev experienc
 
 # Work Experience
 
-### [Uniwhere](https://www.uniwhere.com/) · Mobile Engineer · September 2017 - Present
+### [Uniwhere](https://www.uniwhere.com/) · Tech Lead · September 2017 - Present
 
 {{< rawhtml >}}
 <br>

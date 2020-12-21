@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Choosing the right architecture for Kotlin Multiplatform, Jetpack Compose and SwiftUI"
+title:  "Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
 date:   2020-10-23
 show_in_homepage: true
 tags: [Kotlin Multiplatform]
@@ -8,7 +8,7 @@ tags: [Kotlin Multiplatform]
 
 Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I've thought and designed it almost a year ago but only now I've found the time to start writing actual code. 
 
-{{< figure src="/img/kmm-app-arch/app-design.png" caption=“A first design iteration, that will change a bit”>}}
+{{< figure src="/img/kmm-app-arch/app-design.png" caption="A first design iteration, that will change a bit" >}}
 
 I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app. Money Flow will be an Android, iOS and MacOS application with a common business logic written in Kotlin. I’ve decided to use the new declarative way to handle UI: Jetpack Compose for Android (still in alpha at the time I’m writing this article) and SwiftUI for iOS/MacOS (that is officially stable, but still causes some headaches in big projects — I’ll probably write about my experience soon).
 
@@ -312,7 +312,10 @@ And that’s it!
 {{< figure src="/img/kmm-app-arch/what-to-do.gif" >}}
 
 If you want to give a look at the entire code mentioned in this article, you can give a look to 
-[Github](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) 
+[Github](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) (Be aware that the project is still in its early stages of development, so things can be "ugly" and can heavily change). 
 
 In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms. If you have any suggestion to improve that architecture or you have any kind of doubt, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+
+
+// Thanks to [Gian](https://giansegato.com/) for helping me review the post
 

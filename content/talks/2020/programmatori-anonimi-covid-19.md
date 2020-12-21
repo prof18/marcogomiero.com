@@ -1,7 +1,7 @@
 ---
 date: 2020-04-03T15:45:00Z
 title: "Programmatori anonimi ai tempi di Covid-19"
-location: "Remote"
+location: "GDG Venezia Meetup, Remote"
 performDate: 2020-04-02
 ---
 
