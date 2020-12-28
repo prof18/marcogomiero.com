@@ -18,7 +18,7 @@ I’m a software engineer, currently working as Tech Lead at [Uniwhere](https://
 
 I'm a Kotlin lover and I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
 
-In my spare time I write and maintain open source code, I share my dev experience by [writing on my blog](/posts), [speaking at confs](/talks) and organizing events with the Google Developer Group Venezia and I play basketball.
+In my spare time I write and maintain open source code, I share my dev experience by [writing on my blog](/posts), [speaking at confs](/talks) and [organizing events with the Google Developer Group Venezia](https://gdg.community.dev/gdg-venezia/) and I play basketball.
 
 
 {{< rawhtml >}}
