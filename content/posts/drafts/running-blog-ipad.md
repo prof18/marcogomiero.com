@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "Running a blog with iPad"
-date:   2021-01-01
+date:   2020-12-01
 show_in_homepage: false
 draft: true
 tags: [Blogging]
 ---
 
-For some years now, I have this blog, and I quite like writing my thoughts and sharing my experience. After a parenthesis on Medium, I decided that I want to be the owner of my content, so I started experimenting with different solutions and ideas. After founding the “perfect” tech architecture (I know, I’m lying. There isn’t the perfect solution and probably the future me will refactor and (over)re-engineer the current solution), I started to seek the “perfect” writing setup. And I think that I’ve found it, and in this article, I want to share it.
+For some years now, I have this blog, and I quite like writing my thoughts and sharing my experience. After a parenthesis on Medium, I decided that I want to be the owner of my content, so I started experimenting with different solutions and ideas. After founding the "perfect" tech architecture (I know, I’m lying. There isn’t the perfect solution and probably the future me will refactor and (over)re-engineer the current solution), I started to seek the "perfect" writing setup. And I think that I’ve found it, and in this article, I want to share it.
 
 ## A bit about tech architecture
 
@@ -21,7 +21,7 @@ And that’s it for the tech stack. It was a quick but necessary overview to bet
 
 ## Writing Setup
 
-My main machine is a 15” MacBook Pro and it is fantastic for my day-to-day job. But after using it for writing some articles, I’ve discovered that a 15” machine is way too heavy, big, and overkill just for blogging. 
+My main machine is a 15" MacBook Pro and it is fantastic for my day-to-day job. But after using it for writing some articles, I’ve discovered that a 15" machine is way too heavy, big, and overkill just for blogging. 
 
 When I’m writing something, I like to stay outside in the courtyard, sitting in the deckchair or in the hammock or in a simple chair. And when the weather does not allow it, I prefer to stay on the couch or in bed rather than in my work setup. And in all of these scenarios, my MacBook is too uncomfortable to use. So I started to think about alternatives. 
 
@@ -39,38 +39,38 @@ The only compromise is the fact that it makes the iPad a bit heavier and thicker
 
 ### Applications
 
-As I mentioned above, the website is stored in a git repository and I manage all ”the git lifecycle” through [**Working Copy**](https://apps.apple.com/it/app/working-copy-git-client/id896694807?l=en) that I think is the best git client that you can find in the AppStore. 
+As I mentioned above, the website is stored in a git repository and I manage all "the git lifecycle" through [**Working Copy**](https://apps.apple.com/it/app/working-copy-git-client/id896694807?l=en) that I think is the best git client that you can find in the AppStore. 
 
-{{< figure src="/img/blogging-ipad/working-copy-screen.png"  link="/img/blogging-ipad/working-copy-screen.png" caption=“Working Copy”>}}
+{{< figure src="/img/blogging-ipad/working-copy-screen.png"  link="/img/blogging-ipad/working-copy-screen.png" caption="Working Copy">}}
 
 With Working Copy you can browse the content of the repo but you can also make edits with a built-in editor that has also syntax highlighting. But the feature that made me choose this client is the support of the File iOs app, so the repositories can be seen from other apps as well.  
 
-{{< figure src="/img/blogging-ipad/working-copy-files-app.png"  link="/img/blogging-ipad/working-copy-files-app.png" caption=“iOs File app” >}}
+{{< figure src="/img/blogging-ipad/working-copy-files-app.png"  link="/img/blogging-ipad/working-copy-files-app.png" caption="iOs File app" >}}
 
 So in this way, I can open and edit an article directly from my favorite Markdown editor that is (for the time being) [**MWeb**](https://apps.apple.com/it/app/mweb-powerful-markdown-app/id1183407767?l=en) (I know, it’s a weird name).
 
-{{< figure src="/img/blogging-ipad/mweb-screen.png" link=“/img/blogging-ipad/mweb-screen.png” caption=“MWeb” >}}
+{{< figure src="/img/blogging-ipad/mweb-screen.png" link="/img/blogging-ipad/mweb-screen.png" caption="MWeb" >}}
 
 I like it because it provides themes, a powerful preview, a useful toolbar with plenty of quick actions, and a lot of keyboard shortcuts. 
 
-In the past, I’ve used [Pretext](https://apps.apple.com/it/app/pretext/id1347707000?l=en) that it is “more basilar”. In the future, I would like to try [iA Writer](https://apps.apple.com/it/app/ia-writer/id775737172?l=en) but it is quite expensive and I don’t know if it worths the investment (maybe if there is a demo or a trial version I can make a decision).  
+In the past, I’ve used [Pretext](https://apps.apple.com/it/app/pretext/id1347707000?l=en) that it is "more basilar". In the future, I would like to try [iA Writer](https://apps.apple.com/it/app/ia-writer/id775737172?l=en) but it is quite expensive and I don’t know if it worths the investment (maybe if there is a demo or a trial version I can make a decision).  
 
 And that’s it! I write an article in MWeb and when I finish it, I publish it on the master branch of the Github repo through Working Client. Then, the GitHub Action is triggered and the article is live.
 
 Bonus. If I have to edit or prepare an image for an article (like the ones below), I use [**Pixelmator**](https://apps.apple.com/it/app/pixelmator/id924695435?l=en), a very good image editor for iOs.  
 
-{{< figure src="/img/blogging-ipad/pixelmator-screen.png"  link="/img/blogging-ipad/pixelmator-screen.png" caption=“Pixelmator” >}}
+{{< figure src="/img/blogging-ipad/pixelmator-screen.png"  link="/img/blogging-ipad/pixelmator-screen.png" caption="Pixelmator" >}}
 
 ### Automations
 
-After writing some articles, I’ve discovered that there are some boring activities to achieve on iPad, like creating a new article, adding a new image for an article, etc. So, during one of the “its-blogging-time-but-i-dont-want-to-write” sessions (procrastination FTW) I decided to automate some of these boring things. 
+After writing some articles, I’ve discovered that there are some boring activities to achieve on iPad, like creating a new article, adding a new image for an article, etc. So, during one of the "its-blogging-time-but-i-dont-want-to-write" sessions (procrastination FTW) I decided to automate some of these boring things. 
 
 #### Add an image to an article
 
 To show an image on a Hugo Markdown page, it is necessary to write a shortcode; for example, for the Pixelmator’s screen posted above the corresponding shortcode is the following:
 
 ```markdown
-{{< figure src="/img/blogging-ipad/pixelmator-screen.png"  link="/img/blogging-ipad/pixelmator-screen.png" caption=“Pixelmator” >}}
+{{</* figure src="/img/blogging-ipad/pixelmator-screen.png"  link="/img/blogging-ipad/pixelmator-screen.png" caption="Pixelmator" */>}}
 ```
 
 So, every time I need to add an image to an article, I need to:
@@ -84,15 +84,15 @@ Way too many steps for a lazy person like me!
 
 To try to automate these steps, I started to play with the **Apple Shortcuts iOs app**. If you don’t know this app, I suggest you to look at it, because it is really powerful and it can simplify your life.
 
-> A shortcut is a quick way to get one or more tasks done with your apps. The Shortcuts app lets you create your own shortcuts with multiple steps. For example, build a “Surf Time” shortcut that grabs the surf report, gives an ETA to the beach, and launches your surf music playlist. *[Shortcuts user guide](https://support.apple.com/guide/shortcuts/welcome/ios)*
+> A shortcut is a quick way to get one or more tasks done with your apps. The Shortcuts app lets you create your own shortcuts with multiple steps. For example, build a "Surf Time" shortcut that grabs the surf report, gives an ETA to the beach, and launches your surf music playlist. *[Shortcuts user guide](https://support.apple.com/guide/shortcuts/welcome/ios)*
 
 After some trials, I was able to achieve my goal and, as you can see in the video, when I need to add an image to an article I can launch a shortcut that does all the job for me.
 
 {{< youtube MdSv-PwC5N8 >}}
 
-And here’s the “source code” of the shortcut:
+And here’s the "source code" of the shortcut:
 
-{{< figure src="/img/blogging-ipad/new-image-shortcut.png"  link="/img/blogging-ipad/new-image-shortcut.png" caption=“iOs shortcut to move an image from the camera roll to the repo of the site and generate the Hugo shortcode” >}}
+{{< figure src="/img/blogging-ipad/new-image-shortcut.png"  link="/img/blogging-ipad/new-image-shortcut.png" caption="iOs shortcut to move an image from the camera roll to the repo of the site and generate the Hugo shortcode" >}}
 
 As you can see in the image above, it is possible to ask for input and then store it in a variable. So, first of all, I receive as input the name of the image and the folder, then I open the system image picker and I store the chosen image in a variable. Then, before moving the image, I extract the file extension of the image and store it in another variable. 
 And now finally, it is time to move the image to the specific folder with the new name. This action is performed with the shortcut support provided by Working Copy. And at the end, I create the shortcode for the specific image and I store it in the clipboard ready to be pasted in the article.
@@ -116,15 +116,15 @@ So, I made another shortcut!
 
 {{< youtube v18imNIwgyc >}}
 
-And here’s the “source code” of this shortcut:
+And here’s the "source code" of this shortcut:
 
-{{< figure src="/img/blogging-ipad/new-article-draft-shortcut.png"  link="/img/blogging-ipad/new-article-draft-shortcut.png" caption=“iOs shortcut to create a new article draft with some metadata” >}}
+{{< figure src="/img/blogging-ipad/new-article-draft-shortcut.png"  link="/img/blogging-ipad/new-article-draft-shortcut.png" caption="iOs shortcut to create a new article draft with some metadata" >}}
 
 The structure is very similar to the other shortcut. First of all, I make sure that I’m in the develop branch of the website where I make all the draft work. Next, I ask for some input that I store in some variables. As you can see it is also possible to do some if/else statements. 
 And at the end, I create the metadata that will be placed inside the new article. 
 
 ## Conclusions
 
-And that’s how I write in my blog. I’m very happy with this setup because it let me only focus on writing. Every “boring” activity is completely automated and in this way, I have “just” to write. And by using an iPad I’m not tempted to re-open my IDE to procrastinate writing.
+And that’s how I write in my blog. I’m very happy with this setup because it let me only focus on writing. Every "boring" activity is completely automated and in this way, I have "just" to write. And by using an iPad I’m not tempted to re-open my IDE to procrastinate writing.
 
 If you have any kind of suggestions about apps, accessories, whatever, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier). 
