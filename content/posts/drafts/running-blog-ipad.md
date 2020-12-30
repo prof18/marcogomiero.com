@@ -18,7 +18,7 @@ As mentioned above, the final output of Hugo is a static website and there are m
 
 For handling the publications, I’ve set up a little **GitHub action** (you can give a look at it [on my GitHub](https://github.com/prof18/marcogomiero.com/blob/master/.github/workflows/gh-pages.yml)) that builds the website and pushes all the changes to a special branch reserved for GitHub Pages. This action is triggered every time I push something on the master branch. 
 
-That’s it for the tech stack. It was a quick but necessary overview to better introduce the context but if you have any kind of question, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier). 
+That’s it for the tech stack. It was a quick but necessary overview to better introduce the context but if you have any kind of question, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
 ## Writing Setup
 
@@ -128,4 +128,4 @@ And at the end, I create the metadata that will be placed inside the new article
 
 And that’s how I write in my blog. I’m very happy with this setup because it let me only focus on writing. Every "boring" activity is completely automated and in this way, I have "just" to write. And by using an iPad I’m not tempted to re-open my IDE to procrastinate writing.
 
-If you have any kind of suggestions about apps, accessories, whatever, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier). 
+If you have any kind of suggestions about apps, accessories, whatever, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).

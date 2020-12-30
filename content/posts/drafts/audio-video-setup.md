@@ -76,7 +76,7 @@ I’ve chosen a 34” [MSI Optix MAG341CQ](https://www.amazon.com/MSI-Non-Glare-
 
 ## Conclusions:
 
-And that’s my setup! If you have any kind of suggestions about gear, improvements, whatever, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier). 
+And that’s my setup! If you have any kind of suggestions about gear, improvements, whatever, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
 I know that can be expensive, but if you have the possibility, with not so much effort, you can really improve your audio and video quality. If you are doing talks, webinars, video tutorial, etc the video improvements really make a difference. Otherwise, if you are doing only video calls, I would invest in a decent microphone. 
 
