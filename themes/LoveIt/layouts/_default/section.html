@@ -3,36 +3,42 @@
 {{ define "content" -}}
     {{ $data := .Data -}}
     {{ $section := .Section -}}
-    <div class="post-warp archive">
-        <h1 class="post-section-title">
-                {{ T .Section | default .Section | humanize }}
-        </h1>
+
 
         {{ if eq $section "posts" -}}
-            {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
-            {{ with .Site.Params.home_paginate -}}
-                {{ $paginator = $.Paginate $paginator . -}}
-            {{ else -}}
-                {{ $paginator = $.Paginate $paginator -}}
-            {{ end -}}
-            {{ range $paginator.Pages -}}
-                {{ .Render "postItem" -}}
-            {{ end -}}
-            
-            {{ partial "paginator.html" . -}}
+            <div class="post-warp archive">
+                <h1 class="post-section-title">
+                        {{ T .Section | default .Section | humanize }}
+                </h1>
+                {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
+                {{ with .Site.Params.home_paginate -}}
+                    {{ $paginator = $.Paginate $paginator . -}}
+                {{ else -}}
+                    {{ $paginator = $.Paginate $paginator -}}
+                {{ end -}}
+                {{ range $paginator.Pages -}}
+                    {{ .Render "postItem" -}}
+                {{ end -}}
+                
+                {{ partial "paginator.html" . -}}
+            </div>
         {{ else -}}
 
-            {{ $paginator := where .Site.RegularPages "Type" "talks" -}}
-            {{ with .Site.Params.talk_paginate -}}
-                {{ $paginator = $.Paginate $paginator . -}}
-            {{ else -}}
-                {{ $paginator = $.Paginate $paginator -}}
-            {{ end -}}
-            {{ range $paginator.Pages -}}
-                {{ .Render "talkItem" -}}
-            {{ end -}}
-            
-            {{ partial "paginator.html" . -}}
+        <div class="post-warp archive">
+            <h1 class="post-section-title">
+                {{ T .Section | default .Section | humanize }}
+            </h1>
+    
+            {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
+                <br>    
+                <h2>{{ .Key }}</h2>
+                <br>
+                {{- range .Pages -}}
+                    {{ .Render "talkItem" -}}
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        </div>
 
             <!-- {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
             <h3>{{ .Key }}</h3>
@@ -49,6 +55,8 @@
         {{ end -}}
 
         
+
+
 
     </div>
 {{- end }}

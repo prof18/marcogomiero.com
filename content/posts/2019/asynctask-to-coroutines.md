@@ -253,7 +253,7 @@ coroutineScope.launch(Dispatchers.Main) {
 }
 ```
 
-And finally, we have reached the end of my journey from Async Task to Coroutines. If you have some advice, doubt or any kind of feedback, please leave a comment! Of course, you can use this example as an idea to leave forever the (ugly) Async Tasks.
+And finally, we have reached the end of my journey from Async Task to Coroutines. If you have some advice, doubt or any kind of feedback, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier)! Of course, you can use this example as an idea to leave forever the (ugly) Async Tasks.
 
 If you want to contribute to the development of the library or simply report a bug, visit the repo on Github: [https://github.com/prof18/RSS-Parser](https://github.com/prof18/RSS-Parser)
 

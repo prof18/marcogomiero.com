@@ -35,7 +35,7 @@ The app is very simple because its aim it's very simple: "Open the camera, scan 
 
 I hope that this little application will be helpful to keep your data more secure.
 
-If you have any feedback, if you notice a bug or if you want to contribute for example with the translation, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier).
+If you have any feedback, if you notice a bug or if you want to contribute for example with the translation, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
 
 

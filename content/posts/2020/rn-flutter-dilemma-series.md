@@ -31,5 +31,5 @@ And finally, in the last episode, I'll wrap things up. First I'll make a conside
 
 As you will read, this is not an easy choice. I think that it all depends on the product that you are going to develop, on your personal taste about programming languages and on the composition of your team. For example, Flutter is preferable for an app with fancy UIs with lots of animations and complex layouts. Maybe you don't like Javascript at all (like me) or you have a majority of web dev in your team. That's why I like to say that going cross-platform it's a choice with compromises based on specific situations.
 
-I hope that this series will be helpful to make the right decision. If you want to share your consideration and what led you to choose between Flutter and React Native, you can drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+I hope that this series will be helpful to make the right decision. If you want to share your consideration and what led you to choose between Flutter and React Native, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
