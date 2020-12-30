@@ -82,5 +82,4 @@ I know that can be expensive, but if you have the possibility, with not so much 
 
 If you are interested in different suggestions and setup, I suggest you look over [Emma Bostian’s article](https://compiled.blog/blog/my-tech-setup) and [Sebastiano Poggi’s one](https://blog.sebastiano.dev/better-video-and-audio-sure-can-do/), which inspired me to improve my setup and to write about it. 
 
-TODO: find a smaller font for this text
-Note: Some links contained in this article are affiliate links. It cost nothing to you, but they can support my work.
+{{< smalltext >}} Note: Some links contained in this article are affiliate links. It cost nothing to you, but they can support my work. {{< /smalltext >}}

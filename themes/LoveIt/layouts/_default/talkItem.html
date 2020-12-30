@@ -4,13 +4,12 @@
     {{ $location := .Params.location | default "" }}
     {{ $isUpcoming := .Params.upcoming }}
 
-    <!-- end featured_image-->
-    <h2 class="talk-title" itemprop="name headline">
+    <h4 class="talk-title" itemprop="name headline">
         {{ if $isUpcoming}}
             [UPCOMING] - 
         {{ end }}
         <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h2>
+    </h4>
 
     <div class="post-meta">
         <time datetime={{ $perform_date }}>{{ $perform_date }}  -</time>
