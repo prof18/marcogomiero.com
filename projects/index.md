@@ -53,15 +53,15 @@ An Android library to get video's information from Youtube channels. You can ret
 
 ---
 
-## [Mario Discepolo](https://play.google.com/store/apps/details?id=com.prof.mariodiscepolo) · Android App · 2017 
-
-Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles
-
----
-
 ## @Deprecated - Zeromag · Website · 2018
 
 Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog "ZeroMag". The site was built with Wordpress and is no longer online.
+
+---
+
+## @Deprecated Mario Discepolo · Android App · 2017 
+
+Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo's channel and receive notifications for the new articles
 
 ---
 

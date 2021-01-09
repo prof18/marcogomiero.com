@@ -21,7 +21,7 @@ But should I choose Flutter or React Native? Well, there isn't a correct answer 
 
 I think that if your application will have complex and very custom layouts, long lists with complex layouts you should go with Flutter because it is more performant than React Native. Instead, if you want to incorporate a cross-platform feature inside an existent native application (the Frankenstein feature that we have discussed in the third episode of the series) you should choose React Native because it is more stable (Note: I compared this feature in the application of the company where I work during summer 2019 - things may be changed). Furthermore, I think that another reason to choose Flutter is that Dart is a language thought and developed also for mobile while Javascript is not. But of course, this is a personal thought, if you are more familiar with Javascript, go with it!
 
-And that's all for this comparison between Flutter and React Native. I hope that these articles will be helpful to make the right decision. If you want to share your consideration and what led you to choose between the two frameworks, you can drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+And that's all for this comparison between Flutter and React Native. I hope that these articles will be helpful to make the right decision. If you want to share your consideration and what led you to choose between the two frameworks, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
 ## BONUS
 

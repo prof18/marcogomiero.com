@@ -142,4 +142,4 @@ Of course, you can find the complete code on my Github.
 
 > [prof18/BottomAppBarSwipeableTabs](https://github.com/prof18/BottomAppBarSwipeableTabs)
 
-If you have any kind of feedback, leave a comment below!
+If you have any kind of feedback, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).

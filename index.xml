@@ -7,9 +7,9 @@
 &lt;/div>
 &lt;h2> Marco Gomiero &lt;/h1>
 &lt;/div>
-&lt;p>I&amp;rsquo;m working as Uniwhere Tech Lead, where I manage the end-to-end development of a platform with half a million users.&lt;/p>
-&lt;p>I&amp;rsquo;m a Kotlin lover with a Computer Engineering degree, I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.&lt;/p>
-&lt;p>In my spare time I write and maintain open source code, I share my dev experience by speaking at confs and organizing events with the Google Developer Group Venezia and I play basketball.&lt;/p>
+&lt;p>I’m a software engineer, currently working as Tech Lead at &lt;a href="https://www.uniwhere.com/it">Uniwhere&lt;/a>, where I manage the end-to-end development of a platform with half a million users, and I&amp;rsquo;m in the founding team of &lt;a href="https://revelop.app/">Revelop&lt;/a>, a redesign of the personal inbox, backed by former Facebook executives, and being used in the best American schools &amp;ndash; from Harvard to Columbia.&lt;/p>
+&lt;p>I&amp;rsquo;m a Kotlin lover and I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.&lt;/p>
+&lt;p>In my spare time I write and maintain open source code, I share my dev experience by &lt;a href="https://www.marcogomiero.com/posts">writing&lt;/a> on my blog, &lt;a href="https://www.marcogomiero.com/talks">speaking&lt;/a> at confs and &lt;a href="https://gdg.community.dev/gdg-venezia/">organizing&lt;/a> events with the Google Developer Group Venezia and I play basketball.&lt;/p>
 &lt;br>
 &lt;h1 id="work-experience">Work Experience&lt;/h1>
 &lt;h3 id="uniwherehttpswwwuniwherecom--tech-lead--september-2017---present">&lt;a href="https://www.uniwhere.com/">Uniwhere&lt;/a> · Tech Lead · September 2017 - Present&lt;/h3>
@@ -55,11 +55,11 @@
 &lt;h2 id="youtube-parserhttpsgithubcomprof18youtubeparser--android-library--2016---present">&lt;a href="https://github.com/prof18/YoutubeParser">Youtube Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
 &lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is also uploaded on jCenter. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/update-yt-parser-2">this blog post&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="mario-discepolohttpsplaygooglecomstoreappsdetailsidcomprofmariodiscepolo--android-app--2017">&lt;a href="https://play.google.com/store/apps/details?id=com.prof.mariodiscepolo">Mario Discepolo&lt;/a> · Android App · 2017&lt;/h2>
-&lt;p>Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo&amp;rsquo;s channel and receive notifications for the new articles&lt;/p>
-&lt;hr>
 &lt;h2 id="deprecated---zeromag--website--2018">@Deprecated - Zeromag · Website · 2018&lt;/h2>
 &lt;p>Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog &amp;ldquo;ZeroMag&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
+&lt;hr>
+&lt;h2 id="deprecated-mario-discepolo--android-app--2017">@Deprecated Mario Discepolo · Android App · 2017&lt;/h2>
+&lt;p>Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo&amp;rsquo;s channel and receive notifications for the new articles&lt;/p>
 &lt;hr>
 &lt;h2 id="deprecated---taxitaly-and-tour--website--2015">@Deprecated - Taxitaly and Tour · Website · 2015&lt;/h2>
 &lt;p>Website built with Wordpress to book transfer and touristic tours in the area of Venice. The site is no longer active&lt;/p>

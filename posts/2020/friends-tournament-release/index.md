@@ -31,8 +31,4 @@ For the time being, Friends Tournament is only available for Android. Maybe in t
 
 {{</rawhtml>}}
 
-If you have any feedback, if you notice a bug or if you want to contribute for example with the translation, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier).
-
-
-
- 
+If you have any feedback, if you notice a bug or if you want to contribute for example with the translation, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).

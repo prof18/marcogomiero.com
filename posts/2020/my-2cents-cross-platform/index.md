@@ -3,7 +3,7 @@
 
 During my journey as a mobile developer, I had the chance to try and give a look at some cross-platform solutions both for work and fun reasons. Today, I want to share my thoughts and considerations about them and why/when you should use cross-platform. I hope that these thoughts will be helpful to anyone that is in the process of choosing the right solution for their product.
 
-> **Disclaimer**: in this article, I will share some opinions based on my experience and they can apply to your situation or not. If you want to share your considerations, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+> **Disclaimer**: in this article, I will share some opinions based on my experience and they can apply to your situation or not. If you want to share your considerations, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
 ## Possible solutions
 
@@ -79,4 +79,4 @@ Unfortunately, there isn't a perfect recipe. Every project has its peculiar char
 
 An important point to keep in mind is that if the experience with a particular choice is not successful as expected, you must have the consciousness to admit the defeat and try another solution (I know, it's not easy).
 
-I hope that by sharing my experience, I will help you to make a great decision. If you want to share your considerations, feel free to drop a comment below or tweet me [@marcoGomier](https://twitter.com/marcoGomier)
+I hope that by sharing my experience, I will help you to make a great decision. If you want to share your considerations, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
