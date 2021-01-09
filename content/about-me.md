@@ -14,11 +14,11 @@ title = "About Me"
 {{< /rawhtml >}}
 
 
-I'm working as Uniwhere Tech Lead, where I manage the end-to-end development of a platform with half a million users.
+I’m a software engineer, currently working as Tech Lead at [Uniwhere](https://www.uniwhere.com/it), where I manage the end-to-end development of a platform with half a million users, and I'm in the founding team of [Revelop](https://revelop.app/), a redesign of the personal inbox, backed by former Facebook executives, and being used in the best American schools -- from Harvard to Columbia.
 
-I'm a Kotlin lover with a Computer Engineering degree, I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
+I'm a Kotlin lover and I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
 
-In my spare time I write and maintain open source code, I share my dev experience by speaking at confs and organizing events with the Google Developer Group Venezia and I play basketball.
+In my spare time I write and maintain open source code, I share my dev experience by [writing](/posts) on my blog, [speaking](/talks) at confs and [organizing](https://gdg.community.dev/gdg-venezia/) events with the Google Developer Group Venezia and I play basketball.
 
 
 {{< rawhtml >}}

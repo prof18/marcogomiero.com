@@ -7,7 +7,6 @@ paginate = 12
 enableEmoji = true                                       
 enableRobotsTXT = true                                   
 googleAnalytics = "UA-90975904-1"                                    
-disqusShortname = "marcogomiero"                             
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 publishDir = "docs"                                                         
                                                
@@ -55,8 +54,8 @@ staticDir = ["static", "../assets/others"]
   dateFormatToUsePost = "2 Jan"
 
   version = "5.x"                                        
-  description = "Computer Engineer · Android Developer · Community Manager"                      
-  keywords = ["Marco Gomiero", "Android", "Flutter", "Gomiero", "Kotlin", "RSS Parser"]                  
+  description = "Software Engineer · Community Manager"                      
+  keywords = ["Marco Gomiero", "Android", "Flutter", "Gomiero", "Kotlin", "RSS Parser", "Kotlin Multiplatform"]                  
 
                                                       
   home_mode = "post"                                     
@@ -64,7 +63,7 @@ staticDir = ["static", "../assets/others"]
   talk_paginate = 10                                      
   avatar = "img/profile.jpeg"                           
   homeTitle = "Marco Gomiero"
-  subtitle = "Computer Engineer · Android Developer · Community Manager"  
+  subtitle = "Software Engineer · Community Manager"  
 
   socialShare = true                                     
 

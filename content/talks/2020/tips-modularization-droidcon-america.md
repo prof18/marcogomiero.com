@@ -21,4 +21,5 @@ https://github.com/prof18/Filmatic
 
 ## Video:
 
-https://www.droidcon.com/media-detail?video=481203423
+{{< vimeo 481203423 >}}
+

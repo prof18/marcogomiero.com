@@ -89,10 +89,5 @@
 
         {{ partial "post/footer.html" . }}
 
-        <div class="post-comment">
-            {{ if ( .Params.comment | default true ) }}
-            {{ partial "comments.html" . }}
-            {{ end }}
-        </div>
     </article>
 {{- end }}
