@@ -1,8 +1,9 @@
 ---
-date: 2021-01-09T10:45:00Z
+date: 2021-01-09T09:45:00Z
 title: "And that, folks, is how we shared code between Android, iOS and the Backend"
 location: "FOSDEM, Remote"
 performDate: 2021-02-07
+upcoming: true
 ---
 
 7 February 2021 - [FOSDEM](https://fosdem.org/2021/schedule/event/and_that_folks_is_how_we_shared_code/)
