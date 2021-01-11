@@ -23,34 +23,18 @@ When starting a new blank KMP project it is easier to have a mono-repo structure
 
 However existing projects most likely don’t have a mono-repo structure. And making a refactor to achieve this structure can be extremely difficult for time or management constraints. But Kotlin Multiplatform is built around the concept of sharing as much non-UI code as possible, and it is possibile to start sharing a little piece of tech stack. 
 
-From where to start is really subjective and it depends on the specific project, but there are some part that better lend themselves to this topic. For example, all the code that is boring to write multiple times (constants, data models, etc), because since is boring to write it is more error prone. Or could be a feature that centralizes the source of truth (i.e. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. 
+From where to start is really subjective and it depends on the specific project, but there are some part that better lend themselves to this topic. For example, all the code that is boring to write multiple times (constants, data models, DTOs, etc), because if is boring to write it is more error prone. Or could be a feature that centralizes the source of truth (i.e. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. Or could be some utility or analytics helpers that every project have.
 
-An important thing to take in mind is that all the features chosen for sharing must have the possibility to be extracted gradually. 
+An important thing to take in mind is that all the features chosen for sharing must have the possibility to be extracted gradually. That’s because, during the evaluation process of KMP it is better to make a final decision without using too much time. For example, it is not a good idea to start sharing the entire network layer because you will risk to end up with a useless work if KMP is not the right solution for the project. Otherwise, starting with some small features like a DTO or a data model it will require less “extraction time” and it will leave enough time to work on the architecture needed to have a Kotlin Multiplatform library in an existing project.
+
+For example, at [Uniwhere](https://www.uniwhere.com/) we have decided to start with some DTOs and after validating the process, we have migrated all the others.  
 
 ——- 
-
-## How to approach, 
-
-You can choose a little piece of tech stack to start with existing project. 
-
-Boring code to write multiple times
-Code/feature that centralises the source of truth (i.e. a field is nullable or not)
-Code/feature that can be gradually extracted
-
-DTOs
-Common Models
-Utility methods, aka `object Utils {}`
-
-Where to start. Existing project, start little and then go bigger. New projects  do whetever you want, link to article
-
-https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/
 
 ## Publishing
 
 
-{{< figure src="/img/kmp-existing-projects/kmp-existing-project.jpeg"  link="/img/kmp-existing-projects/kmp-existing-project.jpeg" >}}
-
-{{< figure src="/img/kmp-existing-projects/kmp-new-project.jpeg"  link="/img/kmp-existing-projects/kmp-new-project.jpeg" >}}
+{{< figure src="/img/kmp-existing-projects/kmp-publish-arch.png"  link="/img/kmp-existing-project/kmp-publish-arch.png" >}}
 
 ### JVM
 
