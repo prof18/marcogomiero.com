@@ -8,7 +8,7 @@ tags: [Kotlin Multiplatform]
 
 Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I've thought and designed it almost a year ago but only now I've found the time to start writing actual code. 
 
-{{< figure src="/img/kmm-app-arch/app-design.png" caption="A first design iteration, that will change a bit" >}}
+{{< figure src="/img/kmm-app-arch/app-design.png" link="/img/kmm-app-arch/app-design.png" caption="A first design iteration, that will change a bit" >}}
 
 I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app. Money Flow will be an Android, iOS and MacOS application with a common business logic written in Kotlin. I’ve decided to use the new declarative way to handle UI: Jetpack Compose for Android (still in alpha at the time I’m writing this article) and SwiftUI for iOS/MacOS (that is officially stable, but still causes some headaches in big projects — I’ll probably write about my experience soon).
 
