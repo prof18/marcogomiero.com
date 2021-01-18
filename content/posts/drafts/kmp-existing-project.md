@@ -21,7 +21,7 @@ When starting a new blank KMP project it is easier to have a mono-repo structure
     └── shared
 ```
 
-However existing projects most likely don’t have a mono-repo structure. And making a refactor to achieve this structure can be extremely difficult for time or management constraints. But Kotlin Multiplatform is built around the concept of sharing as much non-UI code as possible, and it is possibile to start sharing a little piece of tech stack. 
+However existing projects most likely don’t have a mono-repo structure. And making a refactor to achieve this structure can be extremely difficult for time or management constraints. But Kotlin Multiplatform is built around the concept of sharing as much non-UI code as possible, and it is possibile to start sharing a little piece of tech stack. Then, this “little piece of tech stack” will be served to the existing projects as a library. 
 
 From where to start is really subjective and it depends on the specific project, but there are some part that better lend themselves to this topic. For example, all the code that is boring to write multiple times (constants, data models, DTOs, etc), because if is boring to write it is more error prone. Or could be a feature that centralizes the source of truth (i.e. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. Or could be some utility or analytics helpers that every project have.
 
@@ -29,19 +29,25 @@ An important thing to take in mind is that all the features chosen for sharing m
 
 For example, at [Uniwhere](https://www.uniwhere.com/) we have decided to start with some DTOs and after validating the process, we have migrated all the others.  
 
-——- 
+## Publishing Architecture
 
-## Publishing
-
+The architecture of an existing project with Kotlin Multiplatform will look like this:
 
 {{< figure src="/img/kmp-existing-projects/kmp-publish-arch.png"  link="/img/kmp-existing-project/kmp-publish-arch.png" >}}
 
-### JVM
+There is a repository for every platform:
 
-Android -> Maven Publish -> easy description
-Backend -> Maven Publish -> easy description
+- a repository for the KMP library;
+- a repository for the Backend;
+- a repository for the Android app;
+- a repository for the iOs app. 
 
-Setup a Maven repository to share the artifacts
+As mentioned early on, the KMP code is served as a library. The compiler generates a *.jar* for the JVM, an *.aar* for Android and a *Framework* for iOs. The *.jar* and the *.aar* can be published in a *Maven* repository. A *Framework* can be published in different places: for example in a *[CocoaPods](https://cocoapods.org/)* repository, in the [Swift Package Manager](https://swift.org/package-manager/) or with [Carthage](https://github.com/Carthage/Carthage). Since I’m familiar with CocoaPods (and because we are using it at Uniwhere), I’ve decided to stick with it.
+
+### Publishing for Android and the JVM
+
+The amount of work needed to publish a JVM and an Android library to Maven is pretty straightforward, thanks to the [Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
+Only a few lines of configuration on the *build.gradle.kts* file are necessary (here I’m assuming that you have already configured a Maven repository since it’s not the scope of the article to explain how. Otherwise you can use a local Maven repository on your computer that does not required any kind of configuration):
 
 ```kotlin
 plugins {
@@ -49,36 +55,47 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.prof18.hn.foundation"
-version = "1.0"
+group = "<your-group-id>"
+artifactId = "<your-library-name>" // If not specified, it will use the name of the project
+version = "<version-name>"
 
+// This block is only needed to publish on a online maven repo
 publishing {
     repositories {
         maven{
             credentials {
-                username = "username"
-                password = "pwd"
+                username = "<username>"
+                password = "<pwd>"
             }
-            url = url("https://mymavenrepo.it")
+            url = url("https://mymavenrepo.com")
         }
     }
 }
 
 ```
 
-`./gradlew publish`
+After that it is possible to build and publish the KMP library with the `./gradlew publish` command (or with `./gradlew publishToMavenLocal`). 
 
-Android
-`implementation("com.prof18.hn.foundation:hn-foundation-android:1.0.0")`
+Then, it is possible to pull the library on Android:
 
-JVM
-`implementation("com.prof18.hn.foundation:hn-foundation-jvm:1.0.0")`
+```kotlin
+implementation("<your-group-id>:<your-library-name>-android:<version-name>")
+``` 
 
-### iOs
+and on the JVM:
 
-iOs -> fat framework -> all the story. pack for XCode, etc.
+```kotlin
+implementation("<your-group-id>:<your-library-name>-jvm:<version-name>")
+``` 
 
-Pack for Xcode
+
+### Publishing for iOs
+
+> On iOs things are harder. 
+
+#### Pack for Xcode
+
+On newly created KMP projects, there is a gradle task, named **`packForXcode`**, that automatically builds the framework and place it in a specific build folder. 
 
 ```kotlin
 val packForXcode by tasks.creating(Sync::class) {
@@ -94,14 +111,34 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 }
 tasks.getByName("build").dependsOn(packForXcode)
-
 ```
 
-CocoaPod plugin
-https://kotlinlang.org/docs/reference/native/cocoapods.html
+This task is automatically called by Xcode when the iOs (or macOs) application is built.
+
+{{< figure src="/img/kmp-existing-projects/build-script-xcode.png"  link="/img/kmp-existing-projects/build-script-xcode.png" >}}
+
+The task uses the configuration of the iOs project to define the build mode and the target architecture.
+
 
 ```kotlin
+val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+```
 
+The build mode can be `RELEASE` or `DEBUG` while the target name depends on the architecture which we are building for. The real devices use the *Arm64* architecture, while the simulator uses the host computer architecture which in most of the cases is *X64* (at least until when Apple Silicon is sufficiently spread). 
+
+And this is the problem of this task!
+
+Since then aim is to publish a framework to be used by an existing project, it’s impossible to know a priori which architecture is necessary or the build mode. 
+
+#### CocoaPods Gradle Plugin
+
+Another way to build a framework from the KMP code is using the [CocoaPods Gradle Plugin](https://kotlinlang.org/docs/reference/native/cocoapods.html). This plugin builds the framework and places it inside a CocoaPods repository that will be added as depencency on Xcode (The plugin can be used also to add other Pod libraries on the native target).
+
+To start using the plugin, some configurations are necessary:
+
+```kotlin
 plugins {
      kotlin("multiplatform") version "1.4.10"
      kotlin("native.cocoapods") version "1.4.10"
@@ -109,7 +146,7 @@ plugins {
 
  // CocoaPods requires the podspec to have a version.
  version = "1.0"
-A
+
  kotlin {
      cocoapods {
          // Configure fields required by CocoaPods.
@@ -118,20 +155,16 @@ A
 
          // You can change the name of the produced framework.
          // By default, it is the name of the Gradle project.
-         frameworkName = "my_framework"
+         frameworkName = "<framework-name>"
      }
  }
+```
 
-spec.pod_target_xcconfig = {
-    'KOTLIN_TARGET[sdk=iphonesimulator*]' => 'ios_x64',
-    'KOTLIN_TARGET[sdk=iphoneos*]' => 'ios_arm',
-    'KOTLIN_TARGET[sdk=watchsimulator*]' => 'watchos_x86',
-    'KOTLIN_TARGET[sdk=watchos*]' => 'watchos_arm',
-    'KOTLIN_TARGET[sdk=appletvsimulator*]' => 'tvos_x64',
-    'KOTLIN_TARGET[sdk=appletvos*]' => 'tvos_arm64',
-    'KOTLIN_TARGET[sdk=macosx*]' => 'macos_x64'
-}
+Then, during the build the [Podspec file](https://guides.cocoapods.org/syntax/podspec.html) (a file that describes the Pod library - it contains name, version, and description, where the source should be fetched from, what files to use, the build settings to apply, etc) is generated starting from the informations provided in the `cocoapods` block. 
 
+The Podspec contains also a script that is automatically added as a build script, called every time the iOs application is built, like `packForXcode`.
+
+```ruby
 spec.script_phases = [
     {
         :name => 'Build shared',
@@ -149,93 +182,111 @@ spec.script_phases = [
         SCRIPT
     }
 ]
+```
+Unfortunately this script has the same problems of `packForXcode`, because the configuration and the target architecture are computed during the build phase. 
 
+```ruby
+-Pkotlin.native.cocoapods.target=$KOTLIN_TARGET \
+-Pkotlin.native.cocoapods.configuration=$CONFIGURATION \
 ```
 
-Fat framework
+So, also the CocoaPods Gradle Plugin can’t be used.
 
-Custom Gradle Task: universalFrameworkDebug
 
-https://github.com/prof18/shared-hn-android-ios-backend/blob/master/hn-foundation/build.gradle.kts#L100
+#### Fat Framework
+
+The solution is to use a Fat Framework that contains the code for every required architecture. To build it, there is a gradle task named `FatFrameworkTask` that can be customized to meet the specific needs.  
+
+The first step is building a custom gradle task to build a debug version of the Fat Framework.
 
 ```kotlin
-val libName = "HNFoundation"
-
 tasks {
-           register("universalFrameworkDebug", org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask::class) {
-            baseName = libName
-            from(
-                iosArm64().binaries.getFramework(libName, "Debug"),
-                iosX64().binaries.getFramework(libName, "Debug")
-            )
-            destinationDir = buildDir.resolve("$rootDir/../../hn-foundation-cocoa")
-            group = libName
-            description = "Create the debug framework for iOs"
-            dependsOn("linkHNFoundationDebugFrameworkIosArm64")
-            dependsOn("linkHNFoundationDebugFrameworkIosX64")
-        }
-
-        register("universalFrameworkRelease", org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask::class) {
-            baseName = libName
-            from(
-                iosArm64().binaries.getFramework(libName, "Release"),
-                iosX64().binaries.getFramework(libName, "Release")
-            )
-            destinationDir = buildDir.resolve("$rootDir/../../hn-foundation-cocoa")
-            group = libName
-            description = "Create the release framework for iOs"
-            dependsOn("linkHNFoundationReleaseFrameworkIosArm64")
-            dependsOn("linkHNFoundationReleaseFrameworkIosX64")
-        }
-}
-
-
+    register("universalFrameworkDebug", org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask::class) {
+        baseName = libName
+        from(
+            iosArm64().binaries.getFramework("<your-library-name>", "Debug"),
+            iosX64().binaries.getFramework("<your-library-name>", "Debug")
+        )
+        destinationDir = buildDir.resolve("<fat-framework-destination>")
+        group = "<your-library-name>"
+        description = "Create the debug fat framework for iOs"
+        dependsOn("link<your-library-name>DebugFrameworkIosArm64")
+        dependsOn("link<your-library-name>DebugFrameworkIosX64")
+    }
+}        
 ```
 
-pod spec
-https://github.com/prof18/hn-foundation-cocoa/blob/master/HNFoundation.podspec
+This custom gradle task, named `universalFrameworkDebug` is necessary to provide some customizations to the `FatFrameworkTask`. After some cosmetic info, like the name and the group of the Framework, the required architectures and configurations must be provided. In this case, the required architectures are *x64* for the simulator and *arm64* for the real devices. The configuration instead is `Debug`.
+
+```kotlin
+from(
+    iosArm64().binaries.getFramework("<your-library-name>", "Debug"),
+    iosX64().binaries.getFramework("<your-library-name>", "Debug")
+)
+```
+
+The last needed information is the destination of the framework. 
+
+
+```kotlin
+destinationDir = buildDir.resolve("<fat-framework-destination")
+```
+
+The destination will be a CocoaPods repository that at the end is a git repository that contains the framework, the debug symbols and a Podspec file. 
+
+{{< figure src="/img/kmp-existing-projects/cocoa-repo-git.png"  link="/img/kmp-existing-projects/cocoa-repo-git.png" caption="An example of a CocoaPod repo hosted on a git repo" >}}
+
+The git repository uses branches and tagging for handling debug and release versions. The debug versions of the Framework are pushed directly to the develop branch without any tagging. The release version instead is pushed on master and tagged. 
+
+For more information about setting up a private CocoaPod repo, I suggest you give a look to the [official documentation](https://guides.cocoapods.org/making/private-cocoapods.html).
+
+After pushing the changes on git, the Pod library is ready to be pulled by XCode. On the `Podfile` of the iOs project, is necessary to specify the Pod library with the informations about the source and the version. 
+
+For debug releases, it is enough to specify to pull the latest version from the `develop` branch
 
 ```ruby
-Pod::Spec.new do |s|
-# ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-s.name          = "HNFoundation"
-s.version       = "1.0.0"
-s.summary       = "HNFoundation KMP library"
-s.homepage      = "https://github.com/prof18/hn-foundation-cocoa"
-s.description   = "The framework of the HNFoundation library"
-s.license       = "UNLICENSED"
-s.author        = { "Marco Gomiero" => "mg@mail.it" }
-s.platform      = :ios, "10.0"
-s.ios.vendored_frameworks = 'HNFoundation.framework'
-# s.swift_version = "4.1"
-s.source        = { :git => "git@github.com:prof18/hn-foundation-cocoa.git", :tag => "#{s.version}" }
-s.exclude_files = "Classes/Exclude"
-end
-
+pod '<your-library-name>', :git => "git@github.com:<git-username>/<repo-name>.git", :branch => 'develop'
 ```
 
-Private cocoa pod repository
-https://guides.cocoapods.org/making/private-cocoapods.html
-
-Podfile XCode
+For production releases instead, it is better to specify the required version number.
 
 ```ruby
-# For develop releases:
-pod 'HNFoundation', :git => "git@github.com:prof18/hn-foundation-cocoa.git", :branch => 'develop'
-
-# For stable releases
-pod 'HNFoundation', :git => "git@github.com:prof18/hn-foundation-cocoa.git", :tag => '1.0.0'
-
+pod '<your-library-name>', :git => "git@github.com:<git-username>/<repo-name>.git", :tag => '<version-number>'
 ```
+
+The last step is building another gradle task, to build a release version of the Fat Framework.
+
+```kotlin
+tasks {
+    register("universalFrameworkRelease", org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask::class) {
+        baseName = libName
+        from(
+            iosArm64().binaries.getFramework("<your-library-name>", "Release"),
+            iosX64().binaries.getFramework("<your-library-name>", "Release")
+        )
+        destinationDir = buildDir.resolve("<fat-framework-destination>")
+        group = "<your-library-name>"
+        description = "Create the debug fat framework for iOs"
+        dependsOn("link<your-library-name>ReleaseFrameworkIosArm64")
+        dependsOn("link<your-library-name>ReleaseFrameworkIosX64")
+    }
+}        
+``` 
+
+The script is basically the same of the previous one, with the exception that the target is changed from `Debug` to `Release`.
+
+And that’s it! Finally it is possibile to start using the KMP library on iOs as well. 
+
+—-
+
+However there is room for improvement, blablabla....
+
+
+——- 
+
+### iOs
 
 Publish task
-
-https://github.com/prof18/shared-hn-android-ios-backend/blob/master/hn-foundation/build.gradle.kts#L132
 
 ```kotlin 
 
