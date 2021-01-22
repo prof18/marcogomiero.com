@@ -22,9 +22,9 @@ When starting a new blank KMP project it is easier to have a mono-repo structure
 
 However existing projects most likely don’t have a mono-repo structure. And making a refactor to achieve this structure can be extremely difficult for time or management constraints. But Kotlin Multiplatform is built around the concept of sharing as much non-UI code as possible, and it is possible to start sharing a little piece of tech stack. Then, this “little piece of tech stack” will be served to the existing projects as a library. 
 
-From where to start is subjective and it depends on the specific project, but there are some parts that better lend themselves to this topic. For example, all the code that is boring to write multiple times (constants, data models, DTOs, etc), because if it is boring to write it is more error-prone. Or could be a feature that centralizes the source of truth (i.e. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. Or could be some utility or analytics helpers that every project has.
+From where to start is subjective and it depends on the specific project, but there are some parts that better suits this topic. For example, all the code that is boring to write multiple times (constants, data models, DTOs, etc), because if it is boring to write it is more error-prone. Or could be a feature that centralizes the source of truth (i.e. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. Or could be some utility or analytics helpers that every project has.
 
-An important thing to take in mind is that all the features chosen for sharing must have the possibility to be extracted gradually. That’s because during the evaluation process of KMP it is better to make a final decision without using too much time. For example, it is not a good idea to start sharing the entire network layer because you will risk ending up with useless work if KMP is not the right solution for the project. Otherwise, starting with some small features like a DTO or a data model will require less “extraction time” and it will leave enough time to work on the architecture needed to have a Kotlin Multiplatform library in an existing project.
+An important thing to take in mind is that all the features chosen for sharing must have the possibility to be extracted gradually. That’s because during the evaluation process of KMP it is better to make a final decision without using too much time. For example, it will be not a good idea to start sharing the entire network layer because you will risk ending up with useless work if KMP is not the right solution for the project. Otherwise, starting with some small features like a DTO or a data model will require less “extraction time” and it will leave enough time to work on the architecture needed to have a Kotlin Multiplatform library in an existing project.
 
 For example, at [Uniwhere](https://www.uniwhere.com/) we have decided to start with some DTOs and after validating the process, we have migrated all the others.  
 
@@ -81,7 +81,7 @@ Then, it is possible to pull the library on Android:
 implementation("<your-group-id>:<your-library-name>-android:<version-name>")
 ``` 
 
-and on the JVM:
+and on the JVM project:
 
 ```kotlin
 implementation("<your-group-id>:<your-library-name>-jvm:<version-name>")
@@ -116,7 +116,7 @@ This task is automatically called by Xcode when the iOS (or macOS) application i
 
 {{< figure src="/img/kmp-existing-projects/build-script-xcode.png"  link="/img/kmp-existing-projects/build-script-xcode.png" >}}
 
-The task uses the configuration of the iOs project to define the build mode and the target architecture.
+The task uses the configuration of the iOS project to define the build mode and the target architecture.
 
 
 ```kotlin
