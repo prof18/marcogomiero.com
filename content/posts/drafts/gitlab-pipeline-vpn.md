@@ -6,7 +6,7 @@ show_in_homepage: false
 draft: true
 ---
 
-Gitlab CI/CD offers the possibility to create a pipeline, which runs when something changes in the repository. A pipeline consist of one or more stages that run in order and in these stages, for example, it is possible to build the project, run the tests, create the artifacts, etc. For more information about Gitlab CI/CD, I suggest you look over the [documentation](https://docs.gitlab.com/ee/ci/).
+Gitlab CI/CD offers the possibility to create a pipeline, which runs when something changes in the repository. A pipeline consists of one or more stages that run in order and in these stages, for example, it is possible to build the project, run the tests, create the artifacts, etc. For more information about Gitlab CI/CD, I suggest you look over the [documentation](https://docs.gitlab.com/ee/ci/).
 
 These out-of-the-box solutions really simplify the work to be done to have a CI up and running. For example, this is the configuration file (a file called `.gitlab-ci.yml` placed at the repository’s root) needed for running all the tests of a Kotlin project.
 
@@ -35,7 +35,7 @@ But, let’s assume that the project is using some libraries that are published 
 
 To connect to a VPN, it is necessary to do some tweaks before starting the stages of the pipeline. And it is possible to do it by writing the commands inside the `before_script:` phase. 
 
-For this example, I will use OpenVPN but the script can adapted for whatever type of VPN.
+For this example, I will use OpenVPN but the script can be adapted for whatever type of VPN.
 
 Before writing any code, it is necessary to write some secret variables (the menu is available under Settings > CI/CD > Variables - [here](https://docs.gitlab.com/ee/ci/variables/README.html#create-a-custom-variable-in-the-ui) for more info). 
 Three variables are necessary:

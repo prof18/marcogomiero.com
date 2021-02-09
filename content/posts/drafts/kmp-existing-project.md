@@ -20,11 +20,11 @@ When starting a new blank KMP project it is easier to have a mono-repo structure
     └── shared
 ```
 
-However existing projects most likely don’t have a mono-repo structure. And making a refactor to achieve this structure can be extremely difficult for time or management constraints. But Kotlin Multiplatform is built around the concept of sharing as much non-UI code as possible, and it is possible to start sharing a little piece of tech stack. Then, this “little piece of tech stack” will be served to the existing projects as a library. 
+However, existing projects most likely don’t have a mono-repo structure. And making a refactor to achieve this structure can be extremely difficult for time or management constraints. But KMP is built around the concept of sharing as much non-UI code as possible, and it is possible to start sharing a little piece of tech stack. Then, this “little piece of tech stack” will be served to the existing projects as a library. 
 
-From where to start is subjective and it depends on the specific project, but there are some parts that better suits this topic. For example, all the code that is boring to write multiple times (constants, data models, DTOs, etc), because if it is boring to write it is more error-prone. Or could be a feature that centralizes the source of truth (i.e. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. Or could be some utility or analytics helpers that every project has.
+Where to start from is subjective and it depends on the specific project, but there are some parts that better suit this topic. For example, all the boilerplate code (constants, data models, DTOs, etc), that is boring to write and is more error-prone. Or it could be a feature that centralizes the source of truth (e.g. if a field is nullable or not) because with a single source of truth there will also be a single point of failure. Or it could be some utility or analytics helper that every project has.
 
-An important thing to take in mind is that all the features chosen for sharing must have the possibility to be extracted gradually. That’s because during the evaluation process of KMP it is better to make a final decision without using too much time. For example, it will be not a good idea to start sharing the entire network layer because you will risk ending up with useless work if KMP is not the right solution for the project. Otherwise, starting with some small features like a DTO or a data model will require less “extraction time” and it will leave enough time to work on the architecture needed to have a Kotlin Multiplatform library in an existing project.
+An important thing to take in mind is that all the features chosen for sharing must have the possibility to be extracted gradually. That’s because, during the evaluation process of KMP, it is better to make a final decision without using too much time. For example, it will be not a good idea to start sharing the entire network layer because you will risk ending up with useless work if KMP is not the right solution for the project. Otherwise, starting with some small features like a DTO or a data model will require less “extraction time” and it will leave enough time to work on the architecture needed to have a Kotlin Multiplatform library in an existing project.
 
 For example, at [Uniwhere](https://www.uniwhere.com/) we have decided to start with some DTOs and after validating the process, we have migrated all the others.  
 
@@ -39,7 +39,7 @@ There is a repository for every platform:
 - a repository for the KMP library;
 - a repository for the Backend;
 - a repository for the Android app;
-- a repository for the iOs app. 
+- a repository for the iOS app. 
 
 As mentioned early on, the KMP code is served as a library. The compiler generates a *.jar* for the JVM, a *.aar* for Android, and a *Framework* for iOs. The *.jar* and the *.aar* can be published in a *Maven* repository. A *Framework* can be published in different places: for example in a *[CocoaPods](https://cocoapods.org/)* repository, in the [Swift Package Manager](https://swift.org/package-manager/) or with [Carthage](https://github.com/Carthage/Carthage). Since I’m familiar with CocoaPods (and because we are using it at Uniwhere), I’ve decided to stick with it.
 
@@ -94,7 +94,7 @@ implementation("<your-group-id>:<your-library-name>-jvm:<version-name>")
 
 #### Pack for Xcode
 
-On newly created KMP projects, there is a Gradle task, named **`packForXcode`**, that automatically builds the framework and place it in a specific build folder. 
+On newly created KMP projects, there is a Gradle task, named **`packForXcode`**, that automatically builds the framework and places it in a specific build folder.
 
 ```kotlin
 val packForXcode by tasks.creating(Sync::class) {
@@ -274,11 +274,11 @@ tasks {
 
 The script is the same as the previous one, with the exception that the target is changed from `Debug` to `Release`.
 
-And that’s it! Finally, it is possible to start using the KMP library on iOs as well. 
+And, that’s it! Finally, it is possible to start using the KMP library on iOS as well. 
 
 However, there is room for improvement and I wanted to minimize the effort of publishing. All the steps for publishing the framework in the CocoaPods repository can be automated with a Gradle task. 
 
-The `publishDevFramework` task, will build the framework and automatically publish the changes in the develop branch of the CocoaPods repository.
+The `publishDevFramework` task will build the framework and automatically publish the changes in the develop branch of the CocoaPods repository.
 
 ```kotlin
 tasks {
@@ -459,7 +459,7 @@ project.exec {
 }
 ```
 
-And that’s it! When the KMP library is ready to be published, three tasks can ben called:
+And, that’s it! When the KMP library is ready to be published, three tasks can ben called:
 
 - `publish` to publish JVM and Android artifacts;
 - `publishDevFramework` to publish a debug version of the iOs Framework;

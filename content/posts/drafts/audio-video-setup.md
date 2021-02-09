@@ -12,7 +12,7 @@ A little note before moving on. Some gears I will share are cheap and others are
 
 ## Desk
 
-The core of this article is audio and video, but I want to spent just a few words also on peripherals.
+The core of this article is audio and video, but I want to spend just a few words also on peripherals.
 
 {{< figure src="/img/audio-video-setup/desk-setup.jpeg"  link="/img/audio-video-setup/desk-setup.jpeg" >}}
 
@@ -20,7 +20,7 @@ The core of this article is audio and video, but I want to spent just a few word
 
 It’s been almost two years since I bought the [Apple Magic Keyboard with Numeric Keypad](https://www.apple.com/shop/product/MRMH2LL/A/magic-keyboard-with-numeric-keypad-us-english-space-gray) and I’m pretty happy about it. 
 
-In the past, I’ve used a crappy and cheap mechanical keyboard and at the end of the day, my fingers were really tired, and plus, I was making a lot of noise. That’s why I decided to switch to the Apple Keyboard but I’m absolutely not excluding to try a better quality mechanical keyboard sometime in the future.
+In the past, I’ve used a crappy and cheap mechanical keyboard and at the end of the day, my fingers were really tired, and plus, I was making a lot of noise. That’s why I decided to switch to the Apple Keyboard but I’m not at all excluding trying a better quality mechanical keyboard sometime in the future.
 
 ### Mouse
 
@@ -43,7 +43,7 @@ The microphone includes a stand but, to avoid the sound that comes from vibratio
 
 There are different types of arms, with different materials and different tilts. Since I didn’t need something fancy, I’ve bought a simple one suggested by [Amazon](https://www.amazon.com/HAUEA-Microphone-Adjustable-Suspension-Windscreen/dp/B08HWDWJLF/ref=sr_1_1?tag=mg93-21&dchild=1&keywords=HAUEA+stand&qid=1609170949&sr=8-1)
 
-Besides an arm, I suggest you buy also a pop filter to reduce the popping sound (the sound of the letters “b” and “p”).
+Besides an arm, I suggest you also buy a pop filter to reduce the popping sound (the sound of the letters “b” and “p”).
 
 Again, as for the arm, I trusted Amazon and I bought [a simple one](https://www.amazon.com/Neewer-Studio-Microphone-Filter-Shield/dp/B00ACFAULC/ref=sr_1_3?tag=mg93-21&dchild=1&keywords=Neewer+NW%28B-3%29+6%22+Antipop&qid=1609171050&sr=8-3).
 
