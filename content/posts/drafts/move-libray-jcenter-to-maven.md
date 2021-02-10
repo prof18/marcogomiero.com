@@ -12,16 +12,16 @@ As you may have heard, JCenter is shutting down in May 2021.
 > Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter  
 > https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
 
-So, if you are using JCenter as repository for your libraries (as me), it’s time to migrate. 
+So, if you are using JCenter as the repository for your libraries (as me), it’s time to migrate. 
 
-In this article I will not go through the publishing process of a library to MavenCentral, because there are already plenty of resources available. For example, I followed the one written by Márton Braun.
+In this article, I will not go through the publishing process of a library to MavenCentral, because there are already plenty of resources available. For example, I followed the one written by Márton Braun.
 
 > Publishing Android libraries to MavenCentral in 2021
 > https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/
 
 Instead, the topic of this article is to show how to manually migrate the old artifacts of a library without recompiling them. 
 
-It’s important to migrate also the old artifacts, because not all the users of your library are using the latest version. But if the library is old, it’s difficult to recompile it from scratch. For example, I’ve tried to manually rebuild the first version of [YoutubeParser](https://github.com/prof18/YoutubeParser), but I quickly failed because it was using a version of the Android Gradle Plugin of 5 years ago that is now incompatible with Android Studio 4. 
+It’s important to migrate also the old artifacts because not all the users of your library are using the latest version. But if the library is old, it’s difficult to recompile it from scratch. For example, I’ve tried to manually rebuild the first version of [YoutubeParser](https://github.com/prof18/YoutubeParser), but I quickly failed because it was using a version of the Android Gradle Plugin of 5 years ago that is now incompatible with Android Studio 4. 
 
 ## Download old artifacts from Bintray 
 
@@ -29,11 +29,11 @@ The first thing to do is downloading the old library’s artifacts from Bintray.
 
 > https://bintray.com/package/files/{your-bintray-username}/maven/{your-library-name}
 
-For example, this is the url for my other library, [RSS-Parser](https://github.com/prof18/RSS-Parser): https://bintray.com/package/files/prof18/maven/RSS-Parser
+For example, this is the URL for my other library, [RSS-Parser](https://github.com/prof18/RSS-Parser): https://bintray.com/package/files/prof18/maven/RSS-Parser
 
-{{< figure src="/img/move-libray-jcenter-to-maven/bintray-dir.png" link="/img/move-libray-jcenter-to-maven/bintray-dir.png" caption="Bintray directory for RSS-Parser" >}}
+{{< figure src="/img/move-libray-jcenter-to-maven/bintray-dir.png" link="/img/move-libray-jcenter-to-maven/bintray-dir.png" >}}
 
-Here, it is possibile to download the artifacts by simply clicking on them.
+Here, it is possible to download the artifacts by simply clicking on them.
 
 ## Sign artifacts
 
@@ -45,11 +45,11 @@ The next step is signing the artifacts, with a GPG key (you can follow the instr
 
 {{< figure src="/img/move-libray-jcenter-to-maven/sign-terminal.png" link="/img/move-libray-jcenter-to-maven/sign-terminal.png" >}}
 
-Remember that all the files uploaded to MavenCentral must be signed. In my case, I have to sign the *.aar* file, the *.pom* and the *jar* that contains the sources and the *javadoc* of the library.
+Remember that all the files uploaded to MavenCentral must be signed. In my case, I have to sign the *.aar* file, the *.pom* and the *jar* that contains the sources and the *JavaDoc* of the library.
 
 The signing command produces a *.asc* file, that must be uploaded as well on MavenCentral. 
 
-{{< figure src="/img/move-libray-jcenter-to-maven/signed-files.png" link="/img/move-libray-jcenter-to-maven/signed-files.png" caption="Folder with signed items" >}}
+{{< figure src="/img/move-libray-jcenter-to-maven/signed-files.png" link="/img/move-libray-jcenter-to-maven/signed-files.png" >}}
 
 ## Manual upload artifacts 
 
@@ -77,7 +77,7 @@ After uploading the artifacts, the close task starts automatically (if it not st
 
 The close task takes a few moments to perform, and after that, it’s time to release the library with the button in the toolbar.  
 
-And that’s it! After the process time (usually between 10 to 15 minutes) your library will be available to [MavenCentral](https://repo1.maven.org/maven2/).
+And that’s it! After the processing time (usually between 10 to 15 minutes) your library will be available to [MavenCentral](https://repo1.maven.org/maven2/).
 
 If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
