@@ -31,13 +31,13 @@ The first thing to do is downloading the old library’s artifacts from Bintray.
 
 For example, this is the url for my other library, [RSS-Parser](https://github.com/prof18/RSS-Parser): https://bintray.com/package/files/prof18/maven/RSS-Parser
 
-{{< figure src="/img/move-libray-jcenter-to-maven/bintray-dir.png" link="/img/move-libray-jcenter-to-maven/bintray-dir.png" caption="Bintray directory for RSS-Parser" >}}
+{{< figure src="/img/move-libray-jcenter-to-maven/bintray-dir.png" link="/img/move-libray-jcenter-to-maven/bintray-dir.png" >}}
 
 Here, it is possibile to download the artifacts by simply clicking on them.
 
 ## Sign artifacts
 
-The next step is signing the artifacts, with a GPG key (you can follow the instruction on [Márton‘s article](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/)). The command to perform the signing is the following:
+The next step is signing the artifacts, with a GPG key (to generate one, you can follow the instruction on [Márton‘s article](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/)). The command to perform the signing is the following:
 
 ```bash
  gpg -ab rssparser-1.0.pom
@@ -49,7 +49,7 @@ Remember that all the files uploaded to MavenCentral must be signed. In my case,
 
 The signing command produces a *.asc* file, that must be uploaded as well on MavenCentral. 
 
-{{< figure src="/img/move-libray-jcenter-to-maven/signed-files.png" link="/img/move-libray-jcenter-to-maven/signed-files.png" caption="Folder with signed items" >}}
+{{< figure src="/img/move-libray-jcenter-to-maven/signed-files.png" link="/img/move-libray-jcenter-to-maven/signed-files.png" >}}
 
 ## Manual upload artifacts 
 
@@ -57,7 +57,9 @@ Now, it’s time to upload the artifacts. Login on [Sonatype](https://oss.sonaty
 
 {{< figure src="/img/move-libray-jcenter-to-maven/manual-upload.png" link="/img/move-libray-jcenter-to-maven/manual-upload.png" >}}
 
-First of all, in the *Staging Upload* section, it is necessary to upload the *pom* file. 
+First of all, in the *Staging Upload* section, it is necessary to upload the *pom* file.
+
+// select upload mode Artifact(s) with a pom in the dropdown window
 
 {{< figure src="/img/move-libray-jcenter-to-maven/add-pom.png" link="/img/move-libray-jcenter-to-maven/add-pom.png" >}}
 
@@ -67,9 +69,17 @@ Then, in the section below, it is possible to upload the other artifacts. To do 
 
 Don’t forget to upload also the signatures (the *.asc* files)!
 
-After adding all the artifacts, upload them with the *Upload Artifact(s)* button.
+After adding all the artifacts, upload them with the *Upload Artifact(s)* button. It is also necessary to provide a brief description, for example `1.1 manual upload`
  
 {{< figure src="/img/move-libray-jcenter-to-maven/add-artifacts.png" link="/img/move-libray-jcenter-to-maven/add-artifacts.png" >}}
+
+// it happens that the upload is stuck. progress bar at the infinite.
+
+// After success, go to the stagin repository section and now the process is the same as upload from android studio, except for the fact that the close task is started automatically
+
+
+{{< figure src="/img/move-libray-jcenter-to-maven/staging-repo.png" link="/img/move-libray-jcenter-to-maven/staging-repo.png" >}}
+
 
 After uploading the artifacts, the close task starts automatically (if it not starts, you can start it manually from the top bar). 
 
