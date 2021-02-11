@@ -4,9 +4,31 @@ title:  "How to publish and distribute your Android library"
 date:   2019-05-28
 images:
   - https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo
-show_in_homepage: true
+show_in_homepage: false
 tags: [Android]
 ---
+
+
+## Update - February 2021
+
+As you may have heard, JCenter is shutting down in May 2021.
+
+> Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter  
+> https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+
+So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter. 
+ 
+I suggested you follow this guide written by Márton Braun.
+
+> Publishing Android libraries to MavenCentral in 2021
+> https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/
+
+If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:
+
+> Migrating old artifacts from JCenter to MavenCentral
+> https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/
+
+## Original Article: 
 
 You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.
 

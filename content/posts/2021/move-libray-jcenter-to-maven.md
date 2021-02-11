@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Migrating old artifacts from JCenter to MavenCentral"
-date:   2021-02-09
+date:   2021-02-11
 show_in_homepage: false 
-draft: true
 tags: [Android]
 ---
 
@@ -59,7 +58,7 @@ Now, it’s time to upload the artifacts. Login on [Sonatype](https://oss.sonaty
 
 First of all, in the *Staging Upload* section, it is necessary to upload the *pom* file.
 
-// select upload mode Artifact(s) with a pom in the dropdown window
+Switch the upload mode to *Artifact(s) with a pom* in the dropdown window and then select to *pom* to upload.
 
 {{< figure src="/img/move-libray-jcenter-to-maven/add-pom.png" link="/img/move-libray-jcenter-to-maven/add-pom.png" >}}
 
@@ -73,15 +72,13 @@ After adding all the artifacts, upload them with the *Upload Artifact(s)* button
  
 {{< figure src="/img/move-libray-jcenter-to-maven/add-artifacts.png" link="/img/move-libray-jcenter-to-maven/add-artifacts.png" >}}
 
-// it happens that the upload is stuck. progress bar at the infinite.
+It could happen the the upload is stuck and the progress bar never goes away. If it happens, reload the page and redo the process (I’ve noticed that it can happen when the browser tab is open for a while).
 
-// After success, go to the stagin repository section and now the process is the same as upload from android studio, except for the fact that the close task is started automatically
-
+After the upload is successful, select *Staging Repositories* from the left menu. 
 
 {{< figure src="/img/move-libray-jcenter-to-maven/staging-repo.png" link="/img/move-libray-jcenter-to-maven/staging-repo.png" >}}
 
-
-After uploading the artifacts, the close task starts automatically (if it not starts, you can start it manually from the top bar). 
+Now, the process is the same as when the artifacts are upload from Android Studio (or from the CI). The only exception is that the close task is started automatically (if it not starts, you can start it manually from the top bar). 
 
 {{< figure src="/img/move-libray-jcenter-to-maven/wait-close.png" link="/img/move-libray-jcenter-to-maven/wait-close.png" >}}
 
