@@ -477,4 +477,29 @@ By starting little, it is possible to validate the process with a “contained�
 
 All the code that I showed in this article came from[ a sample that I’ve published on GitHub](https://github.com/prof18/shared-hn-android-ios-backend) (if you are interested only in the custom Gradle task, [click here](https://github.com/prof18/shared-hn-android-ios-backend/blob/master/hn-foundation/build.gradle.kts#L99)). This sample is composed of an Android app, an iOs app, and a backend that share some common code via a Kotlin Multiplatform library. 
 
+// TODO: add stuff about the talk @ fosdem
+
+## Slide:
+{{< rawhtml >}}
+<br>
+{{< /rawhtml >}}
+
+{{< speakerdeck e29e5d5369894442a23544dc6feb4b4c >}}
+
+
+## Video:
+
+{{< rawhtml >}}
+<br>
+<video controls width="100%">
+    <source src="https://mirror.as35701.net/video.fosdem.org/2021/D.kotlin/and_that_folks_is_how_we_shared_code.webm" type="video/webm"> 
+</video>
+{{< /rawhtml >}}
+
+https://www.marcogomiero.com/talks/2021/shared-code-kmp-fosdem/
+
+or extended way @ droidcon emea
+
+https://www.marcogomiero.com/talks/2020/shared-code-kmp-droidcon-emea/
+
 If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
