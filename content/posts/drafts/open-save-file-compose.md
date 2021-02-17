@@ -41,8 +41,6 @@ So I’ve started to look around and I found out that now it is possible (and it
 
 Then, I found out how to use the Activity Result APIs in a Composable function, thanks to [an answer on StackOverflow](https://stackoverflow.com/a/64722700 ) of [Ian Lake](https://twitter.com/ianhlake).
 
-
-
 ```kotlin
 @Composable
 fun <I, O> registerForActivityResult(
@@ -94,6 +92,8 @@ fun <I, O> registerForActivityResult(
 }
 
 ```
+
+This function takes as inputs an ActivityResultContract and a 
 
 
 The function take as input an ActivityResultContract - describe what it is - and a callback where the result will be handled.
