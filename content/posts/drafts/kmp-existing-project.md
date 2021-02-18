@@ -475,19 +475,15 @@ The framework to follow is:
 
 By starting little, it is possible to validate the process with a “contained” effort, and then, after the validation, it is possible to go bigger and start sharing more and more features. For example at Uniwhere, we started sharing the DTOs and after validating the process, we decided to share also the persistence layer with [SQLDelight](https://cashapp.github.io/sqldelight/).
 
-All the code that I showed in this article came from[ a sample that I’ve published on GitHub](https://github.com/prof18/shared-hn-android-ios-backend) (if you are interested only in the custom Gradle task, [click here](https://github.com/prof18/shared-hn-android-ios-backend/blob/master/hn-foundation/build.gradle.kts#L99)). This sample is composed of an Android app, an iOs app, and a backend that share some common code via a Kotlin Multiplatform library. 
+All the code that I showed in this article came from [a sample that I’ve published on GitHub](https://github.com/prof18/shared-hn-android-ios-backend) (if you are interested only in the custom Gradle task, [click here](https://github.com/prof18/shared-hn-android-ios-backend/blob/master/hn-foundation/build.gradle.kts#L99)). This sample is composed of an Android app, an iOs app, and a backend that share some common code via a Kotlin Multiplatform library. 
 
-// TODO: add stuff about the talk @ fosdem
+If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
-## Slide:
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}}
+## Bonus:
 
-{{< speakerdeck e29e5d5369894442a23544dc6feb4b4c >}}
+I’ve spoke about this topic in a talk [in the Kotlin Dev Room at Fosdem 2021](https://fosdem.org/2021/schedule/event/and_that_folks_is_how_we_shared_code/). 
 
-
-## Video:
+Here’s the recording of the session:
 
 {{< rawhtml >}}
 <br>
@@ -496,10 +492,10 @@ All the code that I showed in this article came from[ a sample that I’ve publi
 </video>
 {{< /rawhtml >}}
 
-https://www.marcogomiero.com/talks/2021/shared-code-kmp-fosdem/
+and the slides:
 
-or extended way @ droidcon emea
+{{< rawhtml >}}
+<br>
+{{< /rawhtml >}}
 
-https://www.marcogomiero.com/talks/2020/shared-code-kmp-droidcon-emea/
-
-If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
+{{< speakerdeck e29e5d5369894442a23544dc6feb4b4c >}} 
