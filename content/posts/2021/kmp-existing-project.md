@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Introducing Kotlin Multiplatform in an existing project"
-date:   2021-01-10
+date:   2021-02-25
 show_in_homepage: true
-draft: true
 tags: [Kotlin Multiplatform]
 ---
 After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).
