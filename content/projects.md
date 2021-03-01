@@ -4,6 +4,12 @@ title = "Projects"
 
 For an always updated list of my projects, visit my [Github page](https://github.com/prof18).
 
+## [KMP FatFramework Cocoa](https://github.com/prof18/kmp-fatframework-cocoa) · Gradle Plugin · 2021 - Present
+
+KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.
+
+The plugin is uploaded on MavenCentral. You can find more info about it on [GitHub](https://marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release).
+
 ## [QR Reader Secure](https://github.com/prof18/Secure-QR-Reader) · Native Android App · 2020 - Present
 
 QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.
@@ -44,13 +50,13 @@ An Android library to parse a RSS Feed. You can retrive the following informatio
 * Link
 * Publication Date
 
-The library is also uploaded on jCenter. You can find more info about it on [this blog post](https://marcogomiero.com/posts/rss-parser-library/).
+The library is uploaded on MavenCentral. You can find more info about it on [this blog post](https://marcogomiero.com/posts/2017/rss-parser-library/).
 
 ---
 
 ## [Youtube Parser](https://github.com/prof18/YoutubeParser) · Android Library · 2016 - Present
 
-An Android library to get video's information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is also uploaded on jCenter. You can find more info about it on [this blog post](https://marcogomiero.com/posts/update-yt-parser-2).
+An Android library to get video's information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral. You can find more info about it on [this blog post](https://marcogomiero.com/posts/2017/update-yt-parser-2).
 
 ---
 
