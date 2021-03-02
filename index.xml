@@ -29,6 +29,9 @@
 &lt;blockquote>
 &lt;p>Thesis title: &amp;ldquo;Porting issues from Scratch/BYOB to Snap in a browser environment&amp;rdquo;&lt;/p>
 &lt;/blockquote></description></item><item><title>Projects</title><link>https://www.marcogomiero.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/projects/</guid><description>&lt;p>For an always updated list of my projects, visit my &lt;a href="https://github.com/prof18">Github page&lt;/a>.&lt;/p>
+&lt;h2 id="kmp-fatframework-cocoahttpsgithubcomprof18kmp-fatframework-cocoa--gradle-plugin--2021---present">&lt;a href="https://github.com/prof18/kmp-fatframework-cocoa">KMP FatFramework Cocoa&lt;/a> · Gradle Plugin · 2021 - Present&lt;/h2>
+&lt;p>KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.&lt;/p>
+&lt;p>The plugin is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release">GitHub&lt;/a>.&lt;/p>
 &lt;h2 id="qr-reader-securehttpsgithubcomprof18secure-qr-reader--native-android-app--2020---present">&lt;a href="https://github.com/prof18/Secure-QR-Reader">QR Reader Secure&lt;/a> · Native Android App · 2020 - Present&lt;/h2>
 &lt;p>QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.&lt;/p>
 &lt;p>I decided to develop it after a failed search for a simple and secure reader for my parents.&lt;/p>
@@ -50,10 +53,10 @@
 &lt;li>Link&lt;/li>
 &lt;li>Publication Date&lt;/li>
 &lt;/ul>
-&lt;p>The library is also uploaded on jCenter. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/rss-parser-library/">this blog post&lt;/a>.&lt;/p>
+&lt;p>The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2017/rss-parser-library/">this blog post&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;h2 id="youtube-parserhttpsgithubcomprof18youtubeparser--android-library--2016---present">&lt;a href="https://github.com/prof18/YoutubeParser">Youtube Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
-&lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is also uploaded on jCenter. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/update-yt-parser-2">this blog post&lt;/a>.&lt;/p>
+&lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2017/update-yt-parser-2">this blog post&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;h2 id="deprecated---zeromag--website--2018">@Deprecated - Zeromag · Website · 2018&lt;/h2>
 &lt;p>Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog &amp;ldquo;ZeroMag&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
