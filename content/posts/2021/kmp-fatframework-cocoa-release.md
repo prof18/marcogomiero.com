@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Introducing KMP FatFramework Cocoa, a Gradle plugin for iOS FatFramework"
-date:   2021-02-28
+date:   2021-03-02
 show_in_homepage: false 
-draft: true
 tags: [Kotlin Multiplatform]
 ---
 
