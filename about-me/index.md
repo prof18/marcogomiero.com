@@ -26,13 +26,25 @@ In my spare time I write and maintain open source code, I share my dev experienc
 
 # Work Experience
 
+### [Revelop](https://revelop.app/) · Tech Lead · January 2021 - Present
+
+{{< rawhtml >}}
+<br>
+{{< /rawhtml >}}
+
+> Gen-Z email platform.
+
+{{< rawhtml >}}
+<br>
+{{< /rawhtml >}}
+
 ### [Uniwhere](https://www.uniwhere.com/) · Tech Lead · September 2017 - Present
 
 {{< rawhtml >}}
 <br>
 {{< /rawhtml >}}
 
-> Uniwhere is the university workspace for digital natives. The mission of Uniwhere is to provide equal access to the information students need to make the best choices.
+> Uniwhere make it easy to stay on top of your academic life.
 
 {{< rawhtml >}}
 <br>
