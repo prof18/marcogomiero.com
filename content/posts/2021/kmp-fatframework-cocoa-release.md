@@ -8,7 +8,7 @@ tags: [Kotlin Multiplatform]
 
 Today I want to share **KMP FatFramework Cocoa**, a Gradle plugin for Kotlin Multiplatform projects that generate a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository. 
 
-The plugin is born from a set of unbundled Gradle tasks that I wrote to manage the building and the publishing process of Kotlin Multiplatform libraries for iOS that we use at [Uniwhere](https://www.uniwhere.com/). The libraries are published in a **FatFramework** that contains the code for every required architecture (real devices use the *Arm64* architecture, while the simulator uses the host computer architecture which in most of the cases is *X64*).
+The plugin is born from a set of unbundled Gradle tasks that I wrote to manage the building and the publishing process of Kotlin Multiplatform libraries for iOS that we use at [Uniwhere](https://www.uniwhere.com/) and [Revelop](https://revelop.app/). The libraries are published in a **FatFramework** that contains the code for every required architecture (real devices use the *Arm64* architecture, while the simulator uses the host computer architecture which in most of the cases is *X64*).
 
 After copying and pasting the task between different projects, I thought that having them bundled into a Gradle plugin, would be a good idea. 
 
