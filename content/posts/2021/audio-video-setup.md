@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "My audio & video setup after 4 years of remote working"
-date:   2020-12-28
+date:   2021-03-24
 show_in_homepage: false 
-draft: true
 ---
 
 I’ve been working remotely for a while and during these years I kept improving my work setup. During the last year, I’ve also increased the overall video and audio quality and now I’m pretty confident I’ve ended up with something worth sharing.
