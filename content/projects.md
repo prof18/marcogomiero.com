@@ -10,6 +10,16 @@ KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that
 
 The plugin is uploaded on MavenCentral. You can find more info about it on [GitHub](https://marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release).
 
+---
+
+## [Money Flow](https://github.com/prof18/MoneyFlow) · Native Android and iOS App · 2020 - Present
+
+A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.
+
+This project is a work in progress, you can track the progress on [GitHub](https://github.com/prof18/MoneyFlow)
+
+---
+
 ## [QR Reader Secure](https://github.com/prof18/Secure-QR-Reader) · Native Android App · 2020 - Present
 
 QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.
@@ -26,6 +36,8 @@ You can find QR Reader Secure on the Play Store.
 
 {{</rawhtml>}}
 
+---
+
 ## [Friends Tournament](https://github.com/prof18/Friends-Tournament) · Flutter Android App · 2019 - Present
 
 A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That's all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players' score and a nice leaderboard is automatically generated. 
@@ -37,6 +49,8 @@ The application is written with Flutter and for the time being, it's only availa
 <div align="center"><a href="https://play.google.com/store/apps/details?id=com.prof.friends_tournament"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/></a></div>
 
 {{</rawhtml>}}
+
+---
 
 ## [RSS Parser](https://github.com/prof18/RSS-Parser) · Android Library · 2016 - Present
  
