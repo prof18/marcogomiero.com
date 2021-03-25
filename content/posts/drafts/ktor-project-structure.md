@@ -140,7 +140,7 @@ java -jar ktor-backend.jar -config=/config-folder/application.conf
 This is helpful for example to provide different configurations for database or for external service (on part 3 I’ll show an use case of this feature). 
 
 But, beside the [default value provided by the framework](https://ktor.io/docs/configurations.html#hocon-file), it is possible to create custom configurations to use later in the code. 
-For example, I’ve created a new section with a Boolean field that will indicate if the instance is run on staging or production server.
+For example, I’ve created a new section with a Boolean field that will indicate if the instance is run on staging or production server. 
 
 ```hocon
 ...
@@ -149,7 +149,7 @@ server {
 }
 ```
 
-Every section will be mapped in the code with a `data class`.
+Every section will be mapped in the code with a `data class`
 
 ```kotlin
 data class ServerConfig(
@@ -157,14 +157,18 @@ data class ServerConfig(
 )
 ```
 
+that is contained in a wider class, named `AppConfig` with all the different configurations.
 
 ```kotlin
-
 class AppConfig {
     lateinit var serverConfig: ServerConfig
     // Place here other configurations
 }
+```
 
+The fields of this class then will be initialized inside the `Application` scope.
+
+```kotlin
 fun Application.setupConfig() {
     val appConfig by inject<AppConfig>()
 
@@ -172,8 +176,45 @@ fun Application.setupConfig() {
     val serverObject = environment.config.config("ktor.server")
     val isProd = serverObject.property("isProd").getString().toBoolean()
     appConfig.serverConfig = ServerConfig(isProd)
-
 ```
+
+With this setup, when a configuration must be accessed, we can  simply retrieve the AppConfig class from Koin and check the desired field. 
+
+
+## Project structure
+
+
+
+
+
+```cmd
+.
+├── Application.kt
+├── config
+│   └── AppConfig.kt
+├── database
+│   ├── DatabaseFactory.kt
+│   └── DatabaseFactoryImpl.kt
+├── di
+│   └── AppModule.kt
+└── features
+    └── jokes
+        ├── data
+        │   ├── JokeLocalDataSource.kt
+        │   ├── JokeLocalDataSourceImpl.kt
+        │   └── dao
+        │       └── Joke.kt
+        ├── domain
+        │   ├── JokeRepository.kt
+        │   ├── JokeRepositoryImpl.kt
+        │   ├── mapper
+        │   │   └── DTOMapper.kt
+        │   └── model
+        │       └── JokeDTO.kt
+        └── resource
+            └── JokeResource.kt
+```
+
 
 
 ## Testing 
@@ -211,40 +252,6 @@ Scaletta:
 - The final idea is to have a template to use for ktor project
 
 ——
-
-https://insert-koin.io/docs/reference/koin-ktor/ktor/
-
-https://ktor.io/
-
-koin
-
-```cmd
-.
-├── Application.kt
-├── config
-│   └── AppConfig.kt
-├── database
-│   ├── DatabaseFactory.kt
-│   └── DatabaseFactoryImpl.kt
-├── di
-│   └── AppModule.kt
-└── features
-    └── jokes
-        ├── data
-        │   ├── JokeLocalDataSource.kt
-        │   ├── JokeLocalDataSourceImpl.kt
-        │   └── dao
-        │       └── Joke.kt
-        ├── domain
-        │   ├── JokeRepository.kt
-        │   ├── JokeRepositoryImpl.kt
-        │   ├── mapper
-        │   │   └── DTOMapper.kt
-        │   └── model
-        │       └── JokeDTO.kt
-        └── resource
-            └── JokeResource.kt
-```
 
 ```cmd
 -config=/config-folder/application.conf
