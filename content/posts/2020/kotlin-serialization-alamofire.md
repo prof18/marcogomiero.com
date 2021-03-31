@@ -261,5 +261,3 @@ If you want to see all in action, I’ve published a little sample [on my GitHub
 
 
 In the end, the result is a bit more boilerplate than what I’ve expected but not so much. I think that the benefits of having the DTOs defined in one place for both the clients and the backend are way higher than the “burden” of writing a bunch of lines of code for every DTOs. 
-
-If you have any suggestion to improve that solution or you have any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).

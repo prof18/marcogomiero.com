@@ -2,9 +2,9 @@
     <div class="post-warp">
         {{- partial "home/profile.html" . -}}
 
-        {{- partial "newsletter.html" . -}}
-
         <h1 align="center">Top Posts</h1>
+
+        <br>
 
         {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
         {{ $paginator = where $paginator "Params.show_in_homepage" "!=" false -}}
