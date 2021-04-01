@@ -3,7 +3,6 @@ layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - How to chose + Bonus - (Part 4)"
 date:   2020-03-23
 show_in_homepage: false
-tags: [Flutter, React Native]
 ---
 
 Welcome to the fourth and last part of this article series about React Native and Flutter. 

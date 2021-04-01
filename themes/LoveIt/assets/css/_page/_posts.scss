@@ -89,6 +89,8 @@
     font-size: .875rem !important;
 
     a {
+      text-decoration: underline;
+      text-underline-position: under;
       color: $post-link-color !important;
 
       .dark-theme & {

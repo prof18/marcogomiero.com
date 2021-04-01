@@ -3,7 +3,6 @@ layout: post
 title:  "Migrating old artifacts from JCenter to MavenCentral"
 date:   2021-02-11
 show_in_homepage: false 
-tags: [Android]
 ---
 
 As you may have heard, JCenter is shutting down in May 2021.

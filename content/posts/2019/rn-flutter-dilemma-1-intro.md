@@ -5,7 +5,6 @@ date:   2019-12-12
 images:
   - https://www.marcogomiero.com/img/flutter-rn/trends.jpeg
 show_in_homepage: false
-tags: [Flutter, React Native]
 ---
 
 These days you have certainly heard about cross-platform mobile development, in particular about the "senior" [React Native](https://facebook.github.io/react-native/) and the "freshman" [Flutter](https://flutter.dev/). 

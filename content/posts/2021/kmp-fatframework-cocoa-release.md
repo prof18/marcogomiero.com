@@ -3,7 +3,6 @@ layout: post
 title:  "Introducing KMP FatFramework Cocoa, a Gradle plugin for iOS FatFramework"
 date:   2021-03-02
 show_in_homepage: false 
-tags: [Kotlin Multiplatform]
 ---
 
 Today I want to share [**KMP FatFramework Cocoa**](https://github.com/prof18/kmp-fatframework-cocoa), a Gradle plugin for Kotlin Multiplatform projects that generate a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository. 

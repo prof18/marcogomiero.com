@@ -3,7 +3,6 @@ layout: post
 title:  "Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform"
 date:   2020-12-10
 show_in_homepage: true
-tags: [Kotlin Multiplatform]
 ---
 
 If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with [Ktor](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html). But if you don’t want to share the entire network layer but maybe only the DTOs? 

@@ -5,7 +5,6 @@ images:
   - https://miro.medium.com/max/1400/0*BnjRJYi8CNeaKOq1
 date:   2019-01-14
 show_in_homepage: true
-tags: [Android]
 ---
 
 {{< figure src="/img/path.jpeg" alt="image" caption="*Photo by [felipe lopez](https://unsplash.com/@flopez_nice) on [Unsplash](https://unsplash.com)*" >}}

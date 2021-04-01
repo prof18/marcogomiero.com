@@ -4,7 +4,6 @@ title:  "New update for RSS Parser: featured image"
 description: "Today I've released a new version of the Android library RSS-Parser. Let's see what changes!"
 date:   2018-05-06
 show_in_homepage: false
-tags: [Android]
 ---
 Today I've released a new version of the Android library RSS-Parser
 

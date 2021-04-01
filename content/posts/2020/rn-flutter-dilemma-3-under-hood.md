@@ -5,7 +5,6 @@ date:   2020-03-16
 show_in_homepage: false
 images:
   - https://www.marcogomiero.com/img/flutter-rn/virtual-dom.png
-tags: [Flutter, React Native]
 ---
 
 Welcome to the third part of this article series about React Native and Flutter. In the latest episode, we have talked about User Interfaces and how to build them in the two frameworks. In this article, we'll go deeper under the hoods to understand how things work. But I will not go deeper with lot's of details and implementation things, because I want to make you understand how the thing works at a high level. If you are interested to go deeper, I will leave across the article some links for further information.

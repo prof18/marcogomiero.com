@@ -3,7 +3,6 @@ layout: post
 title:  "Friends Tournament - Tournament creation and management made easy"
 date:   2020-06-12
 show_in_homepage: false
-tags: [Projects]
 ---
 
 Today I want to share **Friends Tournament**, a side project that I have been working on for the past year during my spare time. 
