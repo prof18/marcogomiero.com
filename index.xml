@@ -35,27 +35,27 @@
 &lt;blockquote>
 &lt;p>Thesis title: &amp;ldquo;Porting issues from Scratch/BYOB to Snap in a browser environment&amp;rdquo;&lt;/p>
 &lt;/blockquote></description></item><item><title>Projects</title><link>https://www.marcogomiero.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/projects/</guid><description>&lt;p>For an always updated list of my projects, visit my &lt;a href="https://github.com/prof18">Github page&lt;/a>.&lt;/p>
-&lt;h2 id="kmp-fatframework-cocoahttpsgithubcomprof18kmp-fatframework-cocoa--gradle-plugin--2021---present">&lt;a href="https://github.com/prof18/kmp-fatframework-cocoa">KMP FatFramework Cocoa&lt;/a> · Gradle Plugin · 2021 - Present&lt;/h2>
+&lt;h2 id="kmp-fatframework-cocoa--gradle-plugin">KMP FatFramework Cocoa · Gradle Plugin&lt;/h2>
 &lt;p>KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.&lt;/p>
 &lt;p>The plugin is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="money-flowhttpsgithubcomprof18moneyflow--native-android-and-ios-app--2020---present">&lt;a href="https://github.com/prof18/MoneyFlow">Money Flow&lt;/a> · Native Android and iOS App · 2020 - Present&lt;/h2>
+&lt;h2 id="money-flow--native-android-and-ios-app">Money Flow · Native Android and iOS App&lt;/h2>
 &lt;p>A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.&lt;/p>
 &lt;p>This project is a work in progress, you can track the progress on &lt;a href="https://github.com/prof18/MoneyFlow">GitHub&lt;/a>&lt;/p>
 &lt;hr>
-&lt;h2 id="qr-reader-securehttpsgithubcomprof18secure-qr-reader--native-android-app--2020---present">&lt;a href="https://github.com/prof18/Secure-QR-Reader">QR Reader Secure&lt;/a> · Native Android App · 2020 - Present&lt;/h2>
+&lt;h2 id="qr-reader-secure--native-android-app">QR Reader Secure · Native Android App&lt;/h2>
 &lt;p>QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.&lt;/p>
 &lt;p>I decided to develop it after a failed search for a simple and secure reader for my parents.&lt;/p>
 &lt;p>The app is very simple (the aim is to scan a code and open the link, only this!) and it does not require sneaky, strange and useless permissions just for the sake of stealing your data. There aren&amp;rsquo;t ads, trackers of any sort and what do you scan remains on your phone. The only requested permission is for the camera.&lt;/p>
-&lt;p>You can find QR Reader Secure on the Play Store.&lt;/p>
+&lt;p>You can find QR Reader Secure on the Play Store and on &lt;a href="https://github.com/prof18/Secure-QR-Reader">GitHub&lt;/a>.&lt;/p>
 &lt;div align="center">&lt;a href="https://play.google.com/store/apps/details?id=com.prof18.secureqrreader">&lt;img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>&lt;/a>&lt;/div>
 &lt;hr>
-&lt;h2 id="friends-tournamenthttpsgithubcomprof18friends-tournament--flutter-android-app--2019---present">&lt;a href="https://github.com/prof18/Friends-Tournament">Friends Tournament&lt;/a> · Flutter Android App · 2019 - Present&lt;/h2>
+&lt;h2 id="friends-tournament--flutter-android-app">Friends Tournament · Flutter Android App&lt;/h2>
 &lt;p>A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That&amp;rsquo;s all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players&amp;rsquo; score and a nice leaderboard is automatically generated.&lt;/p>
-&lt;p>The application is written with Flutter and for the time being, it&amp;rsquo;s only available for Android. Maybe in the future, I will release the iOs version too.&lt;/p>
+&lt;p>The application is written with Flutter and for the time being, it&amp;rsquo;s only available for Android. Maybe in the future, I will release the iOs version too. You can find more info about it on &lt;a href="https://github.com/prof18/Friends-Tournament">GitHub&lt;/a>.&lt;/p>
 &lt;div align="center">&lt;a href="https://play.google.com/store/apps/details?id=com.prof.friends_tournament">&lt;img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>&lt;/a>&lt;/div>
 &lt;hr>
-&lt;h2 id="rss-parserhttpsgithubcomprof18rss-parser--android-library--2016---present">&lt;a href="https://github.com/prof18/RSS-Parser">RSS Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
+&lt;h2 id="rss-parser--android-library">RSS Parser · Android Library&lt;/h2>
 &lt;p>An Android library to parse a RSS Feed. You can retrive the following information about an article:&lt;/p>
 &lt;ul>
 &lt;li>Title&lt;/li>
@@ -66,31 +66,31 @@
 &lt;li>Link&lt;/li>
 &lt;li>Publication Date&lt;/li>
 &lt;/ul>
-&lt;p>The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2017/rss-parser-library/">this blog post&lt;/a>.&lt;/p>
+&lt;p>The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://github.com/prof18/RSS-Parser">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="youtube-parserhttpsgithubcomprof18youtubeparser--android-library--2016---present">&lt;a href="https://github.com/prof18/YoutubeParser">Youtube Parser&lt;/a> · Android Library · 2016 - Present&lt;/h2>
-&lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2017/update-yt-parser-2">this blog post&lt;/a>.&lt;/p>
+&lt;h2 id="youtube-parser--android-library">Youtube Parser · Android Library&lt;/h2>
+&lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://github.com/prof18/YoutubeParser">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="deprecated---zeromag--website--2018">@Deprecated - Zeromag · Website · 2018&lt;/h2>
+&lt;h2 id="deprecated---zeromag--website">@Deprecated - Zeromag · Website&lt;/h2>
 &lt;p>Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog &amp;ldquo;ZeroMag&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
 &lt;hr>
-&lt;h2 id="deprecated-mario-discepolo--android-app--2017">@Deprecated Mario Discepolo · Android App · 2017&lt;/h2>
+&lt;h2 id="deprecated-mario-discepolo--android-app">@Deprecated Mario Discepolo · Android App&lt;/h2>
 &lt;p>Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo&amp;rsquo;s channel and receive notifications for the new articles&lt;/p>
 &lt;hr>
-&lt;h2 id="deprecated---taxitaly-and-tour--website--2015">@Deprecated - Taxitaly and Tour · Website · 2015&lt;/h2>
+&lt;h2 id="deprecated---taxitaly-and-tour--website">@Deprecated - Taxitaly and Tour · Website&lt;/h2>
 &lt;p>Website built with Wordpress to book transfer and touristic tours in the area of Venice. The site is no longer active&lt;/p>
 &lt;hr>
-&lt;h2 id="deprecated---lupokkio--android--2015">@Deprecated - Lupokkio · Android · 2015&lt;/h2>
+&lt;h2 id="deprecated---lupokkio--android">@Deprecated - Lupokkio · Android&lt;/h2>
 &lt;p>Android Application to read latest articles and reviews, watch latest Youtube video from Lupokkio&amp;rsquo;s channel and receive notifications for the new articles. The application is no longer active because the blog is dead but you can see its past behavior by watching this &lt;a href="https://www.youtube.com/watch?v=QK-KcC0DYds">video&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="deprecated---lupokkio--website--2015">@Deprecated - Lupokkio · Website · 2015&lt;/h2>
+&lt;h2 id="deprecated---lupokkio--website">@Deprecated - Lupokkio · Website&lt;/h2>
 &lt;p>Graphic restyling and maintenance of the Italian tech blog &amp;ldquo;Lupokkio&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
 &lt;hr>
-&lt;h2 id="university---distributed-file-system-rmihttpsgithubcomprof18distributedfilesystemrmi--java--2017">@University - &lt;a href="https://github.com/prof18/DistributedFIleSystemRMI">Distributed File System RMI&lt;/a> · Java · 2017&lt;/h2>
-&lt;p>A distributed file system implemented in Java using RMI with replication, read/write lock and a GUI.&lt;/p>
+&lt;h2 id="university---distributed-file-system-rmi--java">@University - Distributed File System RMI · Java&lt;/h2>
+&lt;p>A distributed file system implemented in Java using RMI with replication, read/write lock and a GUI. You can find more info about it on &lt;a href="https://github.com/prof18/DistributedFIleSystemRMI">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="university---cyber-robot-brainhttpsgithubcomprof18cyberrobotbrain--android-app--2017">@University - &lt;a href="https://github.com/prof18/CyberRobotBrain">Cyber Robot Brain&lt;/a> · Android App · 2017&lt;/h2>
-&lt;p>This Android application has been developed during an University Class and the aim was to provide a &amp;ldquo;brain&amp;rdquo; to the Cyber Robot, a cheap sensorless toy robot sell by Clementoni. More information about the robot can be found &lt;a href="https://www.amazon.it/Scienza-e-Gioco-13941-Clementoni/dp/B010VB0IQS">on the official website&lt;/a>. More specifically, the aim was to reverse-engineer the communication protocol of the robot via the Bluetooth HCI snoop log and then build an app that guides it to reach a target object that is framed by the phone’s camera. For more information about the communication protol, visit the &lt;a href="https://github.com/prof18/CyberRobotBrain/wiki/How-to-move-Cyber-Robot">Wiki Page&lt;/a>&lt;/p>
+&lt;h2 id="university---cyber-robot-brain--android-app">@University - Cyber Robot Brain · Android App&lt;/h2>
+&lt;p>This Android application has been developed during an University Class and the aim was to provide a &amp;ldquo;brain&amp;rdquo; to the Cyber Robot, a cheap sensorless toy robot sell by Clementoni. More information about the robot can be found &lt;a href="https://www.amazon.it/Scienza-e-Gioco-13941-Clementoni/dp/B010VB0IQS">on the official website&lt;/a>. More specifically, the aim was to reverse-engineer the communication protocol of the robot via the Bluetooth HCI snoop log and then build an app that guides it to reach a target object that is framed by the phone’s camera. For more information about the communication protol, visit the &lt;a href="https://github.com/prof18/CyberRobotBrain/wiki/How-to-move-Cyber-Robot">Wiki Page&lt;/a>. You can find more info about the project on &lt;a href="https://github.com/prof18/CyberRobotBrain">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
-&lt;h2 id="university---bankshttpsgithubcomprof18banks--java--2017">@University - &lt;a href="https://github.com/prof18/banks">BANKS&lt;/a> · Java · 2017&lt;/h2>
-&lt;p>A Java app with a GUI to perform keyword-based search in relational database. The app implements &lt;em>Banks&lt;/em>, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords.&lt;/p></description></item></channel></rss>
+&lt;h2 id="university---banks--java">@University - BANKS · Java&lt;/h2>
+&lt;p>A Java app with a GUI to perform keyword-based search in relational database. The app implements &lt;em>Banks&lt;/em>, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords. You can find more info about it on &lt;a href="https://github.com/prof18/banks">GitHub&lt;/a>.&lt;/p></description></item></channel></rss>
