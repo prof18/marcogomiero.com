@@ -81,10 +81,3 @@ The close task takes a few moments to perform, and after that, it’s time to re
 
 And that’s it! After the processing time (usually between 10 to 15 minutes) your library will be available to [MavenCentral](https://repo1.maven.org/maven2/).
 
-If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
-
-
-
-
-
-

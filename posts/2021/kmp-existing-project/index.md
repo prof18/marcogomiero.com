@@ -473,8 +473,6 @@ All the code that I showed in this article came from [a sample that I’ve publi
 
 > Update: I’ve grouped all the tasks mentioned in the article in a Gradle plugin! To know more about it, give a look to [this post](https://www.marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release/).
 
-If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
-
 ## Bonus:
 
 I’ve spoke about this topic in a talk [in the Kotlin Dev Room at Fosdem 2021](https://fosdem.org/2021/schedule/event/and_that_folks_is_how_we_shared_code/). 
