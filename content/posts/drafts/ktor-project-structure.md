@@ -26,6 +26,7 @@ In this article, I will show how I’ve structured the Ktor project I'm working 
 But before moving on, a quick introduction about Ktor is mandatory.
 
 > Ktor is an asynchronous framework for creating microservices, web applications, and more. It’s fun, free, and open source.
+> 
 > From [ktor.io](https://ktor.io/)
 
 Ktor is a lightweight framework that lets easily build backends, web applications, mobile and browser applications. It can be used to create both server and client-side applications (it is compatible with Kotlin Multiplatform as well). Ktor is highly configurable with extensions and it is possible to configure a custom pipeline through a Kotlin DSL. And finally, Ktor is truly asynchronous and uses Kotlin Coroutines to make the development easier without the callback hell.
@@ -52,7 +53,7 @@ The project that I built as a reference for this series contains a few set of fe
 
 The project is a simple backend that returns random Chuck Norris jokes. The jokes are saved in a database and they came from the [Chuck Norris IO project](https://github.com/chucknorris-io/chuck-db). 
 
-The wizard creates a default `Application.kt` file that contains the `[module](https://ktor.io/docs/modules.html)` function that initializes the server pipeline, install the selected features, register the routes, etc. In this function, all the configurations and the classes needed to run the server must be provided or initialized. 
+The wizard creates a default `Application.kt` file that contains the [`module`](https://ktor.io/docs/modules.html) function that initializes the server pipeline, install the selected features, register the routes, etc. In this function, all the configurations and the classes needed to run the server must be provided or initialized. 
 
 ## Dependency Injection with Koin
 
@@ -109,7 +110,7 @@ ktor {
 }
 ```
 
-```bash
+```
 .
 └── src
     ├── main
@@ -193,7 +194,7 @@ Then, I’ve created a bunch of folders that contain “configuration code”:
 - `config`: it contains the code that maps the configuration fields from the `application.conf` file, [as described above](#configuration)
 - `database`: it contains the code necessary to open (and close) the connection to the database. I’ll describe it in the next articles of the series.
 
-```bash
+```
 .
 ├── Application.kt
 ├── config
@@ -202,20 +203,20 @@ Then, I’ve created a bunch of folders that contain “configuration code”:
 │   ├── DatabaseFactory.kt
 │   └── DatabaseFactoryImpl.kt
 ├── di
-│   └── AppModule.kt
+    └── AppModule.kt
 ```
  
 Then, I’ve created the `features` folder. This top-level folder contains, as the name suggests, all the different features of the backend. For example, if the backend provides a set of API calls to authenticate a user, to handle jokes (get, create, delete, etc), and to handle the user (logout, update some settings, etc) there will be three different folders:
 
-```bash 
+``` 
 .
 ├── features
-│   ├── auth
-│   │   └── ...
-│   ├── jokes
-│   │   └── ...
-│   └── user
-│       └── ...
+    ├── auth
+    │   └── ...
+    ├── jokes
+    │   └── ...
+    └── user
+        └── ...
 ```
 
 In the sample project, the backend will provide only an API to get a random Joke, so there will be only a folder named `jokes` under the `features` folder.
@@ -230,51 +231,51 @@ The layers of Clean Architecture that I’ve used here are 3:
 
 The **data layer** contains the definitions of all the data sources. In this case, all the needed data are contained in the database,  so there will be only code needed to interact with the database. 
 
-```bash
+```
 └── jokes
-			├── data
-			│   ├── JokeLocalDataSource.kt
-			│   ├── JokeLocalDataSourceImpl.kt
-			│   └── dao
-			│       └── Joke.kt
+    ├── data
+        ├── JokeLocalDataSource.kt
+        ├── JokeLocalDataSourceImpl.kt
+        └── dao
+            └── Joke.kt
 ```
 
 If the backend needs also to retrieve data from other APIs, here there will be also a remote data source.
 
-```kotlin
+```
 └── jokes
     └── data
         ├── local
-				│   ├── JokeLocalDataSource.kt
-			  │   ├── JokeLocalDataSourceImpl.kt
-			  │   └── dao
-			  │       └── Joke.kt    
+        │   ├── JokeLocalDataSource.kt
+	│   ├── JokeLocalDataSourceImpl.kt
+	│   └── dao
+	│       └── Joke.kt    
         └── remote
-        │   ├── JokeRemoteDataSource.kt
-			  │   ├── JokeRemoteDataSourceImpl.kt
-		    │   └── dto
-		    │       └── JokeRemoteDTO.kt
+            ├── JokeRemoteDataSource.kt
+	    ├── JokeRemoteDataSourceImpl.kt
+	    └── dto
+	        └── JokeRemoteDTO.kt
 ```
 
 The **domain layer** contains the models, the business logic, and the mappers between the DAOs and the DTOs. The business logic is implemented by following the Repository pattern. The repository will contain the code necessary to retrieve, save and manipulate data from the data sources.  
 
-```bash
+```
 └── jokes
-			├── domain
-			│   ├── JokeRepository.kt
-			│   ├── JokeRepositoryImpl.kt
-			│   ├── mapper
-			│   │   └── DTOMapper.kt
-			│   └── model
-			│       └── JokeDTO.kt
+    ├── domain
+        ├── JokeRepository.kt
+        ├── JokeRepositoryImpl.kt
+        ├── mapper
+        │   └── DTOMapper.kt
+        └── model
+            └── JokeDTO.kt
 ```
 
 And at the end, the **presentation** layer. Since this is not an application with a user interface, I decided to change the name from presentation to **resource**. In this layer, there will be the definitions of the REST endpoints that the backend exposes. I’ve decided to use the word *resource* because I like to think that REST endpoints are resources that give or handle data. This is just a personal opinion, for example, you can call these layer `*controller* or whatever. 
 
-```bash
+```
 └── jokes
-			└── resource
-			    └── JokeResource.kt
+    └── resource
+	└── JokeResource.kt
 ```
 
 The `JokeResource` file will contain [the classes that define each route](https://ktor.io/docs/features-locations.html#route-classes) and an extension function of `Route` that contains the definition of every endpoint.
@@ -301,51 +302,46 @@ Using an extension function, unlock the possibility to have a much cleaner modul
 
 ```kotlin
 fun Application.module(...) {
-	...
-	routing {
-	    jokeEndpoint()
-			...
-	}
-	...
+    ...
+    routing {
+        jokeEndpoint()
+        ...
+    }
+    ...
 }
 ```
 
 And as reference, here’s the entire structure that I’ve described:
 
-```bash
-.
-├── main
-│   ├── kotlin
-│   │   └── com
-│   │       └── prof18
-│   │           └── ktor
-│   │               └── chucknorris
-│   │                   └── sample
-│   │                       ├── Application.kt
-│   │                       ├── config
-│   │                       │   └── AppConfig.kt
-│   │                       ├── database
-│   │                       │   ├── DatabaseFactory.kt
-│   │                       │   └── DatabaseFactoryImpl.kt
-│   │                       ├── di
-│   │                       │   └── AppModule.kt
-│   │                       └── features
-│   │                           └── jokes
-│   │                               ├── data
-│   │                               │   ├── JokeLocalDataSource.kt
-│   │                               │   ├── JokeLocalDataSourceImpl.kt
-│   │                               │   └── dao
-│   │                               │       └── Joke.kt
-│   │                               ├── domain
-│   │                               │   ├── JokeRepository.kt
-│   │                               │   ├── JokeRepositoryImpl.kt
-│   │                               │   ├── mapper
-│   │                               │   │   └── DTOMapper.kt
-│   │                               │   └── model
-│   │                               │       └── JokeDTO.kt
-│   │                               └── resource
-│   │                                   └── JokeResource.kt
 ```
+.
+└── sample
+    ├── Application.kt
+    ├── config
+    │   └── AppConfig.kt
+    ├── database
+    │   ├── DatabaseFactory.kt
+    │   └── DatabaseFactoryImpl.kt
+    ├── di
+    │   └── AppModule.kt
+    └── features
+        └── jokes
+            ├── data
+            │   ├── JokeLocalDataSource.kt
+            │   ├── JokeLocalDataSourceImpl.kt
+            │   └── dao
+            │       └── Joke.kt
+            ├── domain
+            │   ├── JokeRepository.kt
+            │   ├── JokeRepositoryImpl.kt
+            │   ├── mapper
+            │   │   └── DTOMapper.kt
+            │   └── model
+            │       └── JokeDTO.kt
+            └── resource
+                └── JokeResource.kt
+
+ ```
 
 ## Testing 
 
@@ -380,7 +376,7 @@ fun testRequests() = withTestApplication({
     }
     module(testing = true) // Call here your application's module
 }) {
-	...
+    ...
 }
 ```
 
@@ -417,7 +413,7 @@ val appTestModule = module {
 }
 
 val fakeRepositoryModule = module {
-		singleBy<JokeRepository, FakeJokeRepository>()
+    singleBy<JokeRepository, FakeJokeRepository>()
 }
 
 @Test
@@ -427,7 +423,7 @@ fun testRequests() = withTestApplication({
     }
     module(testing = true, koinModules = listOf(appTestModule, fakeRepositoryModule))
 }) {
- ...
+    ...
 }
 ```
 
