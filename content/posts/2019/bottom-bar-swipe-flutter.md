@@ -3,7 +3,6 @@ layout: post
 title:  "Bottom App Bar with Menu and Swipeable Tabs in Flutter"
 date:   2019-03-20
 show_in_homepage: false
-tags: [Flutter]
 ---
 
 The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
@@ -146,5 +145,3 @@ And that's it! With little effort, we have created a very beautiful and modern U
 Of course, you can find the complete code on my Github.
 
 > [prof18/BottomAppBarSwipeableTabs](https://github.com/prof18/BottomAppBarSwipeableTabs)
-
-If you have any kind of feedback, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).

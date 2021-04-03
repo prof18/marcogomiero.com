@@ -1,11 +1,11 @@
+{{ with .Site.Params.Social.Twitter }}
+    <a href="https://twitter.com/{{.}}" rel="me noopener noreffer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+{{ end }}
 {{ with .Site.Params.Social.Github }}
     <a href="https://github.com/{{.}}" rel="me noopener noreffer" target="_blank"><i class="fab fa-github-alt fa-fw"></i></a>
 {{ end }}
 {{ with .Site.Params.Social.LinkedIn }}
     <a href="https://linkedin.com/in/{{.}}" rel="me noopener noreffer" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
-{{ end }}
-{{ with .Site.Params.Social.Twitter }}
-    <a href="https://twitter.com/{{.}}" rel="me noopener noreffer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
 {{ end }}
 {{ with .Site.Params.Social.Instagram }}
     <a href="https://www.instagram.com/{{.}}/" rel="me noopener noreffer" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>

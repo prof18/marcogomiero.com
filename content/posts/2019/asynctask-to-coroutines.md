@@ -5,7 +5,6 @@ images:
   - https://miro.medium.com/max/1400/0*BnjRJYi8CNeaKOq1
 date:   2019-01-14
 show_in_homepage: true
-tags: [Android]
 ---
 
 {{< figure src="/img/path.jpeg" alt="image" caption="*Photo by [felipe lopez](https://unsplash.com/@flopez_nice) on [Unsplash](https://unsplash.com)*" >}}
@@ -253,7 +252,7 @@ coroutineScope.launch(Dispatchers.Main) {
 }
 ```
 
-And finally, we have reached the end of my journey from Async Task to Coroutines. If you have some advice, doubt or any kind of feedback, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier)! Of course, you can use this example as an idea to leave forever the (ugly) Async Tasks.
+And finally, we have reached the end of my journey from Async Task to Coroutines. Of course, you can use this example as an idea to leave forever the (ugly) Async Tasks.
 
 If you want to contribute to the development of the library or simply report a bug, visit the repo on Github: [https://github.com/prof18/RSS-Parser](https://github.com/prof18/RSS-Parser)
 

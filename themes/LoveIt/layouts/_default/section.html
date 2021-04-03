@@ -28,7 +28,11 @@
             <h1 class="post-section-title">
                 {{ T .Section | default .Section | humanize }}
             </h1>
+
+            <div class="post-content">Do you want me to speak at your conference or meetup? Feel free to reach out on <a href="https://twitter.com/marcoGomier" target="_blank">Twitter</a>, my DMs are open.</div>
     
+            <br>
+
             {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
                 <br>    
                 <h2>{{ .Key }}</h2>

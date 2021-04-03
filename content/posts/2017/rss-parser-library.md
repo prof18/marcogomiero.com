@@ -6,7 +6,6 @@ date:   2017-08-16
 images: 
   - https://miro.medium.com/max/1400/1*Y6cXRjuZqq5DeeLHsNZSiA.jpeg
 show_in_homepage: false
-tags: [Android]
 ---
 
 [Two month ago I have talked about YoutubeParser](http://www.marcogomiero.com/posts/update-yt-parser-2/), an Android Library that I developed. Today I want to talk about  **RSS-Parser**, another library that I wrote.

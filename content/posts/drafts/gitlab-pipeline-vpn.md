@@ -113,6 +113,3 @@ test:
   script:
     - ./gradlew test --info --stacktrace
 ```
-
-If you have any kind of suggestion or doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
-

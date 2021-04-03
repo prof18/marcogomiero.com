@@ -195,11 +195,13 @@
 
   p {
     font-size: 1rem;
-    text-align: justify;
+    text-align: left;
   }
 
   a {
     color: $post-link-color;
+    text-decoration: underline;
+    text-underline-position: under;
 
     .dark-theme & {
       color: $post-link-color-dark;
@@ -569,4 +571,62 @@
 
 .post-comment {
   padding: 3rem 0;
+}
+
+.home-data {
+
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding-top: .8rem;
+    padding-bottom: .3rem;
+  }
+
+  h2::before {
+    margin-right: .3125rem;
+    color: $post-link-color;
+
+    .dark-theme & {
+      color: $post-link-color-dark;
+    }
+  }
+
+  h3::before,
+  h4::before,
+  h5::before,
+  h6::before {
+    margin-right: .3125rem;
+    color: $post-link-color;
+
+    .dark-theme & {
+      color: $post-link-color-dark;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-position: under;
+    color: $post-link-color;
+
+    .dark-theme & {
+      color: $post-link-color-dark;
+    }
+  }
+
+  a:hover {
+    color: $post-link-hover-color;
+
+    .dark-theme &:hover {
+      color: $post-link-hover-color-dark;
+      font-weight: bold;
+    }
+  }
 }

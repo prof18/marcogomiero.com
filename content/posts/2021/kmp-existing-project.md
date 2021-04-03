@@ -3,7 +3,6 @@ layout: post
 title:  "Introducing Kotlin Multiplatform in an existing project"
 date:   2021-02-25
 show_in_homepage: true
-tags: [Kotlin Multiplatform]
 ---
 After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).
 
@@ -477,8 +476,6 @@ By starting little, it is possible to validate the process with a “contained�
 All the code that I showed in this article came from [a sample that I’ve published on GitHub](https://github.com/prof18/shared-hn-android-ios-backend) (if you are interested only in the custom Gradle task, [click here](https://github.com/prof18/shared-hn-android-ios-backend/blob/master/hn-foundation/build.gradle.kts#L99)). This sample is composed of an Android app, an iOs app, and a backend that share some common code via a Kotlin Multiplatform library. 
 
 > Update: I’ve grouped all the tasks mentioned in the article in a Gradle plugin! To know more about it, give a look to [this post](https://www.marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release/).
-
-If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
 ## Bonus:
 

@@ -3,7 +3,6 @@ layout: post
 title:  "RSS Parser 2.0: bye bye Async Task, welcome Coroutines"
 date:   2018-12-22
 show_in_homepage: false
-tags: [Android]
 ---
 
 Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.

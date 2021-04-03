@@ -3,7 +3,6 @@ layout: post
 title:  "Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
 date:   2020-10-23
 show_in_homepage: true
-tags: [Kotlin Multiplatform]
 ---
 
 Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I've thought and designed it almost a year ago but only now I've found the time to start writing actual code. 
@@ -314,6 +313,6 @@ And that’s it!
 If you want to give a look at the entire code mentioned in this article, you can give a look to 
 [Github](https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc) (Be aware that the project is still in its early stages of development, so things can be "ugly" and can heavily change). 
 
-In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms. If you have any suggestion to improve that architecture or you have any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
+In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms.
 
 {{< smalltext >}} // Thanks to <a href="https://giansegato.com/">Gian</a> for helping me review the post {{< /smalltext >}}

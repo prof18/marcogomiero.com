@@ -63,7 +63,7 @@ staticDir = ["static", "../assets/others"]
   talk_paginate = 10                                      
   avatar = "img/profile.jpeg"                           
   homeTitle = "Marco Gomiero"
-  subtitle = "Software Engineer · Community Manager"  
+  subtitle = "Software Engineer · Community Manager · International Speaker"  
 
   socialShare = true                                     
 

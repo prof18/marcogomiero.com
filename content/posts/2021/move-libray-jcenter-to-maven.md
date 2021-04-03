@@ -3,7 +3,6 @@ layout: post
 title:  "Migrating old artifacts from JCenter to MavenCentral"
 date:   2021-02-11
 show_in_homepage: false 
-tags: [Android]
 ---
 
 As you may have heard, JCenter is shutting down in May 2021.
@@ -85,11 +84,4 @@ Now, the process is the same as when the artifacts are upload from Android Studi
 The close task takes a few moments to perform, and after that, it’s time to release the library with the button in the toolbar.  
 
 And that’s it! After the processing time (usually between 10 to 15 minutes) your library will be available to [MavenCentral](https://repo1.maven.org/maven2/).
-
-If you have any suggestion or any kind of doubt, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
-
-
-
-
-
 

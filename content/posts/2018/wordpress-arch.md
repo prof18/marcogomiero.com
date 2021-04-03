@@ -6,7 +6,6 @@ images:
   - https://miro.medium.com/max/1400/1*48L-6F40OsGgwpgG4fthMg.png
 date:   2018-01-19
 show_in_homepage: false
-tags: [Linux]
 ---
 
 {{< figure src="/img/arch/wordpress_arch.png" alt="image" >}}
