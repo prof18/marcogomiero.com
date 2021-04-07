@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Structuring a Ktor project"
-date:   2021-03-09
+date:   2021-04-07
 show_in_homepage: true
-draft: true
 ---
 
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer. 
