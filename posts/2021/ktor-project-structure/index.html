@@ -1,0 +1,426 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Structuring a Ktor project | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Software Engineer · Community Manager"><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><link rel=prev href=https://www.marcogomiero.com/posts/2021/audio-video-setup/><link rel=canonical href=https://www.marcogomiero.com/posts/2021/ktor-project-structure/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary"><meta name=twitter:title content="Structuring a Ktor project"><meta name=twitter:description content="It’s been a few months since I’ve started working with Ktor to build the backend of Revelop. We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.
+Today I decided to start a series of posts dedicated to Ktor. With these articles, I want to cover all the topics that made me struggle during development and that was not easy to achieve out of the box."><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Structuring a Ktor project","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2021\/ktor-project-structure\/"},"genre":"posts","wordcount":2356,"url":"https:\/\/www.marcogomiero.com\/posts\/2021\/ktor-project-structure\/","datePublished":"2021-04-07T00:00:00\u002b00:00","dateModified":"2021-04-07T00:00:00\u002b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class=post-warp><h1 class=post-title>Structuring a Ktor project</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime="7 Apr 2021">7 Apr 2021</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>about 2356 words&nbsp;
+<i class="far fa-clock fa-fw"></i>12 min&nbsp;</div></div><br><div class=post-content><p>It’s been a few months since I’ve started working with <a href=https://ktor.io/>Ktor</a> to build the backend of <a href=https://revelop.app/>Revelop</a>. We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.</p><p>Today I decided to start a series of posts dedicated to Ktor. With these articles, I want to cover all the topics that made me struggle during development and that was not easy to achieve out of the box. To cite a few: using an in-memory database for testing, handling database migration, setting up logging on disk and using dependency injection.</p><p>In this first instance of the series, I will show how I’ve structured the Ktor project I&rsquo;m working on. I’ll cover dependency injection, configurations, and testing.</p><p>But before moving on, a quick introduction about Ktor is mandatory.</p><blockquote><p>Ktor is an asynchronous framework for creating microservices, web applications, and more. It’s fun, free, and open source.</p><p>From <a href=https://ktor.io/>ktor.io</a></p></blockquote><p>Ktor is a lightweight framework that lets easily build backends, web applications, mobile and browser applications. It can be used to create both server and client-side applications (it is compatible with Kotlin Multiplatform as well). Ktor is highly configurable with extensions and it is possible to configure a custom pipeline through a Kotlin DSL. And finally, Ktor is truly asynchronous and uses Kotlin Coroutines to make the development easier without the callback hell.</p><p>This is “an elevator pitch” of Ktor, to know all the details I’ll suggest looking <a href=https://ktor.io/docs/welcome.html>to the documentation</a>.</p><a class=post-dummy-target id=create-a-new-ktor-project></a><h2>Create a new Ktor Project</h2><p>The starting point of a Ktor project definitely lies in the wizard included in IntelliJ. The wizard lets you choose between all the different features that Ktor provides and it will generate a bare-bone project ready to be used.</p><figure><a href=/img/ktor-series/ktor-wizard-Intellij%20.png><img src=/img/ktor-series/ktor-wizard-Intellij%20.png></a></figure><p>If you don’t like IntelliJ, the wizard is also available on <a href=https://start.ktor.io/>start.ktor.io</a>.</p><figure><a href=/img/ktor-series/ktor-web-wizard.png><img src=/img/ktor-series/ktor-web-wizard.png></a></figure><p>The project that I built as a reference for this series contains a few set of features:</p><ul><li>Call Logging</li><li>Content Negotiation</li><li>kotlinx.serialization</li><li>Locations</li><li>Routing</li></ul><p>The project is a simple backend that returns random Chuck Norris jokes. The jokes are saved in a database and they came from the <a href=https://github.com/chucknorris-io/chuck-db>Chuck Norris IO project</a>.</p><p>The wizard creates a default <code>Application.kt</code> file that contains the <a href=https://ktor.io/docs/modules.html><code>module</code></a> function that initializes the server pipeline, install the selected features, register the routes, etc. In this function, all the configurations and the classes needed to run the server must be provided or initialized.</p><a class=post-dummy-target id=dependency-injection-with-koin></a><h2>Dependency Injection with Koin</h2><p>Before moving on, it is a good idea to setup Dependency Injection. I’ll use <strong><a href=https://insert-koin.io>Koin</a></strong>, that has built-in support for Ktor.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=c1>// Koin for Ktor 
+</span><span class=c1></span><span class=n>implementation</span> <span class=s>&#34;io.insert-koin:koin-ktor:$koin_version&#34;</span>
+<span class=c1>// SLF4J Logger
+</span><span class=c1></span><span class=n>implementation</span> <span class=s>&#34;io.insert-koin:koin-logger-slf4j:$koin_version&#34;</span>
+</code></pre></td></tr></table></div></div><p>To use Koin, it is necessary to install the appropriate feature inside the <code>module</code> function. I recommend doing it as the first thing in the setup pipeline.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>install</span><span class=p>(</span><span class=n>Koin</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>slf4jLogger</span><span class=p>()</span>
+    <span class=n>modules</span><span class=p>(</span><span class=n>appModule</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>appModule</span> <span class=p>=</span> <span class=n>module</span> <span class=p>{</span>
+    <span class=n>single</span><span class=p>&lt;</span><span class=n>MyClass</span><span class=p>&gt;()</span>
+    <span class=n>singleBy</span><span class=p>&lt;</span><span class=n>MyInterface</span><span class=p>,</span> <span class=n>MyInterfaceImpl</span><span class=p>&gt;()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>The Koin module is defined in a separate file, just to keep the <code>Application</code> class and the Ktor <code>module</code> function as clean as possible.</p><p>After that, the dependency graph is built, and inside <code>Application</code>, <code>Routing</code> and <code>Route</code> scope, it is possible to retrieve the dependencies like in a <code>KoinComponent</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>myClass</span> <span class=k>by</span> <span class=n>inject</span><span class=p>&lt;</span><span class=n>MyClass</span><span class=p>&gt;()</span>
+</code></pre></td></tr></table></div></div><p>For more information about Koin on Ktor, refer to the <a href=https://insert-koin.io/docs/reference/koin-ktor/ktor/>documentation</a></p><a class=post-dummy-target id=configuration></a><h2>Configuration</h2><p>On Ktor it is possible to <a href=https://ktor.io/docs/configurations.html>set some configurations</a>, like host address and port, in code (if using the <a href=https://ktor.io/docs/create-server.html#embedded-server><code>embeddedServer</code></a>) or in an external file (<code>application.conf</code>) with the HOCON format (if using the <a href=https://ktor.io/docs/create-server.html#engine-main><code>EngineMain</code></a>).</p><p>The wizard automatically creates an <code>application.conf</code> file in the application <code>resources</code> directory.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>ktor {
+  deployment {
+    port = 8080
+    port = ${?PORT}
+  }
+  application {
+    modules = [com.prof18.ktor.chucknorris.sample.ApplicationKt.module]
+  }
+}
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>.
+└── src
+    ├── main
+    │   ├── kotlin
+    │   │   └── com
+    │   │       └── ...
+    │   └── resources
+    │       ├── application.conf
+    └── test
+        ├── kotlin
+        │   └── com
+        │       └── ...
+        └── resources
+            ├──  ...
+    
+</code></pre></td></tr></table></div></div><p>This configuration file will be automatically loaded and parsed by Ktor when the server is started. It is also possible to provide a custom configuration file instead of the one from resources with a command-line argument:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>java -jar ktor-backend.jar -config=/config-folder/application.conf
+</code></pre></td></tr></table></div></div><p>This is helpful for example to provide different configurations for databases or for external service (in part 3 I’ll show a use case of this feature).</p><p>But, besides the <a href=https://ktor.io/docs/configurations.html#hocon-file>default value provided by the framework</a>, it is possible to create custom configurations to use later in the code.
+For example, I’ve created a new section with a Boolean field that will indicate if the instance is running on a staging or production server.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>ktor {
+  ...
+  server {
+    isProd = false
+  }
+  ...
+}
+</code></pre></td></tr></table></div></div><p>Every section will be mapped in the code with a <code>data class</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>data</span> <span class=k>class</span> <span class=nc>ServerConfig</span><span class=p>(</span>
+    <span class=k>val</span> <span class=py>isProd</span><span class=p>:</span> <span class=n>Boolean</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>that is contained in a wider class, named <code>AppConfig</code> with all the different custom configurations.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>AppConfig</span> <span class=p>{</span>
+    <span class=k>lateinit</span> <span class=k>var</span> <span class=py>serverConfig</span><span class=p>:</span> <span class=n>ServerConfig</span>
+    <span class=c1>// Place here other configurations
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>The fields of this class then will be initialized inside the <code>Application</code> scope.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>Application</span><span class=p>.</span><span class=n>setupConfig</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>val</span> <span class=py>appConfig</span> <span class=k>by</span> <span class=n>inject</span><span class=p>&lt;</span><span class=n>AppConfig</span><span class=p>&gt;()</span>
+
+    <span class=c1>// Server
+</span><span class=c1></span>    <span class=k>val</span> <span class=py>serverObject</span> <span class=p>=</span> <span class=n>environment</span><span class=p>.</span><span class=n>config</span><span class=p>.</span><span class=n>config</span><span class=p>(</span><span class=s>&#34;ktor.server&#34;</span><span class=p>)</span>
+    <span class=k>val</span> <span class=py>isProd</span> <span class=p>=</span> <span class=n>serverObject</span><span class=p>.</span><span class=n>property</span><span class=p>(</span><span class=s>&#34;isProd&#34;</span><span class=p>).</span><span class=n>getString</span><span class=p>().</span><span class=n>toBoolean</span><span class=p>()</span>
+    <span class=n>appConfig</span><span class=p>.</span><span class=n>serverConfig</span> <span class=p>=</span> <span class=n>ServerConfig</span><span class=p>(</span><span class=n>isProd</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>With this setup, when a configuration field must be accessed, the AppConfig class can be simply retrieved from Koin.</p><a class=post-dummy-target id=project-structure></a><h2>Project structure</h2><p>The structure of a project is a completely subjective topic and it does not invalidate the functionalities nor the correct behavior. However, I think that properly structuring a project is beneficial for better maintainability and scalability.</p><p>Here, I will share a structure that worked for me and that I found interesting. If you have any suggestion about alternative structures or if you notice something wrong in what I’m sharing, feel free to reach me out on Twitter <a href=https://twitter.com/marcoGomier>@marcoGomier</a>.</p><p>Since the <code>Application.kt</code> file is the entrypoint for the server, I left it at the root level of the <code>src > main > kotlin > &lt;package-name></code> folder.</p><p>Then, I’ve created a bunch of folders that contain “configuration code”:</p><ul><li><code>di</code>: it contains the code where the <code>Koin</code> modules are defined, <a href=#dependency-injection-with-koin>as described above</a></li><li><code>config</code>: it contains the code that maps the configuration fields from the <code>application.conf</code> file, <a href=#configuration>as described above</a></li><li><code>database</code>: it contains the code necessary to open (and close) the connection to the database. I’ll describe it in the next articles of the series.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>.
+├── Application.kt
+├── config
+│   └── AppConfig.kt
+├── database
+│   ├── DatabaseFactory.kt
+│   └── DatabaseFactoryImpl.kt
+├── di
+    └── AppModule.kt
+</code></pre></td></tr></table></div></div><p>Then, I’ve created the <code>features</code> folder. This top-level folder contains, as the name suggests, all the different features of the backend. For example, if the backend provides a set of API calls to authenticate a user, to handle jokes (get, create, delete, etc), and to handle the user (logout, update some settings, etc) there will be three different folders:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>.
+├── features
+    ├── auth
+    │   └── ...
+    ├── jokes
+    │   └── ...
+    └── user
+        └── ...
+</code></pre></td></tr></table></div></div><p>In the sample project, the backend will provide only an API to get a random Joke, so there will be only a folder named <code>jokes</code> under the <code>features</code> folder.</p><p>The structure of every “feature folder” will follow some principles of the <strong>Clean Architecture</strong>. I’ve decided to stick with it because I’ve used it in some Android projects and I like it. But, this will be an adapted solution with only some aspects of the architecture. If you don’t know Clean Architecture and you want to know more about it, I suggest giving a look at the <a href=https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html>Uncle Bob’s article</a> and, if you are an Android developer, to this <a href=https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started>Ray Wenderich’s article</a>.</p><p>The layers of Clean Architecture that I’ve used here are 3:</p><ul><li>data</li><li>domain</li><li>presentation</li></ul><p>The <strong>data layer</strong> contains the definitions of all the data sources. In this case, all the needed data are contained in the database, so there will be only code needed to interact with the database.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>└── jokes
+    ├── data
+        ├── JokeLocalDataSource.kt
+        ├── JokeLocalDataSourceImpl.kt
+        └── dao
+            └── Joke.kt
+</code></pre></td></tr></table></div></div><p>If the backend needs also to retrieve data from other APIs, here there will be also a remote data source.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>└── jokes
+    └── data
+        ├── local
+        │   ├── JokeLocalDataSource.kt
+	│   ├── JokeLocalDataSourceImpl.kt
+	│   └── dao
+	│       └── Joke.kt    
+        └── remote
+            ├── JokeRemoteDataSource.kt
+	    ├── JokeRemoteDataSourceImpl.kt
+	    └── dto
+	        └── JokeRemoteDTO.kt
+</code></pre></td></tr></table></div></div><p>The <strong>domain layer</strong> contains the models, the business logic, and the mappers between the DAOs and the DTOs. The business logic is implemented by following the Repository pattern. The repository will contain the code necessary to retrieve, save and manipulate data from the data sources.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>└── jokes
+    ├── domain
+        ├── JokeRepository.kt
+        ├── JokeRepositoryImpl.kt
+        ├── mapper
+        │   └── DTOMapper.kt
+        └── model
+            └── JokeDTO.kt
+</code></pre></td></tr></table></div></div><p>And at the end, the <strong>presentation</strong> layer. Since this is not an application with a user interface, I decided to change the name from presentation to <strong>resource</strong>. In this layer, there will be the definitions of the REST endpoints that the backend exposes. I’ve decided to use the word <em>resource</em> because I like to think that REST endpoints are resources that give or handle data. This is just a personal opinion, for example, you can call these layer `<em>controller</em> or whatever.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>└── jokes
+    └── resource
+	└── JokeResource.kt
+</code></pre></td></tr></table></div></div><p>The <code>JokeResource</code> file will contain <a href=https://ktor.io/docs/features-locations.html#route-classes>the classes that define each route</a> and an extension function of <code>Route</code> that contains the definition of every endpoint.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>@Location</span><span class=p>(</span><span class=s>&#34;joke&#34;</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>JokeEndpoint</span> <span class=p>{</span>
+
+    <span class=n>@Location</span><span class=p>(</span><span class=s>&#34;/random&#34;</span><span class=p>)</span>
+    <span class=k>class</span> <span class=nc>Random</span><span class=p>(</span><span class=k>val</span> <span class=py>parent</span><span class=p>:</span> <span class=n>JokeEndpoint</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>fun</span> <span class=nf>Route</span><span class=p>.</span><span class=n>jokeEndpoint</span><span class=p>()</span> <span class=p>{</span>
+
+    <span class=k>val</span> <span class=py>jokeRepository</span> <span class=k>by</span> <span class=n>inject</span><span class=p>&lt;</span><span class=n>JokeRepository</span><span class=p>&gt;()</span>
+
+    <span class=k>get</span><span class=p>&lt;</span><span class=n>JokeEndpoint</span><span class=p>.</span><span class=n>Random</span><span class=p>&gt;</span> <span class=p>{</span>
+        <span class=n>call</span><span class=p>.</span><span class=n>respond</span><span class=p>(</span><span class=n>jokeRepository</span><span class=p>.</span><span class=n>getRandomJoke</span><span class=p>())</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Using an extension function, unlock the possibility to have a much cleaner module function: in this way, it is possible to define the endpoints in different files and call them inside the <code>routing</code> block in the <code>module</code> function.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>Application</span><span class=p>.</span><span class=n>module</span><span class=p>(...)</span> <span class=p>{</span>
+    <span class=p>...</span>
+    <span class=n>routing</span> <span class=p>{</span>
+        <span class=n>jokeEndpoint</span><span class=p>()</span>
+        <span class=p>...</span>
+    <span class=p>}</span>
+    <span class=p>...</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>And as reference, here’s the entire structure that I’ve described:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>.
+└── sample
+    ├── Application.kt
+    ├── config
+    │   └── AppConfig.kt
+    ├── database
+    │   ├── DatabaseFactory.kt
+    │   └── DatabaseFactoryImpl.kt
+    ├── di
+    │   └── AppModule.kt
+    └── features
+        └── jokes
+            ├── data
+            │   ├── JokeLocalDataSource.kt
+            │   ├── JokeLocalDataSourceImpl.kt
+            │   └── dao
+            │       └── Joke.kt
+            ├── domain
+            │   ├── JokeRepository.kt
+            │   ├── JokeRepositoryImpl.kt
+            │   ├── mapper
+            │   │   └── DTOMapper.kt
+            │   └── model
+            │       └── JokeDTO.kt
+            └── resource
+                └── JokeResource.kt
+
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=testing></a><h2>Testing</h2><p>And last but not least, testing. Ktor is designed to allow easily testable applications. It does not create a web server but it hooks directly into the internal mechanism with a <code>[TestEngine](https://ktor.io/docs/testing.html)</code>. In this way, the execution of tests will be quicker rather than spinning up a complete web server for testing.</p><p>With the <code>withTestApplication</code> function it is possible to set up a test environment and then, with the <code>handleRequest</code> function it is possible to perform the request and verify that the results are the same as expected.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>@Test</span>
+<span class=k>fun</span> <span class=nf>testRequests</span><span class=p>()</span> <span class=p>=</span> <span class=n>withTestApplication</span><span class=p>(</span><span class=n>module</span><span class=p>(</span><span class=n>testing</span> <span class=p>=</span> <span class=k>true</span><span class=p>))</span> <span class=p>{</span>
+    <span class=n>with</span><span class=p>(</span><span class=n>handleRequest</span><span class=p>(</span><span class=n>HttpMethod</span><span class=p>.</span><span class=n>Get</span><span class=p>,</span> <span class=s>&#34;/&#34;</span><span class=p>))</span> <span class=p>{</span>
+        <span class=n>assertEquals</span><span class=p>(</span><span class=n>HttpStatusCode</span><span class=p>.</span><span class=n>OK</span><span class=p>,</span> <span class=n>response</span><span class=p>.</span><span class=n>status</span><span class=p>())</span>
+        <span class=n>assertEquals</span><span class=p>(</span><span class=s>&#34;Hello from Ktor Testable sample application&#34;</span><span class=p>,</span> <span class=n>response</span><span class=p>.</span><span class=n>content</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>However, before testing the endpoints, it is necessary to set up the dependencies that the system under test will use and all the custom configurations defined in the <code>application.conf</code>.</p><p>To populate the configurations, the <code>MapApplicationConfig</code> can be used and passed to the <code>withTestApplication</code> function.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>MapApplicationConfig</span><span class=p>.</span><span class=n>createConfigForTesting</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// Server config
+</span><span class=c1></span>    <span class=n>put</span><span class=p>(</span><span class=s>&#34;ktor.server.isProd&#34;</span><span class=p>,</span> <span class=s>&#34;false&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=n>@Test</span>
+<span class=k>fun</span> <span class=nf>testRequests</span><span class=p>()</span> <span class=p>=</span> <span class=n>withTestApplication</span><span class=p>({</span>
+    <span class=p>(</span><span class=n>environment</span><span class=p>.</span><span class=n>config</span> <span class=k>as</span> <span class=n>MapApplicationConfig</span><span class=p>).</span><span class=n>apply</span> <span class=p>{</span>
+       <span class=n>createConfigForTesting</span><span class=p>()</span>
+    <span class=p>}</span>
+    <span class=n>module</span><span class=p>(</span><span class=n>testing</span> <span class=p>=</span> <span class=k>true</span><span class=p>)</span> <span class=c1>// Call here your application&#39;s module
+</span><span class=c1></span><span class=p>})</span> <span class=p>{</span>
+    <span class=p>...</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>The dependencies instead will be automatically provided by Koin. But, to provide a fake implementation of a dependency, some changes must be made.</p><p><a href=#dependency-injection-with-koin>As described above</a>, the Koin module is ”hardcoded” inside the Ktor module function (to be precise is defined in another file but not injected in the constructor).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>install</span><span class=p>(</span><span class=n>Koin</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>slf4jLogger</span><span class=p>()</span>
+    <span class=n>modules</span><span class=p>(</span><span class=n>appModule</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>To modify the Koin module during testing, I’ve modified the Ktor <code>module</code> function to accept a list of Koin modules. This list has as the default value the Koin module that was previously hardcoded.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>fun</span> <span class=nf>Application</span><span class=p>.</span><span class=n>module</span><span class=p>(</span><span class=n>testing</span><span class=p>:</span> <span class=n>Boolean</span> <span class=p>=</span> <span class=k>false</span><span class=p>,</span> <span class=n>koinModules</span><span class=p>:</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>Module</span><span class=p>&gt;</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span><span class=n>appModule</span><span class=p>))</span> <span class=p>{</span>
+
+    <span class=n>install</span><span class=p>(</span><span class=n>Koin</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>slf4jLogger</span><span class=p>()</span>
+        <span class=n>modules</span><span class=p>(</span><span class=n>koinModules</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>In this way, during testing, it is possible to change one or more dependencies.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>appTestModule</span> <span class=p>=</span> <span class=n>module</span> <span class=p>{</span>
+    <span class=n>single</span><span class=p>&lt;</span><span class=n>AppConfig</span><span class=p>&gt;()</span>
+    <span class=n>singleBy</span><span class=p>&lt;</span><span class=n>DatabaseFactory</span><span class=p>,</span> <span class=n>DatabaseFactoryForServerTest</span><span class=p>&gt;()</span>
+    <span class=n>singleBy</span><span class=p>&lt;</span><span class=n>JokeLocalDataSource</span><span class=p>,</span> <span class=n>JokeLocalDataSourceImpl</span><span class=p>&gt;()</span>
+<span class=p>}</span>
+
+<span class=k>val</span> <span class=py>fakeRepositoryModule</span> <span class=p>=</span> <span class=n>module</span> <span class=p>{</span>
+    <span class=n>singleBy</span><span class=p>&lt;</span><span class=n>JokeRepository</span><span class=p>,</span> <span class=n>FakeJokeRepository</span><span class=p>&gt;()</span>
+<span class=p>}</span>
+
+<span class=n>@Test</span>
+<span class=k>fun</span> <span class=nf>testRequests</span><span class=p>()</span> <span class=p>=</span> <span class=n>withTestApplication</span><span class=p>({</span>
+    <span class=p>(</span><span class=n>environment</span><span class=p>.</span><span class=n>config</span> <span class=k>as</span> <span class=n>MapApplicationConfig</span><span class=p>).</span><span class=n>apply</span> <span class=p>{</span>
+       <span class=n>createConfigForTesting</span><span class=p>()</span>
+    <span class=p>}</span>
+    <span class=n>module</span><span class=p>(</span><span class=n>testing</span> <span class=p>=</span> <span class=k>true</span><span class=p>,</span> <span class=n>koinModules</span> <span class=p>=</span> <span class=n>listOf</span><span class=p>(</span><span class=n>appTestModule</span><span class=p>,</span> <span class=n>fakeRepositoryModule</span><span class=p>))</span>
+<span class=p>})</span> <span class=p>{</span>
+    <span class=p>...</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=conclusion></a><h2>Conclusion</h2><p>Although it seems a boring task, structuring a project is a very important thing. In fact, starting with an unsafe foundation will put your product in danger, making it unscalable and hard to maintain throughout the time.
+However, there isn’t a right way to structure a project because every project is different and has different needs. What I suggest to do, is to find the right solution <strong>for your needs</strong> and the structure that I’ve shared here is the one that satisfied me.</p><p>And that’s it for today. You can find the code mentioned in the article on <a href=https://github.com/prof18/ktor-chuck-norris-sample/tree/part1>GitHub</a>.</p><p>In the next episodes, I’ll cover logging and databases. You can follow me on <a href=https://twitter.com/marcoGomier>Twitter</a> to know when I’ll publish the next episode.</p></div><section style=width:90%;margin-left:auto;margin-right:auto;margin-top:30px;margin-bottom:30px><hr><div style=padding:25px><div class=post-content>To stay up to date with my writing and my projects, follow me on <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div><hr></section><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2021%2fktor-project-structure%2f&text=Structuring%20a%20Ktor%20project&via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2021%2fktor-project-structure%2f&title=Structuring%20a%20Ktor%20project" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2021%2fktor-project-structure%2f&title=Structuring%20a%20Ktor%20project" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2021/audio-video-setup/ class=prev rel=prev title="My audio & video setup after 4 years of remote working"><i class="fas fa-angle-left fa-fw"></i>My audio & video setup after 4 years of remote working</a></div></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>
