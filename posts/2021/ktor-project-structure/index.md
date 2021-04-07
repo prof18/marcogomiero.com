@@ -160,6 +160,7 @@ fun Application.setupConfig() {
     val serverObject = environment.config.config("ktor.server")
     val isProd = serverObject.property("isProd").getString().toBoolean()
     appConfig.serverConfig = ServerConfig(isProd)
+}    
 ```
 
 With this setup, when a configuration field must be accessed, the AppConfig class can be simply retrieved from Koin.
@@ -329,7 +330,7 @@ And as reference, here’s the entire structure that I’ve described:
 
 ## Testing 
 
-And last but not least, testing. Ktor is designed to allow easily testable applications. It does not create a web server but it hooks directly into the internal mechanism with a `[TestEngine](https://ktor.io/docs/testing.html)`. In this way, the execution of tests will be quicker rather than spinning up a complete web server for testing.
+And last but not least, testing. Ktor is designed to allow easily testable applications. It does not create a web server but it hooks directly into the internal mechanism with a [`TestEngine`](https://ktor.io/docs/testing.html). In this way, the execution of tests will be quicker rather than spinning up a complete web server for testing.
 
 With the `withTestApplication` function it is possible to set up a test environment and then, with the `handleRequest` function it is possible to perform the request and verify that the results are the same as expected.
 
@@ -379,7 +380,6 @@ To modify the Koin module during testing, I’ve modified the Ktor `module` func
 
 ```kotlin
 fun Application.module(testing: Boolean = false, koinModules: List<Module> = listOf(appModule)) {
-
     install(Koin) {
         slf4jLogger()
         modules(koinModules)
