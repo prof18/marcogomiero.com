@@ -1,27 +1,16 @@
 ---
 layout: post
-title:  "CHANGE ME? - Structuring a Ktor project"
+title:  "Structuring a Ktor project"
 date:   2021-03-09
 show_in_homepage: true
 draft: true
 ---
-// TODO
-SERIES: Building a backend with Ktor
 
-Part 1: project structure
-Part 2: logging on disk
-Part 3: database setup with in memory for testing
-Part 4: database migration with liquibase
-Part 5: setup documentation with swagger.
-Part 6: conclusion, perspective from mobile dev, etc.
+It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer. 
 
-___
+Today I decided to start a series of posts dedicated to Ktor. With these articles, I want to cover all the topics that made me struggle during development and that was not easy to achieve out of the box. To cite a few: using an in-memory database for testing, handling database migration, setting up logging on disk and using dependency injection. 
 
-It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/).
-
-Today I want to start a series of articles dedicated to Ktor. With these articles, I want to cover all the topics that made me struggle during development and that was not easy to achieve out of the box. For example, using an in-memory database for testing, handling database migration, setting up logging on disk, using dependency injection, etc. 
-
-In this article, I will show how I’ve structured the Ktor project I'm working on. I’ll cover dependency injection, configurations, and testing.
+In this first instance of the series, I will show how I’ve structured the Ktor project I'm working on. I’ll cover dependency injection, configurations, and testing.
 
 But before moving on, a quick introduction about Ktor is mandatory.
 
@@ -35,11 +24,11 @@ This is “an elevator pitch” of Ktor, to know all the details I’ll suggest 
 
 ## Create a new Ktor Project
 
-The starting point for a Ktor project is definitely the wizard included in IntelliJ. The wizard lets you choose between all the different features that Ktor provides and it will generate a bare-bone project ready to be used.
+The starting point of a Ktor project definitely lies in the wizard included in IntelliJ. The wizard lets you choose between all the different features that Ktor provides and it will generate a bare-bone project ready to be used.
 
 {{< figure src="/img/ktor-series/ktor-wizard-Intellij .png"  link="/img/ktor-series/ktor-wizard-Intellij .png" >}}
 
-And if you don’t like IntelliJ, the wizard is also available on [start.ktor.io](https://start.ktor.io/).
+If you don’t like IntelliJ, the wizard is also available on [start.ktor.io](https://start.ktor.io/).
 
 {{< figure src="/img/ktor-series/ktor-web-wizard.png"  link="/img/ktor-series/ktor-web-wizard.png" >}}
 
@@ -57,7 +46,7 @@ The wizard creates a default `Application.kt` file that contains the [`module`](
 
 ## Dependency Injection with Koin
 
-Before moving on, it is a good idea to setup dependency injection. I’ll use [**Koin**](https://insert-koin.io) that has build-in support for Ktor.
+Before moving on, it is a good idea to setup Dependency Injection. I’ll use **[Koin](https://insert-koin.io)**, that has built-in support for Ktor.
 
 ```kotlin
 // Koin for Ktor 
@@ -84,7 +73,7 @@ val appModule = module {
 
 The Koin module is defined in a separate file, just to keep the `Application` class and the Ktor `module` function as clean as possible.
 
-After that, the dependency graph is built and inside `Application`, `Routing` and `Route` scope, it is possible to retrieve the dependencies like in a `KoinComponent`
+After that, the dependency graph is built, and inside `Application`, `Routing` and `Route` scope, it is possible to retrieve the dependencies like in a `KoinComponent`
 
 ```kotlin
 val myClass by inject<MyClass>()
@@ -137,7 +126,7 @@ java -jar ktor-backend.jar -config=/config-folder/application.conf
 This is helpful for example to provide different configurations for databases or for external service (in part 3 I’ll show a use case of this feature). 
 
 But, besides the [default value provided by the framework](https://ktor.io/docs/configurations.html#hocon-file), it is possible to create custom configurations to use later in the code. 
-For example, I’ve created a new section with a Boolean field that will indicate if the instance is ran on a staging or production server. 
+For example, I’ve created a new section with a Boolean field that will indicate if the instance is running on a staging or production server. 
 
 ```hocon
 ktor {
@@ -178,7 +167,7 @@ fun Application.setupConfig() {
     appConfig.serverConfig = ServerConfig(isProd)
 ```
 
-With this setup, when a configuration field must be accessed, the AppConfig class can be simply retrived from Koin.
+With this setup, when a configuration field must be accessed, the AppConfig class can be simply retrieved from Koin.
 
 ## Project structure
 
@@ -391,7 +380,7 @@ install(Koin) {
 }
 ```
 
-To modify the Koin module during testing, I’ve modified the Ktor `module` function to accept a list of Koin modules. This list has as default value the Koin module that was previously hardcoded.
+To modify the Koin module during testing, I’ve modified the Ktor `module` function to accept a list of Koin modules. This list has as the default value the Koin module that was previously hardcoded.
 
 ```kotlin
 fun Application.module(testing: Boolean = false, koinModules: List<Module> = listOf(appModule)) {
