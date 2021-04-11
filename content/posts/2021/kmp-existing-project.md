@@ -4,6 +4,23 @@ title:  "Introducing Kotlin Multiplatform in an existing project"
 date:   2021-02-25
 show_in_homepage: true
 ---
+
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;">
+        <a href="https://androidweekly.net/issues/issue-455"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-455/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;">
+     <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=22e5320947"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23239-%237874b4"/></a>
+        
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
 After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).
 
 This is also the case for Kotlin Multiplatform (I’ll call it KMP in the rest of the article). 
