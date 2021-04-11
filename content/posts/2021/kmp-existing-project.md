@@ -9,7 +9,7 @@ show_in_homepage: true
 
 <div id="banner" style="overflow: hidden;justify-content:space-around;">
 
-    <div style="display: inline-block;">
+    <div style="display: inline-block;margin-right: 10px;">
         <a href="https://androidweekly.net/issues/issue-455"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-455/badge" /></a>
     </div>
 
