@@ -1,6 +1,22 @@
 # Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform
 
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;">
+        <a href="https://androidweekly.net/issues/issue-444"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-444/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;">
+     <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=fc5413f3eb"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4"/></a>
+        
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
 If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with [Ktor](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html). But if you don’t want to share the entire network layer but maybe only the DTOs? 
 There could be many reasons for wanting this. Maybe you are starting to integrate Kotlin Multiplatform (I’ll call it KMP in the rest of the article) into an existing project and the work for sharing the entire network layer is simply too much. 
 

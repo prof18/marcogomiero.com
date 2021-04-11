@@ -1,6 +1,21 @@
 # Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app
 
 
+{{< rawhtml >}}
+
+  <div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;">
+        <a href="https://androidweekly.net/issues/issue-437"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-437/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;">
+        <img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4"/>
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
 Recently, I've started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I've thought and designed it almost a year ago but only now I've found the time to start writing actual code. 
 
 {{< figure src="/img/kmm-app-arch/app-design.png" link="/img/kmm-app-arch/app-design.png" caption="A first design iteration, that will change a bit" >}}

@@ -1,6 +1,12 @@
 # Migrating old artifacts from JCenter to MavenCentral
 
 
+{{< rawhtml >}}
+
+<a href="https://androidweekly.net/issues/issue-453"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-453/badge" /></a>
+
+{{< /rawhtml >}}
+
 As you may have heard, JCenter is shutting down in May 2021.
 
 > Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter  

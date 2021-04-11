@@ -1,6 +1,12 @@
 # How to publish and distribute your Android library
 
 
+{{< rawhtml >}}
+
+<a href="https://androidweekly.net/issues/issue-364"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-364/badge" /></a>
+<br>
+
+{{< /rawhtml >}}
 
 ## Update - February 2021
 

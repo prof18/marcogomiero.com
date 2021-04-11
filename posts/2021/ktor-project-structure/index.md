@@ -1,6 +1,13 @@
 # Structuring a Ktor project
 
 
+{{< rawhtml >}}
+
+<a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=b99d6298aa"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23245-%237874b4"/></a>
+        
+
+{{< /rawhtml >}}
+
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer. 
 
 Today I decided to start a series of posts dedicated to Ktor. With these articles, I want to cover all the topics that made me struggle during development and that was not easy to achieve out of the box. To cite a few: using an in-memory database for testing, handling database migration, setting up logging on disk and using dependency injection. 
