@@ -8,12 +8,8 @@ draft: true
 
 SERIES: Building a backend with Ktor
 
-- Part 1: [Structuring a Ktor project]()
+- Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: How to persist Ktor logs
-- Part 3: database setup with in memory for testing
-- Part 4: database migration with liquibase
-- Part 5: setup documentation with swagger.
-- Part 6: conclusion, perspective from mobile dev, etc.
 ___
 
 Logs are a vital part of software development. They can be used  for example for debugging, to track specific events during the lifecycle of the product or to discover unespected events.
@@ -138,7 +134,6 @@ As you can image, to save the log on a file it is necessary to change the `Appen
 
 As the name suggests, a `RollingFileAppender`, does not save the logs in the same file but it “rolls” on different files depending on time, file size or a mix of the two. This is a smarter solution to choose because otherwise the log file will be too much heavy if it is used for days and days.
 
-
 ```xml
 <configuration>
 		...
@@ -162,21 +157,58 @@ As the name suggests, a `RollingFileAppender`, does not save the logs in the sam
 </configuration>    
 ```
 
-
-
-
+First of all, in the `RollingFileAppender` it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environmental variable, so in this way I can switch location when I’m running the backend on my local machine. 
 
 ```xml
-<configuration>
+<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 	...
-	<root level="info">
-    <appender-ref ref="STDOUT"/>
-    <appender-ref ref="FILE"/>
-	</root>
-	...    
-</configuration>
+	<file>${LOG_DEST}/ktor-chuck-norris-sample.log</file>
+	...
+<appender>	
 ```
 
+The variable is then specified in the VM Options field of the running configuration on IntelliJ 
+
+{{< figure src="/img/ktor-log-disk/ktor-log-run-config.png"  link="/img/ktor-log-disk/ktor-log-run-config.png" >}}
+
+or in the command line when launching the backend:
+
+```bash
+java -DLOG_DEST=/rbe-data/logs ...
+```
+
+After the location, it is necessary to define a rolling policy. In this case I will use a `TimeBasedRollingPolicy`, that changes every day the file where the logs are saved. Plus, it will append the date to the old files, to make them more recognizable.
+
+```bash
+├── logs
+│   ├── ktor-chuck-norris-sample.2021-03-09.log
+│   └── ktor-chuck-norris-sample.log
+
+```
+
+In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the number of days to persist and a total max size. In this case, I’ve specified a maximum of 90 days and 3 GB size. So if there will be 3 GB of data at the 78th day, the logger will start automatically to drop the 1st day of log and so on. 
+
+```xml
+<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	...
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<!-- daily rollover -->
+		<fileNamePattern>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log</fileNamePattern>
+		
+		<!-- keep 90 days' worth of history capped at 3GB total size -->
+		<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+		<totalSizeCap>3GB</totalSizeCap>
+
+	</rollingPolicy>
+	...
+</appender>
+```
+
+As for the location, I’ve used an environmental variable for the days, so in this way I can set only one day of logs when I run the backend on my local machine. 
+
+```bash
+java -DLOG_DEST=/rbe-data/logs -DLOG_MAX_HISTORY=90...
+```
 
 And as reference, here’s the entire *logback* file that I’ve described:
 
@@ -217,43 +249,11 @@ And as reference, here’s the entire *logback* file that I’ve described:
 </configuration>
 ```
 
-
 ## Logging during tests
 
-## Conclusions
+During testing is not necessary to save logs on file (at least in my case). To customize logging during testing, it is necessary to specify a `logback-test.xml` inside the `test/resources` directory. 
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part2). 
-
-In the next episodes, I’ll cover in-memory database and migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode. 
-
-——
-
-- [x] Importance of logging. 
-- [x] Why persisting on disk logs
-- [x] How to setup logging in general on ktor. Mention that the logging feature has been chosen during setup in the previous episode.
-- [x] show the default value mentioned in the ktor documentation and describe it
-- [x] Show how to customize log level based on stagin and production
-- [x] Show the helper to handle logging in the project
-- [ ] Show the customization to enable logging on disk
-- [ ] Show how to customize the test logback xml file to avoid writing on disk
-- 
-- 
-
-```cmd
-├── logs
-│   ├── ktor-chuck-norris-sample.2021-03-09.log
-│   └── ktor-chuck-norris-sample.log
-
-```
-
-{{< figure src="/img/ktor-log-disk/ktor-log-run-config.png"  link="/img/ktor-log-disk/ktor-log-run-config.png" >}}
-
-
-// VM Options -DLOG_DEST=/Users/marco/Workspace/Examples/ktor-chuck-norris-sample/logs -DLOG_MAX_HISTORY=2
-
-logback.xml prod
-
-logback.xml text
+In my case, I just wanted a simple `ConsoleAppender`
 
 ```xml
 <configuration>
@@ -266,6 +266,7 @@ logback.xml text
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
+    
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
     <logger name="Exposed" level="INFO"/>
@@ -274,4 +275,9 @@ logback.xml text
 ```
 
 
+## Conclusions
+
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part2). 
+
+In the next episodes, I’ll cover in-memory database and migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode. 
 
