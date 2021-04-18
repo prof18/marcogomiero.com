@@ -2,7 +2,7 @@
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - Serie wrap-up"
 date:   2020-05-10
-show_in_homepage: true
+show_in_homepage: false
 ---
 
 Which framework should I use? How to build UIs? How do things work under the hood? These are the types of questions that I've answered during the series of articles about Flutter and React Native.
