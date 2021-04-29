@@ -17,5 +17,7 @@ https://github.com/prof18/imperative-vs-declarative
 
 ## Video:
 
-Coming Soon
+## Video:
+
+{{< vimeo 521877611 >}}
 
