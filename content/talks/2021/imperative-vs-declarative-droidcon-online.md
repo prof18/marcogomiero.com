@@ -20,7 +20,7 @@ In this talk, we will explore the declarative style of building UI compared with
 
 ## Video:
 
-Coming soon
+{{< vimeo 543570509 >}}
 
 ## Sample Code:
 
