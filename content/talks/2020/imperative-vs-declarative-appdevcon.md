@@ -21,7 +21,5 @@ https://github.com/prof18/imperative-vs-declarative
 
 ## Video:
 
-## Video:
-
 {{< vimeo 521877611 >}}
 
