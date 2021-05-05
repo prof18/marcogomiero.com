@@ -21,5 +21,5 @@ https://github.com/prof18/imperative-vs-declarative
 
 ## Video:
 
-Coming Soon
+{{< vimeo 521877611 >}}
 
