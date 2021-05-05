@@ -1,0 +1,307 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to persist Ktor logs | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Software Engineer · Community Manager"><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><link rel=prev href=https://www.marcogomiero.com/posts/2021/ktor-project-structure/><link rel=canonical href=https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to persist Ktor logs"><meta name=twitter:description content="SERIES: Building a backend with Ktor
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs   Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.
+Usually, logs are printed in the system output, so they must be saved somewhere to be accessed and read sometime in the future."><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"How to persist Ktor logs","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2021\/ktor-logging-on-disk\/"},"genre":"posts","wordcount":1403,"url":"https:\/\/www.marcogomiero.com\/posts\/2021\/ktor-logging-on-disk\/","datePublished":"2021-05-05T00:00:00\u002b00:00","dateModified":"2021-05-05T00:00:00\u002b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class=post-warp><h1 class=post-title>How to persist Ktor logs</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime="5 May 2021">5 May 2021</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>about 1403 words&nbsp;
+<i class="far fa-clock fa-fw"></i>7 min&nbsp;</div></div><br><div class=post-content><hr><p>SERIES: Building a backend with Ktor</p><ul><li>Part 1: <a href=https://www.marcogomiero.com/posts/2021/ktor-project-structure/>Structuring a Ktor project</a></li><li>Part 2: How to persist Ktor logs</li></ul><hr><p>Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.</p><p>Usually, logs are printed in the system output, so they must be saved somewhere to be accessed and read sometime in the future. To achieve persistence it is possible to use a cloud service, like <a href=https://www.datadoghq.com/ts/logs/log-management/>Datadog</a> that receives, processes and maintains all the logs. Cherry on top, it also gives you monitoring and analysis tools right out of the box.</p><p>However, I think that, in the case of an MVP or an early-stage product, using such services can be overkill. It’s enough to persist the logs in the server and access them later.</p><p>In this post, I will show how to save on a file the logs produced by a Ktor backend. This post is part of a series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. You can check out the other instances of the series in the index above or <a href=https://twitter.com/marcoGomier>follow me on Twitter</a> to keep up to date.</p><a class=post-dummy-target id=setup-logging-on-ktor></a><h2>Setup logging on Ktor</h2><p>When creating a new Ktor project, the wizard automatically adds the <a href=http://www.slf4j.org/index.html>SLF4J library</a> to handle logging.</p><p>During the initialization of the server, Ktor automatically creates an instance of the <em>Logger</em> and then it is possible to retrieve that instance <a href=https://ktor.io/docs/logging.html#access_logger>in different ways</a>. Instead, on business logic classes the <em>Logger</em> instance can be retrieved from the <code>LoggerFactory</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>logger</span> <span class=p>=</span> <span class=n>LoggerFactory</span><span class=p>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>MyClass</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>To avoid writing every time this long line, an helper method can be used:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>inline</span> <span class=k>fun</span> &lt;reified T&gt; <span class=nf>T</span><span class=p>.</span><span class=n>getLogger</span><span class=p>():</span> <span class=n>Logger</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=n>LoggerFactory</span><span class=p>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>T</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
+	<span class=k>private</span> <span class=k>val</span> <span class=py>logger</span> <span class=p>=</span> <span class=n>getLogger</span><span class=p>()</span>
+
+	<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+		<span class=n>logger</span><span class=p>.</span><span class=n>info</span><span class=p>(</span><span class=s>&#34;Hello World&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=logger-customization></a><h2>Logger Customization</h2><p>The Logger can be customized with an <em>xml</em> file named <code>logback.xml</code>. On project creation, a default <code>logback</code> file is created and placed in the application <code>resources</code> directory.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+
+    <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;STDOUT&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;encoder&gt;</span>
+            <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
+        <span class=nt>&lt;/encoder&gt;</span>
+    <span class=nt>&lt;/appender&gt;</span>
+    
+    <span class=nt>&lt;root</span> <span class=na>level=</span><span class=s>&#34;trace&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;STDOUT&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;/root&gt;</span>
+    
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;org.eclipse.jetty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;io.netty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    
+<span class=nt>&lt;/configuration&gt;</span>
+</code></pre></td></tr></table></div></div><p>The file contains three different blocks of configurations (this division is just visual and conceptual, of course, the order of the different entries can be changed and mixed).</p><p>In the first block, the <code>Appenders</code> are defined. An <em>Appender</em> is responsible to place the log messages in a specific destination.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+		...
+    <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;STDOUT&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;encoder&gt;</span>
+            <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
+        <span class=nt>&lt;/encoder&gt;</span>
+    <span class=nt>&lt;/appender&gt;</span>
+   ...
+<span class=nt>&lt;/configuration&gt;</span>
+</code></pre></td></tr></table></div></div><p>In this case, the <code>ConsoleAppender</code> will send the log messages in the Console, i.e. in the Standard Output. Inside the Appender customization, it is also possible to specify the format of the message and add useful information like the timestamp, the logger, the thread, etc.</p><p>The second block defines for each appender, the level of logging. The levels are 5: <code>ERROR</code>, <code>WARN</code>, <code>INFO</code>, <code>DEBUG</code>, <code>TRACE</code>, and the chosen one includes also the previous. For example, if you choose the <code>TRACE</code> level, all the messages will be sent, and if you choose the <code>INFO</code> level, only the messages with level <code>INFO</code>, <code>WARN</code>, and <code>ERROR</code> will be sent.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+		...
+    <span class=nt>&lt;root</span> <span class=na>level=</span><span class=s>&#34;trace&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;STDOUT&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;/root&gt;</span>
+   ...
+<span class=nt>&lt;/configuration&gt;</span>
+</code></pre></td></tr></table></div></div><p>In this case, since the appender has logging level <code>TRACE</code>, all the log messages will be sent to the Standard Output.</p><p>In the third level instead, it is possible to customize the level of a specific logger.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+		...    
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;org.eclipse.jetty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;io.netty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    ...
+<span class=nt>&lt;/configuration&gt;</span>
+</code></pre></td></tr></table></div></div><p>For example, the <code>DEBUG</code> level can be set for a specific class that is not stable yet.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;com.company.package.MyClass&#34;</span> <span class=na>level=</span><span class=s>&#34;DEBUG&#34;</span><span class=nt>/&gt;</span>
+</code></pre></td></tr></table></div></div><p>If necessary, it is also possible to change at the same time all the levels of the Logger:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>root</span> <span class=p>=</span> <span class=n>LoggerFactory</span><span class=p>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>org</span><span class=p>.</span><span class=n>slf4j</span><span class=p>.</span><span class=n>Logger</span><span class=p>.</span><span class=n>ROOT_LOGGER_NAME</span><span class=p>)</span> <span class=k>as</span> <span class=n>Logger</span>
+<span class=n>root</span><span class=p>.</span><span class=n>level</span> <span class=p>=</span> <span class=n>ch</span><span class=p>.</span><span class=n>qos</span><span class=p>.</span><span class=n>logback</span><span class=p>.</span><span class=n>classic</span><span class=p>.</span><span class=n>Level</span><span class=p>.</span><span class=n>TRACE</span>
+</code></pre></td></tr></table></div></div><p>This is useful for example to customize the log level if the instance is running on a staging or production server.</p><a class=post-dummy-target id=logging-on-file></a><h2>Logging on file</h2><p>As you can imagine, to save the log on a file it is necessary to change the <code>Appender</code>. There is <code>FileAppender</code> and <code>RollingFileAppender</code> and I’m going to use the latter.</p><p>As the name suggests, a <code>RollingFileAppender</code>, does not save the logs in the same file but it “rolls” on different files depending on time, file size, or a mix of the two. This is a smarter solution to choose because otherwise, the log file will be too heavy when used for several days over.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+		...
+    <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;file&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.log<span class=nt>&lt;/file&gt;</span>
+        <span class=nt>&lt;rollingPolicy</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&#34;</span><span class=nt>&gt;</span>
+            <span class=c>&lt;!-- daily rollover --&gt;</span>
+            <span class=nt>&lt;fileNamePattern&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log<span class=nt>&lt;/fileNamePattern&gt;</span>
+
+            <span class=c>&lt;!-- keep 90 days&#39; worth of history capped at 3GB total size --&gt;</span>
+            <span class=nt>&lt;maxHistory&gt;</span>${LOG_MAX_HISTORY}<span class=nt>&lt;/maxHistory&gt;</span>
+            <span class=nt>&lt;totalSizeCap&gt;</span>3GB<span class=nt>&lt;/totalSizeCap&gt;</span>
+
+        <span class=nt>&lt;/rollingPolicy&gt;</span>
+
+        <span class=nt>&lt;encoder&gt;</span>
+            <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
+        <span class=nt>&lt;/encoder&gt;</span>
+    <span class=nt>&lt;/appender&gt;</span>
+		...
+<span class=nt>&lt;/configuration&gt;</span>    
+</code></pre></td></tr></table></div></div><p>First of all, in the <code>RollingFileAppender</code> it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environment variable, so in this way, I can switch locations when I’m running the backend on my local machine.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
+	...
+	<span class=nt>&lt;file&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.log<span class=nt>&lt;/file&gt;</span>
+	...
+<span class=nt>&lt;appender&gt;</span>	
+</code></pre></td></tr></table></div></div><p>The variable is then specified in the VM Options field of the running configuration on IntelliJ</p><figure><a href=/img/ktor-log-disk/ktor-log-run-config.png><img src=/img/ktor-log-disk/ktor-log-run-config.png></a></figure><p>or in the command line when launching the backend.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>java -DLOG_DEST<span class=o>=</span>/rbe-data/logs ...
+</code></pre></td></tr></table></div></div><p>After the location, it is necessary to define a rolling policy. In this case, I will use a <code>TimeBasedRollingPolicy</code>, that changes every day the file where the logs are saved. Plus, it will append the date to the old files, to make them more recognizable.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>├── logs
+│   ├── ktor-chuck-norris-sample.2021-03-09.log
+│   └── ktor-chuck-norris-sample.log
+
+</code></pre></td></tr></table></div></div><p>In the <code>TimeBasedRollingPolicy</code>, it is also possible to specify a limit on the number of days to persist and total max size. In this case, I’ve specified a maximum of 90 days and 3 GB size. So if there will be 3 GB of data on the 78th day, the logger will start automatically to drop the 1st day of log and so on.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
+	...
+	<span class=nt>&lt;rollingPolicy</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&#34;</span><span class=nt>&gt;</span>
+		<span class=c>&lt;!-- daily rollover --&gt;</span>
+		<span class=nt>&lt;fileNamePattern&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log<span class=nt>&lt;/fileNamePattern&gt;</span>
+		
+		<span class=c>&lt;!-- keep 90 days&#39; worth of history capped at 3GB total size --&gt;</span>
+		<span class=nt>&lt;maxHistory&gt;</span>${LOG_MAX_HISTORY}<span class=nt>&lt;/maxHistory&gt;</span>
+		<span class=nt>&lt;totalSizeCap&gt;</span>3GB<span class=nt>&lt;/totalSizeCap&gt;</span>
+
+	<span class=nt>&lt;/rollingPolicy&gt;</span>
+	...
+<span class=nt>&lt;/appender&gt;</span>
+</code></pre></td></tr></table></div></div><p>As for the location, I’ve used an environmental variable for the days, so in this way, I can set only one day of logs when I run the backend on my local machine.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>java -DLOG_DEST<span class=o>=</span>/rbe-data/logs -DLOG_MAX_HISTORY<span class=o>=</span>90...
+</code></pre></td></tr></table></div></div><p>And as reference, here’s the entire <em>logback</em> file that I’ve described:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+
+    <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;STDOUT&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;encoder&gt;</span>
+            <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
+        <span class=nt>&lt;/encoder&gt;</span>
+    <span class=nt>&lt;/appender&gt;</span>
+
+    <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;file&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.log<span class=nt>&lt;/file&gt;</span>
+        <span class=nt>&lt;rollingPolicy</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&#34;</span><span class=nt>&gt;</span>
+            <span class=c>&lt;!-- daily rollover --&gt;</span>
+            <span class=nt>&lt;fileNamePattern&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log<span class=nt>&lt;/fileNamePattern&gt;</span>
+
+            <span class=c>&lt;!-- keep 90 days&#39; worth of history capped at 3GB total size --&gt;</span>
+            <span class=nt>&lt;maxHistory&gt;</span>${LOG_MAX_HISTORY}<span class=nt>&lt;/maxHistory&gt;</span>
+            <span class=nt>&lt;totalSizeCap&gt;</span>3GB<span class=nt>&lt;/totalSizeCap&gt;</span>
+
+        <span class=nt>&lt;/rollingPolicy&gt;</span>
+
+        <span class=nt>&lt;encoder&gt;</span>
+            <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
+        <span class=nt>&lt;/encoder&gt;</span>
+    <span class=nt>&lt;/appender&gt;</span>
+
+    <span class=nt>&lt;root</span> <span class=na>level=</span><span class=s>&#34;info&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;STDOUT&#34;</span><span class=nt>/&gt;</span>
+        <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;FILE&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;/root&gt;</span>
+    
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;org.eclipse.jetty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;io.netty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    
+<span class=nt>&lt;/configuration&gt;</span>
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=logging-during-tests></a><h2>Logging during tests</h2><p>While running tests is not necessary to save logs on file (at least in my case). To customize logging during testing, it is necessary to specify a <code>logback-test.xml</code> inside the <code>test/resources</code> directory.</p><p>In my case, I just wanted a simple <code>ConsoleAppender</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
+    <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;STDOUT&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;encoder&gt;</span>
+            <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
+        <span class=nt>&lt;/encoder&gt;</span>
+    <span class=nt>&lt;/appender&gt;</span>
+
+    <span class=nt>&lt;root</span> <span class=na>level=</span><span class=s>&#34;info&#34;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;STDOUT&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;/root&gt;</span>
+    
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;org.eclipse.jetty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;io.netty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;Exposed&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+    <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;ktor.test&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
+<span class=nt>&lt;/configuration&gt;</span>
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=conclusions></a><h2>Conclusions</h2><p>And that’s it for today. You can find the code mentioned in the article on <a href=https://github.com/prof18/ktor-chuck-norris-sample/tree/part2>GitHub</a>.</p><p>In the next episodes, I’ll cover in-memory database and migrations. You can follow me on <a href=https://twitter.com/marcoGomier>Twitter</a> to know when I’ll publish the next episode.</p></div><section style=width:90%;margin-left:auto;margin-right:auto;margin-top:30px;margin-bottom:30px><hr><div style=padding:25px><div class=post-content>To stay up to date with my writing and my projects, follow me on <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div><hr></section><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2021%2fktor-logging-on-disk%2f&text=How%20to%20persist%20Ktor%20logs&via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2021%2fktor-logging-on-disk%2f&title=How%20to%20persist%20Ktor%20logs" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2021%2fktor-logging-on-disk%2f&title=How%20to%20persist%20Ktor%20logs" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2021/ktor-project-structure/ class=prev rel=prev title="Structuring a Ktor project"><i class="fas fa-angle-left fa-fw"></i>Structuring a Ktor project</a></div></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>
