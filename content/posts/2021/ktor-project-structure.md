@@ -5,6 +5,15 @@ date:   2021-04-07
 show_in_homepage: true
 ---
 
+___
+
+SERIES: Building a backend with Ktor
+
+- Part 1: Structuring a Ktor project
+- Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+___
+
+
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer. 
 
 Today I decided to start a series of posts dedicated to Ktor. With these articles, I want to cover all the topics that made me struggle during development and that was not easy to achieve out of the box. To cite a few: using an in-memory database for testing, handling database migration, setting up logging on disk and using dependency injection. 

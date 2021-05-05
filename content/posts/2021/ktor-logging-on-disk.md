@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "How to persist Ktor logs"
-date:   2021-03-08
+date:   2021-05-05
 show_in_homepage: false 
-draft: true
 ---
+___
 
 SERIES: Building a backend with Ktor
 
@@ -12,25 +12,25 @@ SERIES: Building a backend with Ktor
 - Part 2: How to persist Ktor logs
 ___
 
-Logs are a vital part of software development. They can be used  for example for debugging, to track specific events during the lifecycle of the product or to discover unespected events.
+Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.
 
-Usually logs are printed in the system output, so they must be saved somewhere to be accessed and read sometime in the future. To achieve the persistence it is possibile to use a cloud service, like [Datadog](https://www.datadoghq.com/ts/logs/log-management/) that receives, process and maintain all the logs and plus it gives monitoring and analysis tools.
-But I think that, in the case of an MVP or an early stage project, using such services can be overkill and it’s enough to persist the logs in the server to access later.
+Usually, logs are printed in the system output, so they must be saved somewhere to be accessed and read sometime in the future. To achieve persistence it is possible to use a cloud service, like [Datadog](https://www.datadoghq.com/ts/logs/log-management/) that receives, processes and maintains all the logs. Cherry on top, it also gives you monitoring and analysis tools right out of the box.
 
-In this post, I will show how to save on a file the logs produced by a Ktor backend. This post is part of a series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. You can check out the other instances of the series in the index above.
+However, I think that, in the case of an MVP or an early-stage product, using such services can be overkill. It’s enough to persist the logs in the server and access them later.
 
+In this post, I will show how to save on a file the logs produced by a Ktor backend. This post is part of a series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. You can check out the other instances of the series in the index above or [follow me on Twitter](https://twitter.com/marcoGomier) to keep up to date.
 
 ## Setup logging on Ktor
 
 When creating a new Ktor project, the wizard automatically adds the [SLF4J library](http://www.slf4j.org/index.html) to handle logging.
 
-During the initilization of the server, Ktor automatically creates an instance of the *Logger* and then it is possible to retrieve that instance [in diffent ways](https://ktor.io/docs/logging.html#access_logger). Instead, on business logic classes the *Logger* instance can be retrived from the `LoggerFactory`.
+During the initialization of the server, Ktor automatically creates an instance of the *Logger* and then it is possible to retrieve that instance [in different ways](https://ktor.io/docs/logging.html#access_logger). Instead, on business logic classes the *Logger* instance can be retrieved from the `LoggerFactory`.
 
 ```kotlin
 val logger = LoggerFactory.getLogger(MyClass::class.java)
 ```
 
-To avoid writing every time this long line, this helper method can used:
+To avoid writing every time this long line, an helper method can be used:
 
 ```kotlin
 inline fun <reified T> T.getLogger(): Logger {
@@ -38,7 +38,6 @@ inline fun <reified T> T.getLogger(): Logger {
 }
 
 class MyClass {
-	
 	private val logger = getLogger()
 
 	fun main() {
@@ -70,9 +69,9 @@ The Logger can be customized with an *xml* file named `logback.xml`. On project 
 </configuration>
 ```
 
-The file contains three different blocks of configurations (this division is just visual and conceptual, of course the order of the different entries can be changed and mixed).
+The file contains three different blocks of configurations (this division is just visual and conceptual, of course, the order of the different entries can be changed and mixed).
  
-In the first block the `Appenders` are defined. An *Appender* is responsible to place the log messages in a specific destination. 
+In the first block, the `Appenders` are defined. An *Appender* is responsible to place the log messages in a specific destination. 
 
 ```xml
 <configuration>
@@ -86,9 +85,9 @@ In the first block the `Appenders` are defined. An *Appender* is responsible to 
 </configuration>
 ```
 
-In this case, the `ConsoleAppender` will send the log messages in the Console, i.e. in the Standard Output. Inside the Appender customization, it is also possible to specify the format of message and add useful informations like the timestamp, the logger, the thread, etc.
+In this case, the `ConsoleAppender` will send the log messages in the Console, i.e. in the Standard Output. Inside the Appender customization, it is also possible to specify the format of the message and add useful information like the timestamp, the logger, the thread, etc.
 
-The second block define for each appender, the level of logging.  The level are 5: `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE` and the chosen one includes also the previous. For example, if you choose the `TRACE` level, all the messages will be sent and if you chose the the `INFO` level, only the messages with level `INFO`, `WARN` and `ERROR` will be sent. 
+The second block defines for each appender, the level of logging.  The levels are 5: `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, and the chosen one includes also the previous. For example, if you choose the `TRACE` level, all the messages will be sent, and if you choose the `INFO` level, only the messages with level `INFO`, `WARN`, and `ERROR` will be sent.
 
 ```xml
 <configuration>
@@ -102,7 +101,7 @@ The second block define for each appender, the level of logging.  The level are 
 
 In this case, since the appender has logging level `TRACE`, all the log messages will be sent to the Standard Output.
 
-In the third level instead, it is possibile to customize the level of a specific logger.
+In the third level instead, it is possible to customize the level of a specific logger.
 
 ```xml
 <configuration>
@@ -113,7 +112,7 @@ In the third level instead, it is possibile to customize the level of a specific
 </configuration>
 ```
 
-For example, the `DEBUG`  level is set for a specific class that is not stable yet.
+For example, the `DEBUG`  level can be set for a specific class that is not stable yet.
 
 ```xml
 <logger name="com.company.package.MyClass" level="DEBUG"/>
@@ -130,9 +129,9 @@ This is useful for example to customize the log level if the instance is running
 
 ## Logging on file
 
-As you can image, to save the log on a file it is necessary to change the `Appender`. There is `FileAppender` and `RollingFileAppender` and I’m going to use the latter. 
+As you can imagine, to save the log on a file it is necessary to change the `Appender`. There is `FileAppender` and `RollingFileAppender` and I’m going to use the latter. 
 
-As the name suggests, a `RollingFileAppender`, does not save the logs in the same file but it “rolls” on different files depending on time, file size or a mix of the two. This is a smarter solution to choose because otherwise the log file will be too much heavy if it is used for days and days.
+As the name suggests, a `RollingFileAppender`, does not save the logs in the same file but it “rolls” on different files depending on time, file size, or a mix of the two. This is a smarter solution to choose because otherwise, the log file will be too heavy when used for several days over.
 
 ```xml
 <configuration>
@@ -157,7 +156,7 @@ As the name suggests, a `RollingFileAppender`, does not save the logs in the sam
 </configuration>    
 ```
 
-First of all, in the `RollingFileAppender` it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environmental variable, so in this way I can switch location when I’m running the backend on my local machine. 
+First of all, in the `RollingFileAppender` it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environment variable, so in this way, I can switch locations when I’m running the backend on my local machine. 
 
 ```xml
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -171,13 +170,13 @@ The variable is then specified in the VM Options field of the running configurat
 
 {{< figure src="/img/ktor-log-disk/ktor-log-run-config.png"  link="/img/ktor-log-disk/ktor-log-run-config.png" >}}
 
-or in the command line when launching the backend:
+or in the command line when launching the backend.
 
 ```bash
 java -DLOG_DEST=/rbe-data/logs ...
 ```
 
-After the location, it is necessary to define a rolling policy. In this case I will use a `TimeBasedRollingPolicy`, that changes every day the file where the logs are saved. Plus, it will append the date to the old files, to make them more recognizable.
+After the location, it is necessary to define a rolling policy. In this case, I will use a `TimeBasedRollingPolicy`, that changes every day the file where the logs are saved. Plus, it will append the date to the old files, to make them more recognizable.
 
 ```bash
 ├── logs
@@ -186,7 +185,7 @@ After the location, it is necessary to define a rolling policy. In this case I w
 
 ```
 
-In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the number of days to persist and a total max size. In this case, I’ve specified a maximum of 90 days and 3 GB size. So if there will be 3 GB of data at the 78th day, the logger will start automatically to drop the 1st day of log and so on. 
+In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the number of days to persist and total max size. In this case, I’ve specified a maximum of 90 days and 3 GB size. So if there will be 3 GB of data on the 78th day, the logger will start automatically to drop the 1st day of log and so on. 
 
 ```xml
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -204,7 +203,7 @@ In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the n
 </appender>
 ```
 
-As for the location, I’ve used an environmental variable for the days, so in this way I can set only one day of logs when I run the backend on my local machine. 
+As for the location, I’ve used an environmental variable for the days, so in this way, I can set only one day of logs when I run the backend on my local machine. 
 
 ```bash
 java -DLOG_DEST=/rbe-data/logs -DLOG_MAX_HISTORY=90...
@@ -251,9 +250,9 @@ And as reference, here’s the entire *logback* file that I’ve described:
 
 ## Logging during tests
 
-During testing is not necessary to save logs on file (at least in my case). To customize logging during testing, it is necessary to specify a `logback-test.xml` inside the `test/resources` directory. 
+While running tests is not necessary to save logs on file (at least in my case). To customize logging during testing, it is necessary to specify a `logback-test.xml` inside the `test/resources` directory. 
 
-In my case, I just wanted a simple `ConsoleAppender`
+In my case, I just wanted a simple `ConsoleAppender`.
 
 ```xml
 <configuration>
