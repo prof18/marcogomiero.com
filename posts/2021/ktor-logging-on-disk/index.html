@@ -28,11 +28,11 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 <span class=p>}</span>
 
 <span class=k>class</span> <span class=nc>MyClass</span> <span class=p>{</span>
-	<span class=k>private</span> <span class=k>val</span> <span class=py>logger</span> <span class=p>=</span> <span class=n>getLogger</span><span class=p>()</span>
+    <span class=k>private</span> <span class=k>val</span> <span class=py>logger</span> <span class=p>=</span> <span class=n>getLogger</span><span class=p>()</span>
 
-	<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-		<span class=n>logger</span><span class=p>.</span><span class=n>info</span><span class=p>(</span><span class=s>&#34;Hello World&#34;</span><span class=p>)</span>
-	<span class=p>}</span>
+    <span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>logger</span><span class=p>.</span><span class=n>info</span><span class=p>(</span><span class=s>&#34;Hello World&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
 <span class=p>}</span>
 </code></pre></td></tr></table></div></div><a class=post-dummy-target id=logger-customization></a><h2>Logger Customization</h2><p>The Logger can be customized with an <em>xml</em> file named <code>logback.xml</code>. On project creation, a default <code>logback</code> file is created and placed in the application <code>resources</code> directory.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -76,7 +76,7 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 </span><span class=lnt>8
 </span><span class=lnt>9
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
-		...
+    ...
     <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;STDOUT&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class=nt>&gt;</span>
         <span class=nt>&lt;encoder&gt;</span>
             <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
@@ -92,7 +92,7 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
-		...
+	...
     <span class=nt>&lt;root</span> <span class=na>level=</span><span class=s>&#34;trace&#34;</span><span class=nt>&gt;</span>
         <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;STDOUT&#34;</span><span class=nt>/&gt;</span>
     <span class=nt>&lt;/root&gt;</span>
@@ -105,7 +105,7 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
-		...    
+	...    
     <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;org.eclipse.jetty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
     <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;io.netty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
     ...
@@ -137,7 +137,7 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 </span><span class=lnt>19
 </span><span class=lnt>20
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;configuration&gt;</span>
-		...
+	...
     <span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
         <span class=nt>&lt;file&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.log<span class=nt>&lt;/file&gt;</span>
         <span class=nt>&lt;rollingPolicy</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&#34;</span><span class=nt>&gt;</span>
@@ -154,7 +154,7 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
             <span class=nt>&lt;pattern&gt;</span>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class=nt>&lt;/pattern&gt;</span>
         <span class=nt>&lt;/encoder&gt;</span>
     <span class=nt>&lt;/appender&gt;</span>
-		...
+	...
 <span class=nt>&lt;/configuration&gt;</span>    
 </code></pre></td></tr></table></div></div><p>First of all, in the <code>RollingFileAppender</code> it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environment variable, so in this way, I can switch locations when I’m running the backend on my local machine.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
@@ -162,9 +162,9 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
-	...
-	<span class=nt>&lt;file&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.log<span class=nt>&lt;/file&gt;</span>
-	...
+    ...
+    <span class=nt>&lt;file&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.log<span class=nt>&lt;/file&gt;</span>
+    ...
 <span class=nt>&lt;appender&gt;</span>	
 </code></pre></td></tr></table></div></div><p>The variable is then specified in the VM Options field of the running configuration on IntelliJ</p><figure><a href=/img/ktor-log-disk/ktor-log-run-config.png><img src=/img/ktor-log-disk/ktor-log-run-config.png></a></figure><p>or in the command line when launching the backend.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>java -DLOG_DEST<span class=o>=</span>/rbe-data/logs ...
@@ -190,17 +190,17 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;appender</span> <span class=na>name=</span><span class=s>&#34;FILE&#34;</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span class=nt>&gt;</span>
-	...
-	<span class=nt>&lt;rollingPolicy</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&#34;</span><span class=nt>&gt;</span>
-		<span class=c>&lt;!-- daily rollover --&gt;</span>
-		<span class=nt>&lt;fileNamePattern&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log<span class=nt>&lt;/fileNamePattern&gt;</span>
-		
-		<span class=c>&lt;!-- keep 90 days&#39; worth of history capped at 3GB total size --&gt;</span>
-		<span class=nt>&lt;maxHistory&gt;</span>${LOG_MAX_HISTORY}<span class=nt>&lt;/maxHistory&gt;</span>
-		<span class=nt>&lt;totalSizeCap&gt;</span>3GB<span class=nt>&lt;/totalSizeCap&gt;</span>
+    ...
+    <span class=nt>&lt;rollingPolicy</span> <span class=na>class=</span><span class=s>&#34;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&#34;</span><span class=nt>&gt;</span>
+       <span class=c>&lt;!-- daily rollover --&gt;</span>
+       <span class=nt>&lt;fileNamePattern&gt;</span>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log<span class=nt>&lt;/fileNamePattern&gt;</span>
+    	
+       <span class=c>&lt;!-- keep 90 days&#39; worth of history capped at 3GB total size --&gt;</span>
+       <span class=nt>&lt;maxHistory&gt;</span>${LOG_MAX_HISTORY}<span class=nt>&lt;/maxHistory&gt;</span>
+       <span class=nt>&lt;totalSizeCap&gt;</span>3GB<span class=nt>&lt;/totalSizeCap&gt;</span>
 
-	<span class=nt>&lt;/rollingPolicy&gt;</span>
-	...
+    <span class=nt>&lt;/rollingPolicy&gt;</span>
+    ...
 <span class=nt>&lt;/appender&gt;</span>
 </code></pre></td></tr></table></div></div><p>As for the location, I’ve used an environmental variable for the days, so in this way, I can set only one day of logs when I run the backend on my local machine.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>java -DLOG_DEST<span class=o>=</span>/rbe-data/logs -DLOG_MAX_HISTORY<span class=o>=</span>90...
@@ -267,7 +267,7 @@ Usually, logs are printed in the system output, so they must be saved somewhere 
         <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;STDOUT&#34;</span><span class=nt>/&gt;</span>
         <span class=nt>&lt;appender-ref</span> <span class=na>ref=</span><span class=s>&#34;FILE&#34;</span><span class=nt>/&gt;</span>
     <span class=nt>&lt;/root&gt;</span>
-    
+
     <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;org.eclipse.jetty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
     <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;io.netty&#34;</span> <span class=na>level=</span><span class=s>&#34;INFO&#34;</span><span class=nt>/&gt;</span>
     

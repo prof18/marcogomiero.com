@@ -34,11 +34,11 @@ inline fun <reified T> T.getLogger(): Logger {
 }
 
 class MyClass {
-	private val logger = getLogger()
+    private val logger = getLogger()
 
-	fun main() {
-		logger.info("Hello World")
-	}
+    fun main() {
+        logger.info("Hello World")
+    }
 }
 ```
 
@@ -71,7 +71,7 @@ In the first block, the `Appenders` are defined. An *Appender* is responsible to
 
 ```xml
 <configuration>
-		...
+    ...
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -87,7 +87,7 @@ The second block defines for each appender, the level of logging.  The levels ar
 
 ```xml
 <configuration>
-		...
+	...
     <root level="trace">
         <appender-ref ref="STDOUT"/>
     </root>
@@ -101,7 +101,7 @@ In the third level instead, it is possible to customize the level of a specific 
 
 ```xml
 <configuration>
-		...    
+	...    
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
     ...
@@ -131,7 +131,7 @@ As the name suggests, a `RollingFileAppender`, does not save the logs in the sam
 
 ```xml
 <configuration>
-		...
+	...
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DEST}/ktor-chuck-norris-sample.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -148,7 +148,7 @@ As the name suggests, a `RollingFileAppender`, does not save the logs in the sam
             <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-		...
+	...
 </configuration>    
 ```
 
@@ -156,9 +156,9 @@ First of all, in the `RollingFileAppender` it is necessary to specify the file w
 
 ```xml
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-	...
-	<file>${LOG_DEST}/ktor-chuck-norris-sample.log</file>
-	...
+    ...
+    <file>${LOG_DEST}/ktor-chuck-norris-sample.log</file>
+    ...
 <appender>	
 ```
 
@@ -185,17 +185,17 @@ In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the n
 
 ```xml
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-	...
-	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-		<!-- daily rollover -->
-		<fileNamePattern>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log</fileNamePattern>
-		
-		<!-- keep 90 days' worth of history capped at 3GB total size -->
-		<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
-		<totalSizeCap>3GB</totalSizeCap>
+    ...
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+       <!-- daily rollover -->
+       <fileNamePattern>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log</fileNamePattern>
+    	
+       <!-- keep 90 days' worth of history capped at 3GB total size -->
+       <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+       <totalSizeCap>3GB</totalSizeCap>
 
-	</rollingPolicy>
-	...
+    </rollingPolicy>
+    ...
 </appender>
 ```
 
@@ -237,7 +237,7 @@ And as reference, here’s the entire *logback* file that I’ve described:
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
-    
+
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
     
