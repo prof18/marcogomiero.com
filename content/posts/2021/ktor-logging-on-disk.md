@@ -4,6 +4,13 @@ title:  "How to persist Ktor logs"
 date:   2021-05-05
 show_in_homepage: false 
 ---
+
+{{< rawhtml >}}
+
+<a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=e568e58261"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23249-%237874b4"/></a>
+        
+
+{{< /rawhtml >}}
 ___
 
 SERIES: Building a backend with Ktor
