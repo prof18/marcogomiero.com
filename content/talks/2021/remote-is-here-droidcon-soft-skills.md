@@ -1,5 +1,5 @@
 ---
-date: 2021-06-01T13:35:00Z
+date: 2021-06-01T11:35:00Z
 title: "Remote is here. Now what?"
 location: "Droidcon Soft Skills Summit & Hiring Fair, Remote"
 performDate: 2021-06-01
