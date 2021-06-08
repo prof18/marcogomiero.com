@@ -24,4 +24,5 @@ Talk done together with [Gianluca Segato](https://giansegato.com/).
 
 ## Video:
 
-Coming Soon
+{{< vimeo 558946853 >}}
+
