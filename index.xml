@@ -36,12 +36,16 @@
 &lt;p>Thesis title: &amp;ldquo;Porting issues from Scratch/BYOB to Snap in a browser environment&amp;rdquo;&lt;/p>
 &lt;/blockquote></description></item><item><title>Projects</title><link>https://www.marcogomiero.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/projects/</guid><description>&lt;p>For an always updated list of my projects, visit my &lt;a href="https://github.com/prof18">Github page&lt;/a>.&lt;/p>
 &lt;h2 id="kmp-fatframework-cocoa--gradle-plugin">KMP FatFramework Cocoa · Gradle Plugin&lt;/h2>
-&lt;p>KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.&lt;/p>
-&lt;p>The plugin is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release">GitHub&lt;/a>.&lt;/p>
+&lt;p>KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets, or a XCFramework for Apple targets and manages the publishing process in a CocoaPod Repository.&lt;/p>
+&lt;p>The plugin is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://github.com/prof18/kmp-fatframework-cocoa">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;h2 id="money-flow--native-android-and-ios-app">Money Flow · Native Android and iOS App&lt;/h2>
 &lt;p>A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.&lt;/p>
 &lt;p>This project is a work in progress, you can track the progress on &lt;a href="https://github.com/prof18/MoneyFlow">GitHub&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="filmatic--native-android-app">Filmatic · Native Android App&lt;/h2>
+&lt;p>Filmatic shows you some popular movies of the moment. The project is a playground application that I use to catch up with modern Android development. In particular, I&amp;rsquo;ve used it to learn modularization and Dependency Injection with Dagger and then Hilt.&lt;/p>
+&lt;p>You can find more info about it on &lt;a href="https://github.com/prof18/Filmatic">GitHub&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;h2 id="qr-reader-secure--native-android-app">QR Reader Secure · Native Android App&lt;/h2>
 &lt;p>QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.&lt;/p>

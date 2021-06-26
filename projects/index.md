@@ -5,9 +5,9 @@ For an always updated list of my projects, visit my [Github page](https://github
 
 ## KMP FatFramework Cocoa · Gradle Plugin 
 
-KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.
+KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets, or a XCFramework for Apple targets and manages the publishing process in a CocoaPod Repository.
 
-The plugin is uploaded on MavenCentral. You can find more info about it on [GitHub](https://marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release).
+The plugin is uploaded on MavenCentral. You can find more info about it on [GitHub](https://github.com/prof18/kmp-fatframework-cocoa).
 
 ---
 
@@ -16,6 +16,14 @@ The plugin is uploaded on MavenCentral. You can find more info about it on [GitH
 A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.
 
 This project is a work in progress, you can track the progress on [GitHub](https://github.com/prof18/MoneyFlow)
+
+---
+
+## Filmatic · Native Android App 
+
+Filmatic shows you some popular movies of the moment. The project is a playground application that I use to catch up with modern Android development. In particular, I've used it to learn modularization and Dependency Injection with Dagger and then Hilt.
+
+You can find more info about it on [GitHub](https://github.com/prof18/Filmatic).
 
 ---
 
