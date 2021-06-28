@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Connect to Open VPN during Gitlab Pipeline"
-date:   2020-12-29
+date:   2021-06-28
 show_in_homepage: false 
-draft: true
 ---
 
 Gitlab CI/CD offers the possibility to create a pipeline, which runs when something changes in the repository. A pipeline consists of one or more stages that run in order and in these stages, for example, it is possible to build the project, run the tests, create the artifacts, etc. For more information about Gitlab CI/CD, I suggest you look over the [documentation](https://docs.gitlab.com/ee/ci/).
