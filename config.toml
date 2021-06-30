@@ -54,16 +54,14 @@ staticDir = ["static", "../assets/others"]
   dateFormatToUsePost = "2 Jan"
 
   version = "5.x"                                        
-  description = "Software Engineer · Community Manager"                      
+  description = "Software Engineer · Google Developer Expert for Kotlin"                      
   keywords = ["Marco Gomiero", "Android", "Flutter", "Gomiero", "Kotlin", "RSS Parser", "Kotlin Multiplatform"]                  
-
                                                       
   home_mode = "post"                                     
   home_paginate = 6
   talk_paginate = 10                                      
   avatar = "img/profile.jpeg"                           
   homeTitle = "Marco Gomiero"
-  subtitle = "Software Engineer · Community Manager · International Speaker"  
 
   socialShare = true                                     
 
