@@ -113,9 +113,9 @@
     }
 
     .single-title {
-      font-size: 1.25rem;
-      line-height: 140%;
-      margin: 0.4rem 0;
+      font-size: 1.5rem;
+      line-height: 2.4rem;
+      margin: 0.4rem 0 0.6rem;
     }
 
     .content {
@@ -164,7 +164,8 @@
     }
 
     .post-footer {
-      margin-top: .4rem;
+      margin-top: .8rem;
+      margin-bottom: .8rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -177,6 +178,50 @@
 
         @include link(true, true);
       }
+    }
+  }
+
+  .home-data {
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding-top: .8rem;
+      padding-bottom: .3rem;
+    }
+  
+    h2::before {
+      margin-right: .3125rem;
+    }
+  
+    h3::before,
+    h4::before,
+    h5::before,
+    h6::before {
+      margin-right: .3125rem;
+    }
+  
+    p {
+      font-size: 1rem;
+      text-align: justify;
+    }
+  
+    a {
+      @include overflow-wrap(break-word);
+  
+      text-decoration: underline;
+      text-underline-position: under;
+      color: $single-link-color;
+  
+      [theme=dark] & {
+        color: $single-link-color-dark;
+      }
+    }
+  
+    [theme=dark] a:hover b, [theme=dark] a:hover strong {
+      color: $single-link-hover-color-dark;
     }
   }
 }
