@@ -2,10 +2,9 @@ baseURL = "https://www.marcogomiero.com"
 defaultContentLanguage = "en"
 theme = "LoveIt"
 
-# website title
+
 title = "Marco Gomiero"
 
-# whether to use robots.txt
 enableRobotsTXT = true
 # whether to use git commit log
 enableGitInfo = false
@@ -67,18 +66,18 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   # site default theme ("light", "dark", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  gitRepo = "https://github.com/prof18/marcogomiero.com"
+  gitRepo = ""
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
   # date format
   dateFormat = "2 Jan 2006"
   # website images for Open Graph and Twitter Cards
-  images = ["/logo.png"]
+  images = ["/img/profile.jpeg"]
 
   # App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "LoveIt"
+    title = "Marco Gomiero"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -317,7 +316,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 [author]
   name = "Marco Gomiero"
   email = ""
-  link = ""
+  link = "https://www.marcogomiero.com/"
 
 # Sitemap config
 [sitemap]
