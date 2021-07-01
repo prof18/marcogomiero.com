@@ -26,70 +26,22 @@
                 {{ partial "paginator.html" . -}}
             </div>
         {{ else -}}
-            <p>Another Section</p>
-            <div class="page archive">
-            
+            <div class="page archive">            
                 <h1 class="section-title">
                         {{ T .Section | default .Section | humanize }}
                 </h1>
-
                 <div class="post-content">Do you want me to speak at your conference or meetup? Feel free to reach out on <a href="https://twitter.com/marcoGomier" target="_blank">Twitter</a>, my DMs are open.</div>
     
                 <br>
 
                 {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
-                    <br>    
                     <h2>{{ .Key }}</h2>
-                    <br>
+                   
                     {{- range .Pages -}}
                         {{ .Render "talkItem" -}}
                     {{- end -}}
                 {{- end -}}
                 {{- partial "paginator.html" . -}}
-
-                <!-- {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
-                {{ with .Site.Params.home_paginate -}}
-                    {{ $paginator = $.Paginate $paginator . -}}
-                {{ else -}}
-                    {{ $paginator = $.Paginate $paginator -}}
-                {{ end -}}
-                {{ range $paginator.Pages -}}
-                    {{ .Render "postItem" -}}
-                {{ end -}}
-                
-                {{ partial "paginator.html" . -}} -->
             </div>
         {{ end -}}
-
-    <!-- <div class="page archive">
-        <p>Aroneeeeee</p>
-        {{- /* Title */ -}}
-        <h1 class="single-title">
-            {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
-        </h1>
-
-        {{- /* Paginate */ -}}
-        {{- if .Pages -}}
-            {{- $pages := .Pages.GroupByDate "2006" -}}
-            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
-                {{- $pages = $.Paginate $pages . -}}
-            {{- else -}}
-                {{- $pages = .Paginate $pages -}}
-            {{- end -}}
-            {{- range $pages.PageGroups -}}
-                <h3 class="group-title">{{ .Key }}</h3>
-                {{- range .Pages -}}
-                    <article class="archive-item">
-                        <a href="{{ .RelPermalink }}" class="archive-item-link">
-                            {{- .Title -}}
-                        </a>
-                        <span class="archive-item-date">
-                            {{- $.Site.Params.section.dateFormat | default "01-02" | .Date.Format -}}
-                        </span>
-                    </article>
-                {{- end -}}
-            {{- end -}}
-            {{- partial "paginator.html" . -}}
-        {{- end -}}
-    </div> -->
 {{- end -}}
