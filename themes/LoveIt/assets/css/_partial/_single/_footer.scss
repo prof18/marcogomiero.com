@@ -105,11 +105,13 @@
   font-size: .875rem !important;
 
   a {
+    @include overflow-wrap(break-word);
+
     text-decoration: underline;
     text-underline-position: under;
     color: $single-link-color;
 
-    [theme=dark] & b, [theme=dark] & strong {
+    [theme=dark] & {
       color: $single-link-color-dark;
     }
   }

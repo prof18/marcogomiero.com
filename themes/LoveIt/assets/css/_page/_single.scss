@@ -18,14 +18,14 @@
 
   .post-meta {
     font-size: .875rem;
-    color: rgba(85, 85, 85, 0.52941) !important;
+    color: rgba(85,85,85,.52941);
 
     span {
       display: inline-block;
     }
 
     [theme=dark] & {
-      color: $global-font-secondary-color-dark;
+      color: #87878d;
     }
 
     @include link(false, true);
