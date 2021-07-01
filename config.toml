@@ -278,7 +278,7 @@ staticDir = ["static", "../assets/others"]
     enable = true
     # Google Analytics
     [params.analytics.google]
-      # id = ""
+      id = "UA-90975904-1 "
       anonymizeIP = true
 
   # CDN config for third-party library files
