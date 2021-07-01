@@ -1,10 +1,6 @@
-<!-- shuffle md5 as id -->
-{{ $id := delimit (split (md5 .Inner) "" | shuffle) "" | printf "ec-%s" -}}
-{{ $echartsMap := .Page.Scratch.Get "echartsMap" -}}
-{{ if $echartsMap -}}
-    {{ $echartsMap = dict $id .Inner | merge $echartsMap -}}
-{{ else -}}
-    {{ $echartsMap = dict $id .Inner -}}
-{{ end -}}
-{{ .Page.Scratch.Set "echartsMap" $echartsMap -}}
-<div class="echarts" id="{{ $id }}"></div>
+{{- $content := .Inner | transform.Unmarshal | jsonify -}}
+{{- $id := dict "Content" $content "Scratch" .Page.Scratch | partial "function/id.html" -}}
+{{- $width := cond .IsNamedParams (.Get "width") (.Get 0) | default "100%" -}}
+{{- $height := cond .IsNamedParams (.Get "height") (.Get 1) | default "30rem" -}}
+<div class="echarts" id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
+{{- .Page.Scratch.SetInMap "this" "echarts" true -}}

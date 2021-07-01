@@ -2,7 +2,7 @@
 title = "Projects"
 +++
 
-For an always updated list of my projects, visit my [Github page](https://github.com/prof18).
+For an always updated list of my projects, visit my [Github profile](https://github.com/prof18).
 
 ## KMP FatFramework Cocoa · Gradle Plugin 
 

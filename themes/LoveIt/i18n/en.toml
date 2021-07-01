@@ -1,14 +1,22 @@
 # Translations for English
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
+# === baseof ==
+[backToTop]
+other = "Back to Top"
+
+[viewComments]
+other = "View Comments"
+# === baseof ==
+
 # === Post ===
 [posts]
 other = "Posts"
 # === Post ===
 
 # === Taxonomy ===
-[all]
-other = "all "
+[allSome]
+other = "All {{ .Some }}"
 
 [tag]
 other = "Tag"
@@ -24,50 +32,100 @@ other = "Categories"
 # === Taxonomy ===
 
 # === Pagination ===
-[More]
+[more]
 other = "More"
 # === Pagination ===
 
-# === partials/comments.html ===
+# === partials/header.html ===
+[selectLanguage]
+other = "Select Language"
+
+[switchTheme]
+other = "Switch Theme"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBySome]
+other = "Powered by {{ .Hugo }} | Theme - {{ .Theme }}"
+# === partials/footer.html ===
+
+# === partials/comment.html ===
 [valineLang]
 other = "en"
-# === partials/comments.html ===
 
-# === partials/footer.html ===
-[powered]
-other = "Powered by %s"
+[valinePlaceholder]
+other = "Your comment ..."
 
-[theme]
-other = "Theme - "
-# === partials/footer.html ===
+[facebookLanguageCode]
+other = "en_US"
+# === partials/comment.html ===
+
+# === partials/assets.html ===
+[search]
+other = "Search"
+
+[searchPlaceholder]
+other = "Search titles or contents..."
+
+[clear]
+other = "Clear"
+
+[cancel]
+other = "Cancel"
+
+[noResultsFound]
+other = "No results found"
+
+[lunrLanguageCode]
+other = "en"
+
+[copyToClipboard]
+other = "Copy to clipboard"
+
+[cookieconsentMessage]
+other = "This website uses Cookies to improve your experience."
+
+[cookieconsentDismiss]
+other = "Got it!"
+
+[cookieconsentLink]
+other = "Learn more"
+# === partials/assets.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "Share on"
+# === partials/plugin/share.html ===
 
 # === posts/single.html ===
-[toc]
-other = "Table of Contents"
+[contents]
+other = "Contents"
 
-[publish]
-other = "published on:"
+[publishedOnDate]
+other = "published on {{ .Date }}"
 
-[included]
-other = "included in"
+[includedInCategories]
+other = "included in {{ .Categories }}"
 
 [wordCount]
-other = "about {{ .Count }} words"
+one = "One word"
+other = "{{ .Count }} words"
 
 [readingTime]
-other = "{{ .Count }} min"
+one = "One minute"
+other = "{{ .Count }} minutes"
 
-[pageviews]
-other = "<span class=leancloud-visitors-count></span> pageviews"
+[views]
+other = "views"
 
 [author]
 other = "Author"
 
-[lastMod]
-other = "This article is updated with %s"
+[updatedOnDate]
+other = "Updated on {{ .Date }}"
 
-[license]
-other = "Published under the %s license"
+[readMarkdown]
+other = "Read Markdown"
 
 [back]
 other = "Back"
@@ -75,29 +133,63 @@ other = "Back"
 [home]
 other = "Home"
 
-[readmore]
+[readMore]
 other = "Read More"
-
-[day]
-other = "d"
-
-[hour]
-other = "hr"
-
-[minute]
-other = "min"
-
-[second]
-other = "sec"
-
-[return]
-other = "return"
 # === posts/single.html ===
 
 # === 404.html ===
 [pageNotFound]
 other = "Page not found"
 
-[backToHome]
-other = "Back to Home"
+[pageNotFoundText]
+other = "The page you're looking for doesn't exist. Sorry."
 # === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "Note"
+
+[abstract]
+other = "Abstract"
+
+[info]
+other = "Info"
+
+[tip]
+other = "Tip"
+
+[success]
+other = "Success"
+
+[question]
+other = "Question"
+
+[warning]
+other = "Warning"
+
+[failure]
+other = "Failure"
+
+[danger]
+other = "Danger"
+
+[bug]
+other = "Bug"
+
+[example]
+other = "Example"
+
+[quote]
+other = "Quote"
+# === shortcodes/admonition.html ===
+
+# === shortcodes/version.html ===
+[new]
+other = "NEW"
+
+[changed]
+other = "CHANGED"
+
+[deleted]
+other = "DELETED"
+# === shortcodes/version.html ===

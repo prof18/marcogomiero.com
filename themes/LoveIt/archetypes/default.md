@@ -1,23 +1,28 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
+subtitle: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
+author: ""
+authorLink: ""
 description: ""
-show_in_homepage: true
-show_description: false
-license: ''
 
 tags: []
 categories: []
 
-featured_image: ''
-featured_image_preview: ''
+hiddenFromHomePage: false
+hiddenFromSearch: false
 
-comment: false
-toc: false
-autoCollapseToc: true
-math: false
+featuredImage: ""
+featuredImagePreview: ""
+
+toc:
+  enable: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 
 <!--more-->

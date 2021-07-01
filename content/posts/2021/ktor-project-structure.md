@@ -11,14 +11,12 @@ show_in_homepage: true
         
 
 {{< /rawhtml >}}
-___
 
-SERIES: Building a backend with Ktor
+{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 
 - Part 1: Structuring a Ktor project
 - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
-___
-
+{{< /admonition >}}
 
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer. 
 

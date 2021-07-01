@@ -11,13 +11,12 @@ show_in_homepage: false
         
 
 {{< /rawhtml >}}
-___
 
-SERIES: Building a backend with Ktor
-
+{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: How to persist Ktor logs
-___
+{{< /admonition >}}
+
 
 Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.
 
