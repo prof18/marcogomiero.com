@@ -20,3 +20,4 @@ I take my notes using the **desktop or the mobile application**, it depends on m
 Eventually, from OneNote you can **export the page as PDF** to share with other people. However, I admit that the export function of OneNote is a bit silly. In fact, all the images will be cut in order to fit correctly the A4 page if they are placed in a “border zone”. But for this I have a “hack”: if you export the note as PDF from the mobile application, a single page PDF will be generated. I know, this is not so beautiful but I don’t use very often the export function. This is also the main reason that makes me want to try Notion, as said above.
 
 So this is my setup. If you have some suggestions, I’m glad to listen to them and I hope that these tips will be helpful!
+

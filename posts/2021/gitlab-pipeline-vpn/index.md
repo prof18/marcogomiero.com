@@ -108,3 +108,4 @@ test:
   script:
     - ./gradlew test --info --stacktrace
 ```
+

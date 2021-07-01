@@ -1,7 +1,7 @@
 # Projects
 
 
-For an always updated list of my projects, visit my [Github page](https://github.com/prof18).
+For an always updated list of my projects, visit my [Github profile](https://github.com/prof18).
 
 ## KMP FatFramework Cocoa · Gradle Plugin 
 
@@ -129,3 +129,4 @@ This Android application has been developed during an University Class and the a
 ## @University - BANKS · Java 
 
 A Java app with a GUI to perform keyword-based search in relational database. The app implements *Banks*, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords. You can find more info about it on [GitHub](https://github.com/prof18/banks).
+

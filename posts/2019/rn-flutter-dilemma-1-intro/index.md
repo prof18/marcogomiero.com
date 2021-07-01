@@ -26,3 +26,4 @@ Flutter instead uses [Dart](https://dart.dev/), an open-source, object-oriented 
 Going with React Native can be tempting if you already have skills in web development since you will be going to use Javascript or Typescript. With Flutter instead, you have to learn a new language, even if is very simple to learn. However, with React Native often happens that you have to deal with Native code, especially for linking new third party libraries. With Flutter instead is rare that you have to touch native code unless you want to develop a custom plugin that uses native APIs.
 
 And for today is enough. After this brief introduction, in the next episode, we'll talk about how to build User Interfaces.
+

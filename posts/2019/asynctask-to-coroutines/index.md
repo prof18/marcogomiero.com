@@ -251,3 +251,4 @@ And finally, we have reached the end of my journey from Async Task to Coroutines
 If you want to contribute to the development of the library or simply report a bug, visit the repo on Github: [https://github.com/prof18/RSS-Parser](https://github.com/prof18/RSS-Parser)
 
 A special thanks to the (awesome) devs of the Android Developers Italia Community that gave to me some advice. If you are Italian, join us on [Slack](https://androiddevs.it/)!
+

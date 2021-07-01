@@ -8,3 +8,4 @@ Have you ever thought that your idea could help other developers? Join the magic
 
 ## Slide:
 {{< speakerdeck cd408bddaee04f24a2895bc61786ae2a>}}
+

@@ -11,3 +11,4 @@ All this journey is based on the true story of an Android Developer that he want
 ## Slide
 
 {{< speakerdeck 03943a2a06424eb6959b609a4af1d2c5 >}}
+

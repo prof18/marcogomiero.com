@@ -21,3 +21,4 @@ This talk has been done in collaboration with [Andrea Maglie](http://www.andream
 
 - App source code: [bit.ly/gdgvenezia-kmp](https://bit.ly/gdgvenezia-kmp)
 - Backend source code: [bit.ly/gdgvenezia-backend](https://bit.ly/gdgvenezia-backend)
+

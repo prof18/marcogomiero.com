@@ -7,13 +7,12 @@
         
 
 {{< /rawhtml >}}
-___
 
-SERIES: Building a backend with Ktor
-
+{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: How to persist Ktor logs
-___
+{{< /admonition >}}
+
 
 Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.
 
@@ -282,4 +281,5 @@ In my case, I just wanted a simple `ConsoleAppender`.
 And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part2). 
 
 In the next episodes, I’ll cover in-memory database and migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode. 
+
 

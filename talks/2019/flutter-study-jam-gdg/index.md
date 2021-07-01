@@ -13,3 +13,4 @@ https://github.com/GDG-Venezia/flutter-study-jam
 ## Slide
 
 {{< speakerdeck  02923dd271234bfe93db88058e894bab >}}
+

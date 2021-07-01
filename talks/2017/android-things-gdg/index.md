@@ -11,3 +11,4 @@ In this talk we'll see what is Android Things and what we need to know to begin 
 
 ## Video: 
 {{< youtube hMQDOCT8nac >}}
+

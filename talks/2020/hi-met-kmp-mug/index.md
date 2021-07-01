@@ -15,3 +15,4 @@ In this talk, I'll answer to these questions, clarifying all the doubts and maki
 ## Video:
 
 {{< youtube En1vTKryxB4 >}}
+

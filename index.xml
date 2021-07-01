@@ -1,100 +1,13 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Marco Gomiero on Marco Gomiero</title><link>https://www.marcogomiero.com/</link><description>Recent content in Marco Gomiero on Marco Gomiero</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>https://www.marcogomiero.com/posts/</link><pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/posts/</guid><description/></item><item><title>Talks</title><link>https://www.marcogomiero.com/talks/</link><pubDate>Tue, 01 Jun 2021 11:35:00 +0000</pubDate><guid>https://www.marcogomiero.com/talks/</guid><description/></item><item><title>About Me</title><link>https://www.marcogomiero.com/about-me/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/about-me/</guid><description>
-&lt;div class="home-intro">
-&lt;div class="home-avatar">
-&lt;a href="https://www.marcogomiero.com/posts">
-&lt;img src="https://www.marcogomiero.com/img/profile.jpeg" alt="avatar">
-&lt;/a>
-&lt;/div>
-&lt;h2> Marco Gomiero &lt;/h1>
-&lt;/div>
-&lt;p>I’m a software engineer, currently working as Tech Lead at &lt;a href="https://www.uniwhere.com/it">Uniwhere&lt;/a>, where I manage the end-to-end development of a platform with half a million users, and I&amp;rsquo;m in the founding team of &lt;a href="https://revelop.app/">Revelop&lt;/a>, a redesign of the personal inbox, backed by former Facebook executives, and being used in the best American schools &amp;ndash; from Harvard to Columbia.&lt;/p>
-&lt;p>I&amp;rsquo;m a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.&lt;/p>
-&lt;p>In my spare time I write and maintain open source code, I share my dev experience by &lt;a href="https://www.marcogomiero.com/posts">writing&lt;/a> on my blog, &lt;a href="https://www.marcogomiero.com/talks">speaking&lt;/a> at confs and &lt;a href="https://gdg.community.dev/gdg-venezia/">organizing&lt;/a> events with the Google Developer Group Venezia and I play basketball.&lt;/p>
-&lt;br>
-&lt;h1 id="work-experience">Work Experience&lt;/h1>
-&lt;h3 id="revelophttpsrevelopapp--tech-lead--january-2021---present">&lt;a href="https://revelop.app/">Revelop&lt;/a> · Tech Lead · January 2021 - Present&lt;/h3>
-&lt;br>
-&lt;blockquote>
-&lt;p>Gen-Z email platform.&lt;/p>
-&lt;/blockquote>
-&lt;br>
-&lt;h3 id="uniwherehttpswwwuniwherecom--tech-lead--september-2017---present">&lt;a href="https://www.uniwhere.com/">Uniwhere&lt;/a> · Tech Lead · September 2017 - Present&lt;/h3>
-&lt;br>
-&lt;blockquote>
-&lt;p>Uniwhere make it easy to stay on top of your academic life.&lt;/p>
-&lt;/blockquote>
-&lt;br>
-&lt;h1 id="education">Education&lt;/h1>
-&lt;h3 id="computer-engineering---master-degree--university-of-padua--2016---2018">Computer Engineering - Master Degree · University of Padua · 2016 - 2018&lt;/h3>
-&lt;br>
-&lt;blockquote>
-&lt;p>Thesis title: &amp;ldquo;Design and development of a system for linking university careers and real world jobs&amp;rdquo;&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="information-engineering---bachelor-degree--university-of-padua--2012---2016">Information Engineering - Bachelor Degree · University of Padua · 2012 - 2016&lt;/h3>
-&lt;br>
-&lt;blockquote>
-&lt;p>Thesis title: &amp;ldquo;Porting issues from Scratch/BYOB to Snap in a browser environment&amp;rdquo;&lt;/p>
-&lt;/blockquote></description></item><item><title>Projects</title><link>https://www.marcogomiero.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.marcogomiero.com/projects/</guid><description>&lt;p>For an always updated list of my projects, visit my &lt;a href="https://github.com/prof18">Github page&lt;/a>.&lt;/p>
-&lt;h2 id="kmp-fatframework-cocoa--gradle-plugin">KMP FatFramework Cocoa · Gradle Plugin&lt;/h2>
-&lt;p>KMP FatFramework Cocoa is a Gradle plugin for Kotlin Multiplatform projects that generates a FatFramework for iOS targets, or a XCFramework for Apple targets and manages the publishing process in a CocoaPod Repository.&lt;/p>
-&lt;p>The plugin is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://github.com/prof18/kmp-fatframework-cocoa">GitHub&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="money-flow--native-android-and-ios-app">Money Flow · Native Android and iOS App&lt;/h2>
-&lt;p>A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.&lt;/p>
-&lt;p>This project is a work in progress, you can track the progress on &lt;a href="https://github.com/prof18/MoneyFlow">GitHub&lt;/a>&lt;/p>
-&lt;hr>
-&lt;h2 id="filmatic--native-android-app">Filmatic · Native Android App&lt;/h2>
-&lt;p>Filmatic shows you some popular movies of the moment. The project is a playground application that I use to catch up with modern Android development. In particular, I&amp;rsquo;ve used it to learn modularization and Dependency Injection with Dagger and then Hilt.&lt;/p>
-&lt;p>You can find more info about it on &lt;a href="https://github.com/prof18/Filmatic">GitHub&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="qr-reader-secure--native-android-app">QR Reader Secure · Native Android App&lt;/h2>
-&lt;p>QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.&lt;/p>
-&lt;p>I decided to develop it after a failed search for a simple and secure reader for my parents.&lt;/p>
-&lt;p>The app is very simple (the aim is to scan a code and open the link, only this!) and it does not require sneaky, strange and useless permissions just for the sake of stealing your data. There aren&amp;rsquo;t ads, trackers of any sort and what do you scan remains on your phone. The only requested permission is for the camera.&lt;/p>
-&lt;p>You can find QR Reader Secure on the Play Store and on &lt;a href="https://github.com/prof18/Secure-QR-Reader">GitHub&lt;/a>.&lt;/p>
-&lt;div align="center">&lt;a href="https://play.google.com/store/apps/details?id=com.prof18.secureqrreader">&lt;img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>&lt;/a>&lt;/div>
-&lt;hr>
-&lt;h2 id="friends-tournament--flutter-android-app">Friends Tournament · Flutter Android App&lt;/h2>
-&lt;p>A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That&amp;rsquo;s all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players&amp;rsquo; score and a nice leaderboard is automatically generated.&lt;/p>
-&lt;p>The application is written with Flutter and for the time being, it&amp;rsquo;s only available for Android. Maybe in the future, I will release the iOs version too. You can find more info about it on &lt;a href="https://github.com/prof18/Friends-Tournament">GitHub&lt;/a>.&lt;/p>
-&lt;div align="center">&lt;a href="https://play.google.com/store/apps/details?id=com.prof.friends_tournament">&lt;img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>&lt;/a>&lt;/div>
-&lt;hr>
-&lt;h2 id="rss-parser--android-library">RSS Parser · Android Library&lt;/h2>
-&lt;p>An Android library to parse a RSS Feed. You can retrive the following information about an article:&lt;/p>
-&lt;ul>
-&lt;li>Title&lt;/li>
-&lt;li>Author&lt;/li>
-&lt;li>Description&lt;/li>
-&lt;li>Content&lt;/li>
-&lt;li>Main Image&lt;/li>
-&lt;li>Link&lt;/li>
-&lt;li>Publication Date&lt;/li>
-&lt;/ul>
-&lt;p>The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://github.com/prof18/RSS-Parser">GitHub&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="youtube-parser--android-library">Youtube Parser · Android Library&lt;/h2>
-&lt;p>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral. You can find more info about it on &lt;a href="https://github.com/prof18/YoutubeParser">GitHub&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="deprecated---zeromag--website">@Deprecated - Zeromag · Website&lt;/h2>
-&lt;p>Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog &amp;ldquo;ZeroMag&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
-&lt;hr>
-&lt;h2 id="deprecated-mario-discepolo--android-app">@Deprecated Mario Discepolo · Android App&lt;/h2>
-&lt;p>Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo&amp;rsquo;s channel and receive notifications for the new articles&lt;/p>
-&lt;hr>
-&lt;h2 id="deprecated---taxitaly-and-tour--website">@Deprecated - Taxitaly and Tour · Website&lt;/h2>
-&lt;p>Website built with Wordpress to book transfer and touristic tours in the area of Venice. The site is no longer active&lt;/p>
-&lt;hr>
-&lt;h2 id="deprecated---lupokkio--android">@Deprecated - Lupokkio · Android&lt;/h2>
-&lt;p>Android Application to read latest articles and reviews, watch latest Youtube video from Lupokkio&amp;rsquo;s channel and receive notifications for the new articles. The application is no longer active because the blog is dead but you can see its past behavior by watching this &lt;a href="https://www.youtube.com/watch?v=QK-KcC0DYds">video&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="deprecated---lupokkio--website">@Deprecated - Lupokkio · Website&lt;/h2>
-&lt;p>Graphic restyling and maintenance of the Italian tech blog &amp;ldquo;Lupokkio&amp;rdquo;. The site was built with Wordpress and is no longer online.&lt;/p>
-&lt;hr>
-&lt;h2 id="university---distributed-file-system-rmi--java">@University - Distributed File System RMI · Java&lt;/h2>
-&lt;p>A distributed file system implemented in Java using RMI with replication, read/write lock and a GUI. You can find more info about it on &lt;a href="https://github.com/prof18/DistributedFIleSystemRMI">GitHub&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="university---cyber-robot-brain--android-app">@University - Cyber Robot Brain · Android App&lt;/h2>
-&lt;p>This Android application has been developed during an University Class and the aim was to provide a &amp;ldquo;brain&amp;rdquo; to the Cyber Robot, a cheap sensorless toy robot sell by Clementoni. More information about the robot can be found &lt;a href="https://www.amazon.it/Scienza-e-Gioco-13941-Clementoni/dp/B010VB0IQS">on the official website&lt;/a>. More specifically, the aim was to reverse-engineer the communication protocol of the robot via the Bluetooth HCI snoop log and then build an app that guides it to reach a target object that is framed by the phone’s camera. For more information about the communication protol, visit the &lt;a href="https://github.com/prof18/CyberRobotBrain/wiki/How-to-move-Cyber-Robot">Wiki Page&lt;/a>. You can find more info about the project on &lt;a href="https://github.com/prof18/CyberRobotBrain">GitHub&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;h2 id="university---banks--java">@University - BANKS · Java&lt;/h2>
-&lt;p>A Java app with a GUI to perform keyword-based search in relational database. The app implements &lt;em>Banks&lt;/em>, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords. You can find more info about it on &lt;a href="https://github.com/prof18/banks">GitHub&lt;/a>.&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Marco Gomiero</title><link>https://www.marcogomiero.com/</link><description>Software Engineer · Google Developer Expert for Kotlin</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Connect to Open VPN during Gitlab Pipeline</title><link>https://www.marcogomiero.com/posts/2021/gitlab-pipeline-vpn/</link><pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/gitlab-pipeline-vpn/</guid><description>Gitlab CI/CD offers the possibility to create a pipeline, which runs when something changes in the repository. A pipeline consists of one or more stages that run in order and in these stages, for example, it is possible to build the project, run the tests, create the artifacts, etc. For more information about Gitlab CI/CD, I suggest you look over the documentation.
+These out-of-the-box solutions really simplify the work to be done to have a CI up and running.</description></item><item><title>How to persist Ktor logs</title><link>https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/</link><pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/</guid><description>SERIES: Building a backend with Ktor Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.
+Usually, logs are printed in the system output, so they must be saved somewhere to be accessed and read sometime in the future.</description></item><item><title>Structuring a Ktor project</title><link>https://www.marcogomiero.com/posts/2021/ktor-project-structure/</link><pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/ktor-project-structure/</guid><description>SERIES: Building a backend with Ktor Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs It’s been a few months since I’ve started working with Ktor to build the backend of Revelop. We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.</description></item><item><title>My audio &amp; video setup after 4 years of remote working</title><link>https://www.marcogomiero.com/posts/2021/audio-video-setup/</link><pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/audio-video-setup/</guid><description>I’ve been working remotely for a while and during these years I kept improving my work setup. During the last year, I’ve also increased the overall video and audio quality and now I’m pretty confident I’ve ended up with something worth sharing.
+A little note before moving on. Some gears I will share are cheap and others are expensive but I think that every product is one of the best that can be found in its price range.</description></item><item><title>Introducing KMP FatFramework Cocoa, a Gradle plugin for iOS FatFramework</title><link>https://www.marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release/</link><pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release/</guid><description>Today I want to share KMP FatFramework Cocoa, a Gradle plugin for Kotlin Multiplatform projects that generate a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.
+The plugin is born from a set of unbundled Gradle tasks that I wrote to manage the building and the publishing process of Kotlin Multiplatform libraries for iOS that we use at Uniwhere and Revelop. The libraries are published in a FatFramework that contains the code for every required architecture (real devices use the Arm64 architecture, while the simulator uses the host computer architecture which in most of the cases is X64).</description></item><item><title>Introducing Kotlin Multiplatform in an existing project</title><link>https://www.marcogomiero.com/posts/2021/kmp-existing-project/</link><pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/kmp-existing-project/</guid><description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).
+This is also the case for Kotlin Multiplatform (I’ll call it KMP in the rest of the article).
+When starting a new blank KMP project it is easier to have a mono-repo structure like this:</description></item><item><title>Migrating old artifacts from JCenter to MavenCentral</title><link>https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/</link><pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/</guid><description>As you may have heard, JCenter is shutting down in May 2021.
+Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
+https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+So, if you are using JCenter as the repository for your libraries (as me), it’s time to migrate.
+In this article, I will not go through the publishing process of a library to MavenCentral, because there are already plenty of resources available. For example, I followed the one written by Márton Braun.</description></item><item><title>Running a blog with iPad</title><link>https://www.marcogomiero.com/posts/2021/running-blog-ipad/</link><pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2021/running-blog-ipad/</guid><description><![CDATA[It’s been a few years since I started writing this blog, and I quite like sharing my thoughts and experiences. After a short while spent on Medium, I decided I wanted to be the sole owner of my content, so I started experimenting with different solutions and ideas. After I finally landed on the &ldquo;perfect&rdquo; tech architecture (I know, I’m lying. There’s no perfect solution and Future Me will most likely refactor and (over)re-engineer the current solution), I started to seek the &ldquo;perfect&rdquo; writing setup.]]></description></item><item><title>Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform</title><link>https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/</link><pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/</guid><description>If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with Ktor. But if you don’t want to share the entire network layer but maybe only the DTOs? There could be many reasons for wanting this. Maybe you are starting to integrate Kotlin Multiplatform (I’ll call it KMP in the rest of the article) into an existing project and the work for sharing the entire network layer is simply too much.</description></item><item><title>Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</title><link>https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/</link><pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate><author>Author</author><guid>https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/</guid><description>Recently, I&amp;rsquo;ve started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I&amp;rsquo;ve thought and designed it almost a year ago but only now I&amp;rsquo;ve found the time to start writing actual code.
+A first design iteration, that will change a bit
+I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app.</description></item></channel></rss>

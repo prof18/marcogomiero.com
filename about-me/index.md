@@ -2,13 +2,12 @@
 
 
 {{< rawhtml >}}
-<div class="home-intro">
-<div class="home-avatar">
-    <a href="/posts">
-        <img src="/img/profile.jpeg" alt="avatar">
-    </a>
-</div>
-<h2> Marco Gomiero </h1>
+<div class="home-profile">
+    <div class="home-avatar">
+        <a href="/posts">
+            <img src="/img/profile.jpeg" alt="avatar">
+        </a>
+    <h2> Marco Gomiero </h1>
 </div>
 {{< /rawhtml >}}
 
@@ -26,44 +25,36 @@ In my spare time I write and maintain open source code, I share my dev experienc
 
 # Work Experience
 
-### [Revelop](https://revelop.app/) · Tech Lead · January 2021 - Present
+
+### Uniwhere · Tech Lead · September 2017 - Present
+
+> [Uniwhere](https://www.uniwhere.com/) - Best University app in Italy, 600,000 registered students,
+backed by VCs and investors from Miami, Berlin, and Milan.
+> - Tech leadership of the whole infrastructure (BE, Client Android, Client iOS, DevOps), used monthly by more than 100K unique users
 
 {{< rawhtml >}}
 <br>
-{{< /rawhtml >}}
+{{< /rawhtml >}} 
 
-> Gen-Z email platform.
-
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}}
-
-### [Uniwhere](https://www.uniwhere.com/) · Tech Lead · September 2017 - Present
+> [Revelop](https://revelop.app/) - Email platform helping top performers make the most out of the personal inbox. Used in the best schools of the world — from Harvard to Columbia.
+> - Written from scratch the app backend with Ktor
+> - Design and developed the iOS app architecture with declarative patterns and Kotlin Multiplatform as data persistence layer
 
 {{< rawhtml >}}
 <br>
-{{< /rawhtml >}}
-
-> Uniwhere make it easy to stay on top of your academic life.
-
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}}
+{{< /rawhtml >}} 
 
 # Education 
 
 ### Computer Engineering - Master Degree · University of Padua · 2016 - 2018
 
+> Thesis title: "Design and development of a system for linking university careers and real world jobs"
+
 {{< rawhtml >}}
 <br>
-{{< /rawhtml >}}
-
-> Thesis title: "Design and development of a system for linking university careers and real world jobs"
+{{< /rawhtml >}} 
 
 ### Information Engineering - Bachelor Degree · University of Padua · 2012 - 2016
 
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}}
-
 > Thesis title: "Porting issues from Scratch/BYOB to Snap in a browser environment"
+

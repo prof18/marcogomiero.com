@@ -27,3 +27,4 @@ All this journey is based on the true story of an Android Developer that he want
 {{< rawhtml >}}
 <a class="spreaker-player" href="https://www.spreaker.com/user/fevr/flutter-or-react-native" data-resource="episode_id=19149450" data-theme="dark" data-autoplay="false" data-playlist="false" data-cover="https://d3wo5wojvuv7l.cloudfront.net/images.spreaker.com/original/b9c9b933899129acf0890c1131d461d2.jpg" data-width="100%" data-height="200px">Listen to "Flutter or React Native, a cross-platform dilemma" on Spreaker.</a><script async src="https://widget.spreaker.com/widgets.js"></script>
 {{< /rawhtml >}}
+

@@ -28,3 +28,4 @@ As you will read, this is not an easy choice. I think that it all depends on the
 
 I hope that this series will be helpful to make the right decision. If you want to share your consideration and what led you to choose between Flutter and React Native, feel free to reach me out on Twitter [@marcoGomier](https://twitter.com/marcoGomier).
 
+
