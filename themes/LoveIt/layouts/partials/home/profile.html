@@ -1,43 +1,22 @@
 {{- $profile := .Site.Params.home.profile -}}
+<br>
 <div class="home-profile">
     {{- $avatar := $profile.avatarURL -}}
     {{- with $profile.gravatarEmail -}}
         {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
     {{- end -}}
     {{- if $avatar -}}
-        <div class="home-avatar">
-            {{- $menus := $.Site.Menus.main | default slice -}}
-            {{- with index $menus 0 -}}
-                {{- $url := .URL | relLangURL -}}
-                {{- with .Page -}}
-                    {{- $url = .RelPermalink -}}
-                {{- end -}}
-                <a href="{{ $url }}"{{ with .Title | default .Name }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-                    {{- dict "Src" $avatar | partial "plugin/image.html" -}}
-                </a>
-            {{- else -}}
-                {{- dict "Src" $avatar | partial "plugin/image.html" -}}
-            {{- end -}}
-        </div>
+    <div class="home-avatar">
+        <a href="/posts">
+            <img src={{ $avatar | relURL }} alt="avatar">
+        </a>
+    </div>
     {{- end -}}
 
-    {{- with $profile.title -}}
-        <h1 class="home-title">
-            {{- . | safeHTML -}}
-        </h1>
-    {{- end -}}
+    <h1> <a href="/about">{{ $profile.title }}</a> </h1>
+    <h3> Software Engineer · Google Developer Expert for Kotlin</h3>
 
-    {{- with $profile.subtitle -}}
-        <h2 class="home-subtitle">
-            {{- if $profile.typeit -}}
-                {{- $id := dict "Content" . "Scratch" $.Scratch | partial "function/id.html" -}}
-                <div id="{{ $id }}" class="typeit"></div>
-                {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
-            {{- else -}}
-                {{- . -}}
-            {{- end -}}
-        </h2>
-    {{- end -}}
+    <h3 class="home-data"> <a href="/posts">Writing</a> · <a href="/talks">Speaking</a> · <a href="/projects">Building</a> </h3>
 
     {{- if $profile.social -}}
         <div class="links">
