@@ -19,6 +19,8 @@ paginate = 12
 googleAnalytics = "UA-90975904-1" 
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 
+staticDir = ["static", "../assets/others"]               
+
 # Menu config
 [menu]
   [[menu.main]]
