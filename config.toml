@@ -74,7 +74,7 @@ staticDir = ["static", "../assets/others"]
   # date format
   dateFormat = "2 Jan 2006"
   # website images for Open Graph and Twitter Cards
-  images = ["/img/profile.jpeg"]
+  images = ["/img/profile.webp"]
 
   # App icon config
   [params.app]
@@ -116,7 +116,7 @@ staticDir = ["static", "../assets/others"]
     # Home page profile
     [params.home.profile]
       enable = true
-      avatarURL = "img/profile.jpeg"
+      avatarURL = "img/profile.webp"
       # title shown in home page (HTML format is supported)
       title = "Marco Gomiero"
       # subtitle shown in home page
