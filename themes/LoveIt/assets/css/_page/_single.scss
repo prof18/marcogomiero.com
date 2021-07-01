@@ -1,9 +1,9 @@
 @import "../_partial/_single/toc";
 
-.single {
+.single {  
   .single-title {
-    // margin-top: 2rem;
-    font-size: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
     line-height: 2.4rem;
     margin-bottom: 0rem;
   }
@@ -18,14 +18,14 @@
 
   .post-meta {
     font-size: .875rem;
-    color: rgba(85,85,85,.52941);
+    color: $global-font-secondary-color;
 
     span {
       display: inline-block;
     }
 
     [theme=dark] & {
-      color: #87878d;
+      color: $global-font-secondary-color-dark;
     }
 
     @include link(false, true);
@@ -52,8 +52,17 @@
   }
 
   .content {
+
+    padding-top: .2rem;
+    font-size: .9rem;
+    width: 100%;
+    overflow: hidden;
+
     > h2 {
       font-size: 1.5rem;
+      line-height: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
 
       & code {
         font-size: 1.25rem;
@@ -97,28 +106,8 @@
       }
     }
 
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
-      > .header-mark::before {
-        content: "|";
-        margin-right: .3125rem;
-        color: $single-link-color;
-
-        [theme=dark] & {
-          color: $single-link-color-dark;
-        }
-      }
-    }
-
-    > h2 > .header-mark::before {
-      content: "#";
-    }
-
     p {
-      margin: .5rem 0;
+      font-size: 1rem;
     }
 
     b, strong {
@@ -133,6 +122,9 @@
 
     a {
       @include overflow-wrap(break-word);
+
+      text-decoration: underline;
+      text-underline-position: under;
 
       [theme=dark] & b, [theme=dark] & strong {
         color: $single-link-color-dark;
@@ -216,7 +208,7 @@
     }
 
     figure {
-      margin: .5rem;
+      // margin: .5rem;
       text-align: center;
 
       .image-caption:not(:empty) {

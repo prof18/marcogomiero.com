@@ -4,7 +4,7 @@
     {{- $params := .Scratch.Get "params" -}}
     <div class="page single special">
         {{- /* Title */ -}}
-        <h1 class="single-title animated pulse faster">
+        <h1 class="single-title">
             {{- .Title -}}
         </h1>
 
@@ -18,7 +18,5 @@
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
-        {{- /* Comment */ -}}
-        {{- partial "comment.html" . -}}
     </div>
 {{- end -}}

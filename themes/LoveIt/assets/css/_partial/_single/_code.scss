@@ -15,7 +15,7 @@ code {
 
 pre {
   margin: 0;
-  padding: .25rem 0 .25rem .5rem;
+  padding: 1rem 0 1rem .5rem;
   @include tab-size(4);
 
   code {
@@ -77,11 +77,12 @@ code, pre, .highlight table, .highlight tr, .highlight td {
         background: darken($code-background-color-dark, 6%);
       }
 
-      &:hover {
-        cursor: pointer;
-      }
+      // &:hover {
+      //   cursor: pointer;
+      // }
 
       .code-title {
+        visibility: hidden;
         width: 100%;
         padding: .4rem;
       }
