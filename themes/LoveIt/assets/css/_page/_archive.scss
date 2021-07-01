@@ -15,6 +15,20 @@
     margin-bottom: 1rem;
   }
 
+  .content {
+    a {
+      @include overflow-wrap(break-word);
+
+      text-decoration: underline;
+      text-underline-position: under;
+      color: $single-link-color;
+
+      [theme=dark] & b, [theme=dark] & strong {
+        color: $single-link-color-dark;
+      }
+    }
+  }
+
   @import "../_partial/_archive/terms";
   @import "../_partial/_archive/tags";
 }
