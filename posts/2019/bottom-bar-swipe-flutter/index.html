@@ -1,0 +1,185 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Bottom App Bar with Menu and Swipeable Tabs in Flutter | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Software Engineer · Google Developer Expert for Kotlin"><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><link rel=prev href=https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/><link rel=next href=https://www.marcogomiero.com/posts/2019/publish-librery-android/><link rel=canonical href=https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary"><meta name=twitter:title content="Bottom App Bar with Menu and Swipeable Tabs in Flutter"><meta name=twitter:description content="The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
+  Image from Material Design Guidelines
+  With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
+Here’s a spoiler of the final result:"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Bottom App Bar with Menu and Swipeable Tabs in Flutter","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2019\/bottom-bar-swipe-flutter\/"},"genre":"posts","wordcount":808,"url":"https:\/\/www.marcogomiero.com\/posts\/2019\/bottom-bar-swipe-flutter\/","datePublished":"2019-03-20T00:00:00\u002b00:00","dateModified":"2019-03-20T00:00:00\u002b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class=post-warp><h1 class=post-title>Bottom App Bar with Menu and Swipeable Tabs in Flutter</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime="20 Mar 2019">20 Mar 2019</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>about 808 words&nbsp;
+<i class="far fa-clock fa-fw"></i>4 min&nbsp;</div></div><br><div class=post-content><p>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.</p><figure><img src=/img/bottom-bar.png alt=image><figcaption><p><em>Image from <a href=https://material.io/design/components/app-bars-bottom.html#>Material Design Guidelines</a></em></p></figcaption></figure><p>With Flutter is super easy to implement like shown in the <a href=https://docs.flutter.io/flutter/material/BottomAppBar-class.html>official documentation</a>. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.</p><p>Here’s a spoiler of the final result:</p><figure><img src=/img/bottom.gif alt=image></figure><p>So (another spoiler), we have to mix together three elements: a <strong>BottomAppBar</strong>, a <strong>BottomSheet</strong>, and a <strong>TabBarView</strong>.</p><p>First of all, the first step is to create a Placeholder widget that will be shown in the different tabs in which simply shows a text in the center. Of course, this widget should be replaced with the specific implementation.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-dart data-lang=dart><span class=k>import</span> <span class=s1>&#39;package:flutter/material.dart&#39;</span><span class=p>;</span>
+
+<span class=kd>class</span> <span class=nc>PlaceholderWidget</span> <span class=kd>extends</span> <span class=n>StatelessWidget</span> <span class=p>{</span>
+    <span class=kd>final</span> <span class=kt>String</span> <span class=n>text</span><span class=p>;</span>
+
+    <span class=n>PlaceholderWidget</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=n>text</span><span class=p>);</span>
+
+    <span class=err>@</span><span class=n>override</span>
+    <span class=n>Widget</span> <span class=n>build</span><span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>Center</span><span class=p>(</span><span class=nl>child:</span> <span class=n>Text</span><span class=p>(</span><span class=n>text</span><span class=p>));</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Now, its time to create the structure in which the Placeholder widgets will be shown by using a <a href=https://docs.flutter.io/flutter/material/Scaffold-class.html><em>Scaffold</em></a> widget. In this case, the Scaffold Widget has three main children: a <a href=https://docs.flutter.io/flutter/material/FloatingActionButton-class.html><strong>FloatingActionButton</strong></a>, a <a href=https://docs.flutter.io/flutter/material/TabBarView-class.html><strong>TabBarView</strong></a> and a <a href=https://docs.flutter.io/flutter/material/BottomAppBar-class.html><strong>BottomAppBar</strong></a>.</p><p>Let’s start with the <strong>TabBarView</strong>. Usually, the TabBarView is combined with the TabBar that creates an alternative to the swipe to change tab ( You can find an example <a href=https://flutter.dev/docs/cookbook/design/tabs>in the official Flutter doc</a>). However, in this case, the alternative is provided by the menu callable from the BottomAppBar as shown in the GIF above.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-dart data-lang=dart><span class=n>TabBarView</span><span class=p>(</span>
+    <span class=nl>controller:</span> <span class=n>_controller</span><span class=p>,</span>
+    <span class=nl>children:</span> <span class=n>_allPages</span><span class=p>.</span><span class=n>map</span><span class=o>&lt;</span><span class=n>Widget</span><span class=o>&gt;</span><span class=p>((</span><span class=n>_Page</span> <span class=n>page</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=n>SafeArea</span><span class=p>(</span>
+            <span class=nl>top:</span> <span class=kc>false</span><span class=p>,</span>
+            <span class=nl>bottom:</span> <span class=kc>false</span><span class=p>,</span>
+            <span class=nl>child:</span> <span class=n>Container</span><span class=p>(</span>
+            <span class=nl>key:</span> <span class=n>ObjectKey</span><span class=p>(</span><span class=n>page</span><span class=p>.</span><span class=n>widget</span><span class=p>),</span>
+            <span class=nl>padding:</span> <span class=kd>const</span> <span class=n>EdgeInsets</span><span class=p>.</span><span class=n>all</span><span class=p>(</span><span class=m>12.0</span><span class=p>),</span>
+            <span class=nl>child:</span> <span class=n>page</span><span class=p>.</span><span class=n>widget</span>
+        <span class=p>),</span>
+    <span class=p>);</span>
+<span class=p>}).</span><span class=n>toList</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p>As you can see, it is a very simple snippet that returns as children (i.e. the different tabs) the widgets contained in the variable _allPages. These widgets are all of the type PlaceholderWidget. In addition to the children, we have to provide a controller, that is the “guy” that keeps the selected tab and content sections in sync. In this case, we don’t use the DefaultTabController , but we create a <a href=https://docs.flutter.io/flutter/material/TabController-class.html>TabController</a> to handle the tabs also from the menu. If the swipe is enough to change tabs, we could simply use the DefaultTabController.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-dart data-lang=dart><span class=n>_controller</span> <span class=o>=</span> <span class=n>TabController</span><span class=p>(</span><span class=nl>vsync:</span> <span class=k>this</span><span class=p>,</span> <span class=nl>length:</span> <span class=n>_allPages</span><span class=p>.</span><span class=n>length</span><span class=p>);</span>
+</code></pre></td></tr></table></div></div><p>Now, let’s focus on the <strong>BottomAppBar</strong>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-dart data-lang=dart><span class=nl>bottomNavigationBar:</span> <span class=n>BottomAppBar</span><span class=p>(</span>
+    <span class=nl>child:</span> <span class=k>new</span> <span class=n>Row</span><span class=p>(</span>
+        <span class=nl>mainAxisSize:</span> <span class=n>MainAxisSize</span><span class=p>.</span><span class=n>max</span><span class=p>,</span>
+        <span class=nl>mainAxisAlignment:</span> <span class=n>MainAxisAlignment</span><span class=p>.</span><span class=n>spaceBetween</span><span class=p>,</span>
+        <span class=nl>children:</span> <span class=o>&lt;</span><span class=n>Widget</span><span class=o>&gt;</span><span class=p>[</span>
+            <span class=n>IconButton</span><span class=p>(</span>
+                <span class=nl>icon:</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>menu</span><span class=p>),</span>
+                <span class=nl>onPressed:</span> <span class=p>()</span> <span class=p>{</span>
+                <span class=n>_showModal</span><span class=p>();</span>
+                <span class=p>}),</span>
+            <span class=n>IconButton</span><span class=p>(</span>
+                <span class=nl>icon:</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>search</span><span class=p>),</span>
+            <span class=p>)</span>
+        <span class=p>],</span>
+    <span class=p>),</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>As Bottom Bar, we simply show a row with two icons at the edges. This can be done by setting the mainAxisSize and the mainAxisAlignment respectively to MainAxisSize.max and MainAxisAlignment.spaceBetween . One of these two icons is our menu. By clicking it, we will show a Bottom Sheet that shows the list of tabs.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-dart data-lang=dart><span class=kt>void</span> <span class=n>_showModal</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>showModalBottomSheet</span><span class=o>&lt;</span><span class=kt>void</span><span class=o>&gt;</span><span class=p>(</span>
+        <span class=nl>context:</span> <span class=n>context</span><span class=p>,</span>
+        <span class=nl>builder:</span> <span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=k>new</span> <span class=n>Column</span><span class=p>(</span>
+                <span class=nl>mainAxisSize:</span> <span class=n>MainAxisSize</span><span class=p>.</span><span class=n>min</span><span class=p>,</span>
+                <span class=nl>children:</span> <span class=o>&lt;</span><span class=n>Widget</span><span class=o>&gt;</span><span class=p>[</span>
+                    <span class=k>new</span> <span class=n>ListTile</span><span class=p>(</span>
+                        <span class=nl>leading:</span> <span class=k>new</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>music_note</span><span class=p>),</span>
+                        <span class=nl>title:</span> <span class=k>new</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;Screen 1&#39;</span><span class=p>),</span>
+                        <span class=nl>onTap:</span> <span class=p>()</span> <span class=p>{</span>
+                            <span class=n>_controller</span><span class=p>.</span><span class=n>animateTo</span><span class=p>(</span><span class=m>0</span><span class=p>);</span>
+                            <span class=n>Navigator</span><span class=p>.</span><span class=n>pop</span><span class=p>(</span><span class=n>context</span><span class=p>);</span>
+                        <span class=p>},</span>
+                    <span class=p>),</span>
+                    <span class=k>new</span> <span class=n>ListTile</span><span class=p>(</span>
+                        <span class=nl>leading:</span> <span class=k>new</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>photo_album</span><span class=p>),</span>
+                        <span class=nl>title:</span> <span class=k>new</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;Screen 2&#39;</span><span class=p>),</span>
+                        <span class=nl>onTap:</span> <span class=p>()</span> <span class=p>{</span>
+                            <span class=n>_controller</span><span class=p>.</span><span class=n>animateTo</span><span class=p>(</span><span class=m>1</span><span class=p>);</span>
+                            <span class=n>Navigator</span><span class=p>.</span><span class=n>pop</span><span class=p>(</span><span class=n>context</span><span class=p>);</span>
+                        <span class=p>},</span>
+                    <span class=p>),</span>
+                    <span class=k>new</span> <span class=n>ListTile</span><span class=p>(</span>
+                        <span class=nl>leading:</span> <span class=k>new</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>videocam</span><span class=p>),</span>
+                        <span class=nl>title:</span> <span class=k>new</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;Screen 3&#39;</span><span class=p>),</span>
+                        <span class=nl>onTap:</span> <span class=p>()</span> <span class=p>{</span>
+                            <span class=n>_controller</span><span class=p>.</span><span class=n>animateTo</span><span class=p>(</span><span class=m>2</span><span class=p>);</span>
+                            <span class=n>Navigator</span><span class=p>.</span><span class=n>pop</span><span class=p>(</span><span class=n>context</span><span class=p>);</span>
+                        <span class=p>},</span>
+                    <span class=p>),</span>
+                <span class=p>],</span>
+            <span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>In order to create and show a <a href=https://docs.flutter.io/flutter/material/BottomSheet-class.html><strong>Bottom Sheet</strong></a> we need to call the <code>showModalBottomSheet&lt;void></code> method and provide in the builder, the widgets that we want to show. In this case, we use a <a href=https://docs.flutter.io/flutter/widgets/Column-class.html>Column</a> with <a href=https://docs.flutter.io/flutter/material/ListTile-class.html>ListTile</a> widgets, i.e. a widget that can have a leading and a trailing icon and some text.</p><p>To navigate to the different tabs, we have to use the TabController defined above and call the method animateTo, by passing as parameter the number of tab that we want to show. After showing the tab we need to close the Bottom Sheet and to do that we can use Navigator.pop(context) that navigates to the first route. You can found more info about the Navigator <a href=https://flutter.dev/docs/cookbook/navigation/navigation-basics>in the official doc.</a></p><p>Finally, we have to place the <strong>FloatingActionButton.</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-dart data-lang=dart><span class=nl>floatingActionButton:</span> <span class=n>FloatingActionButton</span><span class=p>.</span><span class=n>extended</span><span class=p>(</span>
+    <span class=nl>elevation:</span> <span class=m>4.0</span><span class=p>,</span>
+    <span class=nl>icon:</span> <span class=kd>const</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>add</span><span class=p>),</span>
+    <span class=nl>label:</span> <span class=kd>const</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;Add a task&#39;</span><span class=p>),</span>
+    <span class=nl>onPressed:</span> <span class=p>()</span> <span class=p>{},</span>
+<span class=p>),</span>
+<span class=nl>floatingActionButtonLocation:</span> <span class=n>FloatingActionButtonLocation</span><span class=p>.</span><span class=n>centerDocked</span><span class=p>,</span>
+</code></pre></td></tr></table></div></div><p>As you can see, the code is very simple. In this case we want a centered FAB, so we need to specify it in the floatingActionButtonLocation .</p><p>And that&rsquo;s it! With little effort, we have created a very beautiful and modern UI.</p><p>Of course, you can find the complete code on my Github.</p><blockquote><p><a href=https://github.com/prof18/BottomAppBarSwipeableTabs>prof18/BottomAppBarSwipeableTabs</a></p></blockquote></div><section style=width:90%;margin-left:auto;margin-right:auto;margin-top:30px;margin-bottom:30px><hr><div style=padding:25px><div class=post-content>To stay up to date with my writing and my projects, follow me on <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div><hr></section><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2019%2fbottom-bar-swipe-flutter%2f&text=Bottom%20App%20Bar%20with%20Menu%20and%20Swipeable%20Tabs%20in%20Flutter&via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2019%2fbottom-bar-swipe-flutter%2f&title=Bottom%20App%20Bar%20with%20Menu%20and%20Swipeable%20Tabs%20in%20Flutter" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2019%2fbottom-bar-swipe-flutter%2f&title=Bottom%20App%20Bar%20with%20Menu%20and%20Swipeable%20Tabs%20in%20Flutter" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/ class=prev rel=prev title="A journey from Async Task to Kotlin Coroutines"><i class="fas fa-angle-left fa-fw"></i>A journey from Async Task to Kotlin Coroutines</a>
+<a href=https://www.marcogomiero.com/posts/2019/publish-librery-android/ class=next rel=next title="How to publish and distribute your Android library">How to publish and distribute your Android library<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>

@@ -1,0 +1,451 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Software Engineer · Google Developer Expert for Kotlin"><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><link rel=prev href=https://www.marcogomiero.com/posts/2020/my-2cents-cross-platform/><link rel=next href=https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/><link rel=canonical href=https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary"><meta name=twitter:title content="Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"><meta name=twitter:description content="Recently, I&rsquo;ve started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I&rsquo;ve thought and designed it almost a year ago but only now I&rsquo;ve found the time to start writing actual code.
+ A first design iteration, that will change a bit
+  I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app."><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2020\/kmm-shared-app-architecture\/"},"genre":"posts","wordcount":1789,"url":"https:\/\/www.marcogomiero.com\/posts\/2020\/kmm-shared-app-architecture\/","datePublished":"2020-10-23T00:00:00\u002b00:00","dateModified":"2020-10-23T00:00:00\u002b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class=post-warp><h1 class=post-title>Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime="23 Oct 2020">23 Oct 2020</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>about 1789 words&nbsp;
+<i class="far fa-clock fa-fw"></i>9 min&nbsp;</div></div><br><div class=post-content><div id=banner style=overflow:hidden;justify-content:space-around><div style=display:inline-block;margin-right:10px><a href=https://androidweekly.net/issues/issue-437><img style=margin:0 src=https://androidweekly.net/issues/issue-437/badge></a></div><div style=display:inline-block><img style=margin:0 src=https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4></div></div><p>Recently, I&rsquo;ve started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I&rsquo;ve thought and designed it almost a year ago but only now I&rsquo;ve found the time to start writing actual code.</p><figure><a href=/img/kmm-app-arch/app-design.png><img src=/img/kmm-app-arch/app-design.png alt="A first design iteration, that will change a bit"></a><figcaption><p>A first design iteration, that will change a bit</p></figcaption></figure><p>I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app. Money Flow will be an Android, iOS and MacOS application with a common business logic written in Kotlin. I’ve decided to use the new declarative way to handle UI: Jetpack Compose for Android (still in alpha at the time I’m writing this article) and SwiftUI for iOS/MacOS (that is officially stable, but still causes some headaches in big projects — I’ll probably write about my experience soon).</p><p>So, after setting up the project, I started thinking about the architecture of the Home Screen.</p><blockquote><p>This article will be a sort of journal that describes all the decisions and the thoughts that I’ve made to come up with a solution that satisfies me. In this way, I want to be helpful to all the people that are in this decision process.</p></blockquote><p>In the first place, I’ve thought to go with an MVVM approach, with a platform-specific ViewModel defined in the native part. But I wanted to share as much code as possible so I’ve decided to switch to an MVP architecture with Model, (abstract) View and Presenter all defined in the common code.</p><p>The Model is a sealed class that contains the different states: a loading state, an error state and a “success state” with all the info needed to render the HomeScreen.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>sealed</span> <span class=k>class</span> <span class=nc>HomeModel</span> <span class=p>{</span>
+    <span class=k>object</span> <span class=nc>Loading</span><span class=p>:</span> <span class=n>HomeModel</span><span class=p>()</span>
+    <span class=k>data</span> <span class=k>class</span> <span class=nc>Error</span><span class=p>(</span><span class=k>val</span> <span class=py>message</span><span class=p>:</span> <span class=n>String</span><span class=p>):</span> <span class=n>HomeModel</span><span class=p>()</span>
+    <span class=k>data</span> <span class=k>class</span> <span class=nc>HomeState</span><span class=p>(</span><span class=k>val</span> <span class=py>balanceRecap</span><span class=p>:</span> <span class=n>BalanceRecap</span><span class=p>,</span> <span class=k>val</span> <span class=py>latestTransactions</span><span class=p>:</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>Transaction</span><span class=p>&gt;):</span> <span class=n>HomeModel</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=k>data</span> <span class=k>class</span> <span class=nc>BalanceRecap</span><span class=p>(</span>
+    <span class=k>val</span> <span class=py>totalBalance</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>monthlyIncome</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>monthlyExpenses</span><span class=p>:</span> <span class=n>Int</span>
+<span class=p>)</span>
+
+<span class=k>data</span> <span class=k>class</span> <span class=nc>Transaction</span><span class=p>(</span>
+    <span class=k>val</span> <span class=py>id</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>title</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>amount</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>type</span><span class=p>:</span> <span class=n>TransactionType</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>formattedDate</span><span class=p>:</span> <span class=n>String</span>
+<span class=p>)</span>
+
+<span class=k>enum</span> <span class=k>class</span> <span class=nc>TransactionType</span> <span class=p>{</span>
+    <span class=n>INCOME</span><span class=p>,</span>
+    <span class=n>EXPENSE</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>The View is pretty basic, with just a method that receives the data and renders it:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>HomeView</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>presentData</span><span class=p>(</span><span class=n>homeModel</span><span class=p>:</span> <span class=n>HomeModel</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>And finally, the Presenter that instead is a little bit more complicated:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>HomePresenter</span><span class=p>(</span>
+    <span class=k>private</span> <span class=k>val</span> <span class=py>moneyRepository</span><span class=p>:</span> <span class=n>MoneyRepository</span><span class=p>,</span>
+    <span class=c1>// A default state only for iOS
+</span><span class=c1></span>    <span class=k>private</span> <span class=k>val</span> <span class=py>coroutineScope</span><span class=p>:</span> <span class=n>CoroutineScope</span> <span class=p>=</span> <span class=n>MainScope</span><span class=p>()</span> 
+<span class=p>)</span> <span class=p>:</span> <span class=n>BasePresenter</span><span class=p>&lt;</span><span class=n>HomeView</span><span class=p>&gt;()</span> <span class=p>{</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>onViewAttached</span><span class=p>(</span><span class=n>view</span><span class=p>:</span> <span class=n>HomeView</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>super</span><span class=p>.</span><span class=n>onViewAttached</span><span class=p>(</span><span class=n>view</span><span class=p>)</span>
+        <span class=n>computeHomeData</span><span class=p>()</span>
+    <span class=p>}</span>
+
+    <span class=k>internal</span> <span class=k>fun</span> <span class=nf>computeHomeData</span><span class=p>(</span><span class=n>view</span><span class=p>:</span> <span class=n>HomeView</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>latestTransactionFlow</span> <span class=p>=</span> <span class=n>moneyRepository</span><span class=p>.</span><span class=n>getLatestTransactions</span><span class=p>()</span>
+        <span class=k>val</span> <span class=py>balanceRecapFlow</span> <span class=p>=</span> <span class=n>moneyRepository</span><span class=p>.</span><span class=n>getBalanceRecap</span><span class=p>()</span>
+        <span class=n>coroutineScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span>
+            <span class=n>latestTransactionFlow</span><span class=p>.</span><span class=n>combine</span><span class=p>(</span><span class=n>balanceRecapFlow</span><span class=p>)</span> <span class=p>{</span> <span class=n>transactions</span><span class=p>:</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>Transaction</span><span class=p>&gt;,</span> <span class=n>balanceRecap</span><span class=p>:</span> <span class=n>BalanceRecap</span> <span class=p>-&gt;</span>
+                <span class=n>HomeModel</span><span class=p>.</span><span class=n>HomeState</span><span class=p>(</span>
+                    <span class=n>balanceRecap</span> <span class=p>=</span> <span class=n>balanceRecap</span><span class=p>,</span>
+                    <span class=n>latestTransactions</span> <span class=p>=</span> <span class=n>transactions</span>
+                <span class=p>)</span>
+            <span class=p>}.</span><span class=n>collect</span> <span class=p>{</span> <span class=n>homeModel</span> <span class=p>-&gt;</span>
+                <span class=n>view</span><span class=p>.</span><span class=n>presentData</span><span class=p>(</span><span class=n>it</span><span class=p>)</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>onViewDetached</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>super</span><span class=p>.</span><span class=n>onViewDetached</span><span class=p>()</span>
+        <span class=n>coroutineScope</span><span class=p>.</span><span class=n>cancel</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table></div></div><p>The presenter receives in the constructor the dependencies that it needs plus a <em>CoroutineScope</em> that for Android is provided by the native side. On iOS, instead, the scope is initialized by default (because we can’t define a scope from Swift code).
+A CoroutineScope is necessary because the data come from the repository as <code>Flow</code> (<a href=https://kotlinlang.org/docs/reference/coroutines/flow.html>here</a> for more info about Kotlin Flow) and any ongoing operation has to be canceled when the view is destroyed.</p><p>Then, I moved to the Android side to develop the HomeScreen:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>MainActivity</span> <span class=p>:</span> <span class=n>AppCompatActivity</span><span class=p>(),</span> <span class=n>HomeView</span> <span class=p>{</span>
+
+    <span class=k>private</span> <span class=k>val</span> <span class=py>presenter</span> <span class=k>by</span> <span class=n>scoped</span> <span class=p>{</span> <span class=n>HomePresenter</span><span class=p>(</span><span class=n>MoneyRepositoryFake</span><span class=p>())</span> <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>onCreate</span><span class=p>(</span><span class=n>savedInstanceState</span><span class=p>:</span> <span class=n>Bundle</span><span class=p>?)</span> <span class=p>{</span>
+        <span class=k>super</span><span class=p>.</span><span class=n>onCreate</span><span class=p>(</span><span class=n>savedInstanceState</span><span class=p>)</span>
+
+        <span class=n>presenter</span><span class=p>.</span><span class=n>attachView</span><span class=p>(</span><span class=k>this</span><span class=p>)</span>
+
+        <span class=n>setContent</span> <span class=p>{</span>
+            <span class=n>MoneyFlowTheme</span> <span class=p>{</span>
+                <span class=n>HomeScreen</span><span class=p>()</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>onDestroy</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>presenter</span><span class=p>.</span><span class=n>detachView</span><span class=p>()</span>
+        <span class=k>super</span><span class=p>.</span><span class=n>onDestroy</span><span class=p>()</span>
+    <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>presentData</span><span class=p>(</span><span class=n>homeModel</span><span class=p>:</span> <span class=n>HomeModel</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>Timber</span><span class=p>.</span><span class=n>d</span><span class=p>(</span><span class=n>homeModel</span><span class=p>)</span>
+        <span class=n>TODO</span><span class=p>(</span><span class=s>&#34;Not yet implemented&#34;</span><span class=p>)</span>
+        <span class=c1>// Send data to the HomeScreen. Maybe with a flow? Live data?
+</span><span class=c1></span>    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>I’m sure that right now you are wondering what <code>by scoped</code> is. Well, this is a solution suggested by <a href=https://ryanharter.com/blog/2020/03/easy-android-scopes/>Ryan Harter</a> to treat a Presenter like an [Android] ViewModel and make it survive to configuration changes.</p><p>And now it’s time for <del>iOS</del> problems. In fact, with SwiftUI the UI is defined with <code>struct</code>&mldr;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>import</span> <span class=nc>SwiftUI</span>
+<span class=kd>import</span> <span class=nc>shared</span>
+
+<span class=kd>struct</span> <span class=nc>HomeScreen</span><span class=p>:</span> <span class=n>View</span><span class=p>,</span> <span class=n>HomeView</span> <span class=p>{</span>
+    
+    <span class=kd>var</span> <span class=nv>body</span><span class=p>:</span> <span class=n>some</span> <span class=n>View</span> <span class=p>{</span>
+        <span class=p>...</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>&mldr;and a non-class type (like a struct, <code>HomeScreen</code> in this case) cannot conform to protocols (read interface if you come from a JVM world), in this case <code>HomeView</code>.</p><figure><img src=/img/kmm-app-arch/xcode-error-view.png></figure><p>So going with MVP was a failure (with this approach — If you have found other ways, I’ll be more than glad to hear them). That’s why I’ve decided to switch back to an MVVM architecture. But, as I said before, my goal is to share as much code as possible, so I don’t want to create two different platform-specific ViewModels that access directly the <code>MoneyRepository</code> to make the exact same transformations. Plus, I need to be able to use a CoroutineScope to cancel any ongoing processing when the view is destroyed, and if I access directly the <code>MoneyRepository</code> from an iOS ViewModel I won’t be able to do that.</p><p>Given that circumstances, I’ve decided to use a sort of “shared middleware actor” that prepares and serves the data for the UI. And that actor, that I will call <code>UseCase</code>, will be used by the native ViewModels. Of course, this is not a new thing, I’ve borrowed the concept from <a href=https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html>Clean Architecture</a>. In this way, the only task that the ViewModel has to do is to serve to the UI the data that come from the UseCase. And by using such architecture, the ViewModel can use platform-specific code to better handle and respect the lifecycles of the target platform.</p><p>So I wrote a UseCase, that looks like that:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>interface</span> <span class=nc>HomeUseCase</span> <span class=p>{</span>
+    <span class=k>fun</span> <span class=nf>observeHomeModel</span><span class=p>():</span> <span class=n>StateFlow</span><span class=p>&lt;</span><span class=n>HomeModel</span><span class=p>&gt;</span>
+    <span class=k>fun</span> <span class=nf>computeData</span><span class=p>()</span>
+    <span class=k>suspend</span> <span class=k>fun</span> <span class=nf>computeHomeDataSuspendable</span><span class=p>()</span>
+<span class=p>}</span>
+
+<span class=k>class</span> <span class=nc>HomeUseCaseImpl</span><span class=p>(</span>
+    <span class=k>private</span> <span class=k>val</span> <span class=py>moneyRepository</span><span class=p>:</span> <span class=n>MoneyRepository</span><span class=p>,</span>
+    <span class=c1>// That&#39;s only for iOs
+</span><span class=c1></span>    <span class=k>private</span> <span class=k>val</span> <span class=py>viewUpdate</span><span class=p>:</span> <span class=p>((</span><span class=n>HomeModel</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=n>Unit</span><span class=p>)?</span> <span class=p>=</span> <span class=k>null</span><span class=p>,</span>
+<span class=p>):</span> <span class=n>HomeUseCase</span> <span class=p>{</span>
+
+    <span class=c1>// Used only on iOs
+</span><span class=c1></span>    <span class=k>private</span> <span class=k>val</span> <span class=py>coroutineScope</span><span class=p>:</span> <span class=n>CoroutineScope</span> <span class=p>=</span> <span class=n>MainScope</span><span class=p>()</span>
+
+    <span class=k>private</span> <span class=k>val</span> <span class=py>homeModel</span> <span class=p>=</span> <span class=n>MutableStateFlow</span><span class=p>&lt;</span><span class=n>HomeModel</span><span class=p>&gt;(</span><span class=n>HomeModel</span><span class=p>.</span><span class=n>Loading</span><span class=p>)</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>observeHomeModel</span><span class=p>():</span> <span class=n>StateFlow</span><span class=p>&lt;</span><span class=n>HomeModel</span><span class=p>&gt;</span> <span class=p>=</span> <span class=n>homeModel</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>computeData</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>coroutineScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span>
+            <span class=n>computeHomeDataSuspendable</span><span class=p>()</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=k>override</span> <span class=k>suspend</span> <span class=k>fun</span> <span class=nf>computeHomeDataSuspendable</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>latestTransactionFlow</span> <span class=p>=</span> <span class=n>moneyRepository</span><span class=p>.</span><span class=n>getLatestTransactions</span><span class=p>()</span>
+        <span class=k>val</span> <span class=py>balanceRecapFlow</span> <span class=p>=</span> <span class=n>moneyRepository</span><span class=p>.</span><span class=n>getBalanceRecap</span><span class=p>()</span>
+
+        <span class=n>latestTransactionFlow</span><span class=p>.</span><span class=n>combine</span><span class=p>(</span><span class=n>balanceRecapFlow</span><span class=p>)</span> <span class=p>{</span> <span class=n>transactions</span><span class=p>:</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>Transaction</span><span class=p>&gt;,</span> <span class=n>balanceRecap</span><span class=p>:</span> <span class=n>BalanceRecap</span> <span class=p>-&gt;</span>
+            <span class=n>HomeModel</span><span class=p>.</span><span class=n>HomeState</span><span class=p>(</span>
+                <span class=n>balanceRecap</span> <span class=p>=</span> <span class=n>balanceRecap</span><span class=p>,</span>
+                <span class=n>latestTransactions</span> <span class=p>=</span> <span class=n>transactions</span>
+            <span class=p>)</span>
+        <span class=p>}.</span><span class=k>catch</span> <span class=p>{</span> <span class=n>cause</span><span class=p>:</span> <span class=n>Throwable</span> <span class=p>-&gt;</span>
+            <span class=k>val</span> <span class=py>error</span> <span class=p>=</span> <span class=n>HomeModel</span><span class=p>.</span><span class=n>Error</span><span class=p>(</span><span class=s>&#34;Something wrong&#34;</span><span class=p>)</span>
+            <span class=n>homeModel</span><span class=p>.</span><span class=n>value</span> <span class=p>=</span> <span class=n>error</span>
+            <span class=n>viewUpdate</span><span class=o>?.</span><span class=n>invoke</span><span class=p>(</span><span class=n>error</span><span class=p>)</span>
+        <span class=p>}.</span><span class=n>collect</span> <span class=p>{</span>
+            <span class=n>homeModel</span><span class=p>.</span><span class=n>value</span> <span class=p>=</span> <span class=n>it</span>
+            <span class=n>viewUpdate</span><span class=o>?.</span><span class=n>invoke</span><span class=p>(</span><span class=n>it</span><span class=p>)</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=c1>// iOs only
+</span><span class=c1></span>    <span class=k>fun</span> <span class=nf>onDestroy</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>coroutineScope</span><span class=p>.</span><span class=n>cancel</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>As you may have already noticed, there is some “duplicated” stuff in the class. And that’s because some different behavior between Android and iOS must be covered.
+On <strong>Android</strong>, I use a suspendable function and a <code>Flow</code> to process the data and observe the changes. The native part (i.e., the Android ViewModel) can call the <code>computeHomeDataSuspendable</code> function in a specific CoroutineScope (that ideally will be the <code>viewModelScope</code>) and observe the changes with the <code>homeModel</code> flow.
+On <strong>iOS</strong> instead, a Flow cannot be directly observed and plus, the cancellation of the data observed from the <code>MoneyRepository</code> must be handled manually. For the former problem, a simple callback can be used. This callback is provided in the constructor (that by default is null and it will be defined only on iOs) and will be called (only if it is not null, of course!) when collecting the data from the two flows. The latter problem instead, can be solved (similarly to what I’ve done before in the Presenter) by using a default CoroutineScope and two methods: one to start to get the data and one to cancel the entire process. The <code>computeData</code> method will call the <code>computeHomeDataSuspendable</code> method on a specific CoroutineScope that can be canceled with the <code>onDestroy</code> method.</p><p>And that’s it for the shared code. Now the dots can be connected in the native part.
+For Android, I’ve used a simple Android ViewModel that starts observing the data when initialized, collect the flow and update a LiveData.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>class</span> <span class=nc>HomeViewModel</span><span class=p>(</span>
+   <span class=k>private</span> <span class=k>val</span> <span class=py>useCase</span><span class=p>:</span> <span class=n>HomeUseCase</span>
+<span class=p>)</span> <span class=p>:</span> <span class=n>ViewModel</span><span class=p>()</span> <span class=p>{</span>
+
+    <span class=k>private</span> <span class=k>val</span> <span class=py>_homeLiveData</span> <span class=p>=</span> <span class=n>MutableLiveData</span><span class=p>&lt;</span><span class=n>HomeModel</span><span class=p>&gt;()</span>
+    <span class=k>val</span> <span class=py>homeLiveData</span><span class=p>:</span> <span class=n>LiveData</span><span class=p>&lt;</span><span class=n>HomeModel</span><span class=p>&gt;</span>
+        <span class=k>get</span><span class=p>()</span> <span class=p>=</span> <span class=n>_homeLiveData</span>
+
+    <span class=n>init</span> <span class=p>{</span>
+        <span class=n>observeHomeModel</span><span class=p>()</span>
+        <span class=n>viewModelScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span>
+            <span class=n>useCase</span><span class=p>.</span><span class=n>computeHomeDataSuspendable</span><span class=p>()</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=k>private</span> <span class=k>fun</span> <span class=nf>observeHomeModel</span><span class=p>()</span> <span class=p>{</span>
+        <span class=n>viewModelScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span>
+            <span class=n>useCase</span><span class=p>.</span><span class=n>observeHomeModel</span><span class=p>().</span><span class=n>collect</span> <span class=p>{</span>
+                <span class=n>_homeLiveData</span><span class=p>.</span><span class=n>postValue</span><span class=p>(</span><span class=n>it</span><span class=p>)</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Then in the UI, I can observe the LiveData and update the UI accordingly.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin>
+<span class=n>@Composable</span>
+<span class=k>fun</span> <span class=nf>HomeScreen</span><span class=p>()</span> <span class=p>{</span>
+
+    <span class=k>val</span> <span class=py>viewModel</span><span class=p>:</span> <span class=n>HomeViewModel</span> <span class=p>=</span> <span class=n>viewModel</span><span class=p>()</span>
+
+    <span class=k>val</span> <span class=py>homeModel</span> <span class=k>by</span> <span class=n>viewModel</span><span class=p>.</span><span class=n>homeLiveData</span><span class=p>.</span><span class=n>observeAsState</span><span class=p>()</span>
+
+    <span class=n>Scaffold</span><span class=p>(</span>
+        <span class=p>...</span>
+    <span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>On iOS instead, the ViewModel is an <code>ObservableObject</code> that exposes the HomeModel as a <code>Published</code> object (an equivalent to the LiveData).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>import</span> <span class=nc>shared</span>
+
+<span class=kd>class</span> <span class=nc>HomeViewModel</span><span class=p>:</span> <span class=n>ObservableObject</span> <span class=p>{</span>
+    
+    <span class=p>@</span><span class=n>Published</span> <span class=kd>var</span> <span class=nv>homeModel</span><span class=p>:</span> <span class=n>HomeModel</span> <span class=p>=</span> <span class=n>HomeModel</span><span class=p>.</span><span class=n>Loading</span><span class=p>()</span>
+    
+    <span class=kr>lazy</span> <span class=kd>var</span> <span class=nv>useCase</span> <span class=p>=</span> <span class=n>HomeUseCaseImpl</span><span class=p>(</span><span class=n>moneyRepository</span><span class=p>:</span> <span class=n>MoneyRepositoryFake</span><span class=p>(),</span> <span class=n>viewUpdate</span><span class=p>:</span> <span class=p>{</span> <span class=p>[</span><span class=kr>weak</span> <span class=kc>self</span><span class=p>]</span> <span class=n>model</span> <span class=k>in</span>
+        <span class=kc>self</span><span class=p>?.</span><span class=n>homeModel</span> <span class=p>=</span> <span class=n>model</span>
+    <span class=p>})</span>
+    
+    <span class=kd>func</span> <span class=nf>startObserving</span><span class=p>()</span> <span class=p>{</span>
+        <span class=kc>self</span><span class=p>.</span><span class=n>useCase</span><span class=p>.</span><span class=n>computeData</span><span class=p>()</span>
+    <span class=p>}</span>
+    
+    <span class=kd>func</span> <span class=nf>stopObserving</span><span class=p>()</span> <span class=p>{</span>
+        <span class=kc>self</span><span class=p>.</span><span class=n>useCase</span><span class=p>.</span><span class=n>onDestroy</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>In this case, the observation of the data is not started automatically, but there are two methods, one to start observing and one to cancel the observation.</p><p>The iOS screen will look like that:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>import</span> <span class=nc>SwiftUI</span>
+<span class=kd>import</span> <span class=nc>shared</span>
+
+<span class=kd>struct</span> <span class=nc>HomeScreen</span><span class=p>:</span> <span class=n>View</span> <span class=p>{</span>
+    
+    <span class=p>@</span><span class=n>ObservedObject</span> <span class=kd>var</span> <span class=nv>viewModel</span><span class=p>:</span> <span class=n>HomeViewModel</span> <span class=p>=</span> <span class=n>HomeViewModel</span><span class=p>()</span>
+    
+    <span class=kd>var</span> <span class=nv>body</span><span class=p>:</span> <span class=n>some</span> <span class=n>View</span> <span class=p>{</span>
+        
+        <span class=n>NavigationView</span> <span class=p>{</span>
+            <span class=p>...</span>
+        <span class=p>}</span>
+        <span class=p>.</span><span class=n>onAppear</span> <span class=p>{</span>
+            <span class=kc>self</span><span class=p>.</span><span class=n>viewModel</span><span class=p>.</span><span class=n>startObserving</span><span class=p>()</span>
+        <span class=p>}.</span><span class=n>onDisappear</span> <span class=p>{</span>
+            <span class=kc>self</span><span class=p>.</span><span class=n>viewModel</span><span class=p>.</span><span class=n>stopObserving</span><span class=p>()</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>And that’s it!</p><figure><img src=/img/kmm-app-arch/what-to-do.gif></figure><p>If you want to give a look at the entire code mentioned in this article, you can give a look to
+<a href=https://github.com/prof18/MoneyFlow/tree/4b628cce71ad145c464b2d3d4100c131cd37fbdc>Github</a> (Be aware that the project is still in its early stages of development, so things can be &ldquo;ugly&rdquo; and can heavily change).</p><p>In this way, I have the majority of the business logic shared, with a “slim” ViewModel that is necessary to respect the different needs of the different platforms.</p><p style=font-size:12px>// Thanks to <a href=https://giansegato.com/>Gian</a> for helping me review the post</p></div><section style=width:90%;margin-left:auto;margin-right:auto;margin-top:30px;margin-bottom:30px><hr><div style=padding:25px><div class=post-content>To stay up to date with my writing and my projects, follow me on <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div><hr></section><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2020%2fkmm-shared-app-architecture%2f&text=Choosing%20the%20right%20architecture%20for%20a%20%5bnew%5d%20Kotlin%20Multiplatform%2c%20Jetpack%20Compose%20and%20SwiftUI%20app&via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2020%2fkmm-shared-app-architecture%2f&title=Choosing%20the%20right%20architecture%20for%20a%20%5bnew%5d%20Kotlin%20Multiplatform%2c%20Jetpack%20Compose%20and%20SwiftUI%20app" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2020%2fkmm-shared-app-architecture%2f&title=Choosing%20the%20right%20architecture%20for%20a%20%5bnew%5d%20Kotlin%20Multiplatform%2c%20Jetpack%20Compose%20and%20SwiftUI%20app" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2020/my-2cents-cross-platform/ class=prev rel=prev title="My 2 Cents about cross-platform"><i class="fas fa-angle-left fa-fw"></i>My 2 Cents about cross-platform</a>
+<a href=https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/ class=next rel=next title="Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform">Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>

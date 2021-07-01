@@ -1,0 +1,290 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Software Engineer · Google Developer Expert for Kotlin"><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><link rel=prev href=https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/><link rel=next href=https://www.marcogomiero.com/posts/2021/running-blog-ipad/><link rel=canonical href=https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary"><meta name=twitter:title content="Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform"><meta name=twitter:description content="If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with Ktor. But if you don’t want to share the entire network layer but maybe only the DTOs? There could be many reasons for wanting this. Maybe you are starting to integrate Kotlin Multiplatform (I’ll call it KMP in the rest of the article) into an existing project and the work for sharing the entire network layer is simply too much."><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2020\/kotlin-serialization-alamofire\/"},"genre":"posts","wordcount":1424,"url":"https:\/\/www.marcogomiero.com\/posts\/2020\/kotlin-serialization-alamofire\/","datePublished":"2020-12-10T00:00:00\u002b00:00","dateModified":"2020-12-10T00:00:00\u002b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class=post-warp><h1 class=post-title>Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime="10 Dec 2020">10 Dec 2020</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>about 1424 words&nbsp;
+<i class="far fa-clock fa-fw"></i>7 min&nbsp;</div></div><br><div class=post-content><div id=banner style=overflow:hidden;justify-content:space-around><div style=display:inline-block;margin-right:10px><a href=https://androidweekly.net/issues/issue-444><img style=margin:0 src=https://androidweekly.net/issues/issue-444/badge></a></div><div style=display:inline-block><a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=fc5413f3eb"><img style=margin:0 src=https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4></a></div></div><p>If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with <a href=https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html>Ktor</a>. But if you don’t want to share the entire network layer but maybe only the DTOs?
+There could be many reasons for wanting this. Maybe you are starting to integrate Kotlin Multiplatform (I’ll call it KMP in the rest of the article) into an existing project and the work for sharing the entire network layer is simply too much.</p><p>And this was the case for the project that I’m working on. We decided to start integrating KMP and we thought that the perfect target to start with is the DTOs. Because in this way we can define a single source of truth and share it on the backend and the mobile clients. But how to start using KMP in an existing project, is a topic for another article, so stay tuned!</p><p>In this article, I will show you how to implement a Kotlin Multiplatform Mobile application that performs a network call on the native side with Retrofit (on Android) and Alamofire (on iOs) but the DTOs are defined on KMP side as well as the information about deserialization. And for the deserialization, I will use (of course) the <a href=https://github.com/Kotlin/kotlinx.serialization>Kotlin Serialization library</a>.</p><a class=post-dummy-target id=api></a><h2>API</h2><p>For this example I will use the <a href=https://www.boredapi.com/>Bored Api</a> that returns this kind of response:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;activity&#34;</span><span class=p>:</span> <span class=s2>&#34;Learn the NATO phonetic alphabet&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;education&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;participants&#34;</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span>
+  <span class=nt>&#34;price&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+  <span class=nt>&#34;link&#34;</span><span class=p>:</span> <span class=s2>&#34;https://en.wikipedia.org/wiki/NATO_phonetic_alphabet&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;key&#34;</span><span class=p>:</span> <span class=s2>&#34;6706598&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;accessibility&#34;</span><span class=p>:</span> <span class=mi>0</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>And this response can be mapped to a simple data class:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>@Serializable</span>
+<span class=k>data</span> <span class=k>class</span> <span class=nc>Activity</span><span class=p>(</span>
+    <span class=k>val</span> <span class=py>activity</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>type</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>participants</span><span class=p>:</span> <span class=n>Int</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>price</span><span class=p>:</span> <span class=n>Double</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>link</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>key</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
+    <span class=k>val</span> <span class=py>accessibility</span><span class=p>:</span> <span class=n>Double</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>And this data class is placed inside the shared KMP module.</p><a class=post-dummy-target id=android></a><h2>Android</h2><p>Now, let’s move to the Android side and I start with Android because things are simpler. In fact, you can use <a href=https://github.com/square/retrofit>Retrofit</a> and the <a href=https://github.com/JakeWharton/retrofit2-kotlinx-serialization-converter>Kotlin Serialization Converter</a>. All you need to do is add the <code>Converter Factory</code> for the Kotlin Serialization.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>Retrofit</span><span class=p>.</span><span class=n>Builder</span><span class=p>()</span>
+    <span class=p>.</span><span class=n>baseUrl</span><span class=p>(</span><span class=s>&#34;https://www.boredapi.com/api/&#34;</span><span class=p>)</span>
+    <span class=p>.</span><span class=n>addConverterFactory</span><span class=p>(</span><span class=n>Json</span><span class=p>.</span><span class=n>asConverterFactory</span><span class=p>(</span><span class=n>MediaType</span><span class=p>.</span><span class=k>get</span><span class=p>(</span><span class=s>&#34;application/json&#34;</span><span class=p>)))</span>
+    <span class=p>.</span><span class=n>build</span><span class=p>()</span>
+    <span class=p>.</span><span class=n>create</span><span class=p>(</span><span class=n>ActivityApiService</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=ios></a><h2>iOs</h2><p>On iOs the equivalent to Retrofit is <a href=https://github.com/Alamofire/Alamofire>Alamofire</a>. Alamofire let you easily handle the deserialization of the responses (and of course also the serialization of the requests) with the <code>Decodable</code> protocol (and <code>Encodable</code> - or <code>Codable</code> to support both <code>Encodable</code> and <code>Decodable</code> at the same time). For more information about <code>Codable</code>, I suggest you to look at the <a href=https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types>official documentation</a>.
+But unfortunately there is <a href=https://github.com/JetBrains/kotlin-native/issues/2978>no Codable support on Kotlin/Native</a> (maybe it will come with direct interoperability with Swift - <a href=https://kotlinlang.org/roadmap.html>Kotlin Roadmap</a>).</p><a class=post-dummy-target id=custom-response-deserialization-with-alamofire></a><h3>Custom Response Deserialization with Alamofire</h3><p>Fortunately, Alamofire gives the possibility to write <a href=https://github.com/Alamofire/Alamofire/blob/master/Documentation/AdvancedUsage.md#creating-a-custom-response-serializer>a custom response serializer</a>. The starting point is a <code>struct</code> that extends <code>ResponseSerializer</code>; this <code>struct</code> overrides the <code>serialize</code> method, which “does some magics” and returns the desired deserialized object, represented by the generic <code>T</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>struct</span> <span class=nc>CustomSerializer</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;:</span> <span class=n>ResponseSerializer</span> <span class=p>{</span>
+    <span class=kd>func</span> <span class=nf>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>URLRequest</span><span class=p>?,</span> <span class=n>response</span><span class=p>:</span> <span class=n>HTTPURLResponse</span><span class=p>?,</span> <span class=n>data</span><span class=p>:</span> <span class=n>Data</span><span class=p>?,</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>?)</span> <span class=kr>throws</span> <span class=p>-&gt;</span> <span class=n>T</span> <span class=p>{</span>
+        <span class=c1>// TODO</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Before performing the object deserialization, a string representation of the response must be computed. To do that, I will use the <code>StringResponseSerializer</code> provided by Alamofire.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>jsonString</span> <span class=p>=</span> <span class=k>try</span> <span class=n>StringResponseSerializer</span><span class=p>().</span><span class=n>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>:</span> <span class=n>response</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=n>data</span><span class=p>,</span> <span class=n>error</span><span class=p>:</span> <span class=n>error</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>And then, this string will be sent to a Kotlin helper function that performs the actual deserialization.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>deserializedObject</span> <span class=p>=</span> <span class=n>JsonDecoder</span><span class=p>().</span><span class=n>decodeFromString</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=err>“</span><span class=p>{}</span><span class=err>”</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>And at the end, the custom Alamofire deserializer will look something like this (with also a bit of error handling):</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>import</span> <span class=nc>Alamofire</span>
+<span class=kd>import</span> <span class=nc>shared</span>
+
+<span class=kd>struct</span> <span class=nc>CustomSerializer</span><span class=p>&lt;</span><span class=n>T</span><span class=p>&gt;:</span> <span class=n>ResponseSerializer</span> <span class=p>{</span>
+    <span class=kd>func</span> <span class=nf>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>URLRequest</span><span class=p>?,</span> <span class=n>response</span><span class=p>:</span> <span class=n>HTTPURLResponse</span><span class=p>?,</span> <span class=n>data</span><span class=p>:</span> <span class=n>Data</span><span class=p>?,</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>?)</span> <span class=kr>throws</span> <span class=p>-&gt;</span> <span class=n>T</span> <span class=p>{</span>
+        
+        <span class=k>guard</span> <span class=n>error</span> <span class=p>==</span> <span class=kc>nil</span> <span class=k>else</span> <span class=p>{</span> <span class=k>throw</span> <span class=n>error</span><span class=p>!</span> <span class=p>}</span>
+        
+        <span class=k>guard</span> <span class=kd>let</span> <span class=nv>data</span> <span class=p>=</span> <span class=n>data</span><span class=p>,</span> <span class=o>!</span><span class=n>data</span><span class=p>.</span><span class=bp>isEmpty</span> <span class=k>else</span> <span class=p>{</span>
+            <span class=k>guard</span> <span class=n>emptyResponseAllowed</span><span class=p>(</span><span class=n>forRequest</span><span class=p>:</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>:</span> <span class=n>response</span><span class=p>)</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=k>throw</span> <span class=n>AFError</span><span class=p>.</span><span class=n>responseSerializationFailed</span><span class=p>(</span><span class=n>reason</span><span class=p>:</span> <span class=p>.</span><span class=n>inputDataNilOrZeroLength</span><span class=p>)</span>
+            <span class=p>}</span>
+            
+            <span class=k>guard</span> <span class=kd>let</span> <span class=nv>emptyResponseType</span> <span class=p>=</span> <span class=n>T</span><span class=p>.</span><span class=kc>self</span> <span class=k>as</span><span class=p>?</span> <span class=n>EmptyResponse</span><span class=p>.</span><span class=kr>Type</span><span class=p>,</span> <span class=kd>let</span> <span class=nv>emptyValue</span> <span class=p>=</span> <span class=n>emptyResponseType</span><span class=p>.</span><span class=n>emptyValue</span><span class=p>()</span> <span class=k>as</span><span class=p>?</span> <span class=n>T</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=k>throw</span> <span class=n>AFError</span><span class=p>.</span><span class=n>responseSerializationFailed</span><span class=p>(</span><span class=n>reason</span><span class=p>:</span> <span class=p>.</span><span class=n>invalidEmptyResponse</span><span class=p>(</span><span class=n>type</span><span class=p>:</span> <span class=s>&#34;</span><span class=si>\(</span><span class=n>T</span><span class=p>.</span><span class=kc>self</span><span class=si>)</span><span class=s>&#34;</span><span class=p>))</span>
+            <span class=p>}</span>
+            <span class=k>return</span> <span class=n>emptyValue</span>
+        <span class=p>}</span>
+        
+        <span class=k>do</span> <span class=p>{</span>
+            <span class=kd>let</span> <span class=nv>jsonString</span> <span class=p>=</span> <span class=k>try</span> <span class=n>StringResponseSerializer</span><span class=p>().</span><span class=n>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>:</span> <span class=n>response</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=n>data</span><span class=p>,</span> <span class=n>error</span><span class=p>:</span> <span class=n>error</span><span class=p>)</span>
+            <span class=n>val</span> <span class=n>deserializedObject</span> <span class=p>=</span> <span class=n>JsonDecoder</span><span class=p>().</span><span class=n>decodeFromString</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=err>“</span><span class=p>{}</span><span class=err>”</span><span class=p>)</span>
+            <span class=k>return</span> <span class=n>deserializedObject</span>
+            
+        <span class=p>}</span> <span class=k>catch</span> <span class=p>{</span>
+            <span class=k>throw</span> <span class=n>AFError</span><span class=p>.</span><span class=n>responseSerializationFailed</span><span class=p>(</span><span class=n>reason</span><span class=p>:</span> <span class=p>.</span><span class=n>decodingFailed</span><span class=p>(</span><span class=n>error</span><span class=p>:</span> <span class=n>error</span><span class=p>))</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>And then, the ViewModel can make the network request using the custom serializer.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=n>AF</span><span class=p>.</span><span class=n>request</span><span class=p>(</span><span class=s>&#34;https://www.boredapi.com/api/activity&#34;</span><span class=p>)</span>
+    <span class=p>.</span><span class=n>response</span><span class=p>(</span><span class=n>responseSerializer</span><span class=p>:</span> <span class=n>CustomSerializer</span><span class=p>&lt;</span><span class=n>Activity</span><span class=p>&gt;())</span> <span class=p>{</span> <span class=n>response</span> <span class=k>in</span>
+    <span class=k>if</span> <span class=kd>let</span> <span class=nv>activity</span> <span class=p>=</span> <span class=n>response</span><span class=p>.</span><span class=n>value</span> <span class=p>{</span>
+        <span class=n>DispatchQueue</span><span class=p>.</span><span class=n>main</span><span class=p>.</span><span class=n>async</span> <span class=p>{</span>
+            <span class=kc>self</span><span class=p>.</span><span class=n>showLoading</span> <span class=p>=</span> <span class=kc>false</span>
+            <span class=kc>self</span><span class=p>.</span><span class=n>activityName</span> <span class=p>=</span> <span class=n>activity</span><span class=p>.</span><span class=n>activity</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><a class=post-dummy-target id=deserialization-on-kotlinnative></a><h3>Deserialization on Kotlin/Native</h3><p>Now let’s move back to KMP, and let’s implement the <code>decodeFromString</code> function mentioned above.</p><p>The first thing that popped into my mind is to use an <code>inline reified</code> function that works with generics (for more info about inline functions and reified parameters, give a look to the <a href=https://kotlinlang.org/docs/reference/inline-functions.html>Kotlin documentation</a>).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>object</span> <span class=nc>JsonDecoder</span> <span class=p>{</span>
+    <span class=n>@Throws</span><span class=p>(</span><span class=n>Exception</span><span class=o>::</span><span class=k>class</span><span class=p>)</span>
+    <span class=k>inline</span> <span class=k>fun</span> &lt;reified T&gt; <span class=nf>decodeFromString</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=n>String</span><span class=p>):</span> <span class=n>T</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>Json</span><span class=p>.</span><span class=n>decodeFromString</span><span class=p>(</span><span class=n>jsonString</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>But unfortunately, this approach does not work because Swift doesn’t have <code>inline</code> functions support.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>{
+    KotlinException = &#34;kotlin.IllegalStateException: unsupported call of reified inlined function `com.prof18.sharedserialization.shared.JsonDecoder.decodeFromString`&#34;;
+    KotlinExceptionOrigin = &#34;&#34;;
+    NSLocalizedDescription = &#34;unsupported call of reified inlined function  com.prof18.sharedserialization.shared.JsonDecoder.decodeFromString`&#34;;
+}
+</code></pre></td></tr></table></div></div><p>So, after a bit of exploring of the Kotlin Serialization documentation and sources, I’ve discovered that there is the possibility to get the serializer of a <code>KClass</code> (<code>KClass&lt;T>.serializer()</code>) and then pass it to the <code>decodeFromString</code> function.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>object</span> <span class=nc>JsonDecoder</span> <span class=p>{</span>
+    <span class=n>@InternalSerializationApi</span>
+    <span class=k>fun</span> <span class=nf>decodeFromString</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=n>objCClass</span><span class=p>:</span> <span class=n>ObjCClass</span><span class=p>):</span> <span class=n>Any</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>kClazz</span> <span class=p>=</span> <span class=n>getOriginalKotlinClass</span><span class=p>(</span><span class=n>objCClass</span><span class=p>)</span><span class=o>!!</span>
+        <span class=k>val</span> <span class=py>serializer</span> <span class=p>=</span> <span class=n>kClazz</span><span class=p>.</span><span class=n>serializer</span><span class=p>()</span>
+        <span class=k>return</span> <span class=n>Json</span><span class=p>.</span><span class=n>decodeFromString</span><span class=p>(</span><span class=n>serializer</span><span class=p>,</span> <span class=n>jsonString</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>This approach works! But unfortunately, the <code>KClass&lt;T>.serializer()</code> is an internal API. And (as stated <a href=https://github.com/Kotlin/kotlinx.serialization/blob/d24399eb388b0f45b7d55902d4563ded404dcf83/core/commonMain/src/kotlinx/serialization/Serializers.kt#L130>in the documentation</a>) it doesn&rsquo;t work with generic classes, lists, custom serializers, etc (I’ve opened an <a href=https://github.com/Kotlin/kotlinx.serialization/issues/1210>issue on GitHub</a> just to be sure).</p><p>So, given the limitations of using an internal API, I’ve decided to change (again!) approach. Since it is hard to create generic deserialization, it is better to specify the deserialization information for every DTO. To do that, I have defined an abstract class with an abstract deserialize method that every DTOs has to implement.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>abstract</span> <span class=k>class</span> <span class=nc>BaseResponseDTO</span> <span class=p>{</span>
+    <span class=n>@Throws</span><span class=p>(</span><span class=n>Exception</span><span class=o>::</span><span class=k>class</span><span class=p>)</span>
+    <span class=k>abstract</span> <span class=k>fun</span> <span class=nf>deserialize</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=n>String</span><span class=p>):</span> <span class=n>BaseResponseDTO</span>   
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>So, the <code>Activity</code> class defined above need to override the <code>deserialize</code> method.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>@Serializable</span>
+<span class=k>data</span> <span class=k>class</span> <span class=nc>Activity</span><span class=p>(</span>
+  <span class=p>...</span>
+<span class=p>)</span> <span class=p>:</span> <span class=n>BaseResponseDTO</span><span class=p>()</span> <span class=p>{</span>
+
+    <span class=k>override</span> <span class=k>fun</span> <span class=nf>deserialize</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=n>String</span><span class=p>):</span> <span class=n>Activity</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>activity</span><span class=p>:</span> <span class=n>Activity</span> <span class=p>=</span> <span class=n>Json</span><span class=p>.</span><span class=n>decodeFromString</span><span class=p>(</span><span class=n>jsonString</span><span class=p>)</span>
+        <span class=n>activity</span><span class=p>.</span><span class=n>freeze</span><span class=p>()</span>        
+        <span class=k>return</span> <span class=n>activity</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Now, some modifications must be made to the custom Alamofire deserializer. First of all, the accepted generic type is not <code>T</code> only, but <code>T</code> that inherits from <code>BaseResponseDTO</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>struct</span> <span class=nc>CustomSerializer</span><span class=p>&lt;</span><span class=n>T</span><span class=p>:</span> <span class=n>BaseResponseDTO</span><span class=p>&gt;:</span> <span class=n>ResponseSerializer</span> <span class=p>{</span>
+    <span class=kd>func</span> <span class=nf>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>URLRequest</span><span class=p>?,</span> <span class=n>response</span><span class=p>:</span> <span class=n>HTTPURLResponse</span><span class=p>?,</span> <span class=n>data</span><span class=p>:</span> <span class=n>Data</span><span class=p>?,</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>?)</span> <span class=kr>throws</span> <span class=p>-&gt;</span> <span class=n>T</span> <span class=p>{</span>
+        <span class=p>...</span>    
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>In this way, we can retrieve the serializer from the abstract class, deserialize the object and return it.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>let</span> <span class=nv>deserializedObject</span> <span class=p>=</span> <span class=k>try</span> <span class=n>T</span><span class=p>().</span><span class=n>deserialize</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=n>jsonString</span><span class=p>)</span> <span class=k>as</span><span class=p>!</span> <span class=n>T</span>
+</code></pre></td></tr></table></div></div><p>And finally, this works!</p><p>Here’s the full code of the updated serializer.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-swift data-lang=swift><span class=kd>import</span> <span class=nc>Alamofire</span>
+<span class=kd>import</span> <span class=nc>shared</span>
+
+<span class=kd>struct</span> <span class=nc>CustomSerializer</span><span class=p>&lt;</span><span class=n>T</span><span class=p>:</span> <span class=n>BaseResponseDTO</span><span class=p>&gt;:</span> <span class=n>ResponseSerializer</span> <span class=p>{</span>
+    <span class=kd>func</span> <span class=nf>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>URLRequest</span><span class=p>?,</span> <span class=n>response</span><span class=p>:</span> <span class=n>HTTPURLResponse</span><span class=p>?,</span> <span class=n>data</span><span class=p>:</span> <span class=n>Data</span><span class=p>?,</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>?)</span> <span class=kr>throws</span> <span class=p>-&gt;</span> <span class=n>T</span> <span class=p>{</span>
+        
+        <span class=k>guard</span> <span class=n>error</span> <span class=p>==</span> <span class=kc>nil</span> <span class=k>else</span> <span class=p>{</span> <span class=k>throw</span> <span class=n>error</span><span class=p>!</span> <span class=p>}</span>
+        
+        <span class=k>guard</span> <span class=kd>let</span> <span class=nv>data</span> <span class=p>=</span> <span class=n>data</span><span class=p>,</span> <span class=o>!</span><span class=n>data</span><span class=p>.</span><span class=bp>isEmpty</span> <span class=k>else</span> <span class=p>{</span>
+            <span class=k>guard</span> <span class=n>emptyResponseAllowed</span><span class=p>(</span><span class=n>forRequest</span><span class=p>:</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>:</span> <span class=n>response</span><span class=p>)</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=k>throw</span> <span class=n>AFError</span><span class=p>.</span><span class=n>responseSerializationFailed</span><span class=p>(</span><span class=n>reason</span><span class=p>:</span> <span class=p>.</span><span class=n>inputDataNilOrZeroLength</span><span class=p>)</span>
+            <span class=p>}</span>
+            
+            <span class=k>guard</span> <span class=kd>let</span> <span class=nv>emptyResponseType</span> <span class=p>=</span> <span class=n>T</span><span class=p>.</span><span class=kc>self</span> <span class=k>as</span><span class=p>?</span> <span class=n>EmptyResponse</span><span class=p>.</span><span class=kr>Type</span><span class=p>,</span> <span class=kd>let</span> <span class=nv>emptyValue</span> <span class=p>=</span> <span class=n>emptyResponseType</span><span class=p>.</span><span class=n>emptyValue</span><span class=p>()</span> <span class=k>as</span><span class=p>?</span> <span class=n>T</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=k>throw</span> <span class=n>AFError</span><span class=p>.</span><span class=n>responseSerializationFailed</span><span class=p>(</span><span class=n>reason</span><span class=p>:</span> <span class=p>.</span><span class=n>invalidEmptyResponse</span><span class=p>(</span><span class=n>type</span><span class=p>:</span> <span class=s>&#34;</span><span class=si>\(</span><span class=n>T</span><span class=p>.</span><span class=kc>self</span><span class=si>)</span><span class=s>&#34;</span><span class=p>))</span>
+            <span class=p>}</span>
+            <span class=k>return</span> <span class=n>emptyValue</span>
+        <span class=p>}</span>
+        
+        <span class=k>do</span> <span class=p>{</span>
+            <span class=kd>let</span> <span class=nv>jsonString</span> <span class=p>=</span> <span class=k>try</span> <span class=n>StringResponseSerializer</span><span class=p>().</span><span class=n>serialize</span><span class=p>(</span><span class=n>request</span><span class=p>:</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>:</span> <span class=n>response</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=n>data</span><span class=p>,</span> <span class=n>error</span><span class=p>:</span> <span class=n>error</span><span class=p>)</span>
+            <span class=kd>let</span> <span class=nv>deserializedObject</span> <span class=p>=</span> <span class=k>try</span> <span class=n>T</span><span class=p>().</span><span class=n>deserialize</span><span class=p>(</span><span class=n>jsonString</span><span class=p>:</span> <span class=n>jsonString</span><span class=p>)</span> <span class=k>as</span><span class=p>!</span> <span class=n>T</span>
+            <span class=n>deserializedObject</span><span class=p>.</span><span class=n>makeFrozen</span><span class=p>()</span>
+            <span class=k>return</span> <span class=n>deserializedObject</span>
+        <span class=p>}</span> <span class=k>catch</span> <span class=p>{</span>
+            <span class=k>throw</span> <span class=n>AFError</span><span class=p>.</span><span class=n>responseSerializationFailed</span><span class=p>(</span><span class=n>reason</span><span class=p>:</span> <span class=p>.</span><span class=n>decodingFailed</span><span class=p>(</span><span class=n>error</span><span class=p>:</span> <span class=n>error</span><span class=p>))</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>If you want to see all in action, I’ve published a little sample <a href=https://github.com/prof18/shared-deserialization>on my GitHub</a>.</p><p>In the end, the result is a bit more boilerplate than what I’ve expected but not so much. I think that the benefits of having the DTOs defined in one place for both the clients and the backend are way higher than the “burden” of writing a bunch of lines of code for every DTOs.</p></div><section style=width:90%;margin-left:auto;margin-right:auto;margin-top:30px;margin-bottom:30px><hr><div style=padding:25px><div class=post-content>To stay up to date with my writing and my projects, follow me on <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div><hr></section><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2020%2fkotlin-serialization-alamofire%2f&text=Using%20Retrofit%20and%20Alamofire%20with%20Kotlin%20Serialization%20on%20Kotlin%20Multiplatform&via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2020%2fkotlin-serialization-alamofire%2f&title=Using%20Retrofit%20and%20Alamofire%20with%20Kotlin%20Serialization%20on%20Kotlin%20Multiplatform" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2020%2fkotlin-serialization-alamofire%2f&title=Using%20Retrofit%20and%20Alamofire%20with%20Kotlin%20Serialization%20on%20Kotlin%20Multiplatform" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/ class=prev rel=prev title="Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"><i class="fas fa-angle-left fa-fw"></i>Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</a>
+<a href=https://www.marcogomiero.com/posts/2021/running-blog-ipad/ class=next rel=next title="Running a blog with iPad">Running a blog with iPad<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>

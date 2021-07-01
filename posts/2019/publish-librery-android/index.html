@@ -1,0 +1,256 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to publish and distribute your Android library | Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Software Engineer · Google Developer Expert for Kotlin"><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><link rel=prev href=https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/><link rel=next href=https://www.marcogomiero.com/posts/2019/note-conferences/><link rel=canonical href=https://www.marcogomiero.com/posts/2019/publish-librery-android/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo"><meta name=twitter:title content="How to publish and distribute your Android library"><meta name=twitter:description content="Update - February 2021 As you may have heard, JCenter is shutting down in May 2021.
+ Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
+https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+ So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter.
+I suggested you follow this guide written by Márton Braun.
+ Publishing Android libraries to MavenCentral in 2021 https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/
+ If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"How to publish and distribute your Android library","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2019\/publish-librery-android\/"},"genre":"posts","wordcount":1413,"url":"https:\/\/www.marcogomiero.com\/posts\/2019\/publish-librery-android\/","datePublished":"2019-05-28T00:00:00\u002b00:00","dateModified":"2019-05-28T00:00:00\u002b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin=anonymous><link rel=stylesheet href=/css/lib/animate/animate.min.min.css><script async defer src=https://buttons.github.io/buttons.js></script></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=navbar-container><div class=navbar-header><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=navbar-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><nav class=navbar-mobile><div class=navbar-container><div class=navbar-header><div class=navbar-header-title><a href=https://www.marcogomiero.com>Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://www.marcogomiero.com/posts>Posts</a>
+<a class=menu-item href=https://www.marcogomiero.com/talks>Talks</a>
+<a class=menu-item href=https://www.marcogomiero.com/projects/>Projects</a>
+<a class=menu-item href=https://www.marcogomiero.com/about-me/>About</a>
+<a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a></div></div></nav><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class=post-warp><h1 class=post-title>How to publish and distribute your Android library</h1><div class=post-meta><div class=post-meta-main><br></div><div class=post-meta-other><i class="far fa-calendar-alt fa-fw"></i><time datetime="28 May 2019">28 May 2019</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>about 1413 words&nbsp;
+<i class="far fa-clock fa-fw"></i>7 min&nbsp;</div></div><br><div class=post-content><a href=https://androidweekly.net/issues/issue-364><img style=margin:0 src=https://androidweekly.net/issues/issue-364/badge></a><br><a class=post-dummy-target id=update---february-2021></a><h2>Update - February 2021</h2><p>As you may have heard, JCenter is shutting down in May 2021.</p><blockquote><p>Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter<br><a href=https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/>https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/</a></p></blockquote><p>So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter.</p><p>I suggested you follow this guide written by Márton Braun.</p><blockquote><p>Publishing Android libraries to MavenCentral in 2021
+<a href=https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/>https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/</a></p></blockquote><p>If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:</p><blockquote><p>Migrating old artifacts from JCenter to MavenCentral
+<a href=https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/>https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/</a></p></blockquote><a class=post-dummy-target id=original-article></a><h2>Original Article:</h2><p>You have just built an awesome Android library but you don’t know how to publish it? You are in the right place; in this article, I will explain to you the process that I use to publish my two libraries.</p><p>First of all, let’s assume that you have already developed your Android library, so you have a library module in Android Studio.</p><figure><img src=/img/library/android-studio.png alt=image><figcaption><p><em>An example of a library module</em></p></figcaption></figure><p>The library will be published to *jCenter, *a Maven repository hosted by <a href=http://www.bintray.com>bintray.com</a>. The process is simple: the library is built locally in Android Studio, the artifacts will be upload to <em>bintray</em> and then linked to <em>jCenter.</em></p><figure><img src=/img/library/scheme.png alt=image></figure><p>In this way, the developers that want to use your library has only to declare it in the *build.gradle *file of their projects. For example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>implementation</span> <span class=s2>&#34;com.prof.rssparser:rssparser:2.0.4&#34;</span>
+</code></pre></td></tr></table></div></div><p>The first thing to do is to create a <a href=https://bintray.com/>Bintray</a> account and for open source projects is FREE.</p><figure><img src=/img/library/account.png alt=image><figcaption><p><em>Create a Bintray account</em></p></figcaption></figure><p>After the creation of the account, you have to choose a repository. Let’s go with Maven (I know, you are thinking “Why? I want to publish it to jCenter”. Well, as said above jCenter is a Maven repository so we have to choose Maven).</p><figure><img src=/img/library/profile.png alt=image><figcaption><p><em>Choose Maven as repository</em></p></figcaption></figure><p>Now you can create a new package inside your Maven repository.</p><figure><img src=/img/library/add-package.png alt=image><figcaption><p><em>Add a new package to the Maven repository</em></p></figcaption></figure><figure><img src=/img/library/create-package.png alt=image><figcaption><p><em>Add basic information of the library</em></p></figcaption></figure><p>After adding all the basic information of your library, like name, description, license, tags, etc., the repository of the library is ready.</p><figure><img src=/img/library/lib.png alt=image></figure><p>Now, back to the code. I’ll take as reference, a library that I’ve developed, so you can dive into the real code if you want.</p><blockquote><p><a href=https://github.com/prof18/RSS-Parser>prof18/RSS-Parser</a></p></blockquote><p>First of all, you have to add some dependencies into the <em>build.gradle</em> file of your project.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>classpath</span> <span class=s1>&#39;com.github.dcendents:android-maven-gradle-plugin:2.0&#39;</span>
+<span class=n>classpath</span> <span class=s1>&#39;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4&#39;</span>
+</code></pre></td></tr></table></div></div><hr><p><strong>EDIT</strong>: The <code>android-maven-gradle-plugin</code> has been deprecated and you have to change the plugin to generate the artifact if you are using Gradle 5 and above. The new plugin is the one developed by Sky-UK and you need to apply it on the publish.gradle file (more details about it later on).</p><blockquote><p><a href=https://github.com/sky-uk/gradle-maven-plugin>sky-uk/gradle-maven-plugin</a></p></blockquote><p>So we can get rid of the deprecated dependency:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>classpath</span> <span class=s1>&#39;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4&#39;</span>
+</code></pre></td></tr></table></div></div><hr><p>At this point, we are ready to create the publishing script. Inside the library project, create a <em>publish.gradle</em> file and apply it on the *build.gradle <em>file</em> *of your library.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>apply</span> <span class=nl>from:</span> <span class=s1>&#39;publish.gradle&#39;</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>apply</span> <span class=nl>plugin:</span> <span class=s1>&#39;maven-publish&#39;</span>
+<span class=n>apply</span> <span class=nl>plugin:</span> <span class=s1>&#39;com.jfrog.bintray&#39;</span>
+
+<span class=n>group</span> <span class=s1>&#39;com.your.awesome.lib&#39;</span>
+<span class=n>version</span> <span class=s1>&#39;1.0.0&#39;</span>
+
+<span class=n>publishing</span> <span class=o>{</span>
+    <span class=n>publications</span> <span class=o>{</span>
+        <span class=n>Production</span><span class=o>(</span><span class=n>MavenPublication</span><span class=o>)</span> <span class=o>{</span>
+            <span class=n>artifact</span><span class=o>(</span><span class=s2>&#34;$buildDir/outputs/aar/awesomelibrary-release.aar&#34;</span><span class=o>)</span>  <span class=o>{</span>
+                <span class=n>builtBy</span> <span class=n>tasks</span><span class=o>.</span><span class=na>getByName</span><span class=o>(</span><span class=s2>&#34;assembleRelease&#34;</span><span class=o>)</span>
+            <span class=o>}</span>
+            <span class=n>groupId</span>
+            <span class=n>artifactId</span> <span class=s1>&#39;awesomelibrary&#39;</span>
+            <span class=n>version</span> <span class=k>this</span><span class=o>.</span><span class=na>version</span>
+
+            <span class=n>pom</span><span class=o>.</span><span class=na>withXml</span> <span class=o>{</span>
+                <span class=kt>def</span> <span class=n>dependenciesNode</span> <span class=o>=</span> <span class=n>asNode</span><span class=o>().</span><span class=na>appendNode</span><span class=o>(</span><span class=s1>&#39;dependencies&#39;</span><span class=o>)</span>
+
+                <span class=c1>// Iterate over the implementation dependencies (we don&#39;t want the test ones), adding a &lt;dependency&gt; node for each
+</span><span class=c1></span>                <span class=n>configurations</span><span class=o>.</span><span class=na>implementation</span><span class=o>.</span><span class=na>allDependencies</span><span class=o>.</span><span class=na>each</span> <span class=o>{</span>
+                    <span class=c1>// Ensure dependencies such as fileTree are not included in the pom.
+</span><span class=c1></span>                    <span class=k>if</span> <span class=o>(</span><span class=n>it</span><span class=o>.</span><span class=na>name</span> <span class=o>!=</span> <span class=s1>&#39;unspecified&#39;</span><span class=o>)</span> <span class=o>{</span>
+                        <span class=kt>def</span> <span class=n>dependencyNode</span> <span class=o>=</span> <span class=n>dependenciesNode</span><span class=o>.</span><span class=na>appendNode</span><span class=o>(</span><span class=s1>&#39;dependency&#39;</span><span class=o>)</span>
+                        <span class=n>dependencyNode</span><span class=o>.</span><span class=na>appendNode</span><span class=o>(</span><span class=s1>&#39;groupId&#39;</span><span class=o>,</span> <span class=n>it</span><span class=o>.</span><span class=na>group</span><span class=o>)</span>
+                        <span class=n>dependencyNode</span><span class=o>.</span><span class=na>appendNode</span><span class=o>(</span><span class=s1>&#39;artifactId&#39;</span><span class=o>,</span> <span class=n>it</span><span class=o>.</span><span class=na>name</span><span class=o>)</span>
+                        <span class=n>dependencyNode</span><span class=o>.</span><span class=na>appendNode</span><span class=o>(</span><span class=s1>&#39;version&#39;</span><span class=o>,</span> <span class=n>it</span><span class=o>.</span><span class=na>version</span><span class=o>)</span>
+                    <span class=o>}</span>
+                <span class=o>}</span>
+            <span class=o>}</span>
+        <span class=o>}</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+
+<span class=kt>def</span> <span class=n>properties</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Properties</span><span class=o>()</span>
+<span class=n>properties</span><span class=o>.</span><span class=na>load</span><span class=o>(</span><span class=k>new</span> <span class=n>FileInputStream</span><span class=o>(</span><span class=s2>&#34;local.properties&#34;</span><span class=o>))</span>
+
+<span class=n>bintray</span> <span class=o>{</span>
+    <span class=n>user</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s2>&#34;bintray.user&#34;</span><span class=o>)</span>
+    <span class=n>key</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s2>&#34;bintray.apikey&#34;</span><span class=o>)</span>
+    <span class=n>publications</span> <span class=o>=</span> <span class=o>[</span><span class=s1>&#39;Production&#39;</span><span class=o>]</span>
+    <span class=n>configurations</span> <span class=o>=</span> <span class=o>[</span><span class=s1>&#39;archives&#39;</span><span class=o>]</span>
+    <span class=n>override</span> <span class=o>=</span> <span class=kc>true</span>
+    <span class=n>pkg</span> <span class=o>{</span>
+        <span class=n>repo</span> <span class=o>=</span> <span class=s1>&#39;maven&#39;</span>
+        <span class=n>name</span> <span class=o>=</span> <span class=s1>&#39;AwesomeLib&#39;</span>
+        <span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;It&#39;s an awesome lib&#34;</span>
+        <span class=n>publicDownloadNumbers</span> <span class=o>=</span> <span class=kc>true</span>
+        <span class=n>licenses</span> <span class=o>=</span> <span class=o>[</span><span class=s1>&#39;Apache-2.0&#39;</span><span class=o>]</span>
+        <span class=n>vcsUrl</span> <span class=o>=</span> <span class=s1>&#39;https://github.com/prof18/AwesomeLib&#39;</span>
+        <span class=n>version</span> <span class=o>{</span>
+            <span class=n>name</span> <span class=o>=</span> <span class=k>this</span><span class=o>.</span><span class=na>version</span>
+            <span class=n>desc</span> <span class=o>=</span> <span class=s2>&#34;Version ${this.version}&#34;</span>
+            <span class=n>released</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Date</span><span class=o>()</span>
+            <span class=n>vcsTag</span> <span class=o>=</span> <span class=k>this</span><span class=o>.</span><span class=na>version</span>
+        <span class=o>}</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><hr><p><strong>EDIT</strong>: Starting from Gradle 5 and above, the previous script is not valid anymore and you need to change it a little bit.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>apply</span> <span class=nl>plugin:</span> <span class=s1>&#39;com.jfrog.bintray&#39;</span>
+
+<span class=n>group</span> <span class=s1>&#39;com.your.awesome.lib&#39;</span>
+<span class=n>version</span> <span class=s1>&#39;1.0.0&#39;</span>
+
+<span class=n>project</span><span class=o>.</span><span class=na>ext</span> <span class=o>{</span>
+    <span class=n>mavGitUrl</span> <span class=o>=</span> <span class=s1>&#39;https://github.com/prof18/AwesomeLib.git&#39;</span>
+    <span class=n>mavProjectName</span> <span class=o>=</span> <span class=s1>&#39;AwesomeLib&#39;</span>
+    <span class=n>mavLibraryLicenses</span> <span class=o>=</span> <span class=o>[</span><span class=s2>&#34;Apache-2.0&#34;</span><span class=o>:</span><span class=s1>&#39;http://www.apache.org/licenses/LICENSE-2.0.txt&#39;</span><span class=o>]</span>
+    <span class=n>mavLibraryDescription</span> <span class=o>=</span> <span class=s2>&#34;An Awesome Android library&#34;</span>
+    <span class=n>mavPublishToMavenLocal</span> <span class=o>=</span> <span class=kc>true</span>
+    <span class=n>mavSiteUrl</span> <span class=o>=</span> <span class=s1>&#39;https://github.com/prof18/AwesomeLib&#39;</span>
+<span class=o>}</span>
+
+<span class=kt>def</span> <span class=n>properties</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Properties</span><span class=o>()</span>
+<span class=n>properties</span><span class=o>.</span><span class=na>load</span><span class=o>(</span><span class=k>new</span> <span class=n>FileInputStream</span><span class=o>(</span><span class=s2>&#34;local.properties&#34;</span><span class=o>))</span>
+
+<span class=n>bintray</span> <span class=o>{</span>
+    <span class=n>user</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s2>&#34;bintray.user&#34;</span><span class=o>)</span>
+    <span class=n>key</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s2>&#34;bintray.apikey&#34;</span><span class=o>)</span>
+    <span class=n>publications</span> <span class=o>=</span> <span class=o>[</span><span class=s1>&#39;Production&#39;</span><span class=o>]</span>
+    <span class=n>configurations</span> <span class=o>=</span> <span class=o>[</span><span class=s1>&#39;archives&#39;</span><span class=o>]</span>
+    <span class=n>override</span> <span class=o>=</span> <span class=kc>true</span>
+    <span class=n>pkg</span> <span class=o>{</span>
+        <span class=n>repo</span> <span class=o>=</span> <span class=s1>&#39;maven&#39;</span>
+        <span class=n>name</span> <span class=o>=</span> <span class=s1>&#39;AwesomeLib&#39;</span>
+        <span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;It&#39;s an awesome lib&#34;</span>
+        <span class=n>publicDownloadNumbers</span> <span class=o>=</span> <span class=kc>true</span>
+        <span class=n>licenses</span> <span class=o>=</span> <span class=o>[</span><span class=s1>&#39;Apache-2.0&#39;</span><span class=o>]</span>
+        <span class=n>vcsUrl</span> <span class=o>=</span> <span class=s1>&#39;https://github.com/prof18/AwesomeLib&#39;</span>
+        <span class=n>version</span> <span class=o>{</span>
+            <span class=n>name</span> <span class=o>=</span> <span class=k>this</span><span class=o>.</span><span class=na>version</span>
+            <span class=n>desc</span> <span class=o>=</span> <span class=s2>&#34;Version ${this.version}&#34;</span>
+            <span class=n>released</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Date</span><span class=o>()</span>
+            <span class=n>vcsTag</span> <span class=o>=</span> <span class=k>this</span><span class=o>.</span><span class=na>version</span>
+        <span class=o>}</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+
+<span class=n>apply</span> <span class=nl>from:</span> <span class=s1>&#39;https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle&#39;</span>
+</code></pre></td></tr></table></div></div><p>To better understand the changes, you can refer to <a href=https://gist.github.com/prof18/ac3a632e7604436f483220c435b6edef/revisions#diff-d2449a02877e0ea0956446e281890efd>the diff</a>.</p><hr><p>Before explaining the whole script, a clarification of the library signature is mandatory. As mentioned earlier, the signature of your library has the following shape:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>com</span><span class=o>.</span><span class=na>prof</span><span class=o>.</span><span class=na>rssparser</span><span class=o>:</span><span class=nl>rssparser:</span><span class=mf>2.0</span><span class=o>.</span><span class=mi>4</span>
+</code></pre></td></tr></table></div></div><p>and it is composed of three parts:</p><ul><li><p>the Group ID (<em>com.prof.rssparser</em>);</p></li><li><p>the Artifact ID (<em>rssparser</em>);</p></li><li><p>the Version (<em>2.0.4</em>).</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>GROUP_ID:ARTIFACT_ID:VERSION
+</code></pre></td></tr></table></div></div><p>So, for the example library that we have created above, the Group ID is: “<em>com.your.awesome.lib</em>”, the Artifact ID is: “<em>awesomelib</em>” and the version is: “<em>1.0.0</em>”. These fields are arbitrary and you have to choose a name; keep in mind that with a new update, only the version will change in the signature.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>com</span><span class=o>.</span><span class=na>your</span><span class=o>.</span><span class=na>awesome</span><span class=o>.</span><span class=na>lib</span><span class=o>:</span><span class=nl>awesomelib:</span><span class=mf>1.0</span><span class=o>.</span><span class=mi>0</span>
+</code></pre></td></tr></table></div></div><p>Returning to the script, the lines [7–33] - (<strong>EDIT</strong>: [6–13]) - are responsible to build the library, generate the artifacts and link all the external dependencies that you are using.</p><p>The lines [38–58] - (<strong>EDIT</strong>: [15–38]) - instead are responsible for the uploading of the library. Here you have to specify your bintray username, bintray API key (you can retrieve and revoke it under <em>Edit Your Profile -> API Key</em>), the version, the artifact and the group of the library and other useful information. You can found all the different information that you can provide, in the documentation of the gradle bintray plugin.</p><blockquote><p><a href=https://github.com/bintray/gradle-bintray-plugin>bintray/gradle-bintray-plugin</a></p></blockquote><p>Remember to keep private the username and the private key. There are many ways, for example, I saved them in the <em>local.properties:</em></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>bintray</span><span class=o>.</span><span class=na>user</span><span class=o>=&lt;</span><span class=n>your</span><span class=o>-</span><span class=n>name</span><span class=o>&gt;</span>
+<span class=n>bintray</span><span class=o>.</span><span class=na>apikey</span><span class=o>=&lt;</span><span class=n>your</span><span class=o>-</span><span class=n>key</span><span class=o>&gt;</span>
+</code></pre></td></tr></table></div></div><p>and loaded them in the *publish.gradle *script with a few simple lines of code.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=kt>def</span> <span class=n>properties</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Properties</span><span class=o>()</span>
+<span class=n>properties</span><span class=o>.</span><span class=na>load</span><span class=o>(</span><span class=k>new</span> <span class=n>FileInputStream</span><span class=o>(</span><span class=s2>&#34;local.properties&#34;</span><span class=o>))</span>
+
+<span class=n>user</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s2>&#34;bintray.user&#34;</span><span class=o>)</span>    
+<span class=n>key</span> <span class=o>=</span> <span class=n>properties</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s2>&#34;bintray.apikey&#34;</span><span class=o>)</span>
+</code></pre></td></tr></table></div></div><p>Finally, it’s time to open the Terminal and launch the build and upload task (I recommend to use the *&ndash; info *flag to have a better understanding of what it is going on).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=o>./</span><span class=n>gradlew</span> <span class=n>clean</span> <span class=n>build</span> <span class=n>bintrayUpload</span> <span class=o>--</span><span class=n>info</span>
+</code></pre></td></tr></table></div></div><hr><p><strong>EDIT</strong>: After the deprecation of the <code>android-maven-gradle-plugin</code>, the command to launch the build and upload task is changed</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=o>./</span><span class=n>gradlew</span> <span class=n>clean</span> <span class=n>publish</span> <span class=n>bintrayUpload</span> <span class=o>--</span><span class=n>info</span>
+</code></pre></td></tr></table></div></div><hr><p>If everything went well, the artifacts have been uploaded to bintray but not yet published.</p><figure><img src=/img/library/versions.png alt=image><figcaption><p><em>New version uploaded but not yet published</em></p></figcaption></figure><p>I have intentionally disabled the automatic publishing because it can save your life if there are some errors. But if you want, there is a flag that you can put in the <em>publish.gradle</em> file that automatically publishes the library as soon it has been uploaded.</p><p>To publish the library, you have to click the *Publish *button on a banner that appears in the repository page of the library.</p><figure><img src=/img/library/unpublished.png alt=image></figure><p>And now the last step. You have to link the library to jCenter. This process must be done only the first time. At the right bottom of the library repository page, there is a “<em>Add to jCenter</em>”* *button.</p><figure><img src=/img/library/linked.png alt=image><figcaption><p><em>Link the library to jCenter</em></p></figcaption></figure><p>Send the request and wait for the approval.</p><figure><img src=/img/library/message.png alt=image></figure><p>Within max two hours, your library is published and linked to jCenter, as you can see in the repository page.</p><figure><img src=/img/library/jcenter.png alt=image></figure><p>Finally, you can tell the world about your awesome library and provide the signature to implement it.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-gradle data-lang=gradle><span class=n>dependencies</span> <span class=o>{</span> 
+    <span class=n>implementation</span> <span class=err>‘</span><span class=n>com</span><span class=o>.</span><span class=na>your</span><span class=o>.</span><span class=na>awesome</span><span class=o>.</span><span class=na>lib</span><span class=o>:</span><span class=nl>awesomelib:</span><span class=mf>1.0</span><span class=o>.</span><span class=mi>0</span><span class=err>’</span> 
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>And that’s all folks! I agree with you that the process is not simple but I hope to have cleared all your doubts.</p></div><section style=width:90%;margin-left:auto;margin-right:auto;margin-top:30px;margin-bottom:30px><hr><div style=padding:25px><div class=post-content>To stay up to date with my writing and my projects, follow me on <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div><hr></section><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href="//twitter.com/share?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2019%2fpublish-librery-android%2f&text=How%20to%20publish%20and%20distribute%20your%20Android%20library&via=marcoGomier" target=_blank title="Share on Twitter"><i class="fab fa-twitter fa-fw"></i></a><a href="//reddit.com/submit?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2019%2fpublish-librery-android%2f&title=How%20to%20publish%20and%20distribute%20your%20Android%20library" target=_blank title="Share on Reddit"><i class="fab fa-reddit fa-fw"></i></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.marcogomiero.com%2fposts%2f2019%2fpublish-librery-android%2f&title=How%20to%20publish%20and%20distribute%20your%20Android%20library" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin fa-fw"></i></a></span></div></div></div><div class=post-info-more><section></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=https://www.marcogomiero.com>Home</a></span></section></div><div class=post-nav><a href=https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/ class=prev rel=prev title="Bottom App Bar with Menu and Swipeable Tabs in Flutter"><i class="fas fa-angle-left fa-fw"></i>Bottom App Bar with Menu and Swipeable Tabs in Flutter</a>
+<a href=https://www.marcogomiero.com/posts/2019/note-conferences/ class=next rel=next title="How I take note at conferences">How I take note at conferences<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com>Marco Gomiero</a></span></div><br></div></footer><script src=/js/lib/jquery/jquery.slim.min.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><script src=/js/blog.min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-90975904-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a></body></html>
