@@ -5,7 +5,7 @@
 <div class="home-profile">
     <div class="home-avatar">
         <a href="/posts">
-            <img src="/img/profile.jpeg" alt="avatar">
+            <img src="/img/profile.webp" alt="avatar">
         </a>
     <h2> Marco Gomiero </h1>
 </div>
