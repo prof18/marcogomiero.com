@@ -3,11 +3,70 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page archive">
+
+    {{ $data := .Data -}}
+    {{ $section := .Section -}}
+
+    {{ if eq $section "posts" -}}
+            <div class="page archive">
+                <br>
+                <h1 class="section-title">
+                        {{ T .Section | default .Section | humanize }}
+                </h1>
+                {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
+                {{ with .Site.Params.section.paginate -}}
+                    {{ $paginator = $.Paginate $paginator . -}}
+                {{ else -}}
+                    {{ $paginator = $.Paginate $paginator -}}
+                {{ end -}}
+                {{ range $paginator.Pages -}}
+                    {{ .Render "postItem" -}}
+                {{ end -}}
+                
+                {{ partial "paginator.html" . -}}
+            </div>
+        {{ else -}}
+            <p>Another Section</p>
+            <div class="page archive">
+            
+                <h1 class="section-title">
+                        {{ T .Section | default .Section | humanize }}
+                </h1>
+
+                <div class="post-content">Do you want me to speak at your conference or meetup? Feel free to reach out on <a href="https://twitter.com/marcoGomier" target="_blank">Twitter</a>, my DMs are open.</div>
+    
+                <br>
+
+                {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
+                    <br>    
+                    <h2>{{ .Key }}</h2>
+                    <br>
+                    {{- range .Pages -}}
+                        {{ .Render "talkItem" -}}
+                    {{- end -}}
+                {{- end -}}
+                {{- partial "paginator.html" . -}}
+
+                <!-- {{ $paginator := where .Site.RegularPages "Type" "posts" -}}
+                {{ with .Site.Params.home_paginate -}}
+                    {{ $paginator = $.Paginate $paginator . -}}
+                {{ else -}}
+                    {{ $paginator = $.Paginate $paginator -}}
+                {{ end -}}
+                {{ range $paginator.Pages -}}
+                    {{ .Render "postItem" -}}
+                {{ end -}}
+                
+                {{ partial "paginator.html" . -}} -->
+            </div>
+        {{ end -}}
+
+    <!-- <div class="page archive">
+        <p>Aroneeeeee</p>
         {{- /* Title */ -}}
-        <h2 class="single-title animated pulse faster">
+        <h1 class="single-title">
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
-        </h2>
+        </h1>
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
@@ -32,5 +91,5 @@
             {{- end -}}
             {{- partial "paginator.html" . -}}
         {{- end -}}
-    </div>
+    </div> -->
 {{- end -}}

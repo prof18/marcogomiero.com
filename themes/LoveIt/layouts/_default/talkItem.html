@@ -1,0 +1,19 @@
+<article class="single summary" itemscope itemtype="http://schema.org/Article">
+    {{ $publish_date := .PublishDate.Format (.Site.Params.dateFormat | default "2006-01-02") }}
+    {{ $perform_date := dateFormat .Site.Params.dateFormat (.Params.performDate | default "1970-01-01" ) }}
+    {{ $location := .Params.location | default "" }}
+    {{ $isUpcoming := .Params.upcoming }}
+
+    <h4 class="talk-title" itemprop="name headline">
+        {{ if $isUpcoming}}
+            [UPCOMING] - 
+        {{ end }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h4>
+
+    <div class="post-meta">
+        <time datetime={{ $perform_date }}>{{ $perform_date }}  -</time>
+        {{ $location }}
+    </div>
+    <hr>
+</article>
