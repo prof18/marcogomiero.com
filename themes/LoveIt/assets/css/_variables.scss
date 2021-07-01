@@ -4,7 +4,8 @@
 
 // ========== Global ========== //
 // Font and Line Height
-$global-font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+// $global-font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+$global-font-family: 'Space Mono', monospace;;
 $global-font-size: 16px;
 $global-font-weight: 400;
 $global-line-height: 1.5rem;
@@ -14,12 +15,12 @@ $global-background-color: #fff !default;
 $global-background-color-dark: #292a2d !default;
 
 // Color of the text
-$global-font-color: #161209 !default;
+$global-font-color: #373d3f !default;
 $global-font-color-dark: #a9a9b3 !default;
 
 // Color of the secondary text
-$global-font-secondary-color: #a9a9b3 !default;
-$global-font-secondary-color-dark: #5d5d5f !default;
+$global-font-secondary-color: #7a7a81 !default;
+$global-font-secondary-color-dark: #d4d4d4 !default;
 
 // Color of the link
 $global-link-color: #161209 !default;
@@ -30,8 +31,8 @@ $global-link-hover-color: #2d96bd !default;
 $global-link-hover-color-dark: #fff !default;
 
 // Color of the border
-$global-border-color: #f0f0f0 !default;
-$global-border-color-dark: #363636 !default;
+$global-border-color: #dcdcdc !default;
+$global-border-color-dark: #4a4b50 !default;
 // ========== Global ========== //
 
 // ========== Scrollbar ========== //
@@ -91,8 +92,8 @@ $table-thead-color: #ededed !default;
 $table-thead-color-dark: #20252b !default;
 
 // Color of the blockquote
-$blockquote-color: #6bd6fd !default;
-$blockquote-color-dark: #59c5ec !default;
+$blockquote-color: #448aff !default;
+$blockquote-color-dark: #448aff !default;
 // ========== Single Content ========== //
 
 // ========== Pagination ========== //

@@ -180,3 +180,14 @@
     }
   }
 }
+
+hr {
+  margin: 1rem 0;
+  position: relative;
+  border-top: 1px dashed $global-border-color;
+  border-bottom: none;
+
+  [theme=dark] & {
+    border-top: 1px dashed $global-border-color-dark;
+  }
+}

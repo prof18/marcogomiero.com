@@ -2,10 +2,10 @@
 
 .single {
   .single-title {
-    margin: 1rem 0 .5rem;
-    font-size: 1.6rem;
-    font-weight: bold;
-    line-height: 140%;
+    // margin-top: 2rem;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-bottom: 0rem;
   }
 
   .single-subtitle {
@@ -18,7 +18,7 @@
 
   .post-meta {
     font-size: .875rem;
-    color: $global-font-secondary-color;
+    color: rgba(85, 85, 85, 0.52941) !important;
 
     span {
       display: inline-block;
