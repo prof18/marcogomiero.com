@@ -3,7 +3,6 @@
   "version": "0.2.0",
   "description": "LoveIt theme source file",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -24,7 +23,8 @@
     "start": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
     "start-production": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
     "check": "htmlproofer exampleSite/public --check-html --allow-hash-href --empty-alt-ignore --disable-external",
-    "copy": "rm -rf resources && cp -rf exampleSite/resources resources"
+    "copy": "rm -rf resources && cp -rf exampleSite/resources resources",
+    "update-theme": "npm run build && npm run copy"
   },
   "resolutions": {
     "minimist": "^1.2.5"
