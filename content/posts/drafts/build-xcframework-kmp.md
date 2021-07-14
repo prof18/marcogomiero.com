@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to build an XCFramework on Kotlin Multiplatform"
-date:   2021-06-27
+date:   2021-07-14
 show_in_homepage: true
-draft: true
 ---
 
 When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.  
