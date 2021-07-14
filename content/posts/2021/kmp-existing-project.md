@@ -435,7 +435,7 @@ tasks {
                 }
     
                 project.exec {
-                    workingDir = File("$rootDir/../../hn-foundation-cocoa")
+                    workingDir = File("<fat-framework-destination>")
                     commandLine("git", "push", "origin", "master", "--tags").standardOutput
                 }
             }
