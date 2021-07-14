@@ -74,7 +74,7 @@ staticDir = ["static", "../assets/others"]
   # date format
   dateFormat = "2 Jan 2006"
   # website images for Open Graph and Twitter Cards
-  images = ["/img/profile.webp"]
+  # images = ["/img/profile.webp"]
 
   # App icon config
   [params.app]
@@ -261,7 +261,7 @@ staticDir = ["static", "../assets/others"]
       # Publisher info
       [params.page.seo.publisher]
         name = "Marco Gomiero"
-        logoUrl = "/images/avatar.png"
+        # logoUrl = "/images/avatar.png"
 
   [params.verification]
     google = "7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"
