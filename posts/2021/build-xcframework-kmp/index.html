@@ -237,7 +237,7 @@
         <span class=n>xcFrameworkDest</span><span class=p>.</span><span class=n>deleteRecursively</span><span class=p>()</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>The newly built XCFramework can now be distributed. The distribution can be archived in different ways: for example in a <em><a href=https://cocoapods.org/ target=_blank rel="noopener noreffer">CocoaPods</a></em> repository, in the <a href=https://swift.org/package-manager/ target=_blank rel="noopener noreffer">Swift Package Manager</a> or with <a href=https://github.com/Carthage/Carthage target=_blank rel="noopener noreffer">Carthage</a>. Since I’m familiar with CocoaPods, that’s what I’m using.</p><p>To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework.</p><p>For the details and to understand how the task works, I suggest you give a look at [this article](<a href=https://www.marcogomiero.com/posts/2021/kmp-existing-project/>https://www.marcogomiero.com/posts/2021/kmp-existing-project/</a> that I wrote a few months ago.</p><p>Publish Debug Version:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>The newly built XCFramework can now be distributed. The distribution can be archived in different ways: for example in a <em><a href=https://cocoapods.org/ target=_blank rel="noopener noreffer">CocoaPods</a></em> repository, in the <a href=https://swift.org/package-manager/ target=_blank rel="noopener noreffer">Swift Package Manager</a> or with <a href=https://github.com/Carthage/Carthage target=_blank rel="noopener noreffer">Carthage</a>. Since I’m familiar with CocoaPods, that’s what I’m using.</p><p>To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework. For the details and to understand how the task works, I suggest you give a look at <a href=https://www.marcogomiero.com/posts/2021/kmp-existing-project/ target=_blank rel="noopener noreffer">this article</a> that I wrote a few months ago.</p><p><strong><ins>Publish Debug Version<ins></strong>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -325,7 +325,7 @@
         <span class=p>}</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>Publish Release Version:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p><strong><ins>Publish Release Version<ins></strong>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4

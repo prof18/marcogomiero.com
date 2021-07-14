@@ -188,11 +188,9 @@ The parameters for the `xcodebuild` command will be the same, except for the pat
 
 The newly built XCFramework can now be distributed. The distribution can be archived in different ways: for example in a *[CocoaPods](https://cocoapods.org/)* repository, in the [Swift Package Manager](https://swift.org/package-manager/) or with [Carthage](https://github.com/Carthage/Carthage). Since I’m familiar with CocoaPods, that’s what I’m using.
 
-To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework.
+To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework. For the details and to understand how the task works, I suggest you give a look at [this article](https://www.marcogomiero.com/posts/2021/kmp-existing-project/) that I wrote a few months ago. 
 
-For the details and to understand how the task works, I suggest you give a look at [this article](https://www.marcogomiero.com/posts/2021/kmp-existing-project/ that I wrote a few months ago. 
-
-Publish Debug Version:
+**<ins>Publish Debug Version<ins>**:
 
 ```kotlin
 register("publishDevFramework") {
@@ -241,7 +239,7 @@ register("publishDevFramework") {
 }
 ```
 
-Publish Release Version:
+**<ins>Publish Release Version<ins>**:
 
 ```kotlin
 register("publishFramework") {
