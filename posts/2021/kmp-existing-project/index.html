@@ -478,7 +478,7 @@ Only a few lines of configuration on the <em>build.gradle.kts</em> file, are nec
                 <span class=p>}</span>
     
                 <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
-                    <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;$rootDir/../../hn-foundation-cocoa&#34;</span><span class=p>)</span>
+                    <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;fat-framework-destination&gt;&#34;</span><span class=p>)</span>
                     <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;push&#34;</span><span class=p>,</span> <span class=s>&#34;origin&#34;</span><span class=p>,</span> <span class=s>&#34;master&#34;</span><span class=p>,</span> <span class=s>&#34;--tags&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
                 <span class=p>}</span>
             <span class=p>}</span>

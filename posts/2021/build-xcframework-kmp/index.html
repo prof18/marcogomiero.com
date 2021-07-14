@@ -1,0 +1,417 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>How to build an XCFramework on Kotlin Multiplatform - Marco Gomiero</title><meta name=Description content="Software Engineer · Google Developer Expert for Kotlin"><meta property="og:title" content="How to build an XCFramework on Kotlin Multiplatform"><meta property="og:description" content="When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.
+   To understand how to integrate KMP into existing code, give a look at my previous article: “Introducing Kotlin Multiplatform in an existing project”"><meta property="og:type" content="article"><meta property="og:url" content="https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/"><meta property="og:image" content="https://www.marcogomiero.com/img/profile.webp"><meta property="article:published_time" content="2021-07-14T00:00:00+00:00"><meta property="article:modified_time" content="2021-07-14T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://www.marcogomiero.com/img/profile.webp"><meta name=twitter:title content="How to build an XCFramework on Kotlin Multiplatform"><meta name=twitter:description content="When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.
+   To understand how to integrate KMP into existing code, give a look at my previous article: “Introducing Kotlin Multiplatform in an existing project”"><meta name=application-name content="Marco Gomiero"><meta name=apple-mobile-web-app-title content="Marco Gomiero"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/><link rel=prev href=https://www.marcogomiero.com/posts/2021/gitlab-pipeline-vpn/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"How to build an XCFramework on Kotlin Multiplatform","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.marcogomiero.com\/posts\/2021\/build-xcframework-kmp\/"},"image":["https:\/\/www.marcogomiero.com\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":1405,"url":"https:\/\/www.marcogomiero.com\/posts\/2021\/build-xcframework-kmp\/","datePublished":"2021-07-14T00:00:00+00:00","dateModified":"2021-07-14T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Marco Gomiero","logo":"https:\/\/www.marcogomiero.com\/images\/avatar.png"},"author":{"@type":"Person","name":"Marco Gomiero"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Marco Gomiero">Marco Gomiero</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts>Posts </a><a class=menu-item href=/talks>Talks </a><a class=menu-item href=/projects>Projects </a><a class=menu-item href=/about-me>About </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Marco Gomiero">Marco Gomiero</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/posts>Posts</a><a class=menu-item href=/talks>Talks</a><a class=menu-item href=/projects>Projects</a><a class=menu-item href=/about-me>About</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel=stylesheet><main class=main><div class=container><article class="page single"><h1 class=single-title>How to build an XCFramework on Kotlin Multiplatform</h1><br><div class=post-meta><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="14 Jul 2021">14 Jul 2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1405 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div></div><br><div class=content id=content><p>When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.</p><figure><a href=/img/kmp-existing-project/kmp-publish-arch.png><img src=/img/kmp-existing-projects/kmp-publish-arch.png></a></figure><blockquote><p>To understand how to integrate KMP into existing code, give a look at my previous article: <a href=https://www.marcogomiero.com/posts/2021/kmp-existing-project/ target=_blank rel="noopener noreffer">“Introducing Kotlin Multiplatform in an existing project”</a></p></blockquote><p>KMP code will be served as a library: the compiler generates a .jar for the JVM, a .aar for Android, and a Framework for iOS.</p><p>For iOS, the Framework will be a FatFramework, because it is necessary to have in the same package the architecture for the simulator and the real device. In <a href=https://www.marcogomiero.com/posts/2021/kmp-existing-project/ target=_blank rel="noopener noreffer">a past article</a>, I’ve explained how to generate a FatFramework and how to distribute it in a CocoaPod repo. It is possible with some Gradle tasks or with the <a href=https://github.com/prof18/kmp-fatframework-cocoa target=_blank rel="noopener noreffer">KMP FatFramework Cocoa</a> Gradle plugin that I wrote.</p><p>However, FatFrameworks seems not to be the “current state of the art” solution to distribute multiple architectures at the same time. In fact, Apple during <a href=https://developer.apple.com/videos/play/wwdc2019/416/ target=_blank rel="noopener noreffer">WWDC 2019</a> has introduced <a href=https://help.apple.com/xcode/mac/11.4/#/dev544efab96 target=_blank rel="noopener noreffer">XCFramework</a>, a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time).</p><p>Apple is pushing toward the use of XCFrameworks and you could encounter errors like the following one that happened to <a href=https://twitter.com/handstandsam target=_blank rel="noopener noreffer">Sam Edwards</a>.</p><blockquote class=twitter-tweet data-dnt=true><p lang=en dir=ltr>It WAS working... now... 😭🤔<br><br>Any ideas <a href="https://twitter.com/marcoGomier?ref_src=twsrc%5Etfw">@marcoGomier</a>? <a href=https://t.co/K8f5bPO44P>pic.twitter.com/K8f5bPO44P</a></p>&mdash; Sam Edwards (@HandstandSam) <a href="https://twitter.com/HandstandSam/status/1403456462689550345?ref_src=twsrc%5Etfw">June 11, 2021</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script><p>Sam <a href=https://handstandsam.com/2021/06/11/kotlin-multiplatform-building-a-fat-ios-framework-for-iosarm64-and-iosx64/ target=_blank rel="noopener noreffer">followed the same approach</a> I’ve followed but I never encounter the error! And the reason could be the following:</p><blockquote class=twitter-tweet data-dnt=true><p lang=en dir=ltr>for those who really can't use xcframework, usage of VALIDATE_WORKSPACE = NO, on Build Settings, can be leverage. just make sure to set to YES and then NO so that xcode persists the value onto pbxproj</p>&mdash; João Gonçalves (@Chuckytuh) <a href="https://twitter.com/Chuckytuh/status/1403673057487687682?ref_src=twsrc%5Etfw">June 12, 2021</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script><p>Unfortunately, there isn’t native support for XCFrameworks on Kotlin Multiplatform yet (it should come hopefully with Kotlin 1.5.30) and to generate an XCFramework, you have to create manually an XCFramework starting from the different frameworks built by KMP.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>xcrun xcodebuild -create-xcframework <span class=se>\
+</span><span class=se></span>    -framework /path/to/device.framework <span class=se>\
+</span><span class=se></span>    -debug-symbols /path/to/device.DSYM <span class=se>\
+</span><span class=se></span>    -framework /path/to/simulator.framework <span class=se>\
+</span><span class=se></span>    -debug-symbols /path/to/simulator.DSYM <span class=se>\
+</span><span class=se></span>    -output frameworkName.xcframework
+</code></pre></td></tr></table></div></div><p>This is a boring thing to do manually every time, so there’s room for some scripting.</p><p>The first step is building a custom Gradle task, named <code>buildDebugXCFramework</code> to build a debug version of the XCFramework.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>libName</span> <span class=p>=</span> <span class=err>“</span><span class=n>LibraryName</span><span class=err>”</span>
+ 
+<span class=n>register</span><span class=p>(</span><span class=s>&#34;buildDebugXCFramework&#34;</span><span class=p>,</span> <span class=n>Exec</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>description</span> <span class=p>=</span> <span class=s>&#34;Create a Debug XCFramework&#34;</span>
+
+    <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}DebugFrameworkIosArm64&#34;</span><span class=p>)</span>
+    <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}DebugFrameworkIosX64&#34;</span><span class=p>)</span>
+
+    <span class=k>val</span> <span class=py>arm64FrameworkPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosArm64/${libName}DebugFramework/${libName}.framework&#34;</span>
+    <span class=k>val</span> <span class=py>arm64DebugSymbolsPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosArm64/${libName}DebugFramework/${libName}.framework.dSYM&#34;</span>
+
+    <span class=k>val</span> <span class=py>x64FrameworkPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosX64/${libName}DebugFramework/${libName}.framework&#34;</span>
+    <span class=k>val</span> <span class=py>x64DebugSymbolsPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosX64/${libName}DebugFramework/${libName}.framework.dSYM&#34;</span>
+
+    <span class=k>val</span> <span class=py>xcFrameworkDest</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;$rootDir/../kmp-xcframework-dest/$libName.xcframework&#34;</span><span class=p>)</span>
+    <span class=n>executable</span> <span class=p>=</span> <span class=s>&#34;xcodebuild&#34;</span>
+    <span class=n>args</span><span class=p>(</span><span class=n>mutableListOf</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;().</span><span class=n>apply</span> <span class=p>{</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-create-xcframework&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-output&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>xcFrameworkDest</span><span class=p>.</span><span class=n>path</span><span class=p>)</span>
+
+        <span class=c1>// Real Device
+</span><span class=c1></span>        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-framework&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>arm64FrameworkPath</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-debug-symbols&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>arm64DebugSymbolsPath</span><span class=p>)</span>
+
+        <span class=c1>// Simulator
+</span><span class=c1></span>        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-framework&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>x64FrameworkPath</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-debug-symbols&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>x64DebugSymbolsPath</span><span class=p>)</span>
+    <span class=p>})</span>
+
+    <span class=n>doFirst</span> <span class=p>{</span>
+        <span class=n>xcFrameworkDest</span><span class=p>.</span><span class=n>deleteRecursively</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>The first thing to do is building the frameworks for the required architectures: arm64 for the “real” device and X64 for the simulator. The build process can be triggered with the <code>link</code> task, in this case for the <code>Debug</code> variant of the framework.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}DebugFrameworkIosArm64&#34;</span><span class=p>)</span>
+<span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}DebugFrameworkIosX64&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>The frameworks will be saved in the <code>build/bin</code> folder of the project:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>build
+└── bin
+    ├── iosArm64
+    │   ├── LibraryNameDebugFramework
+    │   │   ├── LibraryName.framework
+    │   │   └── LibraryName.framework.dSYM
+    └── iosX64
+        ├── LibraryNameDebugFramework
+        │   ├── LibraryName.framework
+        │   └── LibraryName.framework.dSYM
+</code></pre></td></tr></table></div></div><p>At this point, it is necessary to provide to the task all the parameters required by <code>xcodebuild</code> command.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>executable</span> <span class=p>=</span> <span class=s>&#34;xcodebuild&#34;</span>
+<span class=n>args</span><span class=p>(</span><span class=n>mutableListOf</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;().</span><span class=n>apply</span> <span class=p>{</span>
+    <span class=n>add</span><span class=p>(</span><span class=s>&#34;-create-xcframework&#34;</span><span class=p>)</span>
+    <span class=n>add</span><span class=p>(</span><span class=s>&#34;-output&#34;</span><span class=p>)</span>
+    <span class=err>…</span>
+<span class=p>}</span>    
+</code></pre></td></tr></table></div></div><p>Before executing the task, it’s better to clear the files inside the XCFramework destination, because the <code>xcodebuild</code> command will not replace the old artifacts.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>doFirst</span> <span class=p>{</span>
+    <span class=n>xcFrameworkDest</span><span class=p>.</span><span class=n>deleteRecursively</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>And that’s it! Now there is a Debug XCFramework ready to be distributed.</p><p>The steps required to build a Release version of the framework are very similar.</p><p>First of all, it is necessary to build the frameworks for both the required architectures:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin> <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}ReleaseFrameworkIosArm64&#34;</span><span class=p>)</span>
+ <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}ReleaseFrameworkIosX64&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>The frameworks will be saved in the <code>build/bin</code> folder like for the Debug version:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>build
+└── bin
+    ├── iosArm64
+    │   └── LibraryNameReleaseFramework
+    │       ├── LibraryName.framework
+    │       └── LibraryName.framework.dSYM
+    └── iosX64
+        └── LibraryNameReleaseFramework
+            ├── LibraryName.framework
+            └── LibraryName.framework.dSYM
+</code></pre></td></tr></table></div></div><p>The parameters for the <code>xcodebuild</code> command will be the same, except for the path.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin> <span class=n>register</span><span class=p>(</span><span class=s>&#34;buildReleaseXCFramework&#34;</span><span class=p>,</span> <span class=n>Exec</span><span class=o>::</span><span class=k>class</span><span class=p>.</span><span class=n>java</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>description</span> <span class=p>=</span> <span class=s>&#34;Create a Release XCFramework&#34;</span>
+
+    <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}ReleaseFrameworkIosArm64&#34;</span><span class=p>)</span>
+    <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;link${libName}ReleaseFrameworkIosX64&#34;</span><span class=p>)</span>
+
+    <span class=k>val</span> <span class=py>arm64FrameworkPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosArm64/${libName}ReleaseFramework/${libName}.framework&#34;</span>
+    <span class=k>val</span> <span class=py>arm64DebugSymbolsPath</span> <span class=p>=</span>
+        <span class=s>&#34;$rootDir/build/bin/iosArm64/${libName}ReleaseFramework/${libName}.framework.dSYM&#34;</span>
+
+    <span class=k>val</span> <span class=py>x64FrameworkPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosX64/${libName}ReleaseFramework/${libName}.framework&#34;</span>
+    <span class=k>val</span> <span class=py>x64DebugSymbolsPath</span> <span class=p>=</span> <span class=s>&#34;$rootDir/build/bin/iosX64/${libName}ReleaseFramework/${libName}.framework.dSYM&#34;</span>
+
+    <span class=k>val</span> <span class=py>xcFrameworkDest</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;$rootDir/../kmp-xcframework-dest/$libName.xcframework&#34;</span><span class=p>)</span>
+    <span class=n>executable</span> <span class=p>=</span> <span class=s>&#34;xcodebuild&#34;</span>
+    <span class=n>args</span><span class=p>(</span><span class=n>mutableListOf</span><span class=p>&lt;</span><span class=n>String</span><span class=p>&gt;().</span><span class=n>apply</span> <span class=p>{</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-create-xcframework&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-output&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>xcFrameworkDest</span><span class=p>.</span><span class=n>path</span><span class=p>)</span>
+
+        <span class=c1>// Real Device
+</span><span class=c1></span>        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-framework&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>arm64FrameworkPath</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-debug-symbols&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>arm64DebugSymbolsPath</span><span class=p>)</span>
+
+        <span class=c1>// Simulator
+</span><span class=c1></span>        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-framework&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>x64FrameworkPath</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=s>&#34;-debug-symbols&#34;</span><span class=p>)</span>
+        <span class=n>add</span><span class=p>(</span><span class=n>x64DebugSymbolsPath</span><span class=p>)</span>
+    <span class=p>})</span>
+
+    <span class=n>doFirst</span> <span class=p>{</span>
+        <span class=n>xcFrameworkDest</span><span class=p>.</span><span class=n>deleteRecursively</span><span class=p>()</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>The newly built XCFramework can now be distributed. The distribution can be archived in different ways: for example in a <em><a href=https://cocoapods.org/ target=_blank rel="noopener noreffer">CocoaPods</a></em> repository, in the <a href=https://swift.org/package-manager/ target=_blank rel="noopener noreffer">Swift Package Manager</a> or with <a href=https://github.com/Carthage/Carthage target=_blank rel="noopener noreffer">Carthage</a>. Since I’m familiar with CocoaPods, that’s what I’m using.</p><p>To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework.</p><p>For the details and to understand how the task works, I suggest you give a look at [this article](<a href=https://www.marcogomiero.com/posts/2021/kmp-existing-project/>https://www.marcogomiero.com/posts/2021/kmp-existing-project/</a> that I wrote a few months ago.</p><p>Publish Debug Version:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>register</span><span class=p>(</span><span class=s>&#34;publishDevFramework&#34;</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>description</span> <span class=p>=</span> <span class=s>&#34;Publish Debug XCFramework to the Cocoa Repo&#34;</span>
+
+    <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+        <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;$rootDir/../kmp-xcframework-dest&#34;</span><span class=p>)</span>
+        <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;checkout&#34;</span><span class=p>,</span> <span class=s>&#34;develop&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
+    <span class=p>}</span>
+
+    <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;buildDebugXCFramework&#34;</span><span class=p>)</span>
+    
+    <span class=n>doLast</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>dir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;/&lt;your-library-name&gt;.podspec&#34;</span><span class=p>)</span>
+        <span class=k>val</span> <span class=py>tempFile</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;/&lt;your-library-name&gt;.podspec.new&#34;</span><span class=p>)</span>
+
+        <span class=k>val</span> <span class=py>reader</span> <span class=p>=</span> <span class=n>dir</span><span class=p>.</span><span class=n>bufferedReader</span><span class=p>()</span>
+        <span class=k>val</span> <span class=py>writer</span> <span class=p>=</span> <span class=n>tempFile</span><span class=p>.</span><span class=n>bufferedWriter</span><span class=p>()</span>
+        <span class=k>var</span> <span class=py>currentLine</span><span class=p>:</span> <span class=n>String</span><span class=p>?</span>
+
+        <span class=k>while</span> <span class=p>(</span><span class=n>reader</span><span class=p>.</span><span class=n>readLine</span><span class=p>().</span><span class=n>also</span> <span class=p>{</span> <span class=n>currLine</span> <span class=p>-&gt;</span> <span class=n>currentLine</span> <span class=p>=</span> <span class=n>currLine</span> <span class=p>}</span> <span class=p>!=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>currentLine</span><span class=o>?.</span><span class=n>startsWith</span><span class=p>(</span><span class=s>&#34;s.version&#34;</span><span class=p>)</span> <span class=p>==</span> <span class=k>true</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>writer</span><span class=p>.</span><span class=n>write</span><span class=p>(</span><span class=s>&#34;s.version       = \&#34;${libVersionName}\&#34;&#34;</span> <span class=p>+</span> <span class=n>System</span><span class=p>.</span><span class=n>lineSeparator</span><span class=p>())</span>
+            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=n>writer</span><span class=p>.</span><span class=n>write</span><span class=p>(</span><span class=n>currentLine</span> <span class=p>+</span> <span class=n>System</span><span class=p>.</span><span class=n>lineSeparator</span><span class=p>())</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=n>writer</span><span class=p>.</span><span class=n>close</span><span class=p>()</span>
+        <span class=n>reader</span><span class=p>.</span><span class=n>close</span><span class=p>()</span>
+        <span class=k>val</span> <span class=py>successful</span> <span class=p>=</span> <span class=n>tempFile</span><span class=p>.</span><span class=n>renameTo</span><span class=p>(</span><span class=n>dir</span><span class=p>)</span>
+
+        <span class=k>if</span> <span class=p>(</span><span class=n>successful</span><span class=p>)</span> <span class=p>{</span>
+
+            <span class=k>val</span> <span class=py>dateFormatter</span> <span class=p>=</span> <span class=n>SimpleDateFormat</span><span class=p>(</span><span class=s>&#34;dd/MM/yyyy - HH:mm&#34;</span><span class=p>,</span> <span class=n>Locale</span><span class=p>.</span><span class=n>getDefault</span><span class=p>())</span>
+            <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+                <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;&#34;</span><span class=p>)</span>
+                <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;commit&#34;</span><span class=p>,</span> <span class=s>&#34;-a&#34;</span><span class=p>,</span> <span class=s>&#34;-m&#34;</span><span class=p>,</span> <span class=s>&#34;\&#34;New dev release: ${libVersionName}-${dateFormatter.format(Date())}\&#34;&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
+            <span class=p>}</span>
+
+            <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+                <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;&#34;</span><span class=p>)</span>
+                <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;push&#34;</span><span class=p>,</span> <span class=s>&#34;origin&#34;</span><span class=p>,</span> <span class=s>&#34;develop&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>Publish Release Version:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>register</span><span class=p>(</span><span class=s>&#34;publishFramework&#34;</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>description</span> <span class=p>=</span> <span class=s>&#34;Publish Release XCFramework to the Cocoa Repo&#34;</span>
+
+    <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+        <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;$rootDir/../kmp-xcframework-dest&#34;</span><span class=p>)</span>
+        <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;checkout&#34;</span><span class=p>,</span> <span class=s>&#34;master&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
+    <span class=p>}</span>
+    <span class=n>dependsOn</span><span class=p>(</span><span class=s>&#34;buildReleaseXCFramework&#34;</span><span class=p>)</span>
+    
+    <span class=n>doLast</span> <span class=p>{</span>
+        <span class=k>val</span> <span class=py>dir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;/&lt;your-library-name&gt;.podspec&#34;</span><span class=p>)</span>
+        <span class=k>val</span> <span class=py>tempFile</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;/&lt;your-library-name&gt;.podspec.new&#34;</span><span class=p>)</span>
+
+        <span class=k>val</span> <span class=py>reader</span> <span class=p>=</span> <span class=n>dir</span><span class=p>.</span><span class=n>bufferedReader</span><span class=p>()</span>
+        <span class=k>val</span> <span class=py>writer</span> <span class=p>=</span> <span class=n>tempFile</span><span class=p>.</span><span class=n>bufferedWriter</span><span class=p>()</span>
+        <span class=k>var</span> <span class=py>currentLine</span><span class=p>:</span> <span class=n>String</span><span class=p>?</span>
+
+        <span class=k>while</span> <span class=p>(</span><span class=n>reader</span><span class=p>.</span><span class=n>readLine</span><span class=p>().</span><span class=n>also</span> <span class=p>{</span> <span class=n>currLine</span> <span class=p>-&gt;</span> <span class=n>currentLine</span> <span class=p>=</span> <span class=n>currLine</span> <span class=p>}</span> <span class=p>!=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>currentLine</span><span class=o>?.</span><span class=n>startsWith</span><span class=p>(</span><span class=s>&#34;s.version&#34;</span><span class=p>)</span> <span class=p>==</span> <span class=k>true</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>writer</span><span class=p>.</span><span class=n>write</span><span class=p>(</span><span class=s>&#34;s.version       = \&#34;${libVersionName}\&#34;&#34;</span> <span class=p>+</span> <span class=n>System</span><span class=p>.</span><span class=n>lineSeparator</span><span class=p>())</span>
+            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=n>writer</span><span class=p>.</span><span class=n>write</span><span class=p>(</span><span class=n>currentLine</span> <span class=p>+</span> <span class=n>System</span><span class=p>.</span><span class=n>lineSeparator</span><span class=p>())</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=n>writer</span><span class=p>.</span><span class=n>close</span><span class=p>()</span>
+        <span class=n>reader</span><span class=p>.</span><span class=n>close</span><span class=p>()</span>
+        <span class=k>val</span> <span class=py>successful</span> <span class=p>=</span> <span class=n>tempFile</span><span class=p>.</span><span class=n>renameTo</span><span class=p>(</span><span class=n>dir</span><span class=p>)</span>
+
+        <span class=k>if</span> <span class=p>(</span><span class=n>successful</span><span class=p>)</span> <span class=p>{</span>
+
+            <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+                <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;&#34;</span><span class=p>)</span>
+                <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;commit&#34;</span><span class=p>,</span> <span class=s>&#34;-a&#34;</span><span class=p>,</span> <span class=s>&#34;-m&#34;</span><span class=p>,</span> <span class=s>&#34;\&#34;New release: ${libVersionName}\&#34;&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
+            <span class=p>}</span>
+
+            <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+                <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;&#34;</span><span class=p>)</span>
+                <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;tag&#34;</span><span class=p>,</span> <span class=n>libVersionName</span><span class=p>).</span><span class=n>standardOutput</span>
+            <span class=p>}</span>
+
+            <span class=n>project</span><span class=p>.</span><span class=n>exec</span> <span class=p>{</span>
+                <span class=n>workingDir</span> <span class=p>=</span> <span class=n>File</span><span class=p>(</span><span class=s>&#34;&lt;framework-destination&gt;&#34;</span><span class=p>)</span>
+                <span class=n>commandLine</span><span class=p>(</span><span class=s>&#34;git&#34;</span><span class=p>,</span> <span class=s>&#34;push&#34;</span><span class=p>,</span> <span class=s>&#34;origin&#34;</span><span class=p>,</span> <span class=s>&#34;master&#34;</span><span class=p>,</span> <span class=s>&#34;--tags&#34;</span><span class=p>).</span><span class=n>standardOutput</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>All the tasks mentioned in the article are available in the <a href=https://github.com/prof18/kmp-fatframework-cocoa target=_blank rel="noopener noreffer">KMP FatFramework Cocoa Gradle plugin</a> that I wrote. The support for XCFrameworks has been added since <a href=https://github.com/prof18/kmp-fatframework-cocoa/releases/tag/0.2.1 target=_blank rel="noopener noreffer">version 0.2.1</a>.</p><p>On GitHub, I’ve published <a href=https://github.com/prof18/kmp-xcframework-sample target=_blank rel="noopener noreffer">a sample project</a> to showcase the usage of the task. In the <a href=https://github.com/prof18/kmp-xcframework-sample target=_blank rel="noopener noreffer">main</a> branch the tasks are manually added in the <a href=https://github.com/prof18/kmp-xcframework-sample/tree/with-plugin target=_blank rel="noopener noreffer">build.gradle.kts</a> file. In the <a href=https://github.com/prof18/kmp-xcframework-sample/tree/with-plugin target=_blank rel="noopener noreffer">with-plugin</a> branch instead, the KMP FatFramework Cocoa plugin is used.</p><p>You can follow me on <a href=https://twitter.com/marcoGomier target=_blank rel="noopener noreffer">Twitter</a> to know when there will be some update of the plugin (and this is a spoiler! :))</p><p style=font-size:12px>// Thanks to <a href=https://twitter.com/handstandsam>Sam Edwards</a> for mentioning my article and “trigger” the creation of this one.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/ data-title="How to build an XCFramework on Kotlin Multiplatform" data-via=marcoGomier><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/><i class="fab fa-linkedin fa-fw"></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/ data-title="How to build an XCFramework on Kotlin Multiplatform"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/><i class="fab fa-reddit fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/2021/gitlab-pipeline-vpn/ class=prev rel=prev title="Connect to Open VPN during Gitlab Pipeline"><i class="fas fa-angle-left fa-fw"></i>Connect to Open VPN during Gitlab Pipeline</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://www.marcogomiero.com/ target=_blank>Marco Gomiero</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":100000},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','UA-90975904-1 ',{'anonymize_ip':true});</script><script type=text/javascript src="https://www.googletagmanager.com/gtag/js?id=UA-90975904-1%20" async></script></body></html>
