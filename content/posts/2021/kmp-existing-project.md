@@ -480,6 +480,8 @@ And, that’s it! When the KMP library is ready to be published, three tasks can
 - `publishDevFramework` to publish a debug version of the iOs Framework;
 - `publishFramework` to publish a release version of the iOs Framework.
 
+> Update: FatFrameworks seems not to be the “current state of the art” solution to distribute multiple architectures at the same time. In fact, Apple during [WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/416/) has introduced [XCFramework](https://help.apple.com/xcode/mac/11.4/#/dev544efab96), a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time). To understand how to integrate KMP into existing code, give a look at my [new article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/).
+
 ## Conclusions 
 
 As shown in this article, the process of integrating Kotlin Multiplatform in an existing project requires more work on the architecture side. That’s why is preferable to start sharing a feature that can be extracted gradually. 
