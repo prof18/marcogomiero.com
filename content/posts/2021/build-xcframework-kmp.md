@@ -5,6 +5,22 @@ date:   2021-07-14
 show_in_homepage: true
 ---
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://androidweekly.net/issues/issue-475"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-475/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;">
+     <a href="https://mailchi.mp/kotlinweekly/kotlin-weekly-259"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23259-%237874b4"/></a>
+        
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
 When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.  
 
 {{< figure src="/img/kmp-existing-projects/kmp-publish-arch.png"  link="/img/kmp-existing-project/kmp-publish-arch.png" >}}
