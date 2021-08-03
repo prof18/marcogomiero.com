@@ -142,7 +142,7 @@ And this is the problem of this task!
 
 Since the aim is to publish a framework to be used by an existing project, it’s impossible to know a priori which architecture is necessary or the build mode. 
 
-> Update: Starting from Kotlin 1.5.20, there is a new task provided by the Kotlin Multiplatform Gradle Plugin named `embedAndSignAppleFrameworkForXcode` that replaces the `packForXcode` one. The aim of this task is the same as the old one, that is publishes a framework to be used by an existing project. So it's impossible to know a priori which architecture is necessary or the build mode. For more info, give a look [to the Jetbrains blogpost](https://blog.jetbrains.com/kotlin/2021/07/multiplatform-gradle-plugin-improved-for-connecting-kmm-modules/).
+> Update: Starting from Kotlin 1.5.20, there is a new task provided by the Kotlin Multiplatform Gradle Plugin named `embedAndSignAppleFrameworkForXcode` that replaces the `packForXcode` one. The aim of this task is the same as the old one, that is publishing a framework to be used by an existing project. So it's impossible to know a priori which architecture is necessary or the build mode. For more info, give a look [at the Jetbrains blogpost](https://blog.jetbrains.com/kotlin/2021/07/multiplatform-gradle-plugin-improved-for-connecting-kmm-modules/).
 
 #### CocoaPods Gradle Plugin
 
