@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ktor database migration Liquibase"
-date:   2021-03-09
+date:   2021-08-07
 show_in_homepage: false
 draft: true
 ---
@@ -26,7 +26,7 @@ This post is part of a series of posts dedicated to Ktor where I cover all the t
 
 build.gradle.kts
 
-```
+```kotlin
 plugins {
     application
     kotlin("jvm") version "1.4.30"
@@ -35,7 +35,7 @@ plugins {
 }
 ```
 
-```
+```kotlin
 liquibaseRuntime("org.liquibase:liquibase-core:$liquibase_core")
 liquibaseRuntime("mysql:mysql-connector-java:$mysql_connector_version")
 liquibaseRuntime("ch.qos.logback:logback-core:1.2.3")
@@ -43,7 +43,7 @@ liquibaseRuntime("ch.qos.logback:logback-classic:1.2.3")
 liquibaseRuntime("javax.xml.bind:jaxb-api:2.2.4")
 ```
 
-```
+```kotlin
 // Database migrations
 val dbEnv: String by project.ext
 
@@ -83,15 +83,30 @@ liquibase {
 ```
 
 gradle.properties
-```
+```properties
 dbEnv=
 ```
 
 local.properties
-```
-TODO
+```properties
+liquibase.url=jdbc\:mysql\://your-url.com
+liquibase.pwd=password
+liquibase.user=user
 ```
 
+```
+.
+└── src
+    ├── main
+        ├── kotlin
+        └── resources
+            ├── db
+                └── migration
+                    ├── changesets
+                    │   ├── changeset-202102281045.sql
+                    │   └── changeset-202102281050.sql
+                    └── migrations.xml
+```
 
 migrations.xml
 
