@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to use an in-memory database for testing on Ktor"
-date:   2021-03-09
+date:   2021-08-06
 show_in_homepage: false
 draft: true
 ---
@@ -64,7 +64,7 @@ This interface will then have a different implementation, depending on if the se
 
 The factory implementation used in production creates a private  *HikariDataSource* that will be used by the `connect` method
 
-```
+```kotlin
 class DatabaseFactoryImpl(appConfig: AppConfig) : DatabaseFactory {
 
 	private val dbConfig = appConfig.databaseConfig
@@ -74,23 +74,23 @@ class DatabaseFactoryImpl(appConfig: AppConfig) : DatabaseFactory {
 	}
 
 	private fun hikari(): HikariDataSource {
-    val config = HikariConfig()
-    config.driverClassName = dbConfig.driverClass
-    config.jdbcUrl = dbConfig.url
-    config.username = dbConfig.user
-    config.password = dbConfig.password
-    config.maximumPoolSize = dbConfig.maxPoolSize
-    config.isAutoCommit = false
-    config.transactionIsolation = "TRANSACTION_REPEATABLE_READ"
-
-    // More configuration suggestions from https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
-       
-    config.validate()
-    return HikariDataSource(config)
+        val config = HikariConfig()
+        config.driverClassName = dbConfig.driverClass
+        config.jdbcUrl = dbConfig.url
+        config.username = dbConfig.user
+        config.password = dbConfig.password
+        config.maximumPoolSize = dbConfig.maxPoolSize
+        config.isAutoCommit = false
+        config.transactionIsolation = "TRANSACTION_REPEATABLE_READ"
+    
+        // More configuration suggestions from https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
+           
+        config.validate()
+        return HikariDataSource(config)
 	}
     
 	override fun close() {
-    // used only on Unit tests
+        // used only on Unit tests
 	}
 }
 ```
@@ -107,7 +107,7 @@ fun Application.module(testing: Boolean = false, koinModules: List<Module> = lis
 
 As you may have noticed, the `DatabaseFactoryImpl` class uses some fields provided by `AppConfig`. These fields are the driver class used for the connection, the name, user, and password of the database, and other fields that are specific to the connection. These fields are placed inside the `application.conf` file to be able to change them on different instances of the server.
 
-```cocon
+```hocon
 ktor {
 
   ... 
@@ -176,13 +176,13 @@ class DatabaseFactoryForServerTest(appConfig: AppConfig): DatabaseFactory {
 	...
 
 	private fun hikari(): HikariDataSource {
-    val config = HikariConfig()
-    config.driverClassName = dbConfig.driverClass
-    config.jdbcUrl = dbConfig.url
-    config.maximumPoolSize = dbConfig.maxPoolSize
-    config.isAutoCommit = true
-    config.validate()
-    return HikariDataSource(config)
+        val config = HikariConfig()
+        config.driverClassName = dbConfig.driverClass
+        config.jdbcUrl = dbConfig.url
+        config.maximumPoolSize = dbConfig.maxPoolSize
+        config.isAutoCommit = true
+        config.validate()
+        return HikariDataSource(config)
 	}
     
 	...
@@ -197,14 +197,14 @@ class DatabaseFactoryForUnitTest: DatabaseFactory {
 	...
 		
 	private fun hikari(): HikariDataSource {
-    val config = HikariConfig()
-    config.driverClassName = "org.h2.Driver"
-    config.jdbcUrl = "jdbc:h2:mem:;DATABASE_TO_UPPER=false;MODE=MYSQL"
-    config.maximumPoolSize = 2
-    config.isAutoCommit = true
-    config.validate()
-    source = HikariDataSource(config)
-    return source
+        val config = HikariConfig()
+        config.driverClassName = "org.h2.Driver"
+        config.jdbcUrl = "jdbc:h2:mem:;DATABASE_TO_UPPER=false;MODE=MYSQL"
+        config.maximumPoolSize = 2
+        config.isAutoCommit = true
+        config.validate()
+        source = HikariDataSource(config)
+        return source
 	}
     
     ... 
@@ -247,9 +247,9 @@ Since this operation must be repeated for every table, it is better to create a 
 ```kotlin
 object SchemaDefinition {
 	fun createSchema() {
-    transaction {
-	    SchemaUtils.create(JokeTable)
-    }
+        transaction {
+            SchemaUtils.create(JokeTable)
+        }
 	}
 }
 ```
@@ -273,14 +273,14 @@ class DatabaseFactoryForUnitTest: DatabaseFactory {
 	... 
 		
 	private fun hikari(): HikariDataSource {
-    val config = HikariConfig()
-    ...
-    source = HikariDataSource(config)
-    return source
+        val config = HikariConfig()
+        ...
+        source = HikariDataSource(config)
+        return source
 	}
     
 	override fun close() {
-    source.close()
+        source.close()
 	}
 }
 ```
@@ -298,17 +298,17 @@ class DatabaseFactoryForServerTest(appConfig: AppConfig): DatabaseFactory {
 	}
 
 	private fun hikari(): HikariDataSource {
-    val config = HikariConfig()
-    config.driverClassName = dbConfig.driverClass
-    config.jdbcUrl = dbConfig.url
-    config.maximumPoolSize = dbConfig.maxPoolSize
-    config.isAutoCommit = true
-    config.validate()
-    return HikariDataSource(config)
+        val config = HikariConfig()
+        config.driverClassName = dbConfig.driverClass
+        config.jdbcUrl = dbConfig.url
+        config.maximumPoolSize = dbConfig.maxPoolSize
+        config.isAutoCommit = true
+        config.validate()
+        return HikariDataSource(config)
 	}
     
 	override fun close() {
-    // used only for Unit tests
+        // used only for Unit tests
 	}
 }
 ```
@@ -319,19 +319,19 @@ class DatabaseFactoryForUnitTest: DatabaseFactory {
 	lateinit var source: HikariDataSource
 
 	override fun connect() {
-    Database.connect(hikari())
-    SchemaDefinition.createSchema()
+        Database.connect(hikari())
+        SchemaDefinition.createSchema()
 	}
 
 	private fun hikari(): HikariDataSource {
-    val config = HikariConfig()
-    config.driverClassName = "org.h2.Driver"
-    config.jdbcUrl = "jdbc:h2:mem:;DATABASE_TO_UPPER=false;MODE=MYSQL"
-    config.maximumPoolSize = 2
-    config.isAutoCommit = true
-    config.validate()
-    source = HikariDataSource(config)
-    return source
+        val config = HikariConfig()
+        config.driverClassName = "org.h2.Driver"
+        config.jdbcUrl = "jdbc:h2:mem:;DATABASE_TO_UPPER=false;MODE=MYSQL"
+        config.maximumPoolSize = 2
+        config.isAutoCommit = true
+        config.validate()
+        source = HikariDataSource(config)
+        return source
 	}
     
 	override fun close() {
@@ -363,25 +363,25 @@ class JokeResourceTest : AutoCloseKoinTest() {
 		// Setup
 		val joke = transaction {
 			Joke.new("joke_1") {
-		    this.value = "Chuck Norris tests are always green"
-		    this.createdAt = LocalDateTime.now()
-		    this.updatedAt = LocalDateTime.now()
-	    }
+                this.value = "Chuck Norris tests are always green"
+                this.createdAt = LocalDateTime.now()
+                this.updatedAt = LocalDateTime.now()
+	        }
 		}
 	
 		val href = application.locations.href(
-	    JokeEndpoint.Random(
-		    parent = JokeEndpoint()
-	    )
+            JokeEndpoint.Random(
+                parent = JokeEndpoint()
+            )
 		)
 	
 		handleRequest(HttpMethod.Get, href).apply {
-	    assertEquals(HttpStatusCode.OK, response.status())
-	
-	    val response = Json.decodeFromString<JokeDTO>(response.content!!)
-	
-	    assertEquals(transaction { joke.id.value }, response.jokeId)
-	    assertEquals(transaction { joke.value }, response.jokeContent)
+            assertEquals(HttpStatusCode.OK, response.status())
+        
+            val response = Json.decodeFromString<JokeDTO>(response.content!!)
+        
+            assertEquals(transaction { joke.id.value }, response.jokeId)
+            assertEquals(transaction { joke.value }, response.jokeContent)
 		}
 	}
 }
@@ -409,7 +409,7 @@ class JokeRepositoryImplTest : KoinTest {
 
     @Test
     fun `getRandomJoke returns data correctly`() = runBlockingTest {
-      …
+        ... 
     }
 }
 ```
