@@ -13,11 +13,9 @@ title = "About Me"
 {{< /rawhtml >}}
 
 
-I’m a software engineer, currently working as Tech Lead at [Uniwhere](https://www.uniwhere.com/it), where I manage the end-to-end development of a platform with half a million users, and I'm in the founding team of [Revelop](https://revelop.app/), a redesign of the personal inbox, backed by former Facebook executives, and being used in the best American schools -- from Harvard to Columbia.
+I'm a software engineer, currently working at [TIER](https://www.tier.app/) as Senior Android Engineer. I'm a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with Flutter and Kotlin Multiplatform.
 
-I'm a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with React Native, Flutter and Kotlin Multiplatform.
-
-In my spare time I write and maintain open source code, I share my dev experience by [writing](/posts) on my blog, [speaking](/talks) at confs and [organizing](https://gdg.community.dev/gdg-venezia/) events with the Google Developer Group Venezia and I play basketball.
+In my spare time, I write and maintain open source code, I share my dev experience by [writing](/posts) on my blog, [speaking](/talks) at confs and [organizing](https://gdg.community.dev/gdg-venezia/) events with the Google Developer Group Venezia and I play basketball.
 
 
 {{< rawhtml >}}
@@ -26,8 +24,12 @@ In my spare time I write and maintain open source code, I share my dev experienc
 
 # Work Experience
 
+### TIER · Senior Android Engineer · August 2021 - Present
 
-### Uniwhere · Tech Lead · September 2017 - Present
+> [TIER](https://www.tier.app/) Mobility is Europe's leading shared micro-mobility provider, with a mission to Change Mobility for Good. By providing people with a range of shared, light electric vehicles, from e-scooters to e-bikes and e-mopeds, powered by a proprietary Energy Network, TIER helps cities reduce their dependence on cars. Founded in 2018 by Lawrence Leuschner, Matthias Laug and Julian Blessin, TIER is headquartered in Berlin and currently operates in 95+ cities across 12 countries in Europe and the Middle East. With a focus on providing the safest, most equitable and most sustainable mobility solution, TIER has been climate neutral since 2020.
+
+
+### Uniwhere · Tech Lead · September 2017 - May 2021
 
 > [Uniwhere](https://www.uniwhere.com/) - Best University app in Italy, 600,000 registered students,
 backed by VCs and investors from Miami, Berlin, and Milan.
