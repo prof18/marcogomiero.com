@@ -146,6 +146,142 @@ OLD CUSTOM TASK FOR RELEASE
 }
 ```
 
+```kotlin 
+register("publishDevFramework") {
+    description = "Publish iOs framework to the Cocoa Repo"
+
+    project.exec {
+        workingDir = File("$rootDir/../kmp-xcframework-dest")
+        commandLine("git", "checkout", "develop").standardOutput
+    }
+
+    dependsOn("assemble${libName}DebugXCFramework")
+
+    doLast {
+
+        copy {
+            from("$buildDir/XCFrameworks/debug")
+            into("$rootDir/../kmp-xcframework-dest")
+        }
+
+        val dir = File("$rootDir/../kmp-xcframework-dest/$libName.podspec")
+        val tempFile = File("$rootDir/../kmp-xcframework-dest/$libName.podspec.new")
+
+        val reader = dir.bufferedReader()
+        val writer = tempFile.bufferedWriter()
+        var currentLine: String?
+
+        while (reader.readLine().also { currLine -> currentLine = currLine } != null) {
+            if (currentLine?.startsWith("s.version") == true) {
+                writer.write("s.version       = \"${libVersionName}\"" + System.lineSeparator())
+            } else {
+                writer.write(currentLine + System.lineSeparator())
+            }
+        }
+        writer.close()
+        reader.close()
+        val successful = tempFile.renameTo(dir)
+
+        if (successful) {
+
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine(
+                    "git",
+                    "add",
+                    "."
+                ).standardOutput
+            }
+
+            val dateFormatter = SimpleDateFormat("dd/MM/yyyy - HH:mm", Locale.getDefault())
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine(
+                    "git",
+                    "commit",
+                    "-m",
+                    "\"New dev release: ${libVersionName}-${dateFormatter.format(Date())}\""
+                ).standardOutput
+            }
+
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine("git", "push", "origin", "develop").standardOutput
+            }
+        }
+    }
+}
+```
+
+
+```kotlin
+register("publishFramework") {
+    description = "Publish iOs framework to the Cocoa Repo"
+
+    project.exec {
+        workingDir = File("$rootDir/../kmp-xcframework-dest")
+        commandLine("git", "checkout", "master").standardOutput
+    }
+
+    // Create Release Framework for Xcode
+    dependsOn("assemble${libName}ReleaseXCFramework")
+
+    // Replace
+    doLast {
+
+        copy {
+            from("$buildDir/XCFrameworks/release")
+            into("$rootDir/../kmp-xcframework-dest")
+        }
+
+        val dir = File("$rootDir/../kmp-xcframework-dest/$libName.podspec")
+        val tempFile = File("$rootDir/../kmp-xcframework-dest/$libName.podspec.new")
+
+        val reader = dir.bufferedReader()
+        val writer = tempFile.bufferedWriter()
+        var currentLine: String?
+
+        while (reader.readLine().also { currLine -> currentLine = currLine } != null) {
+            if (currentLine?.startsWith("s.version") == true) {
+                writer.write("s.version       = \"${libVersionName}\"" + System.lineSeparator())
+            } else {
+                writer.write(currentLine + System.lineSeparator())
+            }
+        }
+        writer.close()
+        reader.close()
+        val successful = tempFile.renameTo(dir)
+
+        if (successful) {
+
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine(
+                    "git",
+                    "add",
+                    "."
+                ).standardOutput
+            }
+
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine("git", "commit", "-m", "\"New release: ${libVersionName}\"").standardOutput
+            }
+
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine("git", "tag", libVersionName).standardOutput
+            }
+
+            project.exec {
+                workingDir = File("$rootDir/../kmp-xcframework-dest")
+                commandLine("git", "push", "origin", "master", "--tags").standardOutput
+            }
+        }
+    }
+}
+```
+
 Here you can find the differeneces from the two build.gradle.kts file: 
 
 
