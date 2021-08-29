@@ -6,16 +6,60 @@ show_in_homepage: true
 draft: true
 ---
 
+A few days ago, [Kotlin 1.5.30 has been released](https://kotlinlang.org/docs/whatsnew1530.html). One of the features contained in this release is the official support for XCFramework on Kotlin Multiplatform. 
+
+[XCFramework](https://help.apple.com/xcode/mac/11.4/#/dev544efab96) is a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time). It has been introduced by Apple during the [WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/416/) as a replacement for FatFrameworks.
+
+Before Kotlin 1.5.30, an XCFramework could be created only by running the `xcrun` command that will pack the frameworks for every different required platform into an XCFramework. 
+
+A few weeks ago, I wrote [an article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) to show how to build two Gradle task (`buildDebugXCFramework` and `buildReleaseXCFramework`) to automate the building of an XCFramework. With Kotlin 1.5.30 these tasks are not necessary anymore and in this article I will show you how to replace the custom task with the official one.
+
+To start using XCFrameworks, it is necessary to create an XCFramework object inside the `kotlin` block of the `build.gradle.kts` file. Then, every Apple target should be added in that object.
+
+```kotlin
+val libName = “LibraryName”
+
+kotlin {
+    val xcFramework = XCFramework(libName)
+
+    ios {
+        binaries.framework(libName) {
+            xcFramework.add(this)
+        }
+    }
+    
+    ...
+}
+```
+
+
+
+
 
 ---
 
-I wrote how to build xcframework without official support saying that the official support will arrive. Well, that time has arrived with Kotlin 1.5.30
+New task added:
 
-https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/
+- assemble${libName}XCFramework
+- assemble${libName}DebugXCFramework
+- assemble${libName}ReleaseXCFramework
 
-https://kotlinlang.org/docs/whatsnew1530.html?utm_source=pocket_mylist#support-for-xcframeworks
+NEW THINGS TO DO. 
 
-https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30
+
+
+
+```bash
+.
+├── build
+    ├── XCFrameworks
+        ├── debug
+        │   └── LibraryName.xcframework
+        └── release
+            └── LibraryName.xcframework
+```
+
+
 
 OLD CUSTOM TASK FOR DEBUG
 
@@ -102,42 +146,6 @@ OLD CUSTOM TASK FOR RELEASE
 }
 ```
 
-New task added:
-
-- assemble${libName}XCFramework
-- assemble${libName}DebugXCFramework
-- assemble${libName}ReleaseXCFramework
-
-NEW THINGS TO DO. 
-
-
-
-
-```kotlin
-kotlin {
-    val xcFramework = XCFramework(libName)
-
-    ios {
-        binaries.framework(libName) {
-            xcFramework.add(this)
-        }
-    }
-    
-    ...
-}
-```
-
-```bash
-.
-├── build
-    ├── XCFrameworks
-        ├── debug
-        │   └── LibraryName.xcframework
-        └── release
-            └── LibraryName.xcframework
-```
-
-
 Here you can find the differeneces from the two build.gradle.kts file: 
 
 
@@ -147,6 +155,6 @@ https://github.com/prof18/kmp-xcframework-sample/commit/18fb4ec0fad6ec2b058a2a54
 When you declare XCFrameworks, these new Gradle tasks will be registered:
 
 
-
+https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30
 
 You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
