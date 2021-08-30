@@ -12,11 +12,15 @@ A few days ago, [Kotlin 1.5.30 has been released](https://kotlinlang.org/docs/wh
 
 Before Kotlin 1.5.30, an XCFramework could be created only by running the `xcrun` command that will pack the frameworks for every different required platform into an XCFramework. 
 
-A few weeks ago, I wrote [an article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) to show how to build two Gradle task (`buildDebugXCFramework` and `buildReleaseXCFramework`) to automate the building of an XCFramework. With Kotlin 1.5.30 these tasks are not necessary anymore and in this article I will show you how to replace the custom task with the official one.
+A few weeks ago, I wrote [an article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) to show how to create two Gradle task (`buildDebugXCFramework` and `buildReleaseXCFramework`) to automate the building of an XCFramework. With Kotlin 1.5.30 these tasks are not necessary anymore and in this article I will show you how to replace the custom task with the official one.
+
+## Build an XCFramework with Kotlin 1.5.30
 
 To start using XCFrameworks, it is necessary to create an XCFramework object inside the `kotlin` block of the `build.gradle.kts` file. Then, every Apple target should be added in that object.
 
 ```kotlin
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 val libName = “LibraryName”
 
 kotlin {
@@ -32,22 +36,15 @@ kotlin {
 }
 ```
 
-
-
-
-
----
-
-New task added:
+After declaring the XCFramework object, three new tasks are added: 
 
 - assemble${libName}XCFramework
 - assemble${libName}DebugXCFramework
 - assemble${libName}ReleaseXCFramework
 
-NEW THINGS TO DO. 
+The first one will create both the release and the debug version of the XCFramework, while the others will create only the requested variant. 
 
-
-
+The XCFrameworks are located in the `XCFrameworks` folder inside the `build` folder. There will be a subfolder for each of the built variant.
 
 ```bash
 .
@@ -59,92 +56,15 @@ NEW THINGS TO DO.
             └── LibraryName.xcframework
 ```
 
+## Publish an XCFramework
 
+The newly built XCFramework can now be distributed. The distribution can be archived in different ways: for example in a *[CocoaPods](https://cocoapods.org/)* repository, in the [Swift Package Manager](https://swift.org/package-manager/) or with [Carthage](https://github.com/Carthage/Carthage). Since I’m familiar with CocoaPods, that’s what I’ve always used.
 
-OLD CUSTOM TASK FOR DEBUG
+To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework. For the details and to understand how the task works, I suggest you give a look at [this article](https://www.marcogomiero.com/posts/2021/kmp-existing-project/) that I wrote a few months ago. 
 
-```kotlin
-val libName = “LibraryName”
- 
-register("buildDebugXCFramework", Exec::class.java) {
-    description = "Create a Debug XCFramework"
+These tasks are the same used in [the article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) that I wrote a few weeks ago about XCFrameworks. But they must updated, since the tasks to build the XCFramework are changed. 
 
-    dependsOn("link${libName}DebugFrameworkIosArm64")
-    dependsOn("link${libName}DebugFrameworkIosX64")
-
-    val arm64FrameworkPath = "$rootDir/build/bin/iosArm64/${libName}DebugFramework/${libName}.framework"
-    val arm64DebugSymbolsPath = "$rootDir/build/bin/iosArm64/${libName}DebugFramework/${libName}.framework.dSYM"
-
-    val x64FrameworkPath = "$rootDir/build/bin/iosX64/${libName}DebugFramework/${libName}.framework"
-    val x64DebugSymbolsPath = "$rootDir/build/bin/iosX64/${libName}DebugFramework/${libName}.framework.dSYM"
-
-    val xcFrameworkDest = File("$rootDir/../kmp-xcframework-dest/$libName.xcframework")
-    executable = "xcodebuild"
-    args(mutableListOf<String>().apply {
-        add("-create-xcframework")
-        add("-output")
-        add(xcFrameworkDest.path)
-
-        // Real Device
-        add("-framework")
-        add(arm64FrameworkPath)
-        add("-debug-symbols")
-        add(arm64DebugSymbolsPath)
-
-        // Simulator
-        add("-framework")
-        add(x64FrameworkPath)
-        add("-debug-symbols")
-        add(x64DebugSymbolsPath)
-    })
-
-    doFirst {
-        xcFrameworkDest.deleteRecursively()
-    }
-}
-```
-
-OLD CUSTOM TASK FOR RELEASE
-
-```kotlin
- register("buildReleaseXCFramework", Exec::class.java) {
-    description = "Create a Release XCFramework"
-
-    dependsOn("link${libName}ReleaseFrameworkIosArm64")
-    dependsOn("link${libName}ReleaseFrameworkIosX64")
-
-    val arm64FrameworkPath = "$rootDir/build/bin/iosArm64/${libName}ReleaseFramework/${libName}.framework"
-    val arm64DebugSymbolsPath =
-        "$rootDir/build/bin/iosArm64/${libName}ReleaseFramework/${libName}.framework.dSYM"
-
-    val x64FrameworkPath = "$rootDir/build/bin/iosX64/${libName}ReleaseFramework/${libName}.framework"
-    val x64DebugSymbolsPath = "$rootDir/build/bin/iosX64/${libName}ReleaseFramework/${libName}.framework.dSYM"
-
-    val xcFrameworkDest = File("$rootDir/../kmp-xcframework-dest/$libName.xcframework")
-    executable = "xcodebuild"
-    args(mutableListOf<String>().apply {
-        add("-create-xcframework")
-        add("-output")
-        add(xcFrameworkDest.path)
-
-        // Real Device
-        add("-framework")
-        add(arm64FrameworkPath)
-        add("-debug-symbols")
-        add(arm64DebugSymbolsPath)
-
-        // Simulator
-        add("-framework")
-        add(x64FrameworkPath)
-        add("-debug-symbols")
-        add(x64DebugSymbolsPath)
-    })
-
-    doFirst {
-        xcFrameworkDest.deleteRecursively()
-    }
-}
-```
+**<ins>Publish Debug Version<ins>**:
 
 ```kotlin 
 register("publishDevFramework") {
@@ -213,6 +133,16 @@ register("publishDevFramework") {
 }
 ```
 
+The task now depends on the `assemble${libName}DebugXCFramework` task, that is officially provided by Kotlin. Then, the only thing to do is to move the XCFramework from the `build` folder to the CocoaPod repository.
+
+```kotlin
+copy {
+    from("$buildDir/XCFrameworks/debug")
+    into("$rootDir/../kmp-xcframework-dest")
+}
+```
+
+The task to publish the release version of the XCFramework is pretty much the same of the debug one, with the exception of the task to build the framework, that is `assemble${libName}ReleaseXCFramework`, and the location in the `build` folder:
 
 ```kotlin
 register("publishFramework") {
@@ -282,15 +212,6 @@ register("publishFramework") {
 }
 ```
 
-Here you can find the differeneces from the two build.gradle.kts file: 
+And that’s it! With these little modifications, it is possibile to use the official Kotlin support for XCFrameworks and automatically publish them in a CocoaPod repository. 
 
-
-https://github.com/prof18/kmp-xcframework-sample/commit/18fb4ec0fad6ec2b058a2a543c0c1de914c0a0c9#diff-c0dfa6bc7a8685217f70a860145fbdf416d449eaff052fa28352c5cec1a98c06
-
-
-When you declare XCFrameworks, these new Gradle tasks will be registered:
-
-
-https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30
-
-You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
+On GitHub, I’ve updated the sample project with the new tasks on the [kotlin-1.5.30 branch](https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30). Instead, if you are interested on the XCFramework support prior to Kotlin 1.5.30, you can give a look at the [main branch](https://github.com/prof18/kmp-xcframework-sample). And to see what changes between the two branches, you can give a look [at this commit](https://github.com/prof18/kmp-xcframework-sample/commit/18fb4ec0fad6ec2b058a2a543c0c1de914c0a0c9#diff-c0dfa6bc7a8685217f70a860145fbdf416d449eaff052fa28352c5cec1a98c06).
