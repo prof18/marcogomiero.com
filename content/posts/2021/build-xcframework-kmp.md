@@ -43,6 +43,8 @@ Sam [followed the same approach](https://handstandsam.com/2021/06/11/kotlin-mult
 
 Unfortunately, there isn’t native support for XCFrameworks on Kotlin Multiplatform yet (it should come hopefully with Kotlin 1.5.30) and to generate an XCFramework, you have to create manually an XCFramework starting from the different frameworks built by KMP.
 
+> From Kotlin 1.5.30, XCFrameworks are officialy supported. I wrote another article on how to replace the custom gradle tasks, that are showcased below, with the official ones. [Building an XCFramework on Kotlin Multiplatform from Kotlin 1.5.30](https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support.md/).
+
 ```bash
 xcrun xcodebuild -create-xcframework \
     -framework /path/to/device.framework \
