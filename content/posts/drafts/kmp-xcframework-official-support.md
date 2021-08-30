@@ -6,17 +6,17 @@ show_in_homepage: true
 draft: true
 ---
 
-A few days ago, [Kotlin 1.5.30 has been released](https://kotlinlang.org/docs/whatsnew1530.html). One of the features contained in this release is the official support for XCFramework on Kotlin Multiplatform. 
+A few days ago, [Kotlin 1.5.30 has been released](https://kotlinlang.org/docs/whatsnew1530.html). One of the features contained in this release is the official support for XCFramework on Kotlin Multiplatform.
 
 [XCFramework](https://help.apple.com/xcode/mac/11.4/#/dev544efab96) is a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time). It has been introduced by Apple during the [WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/416/) as a replacement for FatFrameworks.
 
-Before Kotlin 1.5.30, an XCFramework could be created only by running the `xcrun` command that will pack the frameworks for every different required platform into an XCFramework. 
+Before Kotlin 1.5.30, an XCFramework could be created only by running the `xcrun` command that will pack the frameworks for every different required platform into an XCFramework.
 
-A few weeks ago, I wrote [an article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) to show how to create two Gradle task (`buildDebugXCFramework` and `buildReleaseXCFramework`) to automate the building of an XCFramework. With Kotlin 1.5.30 these tasks are not necessary anymore and in this article I will show you how to replace the custom task with the official one.
+A few weeks ago, I wrote [an article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) to show how to create two Gradle tasks (`buildDebugXCFramework` and `buildReleaseXCFramework`) to automate the building of an XCFramework. With Kotlin 1.5.30 these tasks are not necessary anymore and in this article, I will show you how to replace the custom task with the official one.
 
 ## Build an XCFramework with Kotlin 1.5.30
 
-To start using XCFrameworks, it is necessary to create an XCFramework object inside the `kotlin` block of the `build.gradle.kts` file. Then, every Apple target should be added in that object.
+To start using XCFrameworks, it is necessary to create an XCFramework object inside the `kotlin` block of the `build.gradle.kts` file. Then, every Apple target should be added to that object.
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
@@ -36,15 +36,15 @@ kotlin {
 }
 ```
 
-After declaring the XCFramework object, three new tasks are added: 
+After declaring the XCFramework object, three new tasks are added:
 
 - assemble${libName}XCFramework
 - assemble${libName}DebugXCFramework
 - assemble${libName}ReleaseXCFramework
 
-The first one will create both the release and the debug version of the XCFramework, while the others will create only the requested variant. 
+The first one will create both the release and the debug version of the XCFramework, while the others will create only the requested variant.
 
-The XCFrameworks are located in the `XCFrameworks` folder inside the `build` folder. There will be a subfolder for each of the built variant.
+The XCFrameworks are located in the `XCFrameworks` folder inside the `build` folder. There will be a subfolder for each of the built variants.
 
 ```bash
 .
@@ -62,7 +62,7 @@ The newly built XCFramework can now be distributed. The distribution can be arch
 
 To make the publishing process as streamlined as possible, I’ve written a bunch of Gradle tasks to automatically build and publish through git the Debug and Release version of the XCFramework. For the details and to understand how the task works, I suggest you give a look at [this article](https://www.marcogomiero.com/posts/2021/kmp-existing-project/) that I wrote a few months ago. 
 
-These tasks are the same used in [the article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) that I wrote a few weeks ago about XCFrameworks. But they must updated, since the tasks to build the XCFramework are changed. 
+These tasks are the same used in [the article](https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/) that I wrote a few weeks ago about XCFrameworks. But they must be updated, since the tasks to build the XCFramework are changed. 
 
 **<ins>Publish Debug Version<ins>**:
 
@@ -133,7 +133,7 @@ register("publishDevFramework") {
 }
 ```
 
-The task now depends on the `assemble${libName}DebugXCFramework` task, that is officially provided by Kotlin. Then, the only thing to do is to move the XCFramework from the `build` folder to the CocoaPod repository.
+The task now depends on the `assemble${libName}DebugXCFramework` task, which is officially provided by Kotlin. Then, the only thing to do is to move the XCFramework from the `build` folder to the CocoaPod repository.
 
 ```kotlin
 copy {
@@ -142,7 +142,7 @@ copy {
 }
 ```
 
-The task to publish the release version of the XCFramework is pretty much the same of the debug one, with the exception of the task to build the framework, that is `assemble${libName}ReleaseXCFramework`, and the location in the `build` folder:
+The task to publish the release version of the XCFramework is pretty much the same as the debug one, except the task to build the framework, that is `assemble${libName}ReleaseXCFramework`, and the location in the `build` folder:
 
 ```kotlin
 register("publishFramework") {
@@ -212,6 +212,6 @@ register("publishFramework") {
 }
 ```
 
-And that’s it! With these little modifications, it is possibile to use the official Kotlin support for XCFrameworks and automatically publish them in a CocoaPod repository. 
+And that’s it! With these little modifications, it is possible to use the official Kotlin support for XCFrameworks and automatically publish them in a CocoaPod repository.
 
-On GitHub, I’ve updated the sample project with the new tasks on the [kotlin-1.5.30 branch](https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30). Instead, if you are interested on the XCFramework support prior to Kotlin 1.5.30, you can give a look at the [main branch](https://github.com/prof18/kmp-xcframework-sample). And to see what changes between the two branches, you can give a look [at this commit](https://github.com/prof18/kmp-xcframework-sample/commit/18fb4ec0fad6ec2b058a2a543c0c1de914c0a0c9#diff-c0dfa6bc7a8685217f70a860145fbdf416d449eaff052fa28352c5cec1a98c06).
+On GitHub, I’ve updated the sample project with the new tasks on the [kotlin-1.5.30 branch](https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30). Instead, if you are interested in the XCFramework support before Kotlin 1.5.30, you can look at the [main branch](https://github.com/prof18/kmp-xcframework-sample). And to see what changes between the two branches, you can look [at this commit](https://github.com/prof18/kmp-xcframework-sample/commit/18fb4ec0fad6ec2b058a2a543c0c1de914c0a0c9#diff-c0dfa6bc7a8685217f70a860145fbdf416d449eaff052fa28352c5cec1a98c06).
