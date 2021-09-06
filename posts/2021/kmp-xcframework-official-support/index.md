@@ -1,6 +1,19 @@
 # Building an XCFramework on Kotlin Multiplatform from Kotlin 1.5.30
 
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;">
+     <a href="https://mailchi.mp/kotlinweekly/kotlin-weekly-266"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23266-%237874b4"/></a>
+        
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
+
 A few days ago, [Kotlin 1.5.30 has been released](https://kotlinlang.org/docs/whatsnew1530.html). One of the features contained in the release is the official support for XCFrameworks on Kotlin Multiplatform.
 
 [XCFramework](https://help.apple.com/xcode/mac/11.4/#/dev544efab96) is a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time). It has been introduced by Apple during the [WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/416/) as a replacement for FatFrameworks.
@@ -210,3 +223,4 @@ register("publishFramework") {
 And that’s it! With these little modifications, it is possible to use the official Kotlin support for XCFrameworks and automatically publish them in a CocoaPod repository.
 
 On GitHub, I’ve updated the sample project with the new tasks on the [kotlin-1.5.30 branch](https://github.com/prof18/kmp-xcframework-sample/tree/kotlin-1.5.30). Instead, if you are interested in XCFramework support before Kotlin 1.5.30, you can look at the [main branch](https://github.com/prof18/kmp-xcframework-sample). And to see what are the changes between the two branches, you can look [at this commit](https://github.com/prof18/kmp-xcframework-sample/commit/18fb4ec0fad6ec2b058a2a543c0c1de914c0a0c9#diff-c0dfa6bc7a8685217f70a860145fbdf416d449eaff052fa28352c5cec1a98c06).
+
