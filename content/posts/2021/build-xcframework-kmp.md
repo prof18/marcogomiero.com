@@ -2,7 +2,7 @@
 layout: post
 title:  "How to build an XCFramework on Kotlin Multiplatform"
 date:   2021-07-14
-show_in_homepage: true
+show_in_homepage: false
 ---
 
 {{< rawhtml >}}
