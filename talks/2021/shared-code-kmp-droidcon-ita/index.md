@@ -1,7 +1,7 @@
 # And that, folks, is how we shared code between Android, iOS and the Backend
 
 
-11 November 2021 - [FOSDEM](https://it.droidcon.com/2021/agenda/)
+11 November 2021 - [droidcon Italy](https://it.droidcon.com/2021/agenda/)
 
 ## Abstract:
 Kotlin Multiplatform is an alpha feature that you can use to share code between different platforms. Even if it is in alpha stage, it is already possible to start using it in production applications.
