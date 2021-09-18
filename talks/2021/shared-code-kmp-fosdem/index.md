@@ -27,6 +27,6 @@ In this talk, I will share the discussion that led us to Kotlin Multiplatform, a
 
 ## Sample Code:
 
-https://github.com/prof18/shared-hn-android-ios-backend
+https://github.com/prof18/shared-hn-android-ios-backend/tree/with-ios-fatframework
 
 
