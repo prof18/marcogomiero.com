@@ -315,7 +315,7 @@ register("publishFramework") {
 
 All the tasks mentioned in the article are available in the [KMP FatFramework Cocoa Gradle plugin](https://github.com/prof18/kmp-fatframework-cocoa) that I wrote. The support for XCFrameworks has been added since [version 0.2.1](https://github.com/prof18/kmp-fatframework-cocoa/releases/tag/0.2.1).
 
-On GitHub, I’ve published [a sample project](https://github.com/prof18/kmp-xcframework-sample) to showcase the usage of the task. In the pre-kotlin-1.5.30](https://github.com/prof18/kmp-xcframework-sample/tree/pre-kotlin-1.5.30) branch the tasks are manually added in the [build.gradle.kts](https://github.com/prof18/kmp-xcframework-sample/blob/pre-kotlin-1.5.30/build.gradle.kts) file. In the [pre-kotlin-1.5.30-with-plugin](https://github.com/prof18/kmp-xcframework-sample/tree/pre-kotlin-1.5.30-with-plugin) branch instead, the KMP FatFramework Cocoa plugin is used. 
+On GitHub, I’ve published [a sample project](https://github.com/prof18/kmp-xcframework-sample) to showcase the usage of the task. In the [pre-kotlin-1.5.30](https://github.com/prof18/kmp-xcframework-sample/tree/pre-kotlin-1.5.30) branch the tasks are manually added in the [build.gradle.kts](https://github.com/prof18/kmp-xcframework-sample/blob/pre-kotlin-1.5.30/build.gradle.kts) file. In the [pre-kotlin-1.5.30-with-plugin](https://github.com/prof18/kmp-xcframework-sample/tree/pre-kotlin-1.5.30-with-plugin) branch instead, the KMP FatFramework Cocoa plugin is used. 
 
 You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when there will be some update of the plugin (and this is a spoiler! :))
 
