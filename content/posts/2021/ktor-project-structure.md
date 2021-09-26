@@ -79,7 +79,7 @@ install(Koin) {
 ```kotlin
 val appModule = module {
     single<MyClass>()
-    singleBy<MyInterface, MyInterfaceImpl>()
+    single<JokeRepository> { JokeRepositoryImpl() }
 }
 ```
 
@@ -343,7 +343,7 @@ And as reference, here’s the entire structure that I’ve described:
             └── resource
                 └── JokeResource.kt
 
- ```
+```
 
 ## Testing 
 
@@ -409,12 +409,12 @@ In this way, during testing, it is possible to change one or more dependencies.
 ```kotlin
 val appTestModule = module {
     single<AppConfig>()
-    singleBy<DatabaseFactory, DatabaseFactoryForServerTest>()
-    singleBy<JokeLocalDataSource, JokeLocalDataSourceImpl>()
+    single<DatabaseFactory> { DatabaseFactoryForServerTest() }
+    single<JokeLocalDataSource> { JokeLocalDataSourceImpl() } 
 }
 
 val fakeRepositoryModule = module {
-    singleBy<JokeRepository, FakeJokeRepository>()
+    single<JokeRepository> { FakeJokeRepository() }
 }
 
 @Test
