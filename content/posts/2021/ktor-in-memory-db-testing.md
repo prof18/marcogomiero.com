@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to use an in-memory database for testing on Ktor"
-date:   2021-08-06
+date:   2021-10-04
 show_in_homepage: false
-draft: true
 ---
 
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
