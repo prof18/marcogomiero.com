@@ -11,6 +11,7 @@
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: How to persist Ktor logs
+- Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
 {{< /admonition >}}
 
 
