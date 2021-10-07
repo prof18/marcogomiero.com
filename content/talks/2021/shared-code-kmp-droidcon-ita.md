@@ -1,5 +1,5 @@
 ---
-date: 2021-10-04T09:45:00Z
+date: 2021-10-05T09:45:00Z
 title: "And that, folks, is how we shared code between Android, iOS and the Backend"
 location: "droidcon Italy, Remote"
 performDate: 2021-11-11

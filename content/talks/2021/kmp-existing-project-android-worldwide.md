@@ -1,12 +1,12 @@
 ---
-date: 2021-10-04T09:45:00Z
+date: 2021-10-03T09:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing project"
-location: "We Are Developers - Mobile Day, Remote"
-performDate: 2021-11-03
+location: "Android Worldwider, Remote"
+performDate: 2021-10-26
 upcoming: true
 ---
 
-03 November 2021 - [We Are Developers - Mobile Day](https://www.wearedevelopers.com/event/mobile-day)
+26 October 2021 - [Android Worldwider](https://www.airmeet.com/e/a1b36310-216e-11ec-b110-8b942dc0c69b)
 
 ## Abstract:
 
