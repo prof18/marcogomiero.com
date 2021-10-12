@@ -1,6 +1,22 @@
 # How to use an in-memory database for testing on Ktor
 
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://androidweekly.net/issues/issue-487"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-487/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;">
+     <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=2b57b99606"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23271-%237874b4"/></a>
+        
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
