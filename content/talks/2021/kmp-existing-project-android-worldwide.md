@@ -1,7 +1,7 @@
 ---
 date: 2021-10-03T09:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing project"
-location: "Android Worldwider, Remote"
+location: "Android Worldwide, Remote"
 performDate: 2021-10-26
 upcoming: true
 ---
