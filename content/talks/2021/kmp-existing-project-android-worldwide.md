@@ -6,7 +6,7 @@ performDate: 2021-10-26
 upcoming: true
 ---
 
-26 October 2021 - [Android Worldwider](https://www.airmeet.com/e/a1b36310-216e-11ec-b110-8b942dc0c69b)
+26 October 2021 - [Android Worldwide](https://www.airmeet.com/e/a1b36310-216e-11ec-b110-8b942dc0c69b)
 
 ## Abstract:
 
