@@ -1,7 +1,7 @@
 # Introducing Kotlin Multiplatform in an existing project
 
 
-26 October 2021 - [Android Worldwide](https://www.airmeet.com/e/a1b36310-216e-11ec-b110-8b942dc0c69b)
+13 November 2021 - [DevFest Romania](https://gdg.community.dev/events/details/google-gdg-bucharest-presents-devfest-romania-2021/)
 
 ## Abstract:
 
