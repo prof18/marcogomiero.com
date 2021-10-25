@@ -16,7 +16,7 @@ In this talk, we will understand which part of the code can be a starting point 
 <br>
 {{< /rawhtml >}}
 
-{{< speakerdeck e29e5d5369894442a23544dc6feb4b4c >}}
+{{< speakerdeck effc3e5f59f84a9a98df072c10edda64 >}}
 
 
 ## Video:
