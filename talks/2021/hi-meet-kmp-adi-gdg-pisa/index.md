@@ -7,3 +7,12 @@
 Kotlin Multiplatform is getting more and more hype every day, even if it's still in alpha. We constantly read of new companies and teams that are trying KMP for experiments and production projects alike. And we're left wondering: it safe to do so? Why picking KMP over any another cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects?
 In this talk, I'll answer to these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.
 
+## Slide
+
+{{< speakerdeck c0a0fde1b82a4a809bfb87e630661717 >}}
+
+## Video
+
+{{< youtube SzJRpWKJVnw >}}
+
+
