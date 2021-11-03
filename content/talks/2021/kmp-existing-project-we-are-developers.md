@@ -15,3 +15,15 @@ After discovering a new interesting technology or framework, you will probably s
 This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.
 
 In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.
+
+## Slides:
+
+{{< speakerdeck a77c4d6fe2324447af9284463b3664b5 >}}
+
+## Video:
+
+{{< vimeo 639870487 >}}
+
+## Sample Code:
+
+https://github.com/prof18/shared-hn-android-ios-backend
