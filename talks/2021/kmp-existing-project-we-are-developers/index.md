@@ -17,7 +17,7 @@ In this talk, we will understand which part of the code can be a starting point 
 
 ## Video:
 
-{{< vimeo 639870487 >}}
+Coming Soon
 
 ## Sample Code:
 
