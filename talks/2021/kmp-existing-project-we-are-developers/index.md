@@ -17,7 +17,9 @@ In this talk, we will understand which part of the code can be a starting point 
 
 ## Video:
 
-Coming Soon
+{{< youtube krGhziZ9WK8 >}}
+
+The session starts at 3:00:00
 
 ## Sample Code:
 
