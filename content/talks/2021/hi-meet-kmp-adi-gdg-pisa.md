@@ -19,3 +19,4 @@ In this talk, I'll answer to these questions, clarifying all the doubts and maki
 
 {{< youtube SzJRpWKJVnw >}}
 
+The session starts at 1:23:00
