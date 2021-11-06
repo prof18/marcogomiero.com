@@ -24,7 +24,7 @@ In this talk, we will understand which part of the code can be a starting point 
 
 ## Video:
 
-Coming Soon
+{{< youtube rpLaVG3EDa8 >}}
 
 ## Sample Code:
 
