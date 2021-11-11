@@ -22,10 +22,9 @@ In this talk, we will understand which part of the code can be a starting point 
 
 {{< speakerdeck effc3e5f59f84a9a98df072c10edda64 >}}
 
-
 ## Video:
 
-Coming Soon
+{{< vimeo 644103152 >}}
 
 ## Sample Code:
 
