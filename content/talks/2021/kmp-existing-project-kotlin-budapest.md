@@ -3,7 +3,6 @@ date: 2021-12-12T09:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing project"
 location: "Kotlin Budapest Meetup - December"
 performDate: 2021-12-14
-upcoming: True
 ---
 
 14 December 2021 - [Kotlin Budapest Meetup - December](https://www.meetup.com/Kotlin-Budapest/events/281867291/)
@@ -16,3 +15,17 @@ This is also the case for Kotlin Multiplatform, and even though it is still in a
 
 In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.
 
+## Slides:
+{{< rawhtml >}}
+<br>
+{{< /rawhtml >}}
+
+{{< speakerdeck e10b7502ea424702ac1fb722502b423e >}}
+
+## Video:
+
+Coming soon
+
+## Sample Code:
+
+https://github.com/prof18/shared-hn-android-ios-backend
