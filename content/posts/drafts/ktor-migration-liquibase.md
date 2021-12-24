@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to handle database migrations with Liquibase on Ktor"
-date:   2022-01-12
+date:   2021-12-12
 show_in_homepage: false
 draft: true
 ---
@@ -28,8 +28,8 @@ The first thing to do is to add all the required dependencies. The starting poin
 
 ```kotlin
 plugins {
-	...
-	id("org.liquibase.gradle") version "<version-number>"
+    ...
+    id("org.liquibase.gradle") version "<version-number>"
 }
 ```
  
@@ -148,10 +148,10 @@ The `migrations.xml` file contains the definitions of every migration:
 Every migration is represented by a `changeSet`, that has a unique ID. An ID could be, for example, the *YearMonthDayHourMinute* used for the file name. 
 In the changeSet object, it is necessary to provide the path of the SQL file for the migration, and also a comment can be added.
 
-```
+```xml
 <changeSet id="202102281050" author="Marco">
-        <comment>Jokes Data</comment>
-        <sqlFile path="src/main/resources/db/migration/changesets/changeset-202102281050.sql"/>
+    <comment>Jokes Data</comment>
+    <sqlFile path="src/main/resources/db/migration/changesets/changeset-202102281050.sql"/>
 </changeSet>
 ```
 
@@ -193,8 +193,8 @@ By default, the Liquibase plugin will run every activity. However, it is possibl
 
 ```kotlin
 liquibase {
-	...
-	runList = “dev,prod”
+    ...
+    runList = “dev,prod”
 }
 ```
 
@@ -210,8 +210,8 @@ Then the variable will be retrieved in the `build.gradle.kts` file and assigned 
 val dbEnv: String by project.ext
 
 liquibase {
-	...
-	runList = dbEnv
+    ...
+    runList = dbEnv
 }
 ```
 
