@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to handle database migrations with Liquibase on Ktor"
-date:   2021-08-07
+date:   2022-01-12
 show_in_homepage: false
 draft: true
 ---
@@ -14,64 +14,26 @@ draft: true
 - Part 4: How to handle database migrations with Liquibase on Ktor
 {{< /admonition >}}
 
-Databases are an important and critical part of a backend infrastructure. They are the place where all the informations are stored and that data cannot be compromised or lost. That’s why it is important to have a proper management of the evolution of the database: it is necessary to be able to modifying the schema, migrate the data or rollback to a previous schema version if something unexpected happened. 
+Databases are an important and critical part of backend infrastructures. They are the place where all the information is stored and that data cannot be compromised or lost. That’s why it is important to have proper management of the evolution of the database: it is necessary to be able to modify the schema, migrate the data, or roll back to a previous schema version if something unexpected happened. 
 
 There are many different products or tools to manage a database schema, for example [Flyway](https://github.com/flyway/flyway) or [Liquibase](https://github.com/liquibase/liquibase). 
 
-
+In this article, I will cover how to set up Liquibase in a Ktor project and how to create two Gradle tasks responsible to migrate a test and a production MySQL database. There is also a [pro version](https://www.liquibase.com/products) of Liquibase, but the free community version was enough for me. 
  
-
----
-
-In a backend you have a database but you need also to properly manage it. Migration, rollback etc. Have to do it without compromising the server.
-
-Different solutions, for example Flyway
-
-https://github.com/flyway/flyway
-
-https://www.thebookofjoel.com/kotlin-ktor-exposed-postgres
-
-I’ve tried it but didn’t like because you have to run the migration when the program is running with a method and I don’t like it, I prefer unbundled from the backend. Otherwise if something goes wrong I will have the backend down until I will fix the issue. 
-
-So I’ve found out about Liquibase where I can run the migration with a gradle task. Liquibase has different feature a pro version, but the free community version was enough for me. 
-
-https://www.liquibase.com/products
-
-https://www.liquibase.org/
-
-https://github.com/liquibase/liquibase
-
-Liquibase helps millions of teams track, version, and deploy database schema changes. It will help you to:
-
-Control database schema changes for specific versions
-Eliminate errors and delays when releasing databases
-Automatically order scripts for deployment
-Easily rollback changes
-Collaborate with tools you already use
-
-rapidly manage database schema changes.
-
-In this article, I will cover how to setup an in-memory database with [H2](https://www.h2database.com/html/main.html) for testing on a Ktor project that uses a MySQL database in production.
-
 This post is part of a series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. You can check out the other instances of the series in the index above or [follow me on Twitter](https://twitter.com/marcoGomier) to keep up to date.
 
-
 ## Setup 
- 
- The first things to do is add the plugin on gradle 
 
-build.gradle.kts
+The first thing to do is to add all the required dependencies. The starting point is the [Gradle plugin](https://github.com/liquibase/liquibase-gradle-plugin) in the `build.gradle.kts` file:
 
 ```kotlin
 plugins {
-    application
-    kotlin("jvm") version "1.4.30"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.4.30"
-    id("org.liquibase.gradle") version "2.0.4"
+	...
+	id("org.liquibase.gradle") version "<version-number>"
 }
 ```
-
-After adding the plugin it is possibile to add the dependencies with liquibaseRuntime instead of implementation. The dependencies add the core functionalities, logging, jdbc connection and xml parsing api.
+ 
+After syncing the project, it is possible to add now the required dependencies for the Liquibase runtime:
 
 ```kotlin
 liquibaseRuntime("org.liquibase:liquibase-core:$liquibase_core")
@@ -81,84 +43,69 @@ liquibaseRuntime("ch.qos.logback:logback-classic:1.2.3")
 liquibaseRuntime("javax.xml.bind:jaxb-api:2.2.4")
 ```
 
+*Note that here `liquibaseRuntime` is used instead of the usual `implementation`*
 
-Then it is necessary to create the tasks to perform the migration. Need to declare two different one, one for production database and one for local development. For local development, the data can be hardcoded while for remote one it is better to have them store in the local.properties file 
+Besides the core functionality, the other dependencies are necessary for the database connection, for logging, and for parsing XML, since all the data about the migrations will be saved in an XML file (as shown later on).
+
+## Configuring the migration task
+
+To perform the database migrations, it is necessary to connect to the database, and to do so, some access information, like the database URL, the user, and the password, need to be stored somewhere and retrieved. 
+
+The access information can be saved, for example, on `local.properties` or in the environment variables:
+
+```properties
+liquibase.dev.url=jdbc:mysql://localhost:3308/chucknorris
+liquibase.dev.pwd=password
+liquibase.dev.user=root
+
+liquibase.prod.url=jdbc\:mysql\://your-url.com
+liquibase.prod.pwd=password
+liquibase.prod.user=user
+```
+
+and can be retrieved in the `build.gradle.kts` file:
 
 ```kotlin
-// Database migrations
-val dbEnv: String by project.ext
-
 val propertiesFile = file("local.properties")
 val properties = Properties()
 if (propertiesFile.exists()) {
     properties.load(propertiesFile.inputStream())
 }
 
-liquibase {
-    activities.register("dev") {
-        this.arguments = mapOf(
-            "logLevel" to "info",
-            "changeLogFile" to "src/main/resources/db/migration/migrations.xml",
-            "url" to "jdbc:mysql://localhost:3308/chucknorris",
-            "username" to "root",
-            "password" to "password"
-        )
-    }
+val urlDev = properties.getProperty("liquibase.dev.url") ?: System.getenv("LIQUIBASE_DEV_URL")
+val userDev = properties.getProperty("liquibase.dev.user") ?: System.getenv("LIQUIBASE_DEV_USER")
+val pwdDev = properties.getProperty("liquibase.dev.pwd") ?: System.getenv("LIQUIBASE_DEV_PWD")
 
-    activities.register("prod") {
-        val url = properties.getProperty("liquibase.url") ?: System.getenv("LIQUIBASE_URL")
-        val user = properties.getProperty("liquibase.user") ?: System.getenv("LIQUIBASE_USER")
-        val pwd = properties.getProperty("liquibase.pwd") ?: System.getenv("LIQUIBASE_PWD")
-
-        this.arguments = mapOf(
-            "logLevel" to "info",
-            "changeLogFile" to "/resources/db/migration/migrations.xml",
-            "url" to url,
-            "username" to user,
-            "password" to pwd
-        )
-    }
-    runList = dbEnv
-}
+val urlProd = properties.getProperty("liquibase.prod.url") ?: System.getenv("LIQUIBASE_PROD_URL")
+val userProd = properties.getProperty("liquibase.prod.user") ?: System.getenv("LIQUIBASE_PROD_USER")
+val pwdProd = properties.getProperty("liquibase.prod.pwd") ?: System.getenv("LIQUIBASE_PROD_PWD")
 ```
 
-local.properties
-```properties
-liquibase.url=jdbc\:mysql\://your-url.com
-liquibase.pwd=password
-liquibase.user=user
-```
-
-The gradle command to perform the migration is
-
-```bash
-./gradlew update
-
-```
-
-To decide which database to migration and which task to run, is decided by the `runList = dbEnv` variable.
-
-The value of the variable can be injected from the command line with 
-
-```bash
-./gradlew update -PdbEnv=dev
-```
-
-The variable is defined in gradle.properties and then reassigned  with each run
+The migration task can be configured and customized by providing some parameters in the `activities.register` block, inside the `liquibase` block. 
 
 ```kotlin
-val dbEnv: String by project.ext
+liquibase {
+    activities.register {
+        this.arguments = mapOf(
+            "logLevel" to "info",
+            "changeLogFile" to "<file-path>",
+            "url" to urlProd,
+            "username" to userProd,
+            "password" to pwdProd,
+        )
+    }
+}   
 ```
 
-gradle.properties
-```properties
-dbEnv=
-```
+The ones that I’ve provided are the following, but you can find more parameters in the [Liquibase documentation](https://docs.liquibase.com/commands/home.html):
 
+- `logInfo` -> execution log level (`debug`, `info`, `warning`, `severe`, `off`).
+- `changeLogFile` -> the path of the changelog XML file to use;
+- `url` -> database JDBC URL;
+- `username` -> database username;
+- `password` -> database password;
 
-## Execution
-
-The database migration that will be performed must be saved inside the resource directory in an sql file
+The location where the changelog `XML` file and the `SQL` files are placed is not mandatory and can be chosen depending on the project. I’ve decided to put them in the `resources` folder of the project, with the following structure:  
 
 ```
 .
@@ -174,23 +121,9 @@ The database migration that will be performed must be saved inside the resource 
                     └── migrations.xml
 ```
 
-changeset-202102281045.sql
-```sql
-# From https://github.com/chucknorris-io/chuck-db
+The SQL files are contained in the `changesets` subfolder and are named with the following pattern to make the file unique: `changeset-YearMonthDayHourMinute.sql`
 
-# Joke table
-CREATE TABLE IF NOT EXISTS joke
-(
-    created_at TIMESTAMP NOT NULL ,
-    joke_id    VARCHAR(255) PRIMARY KEY,
-    updated_at TIMESTAMP NOT NULL ,
-    value      TEXT NOT NULL
-);
-```
-
-Then, the list of migrations are defined in the migrations.xml file. Remember to assaign an unique id to the entry in the xml and as file name. I usually use 202102281045 2021 02 28 10 45. YearMonthDayHourMinute. 
-
-migrations.xml
+The `migrations.xml` file contains the definitions of every migration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -212,8 +145,84 @@ migrations.xml
 </databaseChangeLog>
 ```
 
+Every migration is represented by a `changeSet`, that has a unique ID. An ID could be, for example, the *YearMonthDayHourMinute* used for the file name. 
+In the changeSet object, it is necessary to provide the path of the SQL file for the migration, and also a comment can be added.
+
+```
+<changeSet id="202102281050" author="Marco">
+        <comment>Jokes Data</comment>
+        <sqlFile path="src/main/resources/db/migration/changesets/changeset-202102281050.sql"/>
+</changeSet>
+```
+
+Finally, at this point, it is possible to run the Gradle task that will perform the database migration.
+
+```bash
+./gradlew update
+```
+
+## Migrating multiple databases
+
+As shown above, every `activity` registered in the `liquibase` block corresponds to a different database instance to connect to. However, to connect and migrate different databases instances, it is necessary to register different `activity` with different names. 
+
+```kotlin
+liquibase {
+    activities.register("dev") {
+        this.arguments = mapOf(
+            "logLevel" to "info",
+            "changeLogFile" to "<file-path>",
+            "url" to urlDev,
+            "username" to userDev,
+            "password" to pwdDev,
+        )
+    }
+
+    activities.register("prod") {
+        this.arguments = mapOf(
+            "logLevel" to "info",
+            "changeLogFile" to "<file-path>",
+            "url" to urlProd,
+            "username" to userProd,
+            "password" to pwdProd,
+        )
+    }
+}    
+``` 
+
+By default, the Liquibase plugin will run every activity. However, it is possible to set the `runList` parameter with the name of the activities to run:
+
+```kotlin
+liquibase {
+	...
+	runList = “dev,prod”
+}
+```
+
+The value of the parameter can also be provided from the command line when running the Gradle task. To do that, it is necessary to first define an empty variable in the `gradle.properties` file:
+
+```properties
+dbEnv=
+```
+
+Then the variable will be retrieved in the `build.gradle.kts` file and assigned to the `runList` parameter:
+
+```kotlin
+val dbEnv: String by project.ext
+
+liquibase {
+	...
+	runList = dbEnv
+}
+```
+
+The value of the variable can then be injected from the command line with the following argument:
+
+```bash
+./gradlew update -PdbEnv=dev
+```
+
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part3). 
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part4). 
 
-In the next episode, I’ll cover database migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
+In the next episode, I’ll cover how to show the API documentation from a Swagger specification. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
