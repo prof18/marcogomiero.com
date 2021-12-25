@@ -1,12 +1,40 @@
 ---
 layout: post
-title:  "Ktor setup for documentation"
+title:  "Generate API documentation from Swagger on Ktor"
 date:   2021-08-08
 show_in_homepage: true
 draft: true
 ---
 
-This is a text
+{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
+
+- Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
+- Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+- Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
+- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2021/ktor-migration-liquibase/)
+- Part 5: Generate API documentation from Swagger on Ktor
+{{< /admonition >}}
+
+
+
+
+--- 
+
+In this article I will … 
+
+This post is part of a series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. You can check out the other instances of the series in the index above or [follow me on Twitter](https://twitter.com/marcoGomier) to keep up to date.
+
+## Setup
+
+Gradle plugin https://github.com/int128/gradle-swagger-generator-plugin
+
+Generate ReDoc with an OpenAPI YAML.
+
+https://int128.github.io/gradle-swagger-generator-plugin/examples/redoc/#
+
+Redoc is an open-source tool for generating documentation from OpenAPI (fka Swagger) definitions.
+
+https://github.com/Redocly/redoc
 
 
 ```bash
@@ -101,3 +129,11 @@ definitions:
       - jokeId
       - jokeContent
 ```
+
+{{< figure src="/img/ktor-series/api-doc.png"  link="/img/ktor-series/api-doc.png" >}}
+
+## Conclusions
+
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5). 
+
+In the next episode, I’ll cover how to show the API documentation from a Swagger specification. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.

@@ -39,7 +39,7 @@ This is “an elevator pitch” of Ktor, to know all the details I’ll suggest 
 
 The starting point of a Ktor project definitely lies in the wizard included in IntelliJ. The wizard lets you choose between all the different features that Ktor provides and it will generate a bare-bone project ready to be used.
 
-{{< figure src="/img/ktor-series/ktor-wizard-Intellij .png"  link="/img/ktor-series/ktor-wizard-Intellij .png" >}}
+{{< figure src="/img/ktor-series/ktor-wizard-Intellij.png"  link="/img/ktor-series/ktor-wizard-Intellij.png" >}}
 
 If you don’t like IntelliJ, the wizard is also available on [start.ktor.io](https://start.ktor.io/).
 
