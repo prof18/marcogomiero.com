@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to handle database migrations with Liquibase on Ktor"
-date:   2021-12-12
+date:   2021-12-27
 show_in_homepage: false
 draft: true
 ---
@@ -105,7 +105,7 @@ The ones that I’ve provided are the following, but you can find more parameter
 - `username` -> database username;
 - `password` -> database password;
 
-The location where the changelog `XML` file and the `SQL` files are placed is not mandatory and can be chosen depending on the project. I’ve decided to put them in the `resources` folder of the project, with the following structure:  
+The location where the changelog `XML` file and the `SQL` files can be freely chosen depending on the project. I’ve decided to put them in the `resources` folder of the project, with the following structure:  
 
 ```
 .
