@@ -1,7 +1,7 @@
 # How to fix the "Unable to locate a Java Runtime" error on Xcode with Kotlin Multiplatform
 
 
-A couple of days ago I opened my Kotlin Multiplatform pet project [MoneyFlow](https://github.com/prof18/MoneyFlow) on another machine than usual. When I tried to run the app on the iOS simulator on Xcode, the build failed with a very strange error: "The operation couldn't be completed. Unable to locate a Java Runtime".
+A couple of days ago I opened my Kotlin Multiplatform pet project [MoneyFlow](https://github.com/prof18/MoneyFlow) on a different machine than usual. When I tried to run the app on the iOS simulator on Xcode, the build failed with a very strange error: "The operation couldn't be completed. Unable to locate a Java Runtime".
 
 {{< figure src="/img/xcode-jvm-runtime/xcode-java-runtime.jpeg" link="/img/xcode-jvm-runtime/xcode-java-runtime.jpeg" >}}
 
@@ -21,7 +21,7 @@ brew install --cask temurin8
 brew install --cask temurin11
 ```
 
-Then I borrowed a couple of alias (to add on `.zshrc` or `.bash_profile` file) that I found out [in this article](https://www.yippeecode.com/topics/upgrade-to-openjdk-temurin-using-homebrew/) to help me switch easily between Java 11 and Java 11, whenever I need. 
+Then I adapted a couple of alias (to add on `.zshrc` or `.bash_profile` file) that I found out [in this article](https://www.yippeecode.com/topics/upgrade-to-openjdk-temurin-using-homebrew/) to help me switch easily between Java 11 and Java 8, whenever I need. 
 
 ```bash
 export JAVA_11_HOME=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
@@ -35,6 +35,8 @@ java11
 ```
 
 And with the manual installation, the build started working again! 
+
+---
 
 Another solution, suggested by [Martin Bonnin](https://twitter.com/martinbonnin) is to explicitly set the `JAVA_HOME` inside the plist files under `~/Library/LaunchAgents/`
 
