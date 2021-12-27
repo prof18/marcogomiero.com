@@ -15,7 +15,7 @@ draft: true
 - Part 5: Generate API documentation from Swagger on Ktor
 {{< /admonition >}}
 
-When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed. This place can be a document, a text file, a website, etc. 
+When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed. This place can be a document, a text file, a website, etc.
 
 In this article, I will show how to automatically generate and expose a website with the APIs that a Ktor project supports. The website is generated from OpenAPI (also called Swagger) definitions. To do that, the [Gradle Swagger Generator Plugin](https://github.com/int128/gradle-swagger-generator-plugin) will be used.
 
@@ -23,19 +23,17 @@ This post is part of a series of posts dedicated to Ktor where I cover all the t
 
 ## Setup
 
-The first thing to do is to add the [Gradle Swagger Generator Plugin](https://github.com/int128/gradle-swagger-generator-plugin) in the `build.gradle.kts` file. 
+The first thing to do is to add the [Gradle Swagger Generator Plugin](https://github.com/int128/gradle-swagger-generator-plugin) in the `build.gradle.kts` file.
 
 ```kotlin
 plugins {
-	...
-	
 	id("org.hidetake.swagger.generator") version "<version-number>"
 }
 ```
 
 The documentation will be generated using the [ReDoc tool](https://github.com/Redocly/redoc) and the UI will look like [this example](https://int128.github.io/gradle-swagger-generator-plugin/examples/redoc/).
 
-The Gradle task that will generate the documentation is called `generateReDoc` and it requires some configuration. 
+The Gradle task that will generate the documentation is called `generateReDoc` and it requires some configuration.
 
 ```kotlin
 tasks.generateReDoc.configure {
@@ -44,7 +42,7 @@ tasks.generateReDoc.configure {
     title = "Api Doc"
     options = mapOf(
         "spec-url" to "<swagger-url>"
-    )    
+    )
 }
 ```
 
@@ -55,7 +53,7 @@ The parameters that I’ve provided are the following, but you can find more [in
 - `title` -> the HTML title for the documentation;
 - `options` -> a map of strings to provide `ReDoc tag attributes`. The `spec-url` is the URL or the local file address to the Swagger definition.
 
-At this point, it is possible to run the Gradle task to generate the documentation. 
+At this point, it is possible to run the Gradle task to generate the documentation.
 
 ```bash
 ./gradlew generateReDoc
@@ -73,7 +71,7 @@ tasks.build {
 
 ## Expose the documentation
 
-To access the documentation, it is necessary to expose it. Ktor gives the possibility to [serve static content](https://ktor.io/docs/serving-static-content.html). 
+To access the documentation, it is necessary to expose it. Ktor gives the possibility to [serve static content](https://ktor.io/docs/serving-static-content.html).
 
 The files to serve should be placed inside the resources folder. In this case, I’ve decided to create two custom folders: one called `doc` for the output files (that consist of an HTML and a Swagger file) and one called `swagger` for the input Swagger definition.
 
@@ -87,7 +85,7 @@ The files to serve should be placed inside the resources folder. In this case, I
             │   └── swagger.yml
             └── swagger
                 └── swagger.yml
-  
+
 ```
 
 As a reference, the `inputFile` and the `outputFile` parameters of the `generateReDoc` will look like that:
@@ -96,25 +94,17 @@ As a reference, the `inputFile` and the `outputFile` parameters of the `generate
 tasks.generateReDoc.configure {
 	inputFile = file("$rootDir/src/main/resources/swagger/swagger.yml")
 	outputDir = file("$rootDir/src/main/resources/doc")
- 
-	...   
-}    
+	...
+}
 ```
 
-The output files can be exposed by defining the `resource` function inside the `static` block of the `routing`. 
+The output files can be exposed by defining the `resource` function inside the `static` block of the `routing`.
 
 ```kotlin
 fun Application.module() {
-	
-	...
-	
 	routing {
-		
-		...
-	
 		static {
 			resource("doc/swagger.yml", "doc/swagger.yml")
-			
 			resource("doc", "doc/index.html")
 		}
 	}
@@ -164,6 +154,6 @@ The following documentation will be generated:
 
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5). 
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5).
 
 In the next episode, I’ll cover how to set up a CRON job. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.

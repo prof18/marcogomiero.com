@@ -14,25 +14,24 @@ draft: true
 - Part 4: How to handle database migrations with Liquibase on Ktor
 {{< /admonition >}}
 
-Databases are an important and critical part of backend infrastructures. They are the place where all the information is stored and that data cannot be compromised or lost. That’s why it is important to have proper management of the evolution of the database: it is necessary to be able to modify the schema, migrate the data, or roll back to a previous schema version if something unexpected happened. 
+Databases are an important and critical part of backend infrastructures. They are the place where all the information is stored and that data cannot be compromised or lost. That’s why it is important to have proper management of the evolution of the database: it is necessary to be able to modify the schema, migrate the data, or roll back to a previous schema version if something unexpected happened.
 
-There are many different products or tools to manage a database schema, for example [Flyway](https://github.com/flyway/flyway) or [Liquibase](https://github.com/liquibase/liquibase). 
+There are many different products or tools to manage a database schema, for example [Flyway](https://github.com/flyway/flyway) or [Liquibase](https://github.com/liquibase/liquibase).
 
-In this article, I will cover how to set up Liquibase in a Ktor project and how to create two Gradle tasks responsible to migrate a test and a production MySQL database. There is also a [pro version](https://www.liquibase.com/products) of Liquibase, but the free community version was enough for me. 
- 
+In this article, I will cover how to set up Liquibase in a Ktor project and how to create two Gradle tasks responsible to migrate a test and a production MySQL database. There is also a [pro version](https://www.liquibase.com/products) of Liquibase, but the free community version was enough for me.
+
 This post is part of a series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. You can check out the other instances of the series in the index above or [follow me on Twitter](https://twitter.com/marcoGomier) to keep up to date.
 
-## Setup 
+## Setup
 
 The first thing to do is to add all the required dependencies. The starting point is the [Gradle plugin](https://github.com/liquibase/liquibase-gradle-plugin) in the `build.gradle.kts` file:
 
 ```kotlin
 plugins {
-    ...
     id("org.liquibase.gradle") version "<version-number>"
 }
 ```
- 
+
 After syncing the project, it is possible to add now the required dependencies for the Liquibase runtime:
 
 ```kotlin
@@ -49,7 +48,7 @@ Besides the core functionality, the other dependencies are necessary for the dat
 
 ## Configuring the migration task
 
-To perform the database migrations, it is necessary to connect to the database, and to do so, some access information, like the database URL, the user, and the password, need to be stored somewhere and retrieved. 
+To perform the database migrations, it is necessary to connect to the database, and to do so, some access information, like the database URL, the user, and the password, need to be stored somewhere and retrieved.
 
 The access information can be saved, for example, on `local.properties` or in the environment variables:
 
@@ -81,7 +80,7 @@ val userProd = properties.getProperty("liquibase.prod.user") ?: System.getenv("L
 val pwdProd = properties.getProperty("liquibase.prod.pwd") ?: System.getenv("LIQUIBASE_PROD_PWD")
 ```
 
-The migration task can be configured and customized by providing some parameters in the `activities.register` block, inside the `liquibase` block. 
+The migration task can be configured and customized by providing some parameters in the `activities.register` block, inside the `liquibase` block.
 
 ```kotlin
 liquibase {
@@ -94,7 +93,7 @@ liquibase {
             "password" to pwdProd,
         )
     }
-}   
+}
 ```
 
 The ones that I’ve provided are the following, but you can find more parameters in the [Liquibase documentation](https://docs.liquibase.com/commands/home.html):
@@ -105,7 +104,7 @@ The ones that I’ve provided are the following, but you can find more parameter
 - `username` -> database username;
 - `password` -> database password;
 
-The location where the changelog `XML` file and the `SQL` files can be freely chosen depending on the project. I’ve decided to put them in the `resources` folder of the project, with the following structure:  
+The location where the changelog `XML` file and the `SQL` files can be freely chosen depending on the project. I’ve decided to put them in the `resources` folder of the project, with the following structure:
 
 ```
 .
@@ -145,7 +144,7 @@ The `migrations.xml` file contains the definitions of every migration:
 </databaseChangeLog>
 ```
 
-Every migration is represented by a `changeSet`, that has a unique ID. An ID could be, for example, the *YearMonthDayHourMinute* used for the file name. 
+Every migration is represented by a `changeSet`, that has a unique ID. An ID could be, for example, the *YearMonthDayHourMinute* used for the file name.
 In the changeSet object, it is necessary to provide the path of the SQL file for the migration, and also a comment can be added.
 
 ```xml
@@ -163,7 +162,7 @@ Finally, at this point, it is possible to run the Gradle task that will perform 
 
 ## Migrating multiple databases
 
-As shown above, every `activity` registered in the `liquibase` block corresponds to a different database instance to connect to. However, to connect and migrate different databases instances, it is necessary to register different `activity` with different names. 
+As shown above, every `activity` registered in the `liquibase` block corresponds to a different database instance to connect to. However, to connect and migrate different databases instances, it is necessary to register different `activity` with different names.
 
 ```kotlin
 liquibase {
@@ -186,8 +185,8 @@ liquibase {
             "password" to pwdProd,
         )
     }
-}    
-``` 
+}
+```
 
 By default, the Liquibase plugin will run every activity. However, it is possible to set the `runList` parameter with the name of the activities to run:
 
@@ -223,6 +222,6 @@ The value of the variable can then be injected from the command line with the fo
 
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part4). 
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part4).
 
 In the next episode, I’ll cover how to show the API documentation from a Swagger specification. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
