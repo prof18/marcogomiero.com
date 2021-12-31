@@ -88,16 +88,19 @@ class JobSchedulerManager(appConfig: AppConfig) {
         val props = Properties()
         props["org.quartz.scheduler.instanceName"] = "ChuckNorrisScheduler"
         props["org.quartz.threadPool.threadCount"] = "3"
+        
         props["org.quartz.dataSource.mySql.driver"] = databaseConfig.driverClass
         props["org.quartz.dataSource.mySql.URL"] = databaseConfig.url
         props["org.quartz.dataSource.mySql.user"] = databaseConfig.user
         props["org.quartz.dataSource.mySql.password"] = databaseConfig.password
         props["org.quartz.dataSource.mySql.maxConnections"] = "10"
+        
         props["org.quartz.jobStore.class"] = "org.quartz.impl.jdbcjobstore.JobStoreTX"
         props["org.quartz.jobStore.driverDelegateClass"] = "org.quartz.impl.jdbcjobstore.StdJDBCDelegate"
         props["org.quartz.jobStore.tablePrefix"] = "QRTZ_"
-				props["org.quartz.jobStore.dataSource"] = "mySql"
-				props["org.quartz.plugin.triggHistory.class"] = "org.quartz.plugins.history.LoggingTriggerHistoryPlugin"
+		props["org.quartz.jobStore.dataSource"] = "mySql"
+		
+		props["org.quartz.plugin.triggHistory.class"] = "org.quartz.plugins.history.LoggingTriggerHistoryPlugin"
         props["org.quartz.plugin.triggHistory.triggerFiredMessage"] = """Trigger {1}.{0} fired job {6}.{5} at: {4, date, HH:mm:ss MM/dd/yyyy}"""
         props["org.quartz.plugin.triggHistory.triggerCompleteMessage"] = """Trigger {1}.{0} completed firing job {6}.{5} at {4, date, HH:mm:ss MM/dd/yyyy}"""
 
@@ -113,28 +116,28 @@ class JobSchedulerManager(appConfig: AppConfig) {
 
 The configuration parameters that I’ve provided are the following, but you can find more in the [documentation](https://github.com/quartz-scheduler/quartz/blob/master/docs/configuration.adoc):
 
-- `org.quartz.scheduler.instanceName` -> the name of the scheduler’s instance. It is used only to distinguish when multiple instances are used;
-- `org.quartz.threadPool.threadCount` -> the number of threads available for concurrent execution of the jobs;
-- `org.quartz.dataSource.mySql.driver` -> the Java class name of the JDBC driver; 
-- `org.quartz.dataSource.mySql.URL` -> the connection URL for the database;
-- `org.quartz.dataSource.mySql.user` -> the database username;
-- `org.quartz.dataSource.mySql.password` -> the database password;
-- `org.quartz.dataSource.mySql.maxConnections` -> the maximum number of connections to the database that the DataSource can create;
-- `org.quartz.jobStore.class` -> the class used to store scheduling information in the database. I used to [`JobStoreTX`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/JobStoreTX.html) that manages all transactions itself after every action (for example after adding a new job);
-- `org.quartz.jobStore.driverDelegateClass` -> a driver delegate to understand the dialect of the database system. Since I’m using a MySQL database with JDBC drivers, I’ve selected the [`StdJDBCDelegate`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/StdJDBCDelegate.html);
-- `org.quartz.jobStore.tablePrefix` -> the prefix used in the Quartz tables name created before. By default the value is `QRTZ_`;
-- `org.quartz.jobStore.dataSource` -> the type of data source used, in this case `mySql`;
-- `org.quartz.plugin.triggHistory.class` -> the name of a plugin that catches trigger events to send a log. I’ve used the [`LoggingTriggerHistoryPlugin`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/plugins/history/LoggingTriggerHistoryPlugin.html);
-- `org.quartz.plugin.triggHistory.triggerFiredMessage` -> a message to log when a new trigger is fired. I’ve set this message: `Trigger {1}.{0} fired job {6}.{5} at: {4, date, HH:mm:ss MM/dd/yyyy}`  The numbers represents the following data:
-	- `0` -> the Trigger's Name;
-	- `1`	-> the Trigger's Group;
-	- `2`	-> the scheduled fire time;
-	- `3`	-> the next scheduled fire time;
-	- `4` -> the actual fire time;
-	- `5`	-> the Job's name;
-	- `6`	-> the Job's group;
-	- `7`	-> the re-fire count from the JobExecutionContext;
-- `org.quartz.plugin.triggHistory.triggerCompleteMessage` -> a message to log when the trigger is completed. The pattern to follow is the same as the `triggerFiredMessage`.
+- `org.quartz.scheduler.instanceName`: the name of the scheduler’s instance. It is used only to distinguish when multiple instances are used;
+- `org.quartz.threadPool.threadCount`: the number of threads available for concurrent execution of the jobs;
+- `org.quartz.dataSource.mySql.driver`: the Java class name of the JDBC driver; 
+- `org.quartz.dataSource.mySql.URL`: the connection URL for the database;
+- `org.quartz.dataSource.mySql.user`: the database username;
+- `org.quartz.dataSource.mySql.password`: the database password;
+- `org.quartz.dataSource.mySql.maxConnections`: the maximum number of connections to the database that the DataSource can create;
+- `org.quartz.jobStore.class`: the class used to store scheduling information in the database. I used to [`JobStoreTX`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/JobStoreTX.html) that manages all transactions itself after every action (for example after adding a new job);
+- `org.quartz.jobStore.driverDelegateClass`: a driver delegate to understand the dialect of the database system. Since I’m using a MySQL database with JDBC drivers, I’ve selected the [`StdJDBCDelegate`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/StdJDBCDelegate.html);
+- `org.quartz.jobStore.tablePrefix`: the prefix used in the Quartz tables name created before. By default the value is `QRTZ_`;
+- `org.quartz.jobStore.dataSource`: the type of data source used, in this case `mySql`;
+- `org.quartz.plugin.triggHistory.class`: the name of a plugin that catches trigger events to send a log. I’ve used the [`LoggingTriggerHistoryPlugin`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/plugins/history/LoggingTriggerHistoryPlugin.html);
+- `org.quartz.plugin.triggHistory.triggerFiredMessage`: a message to log when a new trigger is fired. I’ve set this message: `Trigger {1}.{0} fired job {6}.{5} at: {4, date, HH:mm:ss MM/dd/yyyy}`  The numbers represents the following data:
+	- `{0}`: the Trigger's Name;
+	- `{1}`: the Trigger's Group;
+	- `{2}`: the scheduled fire time;
+	- `{3}`: the next scheduled fire time;
+	- `{4}`: the actual fire time;
+	- `{5}`: the Job's name;
+	- `{6}`: the Job's group;
+	- `{7}`: the re-fire count from the JobExecutionContext;
+- `org.quartz.plugin.triggHistory.triggerCompleteMessage`: a message to log when the trigger is completed. The pattern to follow is the same as the `triggerFiredMessage`.
 
 Some of the properties provided above come from the `AppConfig` object, a wrapper that holds the parameters defined in the `application.conf` file. For more details about it, I suggest you look [at the first instance of the series](https://www.marcogomiero.com/posts/2021/ktor-project-structure/#configuration).
 
@@ -144,7 +147,7 @@ After the creation, the scheduler must be started in the Ktor `module` function:
 fun Application.module(testing: Boolean = false, koinModules: List<Module> = listOf(appModule)) {
 	if (!testing) {
 		val jobSchedulerManager by inject<JobSchedulerManager>()
-    jobSchedulerManager.startScheduler()
+		jobSchedulerManager.startScheduler()
 	}
 	...
 }
@@ -188,7 +191,6 @@ class RandomJokeJob(
 
         if (name != null) {
             val greetingMessage = jokeRepository.getChuckGreeting(name)
-
             println(greetingMessage)
         }
     }
@@ -232,7 +234,7 @@ val jobId = "chuck-watch-job-for-name-$name"
 
 val job: JobDetail = JobBuilder.newJob(RandomJokeJob::class.java)
       .withIdentity(jobId, RandomJokeJob.WATCH_JOB_GROUP)
-      .usingJobData(RandomJokeJob.JOB_MAP_NAME_ID_KEY, “value”)
+      .usingJobData(RandomJokeJob.JOB_MAP_NAME_ID_KEY, "value")
       .build()
 ```
 
