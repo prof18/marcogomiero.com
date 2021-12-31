@@ -11,7 +11,7 @@ draft: true
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
 - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
-- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2021/ktor-migration-liquibase/)
+- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
 - Part 5: Generate API documentation from Swagger on Ktor
 {{< /admonition >}}
 
@@ -156,4 +156,4 @@ The following documentation will be generated:
 
 And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5).
 
-In the next episode, I’ll cover how to set up a CRON job. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
+In the next episode, I’ll cover how to set up background jobs. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
