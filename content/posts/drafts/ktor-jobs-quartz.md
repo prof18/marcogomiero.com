@@ -315,4 +315,4 @@ override suspend fun watch(name: String) {
 
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5).
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part6).
