@@ -54,7 +54,7 @@ After running the `SQL` code, the following tables are created:
 
 {{< figure src="/img/ktor-series/quartz-tables.png"  link="/img/ktor-series/quartz-tables.png" >}} 
 
-Before moving on, I suggest you do another thing. Since the logs that Quartz produces are very verbose, it is recommended to lower the logging level of the Quartz classes inside the `logback.xml` file. 
+Before moving on, I suggest you do another thing. Since the logs that Quartz produces are very verbose, it is recommended to lower the logging level of the Quartz classes to `INFO` inside the `logback.xml` file. 
 
 ```xml
 <configuration>
@@ -63,19 +63,19 @@ Before moving on, I suggest you do another thing. Since the logs that Quartz pro
 </configuration>
 ```
 
-For more details about it, I suggest you look [at the second instance of the series](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/#logger-customization).
+For more details about customizing the logging, I suggest you look [at the second instance of the series](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/#logger-customization).
 
 > Note: the Quartz library is huge. There are many different features, possibilities, and settings to choose from. In this article, I will show the “combination” that worked for me. If you are interested in more, I suggest you give a look [at the documentation](https://github.com/quartz-scheduler/quartz/blob/master/docs/index.adoc).
 
 ## Create a Scheduler
 
-The main entry point for adding, removing, and manipulating jobs is the Scheduler. A scheduler can be created with a `SchedulerFactory` and has to be started with the `start()` method before interacting with it. 
+The main entry point for adding, removing, and manipulating jobs is the Scheduler. A Scheduler can be created with a `SchedulerFactory` and has to be started with the `start()` method before interacting with it. 
 
 There are [different implementations](https://github.com/quartz-scheduler/quartz/blob/master/docs/tutorials/tutorial-lesson-10.md) of the `SchedulerFactory` interface, and I’ve used the `StdSchedulerFactory`. You can find other implementations [in the documentation](https://github.com/quartz-scheduler/quartz/blob/master/docs/tutorials/tutorial-lesson-10.md#stdschedulerfactory).
 
 The factory requires also some configurations parameters that are provided with `Java Properties`. 
 
-To handle the creation and the lifecycle of the Scheduler, I’ve created a wrapper class called `JobSchedulerManager`. The class is responsible for creating the `SchedulerFactory`, storing the scheduler instance (that will be retrieved from who wants to schedule something), and starting the scheduler. 
+To handle the creation and the lifecycle of the Scheduler, I’ve created a wrapper class called `JobSchedulerManager`. The class is responsible for creating the `SchedulerFactory`, storing the Scheduler instance (that will be retrieved from who wants to schedule something), and starting the Scheduler. 
 
 ```kotlin
 class JobSchedulerManager(appConfig: AppConfig) {
@@ -116,14 +116,14 @@ class JobSchedulerManager(appConfig: AppConfig) {
 
 The configuration parameters that I’ve provided are the following, but you can find more in the [documentation](https://github.com/quartz-scheduler/quartz/blob/master/docs/configuration.adoc):
 
-- `org.quartz.scheduler.instanceName`: the name of the scheduler’s instance. It is used only to distinguish when multiple instances are used;
+- `org.quartz.scheduler.instanceName`: the name of the Scheduler’s instance. It is used only to distinguish when multiple instances are used;
 - `org.quartz.threadPool.threadCount`: the number of threads available for concurrent execution of the jobs;
 - `org.quartz.dataSource.mySql.driver`: the Java class name of the JDBC driver; 
 - `org.quartz.dataSource.mySql.URL`: the connection URL for the database;
 - `org.quartz.dataSource.mySql.user`: the database username;
 - `org.quartz.dataSource.mySql.password`: the database password;
 - `org.quartz.dataSource.mySql.maxConnections`: the maximum number of connections to the database that the DataSource can create;
-- `org.quartz.jobStore.class`: the class used to store scheduling information in the database. I used to [`JobStoreTX`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/JobStoreTX.html) that manages all transactions itself after every action (for example after adding a new job);
+- `org.quartz.jobStore.class`: the class used to store scheduling information in the database. I used the  [`JobStoreTX`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/JobStoreTX.html) that manages all database’s transactions itself after every action (for example after adding a new job);
 - `org.quartz.jobStore.driverDelegateClass`: a driver delegate to understand the dialect of the database system. Since I’m using a MySQL database with JDBC drivers, I’ve selected the [`StdJDBCDelegate`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/impl/jdbcjobstore/StdJDBCDelegate.html);
 - `org.quartz.jobStore.tablePrefix`: the prefix used in the Quartz tables name created before. By default the value is `QRTZ_`;
 - `org.quartz.jobStore.dataSource`: the type of data source used, in this case `mySql`;
@@ -141,7 +141,7 @@ The configuration parameters that I’ve provided are the following, but you can
 
 Some of the properties provided above come from the `AppConfig` object, a wrapper that holds the parameters defined in the `application.conf` file. For more details about it, I suggest you look [at the first instance of the series](https://www.marcogomiero.com/posts/2021/ktor-project-structure/#configuration).
 
-After the creation, the scheduler must be started in the Ktor `module` function:  
+After the creation, the Scheduler must be started in the Ktor `module` function:  
 
 ```kotlin
 fun Application.module(testing: Boolean = false, koinModules: List<Module> = listOf(appModule)) {
@@ -153,11 +153,11 @@ fun Application.module(testing: Boolean = false, koinModules: List<Module> = lis
 }
 ```
 
-*Note: The scheduler is not started when running integration testing with the Ktor test engine*
+*Note: The Scheduler is not started when running integration testing with the Ktor test engine*
 
 ## Create a Job
 
-The **[Job](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/Job.html)** is the representation of the work to be done. It is a class that implements the `Job` interface, that has only the `execute` method. In this method, the logic of the job will be written, giving the freedom to do whatever is necessary. Then, when the Job’s trigger is fired, the method will be called day one the scheduler’s worker thread.
+The **[Job](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/Job.html)** is the representation of the work to be done. It is a class that implements the `Job` interface, that has only the `execute` method. In this method, the logic of the Job will be written, giving the freedom to do whatever is necessary. Then, when the Job’s trigger is fired, the method will be called by one of the scheduler’s worker threads.
 
 ```kotlin
 class MyJob() : Job {
@@ -167,7 +167,7 @@ class MyJob() : Job {
 }
 ```
 
-To pass data to a Job, the [JobDataMap](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/JobDataMap.html) can be used. This map can hold any serializable data that can be retrieved from the [`JobExecutionContext`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/JobExecutionContext.html) parameter on the `execute` method. The data are provided on the map when the job is scheduled. 
+To pass data to a Job, the [JobDataMap](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/JobDataMap.html) can be used. This map can hold any serializable data that can be retrieved from the [`JobExecutionContext`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/JobExecutionContext.html) parameter on the `execute` method. The data are provided on the map when the Job is scheduled. 
 
 For example, in the following Job, a string is retrieved from the `JobDataMap` and passed to a method of the `jokeRepository`:
 
@@ -258,7 +258,7 @@ val trigger: Trigger = TriggerBuilder.newTrigger()
 
 A Trigger can be created with a [`TriggerBuilder`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/TriggerBuilder.html). As for the `JobDetail`, the builder requires a key and a group. 
 
-Quartz has different Trigger types and the most used ones are the [`SimpleTrigger`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/SimpleTrigger.html) and the [`CronTrigger`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/CronTrigger.html). The former is used to schedule “one-shot” jobs that can be repeated 1 or multiple times while the latter is used to schedule calendar-like jobs (for example run a job every Saturday at 3 am). 
+Quartz has different Trigger types and the most used ones are the [`SimpleTrigger`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/SimpleTrigger.html) and the [`CronTrigger`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/CronTrigger.html). The former is used to schedule “one-shot” jobs that can be repeated 1 or multiple times while the latter is used to schedule calendar-like jobs (for example run a Job every Saturday at 3 am). 
 
 The type of trigger can be chosen with the `withSchedule` method of the `TriggerBuilder` by providing a [`SimpleScheduleBuilder`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/SimpleScheduleBuilder.html) or a [`CronScheduleBuilder`](http://www.quartz-scheduler.org/api/2.3.0/org/quartz/CronScheduleBuilder.html):
 
@@ -273,7 +273,7 @@ The type of trigger can be chosen with the `withSchedule` method of the `Trigger
 
 In this case, I used a `SimpleScheduleBuilder` since I want the Job to be repeated every minute forever. 
 
-And finally, everything is ready to schedule the job:
+And finally, everything is ready to schedule the Job:
 
 ```kotlin
 jobSchedulerManager.scheduler.scheduleJob(job, trigger)
