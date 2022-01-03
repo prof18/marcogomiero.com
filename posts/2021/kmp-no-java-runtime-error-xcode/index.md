@@ -1,6 +1,17 @@
 # How to fix the "Unable to locate a Java Runtime" error on Xcode with Kotlin Multiplatform
 
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://androidweekly.net/issues/issue-499"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-499/badge" /></a>
+    </div>
+</div>
+
+{{< /rawhtml >}}
+
 A couple of days ago I opened my Kotlin Multiplatform pet project [MoneyFlow](https://github.com/prof18/MoneyFlow) on a different machine than usual. When I tried to run the app on the iOS simulator on Xcode, the build failed with a very strange error: "The operation couldn't be completed. Unable to locate a Java Runtime".
 
 {{< figure src="/img/xcode-jvm-runtime/xcode-java-runtime.jpeg" link="/img/xcode-jvm-runtime/xcode-java-runtime.jpeg" >}}
