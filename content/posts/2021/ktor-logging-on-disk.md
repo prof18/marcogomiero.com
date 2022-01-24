@@ -2,13 +2,13 @@
 layout: post
 title:  "How to persist Ktor logs"
 date:   2021-05-05
-show_in_homepage: false 
+show_in_homepage: false
 ---
 
 {{< rawhtml >}}
 
 <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=e568e58261"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23249-%237874b4"/></a>
-        
+
 
 {{< /rawhtml >}}
 
@@ -16,6 +16,7 @@ show_in_homepage: false
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: How to persist Ktor logs
 - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
+- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
 {{< /admonition >}}
 
 
@@ -55,7 +56,7 @@ class MyClass {
 
 ## Logger Customization
 
-The Logger can be customized with an *xml* file named `logback.xml`. On project creation, a default `logback` file is created and placed in the application `resources` directory. 
+The Logger can be customized with an *xml* file named `logback.xml`. On project creation, a default `logback` file is created and placed in the application `resources` directory.
 
 ```xml
 <configuration>
@@ -65,20 +66,20 @@ The Logger can be customized with an *xml* file named `logback.xml`. On project 
             <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    
+
     <root level="trace">
         <appender-ref ref="STDOUT"/>
     </root>
-    
+
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
-    
+
 </configuration>
 ```
 
 The file contains three different blocks of configurations (this division is just visual and conceptual, of course, the order of the different entries can be changed and mixed).
- 
-In the first block, the `Appenders` are defined. An *Appender* is responsible to place the log messages in a specific destination. 
+
+In the first block, the `Appenders` are defined. An *Appender* is responsible to place the log messages in a specific destination.
 
 ```xml
 <configuration>
@@ -112,7 +113,7 @@ In the third level instead, it is possible to customize the level of a specific 
 
 ```xml
 <configuration>
-	...    
+	...
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
     ...
@@ -136,7 +137,7 @@ This is useful for example to customize the log level if the instance is running
 
 ## Logging on file
 
-As you can imagine, to save the log on a file it is necessary to change the `Appender`. There is `FileAppender` and `RollingFileAppender` and I’m going to use the latter. 
+As you can imagine, to save the log on a file it is necessary to change the `Appender`. There is `FileAppender` and `RollingFileAppender` and I’m going to use the latter.
 
 As the name suggests, a `RollingFileAppender`, does not save the logs in the same file but it “rolls” on different files depending on time, file size, or a mix of the two. This is a smarter solution to choose because otherwise, the log file will be too heavy when used for several days over.
 
@@ -160,20 +161,20 @@ As the name suggests, a `RollingFileAppender`, does not save the logs in the sam
         </encoder>
     </appender>
 	...
-</configuration>    
+</configuration>
 ```
 
-First of all, in the `RollingFileAppender` it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environment variable, so in this way, I can switch locations when I’m running the backend on my local machine. 
+First of all, in the `RollingFileAppender` it is necessary to specify the file where the logs will be saved. To define the location I’ve used an environment variable, so in this way, I can switch locations when I’m running the backend on my local machine.
 
 ```xml
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     ...
     <file>${LOG_DEST}/ktor-chuck-norris-sample.log</file>
     ...
-<appender>	
+<appender>
 ```
 
-The variable is then specified in the VM Options field of the running configuration on IntelliJ 
+The variable is then specified in the VM Options field of the running configuration on IntelliJ
 
 {{< figure src="/img/ktor-log-disk/ktor-log-run-config.png"  link="/img/ktor-log-disk/ktor-log-run-config.png" >}}
 
@@ -192,7 +193,7 @@ After the location, it is necessary to define a rolling policy. In this case, I 
 
 ```
 
-In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the number of days to persist and total max size. In this case, I’ve specified a maximum of 90 days and 3 GB size. So if there will be 3 GB of data on the 78th day, the logger will start automatically to drop the 1st day of log and so on. 
+In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the number of days to persist and total max size. In this case, I’ve specified a maximum of 90 days and 3 GB size. So if there will be 3 GB of data on the 78th day, the logger will start automatically to drop the 1st day of log and so on.
 
 ```xml
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -200,7 +201,7 @@ In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the n
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
        <!-- daily rollover -->
        <fileNamePattern>${LOG_DEST}/ktor-chuck-norris-sample.%d{yyyy-MM-dd}.log</fileNamePattern>
-    	
+
        <!-- keep 90 days' worth of history capped at 3GB total size -->
        <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
        <totalSizeCap>3GB</totalSizeCap>
@@ -210,7 +211,7 @@ In the `TimeBasedRollingPolicy`, it is also possible to specify a limit on the n
 </appender>
 ```
 
-As for the location, I’ve used an environmental variable for the days, so in this way, I can set only one day of logs when I run the backend on my local machine. 
+As for the location, I’ve used an environmental variable for the days, so in this way, I can set only one day of logs when I run the backend on my local machine.
 
 ```bash
 java -DLOG_DEST=/rbe-data/logs -DLOG_MAX_HISTORY=90...
@@ -251,13 +252,13 @@ And as reference, here’s the entire *logback* file that I’ve described:
 
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
-    
+
 </configuration>
 ```
 
 ## Logging during tests
 
-While running tests is not necessary to save logs on file (at least in my case). To customize logging during testing, it is necessary to specify a `logback-test.xml` inside the `test/resources` directory. 
+While running tests is not necessary to save logs on file (at least in my case). To customize logging during testing, it is necessary to specify a `logback-test.xml` inside the `test/resources` directory.
 
 In my case, I just wanted a simple `ConsoleAppender`.
 
@@ -272,7 +273,7 @@ In my case, I just wanted a simple `ConsoleAppender`.
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
-    
+
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
     <logger name="Exposed" level="INFO"/>
@@ -283,7 +284,7 @@ In my case, I just wanted a simple `ConsoleAppender`.
 
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part2). 
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part2).
 
-In the next episodes, I’ll cover in-memory database and migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode. 
+In the next episodes, I’ll cover in-memory database and migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode.
 
