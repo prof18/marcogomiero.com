@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to handle database migrations with Liquibase on Ktor"
-date:   2021-12-27
+date:   2022-01-24
 show_in_homepage: false
-draft: true
 ---
 
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
