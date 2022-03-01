@@ -1,6 +1,14 @@
 # How to handle database migrations with Liquibase on Ktor
 
 
+
+{{< rawhtml >}}
+
+<a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=f4f6d67da0"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23289-%237874b4"/></a>
+
+
+{{< /rawhtml >}}
+
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
@@ -220,3 +228,4 @@ The value of the variable can then be injected from the command line with the fo
 And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part4).
 
 In the next episode, I’ll cover how to show the API documentation from a Swagger specification. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
+
