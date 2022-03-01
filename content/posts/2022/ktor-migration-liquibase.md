@@ -5,6 +5,14 @@ date:   2022-01-24
 show_in_homepage: false
 ---
 
+
+{{< rawhtml >}}
+
+<a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=f4f6d67da0"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23289-%237874b4"/></a>
+
+
+{{< /rawhtml >}}
+
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
