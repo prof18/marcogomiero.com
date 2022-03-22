@@ -22,4 +22,10 @@ With this talk, I want to show how it is possible to bring your mobile knowledge
 
 ## Video 
 
-Coming soon
+{{< rawhtml >}}
+<br>
+<video controls width="100%">
+	<source src="https://ftp.fau.de/fosdem/2022/D.kotlin/from_mobile_to_backend.webm" type="video/webm"> 
+</video>
+{{< /rawhtml >}}
+

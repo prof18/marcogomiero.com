@@ -17,6 +17,7 @@ show_in_homepage: false
 - Part 2: How to persist Ktor logs
 - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
 - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
+- Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2021/ktor-setup-documentation/) 
 {{< /admonition >}}
 
 

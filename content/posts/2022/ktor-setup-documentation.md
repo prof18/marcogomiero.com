@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Generate API documentation from Swagger on Ktor"
-date:   2021-12-27
+date:   2022-03-22
 show_in_homepage: false
-draft: true
 ---
 
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}

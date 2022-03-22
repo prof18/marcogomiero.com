@@ -5,12 +5,21 @@ date:   2022-01-24
 show_in_homepage: false
 ---
 
+
+{{< rawhtml >}}
+
+<a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=f4f6d67da0"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23289-%237874b4"/></a>
+
+
+{{< /rawhtml >}}
+
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
 
 - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
 - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
 - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
 - Part 4: How to handle database migrations with Liquibase on Ktor
+- Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2021/ktor-setup-documentation/)
 {{< /admonition >}}
 
 Databases are an important and critical part of backend infrastructures. They are the place where all the information is stored and that data cannot be compromised or lost. That’s why it is important to have proper management of the evolution of the database: it is necessary to be able to modify the schema, migrate the data, or roll back to a previous schema version if something unexpected happened.
