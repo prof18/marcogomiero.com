@@ -1,31 +1,71 @@
 ---
 layout: post
-title:  "CHANGEME: Backend from mobile Ktor"
+title:  "Moving from mobile to backend development with Ktor"
 date:   2021-12-30
 show_in_homepage: false
 draft: true
 ---
 
+{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
+
+- Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
+- Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+- Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
+- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
+- Part 5: [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
+- Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)
+- Part 7: Moving from mobile to backend development with Ktor
+{{< /admonition >}}
+
+This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. 
+
+In this article, why I ended up using Ktor and how was my journey 
+
+---
+
+We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.
+
+Sometime is useful to know something about backend
+
+Not saying that you have to to be an android engineer
+
+Chose beacuse it’s written in Kotlin
+Beacuse it’s lightweight and flexible, you don’t have to import everything. You can just import want you need. YOu Caaba use coroutines for a sync code, like you do in android. Finally it’s unopinionate like android. It’s a very important thing beacuse you can use whatever thing you are most vconfortable with. `you can choose whatever architecture and whatever pattern you want to build. In this way you can move the knowledge from a domain to another. For example you can adore what you learned on mobile and move on the backend. 
+
+I will not go deeper on how ktor works and it’s feature because it’s not a focus of this content. 
+
 Ktor is unopinionated like android. Whatever architecture. Whatever pattern. This enables knowledge transfer
 
 Classic android app:
-- application
-- activity/fragment
-- view model
-- repository
-- local/remote data source
+- application  -> there is an application class where we initialize libraries, launches the application, in the onCreate method 
+- activity/fragment -> a bunch of activity and fragment where the UI is showed. 
+- view model -> for prepare and handling the data to show to the user 
+
+Maybe here we could have a use case layer, but let’s keep it simple for this example. 
+
+- repository -> here we manage data. Same stuff in both the situation 
+- local/remote data source -> source of the data, could be from a database or from the network. We use Room, sqldelight or retrofit, depending on what we want to do.
 
 Ktor:
-- application
-- resource*
-- repository
-- local/remote data source
+- application -> still have an application but it is not a class, it is a function. A place where you can instantiate stuff. The module function called when the backend is started. Here the plugin are initialized. Only the plugin that we want. Link to the the plugin on the doc.
+- resource* -> not activity, we are not showing UI. We are sexposing endpoint. We have a point where we expose endpoint. THis place has not a name because there is not an opzionino about that but we cal call it reosource or controller. 
 
-In general:
-- Application
-- presentation
-- domain
-- data
+Again there could be 
+
+- repository -> repository where we manipulate the data in our domain
+- local/remote data source -> data source
+
+
+In general we can have this kind of structure, that is pretty similar. 
+
+- Application -> where we initialize stuff
+- presentation -> where you expose what we need to expsose
+- domain -> manipulate the data of the business
+- data -> where the data are retrieved. We can retrieve data from the database for example with Exposed. It is an ORM developed by Jetbrains. It is a type-safe SQL wrapper. A dsl take we can use to call SQL.
+
+DI injection, use Koin. The concept are the same: declare module, start it in the application and retrieve the dependency with the delegate. 
+
+ 
 
 Both has a place to setup stuff, like Android Application and the module class on Ktor.
 
@@ -97,3 +137,27 @@ Ktor is flexible and unopinionated -> Knowledge Transfer
 Mobile knowledge can be adapted
 Effective scaling and deploying can be hard
 “Going to the other side” enrich your dev vision
+
+## Conclusions
+
+
+https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-fosdem/
+
+
+And that’s it for today. 
+
+
+
+Unopiniotated is the key for knowledge transferring. 
+Mobile knowledge can be adapted, changed a bit and moved to the backend. OF course this is not enough to build a scalable add bullet proof backend. For example for me the part of effective scaling and deploying was hard and I had to ask for help, but beside that it was a really nice exp. 
+Going to the other side on trying new things can enrich your dev vision.
+
+You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5).
+
+
+
+You can check out the other instances of the series in the index above or [follow me on Twitter](https://twitter.com/marcoGomier) to keep up to date.
+
+
+
+In the next episode, I’ll cover how to set up background jobs. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
