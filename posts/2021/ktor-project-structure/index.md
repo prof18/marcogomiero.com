@@ -14,7 +14,7 @@
 - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
 - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
 - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
-- Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2021/ktor-setup-documentation/)
+- Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
 {{< /admonition >}}
 
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.
@@ -435,3 +435,4 @@ However, there isn’t a right way to structure a project because every project 
 And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part1).
 
 In the next episodes, I’ll cover logging and databases. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode.
+
