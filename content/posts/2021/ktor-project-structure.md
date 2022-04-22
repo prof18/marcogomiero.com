@@ -19,6 +19,7 @@ show_in_homepage: true
 - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
 - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
 - Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
+- Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)  
 {{< /admonition >}}
 
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.
