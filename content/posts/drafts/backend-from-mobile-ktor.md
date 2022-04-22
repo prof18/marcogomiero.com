@@ -17,29 +17,131 @@ draft: true
 - Part 7: Moving from mobile to backend development with Ktor
 {{< /admonition >}}
 
-This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. 
+This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that was not easy to achieve out of the box. In this article, I will cover why I ended up using Ktor and how was my journey from the mobile to the backend world. 
 
-In this article, why I ended up using Ktor and how was my journey 
+After some experience of maintaining an existing backend project developed with [Dropwizard](https://www.dropwizard.io/en/latest/), I had to start a new project from scratch. After some research I chose to go with Ktor, for many reasons. 
 
+First of all, Ktor is build with Kotlin and coroutines, two things that I really like. 
+
+Secondly, Ktor is lightweight and flexible, because you don’t have to import every feature, but only the things that you need. This is made possible with [plugins](https://ktor.io/docs/plugins.html#install), i.e. a specify feature (for example Compression, CORS, Cookies, etc) that you decide to install, only if you need it.  
+
+And last but not least, Ktor is unopinionated. This allows to not stick to a specific pattern or architecture but to choose the one that better suits the project. And it also allows knowledge transfer, because it will be possible the reuse the existing knowledge acquired in another domain, mobile in my case.
+
+For these reasons I found Ktor easy to use, with a gentle learning curve, even for a mobile developer. 
+
+## Knowledge Transfer
+
+As mentioned above, I didn’t find impossibile to adapted my mobile knowledge. 
+An Android application is usually divided into 4 different layers: 
+
+- Application 
+- Presentation 
+- Domain
+- Data 
+
+The **application layer** is responsible of starting the application, together with all the different libraries and functionalities that are needed. For example dependency injection, logging, analytics, etc. 
+
+```kotlin
+class MyApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+        initAnalytics()
+        initCrashReporting()
+        initRandomLib()
+    }
+}
+```
+
+The **presentation** layer is responsible of showing data to the user and interacting with it. In this layer, there are activities/fragments and ViewModels (or the equivalent in other pattern). 
+
+The **domain** layer takes care of the specific domain of the application. It is usually composed of UseCases and Repositories where the data are manipulated and prepared before being passed to the presentation layer. 
+This layer usually doesn’t contain any reference to the Android world.
+
+```kotlin
+class JokeRepositoryImpl( 
+    private val jokeLocalDataSource: JokeLocalDataSource
+) : JokeRepository {
+
+    override suspend fun getRandomJoke(): JokeModel {
+        // ...
+    }
+}
+```
+
+And finally, the **data** layer, that is the interface to the external world. This layer contains all the code required to retrieve data from the network or from a database, for example by using Retrofit or Room.
+
+{{< figure src="/img/ktor-series/android-layers.png"  link="/img/ktor-series/android-layers.png" >}}
+
+On Ktor the layers are really similar. 
+
+The **application layer** is responsible of starting the server, together with all the different libraries and functionalities that are needed. Here it is possible to choose the [Ktor’s plugins](https://ktor.io/docs/plugins.html) that are required in the server. 
+
+```kotlin
+fun Application.module(testing: Boolean = false) {
+
+    install(Koin) {
+        slf4jLogger()
+        modules(koinModules)
+    }
+		
+    install(ContentNegotiation) {
+        json()
+    }
+
+    install(CallLogging) {
+        level = Level.INFO
+    }
+
+    install(Locations)
+
+    routing {
+      ...
+    }
+}
+```
+
+Since a server doesn’t have any UI, the presentation layer is a bit different than in mobile application. In this case, it is necessary to expose API endpoints to the outside world and not show buttons, checkboxes, etc. I’ve called this layer **Resource**, but is a complete personal choice (another possible name could be **Controller**) since Ktor is unopinionated.
+
+```kotlin
+// JokeResource.kt
+fun Route.jokeEndpoint() {
+
+    val jokeRepository by inject<JokeRepository>()
+
+    get<JokeEndpoint.Random> {
+        call.respond(jokeRepository.getRandomJoke())
+    }
+
+    post<JokeEndpoint.Watch> {  apiCallParams ->
+        val name = apiCallParams.name
+        jokeRepository.watch(name)
+        call.respond("Ok")
+    }
+}
+```
+
+
+The **domain** layer will look the same like on Android. In here, there will be UseCases and Repositories where the data are manipulated and prepared before being passed to the resource layer. 
+
+And finally, the concept of the **data** layer will be the same. The only thing that will change are the libraries required to interact with the database or the network. To interact with the database, I choose [Exposed](https://github.com/JetBrains/Exposed), an ORM developed by Jetbrains.
+
+
+
+
+
+
+
+
+{{< figure src="/img/ktor-series/ktor-layers.png"  link="/img/ktor-series/ktor-layers.png" >}}
+
+
+{{< figure src="/img/ktor-series/commons-layers.png"  link="/img/ktor-series/commons-layers.png" >}}
 ---
-
-We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.
-
-Sometime is useful to know something about backend
-
-Not saying that you have to to be an android engineer
-
-Chose beacuse it’s written in Kotlin
-Beacuse it’s lightweight and flexible, you don’t have to import everything. You can just import want you need. YOu Caaba use coroutines for a sync code, like you do in android. Finally it’s unopinionate like android. It’s a very important thing beacuse you can use whatever thing you are most vconfortable with. `you can choose whatever architecture and whatever pattern you want to build. In this way you can move the knowledge from a domain to another. For example you can adore what you learned on mobile and move on the backend. 
-
-I will not go deeper on how ktor works and it’s feature because it’s not a focus of this content. 
-
-Ktor is unopinionated like android. Whatever architecture. Whatever pattern. This enables knowledge transfer
-
-Classic android app:
-- application  -> there is an application class where we initialize libraries, launches the application, in the onCreate method 
-- activity/fragment -> a bunch of activity and fragment where the UI is showed. 
-- view model -> for prepare and handling the data to show to the user 
 
 Maybe here we could have a use case layer, but let’s keep it simple for this example. 
 
@@ -80,23 +182,6 @@ In particular here we have to define and install the plugins that we want to use
 Add a specific feature. This setup enables a flexible and lightweight project. No plugin activated by default
 
 On the presentation layer on android you expose views on activity or fragments, on ktor expose api.
-
-```kotlin
-fun Route.jokeEndpoint() {
-
-    val jokeRepository by inject<JokeRepository>()
-
-    get<JokeEndpoint.Random> {
-        call.respond(jokeRepository.getRandomJoke())
-    }
-
-    post<JokeEndpoint.Watch> {  apiCallParams ->
-        val name = apiCallParams.name
-        jokeRepository.watch(name)
-        call.respond("Ok")
-    }
-}
-```
 
 ```kotlin
 @Location("joke")
