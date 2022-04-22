@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to schedule jobs with Quartz on Ktor"
-date:   2021-12-29
+date:   2022-04-22
 show_in_homepage: false
-draft: true
 ---
 
 {{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
