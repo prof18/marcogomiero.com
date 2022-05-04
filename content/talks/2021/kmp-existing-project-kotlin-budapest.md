@@ -22,10 +22,6 @@ In this talk, we will understand which part of the code can be a starting point 
 
 {{< speakerdeck e10b7502ea424702ac1fb722502b423e >}}
 
-## Video:
-
-Coming soon
-
 ## Sample Code:
 
 https://github.com/prof18/shared-hn-android-ios-backend
