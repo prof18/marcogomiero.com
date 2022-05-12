@@ -1,5 +1,5 @@
 ---
-date: 2022-05-03T17:45:00Z
+date: 2022-05-11T17:45:00Z
 title: "Imperative is dead, long live Declarative!"
 location: "AppDevCon, Amsterdam"
 performDate: 2022-06-24
