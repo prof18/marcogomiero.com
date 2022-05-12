@@ -1,7 +1,7 @@
 ---
 date: 2022-05-10T09:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing project"
-location: "Kotlin Dev Day Amsterdam"
+location: "Kotlin Dev Day, Amsterdam"
 performDate: 2022-05-19
 upcoming: true
 ---
