@@ -6,6 +6,11 @@ show_in_homepage: false
 draft: true
 ---
 
+
+
+// TODO: copy code from improved article
+
+
 https://github.com/rickclephas/KMP-NativeCoroutines
 
 HomeUseCasse
