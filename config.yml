@@ -1,0 +1,141 @@
+baseURL: "https://www.marcogomiero.com"
+title: Marco Gomiero
+paginate: 12
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: UA-90975904-1
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Marco Gomiero
+  description: "Software Engineer · Google Developer Expert for Kotlin"
+  keywords : [Marco Gomiero, Android, Flutter, Gomiero, Kotlin, RSS Parser, Kotlin Multiplatform]
+  author: Me # TODO: delete this
+  # author: ["Me", "You"] # multiple authors
+  images: ["/img/profile.webp"]
+  DateFormat: "2 January 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true # TODO: think about it
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true # Think about it
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+
+  label:
+    text: "Marco Gomiero" # TODO: maybe delete the title
+
+  # profile-mode
+    # TODO: think about it!
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: Marco Gomiero
+    subtitle: "This is subtitle"
+    imageUrl: "/img/profile.webp"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Hi \U0001F44B"
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/marcoGomier"
+    - name: github
+      url: "https://github.com/prof18"
+    - name: linkedin
+      url: "https://linkedin.com/in/marco-gomiero"
+
+  analytics:
+    google:
+      SiteVerificationTag: "7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+# TODO: maybe delete it
+  editPost:
+    URL: "https://github.com/<path_to_repo>/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: posts
+      name: Write
+      url: /posts/
+      weight: 10
+    - identifier: talks
+      name: Speak
+      url: /talks/
+      weight: 20
+    - identifier: projects
+      name: Build
+      url: /projects/
+      weight: 30
+    - identifier: about
+      name: About
+      url: /about-me/
+      weight: 40
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
+
+#params:
+ # assets:
+  #  disableHLJS: true

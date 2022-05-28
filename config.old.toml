@@ -1,11 +1,14 @@
-baseURL = "https://www.marcogomiero.com"
+#baseURL = "https://www.marcogomiero.com"
+#title = "Marco Gomiero"
+# default amount of posts in each pages
+#paginate = 12
+#theme = "PaperMod"
+
 defaultContentLanguage = "en"
-theme = "LoveIt"
+#googleAnalytics = "UA-90975904-1"
 
 
-title = "Marco Gomiero"
-
-enableRobotsTXT = true
+#enableRobotsTXT = true
 # whether to use git commit log
 enableGitInfo = false
 # whether to use emoji code
@@ -14,9 +17,6 @@ enableEmoji = true
 languageCode = "en"
 languageName = "English"
 hasCJKLanguage = false
-# default amount of posts in each pages
-paginate = 12
-googleAnalytics = "UA-90975904-1" 
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 publishDir = "docs"   
 staticDir = ["static", "../assets/others"]               
