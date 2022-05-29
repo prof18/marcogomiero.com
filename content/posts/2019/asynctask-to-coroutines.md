@@ -4,7 +4,7 @@ title:  "A journey from Async Task to Kotlin Coroutines"
 images:
   - https://miro.medium.com/max/1400/0*BnjRJYi8CNeaKOq1
 date:   2019-01-14
-show_in_homepage: true
+show_in_homepage: false
 ---
 
 {{< figure src="/img/path.jpeg" alt="image" caption="*Photo by [felipe lopez](https://unsplash.com/@flopez_nice) on [Unsplash](https://unsplash.com)*" >}}

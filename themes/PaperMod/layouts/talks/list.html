@@ -1,0 +1,51 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+<!-- TODO: maybe improve css  -->
+<div class="post-content">Do you want me to speak at your conference or meetup? Feel free to reach out on <a href="https://twitter.com/marcoGomier" target="_blank">Twitter</a>, my DMs are open.</div>
+
+{{- $pages := union .RegularPages .Sections }}
+
+{{- if site.Params.ShowAllPagesInArchive }}
+{{- $pages = site.RegularPages }}
+{{- end }}
+
+{{- range $pages.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+<div class="archive-year">
+  <h2 class="archive-year-header">
+
+    {{- replace .Key "0001" "" }} {{- if not (eq (len .Pages) 1)}} <sup class="archive-count">&nbsp;&nbsp;{{ len .Pages }}</sup> {{- end }}
+
+  </h2>
+  <div class="archive-month">
+    <div class="archive-posts">
+      {{- range .Pages }}
+      {{- if eq .Kind "page" }}
+      <div class="archive-entry">
+        <h3 class="archive-entry-title">
+          {{- if .Param "upcoming" }}<sup><span class="entry-isdraft">[upcoming]&nbsp;&nbsp;</span></sup>{{- end }}
+          {{- .Title | markdownify }}
+        </h3>
+        <div class="archive-meta">
+          {{- partial "talk_meta.html" . -}}
+        </div>
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</div>
+{{- end }}
+{{- end }}
+
+{{- end }}{{/* end main */}}
