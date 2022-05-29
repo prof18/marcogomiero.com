@@ -1,0 +1,58 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+  <h1>
+    {{ .Title }}
+  </h1>
+</header>
+{{- end }}
+
+<div class="post-content">For an always updated list of my projects, visit my <a href="https://github.com/prof18" target="_blank">Github profile.</a></div>
+
+{{- $pages := union .RegularPages .Sections }}
+
+{{- if .IsHome }}
+{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- end }}
+
+{{- range $pages  }}
+
+    <article class="post-single">
+      <header class="post-header">
+        <h2 class="post-title">
+          {{ .Title }}
+          {{- if .Param "deprecated" }}<sup><span class="project-isdeprecated">&nbsp;&nbsp;[deprecated]</span></sup>{{- end }}
+          {{- if .Param "university" }}<sup><span class="project-isdeprecated">&nbsp;&nbsp;[university project]</span></sup>{{- end }}
+        </h2>
+        <h3 class="post-description">
+          {{ .Param "type" }}
+        </h3>
+      </header>
+
+      <div class="post-content">
+        {{- .Content -}}
+      </div>
+
+      {{ if or ( .Param "github") ( .Param "playStore") }}
+        <div style="margin-top: 24px; margin-bottom: 56px;">
+      {{ end }}
+
+      {{- if (.Param "github") }}
+        <a class="project-button" href="{{ .Param "github" }}" target="BLANK">Github</a>
+      {{- end}}
+
+      {{- if (.Param "playStore") }}
+          <a class="project-button" href="{{ .Param "playStore" }}" target="BLANK">Play Store</a>
+      {{- end}}
+
+      {{ if or ( .Param "github") ( .Param "playStore") }}
+        </div>
+      {{- else }}
+        <div style="margin-bottom: 56px;"></div>
+      {{ end }}
+
+    </article>
+{{- end }}
+
+{{- end }}

@@ -1,0 +1,13 @@
+.project-isdeprecated {
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+.project-button {
+    color: var(--theme);
+    font-size: 13px;
+    background: var(--primary);
+    border-radius: calc(36px / 2);
+    padding: 12px;
+    margin: 16px 16px 16px 0;
+}

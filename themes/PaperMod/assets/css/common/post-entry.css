@@ -35,7 +35,8 @@
 
 .post-entry {
     position: relative;
-    padding: var(--gap);
+    padding: var(--gap) var(--gap) var(--gap) 0;
+
     transition: transform 0.1s;
 }
 
