@@ -21,15 +21,14 @@ show_in_homepage: false
 
 {{< /rawhtml >}}
 
-{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
-
-- Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
-- Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
-- Part 3: How to use an in-memory database for testing on Ktor
-- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
-- Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
-- Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)
-{{< /admonition >}}
+> **SERIES: Building a backend with Ktor**
+>
+> - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
+> - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+> - Part 3: How to use an in-memory database for testing on Ktor
+> - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
+> - Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
+> - Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)
 
 Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.
 
