@@ -30,10 +30,6 @@
 
 {{- $paginator := .Paginate $pages }}
 
-{{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
-
 {{- range $page := $paginator.Pages }}
 
 <article class="post-entry tag-entry">

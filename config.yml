@@ -19,20 +19,19 @@ params:
   title: Marco Gomiero
   description: "Software Engineer · Google Developer Expert for Kotlin"
   keywords : [Marco Gomiero, Android, Flutter, Gomiero, Kotlin, RSS Parser, Kotlin Multiplatform]
-  author: Me # TODO: delete this
-  # author: ["Me", "You"] # multiple authors
+  author: Marco Gomiero
   images: ["/img/profile.webp"]
   DateFormat: "2 January 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
   ShowReadingTime: true
-  ShowShareButtons: true # TODO: think about it
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
   ShowWordCount: false
-  ShowRssButtonInSectionTermList: true # Think about it
+  ShowRssButtonInSectionTermList: false
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
@@ -52,27 +51,7 @@ params:
     safari_pinned_tab: "/safari-pinned-tab.svg"
 
   label:
-    text: "Marco Gomiero" # TODO: maybe delete the title
-
-  # profile-mode
-    # TODO: think about it!
-  profileMode:
-    enabled: false # needs to be explicitly set
-    title: Marco Gomiero
-    subtitle: "This is subtitle"
-    imageUrl: "/img/profile.webp"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
-    buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
-
-  # home-info mode
-  homeInfoParams:
-    Title: "Hi \U0001F44B"
+    text: "Marco Gomiero"
 
   socialIcons:
     - name: twitter
@@ -90,12 +69,6 @@ params:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
-
-# TODO: maybe delete it
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 
 menu:
   main:
