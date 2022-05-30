@@ -3,9 +3,7 @@
 {{- if .Title }}
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
-  <h1>
-    {{ .Title }}
-  </h1>
+  <h1>Write</h1>
   {{- if .Description }}
   <div class="post-description">
     {{ .Description | markdownify }}
