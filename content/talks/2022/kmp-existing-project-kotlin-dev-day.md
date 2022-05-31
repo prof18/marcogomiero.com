@@ -3,6 +3,7 @@ date: 2022-05-10T09:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing project"
 location: "Kotlin Dev Day, Amsterdam"
 performDate: 2022-05-19
+youtube: a4KL6xFj4_U
 speakerDeck: e045a48312534b7e99f02dbb89ac1f3e
 sampleCode: "https://github.com/prof18/shared-hn-android-ios-backend"
 eventUrl: "https://kotlindevday.com/session/introducing-kotlin-multiplatform-in-existing-project/"
