@@ -9,7 +9,17 @@
       <link>https://www.marcogomiero.com/img/profile.webp</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 May 2022 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from mobile to backend development with Ktor</title>
+      <link>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</link>
+      <pubDate>Mon, 06 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</guid>
+      <description>SERIES: Building a backend with Ktor
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that were not easy to achieve out of the box.</description>
+    </item>
+    
     <item>
       <title>KMP FatFramework Cocoa</title>
       <link>https://www.marcogomiero.com/projects/kmp-fatframework-cocoa/</link>

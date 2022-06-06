@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/projects/kmp-fatframework-cocoa/</loc>
-    <lastmod>2022-05-17T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/</loc>
+    <lastmod>2022-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</loc>
+    <lastmod>2022-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/</loc>
+    <lastmod>2022-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/projects/kmp-fatframework-cocoa/</loc>
     <lastmod>2022-05-17T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/projects/</loc>
@@ -39,9 +45,6 @@
     <lastmod>2022-05-10T09:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2022-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/</loc>
