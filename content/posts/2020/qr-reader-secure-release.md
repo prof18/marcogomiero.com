@@ -3,7 +3,7 @@ layout: post
 title:  "QR Reader Secure - Privacy-Focused and Secure QR Reader"
 date:   2020-07-28
 show_in_homepage: false
-featuredImg: "/img/qr-reader/banner.png"
+image: "/img/qr-reader/banner.png"
 ---
 
 Last week my parents asked me to download to their phones a simple QR Reader. So I opened the Play Store and I started to search an easy to use application, without lot's of noise (oh, I mean intrusive ads..) and without ulterior motives. Well, I wandered around the Play Store for an hour without finding an answer.

@@ -3,24 +3,24 @@ layout: post
 title:  "Structuring a Ktor project"
 date:   2021-04-07
 show_in_homepage: true
+image: "/img/ktor-series/ktor-wizard-Intellij.png"
 ---
 
 {{< rawhtml >}}
 
 <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=b99d6298aa"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23245-%237874b4"/></a>
 
-
 {{< /rawhtml >}}
 
-{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
-
-- Part 1: Structuring a Ktor project
-- Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
-- Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
-- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
-- Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
-- Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)  
-{{< /admonition >}}
+> **SERIES: Building a backend with Ktor**
+>
+> - Part 1: Structuring a Ktor project
+> - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+> - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
+> - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
+> - Part 5 [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
+> - Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)
+> - Part 7: [Moving from mobile to backend development with Ktor](https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/)
 
 It’s been a few months since I’ve started working with [Ktor](https://ktor.io/) to build the backend of [Revelop](https://revelop.app/). We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.
 

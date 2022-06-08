@@ -2,7 +2,8 @@
 layout: post
 title:  "My 2 Cents about cross-platform"
 date:   2020-08-04
-show_in_homepage: true
+show_in_homepage: false
+image: "/img/2cents-cross/google-trend-cross.png"
 ---
 
 During my journey as a mobile developer, I had the chance to try and give a look at some cross-platform solutions both for work and fun reasons. Today, I want to share my thoughts and considerations about them and why/when you should use cross-platform. I hope that these thoughts will be helpful to anyone that is in the process of choosing the right solution for their product.

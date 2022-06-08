@@ -1,0 +1,33 @@
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- $pages := where .Site.RegularPages "Type" "posts" }}
+{{ $pages = where $pages "Params.show_in_homepage" "!=" false -}}
+
+{{- partial "home_info.html" . }}
+
+<h2 style="margin-bottom: 20px;">Top Posts</h2>
+
+{{- range $pages }}
+
+<article class="home-post-entry">
+  <header class="entry-header">
+    <h3>
+      {{- .Title }}
+    </h3>
+  </header>
+  <footer class="home-entry-footer">
+    {{- partial "post_meta.html" . -}}
+  </footer>
+  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
+
+{{- end }}

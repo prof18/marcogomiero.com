@@ -2,8 +2,7 @@
 layout: post
 title:  "How I take note at conferences"
 date:   2019-07-06
-images:
-  - https://miro.medium.com/max/1400/0*LaTfRaHUQcKv11k3
+image: "https://miro.medium.com/max/1400/0*LaTfRaHUQcKv11k3"
 show_in_homepage: false
 ---
 

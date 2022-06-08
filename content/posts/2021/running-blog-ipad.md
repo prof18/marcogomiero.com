@@ -3,6 +3,7 @@ layout: post
 title:  "Running a blog with iPad"
 date:   2021-01-11
 show_in_homepage: false
+image: "/img/blogging-ipad/ipad-overview.jpeg"
 ---
 
 It’s been a few years since I started writing this blog, and I quite like sharing my thoughts and experiences. After a short while spent on Medium, I decided I wanted to be the sole owner of my content, so I started experimenting with different solutions and ideas. After I finally landed on the "perfect" tech architecture (I know, I’m lying. There’s no perfect solution and Future Me will most likely refactor and (over)re-engineer the current solution), I started to seek the "perfect" writing setup. 

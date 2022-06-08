@@ -1,62 +1,34 @@
 +++
 title = "About Me"
+type = "about"
 +++
 
-{{< rawhtml >}}
-<div class="home-profile">
-    <div class="home-avatar">
-        <a href="/posts">
-            <img src="/img/profile.webp" alt="avatar">
-        </a>
-    <h2> Marco Gomiero </h1>
-</div>
-{{< /rawhtml >}}
-
-
-I'm a software engineer, currently working at [TIER](https://www.tier.app/) as Senior Android Engineer. I'm a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with Flutter and Kotlin Multiplatform.
+I'm Marco Gomiero, I'm a software engineer, currently working at [TIER](https://www.tier.app/) as Senior Android Engineer. I'm a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with Flutter and Kotlin Multiplatform.
 
 In my spare time, I write and maintain open source code, I share my dev experience by [writing](/posts) on my blog, [speaking](/talks) at confs and [organizing](https://gdg.community.dev/gdg-venezia/) events with the Google Developer Group Venezia and I play basketball.
 
-
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}} 
-
-# Work Experience
+## Work Experience
 
 ### TIER · Senior Android Engineer · August 2021 - Present
 
-> [TIER](https://www.tier.app/) Mobility is Europe's leading shared micro-mobility provider, with a mission to Change Mobility for Good. By providing people with a range of shared, light electric vehicles, from e-scooters to e-bikes and e-mopeds, powered by a proprietary Energy Network, TIER helps cities reduce their dependence on cars. Founded in 2018 by Lawrence Leuschner, Matthias Laug and Julian Blessin, TIER is headquartered in Berlin and currently operates in 95+ cities across 12 countries in Europe and the Middle East. With a focus on providing the safest, most equitable and most sustainable mobility solution, TIER has been climate neutral since 2020.
-
+[TIER Mobility](https://www.tier.app/) is Europe's leading shared micro-mobility provider, with a mission to Change Mobility for Good. By providing people with a range of shared, light electric vehicles, from e-scooters to e-bikes and e-mopeds, powered by a proprietary energy network, TIER helps cities reduce their dependence on cars. Founded in 2018 by Lawrence Leuschner, Matthias Laug and Julian Blessin, TIER is headquartered in Berlin and currently operates in 100+ cities across 22 countries in Europe and the Middle East. With a focus on providing the safest, most equitable and most sustainable mobility solution, TIER has been climate neutral since 2020.
 
 ### Uniwhere · Tech Lead · September 2017 - May 2021
 
-> [Uniwhere](https://www.uniwhere.com/) - Best University app in Italy, 600,000 registered students,
+[Uniwhere](https://www.uniwhere.com/) - Best University app in Italy, 600,000 registered students,
 backed by VCs and investors from Miami, Berlin, and Milan.
-> - Tech leadership of the whole infrastructure (BE, Client Android, Client iOS, DevOps), used monthly by more than 100K unique users
+- Tech leadership of the whole infrastructure (BE, Client Android, Client iOS, DevOps), used monthly by more than 100K unique users
 
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}} 
+[Revelop](https://revelop.app/) - Email platform helping top performers make the most out of the personal inbox. Used in the best schools of the world — from Harvard to Columbia.
+ - Written from scratch the app backend with Ktor
+ - Design and developed the iOS app architecture with declarative patterns and Kotlin Multiplatform as data persistence layer
 
-> [Revelop](https://revelop.app/) - Email platform helping top performers make the most out of the personal inbox. Used in the best schools of the world — from Harvard to Columbia.
-> - Written from scratch the app backend with Ktor
-> - Design and developed the iOS app architecture with declarative patterns and Kotlin Multiplatform as data persistence layer
-
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}} 
-
-# Education 
+## Education
 
 ### Computer Engineering - Master Degree · University of Padua · 2016 - 2018
 
-> Thesis title: "Design and development of a system for linking university careers and real world jobs"
-
-{{< rawhtml >}}
-<br>
-{{< /rawhtml >}} 
+Thesis title: "Design and development of a system for linking university careers and real world jobs"
 
 ### Information Engineering - Bachelor Degree · University of Padua · 2012 - 2016
 
-> Thesis title: "Porting issues from Scratch/BYOB to Snap in a browser environment"
+Thesis title: "Porting issues from Scratch/BYOB to Snap in a browser environment"

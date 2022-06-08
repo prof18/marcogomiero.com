@@ -2,8 +2,7 @@
 layout: post
 title:  "How to publish and distribute your Android library"
 date:   2019-05-28
-images:
-  - https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo
+image: "https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo"
 show_in_homepage: false
 ---
 

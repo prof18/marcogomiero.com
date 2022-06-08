@@ -3,17 +3,19 @@ layout: post
 title:  "How to schedule jobs with Quartz on Ktor"
 date:   2022-04-22
 show_in_homepage: false
+image: "/img/ktor-series/quartz-tables.png"
 ---
 
-{{< admonition abstract "SERIES: Building a backend with Ktor" true >}}
+> **SERIES: Building a backend with Ktor**
+>
+> - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
+> - Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+> - Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
+> - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
+> - Part 5: [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
+> - Part 6: How to schedule jobs with Quartz on Ktor
+> - Part 7: [Moving from mobile to backend development with Ktor](https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/)
 
-- Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)
-- Part 2: [How to persist Ktor logs](https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
-- Part 3: [How to use an in-memory database for testing on Ktor](https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
-- Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
-- Part 5: [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
-- Part 6: How to schedule jobs with Quartz on Ktor
-{{< /admonition >}}
 
 Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc. These types of tasks can be scheduled “manually” with a [cron job](https://en.m.wikipedia.org/wiki/Cron) or with a scheduling library like [Quartz](https://github.com/quartz-scheduler/quartz), that makes easy for example the persistence of the task’s state even after a reboot of the server.
 

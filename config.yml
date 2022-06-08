@@ -1,0 +1,89 @@
+baseURL: "https://www.marcogomiero.com"
+title: Marco Gomiero
+paginate: 12
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: UA-90975904-1
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Marco Gomiero
+  description: "Software Engineer · Google Developer Expert for Kotlin"
+  keywords : [Marco Gomiero, Android, Flutter, Gomiero, Kotlin, RSS Parser, Kotlin Multiplatform]
+  author: Marco Gomiero
+  DateFormat: "2 January 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    #disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+
+  label:
+    text: "Marco Gomiero"
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/marcoGomier"
+    - name: github
+      url: "https://github.com/prof18"
+    - name: linkedin
+      url: "https://linkedin.com/in/marco-gomiero"
+
+  analytics:
+    google:
+      SiteVerificationTag: "7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+menu:
+  main:
+    - identifier: posts
+      name: Write
+      url: /posts/
+      weight: 10
+    - identifier: talks
+      name: Speak
+      url: /talks/
+      weight: 20
+    - identifier: projects
+      name: Build
+      url: /projects/
+      weight: 30
+    - identifier: about
+      name: About
+      url: /about-me/
+      weight: 40
