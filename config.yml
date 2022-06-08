@@ -20,7 +20,6 @@ params:
   description: "Software Engineer · Google Developer Expert for Kotlin"
   keywords : [Marco Gomiero, Android, Flutter, Gomiero, Kotlin, RSS Parser, Kotlin Multiplatform]
   author: Marco Gomiero
-  images: ["/img/profile.webp"]
   DateFormat: "2 January 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false

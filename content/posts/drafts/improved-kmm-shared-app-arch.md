@@ -4,6 +4,7 @@ title:  "Improving shared architecture for a Kotlin Multiplatform, Jetpack Compo
 date:   2022-05-09
 show_in_homepage: false
 draft: true
+image: "/img/impr-kmm-arch/money-flow-dark.png"
 ---
 
 A couple of years ago I started working on a pet project to manage personal finances, named [MoneyFlow](https://github.com/prof18/MoneyFlow).

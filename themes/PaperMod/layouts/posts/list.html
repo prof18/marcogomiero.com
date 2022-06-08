@@ -31,8 +31,6 @@
 {{- range $page := $paginator.Pages }}
 
 <article class="post-entry tag-entry">
-  {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
   <header class="entry-header">
     <h2>
       {{- .Title }}

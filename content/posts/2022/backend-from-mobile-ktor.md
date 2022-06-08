@@ -3,6 +3,7 @@ layout: post
 title:  "Moving from mobile to backend development with Ktor"
 date:   2022-06-06
 show_in_homepage: false
+image: "/img/ktor-series/commons-layers.png"
 ---
 
 > **SERIES: Building a backend with Ktor**

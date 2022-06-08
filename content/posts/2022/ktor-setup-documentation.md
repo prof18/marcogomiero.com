@@ -3,6 +3,7 @@ layout: post
 title:  "Generate API documentation from Swagger on Ktor"
 date:   2022-03-22
 show_in_homepage: false
+image: "/img/ktor-series/api-doc.png"
 ---
 
 > **SERIES: Building a backend with Ktor**

@@ -3,6 +3,7 @@ layout: post
 title:  "How to schedule jobs with Quartz on Ktor"
 date:   2022-04-22
 show_in_homepage: false
+image: "/img/ktor-series/quartz-tables.png"
 ---
 
 > **SERIES: Building a backend with Ktor**

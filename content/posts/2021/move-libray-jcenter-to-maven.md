@@ -2,7 +2,8 @@
 layout: post
 title:  "Migrating old artifacts from JCenter to MavenCentral"
 date:   2021-02-11
-show_in_homepage: false 
+show_in_homepage: false
+image: "/img/move-libray-jcenter-to-maven/bintray-dir.png"
 ---
 
 {{< rawhtml >}}

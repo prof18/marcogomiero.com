@@ -3,6 +3,7 @@ layout: post
 title:  "Bottom App Bar with Menu and Swipeable Tabs in Flutter"
 date:   2019-03-20
 show_in_homepage: false
+image: "/img/bottom.gif"
 ---
 
 The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.

@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "A journey from Async Task to Kotlin Coroutines"
-images:
-  - https://miro.medium.com/max/1400/0*BnjRJYi8CNeaKOq1
+image: "https://miro.medium.com/max/1400/0*BnjRJYi8CNeaKOq1"
 date:   2019-01-14
 show_in_homepage: false
 ---

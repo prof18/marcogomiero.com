@@ -3,6 +3,7 @@ layout: post
 title:  "Structuring a Ktor project"
 date:   2021-04-07
 show_in_homepage: true
+image: "/img/ktor-series/ktor-wizard-Intellij.png"
 ---
 
 {{< rawhtml >}}

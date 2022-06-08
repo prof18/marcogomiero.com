@@ -2,7 +2,8 @@
 layout: post
 title:  "How to fix the \"Unable to locate a Java Runtime\" error on Xcode with Kotlin Multiplatform"
 date:   2021-12-27
-show_in_homepage: false 
+show_in_homepage: false
+image: "/img/xcode-jvm-runtime/xcode-java-runtime.jpeg"
 ---
 
 {{< rawhtml >}}

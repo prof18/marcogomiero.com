@@ -3,6 +3,7 @@ layout: post
 title:  "How to persist Ktor logs"
 date:   2021-05-05
 show_in_homepage: false
+image: "/img/ktor-log-disk/ktor-log-run-config.png"
 ---
 
 {{< rawhtml >}}
