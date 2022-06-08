@@ -13,6 +13,7 @@ show_in_homepage: false
 > - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
 > - Part 5: Generate API documentation from Swagger on Ktor
 > - Part 6: [How to schedule jobs with Quartz on Ktor](https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/)
+> - Part 7: [Moving from mobile to backend development with Ktor](https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/)
 
 When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed. This place can be a document, a text file, a website, etc.
 

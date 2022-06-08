@@ -13,6 +13,7 @@ show_in_homepage: false
 > - Part 4: [How to handle database migrations with Liquibase on Ktor](https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
 > - Part 5: [Generate API documentation from Swagger on Ktor](https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/)
 > - Part 6: How to schedule jobs with Quartz on Ktor
+> - Part 7: [Moving from mobile to backend development with Ktor](https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/)
 
 
 Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc. These types of tasks can be scheduled “manually” with a [cron job](https://en.m.wikipedia.org/wiki/Cron) or with a scheduling library like [Quartz](https://github.com/quartz-scheduler/quartz), that makes easy for example the persistence of the task’s state even after a reboot of the server.
