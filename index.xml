@@ -114,7 +114,7 @@ In this talk, we will understand which part of the code can be a starting point 
       
       <guid>https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor   Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc.</description>
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc.</description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@ In this talk, we will understand which part of the code can be a starting point 
       
       <guid>https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor   When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed.</description>
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed.</description>
     </item>
     
     <item>
@@ -144,7 +144,7 @@ With this talk, I want to show how it is possible to bring your mobile knowledge
       
       <guid>https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor   Databases are an important and critical part of backend infrastructures.</description>
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Databases are an important and critical part of backend infrastructures.</description>
     </item>
     
     <item>
@@ -216,7 +216,7 @@ In this talk, we will understand which part of the code can be a starting point 
       
       <guid>https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor   Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.</description>
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.</description>
     </item>
     
     <item>
@@ -288,7 +288,7 @@ These out-of-the-box solutions really simplify the work to be done to have a CI 
       
       <guid>https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor   Logs are a vital part of software development.</description>
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Logs are a vital part of software development.</description>
     </item>
     
     <item>
@@ -307,7 +307,7 @@ These out-of-the-box solutions really simplify the work to be done to have a CI 
       
       <guid>https://www.marcogomiero.com/posts/2021/ktor-project-structure/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor   It’s been a few months since I’ve started working with Ktor to build the backend of Revelop.</description>
+ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   It’s been a few months since I’ve started working with Ktor to build the backend of Revelop.</description>
     </item>
     
     <item>
