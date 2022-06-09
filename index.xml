@@ -5,7 +5,28 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 06 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Jun 2022 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Imperative is dead, long live Declarative!</title>
+      <link>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-berlin/</link>
+      <pubDate>Wed, 08 Jun 2022 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-berlin/</guid>
+      <description>Abstract: Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.
+The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.
+I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
+    </item>
+    
+    <item>
+      <title>From Mobile to Backend with Kotlin and Ktor</title>
+      <link>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</link>
+      <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</guid>
+      <description>Abstract: As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?
+With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
+    </item>
+    
     <item>
       <title>Moving from mobile to backend development with Ktor</title>
       <link>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</link>
