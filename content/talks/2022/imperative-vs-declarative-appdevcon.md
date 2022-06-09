@@ -4,6 +4,7 @@ title: "Imperative is dead, long live Declarative!"
 location: "AppDevCon, Amsterdam"
 performDate: 2022-06-24
 upcoming: true
+eventUrl: "https://appdevcon.nl/session/imperative-is-dead-long-live-declarative-2022/"
 ---
 
 ## Abstract:
