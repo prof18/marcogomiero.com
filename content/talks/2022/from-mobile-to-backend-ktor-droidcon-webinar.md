@@ -1,5 +1,5 @@
 ---
-date: 2022-06-07
+date: 2022-05-10T17:45:00Z
 title: "From Mobile to Backend with Kotlin and Ktor"
 location: "droidcon Webinar, Remote"
 performDate: 2022-06-16
