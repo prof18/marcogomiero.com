@@ -1,6 +1,6 @@
 ---
 date: 2022-06-08T17:45:00Z
-title: "Imperative is dead, long live Declarative!"
+title: "Forging the path from monolith to multi-module app"
 location: "droidcon Berlin"
 performDate: 2022-07-06
 upcoming: true
