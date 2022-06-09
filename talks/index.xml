@@ -18,22 +18,22 @@ I will tell you how to balance the entire process without harming the regular fe
     </item>
     
     <item>
-      <title>From Mobile to Backend with Kotlin and Ktor</title>
-      <link>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</link>
-      <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</guid>
-      <description>Abstract: As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?
-With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
-    </item>
-    
-    <item>
       <title>Imperative is dead, long live Declarative!</title>
       <link>https://www.marcogomiero.com/talks/2022/imperative-vs-declarative-appdevcon/</link>
       <pubDate>Wed, 11 May 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/imperative-vs-declarative-appdevcon/</guid>
       <description>Abstract: Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI.</description>
+    </item>
+    
+    <item>
+      <title>From Mobile to Backend with Kotlin and Ktor</title>
+      <link>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</link>
+      <pubDate>Tue, 10 May 2022 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</guid>
+      <description>Abstract: As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?
+With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
     </item>
     
     <item>
