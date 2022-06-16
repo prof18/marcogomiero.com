@@ -4,7 +4,7 @@ title: "From Mobile to Backend with Kotlin and Ktor"
 location: "droidcon Webinar, Remote"
 performDate: 2022-06-16
 eventUrl: https://courses.droidcon.com/course/mob-to-backend-kotlin-ktor
-speakerDeck: 8dbecd9291014a3f8ae42f0d88832f4a
+speakerDeck: 45a4d205154046e4ab57006bb6755267
 ---
 
 ## Abstract:
