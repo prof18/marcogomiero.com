@@ -5,6 +5,7 @@ location: "droidcon Webinar, Remote"
 performDate: 2022-06-16
 eventUrl: https://courses.droidcon.com/course/mob-to-backend-kotlin-ktor
 speakerDeck: 45a4d205154046e4ab57006bb6755267
+vimeo: 723266848
 ---
 
 ## Abstract:
