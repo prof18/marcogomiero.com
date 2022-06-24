@@ -13,35 +13,35 @@ In this talk, we will explore the declarative style of building UI compared with
 
 ## Resources:
 
-- Talk im Park #4 mit Pascal Welsch: Understanding Declarative UI
+- **Talk im Park #4 mit Pascal Welsch: Understanding Declarative UI**\
     https://www.youtube.com/watch?v=zaSn_qA7Nb4
-- Chain React 2019 - Leland Richardson - React, Meet Compose
+- **Chain React 2019 - Leland Richardson - React, Meet Compose**\
     https://www.youtube.com/watch?v=4EFjDSijAZU
-- Pete Hunt: React: Rethinking best practices -- JSConf EU
+- **Pete Hunt: React: Rethinking best practices -- JSConf EU**\
     https://www.youtube.com/watch?v=x7cQ3mrcKaY
-- Jessica Kerr - Functional Principles In React
+- **Jessica Kerr - Functional Principles In React**\
     https://www.youtube.com/watch?v=1uRC3hmKQnM
-- Cross-Language React - Leland Richardson
+- **Cross-Language React - Leland Richardson**\
     https://www.youtube.com/watch?v=eR4LjL1h6cE
-- React as a UI Runtime
+- **React as a UI Runtime**\
     https://overreacted.io/react-as-a-ui-runtime/
-- Pure UI
+- **Pure UI**\
     https://rauchg.com/2015/pure-ui 
-- Compose From First Principles
+- **Compose From First Principles**\
     http://intelligiblebabble.com/compose-from-first-principles/ 
-- KotlinConf 2019: The Compose Runtime, Demystified by Leland Richardson
+- **KotlinConf 2019: The Compose Runtime, Demystified by Leland Richardson**\
     https://www.youtube.com/watch?v=6BRlI5zfCCk
-- KotlinConf 2019: Compose Yourself: Designing a Kotlin First UI Toolkit by Anna-Chiara & Clara
+- **KotlinConf 2019: Compose Yourself: Designing a Kotlin First UI Toolkit by Anna-Chiara & Clara**\
     https://www.youtube.com/watch?v=WqnR_XhEiVI
-- Reconciliation
+- **Reconciliation**\
     https://reactjs.org/docs/reconciliation.html
-- Inside Flutter
+- **Inside Flutter**\
     https://flutter.dev/docs/resources/inside-flutter
-- try! Swift NYC 2019 - SwiftUI for Production
+- **try! Swift NYC 2019 - SwiftUI for Production**\
     https://www.youtube.com/watch?v=rshXbwrrUxY
-- Understanding Jetpack Compose — part 1 of 2
+- **Understanding Jetpack Compose — part 1 of 2**\
     https://medium.com/androiddevelopers/understanding-jetpack-compose-part-1-of-2-ca316fe39050
-- Under the hood of Jetpack Compose — part 2 of 2
+- **Under the hood of Jetpack Compose — part 2 of 2**\
     https://medium.com/androiddevelopers/under-the-hood-of-jetpack-compose-part-2-of-2-37b2c20c6cdd
-- State and Jetpack Compose 
+- **State and Jetpack Compose**\
     https://developer.android.com/jetpack/compose/state
