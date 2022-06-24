@@ -16,20 +16,37 @@ With this talk, I want to show how it is possible to bring your mobile knowledge
 
 ## Resources:
 
-- https://ktor.io/
-- https://ktor.io/docs/
-- https://ktor.io/learn/
-- https://developer.android.com/training/data-storage/room
-- https://github.com/JetBrains/Exposed/wiki
-- https://insert-koin.io/docs/quickstart/ktor
-- https://github.com/JakeWharton/timber
-- http://www.slf4j.org/index.html
-- https://ktor.io/docs/testing.html
-- https://github.com/johnrengelman/shadow
-- https://www.marcogomiero.com/posts/2021/ktor-project-structure/
-- https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/
-- https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/
-- https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/
-- https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/
-- https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/
-- https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/
+- **Ktor**\
+    https://ktor.io/
+- **Ktor Documentation**\
+    https://ktor.io/docs/
+- **Ktor tutorial**
+    https://ktor.io/learn/
+- **Save data in a local database using Room**\
+    https://developer.android.com/training/data-storage/room
+- **Exposed Wiki**\
+    https://github.com/JetBrains/Exposed/wiki
+- **Koin on Ktor**\
+    https://insert-koin.io/docs/quickstart/ktor
+- **Timber**\
+    https://github.com/JakeWharton/timber
+- **Simple Logging Facade for Java (SLF4J)**\
+    http://www.slf4j.org/index.html
+- **Ktor testing**\
+    https://ktor.io/docs/testing.html
+- **Gradle Shadow**\
+    https://github.com/johnrengelman/shadow
+- **Structuring a Ktor project**\
+    https://www.marcogomiero.com/posts/2021/ktor-project-structure/
+- **How to persist Ktor logs**\
+    https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/)
+- **How to use an in-memory database for testing on Ktor**\
+    https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/)
+- **How to handle database migrations with Liquibase on Ktor**\
+    https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/)
+- **Generate API documentation from Swagger on Ktor**\
+    https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/
+- **How to schedule jobs with Quartz on Ktor**\
+    https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/
+- **Moving from mobile to backend development with Ktor**\
+    https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/
