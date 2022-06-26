@@ -6,6 +6,13 @@ show_in_homepage: false
 image: "/img/ktor-series/commons-layers.png"
 ---
 
+{{< rawhtml >}}
+
+<a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=d1adea48f9"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23306-%237874b4"/></a>
+
+
+{{< /rawhtml >}}
+
 > **SERIES: Building a backend with Ktor**
 >
 > - Part 1: [Structuring a Ktor project](https://www.marcogomiero.com/posts/2021/ktor-project-structure/)

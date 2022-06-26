@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Improving shared architecture for a Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
-date:   2022-05-09
+date:   2022-06-26
 show_in_homepage: false
-draft: true
 image: "/img/impr-kmm-arch/money-flow-dark.png"
 ---
 
