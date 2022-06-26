@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-berlin/</loc>
-    <lastmod>2022-06-08T17:45:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</loc>
+    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/</loc>
+    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/</loc>
+    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-berlin/</loc>
     <lastmod>2022-06-08T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/</loc>
     <lastmod>2022-06-08T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</loc>
-    <lastmod>2022-06-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2022-06-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/projects/kmp-fatframework-cocoa/</loc>

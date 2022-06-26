@@ -5,7 +5,18 @@
     <link>https://www.marcogomiero.com/posts/</link>
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 06 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Improving shared architecture for a Kotlin Multiplatform, Jetpack Compose and SwiftUI app</title>
+      <link>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</guid>
+      <description>A couple of years ago I started working on a pet project to manage personal finances, named MoneyFlow.
+  This project soon became a personal playground for a Kotlin Multiplatform mobile app and in a previous article, I journaled all the steps that lead me to a satisfying (at least for that time) shared app architecture.
+ Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</description>
+    </item>
+    
     <item>
       <title>Moving from mobile to backend development with Ktor</title>
       <link>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</link>
