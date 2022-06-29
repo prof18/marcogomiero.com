@@ -2,7 +2,7 @@
 layout: post
 title:  "Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
 date:   2020-10-23
-show_in_homepage: true
+show_in_homepage: false
 image: "/img/kmm-app-arch/app-design.png"
 ---
 
