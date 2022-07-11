@@ -13,8 +13,9 @@
       
       <guid>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</guid>
       <description>A couple of years ago I started working on a pet project to manage personal finances, named MoneyFlow.
-  This project soon became a personal playground for a Kotlin Multiplatform mobile app and in a previous article, I journaled all the steps that lead me to a satisfying (at least for that time) shared app architecture.
- Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</description>
+This project soon became a personal playground for a Kotlin Multiplatform mobile app and in a previous article, I journaled all the steps that lead me to a satisfying (at least for that time) shared app architecture.
+Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app
+To know more about the complete journey, please refer to the article mentioned above, but the outcome was a MVVM architecture with native ViewModels and a “shared middleware actor”, the UseCase, that prepares and serves the data for the UI.</description>
     </item>
     
     <item>
@@ -24,7 +25,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that were not easy to achieve out of the box.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that were not easy to achieve out of the box.</description>
     </item>
     
     <item>
@@ -34,7 +35,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc.</description>
     </item>
     
     <item>
@@ -44,7 +45,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed.</description>
     </item>
     
     <item>
@@ -54,7 +55,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Databases are an important and critical part of backend infrastructures.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Databases are an important and critical part of backend infrastructures.</description>
     </item>
     
     <item>
@@ -64,7 +65,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2021/kmp-no-java-runtime-error-xcode/</guid>
       <description>A couple of days ago I opened my Kotlin Multiplatform pet project MoneyFlow on a different machine than usual. When I tried to run the app on the iOS simulator on Xcode, the build failed with a very strange error: &amp;ldquo;The operation couldn&amp;rsquo;t be completed. Unable to locate a Java Runtime&amp;rdquo;.
-  This was a very strange issue because the JDK is installed and everything is working on the command line and Android Studio/IntelliJ.</description>
+This was a very strange issue because the JDK is installed and everything is working on the command line and Android Studio/IntelliJ.</description>
     </item>
     
     <item>
@@ -74,7 +75,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.</description>
     </item>
     
     <item>
@@ -95,7 +96,7 @@ Before Kotlin 1.5.30, an XCFramework could be created only by running the xcrun 
       
       <guid>https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/</guid>
       <description>When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.
-   To understand how to integrate KMP into existing code, give a look at my previous article: “Introducing Kotlin Multiplatform in an existing project”</description>
+To understand how to integrate KMP into existing code, give a look at my previous article: “Introducing Kotlin Multiplatform in an existing project”</description>
     </item>
     
     <item>
@@ -115,7 +116,7 @@ These out-of-the-box solutions really simplify the work to be done to have a CI 
       
       <guid>https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   Logs are a vital part of software development.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Logs are a vital part of software development.</description>
     </item>
     
     <item>
@@ -125,7 +126,7 @@ These out-of-the-box solutions really simplify the work to be done to have a CI 
       
       <guid>https://www.marcogomiero.com/posts/2021/ktor-project-structure/</guid>
       <description>SERIES: Building a backend with Ktor
- Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor   It’s been a few months since I’ve started working with Ktor to build the backend of Revelop.</description>
+Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor It’s been a few months since I’ve started working with Ktor to build the backend of Revelop.</description>
     </item>
     
     <item>
@@ -166,9 +167,9 @@ When starting a new blank KMP project it is easier to have a mono-repo structure
       
       <guid>https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/</guid>
       <description>As you may have heard, JCenter is shutting down in May 2021.
- Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
+Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
 https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
- So, if you are using JCenter as the repository for your libraries (as me), it’s time to migrate.
+So, if you are using JCenter as the repository for your libraries (as me), it’s time to migrate.
 In this article, I will not go through the publishing process of a library to MavenCentral, because there are already plenty of resources available. For example, I followed the one written by Márton Braun.</description>
     </item>
     
@@ -197,8 +198,8 @@ In this article, I will not go through the publishing process of a library to Ma
       
       <guid>https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/</guid>
       <description>Recently, I&amp;rsquo;ve started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I&amp;rsquo;ve thought and designed it almost a year ago but only now I&amp;rsquo;ve found the time to start writing actual code.
- A first design iteration, that will change a bit
-  I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app.</description>
+A first design iteration, that will change a bit
+I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app.</description>
     </item>
     
     <item>
@@ -208,7 +209,7 @@ In this article, I will not go through the publishing process of a library to Ma
       
       <guid>https://www.marcogomiero.com/posts/2020/my-2cents-cross-platform/</guid>
       <description>During my journey as a mobile developer, I had the chance to try and give a look at some cross-platform solutions both for work and fun reasons. Today, I want to share my thoughts and considerations about them and why/when you should use cross-platform. I hope that these thoughts will be helpful to anyone that is in the process of choosing the right solution for their product.
- Disclaimer: in this article, I will share some opinions based on my experience and they can apply to your situation or not.</description>
+Disclaimer: in this article, I will share some opinions based on my experience and they can apply to your situation or not.</description>
     </item>
     
     <item>
@@ -228,7 +229,7 @@ Some apps will require all the imaginable permission only to scan a QR code.</de
       
       <guid>https://www.marcogomiero.com/posts/2020/friends-tournament-release/</guid>
       <description>Today I want to share Friends Tournament, a side project that I have been working on for the past year during my spare time.
-  Friends Tournament is a simple application that will help you to manage and organize tournaments with your friends. You can use it to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament do you want. All you need to do is to provide the number of players, the number of matches and the numbers of player that can play at the same time.</description>
+Friends Tournament is a simple application that will help you to manage and organize tournaments with your friends. You can use it to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament do you want. All you need to do is to provide the number of players, the number of matches and the numbers of player that can play at the same time.</description>
     </item>
     
     <item>
@@ -238,7 +239,7 @@ Some apps will require all the imaginable permission only to scan a QR code.</de
       
       <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-series/</guid>
       <description>Which framework should I use? How to build UIs? How do things work under the hood? These are the types of questions that I&amp;rsquo;ve answered during the series of articles about Flutter and React Native.
- Some time ago I started learning Flutter for fun reasons and at the same time, I (had to) started learning React Native for work reasons. While learning and using them, I started to see some differences and some common concepts between them.</description>
+Some time ago I started learning Flutter for fun reasons and at the same time, I (had to) started learning React Native for work reasons. While learning and using them, I started to see some differences and some common concepts between them.</description>
     </item>
     
     <item>
@@ -271,8 +272,8 @@ And now it&amp;rsquo;s time to wrap things up by trying to understand how to cho
       <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid>
       <description>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
 If you have lost the first episode, I suggest you read it before moving on.
- Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
- In this article, I will explain how to build user interfaces in React Native and Flutter.</description>
+Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
+In this article, I will explain how to build user interfaces in React Native and Flutter.</description>
     </item>
     
     <item>
@@ -303,12 +304,12 @@ Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnote
       
       <guid>https://www.marcogomiero.com/posts/2019/publish-librery-android/</guid>
       <description>Update - February 2021 As you may have heard, JCenter is shutting down in May 2021.
- Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
+Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
 https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
- So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter.
+So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter.
 I suggested you follow this guide written by Márton Braun.
- Publishing Android libraries to MavenCentral in 2021 https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/
- If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:</description>
+Publishing Android libraries to MavenCentral in 2021 https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/
+If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:</description>
     </item>
     
     <item>
@@ -318,8 +319,8 @@ I suggested you follow this guide written by Márton Braun.
       
       <guid>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</guid>
       <description>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
-  Image from Material Design Guidelines
-  With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
+Image from Material Design Guidelines
+With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
 Here’s a spoiler of the final result:</description>
     </item>
     
@@ -330,8 +331,8 @@ Here’s a spoiler of the final result:</description>
       
       <guid>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</guid>
       <description>Photo by felipe lopez on Unsplash
-  Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
- RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
+Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
+RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
     </item>
     
     <item>
