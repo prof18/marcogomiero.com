@@ -14,8 +14,7 @@
       <guid>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</guid>
       <description>A couple of years ago I started working on a pet project to manage personal finances, named MoneyFlow.
 This project soon became a personal playground for a Kotlin Multiplatform mobile app and in a previous article, I journaled all the steps that lead me to a satisfying (at least for that time) shared app architecture.
-Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app
-To know more about the complete journey, please refer to the article mentioned above, but the outcome was a MVVM architecture with native ViewModels and a “shared middleware actor”, the UseCase, that prepares and serves the data for the UI.</description>
+Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</description>
     </item>
     
     <item>
