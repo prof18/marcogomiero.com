@@ -6,6 +6,28 @@ show_in_homepage: true
 image: "/img/impr-kmm-arch/money-flow-dark.png"
 ---
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;">
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://androidweekly.net/issues/issue-525"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-525/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;">
+        <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=68710ad80a"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23309-%237874b4"/></a>
+    </div>
+
+    <div style="display: inline-block;">
+        <a href="https://jetc.dev/issues/123.html"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20jetc.dev-Issue%20%23123-343a40"/></a>
+    </div>
+
+
+    
+</div>
+
+{{< /rawhtml >}}
+
 A couple of years ago I started working on a pet project to manage personal finances, named [MoneyFlow](https://github.com/prof18/MoneyFlow).
 
 {{< figure src="/img/impr-kmm-arch/money-flow-dark.png"  link="/img/impr-kmm-arch/money-flow-dark.png" >}}
