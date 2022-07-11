@@ -14,7 +14,7 @@ image: "/img/impr-kmm-arch/money-flow-dark.png"
         <a href="https://androidweekly.net/issues/issue-525"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-525/badge" /></a>
     </div>
 
-    <div style="display: inline-block;">
+    <div style="display: inline-block; margin-right: 10px;">
         <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=68710ad80a"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23309-%237874b4"/></a>
     </div>
 
