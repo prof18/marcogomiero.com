@@ -56,5 +56,5 @@ And with the manual installation, the build started working again!
 
 Another solution, suggested by [Martin Bonnin](https://twitter.com/martinbonnin) is to explicitly set the `JAVA_HOME` inside the plist files under `~/Library/LaunchAgents/`
 
-{{< tweet 1474851964521525249 >}}
+{{< tweet user="martinbonnin" id="1474851964521525249" >}}
 

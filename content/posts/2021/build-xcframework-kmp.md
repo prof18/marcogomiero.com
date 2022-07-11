@@ -36,11 +36,11 @@ However, FatFrameworks seems not to be the “current state of the art” soluti
 
 Apple is pushing toward the use of XCFrameworks and you could encounter errors like the following one that happened to [Sam Edwards](https://twitter.com/handstandsam).
 
-{{< tweet 1403456462689550345 >}}
+{{< tweet user="HandstandSam" id="1403456462689550345" >}}
 
 Sam [followed the same approach](https://handstandsam.com/2021/06/11/kotlin-multiplatform-building-a-fat-ios-framework-for-iosarm64-and-iosx64/) I’ve followed but I never encounter the error! And the reason could be the following:
 
-{{< tweet 1403673057487687682 >}}
+{{< tweet user="HandstandSam" id="1403673057487687682" >}}
 
 Unfortunately, there isn’t native support for XCFrameworks on Kotlin Multiplatform yet (it should come hopefully with Kotlin 1.5.30) and to generate an XCFramework, you have to create manually an XCFramework starting from the different frameworks built by KMP.
 
