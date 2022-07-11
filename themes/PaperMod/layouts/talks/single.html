@@ -21,10 +21,13 @@
     <a href="{{ (.Param "eventUrl") }}" target="BLANK">{{ (.Param "location") }}</a>
   </div>
 
-  {{- if .Content }}
   <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
+
+    {{- if (.Param "abstract") }}
+    <h2>Abstract:</h2>
+    {{ .Param "abstract" | safeHTML }}
+    {{- end}}
 
     {{- if (.Param "speakerdeck") }}
     <h2>Slides:</h2>
@@ -52,7 +55,7 @@
     </div>
     {{- end}}
 
-  {{- else }}{{ .Content }}{{ end }}
+    {{- partial "anchored_headings.html" .Content -}}
   </div>
   {{- end }}
 
