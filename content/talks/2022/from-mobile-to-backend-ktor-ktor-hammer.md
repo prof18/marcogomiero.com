@@ -14,8 +14,10 @@ abstract: As mobile developers, we often see the backend world as something magi
     https://ktor.io/
 - **Ktor Documentation**\
     https://ktor.io/docs/
-- **Ktor tutorial**
+- **Ktor tutorial**\
     https://ktor.io/learn/
+- **Migrating from 1.6.x to 2.0.0**\
+    https://ktor.io/docs/migrating-2.html    
 - **Save data in a local database using Room**\
     https://developer.android.com/training/data-storage/room
 - **Exposed Wiki**\
