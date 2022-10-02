@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-ktor-hammer/</loc>
-    <lastmod>2022-08-26T17:45:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-italy/</loc>
+    <lastmod>2022-10-01T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2022-08-26T17:45:00+00:00</lastmod>
+    <lastmod>2022-10-01T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2022-10-01T17:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-ktor-hammer/</loc>
     <lastmod>2022-08-26T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</loc>
