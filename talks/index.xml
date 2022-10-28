@@ -5,7 +5,47 @@
     <link>https://www.marcogomiero.com/talks/</link>
     <description>Recent content in Talks on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Oct 2022 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adopting Jetpack Compose Safely</title>
+      <link>https://www.marcogomiero.com/talks/2022/adopt-compose-safely-advanced-kotlin-dev-day/</link>
+      <pubDate>Fri, 28 Oct 2022 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2022/adopt-compose-safely-advanced-kotlin-dev-day/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Forging the path from monolith to multi-module app</title>
+      <link>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-devfest-munich/</link>
+      <pubDate>Thu, 27 Oct 2022 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-devfest-munich/</guid>
+      <description>Resources: Navigation best practices for multi-module projects
+https://developer.android.com/guide/navigation/navigation-multi-module
+ANDROID AT SCALE @SQUARE
+https://www.droidcon.com/2019/11/15/android-at-scale-square/
+Why did we move away from Navigation Component?
+https://medium.com/inside-aircall/why-did-we-move-away-from-navigation-component-f2160f7c3f4b
+slack-gradle-plugin
+https://github.com/slackhq/slack-gradle-plugin
+Cookiecutter
+https://github.com/cookiecutter/cookiecutter
+Sharing dependency versions between projects
+https://docs.gradle.org/current/userguide/platforms.html
+Modularization learning journey
+https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
+Stabilize, Modularize, Modernize: Scaling Slack’s Mobile Codebases
+https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases/
+Scaling Slack’s Mobile Codebases: Modularization
+https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases-2/
+Scaling Slack’s Mobile Codebases: Modernization
+https://slack.engineering/scaling-slacks-mobile-codebases-modernization/
+Modularization - How hard can it be? by Elin Nilsson
+https://www.youtube.com/watch?v=K65M6jpyN4Y
+CLEAN UP STATE HANDLING WITH A STATE MACHINE</description>
+    </item>
+    
     <item>
       <title>Forging the path from monolith to multi-module app</title>
       <link>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-italy/</link>
