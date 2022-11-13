@@ -220,6 +220,8 @@ data class Activity(
 }
 ```
 
+> Update: If you are using the new memory model (enabled by default from Koltin 1.7.20), you don't need `activity.freeze()`
+
 Now, some modifications must be made to the custom Alamofire deserializer. First of all, the accepted generic type is not `T` only, but `T` that inherits from `BaseResponseDTO`
 
 ```swift
@@ -271,6 +273,8 @@ struct CustomSerializer<T: BaseResponseDTO>: ResponseSerializer {
     }
 }
 ```
+
+> Update: If you are using the new memory model (enabled by default from Koltin 1.7.20), you don't need `deserializedObject.makeFrozen()`
 
 If you want to see all in action, I’ve published a little sample [on my GitHub](https://github.com/prof18/shared-deserialization). 
 
