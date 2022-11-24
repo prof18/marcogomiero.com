@@ -12,7 +12,8 @@
       <pubDate>Fri, 28 Oct 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/adopt-compose-safely-advanced-kotlin-dev-day/</guid>
-      <description>Resources: Modern Android Development
+      <description>Co-speaker: István Juhos
+Resources: Modern Android Development
 https://developer.android.com/modern-android-development
 State holders and UI State
 https://developer.android.com/topic/architecture/ui-layer/stateholders
@@ -27,7 +28,8 @@ https://www.droidcon.com/2022/06/28/branching-out-to-jetpack-compose/
 Compose API Guidelines
 https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 Twitter&amp;rsquo;s Jetpack Compose Rules
-https://github.com/twitter/compose-rules</description>
+https://github.com/twitter/compose-rules
+Co-speaker: István Juhos</description>
     </item>
     
     <item>
