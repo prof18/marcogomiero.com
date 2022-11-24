@@ -12,6 +12,10 @@ In this talk, we will show the process that led us to a harmless integration of 
 speakerDeck: b1b3906b9c5b4634a5abcb71f7008ab8
 ---
 
+## Co-speaker:
+
+[István Juhos](https://twitter.com/stewemetal)
+
 ## Resources: 
 
 - **Modern Android Development**\
@@ -37,3 +41,7 @@ speakerDeck: b1b3906b9c5b4634a5abcb71f7008ab8
 
 - **Twitter's Jetpack Compose Rules**\
     https://github.com/twitter/compose-rules
+
+## Co-speaker:
+
+[István Juhos](https://twitter.com/stewemetal)
