@@ -8,7 +8,6 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-#googleAnalytics: UA-90975904-1
 googleAnalytics: G-69FZ1TLE7E
 
 minify:
