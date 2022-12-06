@@ -42,7 +42,3 @@ youtube: vPUlhZASRyg
 
 - **Twitter's Jetpack Compose Rules**\
     https://github.com/twitter/compose-rules
-
-## Co-speaker:
-
-[István Juhos](https://twitter.com/stewemetal)
