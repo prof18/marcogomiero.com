@@ -10,6 +10,7 @@ In such projects, there are already established conventions, processes, and arch
 <br><br>
 In this talk, we will show the process that led us to a harmless integration of Compose into the TIER application, focusing on tooling, architectural changes, the evolution of our design system, and how we managed to get our developers onboard for all of the above."
 speakerDeck: b1b3906b9c5b4634a5abcb71f7008ab8
+youtube: vPUlhZASRyg
 ---
 
 ## Co-speaker:
