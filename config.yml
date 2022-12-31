@@ -53,10 +53,12 @@ params:
     text: "Marco Gomiero"
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/marcoGomier"
+    - name: mastodon
+      url: "https://androiddev.social/@marcogom"
     - name: github
       url: "https://github.com/prof18"
+    - name: twitter
+      url: "https://twitter.com/marcoGomier"
     - name: linkedin
       url: "https://linkedin.com/in/marco-gomiero"
 
