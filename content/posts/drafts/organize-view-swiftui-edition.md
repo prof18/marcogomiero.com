@@ -29,7 +29,7 @@ For example, for the MoneyFlow Home Screen, there is a `HomeScreen.swift` file t
 
 struct HomeScreen: View {
     var body: some View {
-       ...
+        ...
     }
 }
 
@@ -59,7 +59,7 @@ struct HomeScreenContent: View {
     @State private var showAddTransaction = false
 
     var body: some View {
-			...
+	   ...
    }
 }
 ```
@@ -97,21 +97,21 @@ struct HomeScreen_Previews: PreviewProvider {
             appErrorData: .constant(SnackbarData.init()),
             screenErrorData: .constant(SnackbarData.init()),
             homeModel: .constant(
-            HomeModel.HomeState(
-        balanceRecap: BalanceRecap(totalBalance: 100, monthlyIncome: 150, monthlyExpenses: 50),
-        latestTransactions: [
-            MoneyTransaction(
-                id: 1,
-                title: "Transaction",
-                icon: CategoryIcon.icAddressBook,
-                amount: 50,
-                type: TransactionTypeUI.expense,
-                milliseconds: 123456,
-                formattedDate: "20/10/21"
-            )
-        ]
-    )
-    ) ,
+                HomeModel.HomeState(
+                    balanceRecap: BalanceRecap(totalBalance: 100, monthlyIncome: 150, monthlyExpenses: 50),
+                    latestTransactions: [
+                        MoneyTransaction(
+                            id: 1,
+                            title: "Transaction",
+                            icon: CategoryIcon.icAddressBook,
+                            amount: 50,
+                            type: TransactionTypeUI.expense,
+                            milliseconds: 123456,
+                            formattedDate: "20/10/21"
+                        )
+                    ]
+                )
+            ),
             onAppear: {},
             deleteTransaction: {_ in }
         )

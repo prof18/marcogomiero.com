@@ -34,14 +34,13 @@ NavHost(navController = navController, startDestination = "profile") {
 With this approach, the class that contains the `NavHost` will start to grow a lot. 
 For example, here’s a snippet of an old version of MoneyFlow (N.B. Don’t copy this code, it’s old and without proper and clean state hoisting):
 
-```
-NavHost(navController, startDestination = Screen.HomeScreen.route) {
+```kotlin
+NavHost(navController, startDestination = Screen.HomeScreen.route) { 
     composable(Screen.HomeScreen.route) {
         HomeScreen(navController, paddingValues)
     }
 
     composable(Screen.AddTransactionScreen.route) {
-
         // Get back the category
         val category = it.savedStateHandle
             .getLiveData<CategoryUIData>( NavigationArguments.Category.key)
@@ -78,12 +77,12 @@ NavHost(navController, startDestination = Screen.HomeScreen.route) {
         )
     }
     
-		composable(Screen.RecapScreen.route) {
-				RecapScreen()
+	composable(Screen.RecapScreen.route) {
+	    RecapScreen()
     }
 
-		composable(Screen.BudgetScreen.route) {
-			  BudgetScreen()
+	composable(Screen.BudgetScreen.route) {
+		BudgetScreen()
     }
 
     composable(Screen.SettingsScreen.route) {
@@ -136,7 +135,6 @@ For example, for the MoneyFlow Home Screen, there is a `HomeScreen.kt` file that
 
 ```kotlin
 // HomeScreen.kt
-
 internal class HomeScreenFactory(private val paddingValues: PaddingValues) : ComposeNavigationFactory {
     override fun create(navGraphBuilder: NavGraphBuilder, navController: NavController) {
         navGraphBuilder.composable(Screen.HomeScreen.route) {
@@ -151,7 +149,7 @@ internal class HomeScreenFactory(private val paddingValues: PaddingValues) : Com
 internal fun HomeScreen(
     paddingValues: PaddingValues = PaddingValues(0.dp),
 ) {
-	... 
+    ... 
 }
 
 @Preview(name = "HomeScreenError Light")
@@ -183,7 +181,7 @@ internal fun HomeScreen(
     navigateToAddTransaction: () -> Unit = {},
     navigateToAllTransactions: () -> Unit,
 ) {
-	... 
+    ... 
 }
 ```
 
@@ -256,4 +254,4 @@ And that’s all. With this approach, the readability and maintainability of the
 
 You can find all the code mentioned in the article on [GitHub](https://github.com/prof18/MoneyFlow).
 
-{{< smalltext >}} // Thanks to <a href="https://giansegato.com/">Gian</a> and <a href="https://twitter.com/stewemetal">István</a> for helping me review the post {{< /smalltext >}}
+{{< smalltext >}} // Thanks to <a href="https://twitter.com/stewemetal">István</a> for helping me review the post {{< /smalltext >}}
