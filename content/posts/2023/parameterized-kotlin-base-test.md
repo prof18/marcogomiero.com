@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to create a parameterized base test class in Kotlin"
-date:   2022-12-25
+date:   2023-01-31
 show_in_homepage: false
-draft: true
 ---
 
 One exciting feature of JUnit 4 (and 5 as well, but this post will be focused on JUnit 4) is the possibility of running the same test with different input arguments.  
