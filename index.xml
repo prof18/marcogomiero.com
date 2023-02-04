@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 31 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Feb 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The State of Kotlin</title>
+      <link>https://www.marcogomiero.com/talks/2023/state-kotlin-fosdem/</link>
+      <pubDate>Thu, 02 Feb 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/state-kotlin-fosdem/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>How to create a parameterized base test class in Kotlin</title>
       <link>https://www.marcogomiero.com/posts/2023/parameterized-kotlin-base-test/</link>
