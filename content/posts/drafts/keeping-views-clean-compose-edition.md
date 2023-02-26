@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Organize your Views: Jetpack Compose edition"
+title:  "Keeping Your Views Clean: Jetpack Compose edition"
 date:   2022-12-26
 show_in_homepage: true
 draft: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Organize your Views: SwiftUI edition"
+title:  "Keeping Your Views Clean: SwiftUI edition"
 date:   2022-12-26
 show_in_homepage: false
 draft: true
