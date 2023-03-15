@@ -1,14 +1,13 @@
 ---
 layout: post
 title:  "Organize your Views: Jetpack Compose edition"
-date:   2022-12-26
+date:   2023-03-15
 show_in_homepage: true
-draft: true
 ---
 
 One of the pros of Jetpack Compose (in the rest of the article, I will just call it Compose, for brevity), and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the rest of the application uses. 
 
-With Compose, it is not necessary anymore to bridge the UI definitions from XML (e.g. with the [in]famous `findViewById`), resulting in less context switching between two different environments (XML and Kotlin code)
+With Compose, it is not necessary anymore to bridge the UI definitions from XML (e.g. with the [in]famous `findViewById`), resulting in less context switching between two different environments (XML and Kotlin code).
 
 But “with great power comes great responsibility”, and a codebase can quickly become a nightmare without some structure and organization. Long files, large composable functions, and stateful UI components that hinder reusability are examples that can lead to a messy codebase. 
 
