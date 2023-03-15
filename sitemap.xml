@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-pldroid/</loc>
+    <lastmod>2023-03-15T17:45:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2023-02-02T17:45:00+00:00</lastmod>
+    <lastmod>2023-03-15T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/</loc>
-    <lastmod>2023-02-02T17:45:00+00:00</lastmod>
+    <lastmod>2023-03-15T17:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2023/organize-view-compose-edition/</loc>
+    <lastmod>2023-03-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/</loc>
+    <lastmod>2023-03-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-androidmakers/</loc>
+    <lastmod>2023-03-13T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2023/state-kotlin-fosdem/</loc>
     <lastmod>2023-02-02T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2023/parameterized-kotlin-base-test/</loc>
-    <lastmod>2023-01-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2023-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2022/adopt-compose-safely-advanced-kotlin-dev-day/</loc>

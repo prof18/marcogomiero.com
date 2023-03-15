@@ -5,7 +5,25 @@
     <link>https://www.marcogomiero.com/talks/</link>
     <description>Recent content in Talks on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 02 Feb 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Mobile to Backend with Kotlin and Ktor</title>
+      <link>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-pldroid/</link>
+      <pubDate>Wed, 15 Mar 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-pldroid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Forging the path from monolith to multi-module app</title>
+      <link>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-androidmakers/</link>
+      <pubDate>Mon, 13 Mar 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-androidmakers/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>The State of Kotlin</title>
       <link>https://www.marcogomiero.com/talks/2023/state-kotlin-fosdem/</link>
