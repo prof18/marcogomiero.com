@@ -5,6 +5,16 @@ date:   2023-03-15
 show_in_homepage: true
 ---
 
+{{< rawhtml >}}
+
+ <a href="https://androidweekly.net/issues/issue-562"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-562/badge" /></a>
+
+<br>
+
+{{< /rawhtml >}}
+
+
+
 One of the pros of Jetpack Compose (in the rest of the article, I will just call it Compose, for brevity), and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the rest of the application uses. 
 
 With Compose, it is not necessary anymore to bridge the UI definitions from XML (e.g. with the [in]famous `findViewById`), resulting in less context switching between two different environments (XML and Kotlin code).
@@ -12,6 +22,8 @@ With Compose, it is not necessary anymore to bridge the UI definitions from XML 
 But “with great power comes great responsibility”, and a codebase can quickly become a nightmare without some structure and organization. Long files, large composable functions, and stateful UI components that hinder reusability are examples that can lead to a messy codebase. 
 
 In this article, I will show how I organized the codebase of [MoneyFlow](https://github.com/prof18/MoneyFlow), a money management app written with Kotlin Multiplatform, Jetpack Compose, and Swift UI. 
+
+> I wrote a similar article that covers the same topic for SwiftUI, the declarative UI framework for iOS: [“Organize your Views: SwiftUI edition”](posts/2023/organize-view-swiftui-edition)
 
 
 ## Jetpack Navigation and “god classes”
