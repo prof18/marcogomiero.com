@@ -7,9 +7,16 @@ show_in_homepage: true
 
 {{< rawhtml >}}
 
- <a href="https://androidweekly.net/issues/issue-562"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-562/badge" /></a>
+<div id="banner" style="overflow: hidden;justify-content:space-around;margin-bottom: 10px;">
 
-<br>
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://androidweekly.net/issues/issue-562"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-562/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://jetc.dev/issues/157.html"><img style="margin: 0px;" src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23157-blue?logo=Jetpack+Compose&amp;logoColor=white"/></a>
+    </div>    
+</div>
 
 {{< /rawhtml >}}
 
@@ -23,7 +30,7 @@ But “with great power comes great responsibility”, and a codebase can quickl
 
 In this article, I will show how I organized the codebase of [MoneyFlow](https://github.com/prof18/MoneyFlow), a money management app written with Kotlin Multiplatform, Jetpack Compose, and Swift UI. 
 
-> I wrote a similar article that covers the same topic for SwiftUI, the declarative UI framework for iOS: [“Organize your Views: SwiftUI edition”](posts/2023/organize-view-swiftui-edition)
+> I wrote a similar article that covers the same topic for SwiftUI, the declarative UI framework for iOS: [“Organize your Views: SwiftUI edition”](/posts/2023/organize-view-swiftui-edition)
 
 
 ## Jetpack Navigation and “god classes”
