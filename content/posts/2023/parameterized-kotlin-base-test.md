@@ -5,6 +5,14 @@ date:   2023-01-31
 show_in_homepage: false
 ---
 
+{{< rawhtml >}}
+
+ <a href="https://androidweekly.net/issues/issue-556"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-556/badge" /></a>
+
+<br>
+
+{{< /rawhtml >}}
+
 One exciting feature of JUnit 4 (and 5 as well, but this post will be focused on JUnit 4) is the possibility of running the same test with different input arguments.  
 
 That is made possible by a [custom test runner](https://github.com/junit-team/junit4/wiki/parameterized-tests) called `Parameterized`, which will inject the provided arguments in the constructor of the test class. Instead, the different arguments must be defined in the companion object of the test class.

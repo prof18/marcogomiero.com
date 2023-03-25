@@ -1,9 +1,8 @@
 ---
 layout: post
-title:  "Keeping Your Views Clean: SwiftUI edition"
-date:   2022-12-26
+title:  "Organize your Views: SwiftUI edition"
+date:   2023-03-23
 show_in_homepage: false
-draft: true
 ---
 
 One of the pros of SwiftUI, and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the application uses. 
@@ -14,7 +13,7 @@ But “with great power comes great responsibility”, and a codebase can quickl
 
 In this article, I will show how I organized the codebase of [MoneyFlow](https://github.com/prof18/MoneyFlow), a money management app written with Kotlin Multiplatform, Jetpack Compose, and Swift UI. 
 
-> I wrote a similar article that covers the same topic for Jetpack Compose, the declarative UI framework for Android: [“Organize your Views: Jetpack Compose edition”](posts/2023/organize-view-compose-edition)
+> I wrote a similar article that covers the same topic for Jetpack Compose, the declarative UI framework for Android: [“Organize your Views: Jetpack Compose edition”](/posts/2023/organize-view-compose-edition)
 
 
 ## Screens Code Structure
