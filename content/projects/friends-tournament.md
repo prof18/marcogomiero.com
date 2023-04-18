@@ -1,7 +1,7 @@
 ---
 date: 2022-05-13T17:45:00Z
 title: "Friends Tournament"
-type: "Flutter Android App"
+type: "Flutter Android and iOSU App"
 github: https://github.com/prof18/Friends-Tournament
 playStore: https://play.google.com/store/apps/details?id=com.prof.friends_tournament
 appStore: https://apps.apple.com/it/app/friends-tournament/id6447518129?l=en
