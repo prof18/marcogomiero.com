@@ -21,7 +21,29 @@
       <pubDate>Mon, 13 Mar 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-androidmakers/</guid>
-      <description></description>
+      <description>Resources: Navigation best practices for multi-module projects
+https://developer.android.com/guide/navigation/navigation-multi-module
+ANDROID AT SCALE @SQUARE
+https://www.droidcon.com/2019/11/15/android-at-scale-square/
+Why did we move away from Navigation Component?
+https://medium.com/inside-aircall/why-did-we-move-away-from-navigation-component-f2160f7c3f4b
+slack-gradle-plugin
+https://github.com/slackhq/slack-gradle-plugin
+Cookiecutter
+https://github.com/cookiecutter/cookiecutter
+Sharing dependency versions between projects
+https://docs.gradle.org/current/userguide/platforms.html
+Modularization learning journey
+https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
+Stabilize, Modularize, Modernize: Scaling Slack’s Mobile Codebases
+https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases/
+Scaling Slack’s Mobile Codebases: Modularization
+https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases-2/
+Scaling Slack’s Mobile Codebases: Modernization
+https://slack.engineering/scaling-slacks-mobile-codebases-modernization/
+Modularization - How hard can it be? by Elin Nilsson
+https://www.youtube.com/watch?v=K65M6jpyN4Y
+Guide to Android app modularization</description>
     </item>
     
     <item>
