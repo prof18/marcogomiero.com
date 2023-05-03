@@ -1,12 +1,7 @@
 ---
 layout: post
-<<<<<<<< HEAD:content/posts/drafts/keeping-views-clean-compose-edition.md
-title:  "Keeping Your Views Clean: Jetpack Compose edition"
-date:   2022-12-26
-========
 title:  "Organize your Views: Jetpack Compose edition"
 date:   2023-03-15
->>>>>>>> master:content/posts/2023/organize-view-compose-edition.md
 show_in_homepage: true
 ---
 

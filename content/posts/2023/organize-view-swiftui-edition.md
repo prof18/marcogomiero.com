@@ -1,12 +1,7 @@
 ---
 layout: post
-<<<<<<<< HEAD:content/posts/drafts/keeping-views-clean-swiftui-edition.md
-title:  "Keeping Your Views Clean: SwiftUI edition"
-date:   2022-12-26
-========
 title:  "Organize your Views: SwiftUI edition"
 date:   2023-03-23
->>>>>>>> master:content/posts/2023/organize-view-swiftui-edition.md
 show_in_homepage: false
 ---
 
