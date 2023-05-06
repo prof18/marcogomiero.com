@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Generate API documentation from Swagger on Ktor"
-date:   2022-03-22
+title: "Generate API documentation from Swagger on Ktor"
+date: 2022-03-22
 show_in_homepage: false
 image: "/img/ktor-series/api-doc.png"
 ---
@@ -155,6 +155,6 @@ The following documentation will be generated:
 
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part5).
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/main/part5).
 
 In the next episode, I’ll cover how to set up background jobs. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.

@@ -1,15 +1,13 @@
 ---
 layout: post
-title:  "How to handle database migrations with Liquibase on Ktor"
-date:   2022-01-24
+title: "How to handle database migrations with Liquibase on Ktor"
+date: 2022-01-24
 show_in_homepage: false
 ---
-
 
 {{< rawhtml >}}
 
 <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=f4f6d67da0"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23289-%237874b4"/></a>
-
 
 {{< /rawhtml >}}
 
@@ -51,7 +49,7 @@ liquibaseRuntime("ch.qos.logback:logback-classic:1.2.3")
 liquibaseRuntime("javax.xml.bind:jaxb-api:2.2.4")
 ```
 
-*Note that here `liquibaseRuntime` is used instead of the usual `implementation`*
+_Note that here `liquibaseRuntime` is used instead of the usual `implementation`_
 
 Besides the core functionality, the other dependencies are necessary for the database connection, for logging, and for parsing XML, since all the data about the migrations will be saved in an XML file (as shown later on).
 
@@ -153,7 +151,7 @@ The `migrations.xml` file contains the definitions of every migration:
 </databaseChangeLog>
 ```
 
-Every migration is represented by a `changeSet`, that has a unique ID. An ID could be, for example, the *YearMonthDayHourMinute* used for the file name.
+Every migration is represented by a `changeSet`, that has a unique ID. An ID could be, for example, the _YearMonthDayHourMinute_ used for the file name.
 In the changeSet object, it is necessary to provide the path of the SQL file for the migration, and also a comment can be added.
 
 ```xml
@@ -231,6 +229,6 @@ The value of the variable can then be injected from the command line with the fo
 
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part4).
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/main/part4).
 
 In the next episode, I’ll cover how to show the API documentation from a Swagger specification. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.

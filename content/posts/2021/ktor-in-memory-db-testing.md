@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "How to use an in-memory database for testing on Ktor"
-date:   2021-10-04
+title: "How to use an in-memory database for testing on Ktor"
+date: 2021-10-04
 show_in_homepage: false
 ---
 
@@ -17,6 +17,7 @@ show_in_homepage: false
      <a href="https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&id=2b57b99606"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23271-%237874b4"/></a>
 
     </div>
+
 </div>
 
 {{< /rawhtml >}}
@@ -80,7 +81,7 @@ interface DatabaseFactory {
 
 This interface will then have a different implementation, depending on if the server is running in production or for unit or integration testing.
 
-The factory implementation used in production creates a private  *HikariDataSource* that will be used by the `connect` method
+The factory implementation used in production creates a private _HikariDataSource_ that will be used by the `connect` method
 
 ```kotlin
 class DatabaseFactoryImpl(appConfig: AppConfig) : DatabaseFactory {
@@ -231,6 +232,7 @@ class DatabaseFactoryForUnitTest: DatabaseFactory {
 
 Since the database used is **H2**, the driver and the URL change a bit.
 The driver class name is now: `org.h2.Driver` and the URL is: `jdbc:h2:mem:;DATABASE_TO_UPPER=false;MODE=MYSQL`. The URL specifies also some features:
+
 - `mem` -> it tells to use the in-memory version of H2
 - `:` -> it does not specify a name for the database
 - `DATABASE_TO_UPPER=false` -> it disable the default feature of using uppercase for identifiers. For example, if it is not disabled, the table names are uppercase and queries will fail
@@ -432,17 +434,8 @@ class JokeRepositoryImplTest : KoinTest {
 }
 ```
 
-
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part3).
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/main/part3).
 
 In the next episode, I’ll cover database migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episodes.
-
-
-
-
-
-
-
-

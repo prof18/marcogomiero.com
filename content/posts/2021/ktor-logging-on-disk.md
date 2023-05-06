@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "How to persist Ktor logs"
-date:   2021-05-05
+title: "How to persist Ktor logs"
+date: 2021-05-05
 show_in_homepage: false
 image: "/img/ktor-log-disk/ktor-log-run-config.png"
 ---
@@ -34,7 +34,7 @@ In this post, I will show how to save on a file the logs produced by a Ktor back
 
 When creating a new Ktor project, the wizard automatically adds the [SLF4J library](http://www.slf4j.org/index.html) to handle logging.
 
-During the initialization of the server, Ktor automatically creates an instance of the *Logger* and then it is possible to retrieve that instance [in different ways](https://ktor.io/docs/logging.html#access_logger). Instead, on business logic classes the *Logger* instance can be retrieved from the `LoggerFactory`.
+During the initialization of the server, Ktor automatically creates an instance of the _Logger_ and then it is possible to retrieve that instance [in different ways](https://ktor.io/docs/logging.html#access_logger). Instead, on business logic classes the _Logger_ instance can be retrieved from the `LoggerFactory`.
 
 ```kotlin
 val logger = LoggerFactory.getLogger(MyClass::class.java)
@@ -58,7 +58,7 @@ class MyClass {
 
 ## Logger Customization
 
-The Logger can be customized with an *xml* file named `logback.xml`. On project creation, a default `logback` file is created and placed in the application `resources` directory.
+The Logger can be customized with an _xml_ file named `logback.xml`. On project creation, a default `logback` file is created and placed in the application `resources` directory.
 
 ```xml
 <configuration>
@@ -81,7 +81,7 @@ The Logger can be customized with an *xml* file named `logback.xml`. On project 
 
 The file contains three different blocks of configurations (this division is just visual and conceptual, of course, the order of the different entries can be changed and mixed).
 
-In the first block, the `Appenders` are defined. An *Appender* is responsible to place the log messages in a specific destination.
+In the first block, the `Appenders` are defined. An _Appender_ is responsible to place the log messages in a specific destination.
 
 ```xml
 <configuration>
@@ -97,7 +97,7 @@ In the first block, the `Appenders` are defined. An *Appender* is responsible to
 
 In this case, the `ConsoleAppender` will send the log messages in the Console, i.e. in the Standard Output. Inside the Appender customization, it is also possible to specify the format of the message and add useful information like the timestamp, the logger, the thread, etc.
 
-The second block defines for each appender, the level of logging.  The levels are 5: `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, and the chosen one includes also the previous. For example, if you choose the `TRACE` level, all the messages will be sent, and if you choose the `INFO` level, only the messages with level `INFO`, `WARN`, and `ERROR` will be sent.
+The second block defines for each appender, the level of logging. The levels are 5: `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, and the chosen one includes also the previous. For example, if you choose the `TRACE` level, all the messages will be sent, and if you choose the `INFO` level, only the messages with level `INFO`, `WARN`, and `ERROR` will be sent.
 
 ```xml
 <configuration>
@@ -122,7 +122,7 @@ In the third level instead, it is possible to customize the level of a specific 
 </configuration>
 ```
 
-For example, the `DEBUG`  level can be set for a specific class that is not stable yet.
+For example, the `DEBUG` level can be set for a specific class that is not stable yet.
 
 ```xml
 <logger name="com.company.package.MyClass" level="DEBUG"/>
@@ -219,7 +219,7 @@ As for the location, I’ve used an environmental variable for the days, so in t
 java -DLOG_DEST=/rbe-data/logs -DLOG_MAX_HISTORY=90...
 ```
 
-And as reference, here’s the entire *logback* file that I’ve described:
+And as reference, here’s the entire _logback_ file that I’ve described:
 
 ```xml
 <configuration>
@@ -283,10 +283,8 @@ In my case, I just wanted a simple `ConsoleAppender`.
 </configuration>
 ```
 
-
 ## Conclusions
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part2).
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/main/part2).
 
 In the next episodes, I’ll cover in-memory database and migrations. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode.
-

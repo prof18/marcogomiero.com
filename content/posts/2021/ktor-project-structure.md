@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Structuring a Ktor project"
-date:   2021-04-07
+title: "Structuring a Ktor project"
+date: 2021-04-07
 show_in_homepage: true
 image: "/img/ktor-series/ktor-wizard-Intellij.png"
 ---
@@ -235,7 +235,7 @@ The layers of Clean Architecture that I’ve used here are 3:
 - domain
 - presentation
 
-The **data layer** contains the definitions of all the data sources. In this case, all the needed data are contained in the database,  so there will be only code needed to interact with the database.
+The **data layer** contains the definitions of all the data sources. In this case, all the needed data are contained in the database, so there will be only code needed to interact with the database.
 
 ```
 └── jokes
@@ -276,7 +276,7 @@ The **domain layer** contains the models, the business logic, and the mappers be
             └── JokeDTO.kt
 ```
 
-And at the end, the **presentation** layer. Since this is not an application with a user interface, I decided to change the name from presentation to **resource**. In this layer, there will be the definitions of the REST endpoints that the backend exposes. I’ve decided to use the word *resource* because I like to think that REST endpoints are resources that give or handle data. This is just a personal opinion, for example, you can call these layer `*controller* or whatever.
+And at the end, the **presentation** layer. Since this is not an application with a user interface, I decided to change the name from presentation to **resource**. In this layer, there will be the definitions of the REST endpoints that the backend exposes. I’ve decided to use the word _resource_ because I like to think that REST endpoints are resources that give or handle data. This is just a personal opinion, for example, you can call these layer `_controller_ or whatever.
 
 ```
 └── jokes
@@ -437,6 +437,6 @@ fun testRequests() = withTestApplication({
 Although it seems a boring task, structuring a project is a very important thing. In fact, starting with an unsafe foundation will put your product in danger, making it unscalable and hard to maintain throughout the time.
 However, there isn’t a right way to structure a project because every project is different and has different needs. What I suggest to do, is to find the right solution **for your needs** and the structure that I’ve shared here is the one that satisfied me.
 
-And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/part1).
+And that’s it for today. You can find the code mentioned in the article on [GitHub](https://github.com/prof18/ktor-chuck-norris-sample/tree/main/part1).
 
 In the next episodes, I’ll cover logging and databases. You can follow me on [Twitter](https://twitter.com/marcoGomier) to know when I’ll publish the next episode.
