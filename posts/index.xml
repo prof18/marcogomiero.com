@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/posts/</link>
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating to Jetpack Compose: a step by step journey</title>
+      <link>https://www.marcogomiero.com/posts/2023/migration-to-compose/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2023/migration-to-compose/</guid>
+      <description>Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&amp;rsquo;t require sneaky, strange, and useless permissions.
+The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process.</description>
+    </item>
+    
     <item>
       <title>Organize your Views: SwiftUI edition</title>
       <link>https://www.marcogomiero.com/posts/2023/organize-view-swiftui-edition/</link>
