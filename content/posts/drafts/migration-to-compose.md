@@ -147,15 +147,15 @@ This way, the migration to Compose can start without having to worry about the t
 
 > [Commit: "Migrate WelcomeActivity to compose"](https://github.com/prof18/Secure-QR-Reader/commit/b9ce72efb497313215ab7e871e51b52d56ab940b)
 
-*N.B. The above commit uses an old version of the material theme adapter artifacts. Now these libraries are deprecated in favor of the new Accompanist Theme Adapter artifacts. For more More details are available in the [migration guide](https://github.com/material-components/material-components-android-compose-theme-adapter#migration).*
+*N.B. The above commit uses an old version of the material theme adapter artifacts. Now these libraries are deprecated in favor of the new Accompanist Theme Adapter artifacts. More details are available in the [migration guide](https://github.com/material-components/material-components-android-compose-theme-adapter#migration).*
 
 ## Migrate to Compose while keeping Activity and Fragments
 
 After some housekeeping work, it's finally time to write some Composables. 
 
-Jetpack Compose is fully interoperable with the View system, and the degree of migration can be decided depending on the project. Furthermore, it is possible to choose what to write with Compose: a full app, just the content of one Fragment, or only an UI element. That is made possible by the [Interoperability APIs](https://developer.android.com/jetpack/compose/interop/interop-apis).
+Jetpack Compose is fully interoperable with the View system, and the degree of migration can be decided depending on the project. Furthermore, it is possible to choose what to write with Compose: a full app, the content of one Fragment, or an UI element. That is made possible by the [Interoperability APIs](https://developer.android.com/jetpack/compose/interop/interop-apis).
 
-This is quite handy, especially in large projects, because it enables the migration without touching the existing architecture and navigation system. With `ComposeView`, for example, it will be possible to keep a current fragment and replace the UI definition from the XML with a composable function. 
+This is quite handy, especially in large projects, because it enables the migration without touching the existing architecture and navigation system. With `ComposeView`, for example, it will be possible to keep a current Fragment and replace the UI definition from the XML with a composable function. 
 
 ```kotlin
 class ResultFragment : Fragment() {
@@ -210,13 +210,13 @@ This way, the migration will be gradual and faster, not with a big-bang approach
 
 > [Commit: "Migrate ScanFragment to compose"](https://github.com/prof18/Secure-QR-Reader/commit/be12fd5d23610fea38be0d8ab0143c902afe297c)
 
-## Create to Compose Theme
+## Create a Compose Theme
 
 After migrating every screen to Compose, the next steps are focused on making the app "more Compose". The first thing that can be addressed is creating a Compose theme. This way, the XML themes definitions can be deleted. 
 
 Compose makes it easy to implement [Material 3](https://developer.android.com/jetpack/compose/designsystems/material3) and [Material 2](https://developer.android.com/jetpack/compose/designsystems/material) themes. 
 
-For this application, I'm still using Material 2. While defining a theme, it's possible to customize colors, shapes, and typography. 
+For this application, I'm using Material 2. While defining a theme, it's possible to customize colors, shapes, and typography. 
 
 ```kotlin
 internal object LightAppColors {
@@ -294,15 +294,15 @@ At this point, it's time to go full Compose. I decided to go forward with the mi
 
 ### Goodbye Activities and Fragments
 
-The first step is deleting all the Activities and Fragments and using Jetpack Navigation for Jetpack Compose. To use Jetpack Navigation in Compose, it is necessary first to add the dependency:
+The first step is deleting all the Activities and Fragments and use Jetpack Navigation for Compose. To use Jetpack Navigation in Compose, it is necessary to add the dependency:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-compose:$nav_version"
+    implementation "androidx.navigation:navigation-compose:<version>"
 }
 ```
 
-Next, it is necessary to define the `NavHost` that will contain all the different Composable functions that the app requires. 
+Next, a `NavHost`, that will contain all the different Composable functions that the app requires, can be defined.
 
 ```kotlin
 class MainActivity : ComponentActivity() {
@@ -335,24 +335,23 @@ class MainActivity : ComponentActivity() {
                     AboutScreen()
                 }
             }
-
         }
     }
 }
 ```
 
-The `NavHost` is placed in the `MainActivity`, the only Activity that will be kept with this new Compose-only app setup. 
+The `NavHost` is placed in the `MainActivity`, the only Activity that will be kept with the new Compose-only app setup. 
 
 For more information about Navigation in Compose, you can look [at the official documentation](https://developer.android.com/jetpack/compose/navigation).
 
 
 ### Handling Permissions
 
-To easily manage [Android Runtime Permission](https://developer.android.com/guide/topics/permissions/overview) on Compose, there is a nice Accompanist library called [Jetpack Compose Permissions](https://google.github.io/accompanist/permissions/).
+To easily manage [Android Runtime Permissions](https://developer.android.com/guide/topics/permissions/overview) on Compose, there is an Accompanist library called [Jetpack Compose Permissions](https://google.github.io/accompanist/permissions/).
 
 [Accompanist](https://google.github.io/accompanist/) is a group of libraries provided by Google to help with commonly required features not yet available in Jetpack Compose, for example, permissions, system UI controllers, navigation animation, etc. 
 
-To handle permissions on Jetpack Compose it is first necessary to import the library artifact:  
+As usual, it is first necessary to import the library artifact:  
 
 ```groovy
 dependencies {
@@ -387,7 +386,7 @@ when(cameraPermissionState.status) {
 
 ### Status Bar color handling
 
-To eliminate more XML theming, I used the [System UI Controller for Jetpack Compose](https://google.github.io/accompanist/systemuicontroller/) from Accompanist. The library provides some utilities for updating the System UI bar colors directly from Compose. As usual, it is first necessary to import the library:
+To delete more XML theming, I used [System UI Controller for Jetpack Compose](https://google.github.io/accompanist/systemuicontroller/) from Accompanist. The library provides some utilities for updating the System UI bar colors directly from Compose. As usual, it is first necessary to import the library:
 
 ```groovy
 dependencies {
@@ -414,7 +413,7 @@ SideEffect {
 
 ### Navigation Animations
 
-To have a better user experience, I decided to add some transitions between the different screens. To do that, Accompanist comes to the rescue again, with the [Jetpack Navigation Compose Animation](https://google.github.io/accompanist/navigation-animation/) library.
+To have a better user experience, I decided to add some transitions between different screens. To do that, Accompanist comes to the rescue again, with the [Jetpack Navigation Compose Animation](https://google.github.io/accompanist/navigation-animation/) library.
 
 After adding the dependency:
 
@@ -444,10 +443,9 @@ AnimatedNavHost(
 > [Commit: "Move to Animated Nav Host"](https://github.com/prof18/Secure-QR-Reader/commit/28628dd051f572f454c68aedbef62590391336a3)
 
    
-
 ## Landscape Support
 
-The final step in this migration journey is adding support for landscape orientations. I guilty ~~skipped~~ YOLOed this step during the app's first iteration because it was too painful to support. But with Compose, it's unnecessary to have different XMLs but only to check the current configuration and return a specific Composable function.
+The final step in this migration journey is adding support for the landscape orientation. I guilty ~~skipped~~ YOLOed this step during the app's first iteration because it was too painful to support. But with Compose, it's not necessary to have different XMLs but only to check the current configuration and return a specific Composable function.
 
 ```kotlin
 val configuration = LocalConfiguration.current
