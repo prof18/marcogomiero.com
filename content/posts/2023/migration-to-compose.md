@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Migrating to Jetpack Compose: a step by step journey"
-date:   2023-05-02
+date:   2023-05-12
 show_in_homepage: false
-draft: true
 ---
 
 Some time ago, I decided to migrate [Secure QR Reader](https://github.com/prof18/Secure-QR-Reader) to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn't require sneaky, strange, and useless permissions.
