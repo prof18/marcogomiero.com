@@ -21,7 +21,21 @@
       <pubDate>Wed, 15 Mar 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-pldroid/</guid>
-      <description></description>
+      <description>Resources: Ktor
+https://ktor.io/ Ktor Documentation
+https://ktor.io/docs/ Ktor tutorial
+https://ktor.io/learn/ Migrating from 1.6.x to 2.0.0
+https://ktor.io/docs/migrating-2.html Save data in a local database using Room
+https://developer.android.com/training/data-storage/room Exposed Wiki
+https://github.com/JetBrains/Exposed/wiki Koin on Ktor
+https://insert-koin.io/docs/quickstart/ktor Timber
+https://github.com/JakeWharton/timber Simple Logging Facade for Java (SLF4J)
+http://www.slf4j.org/index.html Ktor testing
+https://ktor.io/docs/testing.html Ktor Gradle plugin
+https://github.com/ktorio/ktor-build-plugins Structuring a Ktor project
+https://www.marcogomiero.com/posts/2021/ktor-project-structure/ How to persist Ktor logs
+https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/ How to use an in-memory database for testing on Ktor
+https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/ How to handle database migrations with Liquibase on Ktor</description>
     </item>
     
     <item>
