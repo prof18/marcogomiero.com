@@ -12,7 +12,29 @@
       <pubDate>Sat, 20 May 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-berlin/</guid>
-      <description>Co-speaker: István Juhos</description>
+      <description>Co-speaker: István Juhos
+Resources: Modern Android Development
+https://developer.android.com/modern-android-development
+State holders and UI State
+https://developer.android.com/topic/architecture/ui-layer/stateholders
+UI events
+https://developer.android.com/topic/architecture/ui-layer/events
+Compose BOM
+https://twitter.com/Lojanda/status/1584589111670673409
+Now in Android Convention Plugins
+https://github.com/android/nowinandroid/tree/main/build-logic
+Branching out to Jetpack Compose
+https://www.droidcon.com/2022/06/28/branching-out-to-jetpack-compose/
+Compose API Guidelines
+https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
+Jetpack Compose Rules
+https://github.com/mrmans0n/compose-rules
+Migrate from kapt to KSP
+https://developer.android.com/build/migrate-to-ksp
+Data Binding - KSP Support
+https://issuetracker.google.com/issues/173030256
+Composing a design system
+https://www.istvanjuhos.dev/talks/2023/20230530-composing-a-design-system/</description>
     </item>
     
     <item>
