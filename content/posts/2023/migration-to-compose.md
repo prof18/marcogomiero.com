@@ -5,6 +5,21 @@ date:   2023-05-12
 show_in_homepage: false
 ---
 
+{{< rawhtml >}}
+
+<div id="banner" style="overflow: hidden;justify-content:space-around;margin-bottom: 10px;">
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://androidweekly.net/issues/issue-569"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-569/badge" /></a>
+    </div>
+
+    <div style="display: inline-block;margin-right: 10px;">
+        <a href="https://jetc.dev/issues/165.html"><img style="margin: 0px;" src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23165-blue?logo=Jetpack+Compose&amp;logoColor=white"/></a>
+    </div>    
+</div>
+
+{{< /rawhtml >}}
+
 Some time ago, I decided to migrate [Secure QR Reader](https://github.com/prof18/Secure-QR-Reader) to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn't require sneaky, strange, and useless permissions.
 
 The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process. 

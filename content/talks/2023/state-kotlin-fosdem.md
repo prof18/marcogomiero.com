@@ -8,6 +8,16 @@ abstract: "Kotlin ecosystem is rapidly evolving over the years and 2022 was not 
 speakerDeck: d781412e396446a89d9d21dcce6137be
 ---
 
+## Video 
+
+{{< rawhtml >}}
+<br>
+<video controls width="100%">
+	<source src="https://mirror.librelabucm.org/fosdem/2023/UB5.230/the_state_of_kotlin.webm" type="video/webm"> 
+</video>
+{{< /rawhtml >}}
+
+
 ## Co-speaker:
 
 [Sergei Rybalkin](https://twitter.com/lightdelay)

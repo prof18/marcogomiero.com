@@ -15,7 +15,7 @@ youtube: vPUlhZASRyg
 
 ## Co-speaker:
 
-[István Juhos](https://twitter.com/stewemetal)
+[István Juhos](https://www.istvanjuhos.dev/)
 
 ## Resources: 
 
