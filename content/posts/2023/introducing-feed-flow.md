@@ -7,6 +7,8 @@ show_in_homepage: false
 
 After months of work, I can finally announce the release of [**FeedFlow**](https://www.feedflow.dev/), a minimalistic and opinionated RSS Reader that I've built for myself and that's now available on [Android](https://play.google.com/store/apps/details?id=com.prof18.feedflow), [iOS](https://apps.apple.com/us/app/feedflow-rss-reader/id6447210518), and [macOS](https://github.com/prof18/feed-flow/releases/latest).
 
+{{< figure src="/img/feedflow/banner.png"  link="/img/feedflow/banner.png" >}}
+
 ## Motivation
 
 I've started (again) to stay up to date by building my own feed instead of relying on feeds ordered and decided by someone else. But I wasn't completely satisfied with the readers already out there ("I can build a better one"™️). What I want for an RSS reader is the possibility of easily going through my feed and being able to open the article that I want to read on the respective website. Yes, you read it right.
