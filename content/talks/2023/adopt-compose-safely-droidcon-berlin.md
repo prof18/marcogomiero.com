@@ -14,6 +14,7 @@ In this talk, we will share our journey of integrating Compose into the TIER app
 - Enabling Compose in a multimodule world,<br>
 - Getting Android engineers on board with the changes"
 speakerDeck: 7e3ad29c69d14981be847ed2c8679b27
+vimeo: 848451255
 ---
 
 ## Co-speaker:
