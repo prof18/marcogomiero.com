@@ -4,7 +4,7 @@ title: "From Mobile to Backend with Kotlin and Ktor"
 location: "plDroid"
 performDate: 2023-05-31
 eventUrl: https://pldroid.com/
-abstract: As mobile developers, we often see the backend world as something magical that "does things". But what if I tell you that you can easily build a backend even if mobile is your thing?<br><br>With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.
+summary: As mobile developers, we often see the backend world as something magical that "does things". But what if I tell you that you can easily build a backend even if mobile is your thing?<br><br>With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.
 speakerDeck: 817f17a7f8c04adeaaeed590a88728cd
 ---
 

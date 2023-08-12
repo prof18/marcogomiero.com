@@ -5,7 +5,7 @@ location: "Ktor Hammer, Remote"
 performDate: 2022-08-27
 eventUrl: https://www.meetup.com/android254/events/280252886/
 speakerDeck: b08dcb62626a45b2b71d2a6e6199cd26
-abstract: As mobile developers, we often see the backend world as something magical that "does things". But what if I tell you that you can easily build a backend even if mobile is your thing?<br><br>With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.
+summary: As mobile developers, we often see the backend world as something magical that "does things". But what if I tell you that you can easily build a backend even if mobile is your thing?<br><br>With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.
 ---
 
 ## Resources:

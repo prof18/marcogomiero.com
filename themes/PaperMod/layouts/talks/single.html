@@ -24,9 +24,9 @@
   <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
 
-    {{- if (.Param "abstract") }}
+    {{- if (.Param "summary") }}
     <h2>Abstract:</h2>
-    {{ .Param "abstract" | safeHTML }}
+    {{ .Param "summary" | safeHTML }}
     {{- end}}
 
     {{- if (.Param "speakerdeck") }}
