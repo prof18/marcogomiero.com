@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/posts/2023/introducing-feed-flow/</loc>
-    <lastmod>2023-07-31T00:00:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</loc>
+    <lastmod>2023-08-11T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/</loc>
+    <lastmod>2023-08-11T17:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2023-08-11T17:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</loc>
+    <lastmod>2023-08-10T17:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2023/introducing-feed-flow/</loc>
     <lastmod>2023-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2023-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-berlin/</loc>
-    <lastmod>2023-05-20T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/talks/</loc>
     <lastmod>2023-05-20T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2023/migration-to-compose/</loc>
