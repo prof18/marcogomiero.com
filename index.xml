@@ -12,7 +12,7 @@
       <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</guid>
-      <description></description>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
     </item>
     
     <item>
@@ -21,7 +21,7 @@
       <pubDate>Thu, 10 Aug 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</guid>
-      <description>Co-speaker: István Juhos</description>
+      <description>If you want to start adopting Jetpack Compose in an existing, large codebase worked on by multiple teams, you can’t just add the dependency and start creating composables right away. In such projects, there are already established conventions and architectural decisions that such a revolutionary change might disrupt. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will share our journey of integrating Compose into the TIER app while offering practical tips for tackling common challenges that arise when working with large-scale codebases, like: &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; - Getting rid of Data binding,&lt;!-- raw HTML omitted --&gt; - Migrating to a Unidirectional Data Flow architecture,&lt;!-- raw HTML omitted --&gt; - Going Compose-first with a design system,&lt;!-- raw HTML omitted --&gt; - Enabling Compose in a multimodule world,&lt;!-- raw HTML omitted --&gt; - Getting Android engineers on board with the changes</description>
     </item>
     
     <item>
@@ -40,29 +40,7 @@ Motivation I&amp;rsquo;ve started (again) to stay up to date by building my own 
       <pubDate>Sat, 20 May 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-berlin/</guid>
-      <description>Co-speaker: István Juhos
-Resources: Modern Android Development
-https://developer.android.com/modern-android-development
-State holders and UI State
-https://developer.android.com/topic/architecture/ui-layer/stateholders
-UI events
-https://developer.android.com/topic/architecture/ui-layer/events
-Compose BOM
-https://twitter.com/Lojanda/status/1584589111670673409
-Now in Android Convention Plugins
-https://github.com/android/nowinandroid/tree/main/build-logic
-Branching out to Jetpack Compose
-https://www.droidcon.com/2022/06/28/branching-out-to-jetpack-compose/
-Compose API Guidelines
-https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
-Jetpack Compose Rules
-https://github.com/mrmans0n/compose-rules
-Migrate from kapt to KSP
-https://developer.android.com/build/migrate-to-ksp
-Data Binding - KSP Support
-https://issuetracker.google.com/issues/173030256
-Composing a design system
-https://www.istvanjuhos.dev/talks/2023/20230530-composing-a-design-system/</description>
+      <description>If you want to start adopting Jetpack Compose in an existing, large codebase worked on by multiple teams, you can’t just add the dependency and start creating composables right away. In such projects, there are already established conventions and architectural decisions that such a revolutionary change might disrupt. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will share our journey of integrating Compose into the TIER app while offering practical tips for tackling common challenges that arise when working with large-scale codebases, like: &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; - Getting rid of Data binding,&lt;!-- raw HTML omitted --&gt; - Migrating to a Unidirectional Data Flow architecture,&lt;!-- raw HTML omitted --&gt; - Going Compose-first with a design system,&lt;!-- raw HTML omitted --&gt; - Enabling Compose in a multimodule world,&lt;!-- raw HTML omitted --&gt; - Getting Android engineers on board with the changes</description>
     </item>
     
     <item>
@@ -92,21 +70,7 @@ But “with great power comes great responsibility”, and a codebase can quickl
       <pubDate>Wed, 15 Mar 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-pldroid/</guid>
-      <description>Resources: Ktor
-https://ktor.io/ Ktor Documentation
-https://ktor.io/docs/ Ktor tutorial
-https://ktor.io/learn/ Migrating from 1.6.x to 2.0.0
-https://ktor.io/docs/migrating-2.html Save data in a local database using Room
-https://developer.android.com/training/data-storage/room Exposed Wiki
-https://github.com/JetBrains/Exposed/wiki Koin on Ktor
-https://insert-koin.io/docs/quickstart/ktor Timber
-https://github.com/JakeWharton/timber Simple Logging Facade for Java (SLF4J)
-http://www.slf4j.org/index.html Ktor testing
-https://ktor.io/docs/testing.html Ktor Gradle plugin
-https://github.com/ktorio/ktor-build-plugins Structuring a Ktor project
-https://www.marcogomiero.com/posts/2021/ktor-project-structure/ How to persist Ktor logs
-https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/ How to use an in-memory database for testing on Ktor
-https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/ How to handle database migrations with Liquibase on Ktor</description>
+      <description>As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
     </item>
     
     <item>
@@ -125,29 +89,7 @@ With Compose, it is not necessary anymore to bridge the UI definitions from XML 
       <pubDate>Mon, 13 Mar 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-androidmakers/</guid>
-      <description>Resources: Navigation best practices for multi-module projects
-https://developer.android.com/guide/navigation/navigation-multi-module
-ANDROID AT SCALE @SQUARE
-https://www.droidcon.com/2019/11/15/android-at-scale-square/
-Why did we move away from Navigation Component?
-https://medium.com/inside-aircall/why-did-we-move-away-from-navigation-component-f2160f7c3f4b
-slack-gradle-plugin
-https://github.com/slackhq/slack-gradle-plugin
-Cookiecutter
-https://github.com/cookiecutter/cookiecutter
-Sharing dependency versions between projects
-https://docs.gradle.org/current/userguide/platforms.html
-Modularization learning journey
-https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
-Stabilize, Modularize, Modernize: Scaling Slack’s Mobile Codebases
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases/
-Scaling Slack’s Mobile Codebases: Modularization
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases-2/
-Scaling Slack’s Mobile Codebases: Modernization
-https://slack.engineering/scaling-slacks-mobile-codebases-modernization/
-Modularization - How hard can it be? by Elin Nilsson
-https://www.youtube.com/watch?v=K65M6jpyN4Y
-Guide to Android app modularization</description>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
     </item>
     
     <item>
@@ -156,7 +98,7 @@ Guide to Android app modularization</description>
       <pubDate>Thu, 02 Feb 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/state-kotlin-fosdem/</guid>
-      <description>Video Co-speaker: Sergei Rybalkin</description>
+      <description>Kotlin ecosystem is rapidly evolving over the years and 2022 was not an exception. Let&amp;rsquo;s gather to recap everything that happened with Kotlin in the past year and to have a closer look at the language roadmap: from the new K2 compiler, to stable Kotlin Multiplatform and beyond.</description>
     </item>
     
     <item>
@@ -175,23 +117,7 @@ That is made possible by a custom test runner called Parameterized, which will i
       <pubDate>Fri, 28 Oct 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/adopt-compose-safely-advanced-kotlin-dev-day/</guid>
-      <description>Co-speaker: István Juhos
-Resources: Modern Android Development
-https://developer.android.com/modern-android-development
-State holders and UI State
-https://developer.android.com/topic/architecture/ui-layer/stateholders
-UI events
-https://developer.android.com/topic/architecture/ui-layer/events
-Compose BOM
-https://twitter.com/Lojanda/status/1584589111670673409
-Now in Android Convention Plugins
-https://github.com/android/nowinandroid/tree/main/build-logic
-Branching out to Jetpack Compose
-https://www.droidcon.com/2022/06/28/branching-out-to-jetpack-compose/
-Compose API Guidelines
-https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
-Twitter&amp;rsquo;s Jetpack Compose Rules
-https://github.com/twitter/compose-rules</description>
+      <description>If you want to start adopting Jetpack Compose in an existing, large codebase, worked on by multiple teams, you can’t just add the dependency and start creating composables right away. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In such projects, there are already established conventions, processes, and architecture decisions that will be disrupted with such a revolutionary change as Compose, since it requires a mental model shift towards declarative patterns. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will show the process that led us to a harmless integration of Compose into the TIER application, focusing on tooling, architectural changes, the evolution of our design system, and how we managed to get our developers onboard for all of the above.</description>
     </item>
     
     <item>
@@ -200,29 +126,7 @@ https://github.com/twitter/compose-rules</description>
       <pubDate>Thu, 27 Oct 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-devfest-munich/</guid>
-      <description>Resources: Navigation best practices for multi-module projects
-https://developer.android.com/guide/navigation/navigation-multi-module
-ANDROID AT SCALE @SQUARE
-https://www.droidcon.com/2019/11/15/android-at-scale-square/
-Why did we move away from Navigation Component?
-https://medium.com/inside-aircall/why-did-we-move-away-from-navigation-component-f2160f7c3f4b
-slack-gradle-plugin
-https://github.com/slackhq/slack-gradle-plugin
-Cookiecutter
-https://github.com/cookiecutter/cookiecutter
-Sharing dependency versions between projects
-https://docs.gradle.org/current/userguide/platforms.html
-Modularization learning journey
-https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
-Stabilize, Modularize, Modernize: Scaling Slack’s Mobile Codebases
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases/
-Scaling Slack’s Mobile Codebases: Modularization
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases-2/
-Scaling Slack’s Mobile Codebases: Modernization
-https://slack.engineering/scaling-slacks-mobile-codebases-modernization/
-Modularization - How hard can it be? by Elin Nilsson
-https://www.youtube.com/watch?v=K65M6jpyN4Y
-CLEAN UP STATE HANDLING WITH A STATE MACHINE</description>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
     </item>
     
     <item>
@@ -231,29 +135,7 @@ CLEAN UP STATE HANDLING WITH A STATE MACHINE</description>
       <pubDate>Sat, 01 Oct 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-italy/</guid>
-      <description>Resources: Navigation best practices for multi-module projects
-https://developer.android.com/guide/navigation/navigation-multi-module
-ANDROID AT SCALE @SQUARE
-https://www.droidcon.com/2019/11/15/android-at-scale-square/
-Why did we move away from Navigation Component?
-https://medium.com/inside-aircall/why-did-we-move-away-from-navigation-component-f2160f7c3f4b
-slack-gradle-plugin
-https://github.com/slackhq/slack-gradle-plugin
-Cookiecutter
-https://github.com/cookiecutter/cookiecutter
-Sharing dependency versions between projects
-https://docs.gradle.org/current/userguide/platforms.html
-Modularization learning journey
-https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
-Stabilize, Modularize, Modernize: Scaling Slack’s Mobile Codebases
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases/
-Scaling Slack’s Mobile Codebases: Modularization
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases-2/
-Scaling Slack’s Mobile Codebases: Modernization
-https://slack.engineering/scaling-slacks-mobile-codebases-modernization/
-Modularization - How hard can it be? by Elin Nilsson
-https://www.youtube.com/watch?v=K65M6jpyN4Y
-CLEAN UP STATE HANDLING WITH A STATE MACHINE</description>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
     </item>
     
     <item>
@@ -262,21 +144,7 @@ CLEAN UP STATE HANDLING WITH A STATE MACHINE</description>
       <pubDate>Fri, 26 Aug 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-ktor-hammer/</guid>
-      <description>Resources: Ktor
-https://ktor.io/ Ktor Documentation
-https://ktor.io/docs/ Ktor tutorial
-https://ktor.io/learn/ Migrating from 1.6.x to 2.0.0
-https://ktor.io/docs/migrating-2.html Save data in a local database using Room
-https://developer.android.com/training/data-storage/room Exposed Wiki
-https://github.com/JetBrains/Exposed/wiki Koin on Ktor
-https://insert-koin.io/docs/quickstart/ktor Timber
-https://github.com/JakeWharton/timber Simple Logging Facade for Java (SLF4J)
-http://www.slf4j.org/index.html Ktor testing
-https://ktor.io/docs/testing.html Gradle Shadow
-https://github.com/johnrengelman/shadow Structuring a Ktor project
-https://www.marcogomiero.com/posts/2021/ktor-project-structure/ How to persist Ktor logs
-https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/) How to use an in-memory database for testing on Ktor
-https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/) How to handle database migrations with Liquibase on Ktor</description>
+      <description>As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
     </item>
     
     <item>
@@ -296,29 +164,7 @@ Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compos
       <pubDate>Wed, 08 Jun 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/path-monolith-multi-module-app-droidcon-berlin/</guid>
-      <description>Resources: Navigation best practices for multi-module projects
-https://developer.android.com/guide/navigation/navigation-multi-module
-ANDROID AT SCALE @SQUARE
-https://www.droidcon.com/2019/11/15/android-at-scale-square/
-Why did we move away from Navigation Component?
-https://medium.com/inside-aircall/why-did-we-move-away-from-navigation-component-f2160f7c3f4b
-slack-gradle-plugin
-https://github.com/slackhq/slack-gradle-plugin
-Cookiecutter
-https://github.com/cookiecutter/cookiecutter
-Sharing dependency versions between projects
-https://docs.gradle.org/current/userguide/platforms.html
-Modularization learning journey
-https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md
-Stabilize, Modularize, Modernize: Scaling Slack’s Mobile Codebases
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases/
-Scaling Slack’s Mobile Codebases: Modularization
-https://slack.engineering/stabilize-modularize-modernize-scaling-slacks-mobile-codebases-2/
-Scaling Slack’s Mobile Codebases: Modernization
-https://slack.engineering/scaling-slacks-mobile-codebases-modernization/
-Modularization - How hard can it be? by Elin Nilsson
-https://www.youtube.com/watch?v=K65M6jpyN4Y
-CLEAN UP STATE HANDLING WITH A STATE MACHINE</description>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
     </item>
     
     <item>
@@ -395,15 +241,7 @@ The app is very simple (the aim is to scan a code and open the link, only this!)
       <pubDate>Wed, 11 May 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/imperative-vs-declarative-appdevcon/</guid>
-      <description>Resources: Talk im Park #4 mit Pascal Welsch: Understanding Declarative UI
-https://www.youtube.com/watch?v=zaSn_qA7Nb4 Chain React 2019 - Leland Richardson - React, Meet Compose
-https://www.youtube.com/watch?v=4EFjDSijAZU Pete Hunt: React: Rethinking best practices &amp;ndash; JSConf EU
-https://www.youtube.com/watch?v=x7cQ3mrcKaY Jessica Kerr - Functional Principles In React
-https://www.youtube.com/watch?v=1uRC3hmKQnM Cross-Language React - Leland Richardson
-https://www.youtube.com/watch?v=eR4LjL1h6cE React as a UI Runtime
-https://overreacted.io/react-as-a-ui-runtime/ Pure UI
-https://rauchg.com/2015/pure-ui Compose From First Principles
-http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: The Compose Runtime, Demystified by Leland Richardson</description>
+      <description>Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.</description>
     </item>
     
     <item>
@@ -421,19 +259,7 @@ http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: Th
       <pubDate>Tue, 10 May 2022 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</guid>
-      <description>Resources: Ktor
-https://ktor.io/ Ktor Documentation
-https://ktor.io/docs/ Ktor tutorial https://ktor.io/learn/ Save data in a local database using Room
-https://developer.android.com/training/data-storage/room Exposed Wiki
-https://github.com/JetBrains/Exposed/wiki Koin on Ktor
-https://insert-koin.io/docs/quickstart/ktor Timber
-https://github.com/JakeWharton/timber Simple Logging Facade for Java (SLF4J)
-http://www.slf4j.org/index.html Ktor testing
-https://ktor.io/docs/testing.html Gradle Shadow
-https://github.com/johnrengelman/shadow Structuring a Ktor project
-https://www.marcogomiero.com/posts/2021/ktor-project-structure/ How to persist Ktor logs
-https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/) How to use an in-memory database for testing on Ktor
-https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/) How to handle database migrations with Liquibase on Ktor</description>
+      <description>As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
     </item>
     
     <item>
@@ -442,7 +268,7 @@ https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/) How to handl
       <pubDate>Tue, 10 May 2022 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/kmp-existing-project-kotlin-dev-day/</guid>
-      <description></description>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.</description>
     </item>
     
     <item>
@@ -471,7 +297,7 @@ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How 
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-fosdem/</guid>
-      <description>Video </description>
+      <description>As mobile developers, we often see the backend world as something magical that &amp;ldquo;does things&amp;rdquo;. But what if I tell you that you can easily build a backend even if mobile is your thing?&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.</description>
     </item>
     
     <item>
@@ -500,7 +326,7 @@ This was a very strange issue because the JDK is installed and everything is wor
       <pubDate>Sun, 12 Dec 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/kmp-existing-project-kotlin-budapest/</guid>
-      <description></description>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.</description>
     </item>
     
     <item>
@@ -509,7 +335,7 @@ This was a very strange issue because the JDK is installed and everything is wor
       <pubDate>Wed, 06 Oct 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/kmp-existing-project-devfest-romania/</guid>
-      <description></description>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.</description>
     </item>
     
     <item>
@@ -518,7 +344,7 @@ This was a very strange issue because the JDK is installed and everything is wor
       <pubDate>Tue, 05 Oct 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/shared-code-kmp-droidcon-ita/</guid>
-      <description></description>
+      <description>Kotlin Multiplatform is an alpha feature that you can use to share code between different platforms. Even if it is in alpha stage, it is already possible to start using it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, I will share the discussion that led us to Kotlin Multiplatform, and the following processes we put in place to start using it in production for an Android, iOS, and backend project. I will show you what parts of the code you can (gradually) start to share and how to integrate with existing standalone projects.</description>
     </item>
     
     <item>
@@ -527,7 +353,7 @@ This was a very strange issue because the JDK is installed and everything is wor
       <pubDate>Mon, 04 Oct 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/kmp-existing-project-we-are-developers/</guid>
-      <description></description>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.</description>
     </item>
     
     <item>
@@ -536,7 +362,7 @@ This was a very strange issue because the JDK is installed and everything is wor
       <pubDate>Mon, 04 Oct 2021 08:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/hi-meet-kmp-adi-gdg-pisa/</guid>
-      <description></description>
+      <description>Kotlin Multiplatform is getting more and more hype every day, even if it&amp;rsquo;s still in alpha. We constantly read of new companies and teams that are trying KMP for experiments and production projects alike. And we&amp;rsquo;re left wondering: it safe to do so? Why picking KMP over any another cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects?&lt;!-- raw HTML omitted --&gt;In this talk, I&amp;rsquo;ll answer to these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.</description>
     </item>
     
     <item>
@@ -555,7 +381,7 @@ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How 
       <pubDate>Sun, 03 Oct 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/kmp-existing-project-android-worldwide/</guid>
-      <description></description>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.</description>
     </item>
     
     <item>
@@ -564,7 +390,7 @@ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How 
       <pubDate>Sat, 02 Oct 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/kmp-existing-project-droidcon-berlin.md/</guid>
-      <description></description>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;This is also the case for Kotlin Multiplatform, and even though it is still in alpha, you can already start to use it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will understand which part of the code can be a starting point for sharing, how to consume the shared code and how to structure an existing project to have an as smooth as possible integration.</description>
     </item>
     
     <item>
@@ -604,7 +430,7 @@ These out-of-the-box solutions really simplify the work to be done to have a CI 
       <pubDate>Tue, 01 Jun 2021 11:35:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/remote-is-here-droidcon-soft-skills/</guid>
-      <description>Talk done together with Gianluca Segato.</description>
+      <description>Remote is finally here, and it&amp;rsquo;s going to stay. In this talk, Marco and Gian will go through what it means to work remotely for a startup &amp;ndash; from both a developer and a manager point of view. They&amp;rsquo;ll share some tips and tricks on how to stay organized and focused, how to manage deadlines and the team organization, how to take care of your mental health, and the pros and cons of hiring remotely. They both work for Uniwhere, a venture-backed startup that went remote-first more than two years ago and is now working with 4 different time-zones.</description>
     </item>
     
     <item>
@@ -623,15 +449,7 @@ Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How 
       <pubDate>Sat, 10 Apr 2021 13:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/imperative-vs-declarative-droidcon-online/</guid>
-      <description>Resources: Talk im Park #4 mit Pascal Welsch: Understanding Declarative UI
-https://www.youtube.com/watch?v=zaSn_qA7Nb4 Chain React 2019 - Leland Richardson - React, Meet Compose
-https://www.youtube.com/watch?v=4EFjDSijAZU Pete Hunt: React: Rethinking best practices &amp;ndash; JSConf EU
-https://www.youtube.com/watch?v=x7cQ3mrcKaY Jessica Kerr - Functional Principles In React
-https://www.youtube.com/watch?v=1uRC3hmKQnM Cross-Language React - Leland Richardson
-https://www.youtube.com/watch?v=eR4LjL1h6cE React as a UI Runtime
-https://overreacted.io/react-as-a-ui-runtime/ Pure UI
-https://rauchg.com/2015/pure-ui Compose From First Principles
-http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: The Compose Runtime, Demystified by Leland Richardson</description>
+      <description>Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.</description>
     </item>
     
     <item>
@@ -703,7 +521,7 @@ In this article, I will not go through the publishing process of a library to Ma
       <pubDate>Sat, 09 Jan 2021 09:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2021/shared-code-kmp-fosdem/</guid>
-      <description></description>
+      <description>Kotlin Multiplatform is an alpha feature that you can use to share code between different platforms. Even if it is in alpha stage, it is already possible to start using it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, I will share the discussion that led us to Kotlin Multiplatform, and the following processes we put in place to start using it in production for an Android, iOS, and backend project. I will show you what parts of the code you can (gradually) start to share and how to integrate with existing standalone projects.</description>
     </item>
     
     <item>
@@ -721,7 +539,7 @@ In this article, I will not go through the publishing process of a library to Ma
       <pubDate>Sun, 06 Dec 2020 17:35:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/remote-is-here-droidcon-apac/</guid>
-      <description>Talk done together with Gianluca Segato.</description>
+      <description>Remote is finally here, and it&amp;rsquo;s going to stay. In this talk, Marco and Gian will go through what it means to work remotely for a startup &amp;ndash; from both a developer and a manager point of view. They&amp;rsquo;ll share some tips and tricks on how to stay organized and focused, how to manage deadlines and the team organization, how to take care of your mental health, and the pros and cons of hiring remotely. They both work for Uniwhere, a venture-backed startup that went remote-first more than two years ago and is now working with 4 different time-zones.</description>
     </item>
     
     <item>
@@ -730,7 +548,7 @@ In this article, I will not go through the publishing process of a library to Ma
       <pubDate>Thu, 26 Nov 2020 21:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/hi-met-kmp-mug/</guid>
-      <description></description>
+      <description>Kotlin Multiplatform is getting more and more hype every day, even if it&amp;rsquo;s still in alpha. We constantly read of new companies and teams that are trying KMP for experiments and production projects alike. And we&amp;rsquo;re left wondering: it safe to do so? Why picking KMP over any another cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects?&lt;!-- raw HTML omitted --&gt;In this talk, I&amp;rsquo;ll answer to these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.</description>
     </item>
     
     <item>
@@ -750,7 +568,7 @@ I’ve decided to make this project a personal playground for a Kotlin Multiplat
       <pubDate>Wed, 21 Oct 2020 15:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/tips-modularization-droidcon-america/</guid>
-      <description></description>
+      <description>Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it?&lt;!-- raw HTML omitted --&gt;This talk will not focus on the pro and cons of modularization but instead on the approach and the process to achieve it. In particular, I want to share the approach that I followed to modularize an existing application and a new one. I want also to share the failures and all the struggles that came in my head while approaching the process.</description>
     </item>
     
     <item>
@@ -759,15 +577,7 @@ I’ve decided to make this project a personal playground for a Kotlin Multiplat
       <pubDate>Wed, 07 Oct 2020 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-appdevcon-remote/</guid>
-      <description>Resources: Talk im Park #4 mit Pascal Welsch: Understanding Declarative UI
-https://www.youtube.com/watch?v=zaSn_qA7Nb4 Chain React 2019 - Leland Richardson - React, Meet Compose
-https://www.youtube.com/watch?v=4EFjDSijAZU Pete Hunt: React: Rethinking best practices &amp;ndash; JSConf EU
-https://www.youtube.com/watch?v=x7cQ3mrcKaY Jessica Kerr - Functional Principles In React
-https://www.youtube.com/watch?v=1uRC3hmKQnM Cross-Language React - Leland Richardson
-https://www.youtube.com/watch?v=eR4LjL1h6cE React as a UI Runtime
-https://overreacted.io/react-as-a-ui-runtime/ Pure UI
-https://rauchg.com/2015/pure-ui Compose From First Principles
-http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: The Compose Runtime, Demystified by Leland Richardson</description>
+      <description>Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.</description>
     </item>
     
     <item>
@@ -776,7 +586,7 @@ http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: Th
       <pubDate>Wed, 07 Oct 2020 17:35:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/remote-is-here-devfest-ita/</guid>
-      <description>Talk done together with Gianluca Segato.</description>
+      <description>Remote is finally here, and it&amp;rsquo;s going to stay. In this talk, Marco and Gian will go through what it means to work remotely for a startup &amp;ndash; from both a developer and a manager point of view. They&amp;rsquo;ll share some tips and tricks on how to stay organized and focused, how to manage deadlines and the team organization, how to take care of your mental health, and the pros and cons of hiring remotely. They both work for Uniwhere, a venture-backed startup that went remote-first more than two years ago and is now working with 4 different time-zones.</description>
     </item>
     
     <item>
@@ -785,15 +595,7 @@ http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: Th
       <pubDate>Wed, 07 Oct 2020 16:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/imperative-vs-declarative-stayhome4/</guid>
-      <description>Resources: Talk im Park #4 mit Pascal Welsch: Understanding Declarative UI
-https://www.youtube.com/watch?v=zaSn_qA7Nb4 Chain React 2019 - Leland Richardson - React, Meet Compose
-https://www.youtube.com/watch?v=4EFjDSijAZU Pete Hunt: React: Rethinking best practices &amp;ndash; JSConf EU
-https://www.youtube.com/watch?v=x7cQ3mrcKaY Jessica Kerr - Functional Principles In React
-https://www.youtube.com/watch?v=1uRC3hmKQnM Cross-Language React - Leland Richardson
-https://www.youtube.com/watch?v=eR4LjL1h6cE React as a UI Runtime
-https://overreacted.io/react-as-a-ui-runtime/ Pure UI
-https://rauchg.com/2015/pure-ui Compose From First Principles
-http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: The Compose Runtime, Demystified by Leland Richardson</description>
+      <description>Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.</description>
     </item>
     
     <item>
@@ -802,7 +604,7 @@ http://intelligiblebabble.com/compose-from-first-principles/ KotlinConf 2019: Th
       <pubDate>Thu, 17 Sep 2020 16:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/shared-code-kmp-droidcon-emea/</guid>
-      <description></description>
+      <description>Kotlin Multiplatform is an experimental feature that you can use to share code between different platforms. Even if it is in alpha stage, it is already possible to start using it in production applications.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;In this talk, I will share the discussion that led us to Kotlin Multiplatform, and the following processes we put in place to start using it in production for an Android, iOS, and backend project. I will show you what parts of the code you can (gradually) start to share and how to integrate with existing standalone projects.</description>
     </item>
     
     <item>
@@ -896,7 +698,7 @@ Some time ago I started learning Flutter for fun reasons and at the same time, I
       <pubDate>Fri, 03 Apr 2020 15:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/programmatori-anonimi-covid-19/</guid>
-      <description>Talk done together with Gianluca Segato.</description>
+      <description>How to get organized to be productive in a remote environment? How to manage communications, deadlines, tasks, etc.? How to balance private life and work activity?</description>
     </item>
     
     <item>
@@ -927,7 +729,7 @@ And now it&amp;rsquo;s time to wrap things up by trying to understand how to cho
       <pubDate>Tue, 04 Feb 2020 15:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2020/tips-modularization-arch-night/</guid>
-      <description></description>
+      <description>Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it?&lt;!-- raw HTML omitted --&gt;This talk will not focus on the pro and cons of modularization but instead on the approach and the process to achieve it. In particular, I want to share the approach that I followed to modularize an existing application and a new one. I want also to share the failures and all the struggles that came in my head while approaching the process.</description>
     </item>
     
     <item>
@@ -948,7 +750,7 @@ In this article, I will explain how to build user interfaces in React Native and
       <pubDate>Fri, 20 Dec 2019 15:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/tips-modularization-droidcon-madrid/</guid>
-      <description></description>
+      <description>Nowadays, App modularization is a technique largely adopted that gives lots of advantages. But how to approach it?&lt;!-- raw HTML omitted --&gt;This talk will not focus on the pro and cons of modularization but instead on the approach and the process to achieve it. In particular, I want to share the approach that I followed to modularize an existing application and a new one. I want also to share the failures and all the struggles that came in my head while approaching the process.</description>
     </item>
     
     <item>
@@ -968,7 +770,7 @@ In this article, I want to introduce the two frameworks with a historical overvi
       <pubDate>Sat, 16 Nov 2019 19:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestve/</guid>
-      <description></description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -977,8 +779,7 @@ In this article, I want to introduce the two frameworks with a historical overvi
       <pubDate>Wed, 30 Oct 2019 19:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</guid>
-      <description>This talk has been done in collaboration with Andrea Maglie that I thank
-Source Code: App source code: bit.ly/gdgvenezia-kmp Backend source code: bit.ly/gdgvenezia-backend </description>
+      <description>In this talk, we will see how it&amp;rsquo;s possible to create a mobile application for Android and iOs that share some code (for example business logic, network, etc.) using Kotlin Platform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;We will show also how it&amp;rsquo;s possible to create a backend for this app by of course using Kotlin!</description>
     </item>
     
     <item>
@@ -987,7 +788,7 @@ Source Code: App source code: bit.ly/gdgvenezia-kmp Backend source code: bit.ly/
       <pubDate>Fri, 04 Oct 2019 18:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-ro/</guid>
-      <description></description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -996,7 +797,7 @@ Source Code: App source code: bit.ly/gdgvenezia-kmp Backend source code: bit.ly/
       <pubDate>Tue, 01 Oct 2019 19:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-study-jam-gdg/</guid>
-      <description></description>
+      <description>A brief introduction to the Flutter framework before starting a codelab where an app for GDG Venice will be built starting from a custom skeleton.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The skeleton is available on &lt;!-- raw HTML omitted --&gt;Github&lt;!-- raw HTML omitted --&gt; together with 3 sample applications a hello world, a bottom navigation bar example, and a list view example</description>
     </item>
     
     <item>
@@ -1005,7 +806,7 @@ Source Code: App source code: bit.ly/gdgvenezia-kmp Backend source code: bit.ly/
       <pubDate>Tue, 24 Sep 2019 12:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-droidcon-gr/</guid>
-      <description></description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -1014,7 +815,7 @@ Source Code: App source code: bit.ly/gdgvenezia-kmp Backend source code: bit.ly/
       <pubDate>Wed, 18 Sep 2019 10:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fevr/</guid>
-      <description>Video Podcast Listen to &#34;Flutter or React Native, a cross-platform dilemma&#34; on Spreaker. </description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -1023,7 +824,7 @@ Source Code: App source code: bit.ly/gdgvenezia-kmp Backend source code: bit.ly/
       <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-pip/</guid>
-      <description>Podcast: </description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -1042,7 +843,7 @@ Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnote
       <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-fvgdev/</guid>
-      <description></description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -1051,7 +852,7 @@ Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnote
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-gdg/</guid>
-      <description></description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -1075,7 +876,7 @@ If you have already published a library on JCenter and you want to migrate the o
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-rn-devfestpi/</guid>
-      <description></description>
+      <description>Nowadays the hype around Flutter is raising a lot. But what about the “(not so) old-fashioned” React Native?&lt;!-- raw HTML omitted --&gt;In this talk, we will see the basics and the differences between the two frameworks. In particular, we will understand how to build User Interfaces and how the internals of the two framework works. Finally, we will try to understand when and why to choose a cross-platform framework and which of the two.&lt;!-- raw HTML omitted --&gt;All this journey is based on the true story of an Android Developer that he wanted to explore the cross-platform jungle both for work and fun reasons.</description>
     </item>
     
     <item>
@@ -1096,7 +897,7 @@ Here’s a spoiler of the final result:</description>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/flutter-femo/</guid>
-      <description></description>
+      <description>A brief introduction to the Flutter framework before the official &lt;!-- raw HTML omitted --&gt;Google Codelab&lt;!-- raw HTML omitted --&gt;.</description>
     </item>
     
     <item>
@@ -1126,7 +927,7 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2018/library-devfestmi/</guid>
-      <description>This talk has been done in collaboration with Andrea Maglie that I thank.</description>
+      <description>Have you ever thought that your idea could help other developers? Join the magic world of open source! In this talk we are going to share some tips and the secrets to become an open source master. Of course some practical examples based on our experience cannot miss.</description>
     </item>
     
     <item>
@@ -1216,7 +1017,7 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2017/android-things-gdg/</guid>
-      <description></description>
+      <description>In this talk we&amp;rsquo;ll see what is Android Things and what we need to know to begin developing IoT application.</description>
     </item>
     
     <item>
@@ -1236,7 +1037,7 @@ If you wanna know more about me and my projects you can give a look to the categ
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2016/backup-restore-gdg/</guid>
-      <description></description>
+      <description>One of the worst things is to lose all your data when you change a phone or when you reset it. With this talk we&amp;rsquo;ll see how to deal with this problem and how to secure your application&amp;rsquo;s data.</description>
     </item>
     
     <item>
