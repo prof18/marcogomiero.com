@@ -1,7 +1,7 @@
 baseURL: "https://www.marcogomiero.com"
 title: Marco Gomiero
 paginate: 12
-theme: PaperMod
+theme: archie
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -14,7 +14,13 @@ minify:
   disableXML: true
   minifyOutput: true
 
+pygmentsstyle: "monokai"
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
+
 params:
+  # Dark mode switcher
+  mode: toggle
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Marco Gomiero
   description: "Software Engineer · Google Developer Expert for Kotlin"
@@ -76,16 +82,16 @@ menu:
     - identifier: posts
       name: Write
       url: /posts/
-      weight: 10
+      weight: 1
     - identifier: talks
       name: Speak
       url: /talks/
-      weight: 20
+      weight: 2
     - identifier: projects
       name: Build
       url: /projects/
-      weight: 30
+      weight: 3
     - identifier: about
       name: About
       url: /about-me/
-      weight: 40
+      weight: 4
