@@ -1,7 +1,7 @@
 baseURL: "https://www.marcogomiero.com"
 title: Marco Gomiero
 paginate: 12
-theme: archie
+theme: mg
 
 enableRobotsTXT: true
 buildDrafts: false

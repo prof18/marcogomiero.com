@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	{{ partial "header.html" . }}
+	<body>
+		<div class="content">
+			{{ partial "head.html" . }}
+			
+			<article>
+			    <img style="width: 128px; height: 119px; border-radius: 50%; elevation: 50deg; box-shadow(0 0 0 .3618em rgba(0, 0, 0, .05));" src="/img/profile-small.webp">
+			    <header class="page-title">
+			        <h1>{{ "Hi \U0001F44B" | markdownify }}</h1>
+			    </header>
+			    <div class="list-item">
+			        <p>I'm Marco, a software engineer and a Google Developer Expert for Kotlin, currently working at <a href="https://www.tier.app/" target="BLANK">TIER</a> as Senior Android Engineer.</p>
+			        <p>I <a href="/projects">build</a>, <a href="/posts">write</a> and <a href="/talks">speak</a> about stuff.</p>
+			    </div>
+			    <div>
+			        {{ partial "social_icons.html" site.Params.socialIcons }}
+			    </div>
+			</article>
+	
+			<h2 style="margin-bottom: 20px;">Top Posts</h2>
+
+			{{- $pages := where .Site.RegularPages "Type" "posts" }}
+			{{ $pages = where $pages "Params.show_in_homepage" "!=" false -}}
+			
+			{{- range $pages }}
+				<section class="list-item">
+					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
+					<time>{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
+					<br>
+					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+				</section>
+			{{- end }}
+			
+			{{ partial "footer.html" . }}
+		</div>
+		
+	</body>
+</html>

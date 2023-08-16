@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main>
+	<article>
+		<img class="avatar"  style="width: 10rem; height: auto; border-radius: 50%; elevation: 50deg; box-shadow(0 0 0 .3618em rgba(0, 0, 0, .05));" src="/img/profile.webp">
+
+		<div class="title">
+			<h1 class="title">{{ .Title }}</h1>
+		</div>
+
+		<section class="body">
+			{{ .Content }}
+		</section>
+	</article>
+</main>
+{{ end }}
