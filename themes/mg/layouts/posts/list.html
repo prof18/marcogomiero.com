@@ -2,20 +2,20 @@
 <h1 class="page-title">Write</h1>
 
 <main class="list">
-	<div class="site-description">
-		{{- if isset .Site.Params "subtitle" -}}
-		<p>{{ .Site.Params.Subtitle | markdownify }}</p>
-		{{- end -}}
-	</div>
 	{{ $pages := where .Site.RegularPages "Type" "in" "posts" }}
 	{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
 	{{ range $paginator.Pages }}
-	<section class="list-item">
-		<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-		<time>{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
-		<br>{{ template "partials/pagedescription.html" . }}
-		<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
-	</section>
+	<a href="{{ .RelPermalink }}">
+		<section class="post-list-entry">
+			<h2 class="postlist-entry-title">{{.Title}}</h2>
+	    	<div class="post-list-entry-content">
+				<p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+			</div>
+			<div class="post-list-entry-meta">
+				{{- partial "post_meta.html" . -}}
+			</div>
+		</section>
+	</a>
 	{{ end }}
 	{{ template "partials/paginator.html" . }}
 </main>
