@@ -7,21 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 30 Aug 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Adopting Jetpack Compose Safely</title>
-      <link>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</link>
-      <pubDate>Wed, 30 Aug 2023 17:45:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</guid>
-      <description>If you want to start adopting Jetpack Compose in an existing, large codebase worked on by multiple teams, you can’t just add the dependency and start creating composables right away. In such projects, there are already established conventions and architectural decisions that such a revolutionary change might disrupt. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will share our journey of integrating Compose into the TIER app while offering practical tips for tackling common challenges that arise when working with large-scale codebases, like: &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; - Getting rid of Data binding,&lt;!-- raw HTML omitted --&gt; - Migrating to a Unidirectional Data Flow architecture,&lt;!-- raw HTML omitted --&gt; - Going Compose-first with a design system,&lt;!-- raw HTML omitted --&gt; - Enabling Compose in a multimodule world,&lt;!-- raw HTML omitted --&gt; - Getting Android engineers on board with the changes</description>
-    </item>
-    
-    <item>
       <title>Forging the path from monolith to multi-module app</title>
       <link>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</link>
       <pubDate>Wed, 30 Aug 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</guid>
       <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
+    </item>
+    
+    <item>
+      <title>Adopting Jetpack Compose Safely</title>
+      <link>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</link>
+      <pubDate>Wed, 30 Aug 2023 15:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</guid>
+      <description>If you want to start adopting Jetpack Compose in an existing, large codebase worked on by multiple teams, you can’t just add the dependency and start creating composables right away. In such projects, there are already established conventions and architectural decisions that such a revolutionary change might disrupt. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will share our journey of integrating Compose into the TIER app while offering practical tips for tackling common challenges that arise when working with large-scale codebases, like: &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; - Getting rid of Data binding,&lt;!-- raw HTML omitted --&gt; - Migrating to a Unidirectional Data Flow architecture,&lt;!-- raw HTML omitted --&gt; - Going Compose-first with a design system,&lt;!-- raw HTML omitted --&gt; - Enabling Compose in a multimodule world,&lt;!-- raw HTML omitted --&gt; - Getting Android engineers on board with the changes</description>
     </item>
     
     <item>
