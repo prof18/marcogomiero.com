@@ -5,16 +5,7 @@
     <link>https://www.marcogomiero.com/talks/</link>
     <description>Recent content in Talks on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 30 Aug 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Forging the path from monolith to multi-module app</title>
-      <link>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</link>
-      <pubDate>Wed, 30 Aug 2023 17:45:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</guid>
-      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 30 Aug 2023 15:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adopting Jetpack Compose Safely</title>
       <link>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</link>
@@ -25,9 +16,18 @@
     </item>
     
     <item>
+      <title>Forging the path from monolith to multi-module app</title>
+      <link>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</link>
+      <pubDate>Tue, 29 Aug 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</guid>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
+    </item>
+    
+    <item>
       <title>Hi, have you met Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-gdg-braunschweig/</link>
-      <pubDate>Tue, 29 Aug 2023 08:45:00 +0000</pubDate>
+      <pubDate>Mon, 28 Aug 2023 08:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-gdg-braunschweig/</guid>
       <description>Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta and now it&amp;rsquo;s on the path of becoming stable. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; We constantly read of new companies and teams that are using KMP for experiments and production projects alike. And we&amp;rsquo;re left wondering: why pick KMP over any other cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I&amp;rsquo;ll answer these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.</description>
@@ -36,7 +36,7 @@
     <item>
       <title>Beyond one platform: migrating an Android library to Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/talks/2023/from-android-to-kmp-berlindroid/</link>
-      <pubDate>Mon, 28 Aug 2023 17:45:00 +0000</pubDate>
+      <pubDate>Sun, 27 Aug 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2023/from-android-to-kmp-berlindroid/</guid>
       <description>Back in 2016, out of my raising passion for Android development, I started working on RSSParser, a library for parsing RSS feeds on Android. Nowadays, out of my passion for Kotlin Multiplatform, I decided to make RSSParser Multiplatform&amp;hellip; How hard can it be? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I will share the journey of expanding an Android library into the iOS and JVM world. We will cover the challenges faced during the process, including how to handle platform-specific dependencies, code organization, and testing strategies. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; By the end of this talk, you&amp;rsquo;ll have a better understanding of the benefits and challenges of creating a Kotlin Multiplatform library, and you&amp;rsquo;ll be equipped with the knowledge and tools you need to conquer the Multiplatform world!</description>
