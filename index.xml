@@ -5,7 +5,43 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 11 Aug 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adopting Jetpack Compose Safely</title>
+      <link>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</link>
+      <pubDate>Wed, 30 Aug 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</guid>
+      <description>If you want to start adopting Jetpack Compose in an existing, large codebase worked on by multiple teams, you can’t just add the dependency and start creating composables right away. In such projects, there are already established conventions and architectural decisions that such a revolutionary change might disrupt. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will share our journey of integrating Compose into the TIER app while offering practical tips for tackling common challenges that arise when working with large-scale codebases, like: &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; - Getting rid of Data binding,&lt;!-- raw HTML omitted --&gt; - Migrating to a Unidirectional Data Flow architecture,&lt;!-- raw HTML omitted --&gt; - Going Compose-first with a design system,&lt;!-- raw HTML omitted --&gt; - Enabling Compose in a multimodule world,&lt;!-- raw HTML omitted --&gt; - Getting Android engineers on board with the changes</description>
+    </item>
+    
+    <item>
+      <title>Forging the path from monolith to multi-module app</title>
+      <link>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</link>
+      <pubDate>Wed, 30 Aug 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</guid>
+      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
+    </item>
+    
+    <item>
+      <title>Hi, have you met Kotlin Multiplatform</title>
+      <link>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-gdg-braunschweig/</link>
+      <pubDate>Tue, 29 Aug 2023 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-gdg-braunschweig/</guid>
+      <description>Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta and now it&amp;rsquo;s on the path of becoming stable. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; We constantly read of new companies and teams that are using KMP for experiments and production projects alike. And we&amp;rsquo;re left wondering: why pick KMP over any other cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I&amp;rsquo;ll answer these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.</description>
+    </item>
+    
+    <item>
+      <title>Beyond one platform: migrating an Android library to Kotlin Multiplatform</title>
+      <link>https://www.marcogomiero.com/talks/2023/from-android-to-kmp-berlindroid/</link>
+      <pubDate>Mon, 28 Aug 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/from-android-to-kmp-berlindroid/</guid>
+      <description>Back in 2016, out of my raising passion for Android development, I started working on RSSParser, a library for parsing RSS feeds on Android. Nowadays, out of my passion for Kotlin Multiplatform, I decided to make RSSParser Multiplatform&amp;hellip; How hard can it be? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I will share the journey of expanding an Android library into the iOS and JVM world. We will cover the challenges faced during the process, including how to handle platform-specific dependencies, code organization, and testing strategies. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; By the end of this talk, you&amp;rsquo;ll have a better understanding of the benefits and challenges of creating a Kotlin Multiplatform library, and you&amp;rsquo;ll be equipped with the knowledge and tools you need to conquer the Multiplatform world!</description>
+    </item>
+    
     <item>
       <title>FeedFlow</title>
       <link>https://www.marcogomiero.com/projects/feed-flow/</link>
@@ -14,24 +50,6 @@
       <guid>https://www.marcogomiero.com/projects/feed-flow/</guid>
       <description>FeedFlow is a minimalistic and opinionated RSS Reader that&amp;rsquo;s available on Android, iOS, and macOS.
 The majority of websites with an RSS feed don&amp;rsquo;t share the article&amp;rsquo;s content because they want you to go on their website. For this reason, FeedFlow always opens the original website, but the browser can be chosen (on mobile). For example, an article can be opened on DuckDuckGo or Firefox Focus with all the trackers disabled and then just kill all the navigation data.</description>
-    </item>
-    
-    <item>
-      <title>Forging the path from monolith to multi-module app</title>
-      <link>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</link>
-      <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2023/path-monolith-multi-module-app-droidcon-lisbon/</guid>
-      <description>Going from a monolith to a multi-module project is a long process, that requires careful planning and a well-thought strategy, especially in medium-large teams.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;The TIER application is evolving to a multi-module structure and this talk will be the logbook of the journey, covering the approach that we followed and the philosophy behind the choices that we’ve made with both the mobile platforms in mind.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;I will tell you how to balance the entire process without harming the regular feature delivery schedule, where to start modularizing and improvements to the build tools to make life less miserable.</description>
-    </item>
-    
-    <item>
-      <title>Adopting Jetpack Compose Safely</title>
-      <link>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</link>
-      <pubDate>Thu, 10 Aug 2023 17:45:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</guid>
-      <description>If you want to start adopting Jetpack Compose in an existing, large codebase worked on by multiple teams, you can’t just add the dependency and start creating composables right away. In such projects, there are already established conventions and architectural decisions that such a revolutionary change might disrupt. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will share our journey of integrating Compose into the TIER app while offering practical tips for tackling common challenges that arise when working with large-scale codebases, like: &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; - Getting rid of Data binding,&lt;!-- raw HTML omitted --&gt; - Migrating to a Unidirectional Data Flow architecture,&lt;!-- raw HTML omitted --&gt; - Going Compose-first with a design system,&lt;!-- raw HTML omitted --&gt; - Enabling Compose in a multimodule world,&lt;!-- raw HTML omitted --&gt; - Getting Android engineers on board with the changes</description>
     </item>
     
     <item>
