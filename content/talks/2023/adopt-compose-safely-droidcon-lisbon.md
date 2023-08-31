@@ -1,5 +1,5 @@
 ---
-date: 2023-08-10T17:45:00Z
+date: 2023-08-30T17:45:00Z
 title: "Adopting Jetpack Compose Safely"
 location: "droidcon Lisbon"
 performDate: 2023-09-29
