@@ -1,5 +1,5 @@
 ---
-date: 2023-08-28T17:45:00Z
+date: 2023-08-27T17:45:00Z
 title: "Beyond one platform: migrating an Android library to Kotlin Multiplatform"
 location: "Berlindroid"
 performDate: 2023-08-30

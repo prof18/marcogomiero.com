@@ -1,5 +1,5 @@
 ---
-date: 2023-08-30T17:45:00Z
+date: 2023-08-29T17:45:00Z
 title: "Forging the path from monolith to multi-module app"
 location: "droidcon Lisbon"
 performDate: 2023-09-28

@@ -1,5 +1,5 @@
 ---
-date: 2023-08-29T08:45:00Z
+date: 2023-08-28T08:45:00Z
 title: "Hi, have you met Kotlin Multiplatform"
 location: "GDG Braunschweig"
 performDate: 2023-09-14
