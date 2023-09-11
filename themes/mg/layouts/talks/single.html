@@ -2,11 +2,13 @@
 <main>
 	<article>
 		<div class="title">
-			{{- if (.Param "upcoming") }}<sup><span class="entry-isdraft">[upcoming]&nbsp;</span></sup>{{- end }}
-      		{{ .Title }}
+      	    <h1 class="title">
+			  {{- if (.Param "upcoming") }}<sup><span class="talk-isupcoming">[upcoming]&nbsp;</span></sup>{{- end }}
+			  {{ .Title }}
+			</h1>
 		</div>
 		
-		  <div class="body">
+		  <div class="talk-meta">
 		    {{- with (.Param "performDate") }}
 		        {{- (printf "%s" ((.) | time.Format (default "January 2, 2006" site.Params.DateFormat))) }}
 		    {{- end }}
@@ -14,13 +16,16 @@
     		<a href="{{ (.Param "eventUrl") }}" target="BLANK">{{ (.Param "location") }}</a>
   		</div>
 
-		<div class="body">
+		<div class="talk-content">
 		    {{- if not (.Param "disableAnchoredHeadings") }}
-		
-		    {{- if (.Param "summary") }}
-		    <h2>Abstract:</h2>
-		    {{ .Param "summary" | safeHTML }}
+
+			<div>
+			{{- if (.Param "summary") }}
+		    	<h2>Abstract:</h2>
+		    	{{ .Param "summary" | safeHTML }}
 		    {{- end}}
+			</div>
+
 		
 		    {{- if (.Param "speakerdeck") }}
 		    <h2>Slides:</h2>
@@ -48,7 +53,9 @@
 		    </div>
 		    {{- end}}
 		
+			<div class="body">
 		    {{- .Content -}}
+			</div>
 		  </div>
 		  {{- end }}
 	</article>

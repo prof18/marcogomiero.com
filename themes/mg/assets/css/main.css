@@ -27,6 +27,15 @@ body {
   display: block;
   margin: 8px;
 }
+
+li {
+  margin-top: 15px;
+}
+
+li p {
+  margin-bottom: 0;
+}
+
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -520,3 +529,24 @@ table td{
   font-size: 14px;
 }
 
+.talk-title {
+  margin: 40px auto 32px;
+  margin-bottom: 400px;
+}
+
+.talk-content h2 {
+  margin: 32px auto 24px;
+}
+
+.talk-meta {
+  margin-top: 20px
+}
+
+.talk-isupcoming {
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+.talk-meta a {
+  border-bottom: 1px solid var(--secondary);
+}
