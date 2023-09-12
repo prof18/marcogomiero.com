@@ -8,23 +8,10 @@
   --hljs-bg: rgb(46, 46, 51);
   --code-bg: rgb(55, 56, 62);
   --border: rgb(51, 51, 51);
-
-  /* TODO: just copied, delete not used */
-  --theme: rgb(29, 30, 32);
-  --entry: rgb(46, 46, 51);
-  --primary: rgb(218, 218, 219);
-  --secondary: rgb(155, 156, 157);
-  --tertiary: rgb(65, 66, 68);
-  --content: rgb(196, 196, 197);
-  --hljs-bg: rgb(46, 46, 51);
-  --code-bg: rgb(55, 56, 62);
-  --border: rgb(51, 51, 51);
 }
 
-/* TODO: delete the others */
-
 body {
-  color: white;
+  color: var(--content);
   background-color: #202124;
 }
 
@@ -34,23 +21,11 @@ body {
   text-shadow: none;
 }
 
-hr {
-  border-top: 3px dotted blue;
-}
-/*code {*/
-/*  background-color: lightblue;*/
-/*  color: black;*/
-/*  text-decoration: bold;*/
-/*  padding: 0.1em 0.2em;*/
-/*}*/
 pre {
   background-color: #272822;
   line-height: 1.4;
   overflow-x: auto;
-  padding: 1em;
-}
-blockquote {
-  border-color: blue;
+  padding: 0 1em;
 }
 
 h1,
@@ -62,26 +37,6 @@ h6 {
   color: #ddd;
 }
 
-.site-description a {
-  color: #ddd;
-}
-.site-description a:hover {
-  color: black;
-}
-
-.tags a {
-  border-bottom: 3px solid var(--darkMaincolor);
-}
-.tags a:hover {
-  background-color: var(--darkMaincolor);
-  color: black;
-}
-
-.site-title a {
-  color: white;
-  text-decoration: none !important;
-}
-
 .header nav,
 .footer {
   border-color: #333;
@@ -90,11 +45,3 @@ h6 {
 .highlight {
   background-color: #333;
 }
-.soc:hover {
-  color: black;
-}
-.draft-label {
-  color: var(--darkMaincolor);
-  background-color: blue;
-}
-
