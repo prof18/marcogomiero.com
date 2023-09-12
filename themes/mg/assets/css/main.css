@@ -64,26 +64,9 @@ blockquote {
 }
 
 a {
-/*  border-bottom: 3px solid var(--maincolor);*/
   color: inherit;
   text-decoration: none;
 }
-/*a:hover {*/
-/*    background-color: var(--hovercolor);*/
-/*    color: #fff;*/
-/*}*/
-
-/*ul {*/
-/*  list-style: none;*/
-/*  padding-left: 2ch;*/
-/*}*/
-/*ul li {*/
-/*  text-indent: -2ch;*/
-/*}*/
-/*ul > li::before {*/
-/*  content: '* ';*/
-/*  font-weight: bold;*/
-/*}*/
 
 .body a {
   border-bottom: 1px solid var(--secondary);
@@ -403,6 +386,11 @@ table td{
   border-bottom: none;
 }
 
+.project-description {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 /* Homepage */
 .home-header h1 {
   font-size: 34px;
@@ -423,7 +411,6 @@ table td{
   margin-bottom: 0px;
   /*  TODO: font*/
 }
-
 
 .home-avatar {
   margin-top: 24px;
@@ -484,48 +471,47 @@ table td{
 }
 
 /* Talk */
-/* TODO: rename from archive to talk */
-.archive-posts {
+.talk-list-posts {
   width: 100%;
   font-size: 16px;
 }
 
-.archive-year {
+.talk-list-year {
   margin-top: 30px;
 }
 
-.archive-year:not(:last-of-type) {
+.talk-list-year:not(:last-of-type) {
   border-bottom: 2px solid var(--border);
 }
 
-.archive-month {
+.talk-list-month {
   display: flex;
   align-items: flex-start;
   padding: 10px 0;
 }
 
-.archive-month-header {
+.talk-list-month-header {
   margin: 25px 0;
   width: 200px;
 }
 
-.archive-month:not(:last-of-type) {
+.talk-list-month:not(:last-of-type) {
   border-bottom: 1px solid var(--border);
 }
 
-.archive-entry {
+.talk-list-entry {
   position: relative;
   padding: 5px;
   margin: 10px 0;
 }
 
-.archive-entry-title {
+.talk-list-entry-title {
   margin: 5px 0;
   font-weight: 400;
 }
 
-.archive-count,
-.archive-meta {
+.talk-list-count,
+.talk-list-meta {
   color: var(--secondary);
   font-size: 14px;
 }
@@ -550,9 +536,4 @@ table td{
 
 .talk-meta a {
   border-bottom: 1px solid var(--secondary);
-}
-
-.project-description {
-  margin-top: 10px;
-  margin-bottom: 5px;
 }
