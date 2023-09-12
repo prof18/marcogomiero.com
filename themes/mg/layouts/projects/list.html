@@ -1,9 +1,11 @@
 {{ define "main" }}
 <h1 class="page-title">Build</h1>
 
-<div class="post-content">For an always updated list of my projects, visit my <a href="https://github.com/prof18" target="_blank">Github profile.</a></div>
+<div class="body">For an always updated list of my projects, visit my <a href="https://github.com/prof18" target="_blank">Github profile.</a></div>
 
-<main class="list">
+<br>
+
+<main class="body">
     {{- $pages := union .RegularPages .Sections }}
 	{{ range $pages }}
 	<section class="list-item">
@@ -13,6 +15,10 @@
               {{- if .Param "university" }}<sup><span class="project-isdeprecated">&nbsp;&nbsp;[university project]</span></sup>{{- end }}
         </h1>
         
+        <h3 class="project-description">
+          {{ .Param "type" }}
+        </h3>
+
         <div class="description">
             {{- .Content -}}
         </div>
@@ -29,7 +35,7 @@
                         d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                     </path>
                 </svg>
-            <a style="" href="{{ .Param "github" }}" target="BLANK">Github</a>
+            <a href="{{ .Param "github" }}" target="BLANK">Github</a>
             </div>
         {{- end}}
 

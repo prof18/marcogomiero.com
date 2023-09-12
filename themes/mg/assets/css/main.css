@@ -388,7 +388,7 @@ table td{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 125px;
+  width: 101px;
 }
 
 .project-button > svg {
@@ -400,6 +400,7 @@ table td{
   color: var(--theme);
   font-size: 13px;
   background: var(--primary);
+  border-bottom: none;
 }
 
 /* Homepage */
@@ -549,4 +550,9 @@ table td{
 
 .talk-meta a {
   border-bottom: 1px solid var(--secondary);
+}
+
+.project-description {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
