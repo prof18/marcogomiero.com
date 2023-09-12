@@ -152,8 +152,12 @@ header .main {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0px;
+h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+.body h2, h3, h4, h5, h6 {
+  margin: 12px 0px;
 }
 
 .meta {
