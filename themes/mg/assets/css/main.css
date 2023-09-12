@@ -40,11 +40,6 @@ li p {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-::selection {
-  background: var(--maincolor);
-  color: #fff;
-}
-
 p {
 /*  font-family: 'Roboto Mono', sans-serif;*/
   line-height: 1.5;
@@ -76,9 +71,9 @@ a {
   border-bottom: 0px;
 }
 
-figure {
+figure img {
   box-sizing: border-box;
-  display: inline-block;
+  display: block;
   margin: 0;
   max-width: 100%;
 }
@@ -104,10 +99,13 @@ figure h4::before {
 
 /* Code blocks */
 code {
-  background-color: #f1f1f1;
-  padding: .1em .2em;
   font-family: 'Jetbrains Mono';
-/* TODO: improve this CSS  */
+  margin: auto 4px;
+  padding: 4px 6px;
+  font-size: 1em;
+  line-height: 1.5;
+  background: var(--code-bg);
+  border-radius: 2px;
 }
 
 pre {

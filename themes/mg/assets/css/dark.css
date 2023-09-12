@@ -34,21 +34,15 @@ body {
   text-shadow: none;
 }
 
-::selection {
-  background: red;
-  color: #fff;
-  text-shadow: none;
-}
-
 hr {
   border-top: 3px dotted blue;
 }
-code {
-  background-color: lightblue;
-  color: black;
-  text-decoration: bold;
-  padding: 0.1em 0.2em;
-}
+/*code {*/
+/*  background-color: lightblue;*/
+/*  color: black;*/
+/*  text-decoration: bold;*/
+/*  padding: 0.1em 0.2em;*/
+/*}*/
 pre {
   background-color: #272822;
   line-height: 1.4;
@@ -67,15 +61,6 @@ h5,
 h6 {
   color: #ddd;
 }
-
-/*a {*/
-/*  border-bottom: 3px solid var(--darkMaincolor);*/
-/*  color: inherit;*/
-/*}*/
-/*a:hover {*/
-/*  background-color: var(--darkMaincolor);*/
-/*  color: black;*/
-/*}*/
 
 .site-description a {
   color: #ddd;
