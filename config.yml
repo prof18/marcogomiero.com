@@ -1,4 +1,5 @@
-baseURL: "https://www.marcogomiero.com"
+baseURL: "https://marcogomierocom.prof18.repl.co/"
+#baseURL: "https://www.marcogomiero.com"
 title: Marco Gomiero
 paginate: 12
 theme: mg
