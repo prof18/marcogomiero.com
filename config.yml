@@ -1,5 +1,4 @@
-baseURL: "https://marcogomierocom.prof18.repl.co/"
-#baseURL: "https://www.marcogomiero.com"
+baseURL: "https://www.marcogomiero.com"
 title: Marco Gomiero
 paginate: 12
 theme: mg
@@ -15,7 +14,7 @@ minify:
   disableXML: true
   minifyOutput: true
 
-pygmentsstyle: "monokai"
+pygmentsstyle: "base16-snazzy"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
@@ -31,22 +30,6 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
-  ShowReadingTime: true
-  ShowShareButtons: false
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: false
-  ShowCodeCopyButtons: true
-  ShowWordCount: false
-  ShowRssButtonInSectionTermList: false
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
-
   assets:
     #disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
@@ -55,9 +38,6 @@ params:
     favicon32x32: "/favicon-32x32.png"
     apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "/safari-pinned-tab.svg"
-
-  label:
-    text: "Marco Gomiero"
 
   socialIcons:
     - name: mastodon
@@ -72,11 +52,6 @@ params:
   analytics:
     google:
       SiteVerificationTag: "7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"
-
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
 
 menu:
   main:
