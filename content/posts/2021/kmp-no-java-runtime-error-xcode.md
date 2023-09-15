@@ -8,11 +8,8 @@ image: "/img/xcode-jvm-runtime/xcode-java-runtime.jpeg"
 
 {{< rawhtml >}}
 
-<div id="banner" style="overflow: hidden;justify-content:space-around;">
-
-    <div style="display: inline-block;margin-right: 10px;">
-        <a href="https://androidweekly.net/issues/issue-499"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-499/badge" /></a>
-    </div>
+<div class="post-award-container">
+    <a href="https://androidweekly.net/issues/issue-499"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-499/badge" /></a>
 </div>
 
 {{< /rawhtml >}}

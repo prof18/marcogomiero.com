@@ -1,0 +1,40 @@
+{{ define "main" }}
+<h1 class="page-title">Speak</h1>
+
+<div class="body">Do you want me to speak at your conference or meetup? Feel free to reach out on <a href="https://twitter.com/marcoGomier" target="_blank">Twitter</a>, my DMs are open.</div>
+
+{{- $pages := union .RegularPages .Sections }}
+
+{{/* TODO: format and clean css */}}
+
+{{- range $pages.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+<div class="talk-list-year">
+  <h2 class="talk-list-year-header">
+    {{- replace .Key "0001" "" }} {{- if not (eq (len .Pages) 1)}} <sup class="talk-list-count">&nbsp;&nbsp;{{ len .Pages }}</sup> {{- end }}
+  </h2>
+  
+  <div class="talk-list-month">
+    <div class="talk-list-posts">
+      {{- range .Pages }}
+      {{- if eq .Kind "page" }}
+	  
+      <div class="talk-list-entry">
+	  	<a href="{{ .RelPermalink }}">
+	        <h3 class="talk-list-entry-title">
+	          {{- if .Param "upcoming" }}<sup><span class="talk-isupcoming">[upcoming]&nbsp;&nbsp;</span></sup>{{- end }}
+	          {{- .Title | markdownify }}
+	        </h3>
+	        <div class="talk-list-meta">
+	          {{- partial "talk_meta.html" . -}}
+	        </div>
+		</a>
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</div>
+{{- end }}
+{{- end }}
+{{ end }}

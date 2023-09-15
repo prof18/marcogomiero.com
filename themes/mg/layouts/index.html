@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	{{ partial "header.html" . }}
+	<body>
+		<div class="content">
+			{{ partial "head.html" . }}
+			
+			<article>
+			    <img class="home-avatar" src="/img/profile-small.webp">
+			    <div class="home-header">
+			        <h1>{{ "Hi \U0001F44B" | markdownify }}</h1>
+			    </div>
+			    <div class="body">
+			        <p>I'm Marco, a software engineer and a Google Developer Expert for Kotlin, currently working at <a href="https://www.tier.app/" target="BLANK">TIER</a> as Senior Android Engineer.</p>
+					<p style="margin-top: 20px;">I <a href="/projects">build</a>, <a href="/posts">write</a> and <a href="/talks">speak</a> about stuff.</p>
+			    </div>
+			    <div>
+			        {{ partial "social_icons.html" site.Params.socialIcons }}
+			    </div>
+			</article>
+	
+			<br>
+			<h2 style="margin-bottom: 20px;">Top Posts</h2>
+
+			{{- $pages := where .Site.RegularPages "Type" "posts" }}
+			{{ $pages = where $pages "Params.show_in_homepage" "!=" false -}}
+			
+			{{- range $pages }}
+				<a href="{{ .RelPermalink }}">
+					<section class="top-post-meta">
+						<h3 >{{.Title}}</h3>
+						<div>{{- partial "post_meta.html" . -}}</div>
+					</section>
+				</a>
+			{{- end }}
+			
+			{{ partial "footer.html" . }}
+		</div>
+		
+	</body>
+</html>

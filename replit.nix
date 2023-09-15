@@ -4,10 +4,9 @@ let
     }) {};
 in
 
-
 { pkgs }: {
     deps = [
         pkgs2.hugo
-		    pkgs.miniserve
+		    pkgs2.miniserve
     ];
 }

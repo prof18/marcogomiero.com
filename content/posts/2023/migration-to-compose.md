@@ -7,15 +7,13 @@ show_in_homepage: false
 
 {{< rawhtml >}}
 
-<div id="banner" style="overflow: hidden;justify-content:space-around;margin-bottom: 10px;">
-
-    <div style="display: inline-block;margin-right: 10px;">
-        <a href="https://androidweekly.net/issues/issue-569"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-569/badge" /></a>
-    </div>
-
-    <div style="display: inline-block;margin-right: 10px;">
-        <a href="https://jetc.dev/issues/165.html"><img style="margin: 0px;" src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23165-blue?logo=Jetpack+Compose&amp;logoColor=white"/></a>
-    </div>    
+<div class="post-award-container">
+    <a href="https://androidweekly.net/issues/issue-569">
+        <img src="https://androidweekly.net/issues/issue-569/badge" />
+    </a>
+    <a href="https://jetc.dev/issues/165.html">
+        <img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23165-blue?logo=Jetpack+Compose&amp;logoColor=white"/>
+    </a>
 </div>
 
 {{< /rawhtml >}}

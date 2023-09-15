@@ -8,16 +8,13 @@ image: "/img/kmp-existing-projects/kmp-publish-arch.png"
 
 {{< rawhtml >}}
 
-<div id="banner" style="overflow: hidden;justify-content:space-around;">
-
-    <div style="display: inline-block;margin-right: 10px;">
-        <a href="https://androidweekly.net/issues/issue-475"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-475/badge" /></a>
-    </div>
-
-    <div style="display: inline-block;">
-     <a href="https://mailchi.mp/kotlinweekly/kotlin-weekly-259"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23259-%237874b4"/></a>
-        
-    </div>
+<div class="post-award-container">
+    <a href="https://androidweekly.net/issues/issue-475">
+        <img src="https://androidweekly.net/issues/issue-475/badge" />
+    </a>
+    <a href="https://mailchi.mp/kotlinweekly/kotlin-weekly-259">
+        <img src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23259-%237874b4"/>
+    </a>
 </div>
 
 {{< /rawhtml >}}

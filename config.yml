@@ -1,7 +1,7 @@
 baseURL: "https://www.marcogomiero.com"
 title: Marco Gomiero
 paginate: 12
-theme: PaperMod
+theme: mg
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -14,7 +14,13 @@ minify:
   disableXML: true
   minifyOutput: true
 
+pygmentsstyle: "base16-snazzy"
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
+
 params:
+  # Dark mode switcher
+  mode: toggle
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Marco Gomiero
   description: "Software Engineer · Google Developer Expert for Kotlin"
@@ -24,22 +30,6 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
-  ShowReadingTime: true
-  ShowShareButtons: false
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: false
-  ShowCodeCopyButtons: true
-  ShowWordCount: false
-  ShowRssButtonInSectionTermList: false
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
-
   assets:
     #disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
@@ -48,9 +38,6 @@ params:
     favicon32x32: "/favicon-32x32.png"
     apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "/safari-pinned-tab.svg"
-
-  label:
-    text: "Marco Gomiero"
 
   socialIcons:
     - name: mastodon
@@ -66,26 +53,21 @@ params:
     google:
       SiteVerificationTag: "7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"
 
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
-
 menu:
   main:
     - identifier: posts
       name: Write
       url: /posts/
-      weight: 10
+      weight: 1
     - identifier: talks
       name: Speak
       url: /talks/
-      weight: 20
+      weight: 2
     - identifier: projects
       name: Build
       url: /projects/
-      weight: 30
+      weight: 3
     - identifier: about
       name: About
       url: /about-me/
-      weight: 40
+      weight: 4

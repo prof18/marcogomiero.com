@@ -8,15 +8,11 @@ image: "/img/kmm-app-arch/app-design.png"
 
 {{< rawhtml >}}
 
-  <div id="banner" style="overflow: hidden;justify-content:space-around;">
-
-    <div style="display: inline-block;margin-right: 10px;">
-        <a href="https://androidweekly.net/issues/issue-437"><img style="margin: 0px;" src="https://androidweekly.net/issues/issue-437/badge" /></a>
-    </div>
-
-    <div style="display: inline-block;">
-        <img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4"/>
-    </div>
+<div class="post-award-container">
+    <a href="https://androidweekly.net/issues/issue-437">
+        <img style="margin: 0px;" src="https://androidweekly.net/issues/issue-437/badge" />
+    </a>
+    <img src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4"/>
 </div>
 
 {{< /rawhtml >}}

@@ -7,12 +7,8 @@ show_in_homepage: true
 
 {{< rawhtml >}}
 
-<div id="banner" style="overflow: hidden;justify-content:space-around;">
-
-    <div style="display: inline-block;">
+<div class="post-award-container">
      <a href="https://mailchi.mp/kotlinweekly/kotlin-weekly-266"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23266-%237874b4"/></a>
-        
-    </div>
 </div>
 
 {{< /rawhtml >}}
