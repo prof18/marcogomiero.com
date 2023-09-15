@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marco Gomiero</title>
     <link>https://www.marcogomiero.com/</link>
@@ -991,7 +991,9 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</guid>
-      <description>Today I&amp;#39;ve released a new version of the Android library RSS-Parser. Let&amp;#39;s see what changes!</description>
+      <description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
+This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
+Thanks to the issues and the suggestions provided by the community, I&amp;rsquo;ve improved the parsing of the feature image of the article.</description>
     </item>
     
     <item>
@@ -1000,7 +1002,10 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2018/wordpress-arch/</guid>
-      <description>Sometimes, installing Wordpress on Arch Linux can be a tragedy. In this tutorial we are going to see all the steps to make everything work!</description>
+      <description>Every time I&amp;rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
+In all the following commands I&amp;rsquo;ve omitted &amp;ldquo;sudo&amp;rdquo;. Please use it when it is necessary.
+Before starting make you sure that all the packages are updated.
+pacman -Syu Install Apache First of all, you need to install and configure Apache, the web server.</description>
     </item>
     
     <item>
@@ -1009,7 +1014,9 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2017/update-rss-lib/</guid>
-      <description>Today I&amp;#39;ve released a new version of the Android library RSS-Parser. Let&amp;#39;s see what changes!</description>
+      <description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
+This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
+Starting from today you can get also the categories of the article, like shown in the screen below.</description>
     </item>
     
     <item>
@@ -1018,7 +1025,9 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2017/rss-parser-library/</guid>
-      <description>RSS Parser is an Android Library that helps you to handle RSS Feed in your application. Let&amp;#39;s see how it works!</description>
+      <description>Two month ago I have talked about YoutubeParser, an Android Library that I developed. Today I want to talk about RSS-Parser, another library that I wrote.
+This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:
+Title Author Description Content Main Image Link Publication Date Here you can find an example of feed.</description>
     </item>
     
     <item>
@@ -1027,7 +1036,9 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</guid>
-      <description>Youtube Parser is an Android Library that helps you to handle Youtube videos from a specific channel. Let&amp;#39;s see how it works!</description>
+      <description>Finally I&amp;rsquo;ve released a new big update for YoutubeParser. For people who don&amp;rsquo;t know what I&amp;rsquo;m talking about, don&amp;rsquo;t worry now I&amp;rsquo;m going to explain all.
+YoutubeParser is the first Android library that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:
+Title Link Thumbnail, with three different image size. After a year I&amp;rsquo;ve released this new big update, named 2.</description>
     </item>
     
     <item>
@@ -1036,7 +1047,8 @@ I wrote this library back in 2016 and now in 2018, the code was “ugly” compa
       <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/posts/2017/backup-restore/</guid>
-      <description>On 17th December 2016 I&amp;#39;ve attended my first talk as speaker and I&amp;#39;ve talked about backup and restore on Android</description>
+      <description>I know, I&amp;rsquo;m very very late.
+On 17th December 2016 I&amp;rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16). Despite the firsts scared thoughts this was an amazing experience! In fact I&amp;rsquo;ve replicated that, but I&amp;rsquo;ll talk about it with a future post (that won&amp;rsquo;t be published the next year - I promise :) ). The topic of the talk was a hot one: backup and restore on Android Application.</description>
     </item>
     
     <item>
