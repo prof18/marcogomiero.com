@@ -20,8 +20,13 @@
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end -}}
 
+	{{- if site.Params.analytics.google.SiteVerificationTag }}
+		<meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
+	{{- end }}
+
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
+	{{- template "_internal/google_analytics.html" . }}
 	{{ if and (isset .Site.Params "social") (.Site.Params.useCDN | default false) -}}
 		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 	{{- else if or (isset .Site.Params "social") (eq .Site.Params.mode "toggle") -}}
