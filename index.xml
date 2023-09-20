@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 Sep 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using annotations to improve iOS APIs on Kotlin Multiplatform</title>
+      <link>https://www.marcogomiero.com/posts/2023/objc-annotiations-better-kmp-api/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2023/objc-annotiations-better-kmp-api/</guid>
+      <description>Kotlin 1.8 has introduced new annotations to improve the interoperability of Kotlin with Objective-C and Swift:
+@ObjCName: allows to customize the name that will be used in Swift or Objective-C @HiddenFromObjC: allows hiding a Kotlin declaration from Objective-C (and Swift). @ShouldRefineInSwift: it marks a Kotlin declaration as swift_private in the Objective-C API, allowing to replace it with a wrapper written in Swift. You can see the release announcement for more details about the interoperability improvements introduced with Kotlin 1.</description>
+    </item>
+    
     <item>
       <title>From Mobile to Backend with Kotlin and Ktor</title>
       <link>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-generali/</link>
