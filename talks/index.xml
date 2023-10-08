@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/talks/</link>
     <description>Recent content in Talks on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 Sep 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Oct 2023 08:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hi, have you met Kotlin Multiplatform</title>
+      <link>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-devfest-hamburg/</link>
+      <pubDate>Sat, 07 Oct 2023 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-devfest-hamburg/</guid>
+      <description>Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta and now it&amp;rsquo;s on the path of becoming stable. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; We constantly read of new companies and teams that are using KMP for experiments and production projects alike. And we&amp;rsquo;re left wondering: why pick KMP over any other cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I&amp;rsquo;ll answer these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.</description>
+    </item>
+    
     <item>
       <title>From Mobile to Backend with Kotlin and Ktor</title>
       <link>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-generali/</link>
@@ -472,15 +481,6 @@
       
       <guid>https://www.marcogomiero.com/talks/2016/backup-restore-gdg/</guid>
       <description>One of the worst things is to lose all your data when you change a phone or when you reset it. With this talk we&amp;rsquo;ll see how to deal with this problem and how to secure your application&amp;rsquo;s data.</description>
-    </item>
-    
-    <item>
-      <title>Hi, have you met Kotlin Multiplatform</title>
-      <link>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-devfest-hamburg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-devfest-hamburg/</guid>
-      <description>Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta and now it&amp;rsquo;s on the path of becoming stable. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; We constantly read of new companies and teams that are using KMP for experiments and production projects alike. And we&amp;rsquo;re left wondering: why pick KMP over any other cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I&amp;rsquo;ll answer these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform.</description>
     </item>
     
   </channel>

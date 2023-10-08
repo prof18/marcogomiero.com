@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-devfest-hamburg/</loc>
+    <lastmod>2023-10-07T08:45:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2023-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-07T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2023-10-07T08:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2023-09-19T00:00:00+00:00</lastmod>
@@ -12,9 +18,6 @@
     <lastmod>2023-09-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-generali/</loc>
-    <lastmod>2023-09-14T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/talks/</loc>
     <lastmod>2023-09-14T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2023/adopt-compose-safely-droidcon-lisbon/</loc>
@@ -356,8 +359,6 @@
     <loc>https://www.marcogomiero.com/about-me/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/categories/</loc>
-  </url><url>
-    <loc>https://www.marcogomiero.com/talks/2023/hi-meet-kmp-devfest-hamburg/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/tags/</loc>
   </url>
