@@ -1,6 +1,6 @@
 ---
 date: 2023-08-28T08:45:00Z
-title: "Hi, have you met Kotlin Multiplatform"
+title: "Hi, have you met Kotlin Multiplatform?"
 location: "GDG Braunschweig"
 performDate: 2023-09-14
 eventUrl: https://gdg.community.dev/events/details/google-gdg-braunschweig-presents-hi-have-you-met-kotlin-multiplatform/
