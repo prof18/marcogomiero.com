@@ -1,6 +1,6 @@
 ---
 date: 2021-10-04T08:45:00Z
-title: "Hi, have you met Kotlin Multiplatform"
+title: "Hi, have you met Kotlin Multiplatform?"
 location: "ADI x GDG Pisa - Android Days: Day 1, Remote"
 performDate: 2021-10-30
 speakerDeck: c0a0fde1b82a4a809bfb87e630661717

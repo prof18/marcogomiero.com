@@ -1,6 +1,6 @@
 ---
 date: 2023-10-07T08:45:00Z
-title: "Hi, have you met Kotlin Multiplatform"
+title: "Hi, have you met Kotlin Multiplatform?"
 location: "DevFest Hamburg"
 performDate: 2023-11-03
 eventUrl: https://hamburg.devfest.de/
