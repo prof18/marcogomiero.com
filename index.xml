@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 22 Nov 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Nov 2023 15:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Kotlin Multiplatform in an existing mobile app</title>
+      <link>https://www.marcogomiero.com/talks/2023/existing-kmp-project-workshop-devfestberlin/</link>
+      <pubDate>Fri, 24 Nov 2023 15:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2023/existing-kmp-project-workshop-devfestberlin/</guid>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&amp;rsquo;s because, the possibility of starting with a blank canvas is rare (not impossible, but rare). &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; This is also the case for Kotlin Multiplatform, which is getting more and more hype every day. And now, that the technology has become stable, it&amp;rsquo;s the perfect time to start using it! In this hands-on session, we will start with an existing Android and iOS application that &amp;ldquo;lives&amp;rdquo; in separate repositories, we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&amp;rsquo;ll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; To follow along in the workshop you will need: - Android Studio with the &amp;ldquo;&lt;a href=&#34;https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile&#34;&gt;Kotlin Multiplatform Mobile&lt;/a&gt;&amp;rdquo; plugin - Xcode</description>
+    </item>
+    
     <item>
       <title>From Mobile to Backend with Kotlin and Ktor</title>
       <link>https://www.marcogomiero.com/talks/2023/from-mobile-to-backend-ktor-kug-berlindroid/</link>
