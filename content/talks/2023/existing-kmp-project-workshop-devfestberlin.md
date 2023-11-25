@@ -8,13 +8,13 @@ summary: "After discovering a new interesting technology or framework, you will 
 <br><br>
 This is also the case for Kotlin Multiplatform, which is getting more and more hype every day. And now, that the technology has become stable, it's the perfect time to start using it!
 In this hands-on session, we will start with an existing Android and iOS application that \"lives\" in separate repositories, we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications.
-By the end of this workshop, you'll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects.
-<br><br>
-To follow along in the workshop you will need:
-- Android Studio with the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile">Kotlin Multiplatform Mobile</a> plugin
-- Xcode"
+By the end of this workshop, you'll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects."
 speakerDeck: 9e417dbcac0c4d099522c07710501b0b
 ---
+
+To follow along in the workshop you will need:<br>
+- Android Studio with the [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile):
+- Xcode
 
 ## Workshop material
 
