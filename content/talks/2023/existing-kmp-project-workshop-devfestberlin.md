@@ -1,6 +1,6 @@
 ---
 date: 2023-11-24T15:45:00Z
-title: "Introducing Kotlin Multiplatform in an existing mobile app"
+title: "Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition"
 location: "DevFest Berlin"
 performDate: 2023-11-25
 eventUrl: https://devfest.berlin/schedule/2023-11-25?sessionId=127
@@ -11,9 +11,9 @@ In this hands-on session, we will start with an existing Android and iOS applica
 By the end of this workshop, you'll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects.
 <br><br>
 To follow along in the workshop you will need:
-- Android Studio with the \"[Kotlin Multiplatform Mobile](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)\" plugin
+- Android Studio with the \"<a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile">Kotlin Multiplatform Mobile</a>\" plugin
 - Xcode"
-# speakerDeck: 
+speakerDeck: 9e417dbcac0c4d099522c07710501b0b
 ---
 
 ## Workshop material
@@ -32,5 +32,32 @@ and an end folder with two final workspaces: one that deploy the Kotlin Multipla
 
 ## Resources: 
 
-- **Modern Android Development**\
-    https://developer.android.com/modern-android-development
+- **Creating a multiplatform binary framework bundle**\
+    https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle
+
+- **Binary Frameworks in Swift**\
+    https://developer.apple.com/videos/play/wwdc2019/416/
+
+- **Binary Frameworks in Swift**\
+    https://devstreaming-cdn.apple.com/videos/wwdc/2019/416h8485aty341c2/416/416_binary_frameworks_in_swift.pdf
+
+- **Build final native binaries**\
+    https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks
+
+- **Distributing binary frameworks as Swift packages**\
+    https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages
+
+- **KMP-NativeCoroutines**\
+    https://github.com/rickclephas/KMP-NativeCoroutines
+
+- **SKIE**\
+    https://skie.touchlab.co/
+
+- **multiplatform-swiftpackage**\
+    https://github.com/luca992/multiplatform-swiftpackage
+
+- **KMMBridge**\
+    https://github.com/touchlab/KMMBridge
+
+- **Xcode 13.3 supports SPM binary dependency in private GitHub release**\
+    https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45
