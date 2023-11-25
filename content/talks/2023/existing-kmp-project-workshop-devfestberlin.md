@@ -11,7 +11,7 @@ In this hands-on session, we will start with an existing Android and iOS applica
 By the end of this workshop, you'll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects.
 <br><br>
 To follow along in the workshop you will need:
-- Android Studio with the \"<a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile">Kotlin Multiplatform Mobile</a>\" plugin
+- Android Studio with the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile">Kotlin Multiplatform Mobile</a> plugin
 - Xcode"
 speakerDeck: 9e417dbcac0c4d099522c07710501b0b
 ---
