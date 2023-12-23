@@ -14,13 +14,20 @@ Quick intro about KMP Framework Bundler
 
 KMP Framework Bundler is a Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.
 
+The KMP Framework Bundler is a Gradle plugin designed for Kotlin Multiplatform projects. It simplifies the generation and publishing of XCFrameworks for Apple targets or FatFrameworks for iOS targets into a CocoaPod Repository.
 
 Quick intro about what it does: after building the framewrok, it handles the publishing to a cocoapod repository trough git. More details here in this article:
+
+Read more about the KMP Framework Bundler's capabilities in my previous article.
 
 https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support/
 
 The plugin automatically update the podspec with the latest version and at a certain point, it commit and push the framework in the cocoa pod repo with a predefined commit
 
+After building the framework, the KMP Framework Bundler takes charge of the publication process through Git. It updates the podspec file with the latest version and commits and pushes the framework to the CocoaPod repository
+
+
+Here's a snippet of how this is configured:
 
 ```kotlin
 project.exec {
@@ -49,6 +56,10 @@ project.exec {
 }
 ```
 
+## Automating Testing for Consistency
+
+To ensure reliability between releases, I integrated tests that examine the entire publishing process. Initially, this involved manually creating test repositories, which was cumbersome. To streamline this, I explored automated testing with Gradle TestKit, allowing you to create a test project and run specific Gradle tasks.
+
 To be sure tha I'm not breaking anything between the different releases, I wanted to write some tests that tests the entire publishing pipeline. I had some test repositories ad-hoc created for my purpouse but it's annoying doing it every time. So I started exploring how to do that with an automated test. 
 
 In the test you can create a test project that next gradle will use as the gradle proejct where the plugin will be added. 
@@ -57,6 +68,8 @@ With gradle TestKit you can then build and run the gradle task that you want.
 https://docs.gradle.org/current/userguide/test_kit.html
 
 To make the push work, some initial setup is required in the folder for the cocoa repository (testDestFolder in the code). It's the classc work for setting up a git repository
+
+This includes initializing a Git repository in the folder designated for the CocoaPods repository (referred to as testDestFolder in the code). The setup process is straightforward, mirroring classic Git repository initialization steps.
 
 ```bash
 
@@ -68,6 +81,8 @@ $ git commit -m "First commit"
 ```
 
 then another git repository needs to be setup. this repository will act as the remote one. 
+
+A secondary repository is then set up as a remote repository, using the --bare flag. This creates a storage-only repository, ideal for pushing and pulling branches but not for direct commits.
 
 ```bash
 
@@ -226,11 +241,29 @@ class XCFrameworkTasksPublishTests : BasePublishTest(frameworkType = FrameworkTy
         assertTrue(tagOutput.contains(FRAMEWORK_VERSION_NUMBER))
     }
     
-    fun File.buildAndRun(vararg commands: String): BuildResult = GradleRunner.create()
-    .withProjectDir(this)
-    .withArguments(*commands, "--stacktrace")
-    .forwardOutput()
-    .build()
+    fun File.buildAndRun(vararg commands: String): BuildResult = 
+        GradleRunner.create()
+            .withProjectDir(this)
+            .withArguments(*commands, "--stacktrace")
+            .forwardOutput()
+            .build()
+
+
+    fun File.runBashCommandAndGetOutput(vararg arguments: String): String {
+        val pb = ProcessBuilder(*arguments).directory(this)
+        val process = pb.start()
+
+        val reader = BufferedReader(InputStreamReader(process.inputStream))
+        val builder = StringBuilder()
+        var line: String?
+        while (reader.readLine().also { line = it } != null) {
+            builder.append(line)
+            builder.append(System.lineSeparator())
+        }
+        return builder.toString()
+    }
+
+
 }
 ```
 
