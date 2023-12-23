@@ -6,6 +6,10 @@ show_in_homepage: false
 draft: true
 ---
 
+---
+
+Some time ago, 
+
 Quick intro about KMP Framework Bundler
 
 KMP Framework Bundler is a Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.
@@ -15,33 +19,34 @@ Quick intro about what it does: after building the framewrok, it handles the pub
 
 https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support/
 
-updates the podspec and at a certain points it does something like that
+The plugin automatically update the podspec with the latest version and at a certain point, it commit and push the framework in the cocoa pod repo with a predefined commit
+
 
 ```kotlin
 project.exec {
-                workingDir = File("$rootDir/../kmp-xcframework-dest")
-                commandLine(
-                    "git",
-                    "add",
-                    "."
-                ).standardOutput
-            }
+    workingDir = File("$rootDir/../kmp-xcframework-dest")
+    commandLine(
+        "git",
+        "add",
+        "."
+    ).standardOutput
+}
 
-            val dateFormatter = SimpleDateFormat("dd/MM/yyyy - HH:mm", Locale.getDefault())
-            project.exec {
-                workingDir = File("$rootDir/../kmp-xcframework-dest")
-                commandLine(
-                    "git",
-                    "commit",
-                    "-m",
-                    "\"New dev release: ${libVersionName}-${dateFormatter.format(Date())}\""
-                ).standardOutput
-            }
+val dateFormatter = SimpleDateFormat("dd/MM/yyyy - HH:mm", Locale.getDefault())
+project.exec {
+    workingDir = File("$rootDir/../kmp-xcframework-dest")
+    commandLine(
+        "git",
+        "commit",
+        "-m",
+        "\"New dev release: ${libVersionName}-${dateFormatter.format(Date())}\""
+    ).standardOutput
+}
 
-            project.exec {
-                workingDir = File("$rootDir/../kmp-xcframework-dest")
-                commandLine("git", "push", "origin", "develop").standardOutput
-            }
+project.exec {
+    workingDir = File("$rootDir/../kmp-xcframework-dest")
+    commandLine("git", "push", "origin", "develop").standardOutput
+}
 ```
 
 To be sure tha I'm not breaking anything between the different releases, I wanted to write some tests that tests the entire publishing pipeline. I had some test repositories ad-hoc created for my purpouse but it's annoying doing it every time. So I started exploring how to do that with an automated test. 
@@ -51,7 +56,7 @@ In the test you can create a test project that next gradle will use as the gradl
 With gradle TestKit you can then build and run the gradle task that you want.
 https://docs.gradle.org/current/userguide/test_kit.html
 
-To make the push work, some initial setup is required in the folder for the cocoa repository. It's the classc work for setting up a git repository
+To make the push work, some initial setup is required in the folder for the cocoa repository (testDestFolder in the code). It's the classc work for setting up a git repository
 
 ```bash
 
@@ -76,36 +81,35 @@ The --bare flag creates a repository that doesn’t have a working directory, ma
 From https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init
 ```
 
-Then add on the test cocoapod repo the newone created as a remote repository. And we can push to it
+Then add on the test cocoapod repo the newone created as a remote repository (remoteDestFolder in the code). And we can push to it
 
 ```bash
 $ git remote add origin remoteRepoPath
 $ git push origin --all
 ```
 
-
+This is the code to setup the test with waht described above
 
 
 ```kotlin
+testDestFolder.runBashCommand("git", "init")
+testDestFolder.runBashCommand("git", "branch", "-m", "main")
 
- testDestFolder.runBashCommand("git", "init")
-        testDestFolder.runBashCommand("git", "branch", "-m", "main")
+podSpecFile = File("${testDestFolder.path}/LibraryName.podspec")
+podSpecFile.writeText(getPodSpec())
 
-        podSpecFile = File("${testDestFolder.path}/LibraryName.podspec")
-        podSpecFile.writeText(getPodSpec())
+testDestFolder.runBashCommand("git", "add", ".")
+testDestFolder.runBashCommand("git", "commit", "-m", "\"First commit\"")
 
-        testDestFolder.runBashCommand("git", "add", ".")
-        testDestFolder.runBashCommand("git", "commit", "-m", "\"First commit\"")
+remoteDestFolder.runBashCommand("git", "init", "--bare")
 
-        remoteDestFolder.runBashCommand("git", "init", "--bare")
+testDestFolder.runBashCommand("git", "remote", "add", "origin", remoteDestFolder.path)
+testDestFolder.runBashCommand("git", "push", "origin", "--all")
 
-        testDestFolder.runBashCommand("git", "remote", "add", "origin", remoteDestFolder.path)
-        testDestFolder.runBashCommand("git", "push", "origin", "--all")
-
-        testDestFolder.runBashCommand("git", "checkout", "-b", "develop")
+testDestFolder.runBashCommand("git", "checkout", "-b", "develop")
 ```
 
-
+This is the complete setup code for reference
 
 
 ```kotlin
