@@ -8,28 +8,19 @@ draft: true
 
 ---
 
-Some time ago, 
+Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod repository.
 
-Quick intro about KMP Framework Bundler
+After building the framework, the plugin takes care (with a Gradle task) of the publication process in a CocoaPods repository through git. It copies the framework in the repository, automatically updates the podspec file with the latest version, commits and pushes all the new changes.
 
-KMP Framework Bundler is a Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.
-
-The KMP Framework Bundler is a Gradle plugin designed for Kotlin Multiplatform projects. It simplifies the generation and publishing of XCFrameworks for Apple targets or FatFrameworks for iOS targets into a CocoaPod Repository.
-
-Quick intro about what it does: after building the framewrok, it handles the publishing to a cocoapod repository trough git. More details here in this article:
-
-Read more about the KMP Framework Bundler's capabilities in my previous article.
-
-https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support/
-
-The plugin automatically update the podspec with the latest version and at a certain point, it commit and push the framework in the cocoa pod repo with a predefined commit
-
-After building the framework, the KMP Framework Bundler takes charge of the publication process through Git. It updates the podspec file with the latest version and commits and pushes the framework to the CocoaPod repository
-
-
-Here's a snippet of how this is configured:
+Here’s a simplified example of what the plugin is doing, to better understand the topic of the article:
 
 ```kotlin
+copy {
+		from("$buildDir/XCFrameworks/debug")
+		into("$rootDir/../kmp-xcframework-dest")
+}
+
+// Update podspec file
 project.exec {
     workingDir = File("$rootDir/../kmp-xcframework-dest")
     commandLine(
@@ -56,16 +47,32 @@ project.exec {
 }
 ```
 
+More details are available [in my previous article](https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support#publish-an-xcframework).
+
+## Automated testing
+
+Before every release, I was manually testing all the publication process. This includes setting up a simple local Kotlin Multiplatform project and a local and remote CocoaPods repository that hosts the Framework, run the plugin and check that everything was working as expected.
+ 
+All this manual process required a lot of effort for every release. To avoid that, I decided to start looking into Gradle TestKit, to write automated tests. Gradle TestKit allows to programmatically execute Gradle builds and inspect the result.
+
+More information can be found [in the documentation](https://docs.gradle.org/current/userguide/test_kit.html).
+
+
+
+### Testing project structure
+
+// TODO: add a graph about the usual scenario. A repository with KMP where the plugin is applied. One repository that will be the destination
+
+// TODO: show the situation replicated on the test scenario
+
+
+
+
 ## Automating Testing for Consistency
 
-To ensure reliability between releases, I integrated tests that examine the entire publishing process. Initially, this involved manually creating test repositories, which was cumbersome. To streamline this, I explored automated testing with Gradle TestKit, allowing you to create a test project and run specific Gradle tasks.
 
-To be sure tha I'm not breaking anything between the different releases, I wanted to write some tests that tests the entire publishing pipeline. I had some test repositories ad-hoc created for my purpouse but it's annoying doing it every time. So I started exploring how to do that with an automated test. 
 
 In the test you can create a test project that next gradle will use as the gradle proejct where the plugin will be added. 
-
-With gradle TestKit you can then build and run the gradle task that you want.
-https://docs.gradle.org/current/userguide/test_kit.html
 
 To make the push work, some initial setup is required in the folder for the cocoa repository (testDestFolder in the code). It's the classc work for setting up a git repository
 
