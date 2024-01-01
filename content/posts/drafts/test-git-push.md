@@ -8,7 +8,7 @@ draft: true
 
 ---
 
-Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod repository.
+Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generates a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod repository.
 
 After building the framework, the plugin takes care (with a Gradle task) of the publication process in a CocoaPods repository through git. It copies the framework in the repository, automatically updates the podspec file with the latest version, commits and pushes all the new changes.
 
@@ -51,9 +51,9 @@ More details are available [in my previous article](https://www.marcogomiero.com
 
 ## Automated testing
 
-Before every release, I was manually testing all the publication process. This includes setting up a simple local Kotlin Multiplatform project and a local and remote CocoaPods repository that hosts the Framework, run the plugin and check that everything was working as expected.
+Before every release, I was manually testing all the publication processes. This includes setting up a simple local Kotlin Multiplatform project and a local and remote CocoaPods repository that hosts the Framework, running the plugin and checking that everything is working as expected.
  
-All this manual process required a lot of effort for every release. To avoid that, I decided to start looking into Gradle TestKit, to write automated tests. Gradle TestKit allows to programmatically execute Gradle builds and inspect the result.
+All this manual process required a lot of effort for every release. To avoid that, I decided to start looking into Gradle TestKit, to write automated tests. Gradle TestKit allows to programmatically executing Gradle builds and inspecting the result.
 
 More information can be found [in the documentation](https://docs.gradle.org/current/userguide/test_kit.html).
 
@@ -63,10 +63,48 @@ More information can be found [in the documentation](https://docs.gradle.org/cur
 
 // TODO: add a graph about the usual scenario. A repository with KMP where the plugin is applied. One repository that will be the destination
 
+```bash
+.
+├── kmp-framework-bundler
+│   └── src
+│       ├── main
+│       └── test
+├── kmp-framework-bundler-test-project
+│   └── src
+│       ├── androidMain
+│       ├── commonMain
+│       ├── iosMain
+│       ├── macOsMain
+└── xcframework-cocoa-repo-test
+    ├── LibraryName.podspec
+    ├── LibraryName.xcframework
+    └── README.md
+```
+
 // TODO: show the situation replicated on the test scenario
 
+```bash
+.
+└── kmp-framework-bundler
+    └── src
+        ├── main
+        └── test
+            ├── kotlin
+            └── resources
+                └── test-project
+                    ├── build.gradle.kts
+                    ├── gradle.properties
+                    ├── settings.gradle
+                    └── src
+                        └── commonMain
+                            └── kotlin
+                                └── com
+                                    └── prof18
+                                        └── example
+                                            └── Greeting.kt
+```
 
-
+just talk about the test project without going into details of the configuration
 
 ## Automating Testing for Consistency
 
