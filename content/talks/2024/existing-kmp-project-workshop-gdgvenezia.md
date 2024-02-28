@@ -3,14 +3,13 @@ date: 2024-02-25T15:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition"
 location: "GDG Venezia"
 performDate: 2024-02-27
-upcoming: true
 eventUrl: https://gdg.community.dev/events/details/google-gdg-venezia-presents-introdurre-kotlin-multiplatform-in-unapp-mobile-esistente-live-coding-talk/
 summary: "After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That's because, the possibility of starting with a blank canvas is rare (not impossible, but rare).
 <br><br>
 This is also the case for Kotlin Multiplatform, which is getting more and more hype every day. And now, that the technology has become stable, it's the perfect time to start using it!
 In this hands-on session, we will start with an existing Android and iOS application that \"lives\" in separate repositories, we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications.
 By the end of this workshop, you'll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects."
-# speakerDeck: 9e417dbcac0c4d099522c07710501b0b
+speakerDeck: 7d79ca6adec844af9de83c38f353d9b0
 ---
 
 To follow along in the workshop you will need:<br>
