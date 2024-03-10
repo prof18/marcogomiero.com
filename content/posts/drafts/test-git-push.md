@@ -6,8 +6,6 @@ show_in_homepage: false
 draft: true
 ---
 
----
-
 Quick intro about KMP Framework Bundler
 
 KMP Framework Bundler is a Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.
