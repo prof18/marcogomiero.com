@@ -54,7 +54,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Getting set up" duration="0">
+      <google-codelab-step label="Getting set up" duration="5">
         <h2 is-upgraded><strong>Get the code</strong></h2>
 <p>You&#39;ll find everything you need for this project in a GitHub repository. To get started, clone the following repository:  <a href="https://github.com/prof18/kmp-existing-project-workshop" target="_blank"><strong>https://github.com/prof18/kmp-existing-project-workshop</strong></a>.</p>
 <p>Inside the <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start" target="_blank">start</a> folder, you&#39;ll find the <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-android" target="_blank">Android</a> and <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-ios" target="_blank">iOS</a> applications. Feel free to move them to your working directory. </p>
@@ -152,7 +152,7 @@ enum ParsingError: Error {
 
       </google-codelab-step>
     
-      <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="0">
+      <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="15">
         <p>Let&#39;s start by creating a new Kotlin Multiplatform library by using the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile</a> plugin, available on Android Studio. </p>
 <p class="image-container"><img style="width: 624.00px" src="img/e89210447cbde802.png"></p>
 <p class="image-container"><img style="width: 624.00px" src="img/cbcd9978dcacd240.png"></p>
@@ -280,7 +280,7 @@ internal actual object DateFormatter {
 
       </google-codelab-step>
     
-      <google-codelab-step label="Distribute the Kotlin Multiplatform library on Android" duration="0">
+      <google-codelab-step label="Distribute the Kotlin Multiplatform library on Android" duration="20">
         <h2 is-upgraded><strong>Publish to Maven Local</strong></h2>
 <p>The first step in publishing a KMP library is trying it locally. To do so, you will use the Maven Local repository. </p>
 <p>To publish Maven packages, you need to use the <a href="https://docs.gradle.org/current/userguide/publishing_maven.html" target="_blank">Maven Publish Plugin</a>. Add the plugin ID to the <code>shared/build.gradle.kts</code> file.</p>
@@ -418,7 +418,7 @@ export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
 
       </google-codelab-step>
     
-      <google-codelab-step label="Distribute the Kotlin Multiplatform library on iOS" duration="0">
+      <google-codelab-step label="Distribute the Kotlin Multiplatform library on iOS" duration="30">
         <p>As mentioned above, you will use an <code>XCFramework</code> to distribute the KMP library to the iOS app. </p>
 <aside class="special"><p>An XCFramework bundle, or <em>artifact</em>, is a binary package created by Xcode that includes the frameworks and libraries necessary to build for multiple platforms (iOS, macOS, visionOS, tvOS, watchOS, and DriverKit), including Simulator builds.</p>
 <p><a href="https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle" target="_blank">https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle</a></p>
@@ -550,7 +550,7 @@ git tag 0.0.1</code></pre>
 
       </google-codelab-step>
     
-      <google-codelab-step label="Streamline distribution with KMMBridge" duration="0">
+      <google-codelab-step label="Streamline distribution with KMMBridge" duration="30">
         <p><a href="https://kmmbridge.touchlab.co/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing a consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by either CocoaPods or Swift Package Manager.</p>
 <aside class="special"><p>Check the documentation for more info about KMMBridge</p>
 <p><a href="https://kmmbridge.touchlab.co/docs/" target="_blank">https://kmmbridge.touchlab.co/docs/</a></p>
@@ -728,7 +728,7 @@ jobs:
 
       </google-codelab-step>
     
-      <google-codelab-step label="Debug the KMP library locally on iOS" duration="0">
+      <google-codelab-step label="Debug the KMP library locally on iOS" duration="5">
         <p>Another exciting feature of KMMBridge is the possibility to locally build and test the framework without having to manually publish it like you&#39;ve done previously in the &#34;Publish the XCFramework locally with Swift Package Manager&#34; section.</p>
 <p>To do so, run the following Gradle task in the Kotlin Multiplatform library project: </p>
 <pre><code>./gradlew spmDevBuild -PspmBuildTargets=ios_simulator_arm64</code></pre>
@@ -754,7 +754,7 @@ jobs:
 
       </google-codelab-step>
     
-      <google-codelab-step label="Debug the KMP library locally on Android" duration="0">
+      <google-codelab-step label="Debug the KMP library locally on Android" duration="5">
         <p>To debug locally the KMP library on Android there are two possibilities.</p>
 <p>The first one is deploying a new version on Maven locally every time. This approach works, but you need to wait for the deployment (even though it&#39;s quick, it&#39;s still time that you need to wait), and you need to be sure that Gradle picks up the newest version of the library. </p>
 <p>The other method that overcomes such issues is using <a href="https://docs.gradle.org/current/userguide/composite_builds.html" target="_blank">Gradle Composite</a> builds. This feature of Gradle gives the possibility of including a Gradle project inside another Gradle project. In this way, you can import the KMP library inside your Android project, work on the KMP library, and immediately have the changes reflected on the Android project without doing anything. </p>
@@ -773,7 +773,7 @@ jobs:
 
       </google-codelab-step>
     
-      <google-codelab-step label="Improve iOS Developer experience with SKIE" duration="0">
+      <google-codelab-step label="Improve iOS Developer experience with SKIE" duration="10">
         <p>Kotlin/Native provides bidirectional interoperability with Objective-C. During the translation from Kotlin to Objective-C to Swift, some of the Kotlin language features (that are also supported by Swift) are lost because Objective-C does not support them. </p>
 <p>For example, there are no default arguments, the enums are not Swift-friendly, sealed classes are just simple classes, coroutines don&#39;t support cancelations, and flows are not supported. </p>
 <p>For those reasons, some APIs exposed by Kotlin to Swift will not look appealing because they lack important language features. </p>
