@@ -27,7 +27,7 @@
                   feedback-link="https://marcogomiero.com">
     
       <google-codelab-step label="Introduction" duration="0">
-        <p><strong>Last Updated:</strong> 2024-03-10</p>
+        <p><strong>Last Updated:</strong> 2024-03-13</p>
 <p>After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&#39;s because the possibility of starting with a blank canvas is rare (not impossible, but rare).</p>
 <p>This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it&#39;s the perfect time to start using it! In this workshop, we will begin with an existing Android and iOS application that &#34;lives&#34; in separate repositories; we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&#39;ll better understand what is needed to start using Kotlin Multiplatform in your existing projects.</p>
 <h2 is-upgraded><strong>What you&#39;ll build</strong></h2>
@@ -54,7 +54,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Getting set up" duration="4">
+      <google-codelab-step label="Getting set up" duration="0">
         <h2 is-upgraded><strong>Get the code</strong></h2>
 <p>You&#39;ll find everything you need for this project in a GitHub repository. To get started, clone the following repository:  <a href="https://github.com/prof18/kmp-existing-project-workshop" target="_blank"><strong>https://github.com/prof18/kmp-existing-project-workshop</strong></a>.</p>
 <p>Inside the <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start" target="_blank">start</a> folder, you&#39;ll find the <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-android" target="_blank">Android</a> and <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-ios" target="_blank">iOS</a> applications. Feel free to move them to your working directory. </p>
@@ -152,7 +152,7 @@ enum ParsingError: Error {
 
       </google-codelab-step>
     
-      <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="3">
+      <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="0">
         <p>Let&#39;s start by creating a new Kotlin Multiplatform library by using the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile</a> plugin, available on Android Studio. </p>
 <p class="image-container"><img style="width: 624.00px" src="img/e89210447cbde802.png"></p>
 <p class="image-container"><img style="width: 624.00px" src="img/cbcd9978dcacd240.png"></p>
@@ -280,7 +280,7 @@ internal actual object DateFormatter {
 
       </google-codelab-step>
     
-      <google-codelab-step label="Distribute the Kotlin Multiplatform library on Android" duration="3">
+      <google-codelab-step label="Distribute the Kotlin Multiplatform library on Android" duration="0">
         <h2 is-upgraded><strong>Publish to Maven Local</strong></h2>
 <p>The first step in publishing a KMP library is trying it locally. To do so, you will use the Maven Local repository. </p>
 <p>To publish Maven packages, you need to use the <a href="https://docs.gradle.org/current/userguide/publishing_maven.html" target="_blank">Maven Publish Plugin</a>. Add the plugin ID to the <code>shared/build.gradle.kts</code> file.</p>
@@ -418,7 +418,7 @@ export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
 
       </google-codelab-step>
     
-      <google-codelab-step label="Distribute the Kotlin Multiplatform library on iOS" duration="9">
+      <google-codelab-step label="Distribute the Kotlin Multiplatform library on iOS" duration="0">
         <p>As mentioned above, you will use an <code>XCFramework</code> to distribute the KMP library to the iOS app. </p>
 <aside class="special"><p>An XCFramework bundle, or <em>artifact</em>, is a binary package created by Xcode that includes the frameworks and libraries necessary to build for multiple platforms (iOS, macOS, visionOS, tvOS, watchOS, and DriverKit), including Simulator builds.</p>
 <p><a href="https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle" target="_blank">https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle</a></p>
@@ -543,14 +543,14 @@ git tag 0.0.1</code></pre>
 <p>This approach of publishing the binaries in a repository is straightforward, but it could lead to some struggles when the size of the repository increases. Xcode will start having performance issues when the repository approaches 5GB, which seems like a considerable number, but it&#39;s not if you consider the different published architectures. </p>
 <p class="image-container"><img style="width: 624.00px" src="img/2723a35c96314f83.png"></p>
 <p><a href="https://x.com/kpgalligan/status/1723364386046173493?s=20" target="_blank">https://x.com/kpgalligan/status/1723364386046173493?s=20</a></p>
-<p>This issue can be overcome by zipping the XCFramework and placing it somewhere on the Internet. That&#39;s because the Swift Package Manager supports having targets as zip files that can be retrieved from a URL. </p>
+<p>This issue can be overcome by zipping the XCFramework and placing it somewhere on the Internet. That&#39;s because the Swift Package Manager supports having <a href="https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages#Declare-a-binary-target-in-the-package-manifest" target="_blank">targets as zip files</a> that can be retrieved from a URL. </p>
 <p>However, to do so, you need some infrastructure to store the zip file of your framework safely (and most likely privately). As always, in the software industry, you can build the infrastructure or use some existing ones. </p>
 <p>The next section will explore and try an existing solution to streamline the framework distribution. </p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Streamline distribution with KMMBridge" duration="5">
+      <google-codelab-step label="Streamline distribution with KMMBridge" duration="0">
         <p><a href="https://kmmbridge.touchlab.co/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing a consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by either CocoaPods or Swift Package Manager.</p>
 <aside class="special"><p>Check the documentation for more info about KMMBridge</p>
 <p><a href="https://kmmbridge.touchlab.co/docs/" target="_blank">https://kmmbridge.touchlab.co/docs/</a></p>
