@@ -1154,5 +1154,14 @@ If you wanna know more about me and my projects you can give a look to the categ
 In my spare time, I write and maintain open source code, I share my dev experience by writing on my blog, speaking at confs and organizing events with the Google Developer Group Venezia and I play basketball.</description>
     </item>
     
+    <item>
+      <title>Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition</title>
+      <link>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-appdevcon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-appdevcon/</guid>
+      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&amp;rsquo;s because, the possibility of starting with a blank canvas is rare (not impossible, but rare). &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; This is also the case for Kotlin Multiplatform, which is getting more and more hype every day. And now, that the technology has become stable, it&amp;rsquo;s the perfect time to start using it! In this hands-on session, we will start with an existing Android and iOS application that &amp;ldquo;lives&amp;rdquo; in separate repositories, we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&amp;rsquo;ll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects.</description>
+    </item>
+    
   </channel>
 </rss>
