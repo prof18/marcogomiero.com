@@ -1,5 +1,5 @@
 ---
-date: 2024-03-012T15:45:00Z
+date: 2024-03-12T15:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition"
 location: "Appdevcon"
 performDate: 2024-03-14
