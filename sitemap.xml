@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-adi/</loc>
-    <lastmod>2024-03-07T15:45:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-appdevcon/</loc>
+    <lastmod>2024-03-12T15:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2024-03-07T15:45:00+00:00</lastmod>
+    <lastmod>2024-03-12T15:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2024-03-12T15:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-adi/</loc>
     <lastmod>2024-03-07T15:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-gdgvenezia/</loc>
@@ -371,8 +374,6 @@
     <loc>https://www.marcogomiero.com/about-me/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/categories/</loc>
-  </url><url>
-    <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-appdevcon/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/tags/</loc>
   </url>
