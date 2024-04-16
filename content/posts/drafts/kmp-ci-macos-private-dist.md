@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TODO KMP CI macOS Private dist"
+title:  "How to publish a Kotlin Multiplatform macOS app outside the App Store with GitHub Actions"
 date:   2024-04-07
 show_in_homepage: false
 draft: true
@@ -101,7 +101,7 @@ jobs:
         with:
           path: |
             ~/.konan
-          key: ${{ runner.os }}-v1-${{ hashFiles('*.gradle.kts') }}
+          key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
 
       # Developer ID Application
       - name: Import signing certificate

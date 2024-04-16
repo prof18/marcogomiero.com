@@ -1,14 +1,28 @@
 ---
 layout: post
-title:  "TODO KMP CI iOS"
+title:  "How to publish a Kotlin Multiplatform iOS app on the App Store with GitHub Actions"
 date:   2024-04-07
 show_in_homepage: false
 draft: true
 ---
 
+> **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
+>
+> - Part 1: [How to publish a Kotlin Multiplatform Android app on the Play Store with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-android)
+> - Part 2: How to publish a Kotlin Multiplatform iOS app on the App Store with GitHub Actions
+> - Part 3: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - *Coming soon*
+> - Part 4: How to publish a Kotlin Multiplatform macOS app outside the App Store with GitHub Actions - *Coming soon*
+
+It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
+
+To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).
+
+In this post, I will show how to deploy a Kotlin Multiplatform Android app on the iOS App Store. This post is part of a series dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and on GitHub releases for distributing a macOS app outside the App Store. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
 
 
-Other stuff for the CI
+
+
+
 
 ## Signing Certificated
 
@@ -121,7 +135,7 @@ jobs:
         with:
           path: |
             ~/.konan
-          key: ${{ runner.os }}-v1-${{ hashFiles('*.gradle.kts') }}
+          key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
 
       - name: Create Firebase Plist
         run: |
