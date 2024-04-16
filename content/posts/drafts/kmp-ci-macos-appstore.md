@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TODO KMP CI macOS App Store"
+title:  "How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions"
 date:   2024-04-07
 show_in_homepage: false
 draft: true
@@ -117,7 +117,7 @@ jobs:
         with:
           path: |
             ~/.konan
-          key: ${{ runner.os }}-v1-${{ hashFiles('*.gradle.kts') }}
+          key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
 
       - name: Import Mac App Distribution and Installer certificate
         uses: apple-actions/import-codesign-certs@v2
