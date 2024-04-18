@@ -177,7 +177,7 @@ To do so, any file can be encoded with `base64` and saved inside a GitHub secret
 base64 -i myfile.extension
 ```
 
-Then, the GitHub action can decode the content and create the file. For example, here's the step for the Firebase configuration:
+Then, the GitHub action can decode the content and create the file. For example, here's the step for the Firebase JSON configuration:
 
 ```yml
 - name: Create Firebase json
