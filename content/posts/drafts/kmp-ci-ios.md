@@ -17,10 +17,118 @@ It's been almost a year since I started working on [FeedFlow](https://www.feedfl
 
 To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).
 
-In this post, I will show how to deploy a Kotlin Multiplatform Android app on the iOS App Store. This post is part of a series dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and on GitHub releases for distributing a macOS app outside the App Store. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
+In this post, I will show how to deploy a Kotlin Multiplatform iOS app on the iOS App Store. This post is part of a series dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and on GitHub releases for distributing a macOS app outside the App Store. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
 
+## Triggers
 
+A trigger is necessary to trigger the GitHub Action. I've decided to trigger a new release when I add a tag that ends with the platform name, in this case, `-ios`. So, for example, a tag would be `0.0.1-ios`.
 
+```yml
+on:
+  push:
+    tags:
+      - '*-ios'
+```
+
+In this way, I can be more flexible when making platform-independent releases.
+
+## Gradle and JDK setup
+
+The first part of the pipeline involves cloning the repo and setting up the infrastructure: JDK and Gradle.
+
+### Clone the repository
+
+The `actions/checkout` action can be used to clone the repository:
+
+```yml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+```
+
+### Set Xcode version 
+
+// TODO
+
+```yml
+  - uses: maxim-lobanov/setup-xcode@v1
+    with:
+      xcode-version: latest-stable
+```
+
+### JDK Setup
+
+The `actions/setup-java` action can be used to set up a desired JDK. I want the `zulu` distribution and version 18 in this case.
+
+```yml
+- name: set up JDK
+  uses: actions/setup-java@v4
+  with:
+    distribution: 'zulu'
+    java-version: 18
+```
+
+### Gradle Setup
+
+The `gradle/actions/setup-gradle` action can be used to set up Gradle with its cache.
+
+In the action, I'm using two parameters: `gradle-home-cache-cleanup` and `cache-encryption-key`.
+
+The `gradle-home-cache-cleanup` parameter will enable a feature that will try to delete any files in the Gradle User Home that were not used by Gradle during the GitHub Actions Workflow before saving the cache. In this way, some space can be saved. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#remove-unused-files-from-gradle-user-home-before-saving-to-the-cache).
+
+Instead, the `cache-encryption-key` parameter provides an encryption key from the GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
+
+```yml
+- uses: gradle/actions/setup-gradle@v3
+  with:
+    gradle-home-cache-cleanup: true
+    cache-encryption-key: ${{ secrets.GRADLE_CACHE_ENCRYPTION_KEY }}
+```
+
+### Kotlin Native setup
+
+When compiling a Kotlin Multiplatform project that also targets Kotlin Native, some required components will be downloaded in the `$USER_HOME/.konan` directory. Kotlin Native will also create and use some cache in this directory.
+
+```bash
+├── .konan
+│   ├── cache
+│   ├── dependencies
+│   └── kotlin-native-prebuilt-macos-aarch64-1.9.23
+```
+
+Caching that directory will avoid redownloading and unnecessary computation. The `actions/cache` action can be used to do so.
+
+The action requires a key to identify the cache uniquely; in this case, the key will be a hash of the version catalog file since the Kotlin version number is stored there:
+
+```yml
+- name: Cache KMP tooling
+  uses: actions/cache@v4
+  with:
+    path: |
+      ~/.konan
+    key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
+```
+
+## [Optional] Firebase configuration or other secrets
+
+GitHub secrets can be leveraged to store any sensitive stuff or configuration that can't be exposed to version control.
+
+To do so, any file can be encoded with `base64` and saved inside a GitHub secret.
+
+```bash
+base64 -i myfile.extension
+```
+
+Then, the GitHub action can decode the content and create the file. For example, here's the step for the Firebase plist configuration:
+
+```yml
+  - name: Create Firebase Plist
+    run: |
+      echo "$FIREBASE_PLIST" > iosApp/GoogleService-Info.plist.b64
+      base64 -d -i iosApp/GoogleService-Info.plist.b64 > iosApp/GoogleService-Info.plist
+    env:
+      FIREBASE_PLIST: ${{ secrets.FIREBASE_PLIST }}
+```
 
 
 
