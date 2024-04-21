@@ -225,7 +225,7 @@ The `publishBundle` Gradle command can be used to upload the app on the Play Con
 
 ## Conclusions
 
-And that's all the steps required to automatically publish an app on the Play Console with a GitHub Action.
+And that's all the steps required to automatically publish a Kotlin Multiplatform Android app on the Play Console with a GitHub Action.
 
 Here's the entire GitHub Action for reference:
 
@@ -295,4 +295,4 @@ jobs:
         run: ./gradlew :androidApp:bundleRelease :androidApp:publishBundle
 ```
 
-You can check the action [on GitHub ](https://github.com/prof18/feed-flow/blob/main/.github/workflows/android-alpha-release.yaml)
+You can check the action [on GitHub](https://github.com/prof18/feed-flow/blob/main/.github/workflows/android-alpha-release.yaml)
