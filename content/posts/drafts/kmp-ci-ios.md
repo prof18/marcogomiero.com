@@ -48,7 +48,7 @@ The `actions/checkout` action can be used to clone the repository:
 
 ### Set Xcode version 
 
-// TODO
+The `maxim-lobanov/setup-xcode` action can be used to setup the desired Xcode version. I'm setting it explicitily because sometime it happens that a specific version of Xcode is required.  
 
 ```yml
   - uses: maxim-lobanov/setup-xcode@v1
@@ -132,7 +132,7 @@ Then, the GitHub action can decode the content and create the file. For example,
 
 
 
-## Signing Certificated
+## Signing Certificates
 
 Certificates for code sign. Use the import-codesign-certs action to import certificate exported in base 64 in the p12 format. The p12 format requires a password to unpack the certificate
     
@@ -157,7 +157,7 @@ transform the certificates to base64 with
 `base64 -i certificate.p12`
     
 
-## Provision profiles
+## Provisioning profile
 
 use the download-provisioning-profiles action
 
@@ -190,22 +190,113 @@ Create `App Store Connect` Provisioning Profile: https://developer.apple.com/acc
 just copy the command
 
 
+```yml
+  - name: build archive
+    env:
+      PROJECT_DIR: iosApp
+      SCHEME: FeedFlow
+      CONFIGURATION: Release
+      SDK: iphoneos
+    run: |
+      cd ${PROJECT_DIR}
+      
+      xcrun xcodebuild \
+        -scheme "${SCHEME}" \
+        -configuration "${CONFIGURATION}" \
+        -sdk "${SDK}" \
+        -parallelizeTargets \
+        -showBuildTimingSummary \
+        -disableAutomaticPackageResolution \
+        -derivedDataPath "${RUNNER_TEMP}/Build/DerivedData" \
+        -archivePath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive" \
+        -resultBundlePath "${RUNNER_TEMP}/Build/Artifacts/${SCHEME}.xcresult" \
+        -destination "generic/platform=iOS" \
+        DEVELOPMENT_TEAM="${{ secrets.APPSTORE_TEAM_ID }}" \
+        PRODUCT_BUNDLE_IDENTIFIER="${{ secrets.BUNDLE_ID }}" \
+        CODE_SIGN_STYLE="Manual" \
+        PROVISIONING_PROFILE_SPECIFIER="${{ secrets.DEV_PROVISIONING_PROFILE_NAME }}" \
+        archive
+```
+
+
 ## Need ExportOptions.plist
 
 specifies how the app should be exported. export method, team ID, and provisioning profiles.
+
+
+
+```yml
+  - name: "Generate ExportOptions.plist"
+    run: |
+      cat <<EOF > ${RUNNER_TEMP}/Build/ExportOptions.plist
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>destination</key>
+          <string>export</string>
+          <key>method</key>
+          <string>app-store</string>
+          <key>signingStyle</key>
+          <string>manual</string>
+          <key>generateAppStoreInformation</key>
+          <true/>
+          <key>stripSwiftSymbols</key>
+          <true/>
+          <key>teamID</key>
+          <string>${{ secrets.APPSTORE_TEAM_ID }}</string>
+          <key>uploadSymbols</key>
+          <true/>
+          <key>provisioningProfiles</key>
+          <dict>
+            <key>${{ secrets.BUNDLE_ID }}</key>
+            <string>${{ secrets.DIST_PROVISIONING_PROFILE_NAME }}</string>
+          </dict>
+        </dict>
+      </plist>
+      EOF
+```
 
 ## Export archive and generate IPA
 
 just copy the command  
 
     
+```yml
+  - id: export_archive
+    name: export archive
+    env:
+      SCHEME: FeedFlow
+    run: |
+      xcrun xcodebuild \
+        -exportArchive \
+        -exportOptionsPlist "${RUNNER_TEMP}/Build/ExportOptions.plist" \
+        -archivePath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive" \
+        -exportPath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive/${SCHEME}.ipa" \
+        PRODUCT_BUNDLE_IDENTIFIER="${{ secrets.BUNDLE_ID }}"
+      
+      echo "ipa_path=${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive/${SCHEME}.ipa/${SCHEME}.ipa" >> $GITHUB_OUTPUT
+```    
+    
 ## Upload on testflight    
     
 to upload on testflight, need stuff created on the provision step
-     
+
+```yml
+  - uses: Apple-Actions/upload-testflight-build@v1
+    with:
+      app-path: ${{ steps.export_archive.outputs.ipa_path }}
+      issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+      api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+```     
      
     
-https://github.com/prof18/feed-flow/blob/main/.github/workflows/ios-testflight-release.yaml    
+## Conclusions
+
+And that's all the steps required to automatically publish a Kotlin Multiplatform iOS app on TestFlight with a GitHub Action.
+
+Here's the entire GitHub Action for reference:
     
 ```yml
 name: iOS TestFlight Release
@@ -344,4 +435,4 @@ jobs:
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 ```
      
-     
+You can check the action [on GitHub](https://github.com/prof18/feed-flow/blob/main/.github/workflows/ios-testflight-release.yaml)     
