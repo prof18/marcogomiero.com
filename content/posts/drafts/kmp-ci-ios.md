@@ -48,13 +48,15 @@ The `actions/checkout` action can be used to clone the repository:
 
 ### Set Xcode version 
 
-The `maxim-lobanov/setup-xcode` action can be used to setup the desired Xcode version. I'm setting it explicitily because sometime it happens that a specific version of Xcode is required.  
+The `maxim-lobanov/setup-xcode` action can be used to set the Xcode version:
 
 ```yml
   - uses: maxim-lobanov/setup-xcode@v1
     with:
       xcode-version: latest-stable
 ```
+
+I prefer to explicitly set the version to ensure that I am prepared for any future changes that may require a specific version different from the default provided by GitHub runners.
 
 ### JDK Setup
 
@@ -130,34 +132,31 @@ Then, the GitHub action can decode the content and create the file. For example,
       FIREBASE_PLIST: ${{ secrets.FIREBASE_PLIST }}
 ```
 
+## Setup signing certificates
+
+Every iOS application must be signed to be distributed in the app store. The certificates required to sign an iOS application for distribution are called `Apple development` and `Apple distribution`. Those certificates can be generated and downloaded from [the Apple Developer website](https://developer.apple.com/account/resources/certificates/add) by uploading a Certificate Signing Request. 
+
+This request can be obtained from the Keychain app on macOS by opening the menu `Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority`. In the form that will appear, an email must be added, and the `Save to disk` option must be selected. The CA Email address field can be blank instead because the request will be saved on the disk. More information can be found [in the Apple documentation](https://support.apple.com/en-am/guide/keychain-access/kyca2793/mac).
+
+The certificates can be imported into GitHub Action by using the `p12` format, an archive file format for storing many cryptography objects as a single file ([Wikipedia](https://en.wikipedia.org/wiki/PKCS_12)). 
+
+The Keychain app can be used to generate the `p12` file. After downloading the certificates, they must be imported into the Keychain app. Once imported, the certificates can be easily exported by selecting them in the Keychain, right-clicking, and selecting the `Export 2 items…` option. A password will be used to encrypt the `p12` file.
+
+The `import-codesign-certs` action can be used to import the certificate in the `p12` format. To do so, the `p12` file must be encoded in `base64` (as described in the section above) and uploaded into GitHub secrets along with the decryption password.
+
+```yml
+  - name: import certs
+    uses: apple-actions/import-codesign-certs@v2
+    with:
+      p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+      p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+```      
 
 
-## Signing Certificates
+## Setup Provisioning profile
 
-Certificates for code sign. Use the import-codesign-certs action to import certificate exported in base 64 in the p12 format. The p12 format requires a password to unpack the certificate
-    
+A provisioning profile is required to distribute an iOS app besides signing the app. The provisioning profile ensures that a trusted developer in the Apple Developer Program created and signed the app. This measure prevents unauthorized apps from being used because iOS validates the provisioning profile to ensure that it has been signed with a legitimate certificate from the developer's account. 
 
-    Create a new certificate:
-    
-    - Apple development 
-    - Apple distribution
-
-To create the certificate, you need a Certificate Signing Request. You can create it from the keychain
-
-https://support.apple.com/guide/keychain-access/request-a-certificate-authority-kyca2793/mac
-
-put your email and select the "Saved to disk" option. Leave the CA Email Address field empty.
-
-On the apple website, https://developer.apple.com/account/resources/certificates/add you can upload the request and create the certificates you need. 
-
-    
-download then, add in the macos keychain and then export both of them. Select them, right click, "Export 2 items..", store it on you device and give them a password that you will use next also on the Ci
-    
-transform the certificates to base64 with 
-`base64 -i certificate.p12`
-    
-
-## Provisioning profile
 
 use the download-provisioning-profiles action
 
@@ -167,10 +166,10 @@ use the download-provisioning-profiles action
 used with the app store connect api, you need 
  *App Store Connect API* https://appstoreconnect.apple.com/access/integrations/api
  
- . Store Issuer ID in GitHub Secret: `APPSTORE_ISSUER_ID`
-1. Generate API Key with Access `App Manager`
-1. Store Key ID in GitHub Secret: `APPSTORE_KEY_ID`
-1. Store Private Key in GitHub Secret: `APPSTORE_PRIVATE_KEY`
+1. Store Issuer ID in GitHub Secret: `APPSTORE_ISSUER_ID`
+2. Generate API Key with Access `App Manager`
+3. Store Key ID in GitHub Secret: `APPSTORE_KEY_ID`
+4. Store Private Key in GitHub Secret: `APPSTORE_PRIVATE_KEY`
 
 you need also app id of the app, you can find it 
 
@@ -185,6 +184,16 @@ Create `App Store Connect` Provisioning Profile: https://developer.apple.com/acc
  Store the name of the provisioning profile in GitHub Secret: `DIST_PROVISIONING_PROFILE_NAME`
  
  
+```yml
+  - name: download provisioning profiles
+    uses: apple-actions/download-provisioning-profiles@v2
+    with:
+      bundle-id: ${{ secrets.BUNDLE_ID }}
+      issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+      api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+```
+ 
 ## Build the thing
 
 just copy the command
@@ -192,24 +201,19 @@ just copy the command
 
 ```yml
   - name: build archive
-    env:
-      PROJECT_DIR: iosApp
-      SCHEME: FeedFlow
-      CONFIGURATION: Release
-      SDK: iphoneos
     run: |
-      cd ${PROJECT_DIR}
+      cd iosApp
       
       xcrun xcodebuild \
-        -scheme "${SCHEME}" \
-        -configuration "${CONFIGURATION}" \
-        -sdk "${SDK}" \
+        -scheme "FeedFlow" \
+        -configuration "Release" \
+        -sdk "iphoneos" \
         -parallelizeTargets \
         -showBuildTimingSummary \
         -disableAutomaticPackageResolution \
         -derivedDataPath "${RUNNER_TEMP}/Build/DerivedData" \
-        -archivePath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive" \
-        -resultBundlePath "${RUNNER_TEMP}/Build/Artifacts/${SCHEME}.xcresult" \
+        -archivePath "${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive" \
+        -resultBundlePath "${RUNNER_TEMP}/Build/Artifacts/FeedFlow.xcresult" \
         -destination "generic/platform=iOS" \
         DEVELOPMENT_TEAM="${{ secrets.APPSTORE_TEAM_ID }}" \
         PRODUCT_BUNDLE_IDENTIFIER="${{ secrets.BUNDLE_ID }}" \
@@ -219,11 +223,9 @@ just copy the command
 ```
 
 
-## Need ExportOptions.plist
+## Generate export options plist file
 
-specifies how the app should be exported. export method, team ID, and provisioning profiles.
-
-
+To produce the application archive, specific parameters, such as the export method, team ID, and provisioning profiles, must be defined. These parameters can be provided through a `plist` file. To prevent these details from being included directly in the source control, the `plist` file can be generated dynamically by incorporating the necessary data from GitHub secrets. The file will be saved in the directory where the compiled code is stored, as specified in the previous section. In this case, `${RUNNER_TEMP}/Build`.
 
 ```yml
   - name: "Generate ExportOptions.plist"
@@ -265,17 +267,15 @@ just copy the command
 ```yml
   - id: export_archive
     name: export archive
-    env:
-      SCHEME: FeedFlow
     run: |
       xcrun xcodebuild \
         -exportArchive \
         -exportOptionsPlist "${RUNNER_TEMP}/Build/ExportOptions.plist" \
-        -archivePath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive" \
-        -exportPath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive/${SCHEME}.ipa" \
+        -archivePath "${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive" \
+        -exportPath "${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive" \
         PRODUCT_BUNDLE_IDENTIFIER="${{ secrets.BUNDLE_ID }}"
       
-      echo "ipa_path=${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive/${SCHEME}.ipa/${SCHEME}.ipa" >> $GITHUB_OUTPUT
+      echo "ipa_path=${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive/FeedFlow.ipa" >> $GITHUB_ENV
 ```    
     
 ## Upload on testflight    
@@ -285,7 +285,7 @@ to upload on testflight, need stuff created on the provision step
 ```yml
   - uses: Apple-Actions/upload-testflight-build@v1
     with:
-      app-path: ${{ steps.export_archive.outputs.ipa_path }}
+      app-path: ${{ env.ipa_path }}
       issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
       api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
       api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
@@ -312,29 +312,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
           
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
 
-      - name: set up JDK
-        uses: actions/setup-java@v4
+      - name: Setup Gradle
+        uses: ./.github/actions/setup-gradle
         with:
-          distribution: 'zulu'
-          java-version: 18
-
-      - uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-home-cache-cleanup: true
-          cache-encryption-key: ${{ secrets.GRADLE_CACHE_ENCRYPTION_KEY }}                
-
-      - name: Cache KMP tooling
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.konan
-          key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
+          gradle-cache-encryption-key: ${{ secrets.GRADLE_CACHE_ENCRYPTION_KEY }}
 
       - name: Create Firebase Plist
         run: |
@@ -358,24 +345,19 @@ jobs:
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
       - name: build archive
-        env:
-          PROJECT_DIR: iosApp
-          SCHEME: FeedFlow
-          CONFIGURATION: Release
-          SDK: iphoneos
         run: |
-          cd ${PROJECT_DIR}
+          cd iosApp
           
           xcrun xcodebuild \
-            -scheme "${SCHEME}" \
-            -configuration "${CONFIGURATION}" \
-            -sdk "${SDK}" \
+            -scheme "FeedFlow" \
+            -configuration "Release" \
+            -sdk "iphoneos" \
             -parallelizeTargets \
             -showBuildTimingSummary \
             -disableAutomaticPackageResolution \
             -derivedDataPath "${RUNNER_TEMP}/Build/DerivedData" \
-            -archivePath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive" \
-            -resultBundlePath "${RUNNER_TEMP}/Build/Artifacts/${SCHEME}.xcresult" \
+            -archivePath "${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive" \
+            -resultBundlePath "${RUNNER_TEMP}/Build/Artifacts/FeedFlow.xcresult" \
             -destination "generic/platform=iOS" \
             DEVELOPMENT_TEAM="${{ secrets.APPSTORE_TEAM_ID }}" \
             PRODUCT_BUNDLE_IDENTIFIER="${{ secrets.BUNDLE_ID }}" \
@@ -415,21 +397,19 @@ jobs:
 
       - id: export_archive
         name: export archive
-        env:
-          SCHEME: FeedFlow
         run: |
           xcrun xcodebuild \
             -exportArchive \
             -exportOptionsPlist "${RUNNER_TEMP}/Build/ExportOptions.plist" \
-            -archivePath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive" \
-            -exportPath "${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive/${SCHEME}.ipa" \
+            -archivePath "${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive" \
+            -exportPath "${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive" \
             PRODUCT_BUNDLE_IDENTIFIER="${{ secrets.BUNDLE_ID }}"
           
-          echo "ipa_path=${RUNNER_TEMP}/Build/Archives/${SCHEME}.xcarchive/${SCHEME}.ipa/${SCHEME}.ipa" >> $GITHUB_OUTPUT
+          echo "ipa_path=${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive/FeedFlow.ipa" >> $GITHUB_ENV
 
       - uses: Apple-Actions/upload-testflight-build@v1
         with:
-          app-path: ${{ steps.export_archive.outputs.ipa_path }}
+          app-path: ${{ env.ipa_path }}
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
