@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform iOS app on the App Store with GitHub Actions"
-date:   2024-04-07
+date:   2024-05-07
 show_in_homepage: false
 draft: true
 ---
@@ -10,14 +10,14 @@ draft: true
 >
 > - Part 1: [How to publish a Kotlin Multiplatform Android app on the Play Store with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-android)
 > - Part 2: How to publish a Kotlin Multiplatform iOS app on the App Store with GitHub Actions
-> - Part 3: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - *Coming soon*
-> - Part 4: How to publish a Kotlin Multiplatform macOS app outside the App Store with GitHub Actions - *Coming soon*
+> - Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - *Coming soon* 
+> - Part 4: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - *Coming soon*
 
 It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
 
 To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).
 
-In this post, I will show how to deploy a Kotlin Multiplatform iOS app on the iOS App Store. This post is part of a series dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and on GitHub releases for distributing a macOS app outside the App Store. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
+In this post, I will show how to deploy a Kotlin Multiplatform iOS app on the iOS App Store. This post is part of a series dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and GitHub releases for distributing a macOS app outside the App Store. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
 
 ## Triggers
 
@@ -56,7 +56,7 @@ The `maxim-lobanov/setup-xcode` action can be used to set the Xcode version:
       xcode-version: latest-stable
 ```
 
-I prefer to explicitly set the version to ensure that I am prepared for any future changes that may require a specific version different from the default provided by GitHub runners.
+I prefer to explicitly set the version to ensure that I'm ready for any future changes that may require a specific version different from the default provided by GitHub runners.
 
 ### JDK Setup
 
@@ -136,13 +136,13 @@ Then, the GitHub action can decode the content and create the file. For example,
 
 Every iOS application must be signed to be distributed in the app store. The certificates required to sign an iOS application for distribution are called `Apple development` and `Apple distribution`. Those certificates can be generated and downloaded from [the Apple Developer website](https://developer.apple.com/account/resources/certificates/add) by uploading a Certificate Signing Request. 
 
-This request can be obtained from the Keychain app on macOS by opening the menu `Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority`. In the form that will appear, an email must be added, and the `Save to disk` option must be selected. The CA Email address field can be blank instead because the request will be saved on the disk. More information can be found [in the Apple documentation](https://support.apple.com/en-am/guide/keychain-access/kyca2793/mac).
+This request can be obtained from the Keychain app on macOS by opening the menu `Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority`. An email must be added to the form that will appear, and the `Save to disk` option must be selected. The CA Email address field can be blank because the request will be saved on the disk. More information can be found [in the Apple documentation](https://support.apple.com/en-am/guide/keychain-access/kyca2793/mac).
 
 The certificates can be imported into GitHub Action by using the `p12` format, an archive file format for storing many cryptography objects as a single file ([Wikipedia](https://en.wikipedia.org/wiki/PKCS_12)). 
 
 The Keychain app can be used to generate the `p12` file. After downloading the certificates, they must be imported into the Keychain app. Once imported, the certificates can be easily exported by selecting them in the Keychain, right-clicking, and selecting the `Export 2 items…` option. A password will be used to encrypt the `p12` file.
 
-The `import-codesign-certs` action can be used to import the certificate in the `p12` format. To do so, the `p12` file must be encoded in `base64` (as described in the section above) and uploaded into GitHub secrets along with the decryption password.
+The `import-codesign-certs` action can be used to import the certificate in the `p12` format. To do so, the `p12` file must be encoded in `base64` (as described in the section above), and the content must be uploaded into GitHub secrets along with the decryption password.
 
 ```yml
   - name: import certs
@@ -153,37 +153,23 @@ The `import-codesign-certs` action can be used to import the certificate in the 
 ```      
 
 
-## Setup Provisioning profile
+## Setup provisioning profile
 
 A provisioning profile is required to distribute an iOS app besides signing the app. The provisioning profile ensures that a trusted developer in the Apple Developer Program created and signed the app. This measure prevents unauthorized apps from being used because iOS validates the provisioning profile to ensure that it has been signed with a legitimate certificate from the developer's account. 
 
+Two provisioning profiles are required: one for building the app and one for distributing it. The former is called `iOS App Development` while the latter is called `App Store Connect`. Those profiles can be created on the [Apple Developer Website](https://developer.apple.com/account/resources/profiles/add).
 
-use the download-provisioning-profiles action
+The `App ID` is required to create a provisioning profile. If it has not been created (Xcode might already have created one automatically), it can be done on the [Apple Developer Website](https://developer.apple.com/account/resources/identifiers/add/bundleId).
 
+Once the provisioning profiles are created, they can be downloaded with the `apple-actions/download-provisioning-profiles` action. This action retrieves the profiles using the [App Store Connect API](https://developer.apple.com/documentation/appstoreconnectapi). To do so, it's necessary to create an API key with the `App Manager` access in the [App Store Connect website](https://appstoreconnect.apple.com/access/integrations/api).
 
-> the profile verifies that the app is built by a legitimate developer enrolled in the Apple Developer Program. This helps prevent unauthorized apps from running on iPhones and iPads. iOS checks the provisioning profile to confirm it's signed with a valid certificate from your developer account. This ensures the app's integrity and authenticity.
+The action requires the following data that can be saved inside GitHub secrets:
 
-used with the app store connect api, you need 
- *App Store Connect API* https://appstoreconnect.apple.com/access/integrations/api
- 
-1. Store Issuer ID in GitHub Secret: `APPSTORE_ISSUER_ID`
-2. Generate API Key with Access `App Manager`
-3. Store Key ID in GitHub Secret: `APPSTORE_KEY_ID`
-4. Store Private Key in GitHub Secret: `APPSTORE_PRIVATE_KEY`
+- bundle ID of the app;
+- issuer ID, which identifies the issuer who created the authentication token (it can be found on the App Store connect page mentioned above);
+- key ID of the API (it can be found on the App Store connect page mentioned above); 
+- private key of the API (it can be downloaded when creating the API key)
 
-you need also app id of the app, you can find it 
-
-Create Identifier for *App IDs* https://developer.apple.com/account/resources/identifiers/list
-
-Create `iOS App Development` Provisioning Profile: https://developer.apple.com/account/resources/profiles/add
-
-Store the name of the provisioning profile in GitHub Secret: `DEV_PROVISIONING_PROFILE_NAME`
-
-Create `App Store Connect` Provisioning Profile: https://developer.apple.com/account/resources/profiles/add
-
- Store the name of the provisioning profile in GitHub Secret: `DIST_PROVISIONING_PROFILE_NAME`
- 
- 
 ```yml
   - name: download provisioning profiles
     uses: apple-actions/download-provisioning-profiles@v2
@@ -194,10 +180,21 @@ Create `App Store Connect` Provisioning Profile: https://developer.apple.com/acc
       api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 ```
  
-## Build the thing
+## Build the app
 
-just copy the command
+The `xcodebuild` command line tool can be used to build the iOS app. The command requires some arguments that can be hardcoded directly or provided through GitHub secrets, depending on the level of sensitivity:
 
+- scheme: the app's scheme;
+- configuration, `Release`;
+- SDK: `iphoneos`;
+- Derived data path: `${RUNNER_TEMP}/Build/DerivedData` (the environmental variables `${RUNNER_TEMP}` points to a temporary folder created by the action runner);
+- archive path: `${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive`;
+- result bundle path: `${RUNNER_TEMP}/Build/Artifacts/FeedFlow.xcresult`;
+- device destination: `generic/platform=iOS` for app store distribution;
+- `DEVELOPMENT_TEAM`: team ID;
+- `PRODUCT_BUNDLE_IDENTIFIER`: bundle ID of the app;
+- `CODE_SIGN_STYLE`: `Manual`, as signing is performed manually with `xcodebuild`;
+- `PROVISIONING_PROFILE_SPECIFIER,`: name of the `iOS App Development` provisioning profile chosen when creating it. 
 
 ```yml
   - name: build archive
@@ -222,10 +219,9 @@ just copy the command
         archive
 ```
 
-
 ## Generate export options plist file
 
-To produce the application archive, specific parameters, such as the export method, team ID, and provisioning profiles, must be defined. These parameters can be provided through a `plist` file. To prevent these details from being included directly in the source control, the `plist` file can be generated dynamically by incorporating the necessary data from GitHub secrets. The file will be saved in the directory where the compiled code is stored, as specified in the previous section. In this case, `${RUNNER_TEMP}/Build`.
+Specific parameters, such as the export method, team ID, and the name of the `App Store Connect` provisioning profile, must be defined to produce the application archive. These parameters can be provided through a `plist` file. The `plist` file can be generated dynamically by incorporating the necessary data from GitHub secrets to prevent these details from being included directly in the source control. The file will be saved in the directory where the compiled code is stored, as specified in the previous section. In this case, `${RUNNER_TEMP}/Build`.
 
 ```yml
   - name: "Generate ExportOptions.plist"
@@ -259,10 +255,16 @@ To produce the application archive, specific parameters, such as the export meth
       EOF
 ```
 
-## Export archive and generate IPA
+## Generate IPA for distribution
 
-just copy the command  
+The `xcodebuild` command line tool can be used to generate the archive (IPA) that will be uploaded on the App Store. The command requires some arguments that can be hardcoded directly or provided through GitHub secrets, depending on the level of sensitivity:
 
+- export option plist path defined in the previous step: `${RUNNER_TEMP}/Build/ExportOptions.plist`;
+- archive path defined in the building step: `${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive`;
+- export path: `${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive`;
+- `PRODUCT_BUNDLE_IDENTIFIER`: bundle ID of the app.
+
+The IPA will be saved in the following path: `${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive/FeedFlow.ipa`. This information can be stored on GitHub environmental variables to be used in the final step of the action. 
     
 ```yml
   - id: export_archive
@@ -278,9 +280,11 @@ just copy the command
       echo "ipa_path=${RUNNER_TEMP}/Build/Archives/FeedFlow.xcarchive/FeedFlow.ipa" >> $GITHUB_ENV
 ```    
     
-## Upload on testflight    
+## Upload on TestFlight 
+
+An iOS app can be uploaded to the App Store through [TestFlight](https://developer.apple.com/testflight/). The upload can be performed with the `upload-testflight-build` action.
     
-to upload on testflight, need stuff created on the provision step
+As for the provisioning profile, this action uses the [App Store Connect API](https://developer.apple.com/documentation/appstoreconnectapi) to communicate with TestFlight. For this reason, the action requires the same issuer ID, key ID, and private key used in the provisioning step. Additionally, it requires the path of the IPA archive, which can provided by GitHub environmental variables. 
 
 ```yml
   - uses: Apple-Actions/upload-testflight-build@v1
@@ -291,10 +295,9 @@ to upload on testflight, need stuff created on the provision step
       api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 ```     
      
-    
 ## Conclusions
 
-And that's all the steps required to automatically publish a Kotlin Multiplatform iOS app on TestFlight with a GitHub Action.
+And that's all the steps required to automatically publish a Kotlin Multiplatform iOS app on the App Store with a GitHub Action.
 
 Here's the entire GitHub Action for reference:
     
@@ -415,4 +418,4 @@ jobs:
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 ```
      
-You can check the action [on GitHub](https://github.com/prof18/feed-flow/blob/main/.github/workflows/ios-testflight-release.yaml)     
+You can check the action [on GitHub](https://github.com/prof18/feed-flow/blob/main/.github/workflows/ios-testflight-release.yaml)

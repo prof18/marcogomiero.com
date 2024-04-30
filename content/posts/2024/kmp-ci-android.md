@@ -1,19 +1,19 @@
 ---
 layout: post
 title: "How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions"
-date:   2024-04-07
-show_in_homepage: false
-draft: true
+date:   2024-04-30
+show_in_homepage: true
 ---
 
 > **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
 >
-> - Part 1: How to publish a Kotlin Multiplatform Android app on the Play Store with GitHub Actions
-> - Part 2: How to publish a Kotlin Multiplatform iOS app on the App Store with GitHub Actions - *Coming soon*
-> - Part 3: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - *Coming soon*
-> - Part 4: How to publish a Kotlin Multiplatform macOS app outside the App Store with GitHub Actions - *Coming soon*
+> - Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions
+> - Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions - *Coming soon* 
+> - Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - *Coming soon* 
+> - Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - *Coming soon*
 
-It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
+
+It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), a RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
 
 To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).
 
@@ -36,7 +36,7 @@ In this way, I can be more flexible when making platform-independent releases.
 
 ## Gradle and JDK setup
 
-The first part of the pipeline involves cloning the repo and setting up the infrastructure: JDK and Gradle.
+The first part of the pipeline involves cloning the repo and setting up the infrastructure.
 
 ### Clone the repository
 
@@ -50,7 +50,7 @@ The `actions/checkout` action can be used to clone the repository:
 
 ### JDK Setup
 
-The `actions/setup-java` action can be used to set up a desired JDK. I want the `zulu` distribution and version 18 in this case.
+The `actions/setup-java` action can be used to set up a desired JDK. In this case, I want the `zulu` distribution and version 18.
 
 ```yml
 - name: set up JDK
@@ -68,7 +68,7 @@ In the action, I'm using two parameters: `gradle-home-cache-cleanup` and `cache-
 
 The `gradle-home-cache-cleanup` parameter will enable a feature that will try to delete any files in the Gradle User Home that were not used by Gradle during the GitHub Actions Workflow before saving the cache. In this way, some space can be saved. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#remove-unused-files-from-gradle-user-home-before-saving-to-the-cache).
 
-Instead, the `cache-encryption-key` parameter provides an encryption key from the GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
+Instead, the `cache-encryption-key` parameter provides an encryption key from GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
 
 ```yml
 - uses: gradle/actions/setup-gradle@v3
@@ -203,9 +203,9 @@ play {
 
 In the plugin configuration, I also specify that I want to upload the APK on the Alpha track of the Play Console. The plugin is very customizable, and all the possibilities can be found [in the documentation](https://github.com/Triple-T/gradle-play-publisher?tab=readme-ov-file#common-configuration).
 
-N.B. The first version on the Play Console needs to be manually uploaded before using any automation.
+> N.B. The first version on the Play Console needs to be manually uploaded before using any automation.
 
-To provide the JSON in the GitHub Action, the method described in the previous section can be used: the content of the JSON will be stored in the GitHub secrets encoded in base64.
+To provide the JSON in the GitHub Action, the method described [in the previous section](#optional-firebase-configuration-or-other-secrets) can be used: the content of the JSON will be stored in the GitHub secrets encoded in base64.
 
 ```yml
 - name: Create Google Play Config file
