@@ -13,17 +13,17 @@ show_in_homepage: true
 > - Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - *Coming soon*
 
 
-It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), a RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
+It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
 
-To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).
+To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app). 
 
-Today, I decided to start a series of posts dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and on GitHub releases for distributing a macOS app outside the App Store.
+Today, I'm starting a series of posts about the topic.
 
-In this post, I will show how to deploy a Kotlin Multiplatform Android app on Google Play. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
+In this post, I will show how to deploy a Kotlin Multiplatform Android app to Google Play. To keep up to date, you can check out the other posts of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
 
 ## Triggers
 
-A trigger is necessary to trigger the GitHub Action. I've decided to trigger a new release when I add a tag that ends with the platform name, in this case, `-android`. So, for example, a tag would be `0.0.1-android`.
+A trigger is necessary to start the GitHub Action. I've decided to trigger a new release when I add a tag that ends with the platform name, in this case, `-android`. So, for example, a tag would be `0.0.1-android`.
 
 ```yml
 on:
@@ -32,7 +32,7 @@ on:
       - '*-android'
 ```
 
-In this way, I can be more flexible when making platform-independent releases.
+This way, I can be more flexible when making platform-independent releases.
 
 ## Gradle and JDK setup
 
@@ -68,7 +68,7 @@ In the action, I'm using two parameters: `gradle-home-cache-cleanup` and `cache-
 
 The `gradle-home-cache-cleanup` parameter will enable a feature that will try to delete any files in the Gradle User Home that were not used by Gradle during the GitHub Actions Workflow before saving the cache. In this way, some space can be saved. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#remove-unused-files-from-gradle-user-home-before-saving-to-the-cache).
 
-Instead, the `cache-encryption-key` parameter provides an encryption key from GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
+The `cache-encryption-key` parameter provides an encryption key from GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
 
 ```yml
 - uses: gradle/actions/setup-gradle@v3
@@ -103,7 +103,7 @@ The action requires a key to identify the cache uniquely; in this case, the key 
 
 ## Setup Keystore
 
-Every release version of an Android app needs to be signed with a developer key. For security reasons, the [keystore](https://developer.android.com/studio/publish/app-signing#certificates-keystores) that contains certificates and private keys can't be publicly released, so a good approach is to save it inside GitHub secrets.
+Every release version of an Android app needs to be signed with a developer key. For security reasons, the [keystore](https://developer.android.com/studio/publish/app-signing#certificates-keystores) that contains certificates and private keys can't be publicly released, so storing it as a GitHub secret is a good approach
 
 A keystore, to be saved inside the secrets, needs to be in a "shareable and encrypted" format (ASCII-armor encrypted). This format can be generated with the following command and by providing a passphrase:
 
