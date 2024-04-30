@@ -6,31 +6,136 @@ show_in_homepage: false
 draft: true
 ---
 
-## Signing Certificated
+> **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
+>
+> - Part 1: [How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-android)
+> - Part 2: [How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-ios)
+> - Part 3: [How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases)
+> - Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions
 
-Certificates for code sign. Use the import-codesign-certs action to import certificate exported in base 64 in the p12 format. The p12 format requires a password to unpack the certificate
-    
+It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
 
-    Create a new certificate:
-    
-    - Mac App Distribution
-    - Mac Installer Distribution
+To be faster and "machine-agnostic" with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).
 
-To create the certificate, you need a Certificate Signing Request. You can create it from the keychain
+In this post, I will show how to deploy a Kotlin Multiplatform macOS app on the macOS App Store. This post is part of a series dedicated to setting up a CI for deploying a Kotlin Multiplatform app on Google Play, Apple App Store for iOS and macOS, and on GitHub releases for distributing a macOS app outside the App Store. To keep up to date, you can check out the other instances of the series in the index above or follow me on [Mastodon](https://androiddev.social/@marcogom) or [Twitter](https://twitter.com/marcoGomier).
 
-https://support.apple.com/guide/keychain-access/request-a-certificate-authority-kyca2793/mac
+This post won't cover the Gradle configuration required to create native distributions or any additional customizations required to deploy the app on the App Store. 
 
-put your email and select the "Saved to disk" option. Leave the CA Email Address field empty.
+More info is available on Compose Multiplatform documentation:
 
-On the apple website, https://developer.apple.com/account/resources/certificates/add you can upload the request and create the certificates you need. 
+> [Native distributions & local execution](https://github.com/JetBrains/compose-multiplatform/blob/master/tutorials/Native_distributions_and_local_execution/README.md)
 
-    
-download then, add in the macos keychain and then export both of them. Select them, right click, "Export 2 items..", store it on you device and give them a password that you will use next also on the Ci
-    
-transform the certificates to base64 with 
-`base64 -i certificate.p12`
+> [Signing and notarizing distributions for macOS - Configuring Gradle](https://github.com/JetBrains/compose-multiplatform/blob/master/tutorials/Signing_and_notarization_on_macOS/README.md#configuring-gradle)
+
+and in another article where I cover all the necessary things required to publish a macOS Compose app on the macOS App Store:
+
+> [TODO: title](https://www.marcogomiero.com/posts/2024/compose-macos-app-store)
+
+For reference, you can also check [FeedFlow's Gradle configuration](https://github.com/prof18/feed-flow/blob/main/desktopApp/build.gradle.kts).
+
+## Triggers
+
+A trigger is necessary to trigger the GitHub Action. I've decided to trigger a new release when I add a tag that ends with the platform name, in this case, `-desktop`. So, for example, a tag would be `0.0.1-desktop`.
+
+```yml
+on:
+  push:
+    tags:
+      - '*-desktop'
+```
+
+In this way, I can be more flexible when making platform-independent releases.
+
+## Gradle and JDK setup
+
+The first part of the pipeline involves cloning the repo and setting up the infrastructure: JDK and Gradle.
+
+### Clone the repository
+
+The `actions/checkout` action can be used to clone the repository:
+
+```yml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+```
+
+### JDK Setup
+
+The `actions/setup-java` action can be used to set up a desired JDK. I want the `zulu` distribution and version 18 in this case.
+
+```yml
+- name: set up JDK
+  uses: actions/setup-java@v4
+  with:
+    distribution: 'zulu'
+    java-version: 18
+```
+
+### Gradle Setup
+
+The `gradle/actions/setup-gradle` action can be used to set up Gradle with its cache.
+
+In the action, I'm using two parameters: `gradle-home-cache-cleanup` and `cache-encryption-key`.
+
+The `gradle-home-cache-cleanup` parameter will enable a feature that will try to delete any files in the Gradle User Home that were not used by Gradle during the GitHub Actions Workflow before saving the cache. In this way, some space can be saved. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#remove-unused-files-from-gradle-user-home-before-saving-to-the-cache).
+
+Instead, the `cache-encryption-key` parameter provides an encryption key from the GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
+
+```yml
+- uses: gradle/actions/setup-gradle@v3
+  with:
+    gradle-home-cache-cleanup: true
+    cache-encryption-key: ${{ secrets.GRADLE_CACHE_ENCRYPTION_KEY }}
+```
+
+### Kotlin Native setup
+
+When compiling a Kotlin Multiplatform project that also targets Kotlin Native, some required components will be downloaded in the `$USER_HOME/.konan` directory. Kotlin Native will also create and use some cache in this directory.
+
+```bash
+├── .konan
+│   ├── cache
+│   ├── dependencies
+│   └── kotlin-native-prebuilt-macos-aarch64-1.9.23
+```
+
+Caching that directory will avoid redownloading and unnecessary computation. The `actions/cache` action can be used to do so.
+
+The action requires a key to identify the cache uniquely; in this case, the key will be a hash of the version catalog file since the Kotlin version number is stored there:
+
+```yml
+- name: Cache KMP tooling
+  uses: actions/cache@v4
+  with:
+    path: |
+      ~/.konan
+    key: ${{ runner.os }}-v1-${{ hashFiles('*.versions.toml') }}
+```
+
+## Setup signing certificates
+
+Every macOS application must be signed to be distributed in the app store. The certificates required to sign a macOS application for distribution are called `Mac App Distribution` and `Mac Installer Distribution`. Those certificates can be generated and downloaded from [the Apple Developer website](https://developer.apple.com/account/resources/certificates/add) by uploading a Certificate Signing Request. 
+
+This request can be obtained from the Keychain app on macOS by opening the menu `Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority`. In the form that will appear, an email must be added, and the `Save to disk` option must be selected. The CA Email address field can be blank instead because the request will be saved on the disk. More information can be found [in the Apple documentation](https://support.apple.com/en-am/guide/keychain-access/kyca2793/mac).
+
+The certificates can be imported into GitHub Action by using the `p12` format, an archive file format for storing many cryptography objects as a single file ([Wikipedia](https://en.wikipedia.org/wiki/PKCS_12)). 
+
+The Keychain app can be used to generate the `p12` file. After downloading the certificates, they must be imported into the Keychain app. Once imported, the certificates can be easily exported by selecting them in the Keychain, right-clicking, and selecting the `Export 2 items…` option. A password will be used to encrypt the `p12` file.
+
+The `import-codesign-certs` action can be used to import the certificate in the `p12` format. To do so, the `p12` file must be encoded in `base64` (with the command `base64 -i myfile.extension`), and the content must be uploaded to GitHub secrets along with the decryption password.
+
+```yml
+  - name: import certs
+    uses: apple-actions/import-codesign-certs@v2
+    with:
+      p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+      p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+```      
     
 ## Provision Profile
+
+// TODO: copy stuff over from the ios article
 
 Required if you want to publish on test flight and app store
 
@@ -48,38 +153,85 @@ Go Distribution > Mac App Store Connect
 
 Create the two provision profiles, download them and 
 
-
 Make sure to rename your provisioning profile you created earlier to embedded.provisionprofile and the provisioning profile for the JVM runtime to runtime.provisionprofile.
 
 Do not create a guide on how to create them, but how to use them and point to the jetbrains docs
 
 https://github.com/JetBrains/compose-multiplatform/blob/master/tutorials/Signing_and_notarization_on_macOS/README.md
 
-maybe link also the article about sandboxing and stuff. 
+maybe link also the article about sandboxing and stuff.
+
+```yml
+  - name: Create Embedded Provision Profile
+    run: |
+      echo "$EMBEDDED_PROVISION" > desktopApp/embedded.provisionprofile.b64
+      base64 -d -i desktopApp/embedded.provisionprofile.b64 > desktopApp/embedded.provisionprofile
+    env:
+      EMBEDDED_PROVISION: ${{ secrets.EMBEDDED_PROVISION }}
+```
+
+```yml
+  - name: Create Runtime Provision Profile
+    run: |
+      echo "$RUNTIME_PROVISION" > desktopApp/runtime.provisionprofile.b64
+      base64 -d -i desktopApp/runtime.provisionprofile.b64 > desktopApp/runtime.provisionprofile
+    env:
+      RUNTIME_PROVISION: ${{ secrets.RUNTIME_PROVISION }} 
+``` 
+
+## Prepare variables for version and binary path
+
+During the action, some information like the git tag, version name, and the path of the binary are needed. That's why I've dedicated a step to compute and save them inside GitHub environmental variables. 
+
+The tag I use for releases is composed of the version name and the platform type, such as `1.0.0-desktop`. Thus, the version name can be easily extracted by the tag that triggered the build. 
+
+The path of the application binary instead, it's `desktopApp/build/release/main-release/dmg/${name}`, where the name is the `packageName` of the app set on the `build.gradle.kts` file, followed by the version, in this case, `FeedFlow-1.0.0.dmg`     
+
+```yml
+  - name: Create path variables
+    id: path_variables
+    run: |
+      tag=$(git describe --tags --abbrev=0 --match "*-desktop")
+      version=$(echo "$tag" | sed 's/-desktop$//')
+      name="FeedFlow-${version}.dmg"
+      path="desktopApp/build/release/main-release/dmg/${name}"
+      echo "TAG=$tag" >> $GITHUB_ENV
+      echo "VERSION=$version" >> $GITHUB_ENV
+      echo "RELEASE_PATH=$path" >> $GITHUB_ENV
+```
 
 ## Build the pkg
 
-copy the code on how to build the thing
+// TODO
 
-## Upload to testflight 
+Mention about the required conf about passing the param.
 
-used with the app store connect api, you need 
- *App Store Connect API* https://appstoreconnect.apple.com/access/integrations/api
- 
- . Store Issuer ID in GitHub Secret: `APPSTORE_ISSUER_ID`
-1. Generate API Key with Access `App Manager`
-2. Store Key ID in GitHub Secret: `APPSTORE_KEY_ID`
-3. Store Private Key in GitHub Secret: `APPSTORE_PRIVATE_KEY`
+```yml
+- name: Create PKG
+    run: ./gradlew packageReleasePkg -PmacOsAppStoreRelease=true
+```
 
+## Upload on TestFlight 
 
+A macOS app can be uploaded to the App Store through [TestFlight](https://developer.apple.com/testflight/). The upload can be performed with the `upload-testflight-build` action.
+    
+As for the provisioning profile, this action uses the [App Store Connect API](https://developer.apple.com/documentation/appstoreconnectapi) to communicate with TestFlight. For this reason, the action requires the same issuer ID, key ID, and private key used in the provisioning step. Additionally, it requires the path of the IPA archive, which can be provided by GitHub environmental variables and the app type: `osx`, in this case.
 
+```yml
+  - uses: Apple-Actions/upload-testflight-build@v1
+    with:
+      app-type: 'osx'
+      app-path: ${{ env.ipa_path }}
+      issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+      api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+```
 
+## Conclusions
 
+And that's all the steps required to automatically publish a Kotlin Multiplatform macOS app on the App Store with a GitHub Action.
 
-
-https://github.com/prof18/feed-flow/blob/main/.github/workflows/desktop-macos-testflight-release.yaml
-
-
+Here's the entire GitHub Action for reference:
 
 ```yml
 
@@ -93,8 +245,6 @@ jobs:
   deploy:
     runs-on: macos-14
     timeout-minutes: 40
-    permissions:
-      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -139,9 +289,6 @@ jobs:
         env:
           RUNTIME_PROVISION: ${{ secrets.RUNTIME_PROVISION }} 
 
-      - name: Update Licenses file
-        run: ./gradlew desktopApp:exportLibraryDefinitions -PaboutLibraries.exportPath=src/main/resources/
-
       - name: Create path variables
         id: path_variables
         run: |
@@ -149,29 +296,12 @@ jobs:
           version=$(echo "$tag" | sed 's/-desktop$//')
           name="FeedFlow-${version}.pkg"
           path="desktopApp/build/release/main-release/pkg/${name}"
-          echo "TAG=$tag" >> $GITHUB_OUTPUT
-          echo "VERSION=$version" >> $GITHUB_OUTPUT
-          echo "RELEASE_PATH=$path" >> $GITHUB_OUTPUT
-
-      - name: Create Properties file
-        run: |
-          echo "is_release=true" >> desktopApp/src/jvmMain/resources/props.properties
-          echo "sentry_dns=$SENTRY_DNS" >> desktopApp/src/jvmMain/resources/props.properties
-          echo "version=$VERSION" >> desktopApp/src/jvmMain/resources/props.properties
-        env:
-          SENTRY_DNS: ${{ secrets.SENTRY_DNS }}
-          VERSION: ${{ steps.path_variables.outputs.VERSION }}
+          echo "TAG=$tag" >> $GITHUB_ENV
+          echo "VERSION=$version" >> $GITHUB_ENV
+          echo "RELEASE_PATH=$path" >> $GITHUB_ENV
 
       - name: Create PKG
         run: ./gradlew packageReleasePkg -PmacOsAppStoreRelease=true
-
-      - name: Upload reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reports
-          path: |
-            **/build/compose/logs/*  
 
       - uses: Apple-Actions/upload-testflight-build@v1
         with:
@@ -180,5 +310,6 @@ jobs:
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
-
 ```
+
+You can check the action [on GitHub](https://github.com/prof18/feed-flow/blob/main/.github/workflows/desktop-macos-testflight-release.yaml)
