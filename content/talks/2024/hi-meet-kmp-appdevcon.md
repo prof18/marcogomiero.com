@@ -4,7 +4,7 @@ title: "Hi, have you met Kotlin Multiplatform?"
 location: "Appdevcon"
 performDate: 2024-03-15
 eventUrl: https://appdevcon.nl/session/hi-have-you-met-kotlin-multiplatform/
-summary: "Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta and now it's on the path of becoming stable. 
+summary: "Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta, and now it's finally stable.
 <br><br>
 We constantly read of new companies and teams that are using KMP for experiments and production projects alike. And we're left wondering: why pick KMP over any other cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects?
 <br><br>
