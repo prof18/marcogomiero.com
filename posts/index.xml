@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/posts/</link>
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions</title>
+      <link>https://www.marcogomiero.com/posts/2024/kmp-ci-ios/</link>
+      <pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-ios/</guid>
+      <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
+Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - Coming soon Part 4: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+    </item>
+    
     <item>
       <title>How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-ci-android/</link>
@@ -13,7 +23,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-android/</guid>
       <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions - Coming soon Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - Coming soon Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - Coming soon Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
     </item>
     
     <item>
