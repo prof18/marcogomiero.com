@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions"
-date:   2024-05-14
+date:   2024-04-14
 show_in_homepage: false
 draft: true
 ---
@@ -29,7 +29,7 @@ For reference, you can also check [FeedFlow's Gradle configuration](https://gith
 
 ## Triggers
 
-A trigger is necessary to trigger the GitHub Action. I've decided to trigger a new release on GitHub Releases only when the deployment to the macOS App Store is done.  
+A trigger is necessary to start the GitHub Action. I've decided to trigger a new release on GitHub Releases only when the deployment to the macOS App Store is done.
 
 ```yml
 on:
@@ -75,7 +75,7 @@ In the action, I'm using two parameters: `gradle-home-cache-cleanup` and `cache-
 
 The `gradle-home-cache-cleanup` parameter will enable a feature that will try to delete any files in the Gradle User Home that were not used by Gradle during the GitHub Actions Workflow before saving the cache. In this way, some space can be saved. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#remove-unused-files-from-gradle-user-home-before-saving-to-the-cache).
 
-Instead, the `cache-encryption-key` parameter provides an encryption key from the GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
+The `cache-encryption-key` parameter provides an encryption key from the GitHub secrets to encrypt the configuration cache. The configuration cache might contain stored credentials and other secrets, so encrypting it before saving it on the GitHub cache is better. More info can be found [in the documentation](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md#saving-configuration-cache-data).
 
 ```yml
 - uses: gradle/actions/setup-gradle@v3
@@ -121,11 +121,11 @@ The Keychain app can generate the `p12` file. After downloading the certificate,
 The `import-codesign-certs` action can be used to import the certificate in the `p12` format. To do so, the `p12` file must be encoded in `base64` (with the command `base64 -i myfile.extension`), and the content must be uploaded into GitHub secrets along with the decryption password.
 
 ```yml
-  - name: import certs
-    uses: apple-actions/import-codesign-certs@v2
-    with:
-      p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
-      p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+- name: import certs
+  uses: apple-actions/import-codesign-certs@v2
+  with:
+    p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+    p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
 ```      
     
 ## Prepare variables for version and binary path
@@ -137,16 +137,16 @@ The tag I use for releases is composed of the version name and the platform type
 The path of the application binary instead, it's `desktopApp/build/release/main-release/dmg/${name}`, where the name is the `packageName` of the app set on the `build.gradle.kts` file, followed by the version, in this case, `FeedFlow-1.0.0.dmg`     
 
 ```yml
-  - name: Create path variables
-    id: path_variables
-    run: |
-      tag=$(git describe --tags --abbrev=0 --match "*-desktop")
-      version=$(echo "$tag" | sed 's/-desktop$//')
-      name="FeedFlow-${version}.dmg"
-      path="desktopApp/build/release/main-release/dmg/${name}"
-      echo "TAG=$tag" >> $GITHUB_ENV
-      echo "VERSION=$version" >> $GITHUB_ENV
-      echo "RELEASE_PATH=$path" >> $GITHUB_ENV
+- name: Create path variables
+  id: path_variables
+  run: |
+    tag=$(git describe --tags --abbrev=0 --match "*-desktop")
+    version=$(echo "$tag" | sed 's/-desktop$//')
+    name="FeedFlow-${version}.dmg"
+    path="desktopApp/build/release/main-release/dmg/${name}"
+    echo "TAG=$tag" >> $GITHUB_ENV
+    echo "VERSION=$version" >> $GITHUB_ENV
+    echo "RELEASE_PATH=$path" >> $GITHUB_ENV
 ```
 
 ## Build the app:
@@ -154,8 +154,8 @@ The path of the application binary instead, it's `desktopApp/build/release/main-
 The format of a macOS app distributed outside the App Store is `dmg`. The `packageReleaseDmg` Gradle task can be used to build a' dmg'.
 
 ```yml
-  - name: Create DMG
-    run: ./gradlew packageReleaseDmg
+- name: Create DMG
+  run: ./gradlew packageReleaseDmg
 ```
 
 ## Notarization
@@ -191,15 +191,15 @@ xcrun stapler staple $RELEASE_PATH
 Here's the complete step that performs Notarization:
 
 ```yml
-  - name: Notarization
-    run: |
-      xcrun notarytool submit $RELEASE_PATH --apple-id $APPLE_ID_NOTARIZATION --password $NOTARIZATION_PWD --team-id $APPSTORE_TEAM_ID --wait
-      xcrun stapler staple $RELEASE_PATH
-    env:
-      APPLE_ID_NOTARIZATION: ${{ secrets.APPLE_ID_NOTARIZATION }}
-      APPSTORE_TEAM_ID: ${{ secrets.APPSTORE_TEAM_ID }}
-      NOTARIZATION_PWD: ${{ secrets.NOTARIZATION_PWD }}
-      RELEASE_PATH: ${{ env.RELEASE_PATH }}
+- name: Notarization
+  run: |
+    xcrun notarytool submit $RELEASE_PATH --apple-id $APPLE_ID_NOTARIZATION --password $NOTARIZATION_PWD --team-id $APPSTORE_TEAM_ID --wait
+    xcrun stapler staple $RELEASE_PATH
+  env:
+    APPLE_ID_NOTARIZATION: ${{ secrets.APPLE_ID_NOTARIZATION }}
+    APPSTORE_TEAM_ID: ${{ secrets.APPSTORE_TEAM_ID }}
+    NOTARIZATION_PWD: ${{ secrets.NOTARIZATION_PWD }}
+    RELEASE_PATH: ${{ env.RELEASE_PATH }}
 ```
 
 ## Distribute the app with Github Releases
@@ -209,15 +209,15 @@ After the notarization process, the app can be distributed to users. The `svenst
 The action requires some parameters, such as the git tag, the app binary path, and an optional body for the release notes. In my case, I publish the release as a draft so I can manually add some final touches to the release notes before the publication. 
 
 ```yml
-  - name: Upload binaries to release
-    uses: svenstaro/upload-release-action@v2
-    with:
-      repo_token: ${{ secrets.GITHUB_TOKEN }}
-      file: ${{ env.RELEASE_PATH }}
-      tag: ${{ env.TAG }}
-      overwrite: true
-      draft: true
-      body: "Release ${{ env.VERSION }}"
+- name: Upload binaries to release
+  uses: svenstaro/upload-release-action@v2
+  with:
+    repo_token: ${{ secrets.GITHUB_TOKEN }}
+    file: ${{ env.RELEASE_PATH }}
+    tag: ${{ env.TAG }}
+    overwrite: true
+    draft: true
+    body: "Release ${{ env.VERSION }}"
 ```
 
 The latest release on GitHub can be opened with a link in the following format: https://github.com/USERNAME/REPO-NAME/releases/latest/ (e.g. [https://github.com/prof18/feed-flow/releases](https://github.com/prof18/feed-flow/releases));

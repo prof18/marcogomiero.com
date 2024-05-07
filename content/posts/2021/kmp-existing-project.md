@@ -2,7 +2,7 @@
 layout: post
 title:  "Introducing Kotlin Multiplatform in an existing project"
 date:   2021-02-25
-show_in_homepage: true
+show_in_homepage: false
 image: "/img/kmp-existing-projects/kmp-publish-arch.png"
 ---
 
