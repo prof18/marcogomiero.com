@@ -5,11 +5,25 @@ date:   2024-05-07
 show_in_homepage: true
 ---
 
+{{< rawhtml >}}
+
+<div class="post-award-container">
+    <a href="https://androidweekly.net/issues/issue-622">
+        <img src="https://androidweekly.net/issues/issue-622/badge" />
+    </a>
+    <a href="https://mailchi.mp/kotlinweekly/kotlin-weekly-406"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23406-%237874b4"/></a>
+    
+    <a href="https://testableapple.com/newsletter/32/"><img style="margin: 0px;" src="https://img.shields.io/badge/Featured%20in%20Mobile%20Automation%20Newsletter-Issue%20%2332-blue"/></a>
+    
+</div>
+
+{{< /rawhtml >}}
+
 > **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
 >
 > - Part 1: [How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-android)
 > - Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions
-> - Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - *Coming soon* 
+> - Part 3: [How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases)
 > - Part 4: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - *Coming soon*
 
 It's been almost a year since I started working on [FeedFlow](https://www.feedflow.dev/), an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.

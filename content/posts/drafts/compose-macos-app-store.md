@@ -92,7 +92,7 @@ To fix this issue, the native libraries must be included in the app bundle.
 
 The first step is to find the native library.
 
-On FeedFlow, I'm using [SQLDelight](https://cashapp.github.io/sqldelight/). [The SQLDelight SQLite driver](https://github.com/cashapp/sqldelight/blob/master/drivers/sqlite-driver/build.gradle#L14) uses the [`SQLite JDBC Driver`](https://github.com/xerial/sqlite-jdbc) library as a dependency, and the native library that will be packaged in the JAR can be found [inside the repo](%20https://github.com/xerial/sqlite-jdbc/tree/master/src/main/resources/org/sqlite/native/Mac/aarch64) by architecture. 
+On FeedFlow, I'm using [SQLDelight](https://cashapp.github.io/sqldelight/). [The SQLDelight SQLite driver](https://github.com/cashapp/sqldelight/blob/master/drivers/sqlite-driver/build.gradle#L14) uses the [`SQLite JDBC Driver`](https://github.com/xerial/sqlite-jdbc) library as a dependency, and the native library that will be packaged in the JAR can be found [inside the repo](https://github.com/xerial/sqlite-jdbc/tree/master/src/main/resources/org/sqlite/native/Mac/aarch64) by architecture.
 
 {{< figure src="/img/compose-macos-appstore/native-lib-git.webp"  link="/img/compose-macos-appstore/native-lib-git.webp" >}}
 

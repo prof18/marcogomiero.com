@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions"
-date:   2024-04-14
-show_in_homepage: false
-draft: true
+date:   2024-05-14
+show_in_homepage: true
 ---
 
 > **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
@@ -40,6 +39,15 @@ on:
 ```
 
 This way, if something goes wrong with the App Store release and I need to redo it with the same version tag, this job won't be triggered again.
+
+Alternatively, a new release can be triggered when a tag that ends with the platform name is added, in this case, `-desktop`. So, for example, a tag would be `0.0.1-desktop`.
+
+```yml
+on:
+  push:
+    tags:
+      - '*-desktop'
+```
 
 ## Gradle and JDK setup
 
@@ -110,13 +118,13 @@ The action requires a key to identify the cache uniquely; in this case, the key 
 
 ## Signing Certificates
 
-Every macOS application must be signed to be distributed, even outside the app store. The certificate required to sign a macOS application for distribution outside the app store is called `Developer ID Application`. This certificate can be generated and downloaded from [the Apple Developer website](https://developer.apple.com/account/resources/certificates/add) by uploading a Certificate Signing Request. 
+Every macOS application must be signed to be distributed, even outside the App Store. The certificate required to sign a macOS application for distribution outside the app store is called `Developer ID Application`. This certificate can be generated and downloaded from [the Apple Developer website](https://developer.apple.com/account/resources/certificates/add) by uploading a Certificate Signing Request. 
 
 This request can be obtained from the Keychain app on macOS by opening the menu `Keychain Access > Certificate Assistant > Request a Certificate From a Certificate Authority`. An email must be added in the form that will appear, and the `Save to disk` option must be selected. The CA Email address field can be blank instead because the request will be saved on the disk. More information can be found [in the Apple documentation](https://support.apple.com/en-am/guide/keychain-access/kyca2793/mac).
 
 The certificate can be imported into GitHub Action by using the `p12` format, an archive file format for storing many cryptography objects as a single file ([Wikipedia](https://en.wikipedia.org/wiki/PKCS_12)). 
 
-The Keychain app can generate the `p12` file. After downloading the certificate, it must be imported into the Keychain app. Once imported, the certificate can be easily exported by selecting it in the Keychain, right-clicking, and selecting the `Export 2 items…` option. A password will be used to encrypt the `p12` file.
+The Keychain app can generate the `p12` file. After downloading the certificate, it must be imported into the Keychain app. Once imported, the certificate can be easily exported by selecting it in the Keychain, right-clicking, and selecting the `Export "<certificate-name>"` option. A password will be used to encrypt the `p12` file.
 
 The `import-codesign-certs` action can be used to import the certificate in the `p12` format. To do so, the `p12` file must be encoded in `base64` (with the command `base64 -i myfile.extension`), and the content must be uploaded into GitHub secrets along with the decryption password.
 
@@ -130,11 +138,25 @@ The `import-codesign-certs` action can be used to import the certificate in the 
     
 ## Prepare variables for version and binary path
 
-During the action, some information like the git tag, version name, and the path of the binary are needed. That's why I've dedicated a step to compute and save them inside GitHub environmental variables. 
+During the action, some information like the git tag, version name, and the path of the binary is needed. That's why I've dedicated a step to computing and saving them inside GitHub environmental variables. 
 
-The tag I use for releases is composed of the version name and the platform type, such as `1.0.0-desktop`. Thus, the version name can be easily extracted by the tag that triggered the build. 
+The tag I use for releases consists of the version name and the platform type, such as `1.0.0-desktop`. Thus, the tag that triggered the build can easily extract the version name. 
 
-The path of the application binary instead, it's `desktopApp/build/release/main-release/dmg/${name}`, where the name is the `packageName` of the app set on the `build.gradle.kts` file, followed by the version, in this case, `FeedFlow-1.0.0.dmg`     
+The path of the application binary instead, it's `desktopApp/build/release/main-release/dmg/${name}`, where the name is the `packageName` of the app set on the `build.gradle.kts` file, followed by the version, in this case, `FeedFlow-1.0.0.dmg`. This path is not the default one, and it can be customized in the `build.gradle.kts` file.
+
+```kotlin
+compose {
+    desktop {
+        application {
+            nativeDistributions {
+                outputBaseDir.set(layout.buildDirectory.asFile.get().resolve("release"))
+            }
+        }
+    }
+}
+```
+   
+Here's the complete step:     
 
 ```yml
 - name: Create path variables
@@ -151,7 +173,7 @@ The path of the application binary instead, it's `desktopApp/build/release/main-
 
 ## Build the app:
 
-The format of a macOS app distributed outside the App Store is `dmg`. The `packageReleaseDmg` Gradle task can be used to build a' dmg'.
+The format of a macOS app distributed outside the App Store is `dmg`. The `packageReleaseDmg` Gradle task can be used to build a `dmg`.
 
 ```yml
 - name: Create DMG
@@ -162,7 +184,7 @@ The format of a macOS app distributed outside the App Store is `dmg`. The `packa
 
 [Notarization](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution) is a mandatory step for distributing a macOS application outside the App Store. 
  
-In this process, Apple automatically scans the app's content to ensure it does not contain malware or malicious content. It also checks for any code-signing issues to ensure that a registered developer has signed the app.
+In this process, Apple automatically scans the app's content to ensure it does not contain malware or malicious content. It also checks for any code-signing issues to ensure a registered developer has signed the app.
 
 Notarization can be done with the `notarytool` command-line tool:
 
@@ -201,6 +223,8 @@ Here's the complete step that performs Notarization:
     NOTARIZATION_PWD: ${{ secrets.NOTARIZATION_PWD }}
     RELEASE_PATH: ${{ env.RELEASE_PATH }}
 ```
+
+Notarization and stapling can also be done with a Gradle task (`notarizeDmg`) provided by the Compose Multiplatform Gradle plugin. More info is available [in the official documentation](https://github.com/JetBrains/compose-multiplatform/blob/master/tutorials/Signing_and_notarization_on_macOS/README.md#notarization).
 
 ## Distribute the app with Github Releases
 

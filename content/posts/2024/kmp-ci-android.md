@@ -2,14 +2,24 @@
 layout: post
 title: "How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions"
 date:   2024-04-30
-show_in_homepage: true
+show_in_homepage: false
 ---
+
+{{< rawhtml >}}
+
+<div class="post-award-container">
+    <a href="https://androidweekly.net/issues/issue-621">
+        <img src="https://androidweekly.net/issues/issue-621/badge" />
+    </a>
+</div>
+
+{{< /rawhtml >}}
 
 > **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
 >
 > - Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions
 > - Part 2: [How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-ios)
-> - Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - *Coming soon* 
+> - Part 3: [How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions](https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases)
 > - Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - *Coming soon*
 
 
