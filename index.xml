@@ -5,7 +5,26 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions</title>
+      <link>https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases/</guid>
+      <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
+Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+    </item>
+    
+    <item>
+      <title>The rollercoaster of releasing an Android, iOS, and macOS app with Kotlin Multiplatform</title>
+      <link>https://www.marcogomiero.com/talks/2024/release-kmp-app-kotlinconf/</link>
+      <pubDate>Mon, 13 May 2024 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2024/release-kmp-app-kotlinconf/</guid>
+      <description>With the rise of Kotlin Multiplatform, the possibility of expanding to multiple platforms has increased, especially for Android Developers. It&amp;rsquo;s easier than before to build for other platforms. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; But how to release your app to multiple platforms? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I will share all the things I&amp;rsquo;ve learned around distributing FeedFlow, an Android, iOS, and macOS app built with Kotlin Multiplatform, coming from an Android development background. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; We will cover the deployment of the binary, automating everything with CI, crash reporting, logging, internationalization, and all you need to know to successfully distribute your KMP app.</description>
+    </item>
+    
     <item>
       <title>How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-ci-ios/</link>
@@ -13,7 +32,7 @@
       
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-ios/</guid>
       <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - Coming soon Part 4: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions Part 4: How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
     </item>
     
     <item>
@@ -23,7 +42,7 @@ Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with Git
       
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-android/</guid>
       <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions - Coming soon Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions - Coming soon It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
     </item>
     
     <item>
