@@ -2,7 +2,7 @@
 date: 2024-05-12T08:45:00Z
 title: "Hi, have you met Kotlin Multiplatform?"
 location: "Kotlin - Episode 4th of the 2024 Edition, Kotlin User Group Berlin"
-performDate: 2024-05-17
+performDate: 2024-05-16
 eventUrl: https://www.meetup.com/it-IT/kotlin-berlin/events/299035113/
 summary: "Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta, and now it's finally stable.
 <br><br>
