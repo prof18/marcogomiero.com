@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Publishing a Compose macOS app on App Store: architectures, sandboxing and native libraries"
-date:   2024-04-20
-show_in_homepage: false
-draft: true
+date:   2024-05-21
+show_in_homepage: true
 ---
 
 When I released [FeedFlow](https://www.feedflow.dev/) (an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app), I decided to publish the macOS version outside the App Store. I went this path because publishing on the App Store has different requirements that I wanted to avoid tackling during the first launch.
@@ -36,9 +35,9 @@ The first upload led to a failure.
 
 {{< figure src="/img/compose-macos-appstore/only-silicon.webp"  link="/img/compose-macos-appstore/only-silicon.webp" >}}
 
-The error says the app bundle must support Apple Silicon's and Intel's architectures. The app must target macOS 12 to support only Apple Silicon.
+The error says the app bundle must support both Apple Silicon's and Intel's architectures. Otherwise, the app must target macOS 12 to support only Apple Silicon.
 
-After digging, I discovered that the Compose Multiplatform Gradle plugin was targeting by default macOS 10.13. So I modified the Gradle plugin to allow setting a custom `minimumSystemVersion` ([Here's the PR](https://github.com/JetBrains/compose-multiplatform/pull/4271), for reference).
+After some digging, I discovered that the Compose Multiplatform Gradle plugin was targeting by default macOS 10.13. So I modified the Gradle plugin to allow setting a custom `minimumSystemVersion` ([Here's the PR](https://github.com/JetBrains/compose-multiplatform/pull/4271), for reference).
 
 The change is available from Compose Multiplatform 1.6.10.
 
@@ -67,7 +66,7 @@ opened because Apple cannot check it for malicious software.`
 
 After some research, I discovered that this issue is happening because of macOS "[App Sandbox](https://developer.apple.com/documentation/security/app_sandbox/protecting_user_data_with_app_sandbox)," a feature that is required for distributing an app on the App Store and that forbids certain activities by default, like accessing system resources and user data. This will limit what a malicious app can do and which data it can access.
 
-One thing that is forbidden is loading native libraries that are not part of the app bundle. Some libraries, `sqlite` in this case, extract native libraries from the dependency `JAR`, place them inside an `OS` temporary folder, and load them. 
+One thing that is forbidden is loading native libraries that are not part of the app bundle. Some libraries, `sqlite` in this case, extract native libraries from the dependency `JAR`, place them inside a temporary folder, and load them. 
 
 For the apps distributed outside the App Store that are not sandboxed, this folder is pointed by the `$TMPDIR` environmental variable; for example, on my machine, the value is the following:
 
@@ -92,7 +91,7 @@ To fix this issue, the native libraries must be included in the app bundle.
 
 The first step is to find the native library.
 
-On FeedFlow, I'm using [SQLDelight](https://cashapp.github.io/sqldelight/). [The SQLDelight SQLite driver](https://github.com/cashapp/sqldelight/blob/master/drivers/sqlite-driver/build.gradle#L14) uses the [`SQLite JDBC Driver`](https://github.com/xerial/sqlite-jdbc) library as a dependency, and the native library that will be packaged in the JAR can be found [inside the repo](https://github.com/xerial/sqlite-jdbc/tree/master/src/main/resources/org/sqlite/native/Mac/aarch64) by architecture.
+On FeedFlow, I'm using [SQLDelight](https://cashapp.github.io/sqldelight/). [The SQLDelight SQLite driver](https://github.com/cashapp/sqldelight/blob/master/drivers/sqlite-driver/build.gradle#L14) uses the [SQLite JDBC Driver](https://github.com/xerial/sqlite-jdbc) library as a dependency, and the native library that will be packaged in the JAR can be found [inside the repo](https://github.com/xerial/sqlite-jdbc/tree/master/src/main/resources/org/sqlite/native/Mac/aarch64) by architecture.
 
 {{< figure src="/img/compose-macos-appstore/native-lib-git.webp"  link="/img/compose-macos-appstore/native-lib-git.webp" >}}
 
@@ -119,8 +118,6 @@ compose {
             val isAppStoreRelease = project.property("macOsAppStoreRelease").toString().toBoolean()
 
             nativeDistributions {
-                outputBaseDir.set(layout.buildDirectory.asFile.get().resolve("release"))
-
                 if (isAppStoreRelease) {
                     appResourcesRootDir.set(project.layout.projectDirectory.dir("resources"))
                 }

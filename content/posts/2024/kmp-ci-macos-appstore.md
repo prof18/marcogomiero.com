@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions"
-date:   2024-04-20
+date:   2024-05-20
 show_in_homepage: false
-draft: true
 ---
 
 > **SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.**
@@ -27,7 +26,7 @@ More info is available on Compose Multiplatform documentation:
 
 > [Signing and notarizing distributions for macOS - Configuring Gradle](https://github.com/JetBrains/compose-multiplatform/blob/master/tutorials/Signing_and_notarization_on_macOS/README.md#configuring-gradle)
 
-And in another article where I cover all the necessary things required to publish a macOS Compose app on the macOS App Store:
+and in another article where I cover all the necessary things required to publish a macOS Compose app on the macOS App Store:
 
 > [Publishing a Compose macOS app on App Store: architectures, sandboxing and native libraries](https://www.marcogomiero.com/posts/2024/compose-macos-app-store)
 
@@ -150,7 +149,7 @@ macOS {
 }
 ```
 
-The provisioning profiles can't be publicly released for security reasons, so a good approach is to encode them to `base64` and save them inside GitHub secrets.
+The provisioning profiles can't be publicly released for security reasons, so a good approach is to encode them to `base64` (with the command `base64 -i myfile.extension`) and save them inside GitHub secrets.
 
 ```yml
 - name: Create Embedded Provision Profile
