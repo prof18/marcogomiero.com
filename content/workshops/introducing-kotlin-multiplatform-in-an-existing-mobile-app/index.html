@@ -32,7 +32,7 @@
 <p>This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it&#39;s the perfect time to start using it! In this workshop, we will begin with an existing Android and iOS application that &#34;lives&#34; in separate repositories; we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&#39;ll better understand what is needed to start using Kotlin Multiplatform in your existing projects.</p>
 <h2 is-upgraded><strong>What you&#39;ll build</strong></h2>
 <p>In this workshop, you&#39;ll work on an existing Android and iOS application called NewsReader</p>
-<p class="image-container"><img style="width: 496.00px" src="img/b9695ea17512b925.png"></p>
+<p class="image-container"><img style="width: 496.00px" src="img/51ad8fa7c6d62fd2.png"></p>
 <p>You will:</p>
 <ul>
 <li>Extract the business logic (data and domain layer) from the Android application and make it compatible with Kotlin Multiplatform</li>
@@ -155,11 +155,11 @@ enum ParsingError: Error {
       <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="15">
         <p>Let&#39;s start by creating a new Kotlin Multiplatform library by using the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile</a> plugin, available on Android Studio. </p>
 <p class="image-container"><img style="width: 624.00px" src="img/e89210447cbde802.png"></p>
-<p class="image-container"><img style="width: 624.00px" src="img/cbcd9978dcacd240.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/f4dfe0571dd3ede4.png"></p>
 <p>Choose a name and a package name, for example <code>NewsReaderKMP</code> and <code>com.example.newsreaderkmp</code>.</p>
-<p class="image-container"><img style="width: 572.21px" src="img/e373a3abbf51986.png"></p>
+<p class="image-container"><img style="width: 572.21px" src="img/51842f6c4ee153f4.png"></p>
 <p>Select <code>XCFramework</code> as the <code>iOS framework distribution</code>. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/d206e05c8cce3c6a.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/81cc67c5f409fe04.png"></p>
 <p>The wizard will automatically generate some code; feel free to delete it.</p>
 <h2 is-upgraded><strong>Migrate from Android to Kotlin Multiplatform</strong></h2>
 <p>Now we can start migrating some code from the Android app to the newly created library. The code that we&#39;ll migrate is the one contained in the <code>data</code> and <code>domain</code> package. </p>
@@ -226,7 +226,7 @@ kotlin {
 }
 </code></pre>
 <p>If you see a warning on the expect keyword, don&#39;t worry, it&#39;s because expect/actual classes are still in Beta. Such functionality won&#39;t be dropped, but there could be some tweaking in the future because the design is a bit complicated</p>
-<p class="image-container"><img style="width: 624.00px" src="img/976aa26454d70b29.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/e0da2350babd52e2.png"></p>
 <aside class="special"><p>From YouTrack:</p>
 <p>We are going to announce expect/actual functions/properties as stable in 1.9.20 release.</p>
 <p>But we are going to keep expect/actual classes (including interfaces, objects, annotations, enums, actual typealiases) in Beta. The reason we keep them in Beta is that their design is quite complicated. We don&#39;t plan to drop expect/actual classes, but as we tweak and refine their design there might be some breaking changes in the future.</p>
@@ -514,11 +514,11 @@ git tag 0.0.1</code></pre>
 <p>To load a local Package in the Xcode project, open the <code>Add Package Dependencies</code> menu from <code>File</code></p>
 <p class="image-container"><img style="width: 456.73px" src="img/fd637f123a8e869b.png"></p>
 <p>Select the <code>Add Local</code> button</p>
-<p class="image-container"><img style="width: 624.00px" src="img/9af36ae7d2681542.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/a73cdf8cd91996dc.png"></p>
 <p>locate the local package in the file chooser</p>
-<p class="image-container"><img style="width: 624.00px" src="img/b6fb982d9739137b.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/83b47ea1e3a6a2ea.png"></p>
 <p>and add it to the project</p>
-<p class="image-container"><img style="width: 624.00px" src="img/4907b0595480a277.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/219c539df683394a.png"></p>
 <p>You can see now the Package correctly imported in the Project Navigator</p>
 <p class="image-container"><img style="width: 386.48px" src="img/3de33f769168c2a2.png"></p>
 <p>Congrats! 🎉</p>
@@ -534,9 +534,9 @@ git tag 0.0.1</code></pre>
 <p>As mentioned above, Swift Package Manager is based on git, so you can simply push the newly created package into a GitHub repository. </p>
 <p>Create a new repository on your GitHub account and push all the changes, tags included. </p>
 <p>Go back on Xcode, navigate to the <code>Package Dependencies</code> menu (you can navigate to it by clicking on <code>NewsReader</code> in the Project Navigator, then again on <code>NewsReader</code> in the Project  section, and then on the  <code>Package Dependencies</code> tab), and delete the local package dependency. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/52a0ac21b07b9646.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/e846afd7e3ba0717.png"></p>
 <p>Now, you can click the <code>+</code> button and add the package published on GitHub. Simply paste the repository URL in the search box, and Xcode will find the package. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/92603ced365c506f.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/91152c3d55133671.png"></p>
 <p>After adding the package,  build and rerun the app. Congrats! 🎉</p>
 <p>The iOS app now uses a Kotlin Multiplatform library from a Swift Package published on GitHub.</p>
 <h3 is-upgraded><strong>Potential Issues</strong></h3>
@@ -631,11 +631,16 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
 <p>Add the following property in the <code>gradle.properties</code></p>
 <p><code>gradle.properties</code></p>
 <pre><code>LIBRARY_VERSION=0.1  </code></pre>
-<p>where <code>0.1</code> is the major and the minor number of the version. KMMBridge will automatically increase and keep track of the patch number starting from 0. So, the first version that will be published in this setup will be 0.1.0.</p>
-<p>In the <code>shared/build.gradle.kts</code> file, you need now to read the version number from the Gradle properties instead of hardcoding it </p>
-<pre><code>val VERSION = project.property(&#34;LIBRARY_VERSION&#34;) as String
+<p>where <code>0.1</code> is the major and the minor number of the version. KMMBridge will automatically increase and keep track of the patch number starting from 0. So, the first version that will be published in this setup will be 0.1.0. The new version number will be automatically put inside a new Gradle property called  <code>AUTO_VERSION.</code></p>
+<p>In the <code>shared/build.gradle.kts</code> file, you need now to read the version number from the Gradle properties instead of hardcoding it. </p>
+<pre><code>version = project.property(
+   if (project.hasProperty(&#34;AUTO_VERSION&#34;)) {
+       &#34;AUTO_VERSION&#34;
+   } else {
+       &#34;LIBRARY_VERSION&#34;
+   }
+) as String
 
-version = VERSION
 group = &#34;com.example.newsreaderkmp.workshop&#34;
 </code></pre>
 <p>And you&#39;ll need to add some Gradle configuration to enable publishing your library with KMMBridge.</p>
@@ -691,7 +696,7 @@ jobs:
 <p><a href="https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW" target="_blank">https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW</a></p>
 </aside>
 <p>After committing and pushing all the changes, you can trigger and start the GitHub action</p>
-<p class="image-container"><img style="width: 624.00px" src="img/2d1bef5ca5949239.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/84ff929443364b59.png"></p>
 <h3 is-upgraded><strong>Use the KMP library on Android</strong></h3>
 <p>After the action finishes, you can first check that the Android project will work with the new release of the library. Remember to bump to version number </p>
 <p><code>app/build.gradle.kts</code></p>
@@ -719,7 +724,7 @@ jobs:
 <h3 is-upgraded><strong>Use the KMP library on iOS</strong></h3>
 <p>To use the newly published library, you need to delete the previous Package and add the new dependency.</p>
 <p>Navigate to the <code>Package Dependencies</code> menu (you can navigate to it by clicking on <code>NewsReader</code> in the Project Navigator, then again on <code>NewsReader</code> in the Project section, and then on the  <code>Package Dependencies</code> tab), and delete the previously added package dependency. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/52a0ac21b07b9646.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/e846afd7e3ba0717.png"></p>
 <p>Now, you can click the <code>+</code> button and add the package published on GitHub. Simply paste the repository URL into the search box, and Xcode will find the package. </p>
 <p class="image-container"><img style="width: 624.00px" src="img/2aee4b730011fa6.png"></p>
 <p>After adding the package,  build and rerun the app. Congrats! 🎉</p>
