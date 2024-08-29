@@ -551,9 +551,9 @@ git tag 0.0.1</code></pre>
       </google-codelab-step>
     
       <google-codelab-step label="Streamline distribution with KMMBridge" duration="30">
-        <p><a href="https://kmmbridge.touchlab.co/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing a consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by either CocoaPods or Swift Package Manager.</p>
+        <p><a href="https://touchlab.co/kmmbridge/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing and consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by Swift Package Manager.</p>
 <aside class="special"><p>Check the documentation for more info about KMMBridge</p>
-<p><a href="https://kmmbridge.touchlab.co/docs/" target="_blank">https://kmmbridge.touchlab.co/docs/</a></p>
+<p><a href="https://touchlab.co/kmmbridge/" target="_blank">https://touchlab.co/kmmbridge/</a></p>
 </aside>
 <p>KMMBridge makes it possible to easily use GitHub as a place to host the XCFramework as a zip file without growing the size of the repository and hence hitting the issue above-mentioned. That&#39;s because KMBridge will use the Maven repository provided by GitHub packages to store the zip file. </p>
 <p>KMMBridge will then automatically create a <code>Package.swift</code> file that will contain the URL of the XCFramework upload to the Maven repo. In this way, you can import the git repository of the KMP library as a Swift Package in the iOS project. </p>
@@ -566,7 +566,7 @@ git tag 0.0.1</code></pre>
 <p><code>gradle/libs.versions.toml</code></p>
 <pre><code>[versions]
 ...
-kmmbridge = &#34;0.5.2&#34;
+kmmbridge = &#34;1.0.0&#34;
 
 [plugins]
 ...
@@ -628,19 +628,13 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
 
    ...
 }</code></pre>
-<p>Add the following property in the <code>gradle.properties</code></p>
+<p>Add the following property in the <code>gradle.properties,</code> that set the version number of the librayry</p>
 <p><code>gradle.properties</code></p>
-<pre><code>LIBRARY_VERSION=0.1  </code></pre>
-<p>where <code>0.1</code> is the major and the minor number of the version. KMMBridge will automatically increase and keep track of the patch number starting from 0. So, the first version that will be published in this setup will be 0.1.0. The new version number will be automatically put inside a new Gradle property called  <code>AUTO_VERSION.</code></p>
+<pre><code>LIBRARY_VERSION=0.0.1  </code></pre>
 <p>In the <code>shared/build.gradle.kts</code> file, you need now to read the version number from the Gradle properties instead of hardcoding it. </p>
-<pre><code>version = project.property(
-   if (project.hasProperty(&#34;AUTO_VERSION&#34;)) {
-       &#34;AUTO_VERSION&#34;
-   } else {
-       &#34;LIBRARY_VERSION&#34;
-   }
-) as String
+<pre><code>val LIBRARY_VERSION: String by project
 
+version = LIBRARY_VERSION
 group = &#34;com.example.newsreaderkmp.workshop&#34;
 </code></pre>
 <p>And you&#39;ll need to add some Gradle configuration to enable publishing your library with KMMBridge.</p>
@@ -667,33 +661,72 @@ publishing {
        }
    }
 } </code></pre>
-<aside class="special"><p>If you want to publish the Android version locally and not on GitHub actions, you need to set up the credentials on the  <code>~/.netrc</code> file<code>.</code> Check the section &#34;Setup binary access&#34; below or <a href="https://kmmbridge.touchlab.co/docs/artifacts/MAVEN_REPO_ARTIFACTS#binary-access" target="_blank">the KMMBridge documentation</a></p>
+<aside class="special"><p>If you want to publish the Android version locally and not on GitHub actions, you need to set up the credentials on the  <code>~/.netrc</code> file<code>.</code> Check the section &#34;Setup binary access&#34; below or <a href="https://touchlab.co/kmmbridge/artifacts/mavenrepoartifacts#binary-access" target="_blank">the KMMBridge documentation</a></p>
 </aside>
 <aside class="special"><p>Check the documentation for more info about GitHub packages setup</p>
-<p><a href="https://kmmbridge.touchlab.co/docs/artifacts/MAVEN_REPO_ARTIFACTS#github-packages" target="_blank">https://kmmbridge.touchlab.co/docs/artifacts/MAVEN_REPO_ARTIFACTS#github-packages</a></p>
+<p><a href="https://touchlab.co/kmmbridge/artifacts/mavenrepoartifacts#github-packages" target="_blank">https://kmmbridge.touchlab.co/docs/artifacts/MAVEN_REPO_ARTIFACTS#github-packages</a></p>
 </aside>
 <p>The publishing flow is managed with a GitHub action. Let&#39;s create a new GitHub action workflow in the KMP library.</p>
 <p><code>.github/workflows/publish-all.yml</code></p>
 <pre><code>name: Publish All
 on:
  workflow_dispatch:
-#  push:
-#    branches:
-#      - &#34;main&#34;
+
 jobs:
- call-kmmbridge-publish:
+ kmmbridgepublish:
    permissions:
      contents: write
      packages: write
-   uses: touchlab/KMMBridgeGithubWorkflow/.github/workflows/faktorybuildautoversion.yml@v1.1
-   with:
-     jvmVersion: 17
-     versionBaseProperty: LIBRARY_VERSION
-     publishTask: kmmBridgePublish publishKotlinMultiplatformPublicationToGitHubPackagesRepository publishAndroidDebugPublicationToGitHubPackagesRepository publishAndroidReleasePublicationToGitHubPackagesRepository
+   concurrency: &#34;kmmbridgepublish-$&#123;&#123; github.repository }}&#34;
+   runs-on: macos-latest
+   steps:
+     - name: Checkout the repo with tags
+       uses: actions/checkout@v4
+       with:
+         fetch-depth: 0
+         fetch-tags: true
+
+     - uses: touchlab/read-property@0.1
+       id: versionPropertyValue
+       with:
+         file: ./gradle.properties
+         property: LIBRARY_VERSION
+
+     - name: Print versionPropertyValue
+       id: output
+       run: echo &#34;$&#123;&#123; steps.versionPropertyValue.outputs.propVal }}&#34;
+
+     - uses: actions/setup-java@v2
+       with:
+         distribution: &#34;adopt&#34;
+         java-version: 17
+
+     - uses: gradle/actions/setup-gradle@v4
+       with:
+         gradle-home-cache-cleanup: true
+
+     - name: Cache KMP tooling
+       uses: actions/cache@v4
+       with:
+         path: |
+           ~/.konan
+         key: $&#123;&#123; runner.os }}-v1-$&#123;&#123; hashFiles(&#39;**/libs.versions.toml&#39;) }}
+
+     - name: Build Main
+       run: ./gradlew kmmBridgePublish publishKotlinMultiplatformPublicationToGitHubPackagesRepository publishAndroidDebugPublicationToGitHubPackagesRepository publishAndroidReleasePublicationToGitHubPackagesRepository -PENABLE_PUBLISHING=true -PGITHUB_PUBLISH_TOKEN=$&#123;&#123; secrets.GITHUB_TOKEN }} -PGITHUB_REPO=$&#123;&#123; github.repository }} --no-daemon --stacktrace
+       env:
+         GRADLE_OPTS: -Dkotlin.incremental=false -Dorg.gradle.jvmargs=&#34;-Xmx3g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m&#34;
+
+     - uses: touchlab/ga-update-release-tag@v1
+       id: update-release-tag
+       with:
+         commitMessage: &#34;KMP SPM package release for $&#123;&#123; steps.versionPropertyValue.outputs.propVal }}&#34;
+         tagMessage: &#34;KMP release version $&#123;&#123; steps.versionPropertyValue.outputs.propVal }}&#34;
+         tagVersion: $&#123;&#123; steps.versionPropertyValue.outputs.propVal }}
 </code></pre>
 <p>This action will be triggered manually and it will publish a new version of the XCFramework with the <code>kmmBridgePublish</code> task and the Android version with the <code>publishKotlinMultiplatformPublicationToGitHubPackagesRepository</code>, <code>publishAndroidDebugPublicationToGitHubPackagesRepository</code> and <code>publishAndroidReleasePublicationToGitHubPackagesRepository</code> tasks (those should sounds familiar since are the same that we used above when publishing the Android library).</p>
 <aside class="special"><p>Check the documentation for all the details about the KMMBridge GitHub Action</p>
-<p><a href="https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW" target="_blank">https://kmmbridge.touchlab.co/docs/DEFAULT_GITHUB_FLOW</a></p>
+<p><a href="https://touchlab.co/kmmbridge/spmquickstart" target="_blank">https://touchlab.co/kmmbridge/spmquickstart</a></p>
 </aside>
 <p>After committing and pushing all the changes, you can trigger and start the GitHub action</p>
 <p class="image-container"><img style="width: 624.00px" src="img/84ff929443364b59.png"></p>
@@ -793,7 +826,7 @@ jobs:
 <p><code>gradle/libs.versions.toml</code></p>
 <pre><code>[versions]
 ...
-skie = &#34;0.6.1&#34;
+skie = &#34;0.8.4&#34;
 
 [plugins]
 ...
@@ -812,6 +845,15 @@ skie = { id = &#34;co.touchlab.skie&#34;, version.ref = &#34;skie&#34; }
 }
 </code></pre>
 <p>And that&#39;s it. When you build the XCFramework, SKIE will automatically generate the Swift code that will be linked to the final XCFramework generated by Kotlin Multiplatform. </p>
+<aside class="special"><p>If the build fails, add the following configuration inside the build.gradle.kts file:</p>
+</aside>
+<p><code>build.gradle.kts</code></p>
+<pre><code>skie {
+   build {
+       // Otherwise it fails with &#34;No &#39;swiftinterface&#39; files found&#34;
+       enableSwiftLibraryEvolution.set(true)
+   }
+}</code></pre>
 <p>After publishing another version of the KMP Library, the <code>loadNews</code> method in the <code>MainViewModel.swift</code> class will fully support cancelation!</p>
 <p><code>presentation/MainViewModel.swift</code></p>
 <pre><code>func loadNews() async {
@@ -852,8 +894,8 @@ skie = { id = &#34;co.touchlab.skie&#34;, version.ref = &#34;skie&#34; }
 <li><strong>Writing Swift-friendly Kotlin Multiplatform APIs<br></strong><a href="https://medium.com/@aoriani/list/writing-swiftfriendly-kotlin-multiplatform-apis-c51c2b317fce" target="_blank">https://medium.com/@aoriani/list/writing-swiftfriendly-kotlin-multiplatform-apis-c51c2b317fce</a></li>
 <li><strong>Dependency Management in iOS<br></strong><a href="https://blog.devgenius.io/dependancy-management-for-ios-27dd681d7ea0" target="_blank">https://blog.devgenius.io/dependancy-management-for-ios-27dd681d7ea0</a></li>
 <li><strong>multiplatform-swiftpackage<br></strong><a href="https://github.com/luca992/multiplatform-swiftpackage" target="_blank">https://github.com/luca992/multiplatform-swiftpackage</a></li>
-<li><strong>KMMBridge<br></strong><a href="https://github.com/touchlab/KMMBridge" target="_blank">https://github.com/touchlab/KMMBridge</a></li>
-<li><strong>KMMBridge Quick Start<br></strong><a href="https://touchlab.co/kmmbridge-quick-start" target="_blank">https://touchlab.co/kmmbridge-quick-start</a></li>
+<li><strong>KMMBridge<br></strong><a href="https://touchlab.co/kmmbridge/" target="_blank">https://touchlab.co/kmmbridge/</a></li>
+<li><strong>KMMBridge Quick Start<br></strong><a href="https://touchlab.co/kmmbridge/spmquickstart" target="_blank">https://touchlab.co/kmmbridge/spmquickstart</a></li>
 <li><strong>Xcode 13.3 supports SPM binary dependency in private GitHub release<br></strong><a href="https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45" target="_blank">https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45</a></li>
 <li><strong>Xcode Kotlin - Xcode support for Kotlin browsing and debugging<br></strong><a href="https://touchlab.co/xcodekotlin" target="_blank">https://touchlab.co/xcodekotlin</a></li>
 </ul>
