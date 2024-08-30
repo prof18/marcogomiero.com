@@ -27,7 +27,7 @@
                   feedback-link="https://marcogomiero.com">
     
       <google-codelab-step label="Introduction" duration="0">
-        <p><strong>Last Updated:</strong> 2024-08-29</p>
+        <p><strong>Last Updated:</strong> 2024-08-30</p>
 <p>After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&#39;s because the possibility of starting with a blank canvas is rare (not impossible, but rare).</p>
 <p>This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it&#39;s the perfect time to start using it! In this workshop, we will begin with an existing Android and iOS application that &#34;lives&#34; in separate repositories; we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&#39;ll better understand what is needed to start using Kotlin Multiplatform in your existing projects.</p>
 <h2 is-upgraded><strong>What you&#39;ll build</strong></h2>
@@ -551,13 +551,13 @@ git tag 0.0.1</code></pre>
       </google-codelab-step>
     
       <google-codelab-step label="Streamline distribution with KMMBridge" duration="30">
-        <p><a href="https://touchlab.co/kmmbridge/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing and consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by Swift Package Manager.</p>
+        <p><a href="https://touchlab.co/kmmbridge/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing and consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like GitHub Releases, Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by Swift Package Manager.</p>
 <aside class="special"><p>Check the documentation for more info about KMMBridge</p>
 <p><a href="https://touchlab.co/kmmbridge/" target="_blank">https://touchlab.co/kmmbridge/</a></p>
 </aside>
-<p>KMMBridge makes it possible to easily use GitHub as a place to host the XCFramework as a zip file without growing the size of the repository and hence hitting the issue above-mentioned. That&#39;s because KMBridge will use the Maven repository provided by GitHub packages to store the zip file. </p>
-<p>KMMBridge will then automatically create a <code>Package.swift</code> file that will contain the URL of the XCFramework upload to the Maven repo. In this way, you can import the git repository of the KMP library as a Swift Package in the iOS project. </p>
-<p>Let&#39;s see how KMMBridge can be used to publish the KMP library on GitHub Packages using GitHub Actions.</p>
+<p>KMMBridge makes it possible to easily use GitHub as a place to host the XCFramework as a zip file without growing the size of the repository and hence hitting the issue above-mentioned. That&#39;s because KMBridge will use GitHub Releases (or the Maven repository provided by GitHub Packages) to store the zip file. </p>
+<p>KMMBridge will then automatically create a <code>Package.swift</code> file that will contain the URL of the XCFramework uploaded to GitHub Releases (or in the Maven repo). In this way, you can import the git repository of the KMP library as a Swift Package in the iOS project. </p>
+<p>Let&#39;s see how KMMBridge can be used to publish the KMP library on GitHub Releases using GitHub Actions.</p>
 <aside class="special"><p>The approach proposed by KMMBridge will also work with a private Maven repository or other artifacts manager that can be used to store the zipped Framework. </p>
 <p>Another alternative could be to handle the storage manually; in such case, I suggest looking at the following Gradle plugin to automate the zipped Framework creation: <a href="https://github.com/luca992/multiplatform-swiftpackage" target="_blank">https://github.com/luca992/multiplatform-swiftpackage</a></p>
 </aside>
@@ -585,9 +585,6 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
 }
 </code></pre>
 <p>After a Gradle sync, you will be ready to move forward.</p>
-<aside class="special"><p>KMMBridge is not compatible with Gradle configuration cache yet, so make sure to turn it off on the project <code>gradle.properties</code>.</p>
-<p><code>org.gradle.configuration-cache=false</code></p>
-</aside>
 <p>We need to modify the Gradle configuration we made before because KMMBridge will handle it automatically for us. </p>
 <p>Remove the XCFramework configuration in the <code>shared/build.gradle.kts</code> file.</p>
 <p>From this:</p>
@@ -642,10 +639,10 @@ group = &#34;com.example.newsreaderkmp.workshop&#34;
 <pre><code>addGithubPackagesRepository()
 
 kmmbridge {
-   mavenPublishArtifacts()
+   gitHubReleaseArtifacts()
    spm()
 }</code></pre>
-<p><code>mavenPublishArtifacts()</code> tells the plugin to push KMMBridge artifacts (the zip file mentioned above) to a Maven repo. </p>
+<p><code>gitHubReleaseArtifacts()</code> tells the plugin to push KMMBridge artifacts (the zip file mentioned above) to GitHub releases.</p>
 <p><code>addGithubPackagesRepository()</code> instead automatically configures the Maven repository for publishing the Android library by inferring the parameters that are passed in from the GitHub Action. You can then delete the <code>publishing</code> block that you defined previously while publishing the Android library to GitHub Packages</p>
 <p><code>shared/build.gradle.kts</code></p>
 <pre><code>// Remove the entire block
@@ -739,14 +736,14 @@ jobs:
 <p>You must add a <code>~/.netrc</code> file or Mac Keychain Access authentication info for Swift Package Manager to grab the binary.</p>
 <h4 is-upgraded><strong>~/.netrc file</strong></h4>
 <p>Add the following lines to the <code>~/.netrc</code> file:</p>
-<pre><code>machine maven.pkg.github.com login githubUsername password githubToken</code></pre>
+<pre><code>machine api.github.com login githubUsername password githubToken</code></pre>
 <p>where <code>githubUsername</code> is your GitHub username and <code>githubToken</code> is your GitHub token.</p>
 <h4 is-upgraded><strong>Mac Keychain Access</strong></h4>
 <p>Instead of creating an entry in the ~/.netrc file, it&#39;s possible to use the Mac Keychain Access to store the credentials.</p>
 <p>Create a new Password item</p>
 <p class="image-container"><img style="width: 624.00px" src="img/8caefe2690f3636e.png"></p>
 <p>with the following information:</p>
-<p>- <strong>Keychain Item Name: </strong><code>https://maven.pkg.github.com/</code></p>
+<p>- <strong>Keychain Item Name: </strong><code>https://api.github.com/</code></p>
 <p>- <strong>Account Name</strong>: <code>githubUsername</code></p>
 <p>- <strong>Password</strong>: <code>githubToken</code></p>
 <p>where <code>githubUsername</code> is your GitHub username and <code>githubToken</code> is your GitHub token.</p>
