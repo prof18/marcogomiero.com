@@ -27,7 +27,7 @@
                   feedback-link="https://marcogomiero.com">
     
       <google-codelab-step label="Introduction" duration="0">
-        <p><strong>Last Updated:</strong> 2024-08-30</p>
+        <p><strong>Last Updated:</strong> 2024-08-31</p>
 <p>After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&#39;s because the possibility of starting with a blank canvas is rare (not impossible, but rare).</p>
 <p>This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it&#39;s the perfect time to start using it! In this workshop, we will begin with an existing Android and iOS application that &#34;lives&#34; in separate repositories; we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&#39;ll better understand what is needed to start using Kotlin Multiplatform in your existing projects.</p>
 <h2 is-upgraded><strong>What you&#39;ll build</strong></h2>
@@ -153,7 +153,7 @@ enum ParsingError: Error {
       </google-codelab-step>
     
       <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="15">
-        <p>Let&#39;s start by creating a new Kotlin Multiplatform library by using the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile</a> plugin, available on Android Studio. </p>
+        <p>Let&#39;s start by creating a new Kotlin Multiplatform library by using the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile</a> plugin, available on Android Studio (as an alternative you can use the <a href="https://terrakok.github.io/kmp-web-wizard/" target="_blank">KMP Library Wizard</a>). </p>
 <p class="image-container"><img style="width: 624.00px" src="img/e89210447cbde802.png"></p>
 <p class="image-container"><img style="width: 624.00px" src="img/f4dfe0571dd3ede4.png"></p>
 <p>Choose a name and a package name, for example <code>NewsReaderKMP</code> and <code>com.example.newsreaderkmp</code>.</p>
@@ -585,6 +585,9 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
 }
 </code></pre>
 <p>After a Gradle sync, you will be ready to move forward.</p>
+<aside class="special"><p>KMMBridge is not compatible with Gradle configuration cache yet, so make sure to turn it off on the project gradle.properties.</p>
+<p><code>org.gradle.configuration-cache=false</code></p>
+</aside>
 <p>We need to modify the Gradle configuration we made before because KMMBridge will handle it automatically for us. </p>
 <p>Remove the XCFramework configuration in the <code>shared/build.gradle.kts</code> file.</p>
 <p>From this:</p>
@@ -625,7 +628,7 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
 
    ...
 }</code></pre>
-<p>Add the following property in the <code>gradle.properties,</code> that set the version number of the librayry</p>
+<p>Add the following property in the <code>gradle.properties,</code> that set the version number of the library</p>
 <p><code>gradle.properties</code></p>
 <pre><code>LIBRARY_VERSION=0.0.1  </code></pre>
 <p>In the <code>shared/build.gradle.kts</code> file, you need now to read the version number from the Gradle properties instead of hardcoding it. </p>
@@ -894,7 +897,8 @@ skie = { id = &#34;co.touchlab.skie&#34;, version.ref = &#34;skie&#34; }
 <li><strong>KMMBridge<br></strong><a href="https://touchlab.co/kmmbridge/" target="_blank">https://touchlab.co/kmmbridge/</a></li>
 <li><strong>KMMBridge Quick Start<br></strong><a href="https://touchlab.co/kmmbridge/spmquickstart" target="_blank">https://touchlab.co/kmmbridge/spmquickstart</a></li>
 <li><strong>Xcode 13.3 supports SPM binary dependency in private GitHub release<br></strong><a href="https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45" target="_blank">https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45</a></li>
-<li><strong>Xcode Kotlin - Xcode support for Kotlin browsing and debugging<br></strong><a href="https://touchlab.co/xcodekotlin" target="_blank">https://touchlab.co/xcodekotlin</a></li>
+<li><strong>Swift Export Sample<br></strong><a href="https://github.com/Kotlin/swift-export-sample" target="_blank">https://github.com/Kotlin/swift-export-sample</a></li>
+<li><strong>Swift Export doc<br></strong><a href="https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/standalone_execution_model.md" target="_blank">https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/standalone_execution_model.md</a></li>
 </ul>
 
 
