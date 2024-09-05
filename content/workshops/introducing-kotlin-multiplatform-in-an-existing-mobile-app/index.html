@@ -815,6 +815,7 @@ jobs:
         <p>Kotlin/Native provides bidirectional interoperability with Objective-C. During the translation from Kotlin to Objective-C to Swift, some of the Kotlin language features (that are also supported by Swift) are lost because Objective-C does not support them. </p>
 <p>For example, there are no default arguments, the enums are not Swift-friendly, sealed classes are just simple classes, coroutines don&#39;t support cancelations, and flows are not supported. </p>
 <p>For those reasons, some APIs exposed by Kotlin to Swift will not look appealing because they lack important language features. </p>
+<p>JetBrains is currently developing the interoperability with Swift. At the moment there is an experimental developer preview, but it&#39;s not ready for production. More information is available i<a href="https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/" target="_blank">n the official documentation</a>.</p>
 <p>While waiting for the official interoperability with Swift, the community created some tools to overcome those issues.</p>
 <p>For example, <a href="https://github.com/rickclephas/KMP-NativeCoroutines" target="_blank">KMP-NativeCoroutines</a> adds support for cancellation on Coroutines and enables the usage of Coroutines and Flow on Swift with Swift Concurrency, Combine, or RxSwift.</p>
 <p>Another interesting tool is <a href="https://skie.touchlab.co/" target="_blank">SKIE</a>, a compiler plugin that generates Swift code to fix the abovementioned issues (flows, coroutine cancellation, default arguments, enum, sealed classes). </p>
@@ -898,7 +899,7 @@ skie = { id = &#34;co.touchlab.skie&#34;, version.ref = &#34;skie&#34; }
 <li><strong>KMMBridge Quick Start<br></strong><a href="https://touchlab.co/kmmbridge/spmquickstart" target="_blank">https://touchlab.co/kmmbridge/spmquickstart</a></li>
 <li><strong>Xcode 13.3 supports SPM binary dependency in private GitHub release<br></strong><a href="https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45" target="_blank">https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45</a></li>
 <li><strong>Swift Export Sample<br></strong><a href="https://github.com/Kotlin/swift-export-sample" target="_blank">https://github.com/Kotlin/swift-export-sample</a></li>
-<li><strong>Swift Export doc<br></strong><a href="https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/standalone_execution_model.md" target="_blank">https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/standalone_execution_model.md</a></li>
+<li><strong>Swift Export doc<br></strong><a href="https://github.com/JetBrains/kotlin/tree/master/docs/swift-export" target="_blank">https://github.com/JetBrains/kotlin/tree/master/docs/swift-export</a></li>
 </ul>
 
 
