@@ -2,7 +2,7 @@
 date: 2024-10-10T08:45:00Z
 title: "Hi, have you met Kotlin Multiplatform?"
 location: "DevFest Vienna"
-performDate: 2024-10-112
+performDate: 2024-10-11
 eventUrl: https://www.devfest.at/
 summary: "Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta, and now it's finally stable.
 <br><br>
