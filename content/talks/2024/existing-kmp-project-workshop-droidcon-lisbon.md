@@ -10,6 +10,7 @@ This is also the case for Kotlin Multiplatform, which is getting more and more h
 In this hands-on session, we will start with an existing Android and iOS application that \"lives\" in separate repositories, we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications.
 By the end of this workshop, you'll have a better understanding of what is needed to start using Kotlin Multiplatform in your existing projects."
 speakerDeck: f9f6371aa2bb4776a007ce84e3ca0af0
+youtube: BX0bkOf1GKc
 ---
 
 ## Workshop material
