@@ -1,6 +1,6 @@
 ---
 date: 2024-10-19T17:45:00Z
-title: "From Android to Multiplatform and beyond | DevFest Hamburg"
+title: "From Android to Multiplatform and beyond"
 location: "DevFest Hamburg"
 performDate: 2024-10-19
 eventUrl: https://hamburg.devfest.de/
