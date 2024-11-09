@@ -1,17 +1,17 @@
 ---
-date: 2024-03-14T08:45:00Z
+date: 2024-05-12T08:45:00Z
 title: "Hi, have you met Kotlin Multiplatform?"
-location: "Appdevcon"
-performDate: 2024-03-15
-eventUrl: https://appdevcon.nl/session/hi-have-you-met-kotlin-multiplatform/
+location: "Kotlin - Episode 4th of the 2024 Edition, Kotlin User Group Berlin"
+performDate: 2024-05-16
+eventUrl: https://www.meetup.com/it-IT/kotlin-berlin/events/299035113/
 summary: "Kotlin Multiplatform is getting more and more hype every day. It started as an experimental technology, then alpha, beta, and now it's finally stable.
 <br><br>
 We constantly read of new companies and teams that are using KMP for experiments and production projects alike. And we're left wondering: why pick KMP over any other cross-platform solution? How to approach it? And, most importantly, is it possible to start using it in existing projects?
 <br><br>
 In this talk, I'll answer these questions, clarifying all the doubts and making you ready to use and love Kotlin Multiplatform."
-speakerDeck: 22d4993ab2ab410bbe8630e6bce49db5
-vimeo: 950446960
+speakerDeck: 2b564cab69354ac0ac38499797a981b2
 ---
+
 
 ## Resources: 
 
@@ -80,3 +80,6 @@ vimeo: 950446960
 
 - **Kotlin Multiplatform Is Stable and Production-Ready**\
     https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/
+
+- **Android Support for Kotlin Multiplatform to Share Business Logic Across Mobile, Web, Server, and Desktop Platforms**\
+    https://android-developers.googleblog.com/2024/05/android-support-for-kotlin-multiplatform-to-share-business-logic-across-mobile-web-server-desktop.html?m=1

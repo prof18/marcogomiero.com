@@ -1,9 +1,9 @@
 ---
-date: 2024-05-13T08:45:00Z
+date: 2024-06-29T08:45:00Z
 title: "The rollercoaster of releasing an Android, iOS, and macOS app with Kotlin Multiplatform"
-location: "KotlinConf"
-performDate: 2024-05-23
-eventUrl: https://kotlinconf.com/speakers/aeddc24f-0e47-4934-ad76-2de7a9dc9fac/
+location: "droidcon Berlin"
+performDate: 2024-07-04
+eventUrl: https://berlin.droidcon.com/speaker/marco-gomiero/
 summary: "With the rise of Kotlin Multiplatform, the possibility of expanding to multiple platforms has increased, especially for Android Developers. It's easier than before to build for other platforms.
 <br><br>
 But how to release your app to multiple platforms?
@@ -11,14 +11,17 @@ But how to release your app to multiple platforms?
 In this talk, I will share all the things I've learned around distributing FeedFlow, an Android, iOS, and macOS app built with Kotlin Multiplatform, coming from an Android development background.
 <br><br>
 We will cover the deployment of the binary, automating everything with CI, crash reporting, logging, internationalization, and all you need to know to successfully distribute your KMP app."
-speakerDeck: 6643da14fa0842bc936c702901875da8
-youtube: JRlR4NWX-nc
+speakerDeck: 7118ab2f45824b439ea549d13f356636
+vimeo: 995351122
 ---
 
 ## Resources: 
 
 - **FeedFlow**\
     https://feedflow.dev/
+
+- **Notarizing macOS software before distribution**\
+    https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution  
 
 - **Install Transporter on macOS**\
     https://help.apple.com/itc/transporteruserguide/en.lproj/static.html#apd70774093eddb4
@@ -28,6 +31,9 @@ youtube: JRlR4NWX-nc
 
 - **Native distributions & local execution**\
     https://github.com/JetBrains/compose-multiplatform/blob/master/tutorials/Native_distributions_and_local_execution/README.md#adding-files-to-packaged-application
+
+- **Native libraries loading**\
+    https://slack-chats.kotlinlang.org/t/16371916/hey-there-wave-i-m-trying-to-publish-my-app-on-the-mac-app-s#0be57312-7e43-4d30-add9-1cd5a0b7421b
 
 - **Crashlytics**\
     https://firebase.google.com/products/crashlytics
