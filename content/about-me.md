@@ -3,13 +3,13 @@ title = "About Me"
 type = "about"
 +++
 
-I'm Marco Gomiero, I'm a software engineer, currently working at [Airalo](https://www.airalo.com/) as Senior Android Developer. I'm a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with Flutter and Kotlin Multiplatform.
+I'm Marco Gomiero, I'm a software engineer, currently working at [Airalo](https://www.airalo.com/) as Senior Android Engineer. I'm a Google Developer Expert for Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with Flutter and Kotlin Multiplatform.
 
 In my spare time, I write and maintain open source code, I share my dev experience by [writing](/posts) on my blog, [speaking](/talks) at confs and [organizing](https://gdg.community.dev/gdg-venezia/) events with the Google Developer Group Venezia and I play basketball.
 
 ## Work Experience
 
-### Airalo · Senior Android Developer · November 2023 - Present
+### Airalo · Senior Android Engineer · November 2023 - Present
 
 [Airalo](https://www.airalo.com/) is the world’s first eSIM store for travelers to access over 200+ eSIMs at the most affordable, local rates from around the world, all via eSIM-compatible smartphone, tablet, or PC. Airalo offers you both connectivity and freedom - you’ll never have to carry multiple SIM cards or change your number again, no matter where you are in the world.
 

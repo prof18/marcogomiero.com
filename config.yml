@@ -40,10 +40,12 @@ params:
     safari_pinned_tab: "/safari-pinned-tab.svg"
 
   socialIcons:
-    - name: mastodon
-      url: "https://androiddev.social/@marcogom"
     - name: github
       url: "https://github.com/prof18"
+    - name: mastodon
+      url: "https://androiddev.social/@marcogom"
+    - name: bluesky
+      url: "https://bsky.app/profile/marcogomiero.com"  
     - name: twitter
       url: "https://twitter.com/marcoGomier"
     - name: linkedin
