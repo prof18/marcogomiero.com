@@ -1,2 +1,0 @@
-# run = "hugo server -D"
-# run = "hugo && miniserve public --index index.html"
