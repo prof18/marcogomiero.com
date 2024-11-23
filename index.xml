@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 08 Nov 2024 15:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Nov 2024 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Android to Multiplatform and beyond</title>
+      <link>https://www.marcogomiero.com/talks/2024/from-android-to-kmp-devfest-berlin/</link>
+      <pubDate>Fri, 22 Nov 2024 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2024/from-android-to-kmp-devfest-berlin/</guid>
+      <description>With Kotlin Multiplatform getting increasingly established, many Android libraries became multiplatform. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; But how to make an existing Android library multiplatform? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we will cover the common challenges faced while migrating Android libraries to Kotlin Multiplatform, like handling platform-specific dependencies, re-organizing the project structure without losing the contributor&amp;rsquo;s history, testing on multiple platforms, and publishing the library.</description>
+    </item>
+    
     <item>
       <title>Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition</title>
       <link>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-nuremberg/</link>
