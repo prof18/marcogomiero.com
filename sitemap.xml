@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/talks/2024/from-android-to-kmp-devfest-berlin/</loc>
-    <lastmod>2024-11-22T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2024-11-22T17:45:00+00:00</lastmod>
+    <lastmod>2024-11-29T08:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2024-11-29T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2024/release-kmp-app-berlindroid/</loc>
+    <lastmod>2024-11-29T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2024/release-kmp-app-droidconitaly/</loc>
+    <lastmod>2024-11-29T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2024/from-android-to-kmp-devfest-berlin/</loc>
     <lastmod>2024-11-22T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-nuremberg/</loc>
