@@ -1,7 +1,7 @@
 ---
 date: 2024-12-06T15:45:00Z
 title: "Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition"
-location: "DevFest Kosovo"
+location: "DevFest Kosova"
 performDate: 2024-12-07
 eventUrl: https://gdg.community.dev/events/details/google-gdg-prishtina-presents-devfest-kosova-2024-beyond-the-brackets/
 summary: "After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That's because, the possibility of starting with a blank canvas is rare (not impossible, but rare).
