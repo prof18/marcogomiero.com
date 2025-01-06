@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-kosova/</loc>
-    <lastmod>2024-12-06T15:45:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/posts/2025/ublock-maven/</loc>
+    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/</loc>
+    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/</loc>
+    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-kosova/</loc>
     <lastmod>2024-12-06T15:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/</loc>
@@ -40,9 +46,6 @@
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2024/kotlinconf-recap-berlindroid/</loc>
     <lastmod>2024-06-28T08:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/posts/</loc>
-    <lastmod>2024-05-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2024/compose-macos-app-store/</loc>
     <lastmod>2024-05-21T00:00:00+00:00</lastmod>

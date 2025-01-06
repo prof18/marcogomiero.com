@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 Dec 2024 15:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Don’t let Maven block you!</title>
+      <link>https://www.marcogomiero.com/posts/2025/ublock-maven/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2025/ublock-maven/</guid>
+      <description>As developers, we&amp;rsquo;ve all encountered build failures in CI (or on our local machines) due to Maven repository issues preventing dependency downloads.
+&amp;gt; Could not download foo-lib-1.0.aar (org.acme.foo:foo-lib:1.0) &amp;gt; Could not get resource &amp;#39;https://mavenrepo.com/org/acme/foo/foo-lib/1.0/foo-lib-1.0.aar&amp;#39;. &amp;gt; Could not GET &amp;#39;https://mavenrepo.com/org/acme/foo/foo-lib/1.0/foo-lib-1.0.aar&amp;#39;. Received status code 403 from server: There could be many reasons for this: the Maven repository is currently down or is having an incident, the repository has been shut down (hello, JCenter), and the dependency is old and not republished elsewhere.</description>
+    </item>
+    
     <item>
       <title>Introducing Kotlin Multiplatform in an existing mobile app - Workshop Edition</title>
       <link>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-kosova/</link>
