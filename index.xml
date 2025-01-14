@@ -5,7 +5,18 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Watch out for transitive dependencies: an “obvious” rant</title>
+      <link>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</guid>
+      <description>This article is just a short &amp;ldquo;rant&amp;rdquo; and a &amp;ldquo;therapy session&amp;rdquo; to remind and warn my future self.
+I was recently debugging a weird crash affecting some users. The issue was related to navigation, fragments, and backstacks.
+After weeks spent trying to reproduce it, reading online reports, and cross-referencing previous libraries and SDK updates, I finally had an illuminating moment after reading about a similar behavior in the Google Issue Tracker.</description>
+    </item>
+    
     <item>
       <title>Don’t let Maven block you!</title>
       <link>https://www.marcogomiero.com/posts/2025/ublock-maven/</link>
@@ -1356,17 +1367,6 @@ If you wanna know more about me and my projects you can give a look to the categ
       
       <guid>https://www.marcogomiero.com/talks/2016/backup-restore-gdg/</guid>
       <description>One of the worst things is to lose all your data when you change a phone or when you reset it. With this talk we&amp;rsquo;ll see how to deal with this problem and how to secure your application&amp;rsquo;s data.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</guid>
-      <description>layout: post title: &amp;ldquo;Watch out for transitive dependencies: an “obvious” rant&amp;rdquo; date: 2025-01-14 show_in_homepage: false This article is just a short &amp;ldquo;rant&amp;rdquo; and a &amp;ldquo;therapy session&amp;rdquo; to remind and warn my future self.
-I was recently debugging a weird crash affecting some users. The issue was related to navigation, fragments, and backstacks.
-After weeks spent trying to reproduce it, reading online reports, and cross-referencing previous libraries and SDK updates, I finally had an illuminating moment after reading about a similar behavior in the Google Issue Tracker.</description>
     </item>
     
     <item>

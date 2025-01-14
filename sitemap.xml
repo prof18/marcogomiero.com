@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/posts/2025/ublock-maven/</loc>
-    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/</loc>
+    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</loc>
+    <lastmod>2025-01-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2025/ublock-maven/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-kosova/</loc>
@@ -436,8 +439,6 @@
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2016/backup-restore-gdg/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/about-me/</loc>
   </url><url>
