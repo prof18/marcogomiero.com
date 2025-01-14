@@ -1,3 +1,4 @@
+---
 layout: post
 title:  "Watch out for transitive dependencies: an “obvious” rant"
 date:   2025-01-14
