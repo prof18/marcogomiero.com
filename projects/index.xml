@@ -12,8 +12,19 @@
       <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/projects/feed-flow/</guid>
-      <description>FeedFlow is a minimalistic and opinionated RSS Reader that&amp;rsquo;s available on Android, iOS, and macOS.
+      <description>FeedFlow is a minimalistic and opinionated RSS Reader that&amp;rsquo;s available on Android, iOS, macOS, Windows and Linux.
 The majority of websites with an RSS feed don&amp;rsquo;t share the article&amp;rsquo;s content because they want you to go on their website. For this reason, FeedFlow always opens the original website, but the browser can be chosen (on mobile). For example, an article can be opened on DuckDuckGo or Firefox Focus with all the trackers disabled and then just kill all the navigation data.</description>
+    </item>
+    
+    <item>
+      <title>Spoton</title>
+      <link>https://www.marcogomiero.com/projects/spoton/</link>
+      <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/projects/spoton/</guid>
+      <description>Spoton is a WearOS application that simplifies mobile hotspot management by allowing users to control their phone&amp;rsquo;s hotspot directly from their smartwatch.
+The app consists of two components:
+A WearOS app that provides a simple interface to toggle the hotspot A companion Android phone app that handles the background communication With Spoton, users can enable or disable their phone&amp;rsquo;s mobile hotspot with a single tap on their watch, eliminating the need to take out and unlock their phone.</description>
     </item>
     
     <item>
