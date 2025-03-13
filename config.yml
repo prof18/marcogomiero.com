@@ -23,7 +23,7 @@ params:
   mode: toggle
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Marco Gomiero
-  description: "Software Engineer · Google Developer Expert for Kotlin"
+  description: "Software Engineer · Google Developer Expert for Android & Kotlin"
   keywords : [Marco Gomiero, Android, Flutter, Gomiero, Kotlin, RSS Parser, Kotlin Multiplatform]
   author: Marco Gomiero
   DateFormat: "2 January 2006"

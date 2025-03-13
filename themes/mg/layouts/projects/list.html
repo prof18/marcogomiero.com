@@ -27,6 +27,26 @@
             <div style="margin-top: 24px; margin-bottom: 56px; display: flex;">
         {{ end }}
 
+        {{- if (.Param "website") }}
+            <div class="project-button" style="">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                    <path d="M2 12h20" />
+                </svg>
+              <a href="{{ .Param "website" }}" target="BLANK">Website</a>
+            </div>
+        {{- end}}
+
         {{- if (.Param "github") }}
             <div class="project-button" style="">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"
