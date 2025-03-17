@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/posts/</link>
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 14 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From an Android to a Kotlin Multiplatform library</title>
+      <link>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</link>
+      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</guid>
+      <description>As Kotlin Multiplatform (KMP) continues to gain traction, more Android libraries are transitioning to support multiple platforms. However, this transition doesn’t always come for free; depending on the project, there could be different challenges.
+Recently, I migrated an existing Android library (RSS-Parser, a library to parse RSS feeds). In this article, I will share my experience, cover all the challenges I faced during this journey, and describe the solutions I implemented to overcome them, from preserving git history to handling platform-specific dependencies and testing across different platforms.</description>
+    </item>
+    
     <item>
       <title>Watch out for transitive dependencies: an “obvious” rant</title>
       <link>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</link>
