@@ -3,7 +3,7 @@ layout: post
 title:  "From an Android to a Kotlin Multiplatform library"
 date:   2025-03-16
 show_in_homepage: true 
-draft: true
+draft: false
 ---
 
 As Kotlin Multiplatform (KMP) continues to gain traction, more Android libraries are transitioning to support multiple platforms. However, this transition doesn’t always come for free; depending on the project, there could be different challenges. 
