@@ -9,13 +9,14 @@ show_in_homepage: false
 
 {{< figure src="/img/bug-hunting-story/coffe.jpeg"  link="/img/bug-hunting-story/coffe.jpeg" >}}
 
-The other day I was doing the usual dependency update routine of [FeedFlow](https://www.feedflow.dev) when I discovered a runtime crash that happened in the release version (so with R8 enabled) after updating the Android Gradle Plugin (AGP, in the rest of the article) to version 8.7. 
+The other day I was doing the usual dependency update routine of [FeedFlow](https://www.feedflow.dev) when I discovered a runtime crash that happened in the release version (so with R8 enabled) after updating the Android Gradle Plugin (AGP, in the rest of the article) to version 8.7.
 
 ```
 java.lang.VerifyError: Verifier rejected class t0.r: 
-	void t0.r.h(t0.r) failed to verify: void t0.r.h(t0.r): 
-	[0x5] register v0 has type Precise Reference: java.lang.Integer 
-	but expected Precise Reference: L0.j (declaration of 't0.r' appears in /data/app/~~_cXzOXLfk4yLcG5sVXzehg==/com.prof18.feedflow-D_r-DXHofuTMpeXekhA6iA==/base.apk)
+void t0.r.h(t0.r) failed to verify: void t0.r.h(t0.r): 
+[0x5] register v0 has type Precise Reference: java.lang.Integer 
+but expected Precise Reference: L0.j (declaration of 't0.r' 
+appears in /data/app/~~_cXzOXLfk4yLcG5sVXzehg==/com.prof18.feedflow-D_r-DXHofuTMpeXekhA6iA==/base.apk)
 ```
 
 Interesting.
