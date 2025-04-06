@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The curious case of a weird VerifyError crash</title>
+      <link>https://www.marcogomiero.com/posts/2025/bug-hunting-story/</link>
+      <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2025/bug-hunting-story/</guid>
+      <description>This post can be considered as a journal entry. I had to clear my thoughts and vent off through writing after spending time debugging this issue. Maybe it will be helpful for future references or an example of the process to follow in such cases.
+The other day I was doing the usual dependency update routine of FeedFlow when I discovered a runtime crash that happened in the release version (so with R8 enabled) after updating the Android Gradle Plugin (AGP, in the rest of the article) to version 8.</description>
+    </item>
+    
     <item>
       <title>From an Android to a Kotlin Multiplatform library</title>
       <link>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</link>
