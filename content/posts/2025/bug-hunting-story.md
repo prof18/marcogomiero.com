@@ -45,15 +45,15 @@ Another deep dive with the same approach until I found a new suspect: `dateForma
 In particular, the list with the `DateTimeFormat`  for parsing a date string with [kotlin-datetime](https://github.com/Kotlin/kotlinx-datetime) is causing the crash. Very weird!
 
 ```kotlin
-    private val formats = listOf<DateTimeFormat<DateTimeComponents>>(
-        ISO_DATE_TIME_OFFSET,
-        RFC_1123,
+private val formats = listOf<DateTimeFormat<DateTimeComponents>>(
+    ISO_DATE_TIME_OFFSET,
+    RFC_1123,
 
-        // Tue, 5 Sep 2017 09:58:38 +0000
-        Format {
-	        ..
-		}
-	)	
+    // Tue, 5 Sep 2017 09:58:38 +0000
+    Format {
+        ..
+	}
+)	
 ```
 
 After a search in the issues of the library, I found something similar! An issue that was closed because the problem could not be reproduced, both on  [JetBrains](https://github.com/Kotlin/kotlinx-datetime/issues/402) and [Google](https://issuetracker.google.com/issues/351858994) sides. But now [there's a reproducer!](https://github.com/prof18/DateTimeR8IssueRepro).
