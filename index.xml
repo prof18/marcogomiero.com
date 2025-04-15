@@ -1406,8 +1406,9 @@ If you wanna know more about me and my projects you can give a look to the categ
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/about-me/</guid>
-      <description>I&amp;rsquo;m Marco Gomiero, I&amp;rsquo;m a software engineer, currently working at Airalo as Senior Android Engineer. I&amp;rsquo;m a Google Developer Expert for Android and Kotlin, I love Kotlin and I have experience with native Android and native iOS development, as well as cross-platform development with Flutter and Kotlin Multiplatform.
-In my spare time, I write and maintain open source code, I share my dev experience by writing on my blog, speaking at confs and organizing events with the Google Developer Group Venezia and I play basketball.</description>
+      <description>I’m Marco Gomiero, a software engineer driven by a passion for building mobile applications.
+My expertise spans the full mobile spectrum, with deep experience in both native Android and iOS development. I believe in crafting high-quality native experiences while leveraging technologies like Kotlin Multiplatform to share code where it makes sense, offering flexibility without compromising the native feel.
+I’m currently working as a Senior Android Engineer at Airalo and I am a Google Developer Expert for Android and Kotlin.</description>
     </item>
     
   </channel>
