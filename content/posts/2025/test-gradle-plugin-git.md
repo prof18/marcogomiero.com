@@ -1,17 +1,15 @@
 ---
 layout: post
-title:  "Testing a Gradle Plugin interacting with Git"
-date:   2025-03-15
+title:  "Testing a Gradle Plugin that interacts with Git"
+date:   2025-05-13
 show_in_homepage: false
-draft: true
 ---
 
+Some time ago, I built [KMP Framework Bundler](https://github.com/prof18/kmp-framework-bundler), a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using [KMMBridge](https://touchlab.co/kmmbridge/) might be a better option.)
 
-Some time ago, I built [KMP Framework Bundler](https://github.com/prof18/kmp-framework-bundler), a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process in a CocoaPod repository (the plugin is in maintenance mode; using [KMMBridge](https://kmmbridge.touchlab.co/) might be a better idea).
+After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them.
 
-After building the Framework, the plugin takes care (with a Gradle task) of the publication process in a CocoaPods repository through git. It copies the Framework in the repository, automatically updates the podspec file with the latest version, and commits and pushes all the new changes.
-
-Here’s a simplified example of what the plugin is doing to understand the topic of the article better:
+Here’s a simplified example of what the plugin does:
 
 ```kotlin
 copy {
@@ -19,7 +17,6 @@ copy {
 	into("$rootDir/../kmp-xcframework-dest")
 }
 
-// Update podspec file
 project.exec {
     workingDir = File("$rootDir/../kmp-xcframework-dest")
     commandLine(
@@ -46,19 +43,19 @@ project.exec {
 }
 ```
 
-More details about KMP Framework Bundler are available [in my previous article](https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support#publish-an-xcframework).
+More details about KMP Framework Bundler are available [in a previous article](https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support#publish-an-xcframework).
 
 ## Automated testing
 
-Before every release, I manually tested all the publication processes. This included setting up a simple local Kotlin Multiplatform project and a local and remote CocoaPods repository that hosts the Framework, running the plugin, and checking that everything worked as expected.
- 
-This manual process required a lot of effort for every release. I started looking into Gradle TestKit to write automated tests to avoid that. [Gradle TestKit](https://docs.gradle.org/current/userguide/test_kit.html) allows you to execute Gradle programmatically, build, and inspect the results.
+Before every release, I manually tested the entire publishing process. This involved setting up a simple local Kotlin Multiplatform project, configuring local and remote CocoaPods repositories, running the plugin, and verifying that everything worked correctly.
 
-Testing Gradle plugins that interact with Git can be challenging, especially when they must perform operations like committing changes and pushing to remote repositories. This article presents a solution for automated testing of such plugins using Gradle TestKit and Git bare repositories, eliminating the need for manual testing and remote repositories.
+This manual process was time-consuming, so I started exploring [Gradle TestKit](https://docs.gradle.org/current/userguide/test_kit.html) to automate it. Gradle TestKit allows you to programmatically execute Gradle builds and inspect the results.
+
+However, testing Gradle plugins that interact with Git can be tricky, especially when they involve committing changes and pushing to remote repositories. In this article, I’ll show how I was able to test my plugin using Gradle TestKit and Git bare repositories, eliminating the need for manual testing and actual remote repositories.
 
 ## Testing project structure
 
-With GradleTestKit, it’s possible to create a test project inside the testing resources and run the Gradle Plugin in this project.
+With GradleTestKit, it’s possible to create a test project inside the test resources and run the plugin on it:
 
 
 ```bash
@@ -79,17 +76,16 @@ With GradleTestKit, it’s possible to create a test project inside the testing 
 ```
 
 
-To test the publishing process, local and remote git repositories are required. Using an actual remote git repository during testing would be unreliable and hard to maintain. To overcome this, the tests create a local “bare” git repository.
+To test the publishing process, both local and remote Git repositories are needed. Using an actual remote repository would be unreliable and hard to maintain, so the tests create a local **bare** repository to simulate the remote.
 
-### Git bare repository
+A Git bare repository is a special type of repository that doesn't have a working directory. It contains only the Git database (i.e., the contents of the .git folder) without any checked-out files.
 
-A Git bare repository is a special type of repository that doesn't have a working directory. It only contains the Git database (the `.git` folder contents) without any checked-out files. Bare repositories are typically used as central repositories that developers push to and pull from.
+In contrast, a regular Git repository created with `git init` includes both the Git database and a working directory. A bare repository, created with `git init --bare`, contains only the database, making it ideal for simulating a remote server in tests.
 
-When a normal Git repository is created with `git init`, both the Git database (in the `.git` folder) and a working directory where files can be edited are created. With a bare repository (`git init --bare`), only the Git database is created, making it perfect for simulating a remote repository.
 
 ## Testing infrastructure
 
-A base class performs all the testing setup, so the test classes can be cleaner and will have all the infrastructure ready. Here’s the entire class for convenience, before breaking it down step by step
+A base class sets up the testing environment, so the test classes can focus on assertions. Here's the whole class, which we'll break down below:
 
 ```kotlin
 abstract class BasePublishTest(
@@ -168,7 +164,7 @@ abstract class BasePublishTest(
 
 ### 1. Setting Up the Test Project
 
-The first step is to access the test project and make a backup of its build file so that it can be quickly restored when the test is done.
+The first step involves accessing the test project and backing up its `build.gradle.kts` file to restore it when the test is done quickly.
 
 ```kotlin
 testProject = File("src/test/resources/test-project")
@@ -179,7 +175,10 @@ buildGradleFile.copyTo(tempBuildGradleFile)
 
 ### 2. Creating Local and remote directories
 
-Two directories need to be created: the former (`testDestFolder`) will act as the  local repository where the Framework will be published, while the latter (`remoteDestFolder`) will be the bare repository that simulates a remote server.
+Two folders are created:
+
+* `testDestFolder`: acts as the local repository where the Framework is published.
+* `remoteDestFolder`: a bare repository that simulates the remote server.
 
 ```kotlin
 val currentPath = Paths.get("").toAbsolutePath().toString()
@@ -217,7 +216,7 @@ testDestFolder.runBashCommand("git", "commit", "-m", "\"First commit\"")
 
 ### 5. Creating the Bare Repository
 
-This is where the magic happens! A bare Git repository is created in the remote destination folder. This repository will act as a "remote" server without actually requiring network access.
+This is where the magic happens! A bare Git repository is created in the remote destination folder. This repository will act as a "remote" server without requiring network access.
 
 ```kotlin
 remoteDestFolder.runBashCommand("git", "init", "--bare")
@@ -255,7 +254,7 @@ fun cleanUp() {
 
 ## Testing the plugin
 
-After the setup, the publishing pipeline can be fully tested 
+With the setup complete, the publishing pipeline can be fully tested:
 
 ```kotlin
 
@@ -291,6 +290,6 @@ class XCFrameworkTasksPublishTests : BasePublishTest(frameworkType = FrameworkTy
 
 ## Conclusions
 
-By combining Gradle TestKit with a Git bare repository, I could automate and quickly test the KMP Framework Bundler Gradle plugin, including the entire publishing workflow. This allows me to quickly and easily test the plugin without setting up complex scenarios locally.
+By combining Gradle TestKit with a Git bare repository, I could fully automate testing for the KMP Framework Bundler plugin, including the entire publishing workflow. This approach eliminates the need to set up complex local environments.
 
-This pattern can be easily adapted for testing other plugins that interact with version control systems, providing a reliable way to ensure your plugin works correctly in real-world scenarios.
+This pattern can easily be adapted for testing other plugins that interact with version control, providing a reliable and automated way to ensure correctness in real-world scenarios.
