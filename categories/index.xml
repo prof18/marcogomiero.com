@@ -4,8 +4,6 @@
     <title>Categories on Marco Gomiero</title>
     <link>https://www.marcogomiero.com/categories/</link>
     <description>Recent content in Categories on Marco Gomiero</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://www.marcogomiero.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.marcogomiero.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

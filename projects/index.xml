@@ -4,128 +4,167 @@
     <title>Projects on Marco Gomiero</title>
     <link>https://www.marcogomiero.com/projects/</link>
     <description>Recent content in Projects on Marco Gomiero</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 11 Aug 2023 17:45:00 +0000</lastBuildDate>
-    <atom:link href="https://www.marcogomiero.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 11 Aug 2023 17:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FeedFlow</title>
       <link>https://www.marcogomiero.com/projects/feed-flow/</link>
       <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/feed-flow/</guid>
-      <description>FeedFlow is a minimalistic and opinionated RSS Reader that&amp;rsquo;s available on Android, iOS, macOS, Windows and Linux.&#xA;The majority of websites with an RSS feed don&amp;rsquo;t share the article&amp;rsquo;s content because they want you to go on their website. For this reason, FeedFlow always opens the original website, but the browser can be chosen (on mobile). For example, an article can be opened on DuckDuckGo or Firefox Focus with all the trackers disabled and then just kill all the navigation data.</description>
+      <description>FeedFlow is a minimalistic and opinionated RSS Reader that&amp;rsquo;s available on Android, iOS, macOS, Windows and Linux.
+The majority of websites with an RSS feed don&amp;rsquo;t share the article&amp;rsquo;s content because they want you to go on their website. For this reason, FeedFlow always opens the original website, but the browser can be chosen (on mobile). For example, an article can be opened on DuckDuckGo or Firefox Focus with all the trackers disabled and then just kill all the navigation data.</description>
     </item>
+    
     <item>
       <title>Spoton</title>
       <link>https://www.marcogomiero.com/projects/spoton/</link>
       <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/spoton/</guid>
-      <description>Spoton is a WearOS application that simplifies mobile hotspot management by allowing users to control their phone&amp;rsquo;s hotspot directly from their smartwatch.&#xA;The app consists of two components:&#xA;A WearOS app that provides a simple interface to toggle the hotspot A companion Android phone app that handles the background communication With Spoton, users can enable or disable their phone&amp;rsquo;s mobile hotspot with a single tap on their watch, eliminating the need to take out and unlock their phone.</description>
+      <description>Spoton is a WearOS application that simplifies mobile hotspot management by allowing users to control their phone&amp;rsquo;s hotspot directly from their smartwatch.
+The app consists of two components:
+A WearOS app that provides a simple interface to toggle the hotspot A companion Android phone app that handles the background communication With Spoton, users can enable or disable their phone&amp;rsquo;s mobile hotspot with a single tap on their watch, eliminating the need to take out and unlock their phone.</description>
     </item>
+    
     <item>
       <title>KMP Framework Bundler</title>
       <link>https://www.marcogomiero.com/projects/kmp-framework-bundler/</link>
       <pubDate>Tue, 17 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/kmp-framework-bundler/</guid>
-      <description>A Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.&#xA;The plugin is uploaded on MavenCentral.</description>
+      <description>A Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.
+The plugin is uploaded on MavenCentral.</description>
     </item>
+    
     <item>
       <title>Money Flow</title>
       <link>https://www.marcogomiero.com/projects/money-flow/</link>
       <pubDate>Mon, 16 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/money-flow/</guid>
-      <description>A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.&#xA;This project is a work in progress, you can track the progress on GitHub.</description>
+      <description>A money management Android and iOS app wrote with Kotlin Multiplatform, Jetpack Compose and Swift UI.
+This project is a work in progress, you can track the progress on GitHub.</description>
     </item>
+    
     <item>
       <title>Filmatic</title>
       <link>https://www.marcogomiero.com/projects/filmatic/</link>
       <pubDate>Sun, 15 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/filmatic/</guid>
       <description>Filmatic shows you some popular movies of the moment. The project is a playground application that I use to catch up with modern Android development. In particular, I&amp;rsquo;ve used it to learn modularization and Dependency Injection with Dagger and then Hilt.</description>
     </item>
+    
     <item>
       <title>QR Reader Secure</title>
       <link>https://www.marcogomiero.com/projects/qr-reader-secure/</link>
       <pubDate>Sat, 14 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/qr-reader-secure/</guid>
-      <description>QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.&#xA;I decided to develop it after a failed search for a simple and secure reader for my parents.&#xA;The app is very simple (the aim is to scan a code and open the link, only this!) and it does not require sneaky, strange and useless permissions just for the sake of stealing your data. There aren&amp;rsquo;t ads, trackers of any sort and what do you scan remains on your phone.</description>
+      <description>QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.
+I decided to develop it after a failed search for a simple and secure reader for my parents.
+The app is very simple (the aim is to scan a code and open the link, only this!) and it does not require sneaky, strange and useless permissions just for the sake of stealing your data. There aren&amp;rsquo;t ads, trackers of any sort and what do you scan remains on your phone.</description>
     </item>
+    
     <item>
       <title>Friends Tournament</title>
       <link>https://www.marcogomiero.com/projects/friends-tournament/</link>
       <pubDate>Fri, 13 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/friends-tournament/</guid>
       <description>A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That&amp;rsquo;s all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players&amp;rsquo; score and a nice leaderboard is automatically generated.</description>
     </item>
+    
     <item>
       <title>RSS Parser</title>
       <link>https://www.marcogomiero.com/projects/rss-parser/</link>
       <pubDate>Thu, 12 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/rss-parser/</guid>
       <description>An Android library to parse a RSS Feed. The library is uploaded on MavenCentral.</description>
     </item>
+    
     <item>
       <title>Youtube Parser</title>
       <link>https://www.marcogomiero.com/projects/youtube-parser/</link>
       <pubDate>Wed, 11 May 2022 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/youtube-parser/</guid>
       <description>An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral.</description>
     </item>
+    
     <item>
       <title>Zeromag</title>
       <link>https://www.marcogomiero.com/projects/zeromag/</link>
       <pubDate>Fri, 15 May 2020 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/zeromag/</guid>
       <description>Graphic restyling and porting from a custom CMS to Wordpress of the Italian blog &amp;ldquo;ZeroMag&amp;rdquo;. The site was built with Wordpress and is no longer online.</description>
     </item>
+    
     <item>
       <title>Mario Discepolo</title>
       <link>https://www.marcogomiero.com/projects/mario-discepolo/</link>
       <pubDate>Thu, 14 May 2020 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/mario-discepolo/</guid>
       <description>Android Application to read latest articles and reviews from mariodiscepolo.com, watch latest Youtube video from MarioDiscepolo&amp;rsquo;s channel and receive notifications for the new articles</description>
     </item>
+    
     <item>
       <title>Taxitaly and Tour</title>
       <link>https://www.marcogomiero.com/projects/taxitaly-tour/</link>
       <pubDate>Wed, 13 May 2020 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/taxitaly-tour/</guid>
       <description>Website built with Wordpress to book transfer and touristic tours in the area of Venice. The site is no longer active</description>
     </item>
+    
     <item>
       <title>Lupokkio</title>
       <link>https://www.marcogomiero.com/projects/lupokkio-android/</link>
       <pubDate>Tue, 12 May 2020 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/lupokkio-android/</guid>
       <description>Android Application to read latest articles and reviews, watch latest Youtube video from Lupokkio&amp;rsquo;s channel and receive notifications for the new articles. The application is no longer active because the blog is dead but you can see its past behavior by watching this video.</description>
     </item>
+    
     <item>
       <title>Lupokkio</title>
       <link>https://www.marcogomiero.com/projects/lupokkio-web/</link>
       <pubDate>Mon, 11 May 2020 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/lupokkio-web/</guid>
       <description>Graphic restyling and maintenance of the Italian tech blog &amp;ldquo;Lupokkio&amp;rdquo;. The site was built with Wordpress and is no longer online.</description>
     </item>
+    
     <item>
       <title>Distributed File System RMI</title>
       <link>https://www.marcogomiero.com/projects/distributed-file-system/</link>
       <pubDate>Sun, 13 May 2018 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/distributed-file-system/</guid>
       <description>A distributed file system implemented in Java using RMI with replication, read/write lock and a GUI.</description>
     </item>
+    
     <item>
       <title>Cyber Robot Brain</title>
       <link>https://www.marcogomiero.com/projects/cyber-robot/</link>
       <pubDate>Sat, 12 May 2018 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/cyber-robot/</guid>
       <description>This Android application has been developed during an University Class and the aim was to provide a &amp;ldquo;brain&amp;rdquo; to the Cyber Robot, a cheap sensorless toy robot sell by Clementoni. More information about the robot can be found on the official website. More specifically, the aim was to reverse-engineer the communication protocol of the robot via the Bluetooth HCI snoop log and then build an app that guides it to reach a target object that is framed by the phone’s camera.</description>
     </item>
+    
     <item>
       <title>BANKS</title>
       <link>https://www.marcogomiero.com/projects/banks/</link>
       <pubDate>Fri, 11 May 2018 17:45:00 +0000</pubDate>
+      
       <guid>https://www.marcogomiero.com/projects/banks/</guid>
       <description>A Java app with a GUI to perform keyword-based search in relational database. The app implements Banks, an algorithm for data and schema browsing together with keyword-based search. You can get information from a relational database by typing a few keywords.</description>
     </item>
+    
   </channel>
 </rss>
