@@ -1,68 +1,13 @@
-
-<!doctype html>
-
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <meta name="theme-color" content="#4F7DC9">
-  <meta charset="UTF-8">
-  <title>Introducing Kotlin Multiplatform in an existing mobile app</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
-  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
-  <style>
-    .success {
-      color: #1e8e3e;
-    }
-    .error {
-      color: red;
-    }
-  </style>
-</head>
-<body>
-  <google-codelab codelab-gaid=""
-                  id="introducing-kotlin-multiplatform-in-an-existing-mobile-app"
-                  title="Introducing Kotlin Multiplatform in an existing mobile app"
-                  environment="web"
-                  feedback-link="https://marcogomiero.com">
-    
-      <google-codelab-step label="Introduction" duration="0">
-        <p><strong>Last Updated:</strong> 2024-08-31</p>
-<p>After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&#39;s because the possibility of starting with a blank canvas is rare (not impossible, but rare).</p>
-<p>This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it&#39;s the perfect time to start using it! In this workshop, we will begin with an existing Android and iOS application that &#34;lives&#34; in separate repositories; we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you&#39;ll better understand what is needed to start using Kotlin Multiplatform in your existing projects.</p>
-<h2 is-upgraded><strong>What you&#39;ll build</strong></h2>
-<p>In this workshop, you&#39;ll work on an existing Android and iOS application called NewsReader</p>
-<p class="image-container"><img style="width: 496.00px" src="img/51ad8fa7c6d62fd2.png"></p>
-<p>You will:</p>
-<ul>
-<li>Extract the business logic (data and domain layer) from the Android application and make it compatible with Kotlin Multiplatform</li>
-<li>Replace the business logic in the Android and iOS application with the Kotlin Multiplatform library</li>
-<li>Distribute the KMP library locally with Maven and Swift Package Manager</li>
-<li>Distribute the KMP library on Android on GitHub Packages</li>
-<li>Distribute the KMP library on iOS with the Swift Package Manager on GitHub</li>
-<li>Streamline the distribution with <a href="https://kmmbridge.touchlab.co" target="_blank">KMMBridge</a></li>
-<li>Improve the iOS Developer experience with <a href="https://skie.touchlab.co/" target="_blank">SKIE</a>.</li>
-</ul>
-<h2 is-upgraded><strong>What you&#39;ll need</strong></h2>
-<ul>
-<li><a href="https://developer.android.com/studio" target="_blank">Android Studio</a> with the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile plugin</a></li>
-<li>Xcode</li>
-<li>A valid GitHub account.</li>
-</ul>
-<p>You can check if your system is ready for Kotlin Multiplatform with <a href="https://github.com/Kotlin/kdoctor" target="_blank">kdoctor</a>.</p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Getting set up" duration="5">
-        <h2 is-upgraded><strong>Get the code</strong></h2>
-<p>You&#39;ll find everything you need for this project in a GitHub repository. To get started, clone the following repository:  <a href="https://github.com/prof18/kmp-existing-project-workshop" target="_blank"><strong>https://github.com/prof18/kmp-existing-project-workshop</strong></a>.</p>
-<p>Inside the <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start" target="_blank">start</a> folder, you&#39;ll find the <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-android" target="_blank">Android</a> and <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-ios" target="_blank">iOS</a> applications. Feel free to move them to your working directory. </p>
-<p>Open the Android Studio and Xcode projects and run the app to ensure everything is all set.</p>
-<h2 is-upgraded><strong>App structure</strong></h2>
-<p>The application you will work on is a simple news reader application that shows some news from Hacker News. To keep things simple, the source of the news is a hardcoded JSON:</p>
-<p><code>data/Database.kt</code></p>
-<pre><code>internal val newsJson = &#34;&#34;&#34;
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>- Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="<!doctype html> Introducing Kotlin Multiplatform in an existing mobile app Last Updated: 2024-08-31
+After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That's because the possibility of starting with a blank canvas is rare (not impossible, but rare).
+This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it's the perfect time to start using it!"><meta property="og:image" content><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><meta property="og:url" content="https://www.marcogomiero.com/workshops/introducing-kotlin-multiplatform-in-an-existing-mobile-app/"><meta property="og:site_name" content="Marco Gomiero"><meta property="og:title" content="Marco Gomiero"><meta property="og:description" content="<!doctype html> Introducing Kotlin Multiplatform in an existing mobile app Last Updated: 2024-08-31 After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That's because the possibility of starting with a blank canvas is rare (not impossible, but rare). This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it's the perfect time to start using it!"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="workshops"><meta name=twitter:card content="summary"><meta name=twitter:title content="Marco Gomiero"><meta name=twitter:description content="<!doctype html> Introducing Kotlin Multiplatform in an existing mobile app Last Updated: 2024-08-31 After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That's because the possibility of starting with a blank canvas is rare (not impossible, but rare). This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it's the perfect time to start using it!"><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script><script src=https://www.marcogomiero.com//js/feather.min.js></script><link href="https://fonts.googleapis.com/css?family=JetBrains+Mono" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://www.marcogomiero.com/css/main.f2c7f60ec2d0155a784ade9b1b272143e1b8eb864a95bf75e606b49d8774389e.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://www.marcogomiero.com/css/dark.26c5bf79ef760a8f4feb8fc7be32ec86fc1f1da292b42c9fcc37879d4f774e3f.css disabled></head><body><div class=content><header><div class=main><a href=https://www.marcogomiero.com/><h2>Marco Gomiero</h2></a></div><nav class=navbar><a href=/posts/><span>Write
+</span></a><a href=/talks/><span>Speak
+</span></a><a href=/projects/><span>Build
+</span></a><a href=/about-me/><span>About
+</span></a>| <span class=dark-mode-toggle id=dark-mode-toggle onclick=toggleTheme()></span>
+<script src=https://www.marcogomiero.com//js/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title></h1><div class=post-meta></div></div><section class=body><!doctype html><html><head><meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes"><meta name=theme-color content="#4F7DC9"><meta charset=UTF-8><title>Introducing Kotlin Multiplatform in an existing mobile app</title>
+<link rel=stylesheet href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono"><link rel=stylesheet href="//fonts.googleapis.com/icon?family=Material+Icons"><link rel=stylesheet href=https://storage.googleapis.com/claat-public/codelab-elements.css><style>.success{color:#1e8e3e}.error{color:red}</style></head><body><google-codelab codelab-gaid id=introducing-kotlin-multiplatform-in-an-existing-mobile-app title="Introducing Kotlin Multiplatform in an existing mobile app" environment=web feedback-link=https://marcogomiero.com><google-codelab-step label=Introduction duration=0><p><strong>Last Updated:</strong> 2024-08-31</p><p>After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That's because the possibility of starting with a blank canvas is rare (not impossible, but rare).</p><p>This is also the case for Kotlin Multiplatform (KMP), which is getting more and more hype every day. Now that the technology has become stable, it's the perfect time to start using it! In this workshop, we will begin with an existing Android and iOS application that "lives" in separate repositories; we will extract the business logic from the Android app and share it between the two apps with a Kotlin Multiplatform library. We will also cover how to distribute the library to the existing applications. By the end of this workshop, you'll better understand what is needed to start using Kotlin Multiplatform in your existing projects.</p><h2 is-upgraded><strong>What you'll build</strong></h2><p>In this workshop, you'll work on an existing Android and iOS application called NewsReader</p><p class=image-container><img style=width:496px src=img/51ad8fa7c6d62fd2.png></p><p>You will:</p><ul><li>Extract the business logic (data and domain layer) from the Android application and make it compatible with Kotlin Multiplatform</li><li>Replace the business logic in the Android and iOS application with the Kotlin Multiplatform library</li><li>Distribute the KMP library locally with Maven and Swift Package Manager</li><li>Distribute the KMP library on Android on GitHub Packages</li><li>Distribute the KMP library on iOS with the Swift Package Manager on GitHub</li><li>Streamline the distribution with <a href=https://kmmbridge.touchlab.co target=_blank>KMMBridge</a></li><li>Improve the iOS Developer experience with <a href=https://skie.touchlab.co/ target=_blank>SKIE</a>.</li></ul><h2 is-upgraded><strong>What you'll need</strong></h2><ul><li><a href=https://developer.android.com/studio target=_blank>Android Studio</a> with the <a href=https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile target=_blank>Kotlin Multiplatform Mobile plugin</a></li><li>Xcode</li><li>A valid GitHub account.</li></ul><p>You can check if your system is ready for Kotlin Multiplatform with <a href=https://github.com/Kotlin/kdoctor target=_blank>kdoctor</a>.</p></google-codelab-step><google-codelab-step label="Getting set up" duration=5><h2 is-upgraded><strong>Get the code</strong></h2><p>You'll find everything you need for this project in a GitHub repository. To get started, clone the following repository: <a href=https://github.com/prof18/kmp-existing-project-workshop target=_blank><strong>https://github.com/prof18/kmp-existing-project-workshop</strong></a>.</p><p>Inside the <a href=https://github.com/prof18/kmp-existing-project-workshop/tree/main/start target=_blank>start</a> folder, you'll find the <a href=https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-android target=_blank>Android</a> and <a href=https://github.com/prof18/kmp-existing-project-workshop/tree/main/start/news-reader-ios target=_blank>iOS</a> applications. Feel free to move them to your working directory.</p><p>Open the Android Studio and Xcode projects and run the app to ensure everything is all set.</p><h2 is-upgraded><strong>App structure</strong></h2><p>The application you will work on is a simple news reader application that shows some news from Hacker News. To keep things simple, the source of the news is a hardcoded JSON:</p><p><code>data/Database.kt</code></p><pre><code>internal val newsJson = &#34;&#34;&#34;
    [
     {
       &#34;by&#34;: &#34;Josely&#34;,
@@ -76,10 +21,7 @@
     ...
    ]
 &#34;&#34;&#34;.trimIndent()
-</code></pre>
-<p><br>In the domain layer, the <code>NewsRepositoy</code> will simulate a network call, decode the JSON and return a list of <code>News</code>.</p>
-<p><code>domain/NewsRepository.kt</code></p>
-<pre><code>internal class NewsRepository {
+</code></pre><p><br>In the domain layer, the <code>NewsRepositoy</code> will simulate a network call, decode the JSON and return a list of <code>News</code>.</p><p><code>domain/NewsRepository.kt</code></p><pre><code>internal class NewsRepository {
   
    private val json: Json = Json {
        ignoreUnknownKeys = true
@@ -98,10 +40,7 @@
            url = url,
        )
 }
-</code></pre>
-<p>The structure of the iOS application is the same, with the hardcoded JSON and the <code>NewsRepository</code>.</p>
-<p><code>data/Database.swift</code></p>
-<pre><code>let newsJson = &#34;&#34;&#34;
+</code></pre><p>The structure of the iOS application is the same, with the hardcoded JSON and the <code>NewsRepository</code>.</p><p><code>data/Database.swift</code></p><pre><code>let newsJson = &#34;&#34;&#34;
    [
     {
       &#34;by&#34;: &#34;Josely&#34;,
@@ -115,9 +54,7 @@
     ...
    ]
 &#34;&#34;&#34;
-</code></pre>
-<p><code>domain/NewsRepository.swift</code></p>
-<pre><code>class NewsRepository {
+</code></pre><p><code>domain/NewsRepository.swift</code></p><pre><code>class NewsRepository {
 
     func fetchNews() async throws -&gt; [News] {
         try await Task.sleep(until: .now + .seconds(2))
@@ -147,29 +84,7 @@ enum ParsingError: Error {
     case invalidJson
 }
 
-</code></pre>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Create a Kotlin Multiplatform Library" duration="15">
-        <p>Let&#39;s start by creating a new Kotlin Multiplatform library by using the <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile" target="_blank">Kotlin Multiplatform Mobile</a> plugin, available on Android Studio (as an alternative you can use the <a href="https://terrakok.github.io/kmp-web-wizard/" target="_blank">KMP Library Wizard</a>). </p>
-<p class="image-container"><img style="width: 624.00px" src="img/e89210447cbde802.png"></p>
-<p class="image-container"><img style="width: 624.00px" src="img/f4dfe0571dd3ede4.png"></p>
-<p>Choose a name and a package name, for example <code>NewsReaderKMP</code> and <code>com.example.newsreaderkmp</code>.</p>
-<p class="image-container"><img style="width: 572.21px" src="img/51842f6c4ee153f4.png"></p>
-<p>Select <code>XCFramework</code> as the <code>iOS framework distribution</code>. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/81cc67c5f409fe04.png"></p>
-<p>The wizard will automatically generate some code; feel free to delete it.</p>
-<h2 is-upgraded><strong>Migrate from Android to Kotlin Multiplatform</strong></h2>
-<p>Now we can start migrating some code from the Android app to the newly created library. The code that we&#39;ll migrate is the one contained in the <code>data</code> and <code>domain</code> package. </p>
-<p class="image-container"><img style="width: 434.77px" src="img/ad1419377a438692.png"></p>
-<p>Copy and paste both folders from the Android project to the Kotlin Multiplatform project inside the <code>commonMain</code> source set.</p>
-<p class="image-container"><img style="width: 446.50px" src="img/6240025c19d86063.png"></p>
-<h3 is-upgraded><strong>Add missing dependencies</strong></h3>
-<p>Some additional dependencies for Kotlinx Serialization, and Coroutines need to be added to the Kotlin Multiplatform library. </p>
-<p><code>gradle/libs.versions.toml</code></p>
-<pre><code>[versions]
+</code></pre></google-codelab-step><google-codelab-step label="Create a Kotlin Multiplatform Library" duration=15><p>Let's start by creating a new Kotlin Multiplatform library by using the <a href=https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile target=_blank>Kotlin Multiplatform Mobile</a> plugin, available on Android Studio (as an alternative you can use the <a href=https://terrakok.github.io/kmp-web-wizard/ target=_blank>KMP Library Wizard</a>).</p><p class=image-container><img style=width:624px src=img/e89210447cbde802.png></p><p class=image-container><img style=width:624px src=img/f4dfe0571dd3ede4.png></p><p>Choose a name and a package name, for example <code>NewsReaderKMP</code> and <code>com.example.newsreaderkmp</code>.</p><p class=image-container><img style=width:572.21px src=img/51842f6c4ee153f4.png></p><p>Select <code>XCFramework</code> as the <code>iOS framework distribution</code>.</p><p class=image-container><img style=width:624px src=img/81cc67c5f409fe04.png></p><p>The wizard will automatically generate some code; feel free to delete it.</p><h2 is-upgraded><strong>Migrate from Android to Kotlin Multiplatform</strong></h2><p>Now we can start migrating some code from the Android app to the newly created library. The code that we'll migrate is the one contained in the <code>data</code> and <code>domain</code> package.</p><p class=image-container><img style=width:434.77px src=img/ad1419377a438692.png></p><p>Copy and paste both folders from the Android project to the Kotlin Multiplatform project inside the <code>commonMain</code> source set.</p><p class=image-container><img style=width:446.5px src=img/6240025c19d86063.png></p><h3 is-upgraded><strong>Add missing dependencies</strong></h3><p>Some additional dependencies for Kotlinx Serialization, and Coroutines need to be added to the Kotlin Multiplatform library.</p><p><code>gradle/libs.versions.toml</code></p><pre><code>[versions]
 ...
 kotlinx-serialization = &#34;1.6.2&#34;
 kotlinx-coroutines = &#34;1.7.3&#34;
@@ -182,9 +97,7 @@ kotlinx-coroutines-core = { group = &#34;org.jetbrains.kotlinx&#34;, name = &#34
 [plugins]
 ...
 kotlinxSerialization = { id = &#34;org.jetbrains.kotlin.plugin.serialization&#34;, version.ref = &#34;kotlin&#34; }
-</code></pre>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>plugins {
+</code></pre><p><code>shared/build.gradle.kts</code></p><pre><code>plugins {
    ...
    alias(libs.plugins.kotlinxSerialization)
 }
@@ -200,53 +113,21 @@ kotlin {
 }
 
 ...
-</code></pre>
-<p><code>build.gradle.kts</code></p>
-<pre><code>plugins {
+</code></pre><p><code>build.gradle.kts</code></p><pre><code>plugins {
    ...
    alias(libs.plugins.kotlinxSerialization).apply(false)
 }
-</code></pre>
-<p>After a Gradle sync, you will be ready to move forward.</p>
-<aside class="special"><p>If you notice this warning: <br><br><code>"Kotlin Multiplatform <-> Android Gradle Plugin compatibility issue:</code></p>
-<p><code>The applied Android Gradle Plugin version (8.3.0) is higher than the maximum known to the Kotlin Gradle Plugin."</code> <br><br>Downgrade AGP to version 8.2.2 in the <code>libs.versions.toml</code> file.</p>
-</aside>
-<h3 is-upgraded><strong>Change package name</strong></h3>
-<p>From the Android project, package names have changed, so you&#39;ll need to change them; replace <code>com.example.newsreader</code> with <code>com.example.newsreaderkmp</code>. You can do it manually or with Option+Enter (Option+Enter driven development ftw 😀). </p>
-<h3 is-upgraded><strong>Change class visibility</strong></h3>
-<p>In the Android project, the <code>NewsRepository,</code> and the <code>News</code> class were marked as <code>internal.</code> The <code>NewsRepository</code> will be the entry point for the KMP library, so you need to remove the <code>internal</code> modifier from those classes.</p>
-<h3 is-upgraded><strong>Implement platform-specific Date Formatter.</strong></h3>
-<p>The last step in having a working library is implementing the <code>DateFormatter</code>. The code you copy-pasted before won&#39;t work out of the box because it uses <code>java.util</code> and  <code>java.text</code> code inside the <code>commonMain</code> source set. In this source set, only &#34;pure&#34; Kotlin code is allowed. </p>
-<p>To access platform-specific APIs, you can leverage the expected and actual declarations. </p>
-<aside class="special"><p>Expected and actual declarations allow you to access platform-specific APIs from Kotlin Multiplatform modules. You can provide platform-agnostic APIs in the common code.<br><br><a href="https://kotlinlang.org/docs/multiplatform-expect-actual.html" target="_blank">https://kotlinlang.org/docs/multiplatform-expect-actual.html</a></p>
-</aside>
-<p>Replace the code in <code>shared/DateFormatter.kt</code> with</p>
-<pre><code>internal expect object DateFormatter {
+</code></pre><p>After a Gradle sync, you will be ready to move forward.</p><aside class=special><p>If you notice this warning:<br><br><code>"Kotlin Multiplatform <-> Android Gradle Plugin compatibility issue:</code></p><p><code>The applied Android Gradle Plugin version (8.3.0) is higher than the maximum known to the Kotlin Gradle Plugin."</code><br><br>Downgrade AGP to version 8.2.2 in the <code>libs.versions.toml</code> file.</p></aside><h3 is-upgraded><strong>Change package name</strong></h3><p>From the Android project, package names have changed, so you'll need to change them; replace <code>com.example.newsreader</code> with <code>com.example.newsreaderkmp</code>. You can do it manually or with Option+Enter (Option+Enter driven development ftw 😀).</p><h3 is-upgraded><strong>Change class visibility</strong></h3><p>In the Android project, the <code>NewsRepository,</code> and the <code>News</code> class were marked as <code>internal.</code> The <code>NewsRepository</code> will be the entry point for the KMP library, so you need to remove the <code>internal</code> modifier from those classes.</p><h3 is-upgraded><strong>Implement platform-specific Date Formatter.</strong></h3><p>The last step in having a working library is implementing the <code>DateFormatter</code>. The code you copy-pasted before won't work out of the box because it uses <code>java.util</code> and <code>java.text</code> code inside the <code>commonMain</code> source set. In this source set, only "pure" Kotlin code is allowed.</p><p>To access platform-specific APIs, you can leverage the expected and actual declarations.</p><aside class=special><p>Expected and actual declarations allow you to access platform-specific APIs from Kotlin Multiplatform modules. You can provide platform-agnostic APIs in the common code.<br><br><a href=https://kotlinlang.org/docs/multiplatform-expect-actual.html target=_blank>https://kotlinlang.org/docs/multiplatform-expect-actual.html</a></p></aside><p>Replace the code in <code>shared/DateFormatter.kt</code> with</p><pre><code>internal expect object DateFormatter {
    fun getStringTime(timeInSeconds: Long): String
 }
-</code></pre>
-<p>If you see a warning on the expect keyword, don&#39;t worry, it&#39;s because expect/actual classes are still in Beta. Such functionality won&#39;t be dropped, but there could be some tweaking in the future because the design is a bit complicated</p>
-<p class="image-container"><img style="width: 624.00px" src="img/e0da2350babd52e2.png"></p>
-<aside class="special"><p>From YouTrack:</p>
-<p>We are going to announce expect/actual functions/properties as stable in 1.9.20 release.</p>
-<p>But we are going to keep expect/actual classes (including interfaces, objects, annotations, enums, actual typealiases) in Beta. The reason we keep them in Beta is that their design is quite complicated. We don&#39;t plan to drop expect/actual classes, but as we tweak and refine their design there might be some breaking changes in the future.</p>
-<p><a href="https://youtrack.jetbrains.com/issue/KT-61573" target="_blank">https://youtrack.jetbrains.com/issue/KT-61573</a></p>
-</aside>
-<p>You can suppress the warning by adding the following code in the <code>kotlin</code> block of the <code>shared/build.gradle.kts</code> file.</p>
-<pre><code>kotlin {
+</code></pre><p>If you see a warning on the expect keyword, don't worry, it's because expect/actual classes are still in Beta. Such functionality won't be dropped, but there could be some tweaking in the future because the design is a bit complicated</p><p class=image-container><img style=width:624px src=img/e0da2350babd52e2.png></p><aside class=special><p>From YouTrack:</p><p>We are going to announce expect/actual functions/properties as stable in 1.9.20 release.</p><p>But we are going to keep expect/actual classes (including interfaces, objects, annotations, enums, actual typealiases) in Beta. The reason we keep them in Beta is that their design is quite complicated. We don't plan to drop expect/actual classes, but as we tweak and refine their design there might be some breaking changes in the future.</p><p><a href=https://youtrack.jetbrains.com/issue/KT-61573 target=_blank>https://youtrack.jetbrains.com/issue/KT-61573</a></p></aside><p>You can suppress the warning by adding the following code in the <code>kotlin</code> block of the <code>shared/build.gradle.kts</code> file.</p><pre><code>kotlin {
    @OptIn(ExperimentalKotlinGradlePluginApi::class)
    compilerOptions {
      freeCompilerArgs.add(&#34;-Xexpect-actual-classes&#34;)
    }
 }
 
-</code></pre>
-<p>Now you can write the <code>actual</code> implementation with platform-specific code. Again, you can leverage Option+Enter Driven Development ™️ and let the IDE automatically generate some code for you.</p>
-<p class="image-container"><img style="width: 543.50px" src="img/1afd8ad9497d2ed0.png"></p>
-<p>Select the source sets where you want to create the actual declarations, in this case, <code>androidMain</code> and <code>iosMain.</code></p>
-<p class="image-container"><img style="width: 563.08px" src="img/c0b736a3132b1342.png"></p>
-<p>Move to the newly created <code>domain/DateFormatter.android.kt</code> file and add the code previously copied from the Android project</p>
-<pre><code>import java.text.SimpleDateFormat
+</code></pre><p>Now you can write the <code>actual</code> implementation with platform-specific code. Again, you can leverage Option+Enter Driven Development ™️ and let the IDE automatically generate some code for you.</p><p class=image-container><img style=width:543.5px src=img/1afd8ad9497d2ed0.png></p><p>Select the source sets where you want to create the actual declarations, in this case, <code>androidMain</code> and <code>iosMain.</code></p><p class=image-container><img style=width:563.08px src=img/c0b736a3132b1342.png></p><p>Move to the newly created <code>domain/DateFormatter.android.kt</code> file and add the code previously copied from the Android project</p><pre><code>import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
@@ -255,9 +136,7 @@ internal actual object DateFormatter {
        val formatter = SimpleDateFormat(&#34;d MMM yyyy&#34;, Locale.getDefault())
        return formatter.format(Date(timeInSeconds * 1000))
    }
-}</code></pre>
-<p>Now, you need to do the same for iOS. Move to <code>domain/DateFormatter.ios.kt</code> and add the following platform-specific code. </p>
-<pre><code>import platform.Foundation.NSDate
+}</code></pre><p>Now, you need to do the same for iOS. Move to <code>domain/DateFormatter.ios.kt</code> and add the following platform-specific code.</p><pre><code>import platform.Foundation.NSDate
 import platform.Foundation.NSDateFormatter
 import platform.Foundation.NSLocale
 import platform.Foundation.currentLocale
@@ -273,39 +152,18 @@ internal actual object DateFormatter {
        return articleDateFormatter.stringFromDate(date)
    }
 }
-</code></pre>
-<p>In this case, you are accessing the platform libraries (<a href="https://developer.apple.com/documentation/foundation/nsdate" target="_blank">NSDate</a>, for example) that the Kotlin/Native compiler is automatically linking. Those platform libs are just wrappers and bindings to the native libraries.</p>
-<p>Congrats! You now have a ready-to-be-used Kotlin Multiplatform library. In the next section, you will learn how to use it in the Android and iOS applications.</p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Distribute the Kotlin Multiplatform library on Android" duration="20">
-        <h2 is-upgraded><strong>Publish to Maven Local</strong></h2>
-<p>The first step in publishing a KMP library is trying it locally. To do so, you will use the Maven Local repository. </p>
-<p>To publish Maven packages, you need to use the <a href="https://docs.gradle.org/current/userguide/publishing_maven.html" target="_blank">Maven Publish Plugin</a>. Add the plugin ID to the <code>shared/build.gradle.kts</code> file.</p>
-<pre><code>plugins {
+</code></pre><p>In this case, you are accessing the platform libraries (<a href=https://developer.apple.com/documentation/foundation/nsdate target=_blank>NSDate</a>, for example) that the Kotlin/Native compiler is automatically linking. Those platform libs are just wrappers and bindings to the native libraries.</p><p>Congrats! You now have a ready-to-be-used Kotlin Multiplatform library. In the next section, you will learn how to use it in the Android and iOS applications.</p></google-codelab-step><google-codelab-step label="Distribute the Kotlin Multiplatform library on Android" duration=20><h2 is-upgraded><strong>Publish to Maven Local</strong></h2><p>The first step in publishing a KMP library is trying it locally. To do so, you will use the Maven Local repository.</p><p>To publish Maven packages, you need to use the <a href=https://docs.gradle.org/current/userguide/publishing_maven.html target=_blank>Maven Publish Plugin</a>. Add the plugin ID to the <code>shared/build.gradle.kts</code> file.</p><pre><code>plugins {
    ...
    id(&#34;maven-publish&#34;)
-}</code></pre>
-<p>You also need to define a group and a version name for the library that you will publish</p>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>version = &#34;0.0.1&#34;
-group = &#34;com.example.newsreaderkmp&#34;</code></pre>
-<p>The last required step is ensuring that both the Android library&#39;s debug and release flavor will be published. </p>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>kotlin {
+}</code></pre><p>You also need to define a group and a version name for the library that you will publish</p><p><code>shared/build.gradle.kts</code></p><pre><code>version = &#34;0.0.1&#34;
+group = &#34;com.example.newsreaderkmp&#34;</code></pre><p>The last required step is ensuring that both the Android library's debug and release flavor will be published.</p><p><code>shared/build.gradle.kts</code></p><pre><code>kotlin {
    androidTarget {
        ...
        publishAllLibraryVariants()
    }
 }
 
-</code></pre>
-<p>To publish the library on Maven Local, run the <code>publishToMavenLocal</code> Gradle task.</p>
-<h3 is-upgraded><strong>Add the KMP library on the Android app.</strong></h3>
-<p>To add the newly published library to the Android app, you must first add <code>mavenLocal()</code> to the project repositories. Go to the <code>settings.gradle.kts</code> file of the Android project and add <code>mavenLocal().</code></p>
-<pre><code>dependencyResolutionManagement {
+</code></pre><p>To publish the library on Maven Local, run the <code>publishToMavenLocal</code> Gradle task.</p><h3 is-upgraded><strong>Add the KMP library on the Android app.</strong></h3><p>To add the newly published library to the Android app, you must first add <code>mavenLocal()</code> to the project repositories. Go to the <code>settings.gradle.kts</code> file of the Android project and add <code>mavenLocal().</code></p><pre><code>dependencyResolutionManagement {
    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
    repositories {
        mavenLocal()
@@ -314,17 +172,7 @@ group = &#34;com.example.newsreaderkmp&#34;</code></pre>
    }
 }
 
-</code></pre>
-<p>Now, the library can be added as a dependency in the <code>app/build.gradle.kts</code> file.</p>
-<p><code>implementation("com.example.newsreaderkmp:shared:0.0.1")</code></p>
-<p>After a Gradle sync, you can now use the library! Start by deleting all the code in the <code>data</code> and <code>domain</code> package. You also need to adjust the package name of the imports from <code>com.example.newsreader</code> to <code>com.example.newsreaderkmp.</code> The files that need to be adjusted are <code>MainViewModel</code>, <code>UiState,</code> and <code>MainActivity</code> in the presentation package. </p>
-<p>Congrats! 🎉</p>
-<p>You now have an Android app that uses a Kotlin Multiplatform library.</p>
-<h2 is-upgraded><strong>Publish to GitHub packages</strong></h2>
-<p>Having the library published locally is not a scalable solution, especially if you work in a team. The alternative is to publish the library in an &#34;internet-accessible&#34; Maven registry. This could be a company internal one or a &#34;public&#34; one that lets you publish private libraries, like <a href="https://repsy.io/" target="_blank">Repsy</a> or <a href="https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages" target="_blank">GitHub Packages</a>. We will use GitHub Packages for simplicity, but you can replace them with the provider of your choice. </p>
-<p>The first step is creating a GitHub repository and pushing the KMP library you created in the previous step. </p>
-<p>After pushing it, it&#39;s necessary to add some configuration in the <code>shared/build.gradle.kts</code> file to start publishing the library. </p>
-<pre><code>publishing {
+</code></pre><p>Now, the library can be added as a dependency in the <code>app/build.gradle.kts</code> file.</p><p><code>implementation("com.example.newsreaderkmp:shared:0.0.1")</code></p><p>After a Gradle sync, you can now use the library! Start by deleting all the code in the <code>data</code> and <code>domain</code> package. You also need to adjust the package name of the imports from <code>com.example.newsreader</code> to <code>com.example.newsreaderkmp.</code> The files that need to be adjusted are <code>MainViewModel</code>, <code>UiState,</code> and <code>MainActivity</code> in the presentation package.</p><p>Congrats! 🎉</p><p>You now have an Android app that uses a Kotlin Multiplatform library.</p><h2 is-upgraded><strong>Publish to GitHub packages</strong></h2><p>Having the library published locally is not a scalable solution, especially if you work in a team. The alternative is to publish the library in an "internet-accessible" Maven registry. This could be a company internal one or a "public" one that lets you publish private libraries, like <a href=https://repsy.io/ target=_blank>Repsy</a> or <a href=https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages target=_blank>GitHub Packages</a>. We will use GitHub Packages for simplicity, but you can replace them with the provider of your choice.</p><p>The first step is creating a GitHub repository and pushing the KMP library you created in the previous step.</p><p>After pushing it, it's necessary to add some configuration in the <code>shared/build.gradle.kts</code> file to start publishing the library.</p><pre><code>publishing {
    repositories {
        maven {
            name = &#34;GitHubPackages&#34;
@@ -335,17 +183,8 @@ group = &#34;com.example.newsreaderkmp&#34;</code></pre>
            }
        }
    }
-} </code></pre>
-<p>In the URL above, replace <code>username</code> with your GitHub username and <code>repoName</code> with the name of the repository you&#39;ve previously created. </p>
-<p>To use GitHub packages, you need a personal access token (classic) (More info <a href="https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages" target="_blank">here</a>). You need to create a token (<a href="https://github.com/settings/tokens" target="_blank">click here </a>to create one) and then provide it with your GitHub username in the above configuration. The token needs to have a <code>read:packages</code>, </p>
-<p><code>write:packages,</code> and <code>repo</code> scope to be able to publish a package (you won&#39;t need the read scope here, but you will need it afterward on the Android project to download the library)</p>
-<p>You can avoid committing your credentials by placing them on the environmental variables or in the local properties of the project.</p>
-<h3 is-upgraded><strong>Store credentials on local properties</strong></h3>
-<p>To store the credentials in the local properties, open the <code>local.properties</code> file and add the following</p>
-<pre><code>github.user=your-username
-github.token=your-token</code></pre>
-<p>Update the publishing configuration:</p>
-<pre><code>val  properties =  Properties()
+} </code></pre><p>In the URL above, replace <code>username</code> with your GitHub username and <code>repoName</code> with the name of the repository you've previously created.</p><p>To use GitHub packages, you need a personal access token (classic) (More info <a href=https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages target=_blank>here</a>). You need to create a token (<a href=https://github.com/settings/tokens target=_blank>click here </a>to create one) and then provide it with your GitHub username in the above configuration. The token needs to have a <code>read:packages</code>,</p><p><code>write:packages,</code> and <code>repo</code> scope to be able to publish a package (you won't need the read scope here, but you will need it afterward on the Android project to download the library)</p><p>You can avoid committing your credentials by placing them on the environmental variables or in the local properties of the project.</p><h3 is-upgraded><strong>Store credentials on local properties</strong></h3><p>To store the credentials in the local properties, open the <code>local.properties</code> file and add the following</p><pre><code>github.user=your-username
+github.token=your-token</code></pre><p>Update the publishing configuration:</p><pre><code>val  properties =  Properties()
 properties.load(project.rootProject.file(&#34;local.properties&#34;).inputStream())
 
 publishing {
@@ -360,16 +199,8 @@ publishing {
        }
    }
 }
-</code></pre>
-<h3 is-upgraded><strong>Store credentials on environmental variables</strong></h3>
-<p>The environment variables can be set in the <code>~/.zshrc</code> file:</p>
-<pre><code>export GITHUB_USER=&#34;&lt;your-username&gt;&#34;
-export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
-<p>After setting them, remember to reload the file:</p>
-<pre><code>source ~/.zshrc</code></pre>
-<p>To ensure the environment variables are set correctly, restart Android Studio.</p>
-<p>Update the publishing configuration:</p>
-<pre><code>publishing {
+</code></pre><h3 is-upgraded><strong>Store credentials on environmental variables</strong></h3><p>The environment variables can be set in the <code>~/.zshrc</code> file:</p><pre><code>export GITHUB_USER=&#34;&lt;your-username&gt;&#34;
+export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre><p>After setting them, remember to reload the file:</p><pre><code>source ~/.zshrc</code></pre><p>To ensure the environment variables are set correctly, restart Android Studio.</p><p>Update the publishing configuration:</p><pre><code>publishing {
    repositories {
        maven {
            name = &#34;GitHubPackages&#34;
@@ -380,22 +211,7 @@ export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
            }
        }
    }
-}</code></pre>
-<aside class="special"><p>If the build fails with the message: <code>"Cannot query the value of this provider because it has no value available."</code></p>
-<p>it means that the environment variables are not set correctly.</p>
-</aside>
-<h3 is-upgraded><strong>Publish to GitHub Packages</strong></h3>
-<p>After all this setup, you&#39;re ready to publish the library on GitHub packages. To do so, you need to run the following Gradle tasks.</p>
-<pre><code>./gradlew publishKotlinMultiplatformPublicationToGitHubPackagesRepository publishAndroidDebugPublicationToGitHubPackagesRepository publishAndroidReleasePublicationToGitHubPackagesRepository</code></pre>
-<p>The first task will publish the <a href="https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html" target="_blank">Gradle module metadata</a> required to make Gradle understand which platform you are asking for. Without that, you must specify the dependency as <code>com.example.newsreaderkmp:shared-android:0.0.1</code> instead of simply <code>com.example.newsreaderkmp:shared:0.0.1</code>. </p>
-<p>The other two tasks are self-explanatory and will publish the library&#39;s debug and release flavor. </p>
-<p>There is also a simpler <code>publish</code> task that will publish everything automatically. However, in this case, we are not publishing a KMP library for another KMP project; instead, we are publishing a KMP library to be used in a native application. So we don&#39;t need all the platforms, but just the Android library (in this way, we can also save some quotas on GitHub).</p>
-<p>After running the tasks mentioned above, your GitHub repository will look like this:</p>
-<p class="image-container"><img style="width: 624.00px" src="img/353bb8a28e41beda.png"></p>
-<p>You have published your library and are now ready to import it into the Android project! </p>
-<h3 is-upgraded><strong>Add the KMP library on the Android app.</strong></h3>
-<p>To use the newly published KMP library, you must first update the repository in the <code>settings.gradle.kts</code> file. Delete the <code>mavenLocal</code> entry (or comment it out; the purpose is to ensure that Gradle will pick up the library from GitHub Packages and not the local one) and replace it with the following configuration.</p>
-<pre><code> dependencyResolutionManagement {
+}</code></pre><aside class=special><p>If the build fails with the message: <code>"Cannot query the value of this provider because it has no value available."</code></p><p>it means that the environment variables are not set correctly.</p></aside><h3 is-upgraded><strong>Publish to GitHub Packages</strong></h3><p>After all this setup, you're ready to publish the library on GitHub packages. To do so, you need to run the following Gradle tasks.</p><pre><code>./gradlew publishKotlinMultiplatformPublicationToGitHubPackagesRepository publishAndroidDebugPublicationToGitHubPackagesRepository publishAndroidReleasePublicationToGitHubPackagesRepository</code></pre><p>The first task will publish the <a href=https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html target=_blank>Gradle module metadata</a> required to make Gradle understand which platform you are asking for. Without that, you must specify the dependency as <code>com.example.newsreaderkmp:shared-android:0.0.1</code> instead of simply <code>com.example.newsreaderkmp:shared:0.0.1</code>.</p><p>The other two tasks are self-explanatory and will publish the library's debug and release flavor.</p><p>There is also a simpler <code>publish</code> task that will publish everything automatically. However, in this case, we are not publishing a KMP library for another KMP project; instead, we are publishing a KMP library to be used in a native application. So we don't need all the platforms, but just the Android library (in this way, we can also save some quotas on GitHub).</p><p>After running the tasks mentioned above, your GitHub repository will look like this:</p><p class=image-container><img style=width:624px src=img/353bb8a28e41beda.png></p><p>You have published your library and are now ready to import it into the Android project!</p><h3 is-upgraded><strong>Add the KMP library on the Android app.</strong></h3><p>To use the newly published KMP library, you must first update the repository in the <code>settings.gradle.kts</code> file. Delete the <code>mavenLocal</code> entry (or comment it out; the purpose is to ensure that Gradle will pick up the library from GitHub Packages and not the local one) and replace it with the following configuration.</p><pre><code> dependencyResolutionManagement {
    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
    repositories {
        google()
@@ -410,22 +226,7 @@ export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
        }
    }
 }
-</code></pre>
-<p>As you did previously, in the URL above, replace <code>username</code> with your GitHub username and <code>repoName</code> with the name of the repository where you published the package (or copy and paste the URL from the previous configuration 😀). </p>
-<p>Congrats! 🎉</p>
-<p>You now have an Android app using a Kotlin Multiplatform library from a GitHub Package.</p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Distribute the Kotlin Multiplatform library on iOS" duration="30">
-        <p>As mentioned above, you will use an <code>XCFramework</code> to distribute the KMP library to the iOS app. </p>
-<aside class="special"><p>An XCFramework bundle, or <em>artifact</em>, is a binary package created by Xcode that includes the frameworks and libraries necessary to build for multiple platforms (iOS, macOS, visionOS, tvOS, watchOS, and DriverKit), including Simulator builds.</p>
-<p><a href="https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle" target="_blank">https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle</a></p>
-</aside>
-<h2 is-upgraded><strong>Build an XCFramework</strong></h2>
-<p>As you may remember, you already choose to have an <code>XCFramework</code> as the iOS framework distribution in the wizard while creating the KMP library. The wizard automatically created some configuration in the <code>shared/build.gradle.kts</code> file.</p>
-<pre><code>kotlin {
+</code></pre><p>As you did previously, in the URL above, replace <code>username</code> with your GitHub username and <code>repoName</code> with the name of the repository where you published the package (or copy and paste the URL from the previous configuration 😀).</p><p>Congrats! 🎉</p><p>You now have an Android app using a Kotlin Multiplatform library from a GitHub Package.</p></google-codelab-step><google-codelab-step label="Distribute the Kotlin Multiplatform library on iOS" duration=30><p>As mentioned above, you will use an <code>XCFramework</code> to distribute the KMP library to the iOS app.</p><aside class=special><p>An XCFramework bundle, or <em>artifact</em>, is a binary package created by Xcode that includes the frameworks and libraries necessary to build for multiple platforms (iOS, macOS, visionOS, tvOS, watchOS, and DriverKit), including Simulator builds.</p><p><a href=https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle target=_blank>https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle</a></p></aside><h2 is-upgraded><strong>Build an XCFramework</strong></h2><p>As you may remember, you already choose to have an <code>XCFramework</code> as the iOS framework distribution in the wizard while creating the KMP library. The wizard automatically created some configuration in the <code>shared/build.gradle.kts</code> file.</p><pre><code>kotlin {
    ...
   
    val xcf = XCFramework()
@@ -442,9 +243,7 @@ export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
    }
 
    ...
-}</code></pre>
-<p>Let&#39;s customise the name of the framework, so the import on Swift will look more insightful. </p>
-<pre><code>kotlin {
+}</code></pre><p>Let's customise the name of the framework, so the import on Swift will look more insightful.</p><pre><code>kotlin {
    ...
 
    val xcf = XCFramework(&#34;NewsReaderKMP&#34;)
@@ -462,23 +261,7 @@ export GITHUB_TOKEN=&#34;&lt;your-token&gt;&#34;</code></pre>
 
    ...
 }
-</code></pre>
-<p>To build the XCFramework, run the following Gradle task</p>
-<pre><code>./gradlew assembleNewsReaderKMPXCFramework</code></pre>
-<p>The tasks will build a release and a debug version of the XCFramework. To build only a debug version, run the <code>assembleNewsReaderKMPDebugXCFramework</code> task, and for a release-only version, run the <code>assembleNewsReaderKMPReleaseXCFramework</code> task. </p>
-<p>The XCFramework will be placed in the <code>shared/build/XCFrameworks/release/NewsReaderKMP.xcframework</code> folder.</p>
-<h2 is-upgraded><img style="width: 334.53px" src="img/3d5246c7e4a7bbda.png"></h2>
-<p>Now, the XCFramework needs to be imported into Xcode. To do so, you will use the <a href="https://www.swift.org/documentation/package-manager/" target="_blank">Swift Package Manager</a>.</p>
-<h2 is-upgraded><strong>Publish the XCFramework locally with Swift Package Manager</strong></h2>
-<p>As with Android, we will first publish the KMP library locally. To distribute a library in the iOS world, we can use different dependency managers: CocoaPods, Carthage, or Swift Package Manager. </p>
-<p>We will use Swift Package Manager.</p>
-<aside class="special"><p>The Swift Package Manager is a tool for managing distribution of source code, aimed at making it easy to share your code and reuse others&#39; code. The tool directly addresses the challenges of compiling and linking Swift packages, managing dependencies, versioning, and supporting flexible distribution and collaboration models.</p>
-<p>We&#39;ve designed the system to make it easy to share packages on services like GitHub, but packages are also great for private personal development, sharing code within a team, or at any other granularity.</p>
-<p><a href="https://github.com/apple/swift-package-manager" target="_blank">https://github.com/apple/swift-package-manager</a></p>
-</aside>
-<p>Swift Package Manager is based on git, and a package is a git repository with semantically versioned tags that contains Swift sources or a binary and a <code>Package.swift</code> manifest file at its root.</p>
-<p>So, to create a new package, you need to create a new git repository, for example, called <code>NewsReaderKMP,</code> move the <code>NewsReaderKMP.xcframework</code> from the build folder (<code>shared/build/XCFrameworks/release</code>) and create a <code>Package.swift</code> file.</p>
-<pre><code>// swift-tools-version:5.9
+</code></pre><p>To build the XCFramework, run the following Gradle task</p><pre><code>./gradlew assembleNewsReaderKMPXCFramework</code></pre><p>The tasks will build a release and a debug version of the XCFramework. To build only a debug version, run the <code>assembleNewsReaderKMPDebugXCFramework</code> task, and for a release-only version, run the <code>assembleNewsReaderKMPReleaseXCFramework</code> task.</p><p>The XCFramework will be placed in the <code>shared/build/XCFrameworks/release/NewsReaderKMP.xcframework</code> folder.</p><h2 is-upgraded><img style=width:334.53px src=img/3d5246c7e4a7bbda.png></h2><p>Now, the XCFramework needs to be imported into Xcode. To do so, you will use the <a href=https://www.swift.org/documentation/package-manager/ target=_blank>Swift Package Manager</a>.</p><h2 is-upgraded><strong>Publish the XCFramework locally with Swift Package Manager</strong></h2><p>As with Android, we will first publish the KMP library locally. To distribute a library in the iOS world, we can use different dependency managers: CocoaPods, Carthage, or Swift Package Manager.</p><p>We will use Swift Package Manager.</p><aside class=special><p>The Swift Package Manager is a tool for managing distribution of source code, aimed at making it easy to share your code and reuse others' code. The tool directly addresses the challenges of compiling and linking Swift packages, managing dependencies, versioning, and supporting flexible distribution and collaboration models.</p><p>We've designed the system to make it easy to share packages on services like GitHub, but packages are also great for private personal development, sharing code within a team, or at any other granularity.</p><p><a href=https://github.com/apple/swift-package-manager target=_blank>https://github.com/apple/swift-package-manager</a></p></aside><p>Swift Package Manager is based on git, and a package is a git repository with semantically versioned tags that contains Swift sources or a binary and a <code>Package.swift</code> manifest file at its root.</p><p>So, to create a new package, you need to create a new git repository, for example, called <code>NewsReaderKMP,</code> move the <code>NewsReaderKMP.xcframework</code> from the build folder (<code>shared/build/XCFrameworks/release</code>) and create a <code>Package.swift</code> file.</p><pre><code>// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -499,99 +282,24 @@ let package = Package(
        ),
    ]
 )
-</code></pre>
-<p>In this file, the metadata of the package are defined. For example, it&#39;s possible to specify the platform you want to target, the product (i.e., the artifact that will be available to the clients of the package), and the targets (i.e., from where the product will be assembled). A target can simply be source code or a binary, like in our case. </p>
-<aside class="special"><p>Check the documentation for more info about the <code>Package.swift</code> file</p>
-<p><a href="https://github.com/apple/swift-package-manager/blob/main/Documentation/PackageDescription.md" target="_blank">https://github.com/apple/swift-package-manager/blob/main/Documentation/PackageDescription.md</a></p>
-</aside>
-<p>The structure of the package will look like this: </p>
-<p class="image-container"><img style="width: 475.91px" src="img/3087d8c0c52bbba.png"></p>
-<p>After creating the git repository and the <code>Package.swift</code> file, you are ready to commit your changes and tag the commit.</p>
-<pre><code>git add .
+</code></pre><p>In this file, the metadata of the package are defined. For example, it's possible to specify the platform you want to target, the product (i.e., the artifact that will be available to the clients of the package), and the targets (i.e., from where the product will be assembled). A target can simply be source code or a binary, like in our case.</p><aside class=special><p>Check the documentation for more info about the <code>Package.swift</code> file</p><p><a href=https://github.com/apple/swift-package-manager/blob/main/Documentation/PackageDescription.md target=_blank>https://github.com/apple/swift-package-manager/blob/main/Documentation/PackageDescription.md</a></p></aside><p>The structure of the package will look like this:</p><p class=image-container><img style=width:475.91px src=img/3087d8c0c52bbba.png></p><p>After creating the git repository and the <code>Package.swift</code> file, you are ready to commit your changes and tag the commit.</p><pre><code>git add .
 git commit -m &#34;Release 0.0.1&#34;
-git tag 0.0.1</code></pre>
-<h3 is-upgraded><strong>Import a local Package in Xcode</strong></h3>
-<p>To load a local Package in the Xcode project, open the <code>Add Package Dependencies</code> menu from <code>File</code></p>
-<p class="image-container"><img style="width: 456.73px" src="img/fd637f123a8e869b.png"></p>
-<p>Select the <code>Add Local</code> button</p>
-<p class="image-container"><img style="width: 624.00px" src="img/a73cdf8cd91996dc.png"></p>
-<p>locate the local package in the file chooser</p>
-<p class="image-container"><img style="width: 624.00px" src="img/83b47ea1e3a6a2ea.png"></p>
-<p>and add it to the project</p>
-<p class="image-container"><img style="width: 624.00px" src="img/219c539df683394a.png"></p>
-<p>You can see now the Package correctly imported in the Project Navigator</p>
-<p class="image-container"><img style="width: 386.48px" src="img/3de33f769168c2a2.png"></p>
-<p>Congrats! 🎉</p>
-<p>You have imported a Kotlim Multiplatform library into an iOS project!</p>
-<h3 is-upgraded><strong>Replace Swift code with the KMP library</strong></h3>
-<p>At this point, you need to replace all the code inside the <code>data</code> and <code>domain</code> group with the KMP library. Select and delete those folders (remember to select <code>Move to Trash</code> and not <code>Remove References</code>). </p>
-<p class="image-container"><img style="width: 295.34px" src="img/a274087ff3f29c6.png"></p>
-<p>After deleting the folders, you only need to import the KMP library. Add <code>import NewsReaderKMP</code> on the imports of the <code>presentation/ContentView.swift</code>, <code>presentation/MainViewModel.swift</code>, <code>presentation/UIState.swift</code> and <code>NewsReaderApp.swift</code> files.</p>
-<p>Build and run the app, and congrats! 🎉</p>
-<p>You now have an iOS app that is using a Kotlin Multiplatform library from a local Swift Package.</p>
-<h2 is-upgraded><strong>Publish the XCFramework on GitHub with Swift Package Manager</strong></h2>
-<p>Again, having the library published locally is not a scalable solution especially if you are working in a team. </p>
-<p>As mentioned above, Swift Package Manager is based on git, so you can simply push the newly created package into a GitHub repository. </p>
-<p>Create a new repository on your GitHub account and push all the changes, tags included. </p>
-<p>Go back on Xcode, navigate to the <code>Package Dependencies</code> menu (you can navigate to it by clicking on <code>NewsReader</code> in the Project Navigator, then again on <code>NewsReader</code> in the Project  section, and then on the  <code>Package Dependencies</code> tab), and delete the local package dependency. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/e846afd7e3ba0717.png"></p>
-<p>Now, you can click the <code>+</code> button and add the package published on GitHub. Simply paste the repository URL in the search box, and Xcode will find the package. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/91152c3d55133671.png"></p>
-<p>After adding the package,  build and rerun the app. Congrats! 🎉</p>
-<p>The iOS app now uses a Kotlin Multiplatform library from a Swift Package published on GitHub.</p>
-<h3 is-upgraded><strong>Potential Issues</strong></h3>
-<p>This approach of publishing the binaries in a repository is straightforward, but it could lead to some struggles when the size of the repository increases. Xcode will start having performance issues when the repository approaches 5GB, which seems like a considerable number, but it&#39;s not if you consider the different published architectures. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/2723a35c96314f83.png"></p>
-<p><a href="https://x.com/kpgalligan/status/1723364386046173493?s=20" target="_blank">https://x.com/kpgalligan/status/1723364386046173493?s=20</a></p>
-<p>This issue can be overcome by zipping the XCFramework and placing it somewhere on the Internet. That&#39;s because the Swift Package Manager supports having <a href="https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages#Declare-a-binary-target-in-the-package-manifest" target="_blank">targets as zip files</a> that can be retrieved from a URL. </p>
-<p>However, to do so, you need some infrastructure to store the zip file of your framework safely (and most likely privately). As always, in the software industry, you can build the infrastructure or use some existing ones. </p>
-<p>The next section will explore and try an existing solution to streamline the framework distribution. </p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Streamline distribution with KMMBridge" duration="30">
-        <p><a href="https://touchlab.co/kmmbridge/" target="_blank">KMMBridge</a> is a tool published by <a href="https://touchlab.co" target="_blank">Touchlab</a> to facilitate publishing and consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like GitHub Releases, Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by Swift Package Manager.</p>
-<aside class="special"><p>Check the documentation for more info about KMMBridge</p>
-<p><a href="https://touchlab.co/kmmbridge/" target="_blank">https://touchlab.co/kmmbridge/</a></p>
-</aside>
-<p>KMMBridge makes it possible to easily use GitHub as a place to host the XCFramework as a zip file without growing the size of the repository and hence hitting the issue above-mentioned. That&#39;s because KMBridge will use GitHub Releases (or the Maven repository provided by GitHub Packages) to store the zip file. </p>
-<p>KMMBridge will then automatically create a <code>Package.swift</code> file that will contain the URL of the XCFramework uploaded to GitHub Releases (or in the Maven repo). In this way, you can import the git repository of the KMP library as a Swift Package in the iOS project. </p>
-<p>Let&#39;s see how KMMBridge can be used to publish the KMP library on GitHub Releases using GitHub Actions.</p>
-<aside class="special"><p>The approach proposed by KMMBridge will also work with a private Maven repository or other artifacts manager that can be used to store the zipped Framework. </p>
-<p>Another alternative could be to handle the storage manually; in such case, I suggest looking at the following Gradle plugin to automate the zipped Framework creation: <a href="https://github.com/luca992/multiplatform-swiftpackage" target="_blank">https://github.com/luca992/multiplatform-swiftpackage</a></p>
-</aside>
-<h2 is-upgraded><strong>Add KMMBridge on the KMP library</strong></h2>
-<p>First thing first, we need to add the KMMBridge Gradle plugin</p>
-<p><code>gradle/libs.versions.toml</code></p>
-<pre><code>[versions]
+git tag 0.0.1</code></pre><h3 is-upgraded><strong>Import a local Package in Xcode</strong></h3><p>To load a local Package in the Xcode project, open the <code>Add Package Dependencies</code> menu from <code>File</code></p><p class=image-container><img style=width:456.73px src=img/fd637f123a8e869b.png></p><p>Select the <code>Add Local</code> button</p><p class=image-container><img style=width:624px src=img/a73cdf8cd91996dc.png></p><p>locate the local package in the file chooser</p><p class=image-container><img style=width:624px src=img/83b47ea1e3a6a2ea.png></p><p>and add it to the project</p><p class=image-container><img style=width:624px src=img/219c539df683394a.png></p><p>You can see now the Package correctly imported in the Project Navigator</p><p class=image-container><img style=width:386.48px src=img/3de33f769168c2a2.png></p><p>Congrats! 🎉</p><p>You have imported a Kotlim Multiplatform library into an iOS project!</p><h3 is-upgraded><strong>Replace Swift code with the KMP library</strong></h3><p>At this point, you need to replace all the code inside the <code>data</code> and <code>domain</code> group with the KMP library. Select and delete those folders (remember to select <code>Move to Trash</code> and not <code>Remove References</code>).</p><p class=image-container><img style=width:295.34px src=img/a274087ff3f29c6.png></p><p>After deleting the folders, you only need to import the KMP library. Add <code>import NewsReaderKMP</code> on the imports of the <code>presentation/ContentView.swift</code>, <code>presentation/MainViewModel.swift</code>, <code>presentation/UIState.swift</code> and <code>NewsReaderApp.swift</code> files.</p><p>Build and run the app, and congrats! 🎉</p><p>You now have an iOS app that is using a Kotlin Multiplatform library from a local Swift Package.</p><h2 is-upgraded><strong>Publish the XCFramework on GitHub with Swift Package Manager</strong></h2><p>Again, having the library published locally is not a scalable solution especially if you are working in a team.</p><p>As mentioned above, Swift Package Manager is based on git, so you can simply push the newly created package into a GitHub repository.</p><p>Create a new repository on your GitHub account and push all the changes, tags included.</p><p>Go back on Xcode, navigate to the <code>Package Dependencies</code> menu (you can navigate to it by clicking on <code>NewsReader</code> in the Project Navigator, then again on <code>NewsReader</code> in the Project section, and then on the <code>Package Dependencies</code> tab), and delete the local package dependency.</p><p class=image-container><img style=width:624px src=img/e846afd7e3ba0717.png></p><p>Now, you can click the <code>+</code> button and add the package published on GitHub. Simply paste the repository URL in the search box, and Xcode will find the package.</p><p class=image-container><img style=width:624px src=img/91152c3d55133671.png></p><p>After adding the package, build and rerun the app. Congrats! 🎉</p><p>The iOS app now uses a Kotlin Multiplatform library from a Swift Package published on GitHub.</p><h3 is-upgraded><strong>Potential Issues</strong></h3><p>This approach of publishing the binaries in a repository is straightforward, but it could lead to some struggles when the size of the repository increases. Xcode will start having performance issues when the repository approaches 5GB, which seems like a considerable number, but it's not if you consider the different published architectures.</p><p class=image-container><img style=width:624px src=img/2723a35c96314f83.png></p><p><a href="https://x.com/kpgalligan/status/1723364386046173493?s=20" target=_blank>https://x.com/kpgalligan/status/1723364386046173493?s=20</a></p><p>This issue can be overcome by zipping the XCFramework and placing it somewhere on the Internet. That's because the Swift Package Manager supports having <a href=https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages#Declare-a-binary-target-in-the-package-manifest target=_blank>targets as zip files</a> that can be retrieved from a URL.</p><p>However, to do so, you need some infrastructure to store the zip file of your framework safely (and most likely privately). As always, in the software industry, you can build the infrastructure or use some existing ones.</p><p>The next section will explore and try an existing solution to streamline the framework distribution.</p></google-codelab-step><google-codelab-step label="Streamline distribution with KMMBridge" duration=30><p><a href=https://touchlab.co/kmmbridge/ target=_blank>KMMBridge</a> is a tool published by <a href=https://touchlab.co target=_blank>Touchlab</a> to facilitate publishing and consuming Kotlin Multiplatform XCFramework binaries. It lets you publish the binaries to different private or public artifact managers like GitHub Releases, Maven, GitHub Packages, S3, JetBrains Spaces, Artifactory, and consume them by Swift Package Manager.</p><aside class=special><p>Check the documentation for more info about KMMBridge</p><p><a href=https://touchlab.co/kmmbridge/ target=_blank>https://touchlab.co/kmmbridge/</a></p></aside><p>KMMBridge makes it possible to easily use GitHub as a place to host the XCFramework as a zip file without growing the size of the repository and hence hitting the issue above-mentioned. That's because KMBridge will use GitHub Releases (or the Maven repository provided by GitHub Packages) to store the zip file.</p><p>KMMBridge will then automatically create a <code>Package.swift</code> file that will contain the URL of the XCFramework uploaded to GitHub Releases (or in the Maven repo). In this way, you can import the git repository of the KMP library as a Swift Package in the iOS project.</p><p>Let's see how KMMBridge can be used to publish the KMP library on GitHub Releases using GitHub Actions.</p><aside class=special><p>The approach proposed by KMMBridge will also work with a private Maven repository or other artifacts manager that can be used to store the zipped Framework.</p><p>Another alternative could be to handle the storage manually; in such case, I suggest looking at the following Gradle plugin to automate the zipped Framework creation: <a href=https://github.com/luca992/multiplatform-swiftpackage target=_blank>https://github.com/luca992/multiplatform-swiftpackage</a></p></aside><h2 is-upgraded><strong>Add KMMBridge on the KMP library</strong></h2><p>First thing first, we need to add the KMMBridge Gradle plugin</p><p><code>gradle/libs.versions.toml</code></p><pre><code>[versions]
 ...
 kmmbridge = &#34;1.0.0&#34;
 
 [plugins]
 ...
 kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge&#34; }
-</code></pre>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>plugins {
+</code></pre><p><code>shared/build.gradle.kts</code></p><pre><code>plugins {
    ...
    alias(libs.plugins.kmmbridge)
 }
-</code></pre>
-<p><code>build.gradle.kts</code></p>
-<pre><code>plugins {
+</code></pre><p><code>build.gradle.kts</code></p><pre><code>plugins {
    ...
    alias(libs.plugins.kmmbridge).apply(false)
 }
-</code></pre>
-<p>After a Gradle sync, you will be ready to move forward.</p>
-<aside class="special"><p>KMMBridge is not compatible with Gradle configuration cache yet, so make sure to turn it off on the project gradle.properties.</p>
-<p><code>org.gradle.configuration-cache=false</code></p>
-</aside>
-<p>We need to modify the Gradle configuration we made before because KMMBridge will handle it automatically for us. </p>
-<p>Remove the XCFramework configuration in the <code>shared/build.gradle.kts</code> file.</p>
-<p>From this:</p>
-<pre><code>kotlin {
+</code></pre><p>After a Gradle sync, you will be ready to move forward.</p><aside class=special><p>KMMBridge is not compatible with Gradle configuration cache yet, so make sure to turn it off on the project gradle.properties.</p><p><code>org.gradle.configuration-cache=false</code></p></aside><p>We need to modify the Gradle configuration we made before because KMMBridge will handle it automatically for us.</p><p>Remove the XCFramework configuration in the <code>shared/build.gradle.kts</code> file.</p><p>From this:</p><pre><code>kotlin {
    ...
   
    // delete the following line
@@ -610,9 +318,7 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
    }
 
    ...
-}</code></pre>
-<p>To this:</p>
-<pre><code>kotlin {
+}</code></pre><p>To this:</p><pre><code>kotlin {
    ...
   
    listOf(
@@ -627,28 +333,16 @@ kmmbridge = { id = &#34;co.touchlab.kmmbridge&#34;, version.ref = &#34;kmmbridge
    }
 
    ...
-}</code></pre>
-<p>Add the following property in the <code>gradle.properties,</code> that set the version number of the library</p>
-<p><code>gradle.properties</code></p>
-<pre><code>LIBRARY_VERSION=0.0.1  </code></pre>
-<p>In the <code>shared/build.gradle.kts</code> file, you need now to read the version number from the Gradle properties instead of hardcoding it. </p>
-<pre><code>val LIBRARY_VERSION: String by project
+}</code></pre><p>Add the following property in the <code>gradle.properties,</code> that set the version number of the library</p><p><code>gradle.properties</code></p><pre><code>LIBRARY_VERSION=0.0.1  </code></pre><p>In the <code>shared/build.gradle.kts</code> file, you need now to read the version number from the Gradle properties instead of hardcoding it.</p><pre><code>val LIBRARY_VERSION: String by project
 
 version = LIBRARY_VERSION
 group = &#34;com.example.newsreaderkmp.workshop&#34;
-</code></pre>
-<p>And you&#39;ll need to add some Gradle configuration to enable publishing your library with KMMBridge.</p>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>addGithubPackagesRepository()
+</code></pre><p>And you'll need to add some Gradle configuration to enable publishing your library with KMMBridge.</p><p><code>shared/build.gradle.kts</code></p><pre><code>addGithubPackagesRepository()
 
 kmmbridge {
    gitHubReleaseArtifacts()
    spm()
-}</code></pre>
-<p><code>gitHubReleaseArtifacts()</code> tells the plugin to push KMMBridge artifacts (the zip file mentioned above) to GitHub releases.</p>
-<p><code>addGithubPackagesRepository()</code> instead automatically configures the Maven repository for publishing the Android library by inferring the parameters that are passed in from the GitHub Action. You can then delete the <code>publishing</code> block that you defined previously while publishing the Android library to GitHub Packages</p>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>// Remove the entire block
+}</code></pre><p><code>gitHubReleaseArtifacts()</code> tells the plugin to push KMMBridge artifacts (the zip file mentioned above) to GitHub releases.</p><p><code>addGithubPackagesRepository()</code> instead automatically configures the Maven repository for publishing the Android library by inferring the parameters that are passed in from the GitHub Action. You can then delete the <code>publishing</code> block that you defined previously while publishing the Android library to GitHub Packages</p><p><code>shared/build.gradle.kts</code></p><pre><code>// Remove the entire block
 publishing {
    repositories {
        maven {
@@ -660,15 +354,7 @@ publishing {
            }
        }
    }
-} </code></pre>
-<aside class="special"><p>If you want to publish the Android version locally and not on GitHub actions, you need to set up the credentials on the  <code>~/.netrc</code> file<code>.</code> Check the section &#34;Setup binary access&#34; below or <a href="https://touchlab.co/kmmbridge/artifacts/mavenrepoartifacts#binary-access" target="_blank">the KMMBridge documentation</a></p>
-</aside>
-<aside class="special"><p>Check the documentation for more info about GitHub packages setup</p>
-<p><a href="https://touchlab.co/kmmbridge/artifacts/mavenrepoartifacts#github-packages" target="_blank">https://kmmbridge.touchlab.co/docs/artifacts/MAVEN_REPO_ARTIFACTS#github-packages</a></p>
-</aside>
-<p>The publishing flow is managed with a GitHub action. Let&#39;s create a new GitHub action workflow in the KMP library.</p>
-<p><code>.github/workflows/publish-all.yml</code></p>
-<pre><code>name: Publish All
+} </code></pre><aside class=special><p>If you want to publish the Android version locally and not on GitHub actions, you need to set up the credentials on the <code>~/.netrc</code> file<code>.</code> Check the section "Setup binary access" below or <a href=https://touchlab.co/kmmbridge/artifacts/mavenrepoartifacts#binary-access target=_blank>the KMMBridge documentation</a></p></aside><aside class=special><p>Check the documentation for more info about GitHub packages setup</p><p><a href=https://touchlab.co/kmmbridge/artifacts/mavenrepoartifacts#github-packages target=_blank>https://kmmbridge.touchlab.co/docs/artifacts/MAVEN_REPO_ARTIFACTS#github-packages</a></p></aside><p>The publishing flow is managed with a GitHub action. Let's create a new GitHub action workflow in the KMP library.</p><p><code>.github/workflows/publish-all.yml</code></p><pre><code>name: Publish All
 on:
  workflow_dispatch:
 
@@ -723,141 +409,32 @@ jobs:
          commitMessage: &#34;KMP SPM package release for $&#123;&#123; steps.versionPropertyValue.outputs.propVal }}&#34;
          tagMessage: &#34;KMP release version $&#123;&#123; steps.versionPropertyValue.outputs.propVal }}&#34;
          tagVersion: $&#123;&#123; steps.versionPropertyValue.outputs.propVal }}
-</code></pre>
-<p>This action will be triggered manually and it will publish a new version of the XCFramework with the <code>kmmBridgePublish</code> task and the Android version with the <code>publishKotlinMultiplatformPublicationToGitHubPackagesRepository</code>, <code>publishAndroidDebugPublicationToGitHubPackagesRepository</code> and <code>publishAndroidReleasePublicationToGitHubPackagesRepository</code> tasks (those should sounds familiar since are the same that we used above when publishing the Android library).</p>
-<aside class="special"><p>Check the documentation for all the details about the KMMBridge GitHub Action</p>
-<p><a href="https://touchlab.co/kmmbridge/spmquickstart" target="_blank">https://touchlab.co/kmmbridge/spmquickstart</a></p>
-</aside>
-<p>After committing and pushing all the changes, you can trigger and start the GitHub action</p>
-<p class="image-container"><img style="width: 624.00px" src="img/84ff929443364b59.png"></p>
-<h3 is-upgraded><strong>Use the KMP library on Android</strong></h3>
-<p>After the action finishes, you can first check that the Android project will work with the new release of the library. Remember to bump to version number </p>
-<p><code>app/build.gradle.kts</code></p>
-<pre><code>implementation(&#34;com.example.newsreaderkmp.workshop:shared:0.1&#34;)</code></pre>
-<h3 is-upgraded><strong>Setup binary access</strong></h3>
-<p>GitHub Packages require authentication for accessing files in all repos, public or private.</p>
-<p>You must add a <code>~/.netrc</code> file or Mac Keychain Access authentication info for Swift Package Manager to grab the binary.</p>
-<h4 is-upgraded><strong>~/.netrc file</strong></h4>
-<p>Add the following lines to the <code>~/.netrc</code> file:</p>
-<pre><code>machine api.github.com login githubUsername password githubToken</code></pre>
-<p>where <code>githubUsername</code> is your GitHub username and <code>githubToken</code> is your GitHub token.</p>
-<h4 is-upgraded><strong>Mac Keychain Access</strong></h4>
-<p>Instead of creating an entry in the ~/.netrc file, it&#39;s possible to use the Mac Keychain Access to store the credentials.</p>
-<p>Create a new Password item</p>
-<p class="image-container"><img style="width: 624.00px" src="img/8caefe2690f3636e.png"></p>
-<p>with the following information:</p>
-<p>- <strong>Keychain Item Name: </strong><code>https://api.github.com/</code></p>
-<p>- <strong>Account Name</strong>: <code>githubUsername</code></p>
-<p>- <strong>Password</strong>: <code>githubToken</code></p>
-<p>where <code>githubUsername</code> is your GitHub username and <code>githubToken</code> is your GitHub token.</p>
-<p>Xcode will automatically use the credentials stored in the Keychain Access to get the binary artifacts.</p>
-<aside class="special"><p>You must add a Source Control Account in Xcode if the repository is private.</p>
-<p>Choose <code>Xcode</code> &gt; <code>Settings</code> &gt; <code>Accounts</code>, click the Add button (<code>+</code>), select <code>GitHub</code> on the type of account to add, and click <code>Continue</code>.</p>
-</aside>
-<h3 is-upgraded><strong>Use the KMP library on iOS</strong></h3>
-<p>To use the newly published library, you need to delete the previous Package and add the new dependency.</p>
-<p>Navigate to the <code>Package Dependencies</code> menu (you can navigate to it by clicking on <code>NewsReader</code> in the Project Navigator, then again on <code>NewsReader</code> in the Project section, and then on the  <code>Package Dependencies</code> tab), and delete the previously added package dependency. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/e846afd7e3ba0717.png"></p>
-<p>Now, you can click the <code>+</code> button and add the package published on GitHub. Simply paste the repository URL into the search box, and Xcode will find the package. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/2aee4b730011fa6.png"></p>
-<p>After adding the package,  build and rerun the app. Congrats! 🎉</p>
-<p>The iOS app now uses the Package published with KMMBridge. </p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Debug the KMP library locally on iOS" duration="5">
-        <p>Another exciting feature of KMMBridge is the possibility to locally build and test the framework without having to manually publish it like you&#39;ve done previously in the &#34;Publish the XCFramework locally with Swift Package Manager&#34; section.</p>
-<p>To do so, run the following Gradle task in the Kotlin Multiplatform library project: </p>
-<pre><code>./gradlew spmDevBuild -PspmBuildTargets=ios_simulator_arm64</code></pre>
-<p>This will build only the simulator version. If you want to test your app on a real device, you can run the task without passing any parameters.</p>
-<p>This task will autogenerate a <code>Package.swift</code> file inside the KMP project. Remember to delete it when you&#39;re done with the local testing.</p>
-<p>To replace the published package with the local one, simply drag and drop the root folder of the KMP project inside Xcode. Xcode will automatically replace the &#34;remote&#34; version with the local one. Be aware that the folder&#39;s name must have the same name as the GitHub repository, otherwise the replace will fail.</p>
-<p class="image-container"><img style="width: 624.00px" src="img/12ed13a5477c92f.gif"></p>
-<p>When you&#39;re done with testing, you can delete the local package, and Xcode will automatically replace it with the remote one. Remember to select <code>Remove Reference</code> otherwise the entire KMP library project will be moved to the trash. </p>
-<p class="image-container"><img style="width: 624.00px" src="img/e7737645af8bfea9.gif"></p>
-<p>Remember also to delete the <code>Package.swift</code> file that was created inside the KMP project. </p>
-<h2 is-upgraded><strong>Add Kotlin breakpoints in Xcode</strong></h2>
-<p>With this local setup and the <a href="https://touchlab.co/xcodekotlin" target="_blank">Xcode Kotlin</a> plugin, you will be able to add breakpoints in the Kotlin code and debug it directly from Xcode!</p>
-<p>You can install the plugin with brew</p>
-<pre><code>brew install xcode-kotlin</code></pre>
-<p>Close Xcode and activate the plugin with</p>
-<pre><code>xcode-kotlin install</code></pre>
-<p>After installing the plugin, open Xcode, open a Kotlin class from the local package and add a breakpoint. Run the app, and voila&#39;, you are debugging Kotlin inside Xcode!</p>
-<p class="image-container"><img style="width: 624.00px" src="img/48703f174acd8e7b.gif"></p>
-<aside class="special"><p>Xcode Kotlin will also work without KMMBridge. In such cases, you need to manually import the Kotlin project, as explained in the following documentation:</p>
-<p><a href="https://touchlab.co/xcodekotlin#plugin-usage" target="_blank">https://touchlab.co/xcodekotlin#plugin-usage</a></p>
-</aside>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Debug the KMP library locally on Android" duration="5">
-        <p>To debug locally the KMP library on Android there are two possibilities.</p>
-<p>The first one is deploying a new version on Maven locally every time. This approach works, but you need to wait for the deployment (even though it&#39;s quick, it&#39;s still time that you need to wait), and you need to be sure that Gradle picks up the newest version of the library. </p>
-<p>The other method that overcomes such issues is using <a href="https://docs.gradle.org/current/userguide/composite_builds.html" target="_blank">Gradle Composite</a> builds. This feature of Gradle gives the possibility of including a Gradle project inside another Gradle project. In this way, you can import the KMP library inside your Android project, work on the KMP library, and immediately have the changes reflected on the Android project without doing anything. </p>
-<p>To do so, open the <code>settings.gradle.kts</code> file inside the Android project and add the following configuration: </p>
-<pre><code>includeBuild(&#34;../NewsReaderKMPWorkshop&#34;) {
+</code></pre><p>This action will be triggered manually and it will publish a new version of the XCFramework with the <code>kmmBridgePublish</code> task and the Android version with the <code>publishKotlinMultiplatformPublicationToGitHubPackagesRepository</code>, <code>publishAndroidDebugPublicationToGitHubPackagesRepository</code> and <code>publishAndroidReleasePublicationToGitHubPackagesRepository</code> tasks (those should sounds familiar since are the same that we used above when publishing the Android library).</p><aside class=special><p>Check the documentation for all the details about the KMMBridge GitHub Action</p><p><a href=https://touchlab.co/kmmbridge/spmquickstart target=_blank>https://touchlab.co/kmmbridge/spmquickstart</a></p></aside><p>After committing and pushing all the changes, you can trigger and start the GitHub action</p><p class=image-container><img style=width:624px src=img/84ff929443364b59.png></p><h3 is-upgraded><strong>Use the KMP library on Android</strong></h3><p>After the action finishes, you can first check that the Android project will work with the new release of the library. Remember to bump to version number</p><p><code>app/build.gradle.kts</code></p><pre><code>implementation(&#34;com.example.newsreaderkmp.workshop:shared:0.1&#34;)</code></pre><h3 is-upgraded><strong>Setup binary access</strong></h3><p>GitHub Packages require authentication for accessing files in all repos, public or private.</p><p>You must add a <code>~/.netrc</code> file or Mac Keychain Access authentication info for Swift Package Manager to grab the binary.</p><h4 is-upgraded><strong>~/.netrc file</strong></h4><p>Add the following lines to the <code>~/.netrc</code> file:</p><pre><code>machine api.github.com login githubUsername password githubToken</code></pre><p>where <code>githubUsername</code> is your GitHub username and <code>githubToken</code> is your GitHub token.</p><h4 is-upgraded><strong>Mac Keychain Access</strong></h4><p>Instead of creating an entry in the ~/.netrc file, it's possible to use the Mac Keychain Access to store the credentials.</p><p>Create a new Password item</p><p class=image-container><img style=width:624px src=img/8caefe2690f3636e.png></p><p>with the following information:</p><p>- <strong>Keychain Item Name: </strong><code>https://api.github.com/</code></p><p>- <strong>Account Name</strong>: <code>githubUsername</code></p><p>- <strong>Password</strong>: <code>githubToken</code></p><p>where <code>githubUsername</code> is your GitHub username and <code>githubToken</code> is your GitHub token.</p><p>Xcode will automatically use the credentials stored in the Keychain Access to get the binary artifacts.</p><aside class=special><p>You must add a Source Control Account in Xcode if the repository is private.</p><p>Choose <code>Xcode</code> > <code>Settings</code> > <code>Accounts</code>, click the Add button (<code>+</code>), select <code>GitHub</code> on the type of account to add, and click <code>Continue</code>.</p></aside><h3 is-upgraded><strong>Use the KMP library on iOS</strong></h3><p>To use the newly published library, you need to delete the previous Package and add the new dependency.</p><p>Navigate to the <code>Package Dependencies</code> menu (you can navigate to it by clicking on <code>NewsReader</code> in the Project Navigator, then again on <code>NewsReader</code> in the Project section, and then on the <code>Package Dependencies</code> tab), and delete the previously added package dependency.</p><p class=image-container><img style=width:624px src=img/e846afd7e3ba0717.png></p><p>Now, you can click the <code>+</code> button and add the package published on GitHub. Simply paste the repository URL into the search box, and Xcode will find the package.</p><p class=image-container><img style=width:624px src=img/2aee4b730011fa6.png></p><p>After adding the package, build and rerun the app. Congrats! 🎉</p><p>The iOS app now uses the Package published with KMMBridge.</p></google-codelab-step><google-codelab-step label="Debug the KMP library locally on iOS" duration=5><p>Another exciting feature of KMMBridge is the possibility to locally build and test the framework without having to manually publish it like you've done previously in the "Publish the XCFramework locally with Swift Package Manager" section.</p><p>To do so, run the following Gradle task in the Kotlin Multiplatform library project:</p><pre><code>./gradlew spmDevBuild -PspmBuildTargets=ios_simulator_arm64</code></pre><p>This will build only the simulator version. If you want to test your app on a real device, you can run the task without passing any parameters.</p><p>This task will autogenerate a <code>Package.swift</code> file inside the KMP project. Remember to delete it when you're done with the local testing.</p><p>To replace the published package with the local one, simply drag and drop the root folder of the KMP project inside Xcode. Xcode will automatically replace the "remote" version with the local one. Be aware that the folder's name must have the same name as the GitHub repository, otherwise the replace will fail.</p><p class=image-container><img style=width:624px src=img/12ed13a5477c92f.gif></p><p>When you're done with testing, you can delete the local package, and Xcode will automatically replace it with the remote one. Remember to select <code>Remove Reference</code> otherwise the entire KMP library project will be moved to the trash.</p><p class=image-container><img style=width:624px src=img/e7737645af8bfea9.gif></p><p>Remember also to delete the <code>Package.swift</code> file that was created inside the KMP project.</p><h2 is-upgraded><strong>Add Kotlin breakpoints in Xcode</strong></h2><p>With this local setup and the <a href=https://touchlab.co/xcodekotlin target=_blank>Xcode Kotlin</a> plugin, you will be able to add breakpoints in the Kotlin code and debug it directly from Xcode!</p><p>You can install the plugin with brew</p><pre><code>brew install xcode-kotlin</code></pre><p>Close Xcode and activate the plugin with</p><pre><code>xcode-kotlin install</code></pre><p>After installing the plugin, open Xcode, open a Kotlin class from the local package and add a breakpoint. Run the app, and voila', you are debugging Kotlin inside Xcode!</p><p class=image-container><img style=width:624px src=img/48703f174acd8e7b.gif></p><aside class=special><p>Xcode Kotlin will also work without KMMBridge. In such cases, you need to manually import the Kotlin project, as explained in the following documentation:</p><p><a href=https://touchlab.co/xcodekotlin#plugin-usage target=_blank>https://touchlab.co/xcodekotlin#plugin-usage</a></p></aside></google-codelab-step><google-codelab-step label="Debug the KMP library locally on Android" duration=5><p>To debug locally the KMP library on Android there are two possibilities.</p><p>The first one is deploying a new version on Maven locally every time. This approach works, but you need to wait for the deployment (even though it's quick, it's still time that you need to wait), and you need to be sure that Gradle picks up the newest version of the library.</p><p>The other method that overcomes such issues is using <a href=https://docs.gradle.org/current/userguide/composite_builds.html target=_blank>Gradle Composite</a> builds. This feature of Gradle gives the possibility of including a Gradle project inside another Gradle project. In this way, you can import the KMP library inside your Android project, work on the KMP library, and immediately have the changes reflected on the Android project without doing anything.</p><p>To do so, open the <code>settings.gradle.kts</code> file inside the Android project and add the following configuration:</p><pre><code>includeBuild(&#34;../NewsReaderKMPWorkshop&#34;) {
    dependencySubstitution {
        substitute(module(&#34;com.example.newsreaderkmp.workshop:shared&#34;)).using(project(&#34;:shared&#34;))
    }
 }
-</code></pre>
-<p>where <code>"../NewsReaderKMPWorkshop"</code> is the path to the KMP library project. With this configuration, instead of the <code>com.example.newsreaderkmp.workshop:shared</code> dependency, the Gradle module <code>shared</code> in the  <code>"../NewsReaderKMPWorkshop"</code> path will be used.</p>
-<aside class="special"><p>Remember to comment or delete this configuration before committing your code, otherwise the CI will fail :D</p>
-</aside>
-<p>After a Gradle sync, if you modify something in the KMP library and run the Android app, your changes will be immediately available. </p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Improve iOS Developer experience with SKIE" duration="10">
-        <p>Kotlin/Native provides bidirectional interoperability with Objective-C. During the translation from Kotlin to Objective-C to Swift, some of the Kotlin language features (that are also supported by Swift) are lost because Objective-C does not support them. </p>
-<p>For example, there are no default arguments, the enums are not Swift-friendly, sealed classes are just simple classes, coroutines don&#39;t support cancelations, and flows are not supported. </p>
-<p>For those reasons, some APIs exposed by Kotlin to Swift will not look appealing because they lack important language features. </p>
-<p>JetBrains is currently developing the interoperability with Swift. At the moment there is an experimental developer preview, but it&#39;s not ready for production. More information is available i<a href="https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/" target="_blank">n the official documentation</a>.</p>
-<p>While waiting for the official interoperability with Swift, the community created some tools to overcome those issues.</p>
-<p>For example, <a href="https://github.com/rickclephas/KMP-NativeCoroutines" target="_blank">KMP-NativeCoroutines</a> adds support for cancellation on Coroutines and enables the usage of Coroutines and Flow on Swift with Swift Concurrency, Combine, or RxSwift.</p>
-<p>Another interesting tool is <a href="https://skie.touchlab.co/" target="_blank">SKIE</a>, a compiler plugin that generates Swift code to fix the abovementioned issues (flows, coroutine cancellation, default arguments, enum, sealed classes). </p>
-<aside class="special"><p>SKIE improves interoperability between Kotlin and Swift by generating Swift wrappers for Objective-C headers created by the Kotlin compiler. It recreates features supported by both languages that are lost in the translation from Kotlin to Objective-C to Swift.</p>
-<p><a href="https://skie.touchlab.co/" target="_blank">https://skie.touchlab.co/</a></p>
-</aside>
-<h2 is-upgraded><strong>Add SKIE</strong></h2>
-<p>To add SKIE to the Kotlin Multiplatform library, you just need to add the Gradle plugin.</p>
-<p><code>gradle/libs.versions.toml</code></p>
-<pre><code>[versions]
+</code></pre><p>where <code>"../NewsReaderKMPWorkshop"</code> is the path to the KMP library project. With this configuration, instead of the <code>com.example.newsreaderkmp.workshop:shared</code> dependency, the Gradle module <code>shared</code> in the <code>"../NewsReaderKMPWorkshop"</code> path will be used.</p><aside class=special><p>Remember to comment or delete this configuration before committing your code, otherwise the CI will fail :D</p></aside><p>After a Gradle sync, if you modify something in the KMP library and run the Android app, your changes will be immediately available.</p></google-codelab-step><google-codelab-step label="Improve iOS Developer experience with SKIE" duration=10><p>Kotlin/Native provides bidirectional interoperability with Objective-C. During the translation from Kotlin to Objective-C to Swift, some of the Kotlin language features (that are also supported by Swift) are lost because Objective-C does not support them.</p><p>For example, there are no default arguments, the enums are not Swift-friendly, sealed classes are just simple classes, coroutines don't support cancelations, and flows are not supported.</p><p>For those reasons, some APIs exposed by Kotlin to Swift will not look appealing because they lack important language features.</p><p>JetBrains is currently developing the interoperability with Swift. At the moment there is an experimental developer preview, but it's not ready for production. More information is available i<a href=https://github.com/JetBrains/kotlin/blob/master/docs/swift-export/ target=_blank>n the official documentation</a>.</p><p>While waiting for the official interoperability with Swift, the community created some tools to overcome those issues.</p><p>For example, <a href=https://github.com/rickclephas/KMP-NativeCoroutines target=_blank>KMP-NativeCoroutines</a> adds support for cancellation on Coroutines and enables the usage of Coroutines and Flow on Swift with Swift Concurrency, Combine, or RxSwift.</p><p>Another interesting tool is <a href=https://skie.touchlab.co/ target=_blank>SKIE</a>, a compiler plugin that generates Swift code to fix the abovementioned issues (flows, coroutine cancellation, default arguments, enum, sealed classes).</p><aside class=special><p>SKIE improves interoperability between Kotlin and Swift by generating Swift wrappers for Objective-C headers created by the Kotlin compiler. It recreates features supported by both languages that are lost in the translation from Kotlin to Objective-C to Swift.</p><p><a href=https://skie.touchlab.co/ target=_blank>https://skie.touchlab.co/</a></p></aside><h2 is-upgraded><strong>Add SKIE</strong></h2><p>To add SKIE to the Kotlin Multiplatform library, you just need to add the Gradle plugin.</p><p><code>gradle/libs.versions.toml</code></p><pre><code>[versions]
 ...
 skie = &#34;0.8.4&#34;
 
 [plugins]
 ...
 skie = { id = &#34;co.touchlab.skie&#34;, version.ref = &#34;skie&#34; }
-</code></pre>
-<p><code>shared/build.gradle.kts</code></p>
-<pre><code>plugins {
+</code></pre><p><code>shared/build.gradle.kts</code></p><pre><code>plugins {
    ...
    alias(libs.plugins.skie)
 }
-</code></pre>
-<p><code>build.gradle.kts</code></p>
-<pre><code>plugins {
+</code></pre><p><code>build.gradle.kts</code></p><pre><code>plugins {
    ...
    alias(libs.plugins.skie).apply(false)
 }
-</code></pre>
-<p>And that&#39;s it. When you build the XCFramework, SKIE will automatically generate the Swift code that will be linked to the final XCFramework generated by Kotlin Multiplatform. </p>
-<aside class="special"><p>If the build fails, add the following configuration inside the build.gradle.kts file:</p>
-</aside>
-<p><code>build.gradle.kts</code></p>
-<pre><code>skie {
+</code></pre><p>And that's it. When you build the XCFramework, SKIE will automatically generate the Swift code that will be linked to the final XCFramework generated by Kotlin Multiplatform.</p><aside class=special><p>If the build fails, add the following configuration inside the build.gradle.kts file:</p></aside><p><code>build.gradle.kts</code></p><pre><code>skie {
    build {
        // Otherwise it fails with &#34;No &#39;swiftinterface&#39; files found&#34;
        enableSwiftLibraryEvolution.set(true)
    }
-}</code></pre>
-<p>After publishing another version of the KMP Library, the <code>loadNews</code> method in the <code>MainViewModel.swift</code> class will fully support cancelation!</p>
-<p><code>presentation/MainViewModel.swift</code></p>
-<pre><code>func loadNews() async {
+}</code></pre><p>After publishing another version of the KMP Library, the <code>loadNews</code> method in the <code>MainViewModel.swift</code> class will fully support cancelation!</p><p><code>presentation/MainViewModel.swift</code></p><pre><code>func loadNews() async {
    do {
        let newsList = try await newsRepository.fetchNews()
        uiState = UiState.success(newsList: newsList)
@@ -866,52 +443,4 @@ skie = { id = &#34;co.touchlab.skie&#34;, version.ref = &#34;skie&#34; }
        uiState = UiState.error(message: error. localizedDescription)
    }
 }
-</code></pre>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Congratulations" duration="0">
-        <p>Congratulations, you&#39;ve successfully integrated Kotlin Multiplatform into an existing Android and iOS application. </p>
-<p>You are now equipped with the knowledge to successfully create and distribute a Kotlin Multiplatform library to Android and iOS. </p>
-<h2 is-upgraded><strong>Sample project:</strong></h2>
-<p>The sample project includes an <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/end" target="_blank">end folder</a> with two final workspaces: <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/end/self-publish" target="_blank">one</a> that manually deploys the KMP library on GitHub and <a href="https://github.com/prof18/kmp-existing-project-workshop/tree/main/end/kmmbridge" target="_blank">one</a> that it deploys it with KMMBridge.</p>
-<h2 is-upgraded><strong>Resources</strong></h2>
-<ul>
-<li><strong>Publishing Java packages with Gradle<br></strong><a href="https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-gradle" target="_blank">https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-gradle</a></li>
-<li><strong> Gradle Maven deploy failing with 422 Unprocessable Entity #26328<br></strong><a href="https://github.com/orgs/community/discussions/26328#discussioncomment-3251485" target="_blank">https://github.com/orgs/community/discussions/26328#discussioncomment-3251485</a></li>
-<li><strong> How to allow unauthorised read access to GitHub packages maven repository? #26634<br></strong><a href="https://github.com/orgs/community/discussions/26634" target="_blank">https://github.com/orgs/community/discussions/26634</a></li>
-<li><strong>Creating a multiplatform binary framework bundle<br></strong><a href="https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle" target="_blank">https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle</a></li>
-<li><strong>Binary Frameworks in Swift<br></strong><a href="https://developer.apple.com/videos/play/wwdc2019/416/" target="_blank">https://developer.apple.com/videos/play/wwdc2019/416/</a></li>
-<li><strong>Binary Frameworks in Swift<br></strong><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2019/416h8485aty341c2/416/416_binary_frameworks_in_swift.pdf" target="_blank">https://devstreaming-cdn.apple.com/videos/wwdc/2019/416h8485aty341c2/416/416_binary_frameworks_in_swift.pdf</a></li>
-<li><strong>Build final native binaries<br></strong><a href="https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks" target="_blank">https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks</a></li>
-<li><strong>Distributing binary frameworks as Swift packages<br></strong><a href="https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages" target="_blank">https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages</a></li>
-<li><strong>KMP-NativeCoroutines<br></strong><a href="https://github.com/rickclephas/KMP-NativeCoroutines" target="_blank">https://github.com/rickclephas/KMP-NativeCoroutines</a></li>
-<li><strong>SKIE<br></strong><a href="https://skie.touchlab.co/" target="_blank">https://skie.touchlab.co/</a></li>
-<li><strong>SKIE Migration Guide<br></strong><a href="https://touchlab.co/skie-migration?ti=4B0F129C5D944E54B60B31FE35" target="_blank">https://touchlab.co/skie-migration?ti=4B0F129C5D944E54B60B31FE35</a></li>
-<li><strong>Interoperability with Swift/Objective-C﻿<br></strong><a href="https://kotlinlang.org/docs/native-objc-interop.html" target="_blank">https://kotlinlang.org/docs/native-objc-interop.html</a></li>
-<li><strong>​​Kotlin/Native as an Apple framework<br></strong><a href="https://kotlinlang.org/docs/apple-framework.html" target="_blank">https://kotlinlang.org/docs/apple-framework.html</a></li>
-<li><strong>Kotlin-Swift interopedia<br></strong><a href="https://github.com/kotlin-hands-on/kotlin-swift-interopedia" target="_blank">https://github.com/kotlin-hands-on/kotlin-swift-interopedia</a></li>
-<li><strong>Writing Swift-friendly Kotlin Multiplatform APIs<br></strong><a href="https://medium.com/@aoriani/list/writing-swiftfriendly-kotlin-multiplatform-apis-c51c2b317fce" target="_blank">https://medium.com/@aoriani/list/writing-swiftfriendly-kotlin-multiplatform-apis-c51c2b317fce</a></li>
-<li><strong>Dependency Management in iOS<br></strong><a href="https://blog.devgenius.io/dependancy-management-for-ios-27dd681d7ea0" target="_blank">https://blog.devgenius.io/dependancy-management-for-ios-27dd681d7ea0</a></li>
-<li><strong>multiplatform-swiftpackage<br></strong><a href="https://github.com/luca992/multiplatform-swiftpackage" target="_blank">https://github.com/luca992/multiplatform-swiftpackage</a></li>
-<li><strong>KMMBridge<br></strong><a href="https://touchlab.co/kmmbridge/" target="_blank">https://touchlab.co/kmmbridge/</a></li>
-<li><strong>KMMBridge Quick Start<br></strong><a href="https://touchlab.co/kmmbridge/spmquickstart" target="_blank">https://touchlab.co/kmmbridge/spmquickstart</a></li>
-<li><strong>Xcode 13.3 supports SPM binary dependency in private GitHub release<br></strong><a href="https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45" target="_blank">https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45</a></li>
-<li><strong>Swift Export Sample<br></strong><a href="https://github.com/Kotlin/swift-export-sample" target="_blank">https://github.com/Kotlin/swift-export-sample</a></li>
-<li><strong>Swift Export doc<br></strong><a href="https://github.com/JetBrains/kotlin/tree/master/docs/swift-export" target="_blank">https://github.com/JetBrains/kotlin/tree/master/docs/swift-export</a></li>
-</ul>
-
-
-      </google-codelab-step>
-    
-  </google-codelab>
-
-  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
-  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
-  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
-  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
-  <script src="//support.google.com/inapp/api.js"></script>
-
-</body>
-</html>
+</code></pre></google-codelab-step><google-codelab-step label=Congratulations duration=0><p>Congratulations, you've successfully integrated Kotlin Multiplatform into an existing Android and iOS application.</p><p>You are now equipped with the knowledge to successfully create and distribute a Kotlin Multiplatform library to Android and iOS.</p><h2 is-upgraded><strong>Sample project:</strong></h2><p>The sample project includes an <a href=https://github.com/prof18/kmp-existing-project-workshop/tree/main/end target=_blank>end folder</a> with two final workspaces: <a href=https://github.com/prof18/kmp-existing-project-workshop/tree/main/end/self-publish target=_blank>one</a> that manually deploys the KMP library on GitHub and <a href=https://github.com/prof18/kmp-existing-project-workshop/tree/main/end/kmmbridge target=_blank>one</a> that it deploys it with KMMBridge.</p><h2 is-upgraded><strong>Resources</strong></h2><ul><li><strong>Publishing Java packages with Gradle<br></strong><a href=https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-gradle target=_blank>https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-gradle</a></li><li><strong>Gradle Maven deploy failing with 422 Unprocessable Entity #26328<br></strong><a href=https://github.com/orgs/community/discussions/26328#discussioncomment-3251485 target=_blank>https://github.com/orgs/community/discussions/26328#discussioncomment-3251485</a></li><li><strong>How to allow unauthorised read access to GitHub packages maven repository? #26634<br></strong><a href=https://github.com/orgs/community/discussions/26634 target=_blank>https://github.com/orgs/community/discussions/26634</a></li><li><strong>Creating a multiplatform binary framework bundle<br></strong><a href=https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle target=_blank>https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle</a></li><li><strong>Binary Frameworks in Swift<br></strong><a href=https://developer.apple.com/videos/play/wwdc2019/416/ target=_blank>https://developer.apple.com/videos/play/wwdc2019/416/</a></li><li><strong>Binary Frameworks in Swift<br></strong><a href=https://devstreaming-cdn.apple.com/videos/wwdc/2019/416h8485aty341c2/416/416_binary_frameworks_in_swift.pdf target=_blank>https://devstreaming-cdn.apple.com/videos/wwdc/2019/416h8485aty341c2/416/416_binary_frameworks_in_swift.pdf</a></li><li><strong>Build final native binaries<br></strong><a href=https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks target=_blank>https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#build-xcframeworks</a></li><li><strong>Distributing binary frameworks as Swift packages<br></strong><a href=https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages target=_blank>https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages</a></li><li><strong>KMP-NativeCoroutines<br></strong><a href=https://github.com/rickclephas/KMP-NativeCoroutines target=_blank>https://github.com/rickclephas/KMP-NativeCoroutines</a></li><li><strong>SKIE<br></strong><a href=https://skie.touchlab.co/ target=_blank>https://skie.touchlab.co/</a></li><li><strong>SKIE Migration Guide<br></strong><a href="https://touchlab.co/skie-migration?ti=4B0F129C5D944E54B60B31FE35" target=_blank>https://touchlab.co/skie-migration?ti=4B0F129C5D944E54B60B31FE35</a></li><li><strong>Interoperability with Swift/Objective-C﻿<br></strong><a href=https://kotlinlang.org/docs/native-objc-interop.html target=_blank>https://kotlinlang.org/docs/native-objc-interop.html</a></li><li><strong>​​Kotlin/Native as an Apple framework<br></strong><a href=https://kotlinlang.org/docs/apple-framework.html target=_blank>https://kotlinlang.org/docs/apple-framework.html</a></li><li><strong>Kotlin-Swift interopedia<br></strong><a href=https://github.com/kotlin-hands-on/kotlin-swift-interopedia target=_blank>https://github.com/kotlin-hands-on/kotlin-swift-interopedia</a></li><li><strong>Writing Swift-friendly Kotlin Multiplatform APIs<br></strong><a href=https://medium.com/@aoriani/list/writing-swiftfriendly-kotlin-multiplatform-apis-c51c2b317fce target=_blank>https://medium.com/@aoriani/list/writing-swiftfriendly-kotlin-multiplatform-apis-c51c2b317fce</a></li><li><strong>Dependency Management in iOS<br></strong><a href=https://blog.devgenius.io/dependancy-management-for-ios-27dd681d7ea0 target=_blank>https://blog.devgenius.io/dependancy-management-for-ios-27dd681d7ea0</a></li><li><strong>multiplatform-swiftpackage<br></strong><a href=https://github.com/luca992/multiplatform-swiftpackage target=_blank>https://github.com/luca992/multiplatform-swiftpackage</a></li><li><strong>KMMBridge<br></strong><a href=https://touchlab.co/kmmbridge/ target=_blank>https://touchlab.co/kmmbridge/</a></li><li><strong>KMMBridge Quick Start<br></strong><a href=https://touchlab.co/kmmbridge/spmquickstart target=_blank>https://touchlab.co/kmmbridge/spmquickstart</a></li><li><strong>Xcode 13.3 supports SPM binary dependency in private GitHub release<br></strong><a href=https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45 target=_blank>https://medium.com/geekculture/xcode-13-3-supports-spm-binary-dependency-in-private-github-release-8d60a47d5e45</a></li><li><strong>Swift Export Sample<br></strong><a href=https://github.com/Kotlin/swift-export-sample target=_blank>https://github.com/Kotlin/swift-export-sample</a></li><li><strong>Swift Export doc<br></strong><a href=https://github.com/JetBrains/kotlin/tree/master/docs/swift-export target=_blank>https://github.com/JetBrains/kotlin/tree/master/docs/swift-export</a></li></ul></google-codelab-step></google-codelab><script src=https://storage.googleapis.com/claat-public/native-shim.js></script><script src=https://storage.googleapis.com/claat-public/custom-elements.min.js></script><script src=https://storage.googleapis.com/claat-public/prettify.js></script><script src=https://storage.googleapis.com/claat-public/codelab-elements.js></script><script src=//support.google.com/inapp/api.js></script></body></html></section><div class=article-footer><div class=body>To stay up to date with my writing and my projects, follow me on <a href=https://bsky.app/profile/marcogomiero.com target=_blank>Bluesky</a>, <a href=https://androiddev.social/@marcogom target=_blank>Mastodon</a> or <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div></article></main><footer class=footer><span>&copy; 2025 <a href=https://www.marcogomiero.com/>Marco Gomiero</a></span></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script></div></body></html>

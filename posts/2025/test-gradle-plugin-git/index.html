@@ -1,0 +1,180 @@
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Testing a Gradle Plugin that interacts with Git - Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using KMMBridge might be a better option.)
+After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them."><meta property="og:image" content><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><meta property="og:url" content="https://www.marcogomiero.com/posts/2025/test-gradle-plugin-git/"><meta property="og:site_name" content="Marco Gomiero"><meta property="og:title" content="Testing a Gradle Plugin that interacts with Git"><meta property="og:description" content="Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using KMMBridge might be a better option.)
+After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-05-13T00:00:00+00:00"><meta property="article:modified_time" content="2025-05-13T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Testing a Gradle Plugin that interacts with Git"><meta name=twitter:description content="Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using KMMBridge might be a better option.)
+After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them."><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script><script src=https://www.marcogomiero.com//js/feather.min.js></script><link href="https://fonts.googleapis.com/css?family=JetBrains+Mono" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://www.marcogomiero.com/css/main.f2c7f60ec2d0155a784ade9b1b272143e1b8eb864a95bf75e606b49d8774389e.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://www.marcogomiero.com/css/dark.26c5bf79ef760a8f4feb8fc7be32ec86fc1f1da292b42c9fcc37879d4f774e3f.css disabled></head><body><div class=content><header><div class=main><a href=https://www.marcogomiero.com/><h2>Marco Gomiero</h2></a></div><nav class=navbar><a href=/posts/><span>Write
+</span></a><a href=/talks/><span>Speak
+</span></a><a href=/projects/><span>Build
+</span></a><a href=/about-me/><span>About
+</span></a>| <span class=dark-mode-toggle id=dark-mode-toggle onclick=toggleTheme()></span>
+<script src=https://www.marcogomiero.com//js/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title>Testing a Gradle Plugin that interacts with Git</h1><div class=post-meta>&lt;span title='2025-05-13 00:00:00 +0000 UTC'>13 May 2025&lt;/span></div></div><section class=body><p>Some time ago, I built <a href=https://github.com/prof18/kmp-framework-bundler>KMP Framework Bundler</a>, a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using <a href=https://touchlab.co/kmmbridge/>KMMBridge</a> might be a better option.)</p><p>After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them.</p><p>Here’s a simplified example of what the plugin does:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>copy {
+</span></span><span style=display:flex><span>	from(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$buildDir</span><span style=color:#5af78e>/XCFrameworks/debug&#34;</span>)
+</span></span><span style=display:flex><span>	into(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$rootDir</span><span style=color:#5af78e>/../kmp-xcframework-dest&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>project.exec {
+</span></span><span style=display:flex><span>    workingDir = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$rootDir</span><span style=color:#5af78e>/../kmp-xcframework-dest&#34;</span>)
+</span></span><span style=display:flex><span>    commandLine(
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;git&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;add&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;.&#34;</span>
+</span></span><span style=display:flex><span>    ).standardOutput
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>val</span> dateFormatter = SimpleDateFormat(<span style=color:#5af78e>&#34;dd/MM/yyyy - HH:mm&#34;</span>, <span style=color:#f3f99d>Locale</span>.getDefault())
+</span></span><span style=display:flex><span>project.exec {
+</span></span><span style=display:flex><span>    workingDir = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$rootDir</span><span style=color:#5af78e>/../kmp-xcframework-dest&#34;</span>)
+</span></span><span style=display:flex><span>    commandLine(
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;git&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;commit&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;-m&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#5af78e>&#34;</span><span style=color:#5af78e>\&#34;</span><span style=color:#5af78e>New dev release: </span><span style=color:#5af78e>${libVersionName}</span><span style=color:#5af78e>-</span><span style=color:#5af78e>${dateFormatter.format(Date())}</span><span style=color:#5af78e>\&#34;</span><span style=color:#5af78e>&#34;</span>
+</span></span><span style=display:flex><span>    ).standardOutput
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>project.exec {
+</span></span><span style=display:flex><span>    workingDir = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$rootDir</span><span style=color:#5af78e>/../kmp-xcframework-dest&#34;</span>)
+</span></span><span style=display:flex><span>    commandLine(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;push&#34;</span>, <span style=color:#5af78e>&#34;origin&#34;</span>, <span style=color:#5af78e>&#34;develop&#34;</span>).standardOutput
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>More details about KMP Framework Bundler are available <a href=https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support#publish-an-xcframework>in a previous article</a>.</p><h2 id=automated-testing>Automated testing</h2><p>Before every release, I manually tested the entire publishing process. This involved setting up a simple local Kotlin Multiplatform project, configuring local and remote CocoaPods repositories, running the plugin, and verifying that everything worked correctly.</p><p>This manual process was time-consuming, so I started exploring <a href=https://docs.gradle.org/current/userguide/test_kit.html>Gradle TestKit</a> to automate it. Gradle TestKit allows you to programmatically execute Gradle builds and inspect the results.</p><p>However, testing Gradle plugins that interact with Git can be tricky, especially when they involve committing changes and pushing to remote repositories. In this article, I’ll show how I was able to test my plugin using Gradle TestKit and Git bare repositories, eliminating the need for manual testing and actual remote repositories.</p><h2 id=testing-project-structure>Testing project structure</h2><p>With GradleTestKit, it’s possible to create a test project inside the test resources and run the plugin on it:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>.
+</span></span><span style=display:flex><span>└── kmp-framework-bundler
+</span></span><span style=display:flex><span>    └── src
+</span></span><span style=display:flex><span>        ├── main
+</span></span><span style=display:flex><span>        └── <span style=color:#ff5c57>test</span>
+</span></span><span style=display:flex><span>            ├── kotlin
+</span></span><span style=display:flex><span>            └── resources
+</span></span><span style=display:flex><span>                └── test-project
+</span></span><span style=display:flex><span>                    ├── build.gradle.kts
+</span></span><span style=display:flex><span>                    ├── gradle.properties
+</span></span><span style=display:flex><span>                    ├── settings.gradle
+</span></span><span style=display:flex><span>                    └── src
+</span></span><span style=display:flex><span>                        └── commonMain
+</span></span><span style=display:flex><span>                            └── ...
+</span></span></code></pre></div><p>To test the publishing process, both local and remote Git repositories are needed. Using an actual remote repository would be unreliable and hard to maintain, so the tests create a local <strong>bare</strong> repository to simulate the remote.</p><p>A Git bare repository is a special type of repository that doesn&rsquo;t have a working directory. It contains only the Git database (i.e., the contents of the .git folder) without any checked-out files.</p><p>In contrast, a regular Git repository created with <code>git init</code> includes both the Git database and a working directory. A bare repository, created with <code>git init --bare</code>, contains only the database, making it ideal for simulating a remote server in tests.</p><h2 id=testing-infrastructure>Testing infrastructure</h2><p>A base class sets up the testing environment, so the test classes can focus on assertions. Here&rsquo;s the whole class, which we&rsquo;ll break down below:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#ff6ac1>abstract</span> <span style=color:#ff6ac1>class</span> <span style=color:#f3f99d>BasePublishTest</span>(
+</span></span><span style=display:flex><span>	<span style=color:#78787e>// Enum that specifies whether to test FatFramework or XCFramework publishing
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>    <span style=color:#ff6ac1>private</span> <span style=color:#ff6ac1>val</span> frameworkType: FrameworkType,
+</span></span><span style=display:flex><span>) {
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>lateinit</span> <span style=color:#ff6ac1>var</span> testDestFolder: File
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>lateinit</span> <span style=color:#ff6ac1>var</span> podSpecFile: File
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>lateinit</span> <span style=color:#ff6ac1>var</span> testProject: File
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>private</span> <span style=color:#ff6ac1>lateinit</span> <span style=color:#ff6ac1>var</span> buildGradleFile: File
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>private</span> <span style=color:#ff6ac1>lateinit</span> <span style=color:#ff6ac1>var</span> remoteDestFolder: File
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>private</span> <span style=color:#ff6ac1>lateinit</span> <span style=color:#ff6ac1>var</span> tempBuildGradleFile: File
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff9f43>@Before</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>fun</span> <span style=color:#57c7ff>setup</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Setup test environment
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        testProject = File(<span style=color:#5af78e>&#34;src/test/resources/test-project&#34;</span>)
+</span></span><span style=display:flex><span>        buildGradleFile = File(<span style=color:#5af78e>&#34;src/test/resources/test-project/build.gradle.kts&#34;</span>)
+</span></span><span style=display:flex><span>        tempBuildGradleFile = File(<span style=color:#5af78e>&#34;src/test/resources/test-project/build.gradle.kts.new&#34;</span>)
+</span></span><span style=display:flex><span>        buildGradleFile.copyTo(tempBuildGradleFile)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>val</span> currentPath = <span style=color:#f3f99d>Paths</span>.<span style=color:#ff6ac1>get</span>(<span style=color:#5af78e>&#34;&#34;</span>).toAbsolutePath().toString()
+</span></span><span style=display:flex><span>        testDestFolder = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$currentPath</span><span style=color:#5af78e>/../test-dest&#34;</span>)
+</span></span><span style=display:flex><span>        testDestFolder.mkdirs()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        remoteDestFolder = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$currentPath</span><span style=color:#5af78e>/../remote-dest&#34;</span>)
+</span></span><span style=display:flex><span>        remoteDestFolder.mkdirs()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        buildGradleFile.appendText(getGradleFile())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Initialize local Git repository
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;init&#34;</span>)
+</span></span><span style=display:flex><span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;branch&#34;</span>, <span style=color:#5af78e>&#34;-m&#34;</span>, <span style=color:#5af78e>&#34;main&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Create and commit podspec file
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        podSpecFile = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>${testDestFolder.path}</span><span style=color:#5af78e>/LibraryName.podspec&#34;</span>)
+</span></span><span style=display:flex><span>        podSpecFile.writeText(getPodSpec())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;add&#34;</span>, <span style=color:#5af78e>&#34;.&#34;</span>)
+</span></span><span style=display:flex><span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;commit&#34;</span>, <span style=color:#5af78e>&#34;-m&#34;</span>, <span style=color:#5af78e>&#34;</span><span style=color:#5af78e>\&#34;</span><span style=color:#5af78e>First commit</span><span style=color:#5af78e>\&#34;</span><span style=color:#5af78e>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Initialize bare repository as remote
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        remoteDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;init&#34;</span>, <span style=color:#5af78e>&#34;--bare&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Connect local repo to remote and push
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;remote&#34;</span>, <span style=color:#5af78e>&#34;add&#34;</span>, <span style=color:#5af78e>&#34;origin&#34;</span>, remoteDestFolder.path)
+</span></span><span style=display:flex><span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;push&#34;</span>, <span style=color:#5af78e>&#34;origin&#34;</span>, <span style=color:#5af78e>&#34;--all&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Create develop branch for testing
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;checkout&#34;</span>, <span style=color:#5af78e>&#34;-b&#34;</span>, <span style=color:#5af78e>&#34;develop&#34;</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff9f43>@After</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>fun</span> <span style=color:#57c7ff>cleanUp</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// Clean up test environment
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        buildGradleFile.deleteRecursively()
+</span></span><span style=display:flex><span>        tempBuildGradleFile.renameTo(buildGradleFile)
+</span></span><span style=display:flex><span>        testDestFolder.deleteRecursively()
+</span></span><span style=display:flex><span>        remoteDestFolder.deleteRecursively()
+</span></span><span style=display:flex><span>        File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>${testProject.path}</span><span style=color:#5af78e>/build&#34;</span>).deleteRecursively()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>// Helper methods
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>    <span style=color:#ff6ac1>private</span> <span style=color:#ff6ac1>fun</span> <span style=color:#57c7ff>getGradleFile</span>(): String = <span style=color:#ff6ac1>when</span> (frameworkType) {
+</span></span><span style=display:flex><span>        <span style=color:#f3f99d>FrameworkType</span>.FAT_FRAMEWORK <span style=color:#ff6ac1>-&gt;</span> fatFrameworkGradleFile
+</span></span><span style=display:flex><span>        <span style=color:#f3f99d>FrameworkType</span>.XC_FRAMEWORK <span style=color:#ff6ac1>-&gt;</span> xcFrameworkGradleFile
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>private</span> <span style=color:#ff6ac1>fun</span> <span style=color:#57c7ff>getPodSpec</span>(): String = <span style=color:#ff6ac1>when</span> (frameworkType) {
+</span></span><span style=display:flex><span>        <span style=color:#f3f99d>FrameworkType</span>.XC_FRAMEWORK <span style=color:#ff6ac1>-&gt;</span> xcFrameworkPodSpec
+</span></span><span style=display:flex><span>        <span style=color:#f3f99d>FrameworkType</span>.FAT_FRAMEWORK <span style=color:#ff6ac1>-&gt;</span> fatFrameworkPodSpec
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=1-setting-up-the-test-project>1. Setting Up the Test Project</h3><p>The first step involves accessing the test project and backing up its <code>build.gradle.kts</code> file to restore it when the test is done quickly.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>testProject = File(<span style=color:#5af78e>&#34;src/test/resources/test-project&#34;</span>)
+</span></span><span style=display:flex><span>buildGradleFile = File(<span style=color:#5af78e>&#34;src/test/resources/test-project/build.gradle.kts&#34;</span>)
+</span></span><span style=display:flex><span>tempBuildGradleFile = File(<span style=color:#5af78e>&#34;src/test/resources/test-project/build.gradle.kts.new&#34;</span>)
+</span></span><span style=display:flex><span>buildGradleFile.copyTo(tempBuildGradleFile)
+</span></span></code></pre></div><h3 id=2-creating-local-and-remote-directories>2. Creating Local and remote directories</h3><p>Two folders are created:</p><ul><li><code>testDestFolder</code>: acts as the local repository where the Framework is published.</li><li><code>remoteDestFolder</code>: a bare repository that simulates the remote server.</li></ul><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#ff6ac1>val</span> currentPath = <span style=color:#f3f99d>Paths</span>.<span style=color:#ff6ac1>get</span>(<span style=color:#5af78e>&#34;&#34;</span>).toAbsolutePath().toString()
+</span></span><span style=display:flex><span>testDestFolder = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$currentPath</span><span style=color:#5af78e>/../test-dest&#34;</span>)
+</span></span><span style=display:flex><span>testDestFolder.mkdirs()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>remoteDestFolder = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>$currentPath</span><span style=color:#5af78e>/../remote-dest&#34;</span>)
+</span></span><span style=display:flex><span>remoteDestFolder.mkdirs()
+</span></span></code></pre></div><h3 id=3-configuring-the-build-file>3. Configuring the build file</h3><p>The test project provides a <code>build.gradle.kts</code> file with a basic setup. The file needs to be customized based on the type of Framework that the test needs to validate:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>buildGradleFile.appendText(getGradleFile())
+</span></span></code></pre></div><h3 id=4-setting-up-the-local-git-repository>4. Setting Up the Local Git Repository</h3><p>A new Git repository is initialized in the test destination folder</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;init&#34;</span>)
+</span></span><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;branch&#34;</span>, <span style=color:#5af78e>&#34;-m&#34;</span>, <span style=color:#5af78e>&#34;main&#34;</span>)
+</span></span></code></pre></div><p>and a <code>PodSpec</code> file is committed to the repository</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>podSpecFile = File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>${testDestFolder.path}</span><span style=color:#5af78e>/LibraryName.podspec&#34;</span>)
+</span></span><span style=display:flex><span>podSpecFile.writeText(getPodSpec())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;add&#34;</span>, <span style=color:#5af78e>&#34;.&#34;</span>)
+</span></span><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;commit&#34;</span>, <span style=color:#5af78e>&#34;-m&#34;</span>, <span style=color:#5af78e>&#34;</span><span style=color:#5af78e>\&#34;</span><span style=color:#5af78e>First commit</span><span style=color:#5af78e>\&#34;</span><span style=color:#5af78e>&#34;</span>)
+</span></span></code></pre></div><h3 id=5-creating-the-bare-repository>5. Creating the Bare Repository</h3><p>This is where the magic happens! A bare Git repository is created in the remote destination folder. This repository will act as a &ldquo;remote&rdquo; server without requiring network access.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>remoteDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;init&#34;</span>, <span style=color:#5af78e>&#34;--bare&#34;</span>)
+</span></span></code></pre></div><p>After configuring the “remote” repository, the initial content can be pushed</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;remote&#34;</span>, <span style=color:#5af78e>&#34;add&#34;</span>, <span style=color:#5af78e>&#34;origin&#34;</span>, remoteDestFolder.path)
+</span></span><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;push&#34;</span>, <span style=color:#5af78e>&#34;origin&#34;</span>, <span style=color:#5af78e>&#34;--all&#34;</span>)
+</span></span></code></pre></div><h3 id=6-creating-a-development-branch>6. Creating a Development Branch</h3><p>The final step is creating a development branch that will be used to test the debug framework publishing.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>testDestFolder.runBashCommand(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;checkout&#34;</span>, <span style=color:#5af78e>&#34;-b&#34;</span>, <span style=color:#5af78e>&#34;develop&#34;</span>)
+</span></span></code></pre></div><h3 id=7-cleaning-up-after-tests>7. Cleaning Up After Tests</h3><p>After running the test, all temporary files and directories are cleaned up, and the original build file is restored.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#ff9f43>@After</span>
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>fun</span> <span style=color:#57c7ff>cleanUp</span>() {
+</span></span><span style=display:flex><span>    buildGradleFile.deleteRecursively()
+</span></span><span style=display:flex><span>    tempBuildGradleFile.renameTo(buildGradleFile)
+</span></span><span style=display:flex><span>    testDestFolder.deleteRecursively()
+</span></span><span style=display:flex><span>    remoteDestFolder.deleteRecursively()
+</span></span><span style=display:flex><span>    File(<span style=color:#5af78e>&#34;</span><span style=color:#5af78e>${testProject.path}</span><span style=color:#5af78e>/build&#34;</span>).deleteRecursively()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=testing-the-plugin>Testing the plugin</h2><p>With the setup complete, the publishing pipeline can be fully tested:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>class</span> <span style=color:#f3f99d>XCFrameworkTasksPublishTests</span> : BasePublishTest(frameworkType = <span style=color:#f3f99d>FrameworkType</span>.XC_FRAMEWORK) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff9f43>@Test</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>fun</span> <span style=color:#57c7ff>`When running the publish debug fat framework task, in the destination, the version number is updated in the pod spec, the branch is develop and the commit message is correct`</span>() {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f3f99d>GradleRunner</span>.create()
+</span></span><span style=display:flex><span>            .withProjectDir(<span style=color:#ff6ac1>this</span>)
+</span></span><span style=display:flex><span>            .withArguments(<span style=color:#f3f99d>PublishDebugXCFrameworkTask</span>.NAME, <span style=color:#5af78e>&#34;--stacktrace&#34;</span>)
+</span></span><span style=display:flex><span>            .forwardOutput()
+</span></span><span style=display:flex><span>            .build()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// version on pod spec
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        assertTrue(podSpecFile.getPlainText().contains(POD_SPEC_VERSION_NUMBER))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// branch name
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        <span style=color:#ff6ac1>val</span> branchOutput = testDestFolder.runBashCommandAndGetOutput(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;branch&#34;</span>, <span style=color:#5af78e>&#34;--list&#34;</span>, <span style=color:#5af78e>&#34;develop&#34;</span>)
+</span></span><span style=display:flex><span>        assertTrue(branchOutput.contains(<span style=color:#5af78e>&#34;develop&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#78787e>// commit message
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>        <span style=color:#ff6ac1>val</span> commitOutput = testDestFolder.runBashCommandAndGetOutput(<span style=color:#5af78e>&#34;git&#34;</span>, <span style=color:#5af78e>&#34;log&#34;</span>, <span style=color:#5af78e>&#34;-1&#34;</span>)
+</span></span><span style=display:flex><span>        assertTrue(commitOutput.contains(<span style=color:#5af78e>&#34;New debug release: </span><span style=color:#5af78e>$FRAMEWORK</span><span style=color:#5af78e>_VERSION_NUMBER -&#34;</span>))
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><blockquote><p><code>runBashCommandAndGetOutput</code> and <code>runBashCommand</code> are custom helpers that use Gradle APIs. You can find the implementation <a href=https://github.com/prof18/kmp-framework-bundler/blob/main/src/main/kotlin/com/prof18/kmpframeworkbundler/utils/Utils.kt>in the project repository</a>.</p></blockquote><h2 id=conclusions>Conclusions</h2><p>By combining Gradle TestKit with a Git bare repository, I could fully automate testing for the KMP Framework Bundler plugin, including the entire publishing workflow. This approach eliminates the need to set up complex local environments.</p><p>This pattern can easily be adapted for testing other plugins that interact with version control, providing a reliable and automated way to ensure correctness in real-world scenarios.</p></section><div class=article-footer><div class=body>To stay up to date with my writing and my projects, follow me on <a href=https://bsky.app/profile/marcogomiero.com target=_blank>Bluesky</a>, <a href=https://androiddev.social/@marcogom target=_blank>Mastodon</a> or <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div></article></main><footer class=footer><span>&copy; 2025 <a href=https://www.marcogomiero.com/>Marco Gomiero</a></span></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script></div></body></html>
