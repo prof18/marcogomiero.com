@@ -3,7 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.marcogomiero.com/</loc>
-    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-03T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2025-09-03T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2025/release-kmp-app-droidconlisbon/</loc>
+    <lastmod>2025-09-03T08:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2025-05-13T00:00:00+00:00</lastmod>
@@ -24,9 +30,6 @@
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2024/existing-kmp-project-workshop-devfest-kosova/</loc>
-    <lastmod>2024-12-06T15:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/talks/</loc>
     <lastmod>2024-12-06T15:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2024/release-kmp-app-berlindroid/</loc>

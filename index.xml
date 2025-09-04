@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Sep 2025 08:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The rollercoaster of releasing an Android, iOS and desktop app with Kotlin Multiplatform</title>
+      <link>https://www.marcogomiero.com/talks/2025/release-kmp-app-droidconlisbon/</link>
+      <pubDate>Wed, 03 Sep 2025 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2025/release-kmp-app-droidconlisbon/</guid>
+      <description>With the rise of Kotlin Multiplatform, the possibility of expanding to multiple platforms has increased, especially for Android Developers. It&amp;rsquo;s easier than before to build for other platforms. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; But how to release your app to multiple platforms? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, I will share all the things I&amp;rsquo;ve learned around distributing FeedFlow, an Android, iOS, macOS, Windows, and Linux app built with Kotlin Multiplatform, coming from an Android development background. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; We will cover the deployment of the binary, automating everything with CI, crash reporting, logging, internationalization, and all you need to know to successfully distribute your KMP app.</description>
+    </item>
+    
     <item>
       <title>Testing a Gradle Plugin that interacts with Git</title>
       <link>https://www.marcogomiero.com/posts/2025/test-gradle-plugin-git/</link>
