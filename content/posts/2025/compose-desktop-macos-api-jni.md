@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Accessing native macOS API in Compose Multiplatform."
+title:  "Accessing native macOS API in Compose Multiplatform"
 date:   2025-09-22
 show_in_homepage: false
 ---
