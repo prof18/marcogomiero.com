@@ -3,7 +3,6 @@ layout: post
 title:  "Accessing native macOS API in Compose Multiplatform."
 date:   2025-09-22
 show_in_homepage: false
-draft: true
 ---
 
 Compose Multiplatform is an amazing framework for building desktop applications that run on the JVM (Java Virtual Machine) on multiple platforms (macOS, Windows, and Linux). 
