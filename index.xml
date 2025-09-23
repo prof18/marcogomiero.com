@@ -5,7 +5,17 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 03 Sep 2025 08:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accessing native macOS API in Compose Multiplatform.</title>
+      <link>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</guid>
+      <description>Compose Multiplatform is an amazing framework for building desktop applications that run on the JVM (Java Virtual Machine) on multiple platforms (macOS, Windows, and Linux).
+However, things get trickier if platform-specific APIs, like iCloud on macOS, are needed. These APIs are tied to their native platforms and aren’t designed to be easily shared across multiple targets. Integrating such APIs into a Compose Multiplatform (in this article, when I mention Compose Multiplatform, I’m referring to Compose Multiplatform Desktop apps that run on the JVM) project requires some additional setup and “creativity”.</description>
+    </item>
+    
     <item>
       <title>The rollercoaster of releasing an Android, iOS and desktop app with Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/talks/2025/release-kmp-app-droidconlisbon/</link>
