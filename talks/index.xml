@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/talks/</link>
     <description>Recent content in Talks on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 03 Sep 2025 08:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Sep 2025 08:50:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fireside Chat: Meet your new remote collegue - AI</title>
+      <link>https://www.marcogomiero.com/talks/2025/fireside-chat-droidconlisbon/</link>
+      <pubDate>Wed, 03 Sep 2025 08:50:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2025/fireside-chat-droidconlisbon/</guid>
+      <description>Gather around our metaphorical bonfire as we dive into the evolving role of AI as a teammate in our daily work. Together, we will explore how refining prompts can lead to better answers, how we’ve learned to roll with the moments when results go in the opposite direction, and how AI can even lighten the load by giving your pull requests an initial review. This session is open to everyone — bring your curiosity, experiences, and questions. Let’s share stories, compare notes, and imagine what it really means to welcome AI as our newest remote colleague..</description>
+    </item>
+    
     <item>
       <title>The rollercoaster of releasing an Android, iOS and desktop app with Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/talks/2025/release-kmp-app-droidconlisbon/</link>
