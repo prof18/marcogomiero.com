@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <loc>https://www.marcogomiero.com/talks/2025/kotlin-native-cmp-macos-dcberlin/</loc>
+    <lastmod>2025-09-25T08:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/</loc>
+    <lastmod>2025-09-25T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/</loc>
+    <lastmod>2025-09-25T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/talks/2025/working-for-ai-unconference-dcberlin/</loc>
+    <lastmod>2025-09-24T08:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2025/fireside-chat-droidconlisbon/</loc>
-    <lastmod>2025-09-03T08:50:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/talks/</loc>
     <lastmod>2025-09-03T08:50:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2025/release-kmp-app-droidconlisbon/</loc>

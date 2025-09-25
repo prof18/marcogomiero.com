@@ -5,7 +5,25 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Sep 2025 08:45:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Kotlin to Native and back: accessing native macOS API in Compose Multiplatform</title>
+      <link>https://www.marcogomiero.com/talks/2025/kotlin-native-cmp-macos-dcberlin/</link>
+      <pubDate>Thu, 25 Sep 2025 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2025/kotlin-native-cmp-macos-dcberlin/</guid>
+      <description>Compose Multiplatform makes it easy to build cross-platform desktop apps with Kotlin and Compose, but what about native APIs, like iCloud on macOS? Accessing such APIs isn&amp;rsquo;t possible through the regular Compose Multiplatform toolchain. However, with a bit of &amp;ldquo;magic&amp;rdquo;, we can turn dreams (or feature requests) into reality. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this talk, we&amp;rsquo;ll explore how to combine Kotlin/Native and the JNI (Java Native Interface) to bridge the gap between a JVM-based UI and native system features. We&amp;rsquo;ll write Kotlin code, compile it into a native library, and call it back from Kotlin. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; You&amp;rsquo;ll learn how to build Kotlin/Native code into a native macOS dynamic library and integrate it into a Compose Multiplatform desktop app, unlocking access to iCloud and enabling features like backup and restore for your app’s data.</description>
+    </item>
+    
+    <item>
+      <title>Roundtable: Working with AI, Not for AI: Practical Strategies for Android Development</title>
+      <link>https://www.marcogomiero.com/talks/2025/working-for-ai-unconference-dcberlin/</link>
+      <pubDate>Wed, 24 Sep 2025 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/talks/2025/working-for-ai-unconference-dcberlin/</guid>
+      <description>AI is reshaping how we write code—but for Android developers, the real question is: how do we make it genuinely useful, without slowing down, over-automating, or rewriting our process for the hype? &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; In this roundtable, Android engineers and tech leads will share how they’re integrating AI tools like Gemini, Cursor, Copilot, and others into their Kotlin development workflows—from code generation to test scaffolding, refactoring, documentation, and more. We&amp;rsquo;ll dig into what’s actually helpful in practice, how to avoid tool overload, and how to think critically about where AI fits into the developer experience. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; Whether you’re experimenting with AI tooling or trying to get buy-in from your team, this is your space to compare notes, ask questions, and learn what’s working (and what’s not) in real-world Android development. &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; Which AI tools (e.g., Copilot, Gemini, Cursor) have you tried in your Android development workflow, and what stuck? What kinds of tasks—test generation, boilerplate reduction, code reviews—have you successfully offloaded to AI? How do you balance AI-generated code with code quality and maintainability in a Kotlin-heavy project? What risks or annoyances have you run into when trying to integrate AI into your daily work? Are your teams using AI collaboratively (e.g. shared prompts, memory banks, pair programming with AI), or is it still an individual tool?</description>
+    </item>
+    
     <item>
       <title>Accessing native macOS API in Compose Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</link>
