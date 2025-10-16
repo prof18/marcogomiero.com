@@ -264,3 +264,6 @@ Using Kotlin Native and JNI introduces some additional complexity and a bit of a
 
 The complete iCloud syncing implementation on FeedFlow, built using Kotlin/Native and JNI on macOS, is available in [this pull request](https://github.com/prof18/feed-flow/pull/394).
 
+I've talked about this topic at [droidcon Berlin](https://www.marcogomiero.com/talks/2025/kotlin-native-cmp-macos-dcberlin/). You can check out the recording of the talk on YouTube:
+
+{{< youtube FYVvhvpG9fw >}}
