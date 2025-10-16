@@ -10,6 +10,7 @@ In this talk, we'll explore how to combine Kotlin/Native and the JNI (Java Nativ
 <br><br>
 You'll learn how to build Kotlin/Native code into a native macOS dynamic library and integrate it into a Compose Multiplatform desktop app, unlocking access to iCloud and enabling features like backup and restore for your app’s data."
 speakerDeck: 0e87f1aea3d7434b8aa2e36a08a61e39
+youtube: FYVvhvpG9fw
 ---
 
 ## Resources:
