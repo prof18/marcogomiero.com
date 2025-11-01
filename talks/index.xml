@@ -597,7 +597,7 @@
       <pubDate>Wed, 30 Oct 2019 19:00:00 +0000</pubDate>
       
       <guid>https://www.marcogomiero.com/talks/2019/kotlin-everywhere-venezia/</guid>
-      <description>In this talk, we will see how it&amp;rsquo;s possible to create a mobile application for Android and iOs that share some code (for example business logic, network, etc.) using Kotlin Platform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;We will show also how it&amp;rsquo;s possible to create a backend for this app by of course using Kotlin!</description>
+      <description>In this talk, we will see how it&amp;rsquo;s possible to create a mobile application for Android and iOS that share some code (for example business logic, network, etc.) using Kotlin Multiplatform. We will show a real application that we have built for this talk, i.e. a showcase app for the GDG Venezia.&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;We will show also how it&amp;rsquo;s possible to create a backend for this app by of course using Kotlin!</description>
     </item>
     
     <item>
