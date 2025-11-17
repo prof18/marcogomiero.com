@@ -12,6 +12,7 @@ In this talk, I will share all the things I've learned around distributing FeedF
 <br><br>
 We will cover the deployment of the binary, automating everything with CI, crash reporting, logging, internationalization, and all you need to know to successfully distribute your KMP app."
 speakerDeck: 3584ba59b33e458f92ba182e689f7557
+youtube: 552MO87B2QI
 ---
 
 ## Resources: 

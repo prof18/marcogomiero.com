@@ -7,7 +7,7 @@ I’m Marco Gomiero, a software engineer driven by a passion for building mobile
 
 My expertise spans the full mobile spectrum, with deep experience in both native **Android** and **iOS** development. I believe in crafting high-quality native experiences while leveraging technologies like **Kotlin Multiplatform** to share code where it makes sense, offering flexibility without compromising the native feel.
 
-I’m currently working as a Senior Android Engineer at [Airalo](https://www.airalo.com/) and I am a Google Developer Expert for Android and Kotlin.
+I’m currently working as a Senior Android Engineer at [Airalo](https://www.airalo.com/) and I am a Google Developer Expert for Android.
 
 In my spare time, I maintain open source projects like [FeedFlow](https://feedflow.dev/), share knowledge through [blog posts](/posts) and [conference talks](/talks), organize events with the Google Developer Group Venezia, and when I’m away from the keyboard, you might find me on the basketball court.
 
