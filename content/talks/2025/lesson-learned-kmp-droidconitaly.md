@@ -5,9 +5,9 @@ location: "droidcon Italy"
 performDate: 2025-11-20
 eventUrl: https://it.droidcon.com/2025/speakers/
 summary: "With Kotlin Multiplatform and Compose Multiplatform, you can share code and UI across multiple platforms, from Android and iOS to macOS, Windows, and Linux. But building apps on all these platforms brings unexpected challenges you don’t anticipate at the beginning.
-<br>
+<br><br>
 In this talk, I’ll share what I’ve learned (often the hard way) while developing apps with Kotlin Multiplatform. You’ll hear why sharing less code can sometimes save more time, how dealing with the iOS Keychain from background services turned into a debugging odyssey, and why placing your database in the wrong Windows folder can lead to silent data loss during app updates. We’ll also cover sandboxing on macOS, the trade-offs between using interfaces and `expect/actual`, and the complexities of distributing apps across platforms.
-<br>
+<br><br>
 Whether you’re just getting started with Kotlin Multiplatform or already deep into it, this talk might just save you from a few future debugging headaches.."
 speakerDeck: fd77be3d71c54e1a87dd3ec1e2a348b3
 
