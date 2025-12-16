@@ -5,7 +5,18 @@
     <link>https://www.marcogomiero.com/posts/</link>
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sunsetting spoton: Android 16 killed the hotspot toggle trick</title>
+      <link>https://www.marcogomiero.com/posts/2025/spoton-sunset/</link>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2025/spoton-sunset/</guid>
+      <description>spoton is getting sunset.
+I started this project because I had a very specific (and very lazy) problem: I wanted to enable my phone hotspot without taking my phone out of my pocket. I do it often when I’m travelling or working somewhere without stable Wi-Fi, and every time it was the same ritual: unlock phone, quick settings, find the hotspot tile, toggle, put phone away.
+At some point, I thought: “This should be a button on my wrist.</description>
+    </item>
+    
     <item>
       <title>Accessing native macOS API in Compose Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</link>
