@@ -5,7 +5,16 @@
     <link>https://www.marcogomiero.com/</link>
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 16 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Shellporter: From Idea to Production in a Week</title>
+      <link>https://www.marcogomiero.com/posts/2026/building-shellporter/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.marcogomiero.com/posts/2026/building-shellporter/</guid>
+      <description>I work with multiple projects at the same time. My typical macOS setup is one Desktop/Workspace per project, with my IDE and a terminal window. I prefer using a standalone terminal over the one built into the IDE because TUIs, especially those from AI agents, tend to perform better there: no scrolling jank, no weird jumps, and a generally smoother experience. And also I prefer to have a full big window dedicated to the terminal with more stuff to read rather than a small window in the IDE.</description>
+    </item>
+    
     <item>
       <title>Sunsetting spoton: Android 16 killed the hotspot toggle trick</title>
       <link>https://www.marcogomiero.com/posts/2025/spoton-sunset/</link>
