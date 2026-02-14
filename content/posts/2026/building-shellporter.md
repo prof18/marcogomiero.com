@@ -30,7 +30,7 @@ When you press `Ctrl+Opt+Cmd+T`, Shellporter:
 
 If everything fails, a manual folder picker shows up as a last resort.
 
-It supports (at the time of writing of this article) **JetBrains IDEs, Android Studio, VS Code, Cursor, Antigravity, and Xcode**. On the terminal side: **Terminal.app, iTerm2, Ghostty, Kitty**, and a custom command option for anything else. This cover the current set of IDEs and terminals that I use daily, but if you need support for a different IDE or terminal, contributions are welcome. Feel free to [open a PR](https://github.com/prof18/shellporter/pulls) or [an issue](https://github.com/prof18/shellporter/issues).
+It supports (at the time of writing of this article) **JetBrains IDEs, Android Studio, VS Code, Cursor, Antigravity, and Xcode**. On the terminal side: **Kitty, Ghostty, Terminal.app, iTerm2**, and a custom command option for anything else. This cover the current set of IDEs and terminals that I use daily, but if you need support for a different IDE or terminal, contributions are welcome. Feel free to [open a PR](https://github.com/prof18/shellporter/pulls) or [an issue](https://github.com/prof18/shellporter/issues).
 
 Different IDEs expose project information in very different ways, so a "catch them all"™ approach doesn't work. Shellporter uses a chain of resolution strategies: window title parsing, Accessibility API document attributes, IDE metadata files (`recentProjects.xml` for JetBrains, `storage.json` for VS Code) and the chain order changes depending on the IDE family, prioritizing the most reliable source for each one.
 
