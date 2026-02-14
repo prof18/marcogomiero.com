@@ -10,7 +10,7 @@
 		
 		  <div class="talk-meta">
 		    {{- with (.Param "performDate") }}
-		        {{- (printf "%s" ((.) | time.Format (default "January 2, 2006" site.Params.DateFormat))) }}
+		        {{- (printf "%s" ((.) | time.Format "2 January 2006")) }}
 		    {{- end }}
 		    &nbsp;·&nbsp;
     		<a href="{{ (.Param "eventUrl") }}" target="BLANK">{{ (.Param "location") }}</a>

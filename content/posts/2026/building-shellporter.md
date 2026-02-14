@@ -46,7 +46,7 @@ I've decided to go with a no Xcode approach, not only for writing code (somethin
 
 The inspiration came from this post by [Thomas Ricouard](https://x.com/Dimillian) about [Peter Steinberger](https://x.com/steipete)'s [CodexBar](https://github.com/steipete/CodexBar/) repo
 
-{{< tweet user="Dimillian" id="2008857676625985939" >}}
+{{< x user="Dimillian" id="2008857676625985939" >}}
 
 I've pulled [the skill](https://github.com/Dimillian/Skills/tree/main/macos-spm-app-packaging) that Thomas created from CodexBar, and started exploring how CodexBar is done. The end result is amazing: everything is handled by [a bunch of scripts](https://github.com/prof18/Shellporter/tree/main/Scripts) for running the app, packaging, releasing, etc, that an agent can easily pick.
 

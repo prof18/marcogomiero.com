@@ -1,7 +1,14 @@
 baseURL: "https://www.marcogomiero.com"
 title: Marco Gomiero
-paginate: 12
+pagination:
+  pagerSize: 12
 theme: mg
+
+# Allow raw HTML so {{< rawhtml >}} shortcode content is preserved (badges, video, etc.)
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 enableRobotsTXT: true
 buildDrafts: false

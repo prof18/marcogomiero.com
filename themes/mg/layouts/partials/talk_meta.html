@@ -1,7 +1,7 @@
 {{- $scratch := newScratch }}
 
 {{- with (.Param "performDate") }}
-{{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.) ((.) | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+{{- $scratch.Add "meta" (slice ((.) | time.Format "2 January 2006")) }}
 {{- end }}
 
 {{- with (.Param "location") }}
@@ -9,5 +9,5 @@
 {{- end }}
 
 {{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" -}}
+{{- delimit . " · " -}}
 {{- end -}}
