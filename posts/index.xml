@@ -4,624 +4,422 @@
     <title>Posts on Marco Gomiero</title>
     <link>https://www.marcogomiero.com/posts/</link>
     <description>Recent content in Posts on Marco Gomiero</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Shellporter: From Idea to Production in a Week</title>
       <link>https://www.marcogomiero.com/posts/2026/building-shellporter/</link>
       <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2026/building-shellporter/</guid>
-      <description>I work with multiple projects at the same time. My typical macOS setup is one Desktop/Workspace per project, with my IDE and a terminal window. I prefer using a standalone terminal over the one built into the IDE because TUIs, especially those from AI agents, tend to perform better there: no scrolling jank, no weird jumps, and a generally smoother experience. And also I prefer to have a full big window dedicated to the terminal with more stuff to read rather than a small window in the IDE.</description>
+      <description>&lt;p&gt;I work with multiple projects at the same time. My typical macOS setup is one Desktop/Workspace per project, with my IDE and a terminal window. I prefer using a standalone terminal over the one built into the IDE because TUIs, especially those from AI agents, tend to perform better there: no scrolling jank, no weird jumps, and a generally smoother experience. And also I prefer to have a full big window dedicated to the terminal with more stuff to read rather than a small window in the IDE.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Sunsetting spoton: Android 16 killed the hotspot toggle trick</title>
       <link>https://www.marcogomiero.com/posts/2025/spoton-sunset/</link>
       <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/spoton-sunset/</guid>
-      <description>spoton is getting sunset.
-I started this project because I had a very specific (and very lazy) problem: I wanted to enable my phone hotspot without taking my phone out of my pocket. I do it often when I’m travelling or working somewhere without stable Wi-Fi, and every time it was the same ritual: unlock phone, quick settings, find the hotspot tile, toggle, put phone away.
-At some point, I thought: “This should be a button on my wrist.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.prof18.spoton&amp;amp;hl=en-US&#34;&gt;&lt;strong&gt;spoton&lt;/strong&gt;&lt;/a&gt; is getting sunset.&lt;/p&gt;&#xA;&lt;p&gt;I started this project because I had a very specific (and very lazy) problem: I wanted to enable my phone hotspot without taking my phone out of my pocket. I do it often when I’m travelling or working somewhere without stable Wi-Fi, and every time it was the same ritual: unlock phone, quick settings, find the hotspot tile, toggle, put phone away.&lt;/p&gt;&#xA;&lt;p&gt;At some point, I thought: &lt;em&gt;“This should be a button on my wrist.”&lt;/em&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Accessing native macOS API in Compose Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/compose-desktop-macos-api-jni/</guid>
-      <description>Compose Multiplatform is an amazing framework for building desktop applications that run on the JVM (Java Virtual Machine) on multiple platforms (macOS, Windows, and Linux).
-However, things get trickier if platform-specific APIs, like iCloud on macOS, are needed. These APIs are tied to their native platforms and aren’t designed to be easily shared across multiple targets. Integrating such APIs into a Compose Multiplatform (in this article, when I mention Compose Multiplatform, I’m referring to Compose Multiplatform Desktop apps that run on the JVM) project requires some additional setup and “creativity”.</description>
+      <description>&lt;p&gt;Compose Multiplatform is an amazing framework for building desktop applications that run on the JVM (Java Virtual Machine) on multiple platforms (macOS, Windows, and Linux).&lt;/p&gt;&#xA;&lt;p&gt;However, things get trickier if platform-specific APIs, like iCloud on macOS, are needed. These APIs are tied to their native platforms and aren’t designed to be easily shared across multiple targets.  Integrating such APIs into a Compose Multiplatform (in this article, when I mention Compose Multiplatform, I’m referring to Compose Multiplatform Desktop apps that run on the JVM) project requires some additional setup and “creativity”.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Testing a Gradle Plugin that interacts with Git</title>
       <link>https://www.marcogomiero.com/posts/2025/test-gradle-plugin-git/</link>
       <pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/test-gradle-plugin-git/</guid>
-      <description>Some time ago, I built KMP Framework Bundler, a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using KMMBridge might be a better option.)
-After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them.</description>
+      <description>&lt;p&gt;Some time ago, I built &lt;a href=&#34;https://github.com/prof18/kmp-framework-bundler&#34;&gt;KMP Framework Bundler&lt;/a&gt;, a Gradle plugin for Kotlin Multiplatform projects that generates an XCFramework for Apple targets or a FatFramework for iOS targets and manages the publishing process to a CocoaPods repository. (Note: the plugin is currently in maintenance mode; using &lt;a href=&#34;https://touchlab.co/kmmbridge/&#34;&gt;KMMBridge&lt;/a&gt; might be a better option.)&lt;/p&gt;&#xA;&lt;p&gt;After building the Framework, the plugin handles the publishing process by interacting with a Git-based CocoaPods repository. It copies the Framework into the repository, updates the podspec file with the latest version, commits the changes, and pushes them.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>The curious case of a weird VerifyError crash</title>
       <link>https://www.marcogomiero.com/posts/2025/bug-hunting-story/</link>
       <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/bug-hunting-story/</guid>
-      <description>This post can be considered as a journal entry. I had to clear my thoughts and vent off through writing after spending time debugging this issue. Maybe it will be helpful for future references or an example of the process to follow in such cases.
-The other day I was doing the usual dependency update routine of FeedFlow when I discovered a runtime crash that happened in the release version (so with R8 enabled) after updating the Android Gradle Plugin (AGP, in the rest of the article) to version 8.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This post can be considered as a journal entry. I had to clear my thoughts and vent off through writing after spending time debugging this issue. Maybe it will be helpful for future references or an example of the process to follow in such cases.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure&gt;&lt;a href=&#34;https://www.marcogomiero.com/img/bug-hunting-story/coffe.jpeg&#34;&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/bug-hunting-story/coffe.jpeg&#34;&gt;&lt;/a&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;The other day I was doing the usual dependency update routine of &lt;a href=&#34;https://www.feedflow.dev&#34;&gt;FeedFlow&lt;/a&gt; when I discovered a runtime crash that happened in the release version (so with R8 enabled) after updating the Android Gradle Plugin (AGP, in the rest of the article) to version 8.7.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>From an Android to a Kotlin Multiplatform library</title>
       <link>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</link>
       <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</guid>
-      <description>As Kotlin Multiplatform (KMP) continues to gain traction, more Android libraries are transitioning to support multiple platforms. However, this transition doesn’t always come for free; depending on the project, there could be different challenges.
-Recently, I migrated an existing Android library (RSS-Parser, a library to parse RSS feeds). In this article, I will share my experience, cover all the challenges I faced during this journey, and describe the solutions I implemented to overcome them, from preserving git history to handling platform-specific dependencies and testing across different platforms.</description>
+      <description>&lt;p&gt;As Kotlin Multiplatform (KMP) continues to gain traction, more Android libraries are transitioning to support multiple platforms. However, this transition doesn’t always come for free; depending on the project, there could be different challenges.&lt;/p&gt;&#xA;&lt;p&gt;Recently, I migrated an existing Android library (&lt;a href=&#34;https://github.com/prof18/RSS-Parser&#34;&gt;RSS-Parser&lt;/a&gt;, a library to parse RSS feeds). In this article, I will share my experience, cover all the challenges I faced during this journey, and describe the solutions I implemented to overcome them, from preserving git history to handling platform-specific dependencies and testing across different platforms.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Watch out for transitive dependencies: an “obvious” rant</title>
       <link>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</link>
       <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</guid>
-      <description>This article is just a short &amp;ldquo;rant&amp;rdquo; and a &amp;ldquo;therapy session&amp;rdquo; to remind and warn my future self.
-I was recently debugging a weird crash affecting some users. The issue was related to navigation, fragments, and backstacks.
-After weeks spent trying to reproduce it, reading online reports, and cross-referencing previous libraries and SDK updates, I finally had an illuminating moment after reading about a similar behavior in the Google Issue Tracker.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article is just a short &amp;ldquo;rant&amp;rdquo; and a &amp;ldquo;therapy session&amp;rdquo; to remind and warn my future self.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I was recently debugging a weird crash affecting some users. The issue was related to navigation, fragments, and backstacks.&lt;/p&gt;&#xA;&lt;p&gt;After weeks spent trying to reproduce it, reading online reports, and cross-referencing previous libraries and SDK updates, I finally had an illuminating moment after reading about a similar behavior in the &lt;a href=&#34;https://issuetracker.google.com/issues/340202276#comment3&#34;&gt;Google Issue Tracker&lt;/a&gt;. It made me wonder: Could something have changed in the Android Manifest?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Don’t let Maven block you!</title>
       <link>https://www.marcogomiero.com/posts/2025/ublock-maven/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2025/ublock-maven/</guid>
-      <description>As developers, we&amp;rsquo;ve all encountered build failures in CI (or on our local machines) due to Maven repository issues preventing dependency downloads.
-&amp;gt; Could not download foo-lib-1.0.aar (org.acme.foo:foo-lib:1.0) &amp;gt; Could not get resource &amp;#39;https://mavenrepo.com/org/acme/foo/foo-lib/1.0/foo-lib-1.0.aar&amp;#39;. &amp;gt; Could not GET &amp;#39;https://mavenrepo.com/org/acme/foo/foo-lib/1.0/foo-lib-1.0.aar&amp;#39;. Received status code 403 from server: There could be many reasons for this: the Maven repository is currently down or is having an incident, the repository has been shut down (hello, JCenter), and the dependency is old and not republished elsewhere.</description>
+      <description>&lt;p&gt;As developers, we&amp;rsquo;ve all encountered build failures in CI (or on our local machines) due to Maven repository issues preventing dependency downloads.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; Could &lt;span style=&#34;color:#ff6ac1&#34;&gt;not&lt;/span&gt; download foo&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;lib&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1.0&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;aar (org&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;acme&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;foo:foo&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;lib:&lt;span style=&#34;color:#ff9f43&#34;&gt;1.0&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; Could &lt;span style=&#34;color:#ff6ac1&#34;&gt;not&lt;/span&gt; get resource &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;https://mavenrepo.com/org/acme/foo/foo-lib/1.0/foo-lib-1.0.aar&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; Could &lt;span style=&#34;color:#ff6ac1&#34;&gt;not&lt;/span&gt; GET &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;https://mavenrepo.com/org/acme/foo/foo-lib/1.0/foo-lib-1.0.aar&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt; Received status code &lt;span style=&#34;color:#ff9f43&#34;&gt;403&lt;/span&gt; from server: &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There could be many reasons for this: the Maven repository is currently down or is having an incident, the repository has been shut down (hello, JCenter), and the dependency is old and not republished elsewhere.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Publishing a Compose macOS app on App Store: architectures, sandboxing and native libraries</title>
       <link>https://www.marcogomiero.com/posts/2024/compose-macos-app-store/</link>
       <pubDate>Tue, 21 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2024/compose-macos-app-store/</guid>
-      <description>When I released FeedFlow (an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app), I decided to publish the macOS version outside the App Store. I went this path because publishing on the App Store has different requirements that I wanted to avoid tackling during the first launch.
-How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions</description>
+      <description>&lt;p&gt;When I released &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;FeedFlow&lt;/a&gt; (an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app), I decided to publish the macOS version outside the App Store. I went this path because publishing on the App Store has different requirements that I wanted to avoid tackling during the first launch.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases&#34;&gt;How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-app-ci/</link>
       <pubDate>Tue, 21 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2024/kmp-app-ci/</guid>
-      <description>It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.
-To be faster and &amp;ldquo;machine-agnostic&amp;rdquo; with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).</description>
+      <description>&lt;p&gt;It&amp;rsquo;s been almost a year since I started working on &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;FeedFlow&lt;/a&gt;, an RSS Reader available on Android, iOS, and macOS built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.&lt;/p&gt;&#xA;&lt;p&gt;To be faster and &amp;ldquo;machine-agnostic&amp;rdquo; with the deployments, I decided to have a CI (Continuous Integration) on GitHub Actions to quickly deploy my application to all the stores (Play Store, App Store for iOS and macOS, and on GitHub release for the macOS app).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-ci-macos-appstore/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-macos-appstore/</guid>
-      <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-android&#34;&gt;How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-ios&#34;&gt;How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases&#34;&gt;How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It&amp;rsquo;s been almost a year since I started working on &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;FeedFlow&lt;/a&gt;, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases/</guid>
-      <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-623&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-623/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-android&#34;&gt;How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-ios&#34;&gt;How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-appstore&#34;&gt;How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It&amp;rsquo;s been almost a year since I started working on &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;FeedFlow&lt;/a&gt;, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-ci-ios/</link>
       <pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-ios/</guid>
-      <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions Part 4: How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-622&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-622/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;a href=&#34;https://mailchi.mp/kotlinweekly/kotlin-weekly-406&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23406-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;    &#xA;    &lt;a href=&#34;https://testableapple.com/newsletter/32/&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20Mobile%20Automation%20Newsletter-Issue%20%2332-blue&#34;/&gt;&lt;/a&gt;&#xA;    &#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-android&#34;&gt;How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases&#34;&gt;How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-appstore&#34;&gt;How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It&amp;rsquo;s been almost a year since I started working on &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;FeedFlow&lt;/a&gt;, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions</title>
       <link>https://www.marcogomiero.com/posts/2024/kmp-ci-android/</link>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2024/kmp-ci-android/</guid>
-      <description>SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.
-Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions Part 2: How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions Part 3: How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions It&amp;rsquo;s been almost a year since I started working on FeedFlow, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-621&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-621/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-ios&#34;&gt;How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-github-releases&#34;&gt;How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-macos-appstore&#34;&gt;How to publish a Kotlin Multiplatform macOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It&amp;rsquo;s been almost a year since I started working on &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;FeedFlow&lt;/a&gt;, an RSS Reader available on Android, iOS, and macOS, built with Jetpack Compose for the Android app, Compose Multiplatform for the desktop app, and SwiftUI for the iOS app.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Using annotations to improve iOS APIs on Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2023/objc-annotiations-better-kmp-api/</link>
       <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2023/objc-annotiations-better-kmp-api/</guid>
-      <description>Kotlin 1.8 has introduced new annotations to improve the interoperability of Kotlin with Objective-C and Swift:
-@ObjCName: allows to customize the name that will be used in Swift or Objective-C @HiddenFromObjC: allows hiding a Kotlin declaration from Objective-C (and Swift). @ShouldRefineInSwift: it marks a Kotlin declaration as swift_private in the Objective-C API, allowing to replace it with a wrapper written in Swift. You can see the release announcement for more details about the interoperability improvements introduced with Kotlin 1.</description>
+      <description>&lt;p&gt;Kotlin 1.8 has introduced new annotations to improve the interoperability of Kotlin with Objective-C and Swift:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;@ObjCName&lt;/code&gt;: allows to customize the name that will be used in Swift or Objective-C&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;@HiddenFromObjC&lt;/code&gt;: allows hiding a Kotlin declaration from Objective-C (and Swift).&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;@ShouldRefineInSwift&lt;/code&gt;: it marks a Kotlin declaration as &lt;code&gt;swift_private&lt;/code&gt; in the Objective-C API, allowing to replace it with a wrapper written in Swift.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;You can see the &lt;a href=&#34;https://kotlinlang.org/docs/whatsnew18.html#improved-objective-c-swift-interoperability&#34;&gt;release announcement&lt;/a&gt; for more details about the interoperability improvements introduced with Kotlin 1.8.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Introducing FeedFlow, a minimalistic and opinionated RSS Reader</title>
       <link>https://www.marcogomiero.com/posts/2023/introducing-feed-flow/</link>
       <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2023/introducing-feed-flow/</guid>
-      <description>After months of work, I can finally announce the release of FeedFlow, a minimalistic and opinionated RSS Reader that I&amp;rsquo;ve built for myself and that&amp;rsquo;s now available on Android, iOS, and macOS.
-Motivation I&amp;rsquo;ve started (again) to stay up to date by building my own feed instead of relying on feeds ordered and decided by someone else. But I wasn&amp;rsquo;t completely satisfied with the readers already out there (&amp;ldquo;I can build a better one&amp;quot;™️).</description>
+      <description>&lt;p&gt;After months of work, I can finally announce the release of &lt;a href=&#34;https://www.feedflow.dev/&#34;&gt;&lt;strong&gt;FeedFlow&lt;/strong&gt;&lt;/a&gt;, a minimalistic and opinionated RSS Reader that I&amp;rsquo;ve built for myself and that&amp;rsquo;s now available on &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.prof18.feedflow&#34;&gt;Android&lt;/a&gt;, &lt;a href=&#34;https://apps.apple.com/us/app/feedflow-rss-reader/id6447210518&#34;&gt;iOS&lt;/a&gt;, and &lt;a href=&#34;https://github.com/prof18/feed-flow/releases/latest&#34;&gt;macOS&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;a href=&#34;https://www.marcogomiero.com/img/feedflow/banner.png&#34;&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/feedflow/banner.png&#34;&gt;&lt;/a&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve started (again) to stay up to date by building my own feed instead of relying on feeds ordered and decided by someone else. But I wasn&amp;rsquo;t completely satisfied with the readers already out there (&amp;ldquo;I can build a better one&amp;rdquo;™️). What I want for an RSS reader is the possibility of easily going through my feed and being able to open the article that I want to read on the respective website. Yes, you read it right.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Migrating to Jetpack Compose: a step by step journey</title>
       <link>https://www.marcogomiero.com/posts/2023/migration-to-compose/</link>
       <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2023/migration-to-compose/</guid>
-      <description>Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&amp;rsquo;t require sneaky, strange, and useless permissions.
-The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-569&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-569/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;a href=&#34;https://jetc.dev/issues/165.html&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23165-blue?logo=Jetpack+Compose&amp;amp;logoColor=white&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;Some time ago, I decided to migrate &lt;a href=&#34;https://github.com/prof18/Secure-QR-Reader&#34;&gt;Secure QR Reader&lt;/a&gt; to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&amp;rsquo;t require sneaky, strange, and useless permissions.&lt;/p&gt;&#xA;&lt;p&gt;The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Organize your Views: SwiftUI edition</title>
       <link>https://www.marcogomiero.com/posts/2023/organize-view-swiftui-edition/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2023/organize-view-swiftui-edition/</guid>
-      <description>One of the pros of SwiftUI, and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the application uses.
-With SwiftUI, it is not necessary anymore to bridge the UI definitions from somewhere else, resulting in a decrease of context switching between two different environments (Storyboards and Swift code, for example)
-But “with great power comes great responsibility”, and a codebase can quickly become a nightmare without some structure and organization.</description>
+      <description>&lt;p&gt;One of the pros of SwiftUI, and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the application uses.&lt;/p&gt;&#xA;&lt;p&gt;With SwiftUI, it is not necessary anymore to bridge the UI definitions from somewhere else, resulting in a decrease of context switching between two different environments (Storyboards and Swift code, for example)&lt;/p&gt;&#xA;&lt;p&gt;But “with great power comes great responsibility”, and a codebase can quickly become a nightmare without some structure and organization. Long files, large structs, and stateful UI components that hinder reusability are examples that can lead to a messed codebase.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Organize your Views: Jetpack Compose edition</title>
       <link>https://www.marcogomiero.com/posts/2023/organize-view-compose-edition/</link>
       <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2023/organize-view-compose-edition/</guid>
-      <description>One of the pros of Jetpack Compose (in the rest of the article, I will just call it Compose, for brevity), and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the rest of the application uses.
-With Compose, it is not necessary anymore to bridge the UI definitions from XML (e.g. with the [in]famous findViewById), resulting in less context switching between two different environments (XML and Kotlin code).</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-562&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-562/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;&#xA;    &lt;a href=&#34;https://jetc.dev/issues/157.html&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23157-blue?logo=Jetpack+Compose&amp;amp;logoColor=white&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;One of the pros of Jetpack Compose (in the rest of the article, I will just call it Compose, for brevity), and generally of declarative UI frameworks, is the capability of defining the UI with the same programming language the rest of the application uses.&lt;/p&gt;&#xA;&lt;p&gt;With Compose, it is not necessary anymore to bridge the UI definitions from XML (e.g. with the [in]famous &lt;code&gt;findViewById&lt;/code&gt;), resulting in less context switching between two different environments (XML and Kotlin code).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to create a parameterized base test class in Kotlin</title>
       <link>https://www.marcogomiero.com/posts/2023/parameterized-kotlin-base-test/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2023/parameterized-kotlin-base-test/</guid>
-      <description>One exciting feature of JUnit 4 (and 5 as well, but this post will be focused on JUnit 4) is the possibility of running the same test with different input arguments.
-That is made possible by a custom test runner called Parameterized, which will inject the provided arguments in the constructor of the test class. Instead, the different arguments must be defined in the companion object of the test class.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA; &lt;a href=&#34;https://androidweekly.net/issues/issue-556&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://androidweekly.net/issues/issue-556/badge&#34; /&gt;&lt;/a&gt;&#xA;&#xA;&lt;br&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;One exciting feature of JUnit 4 (and 5 as well, but this post will be focused on JUnit 4) is the possibility of running the same test with different input arguments.&lt;/p&gt;&#xA;&lt;p&gt;That is made possible by a &lt;a href=&#34;https://github.com/junit-team/junit4/wiki/parameterized-tests&#34;&gt;custom test runner&lt;/a&gt; called &lt;code&gt;Parameterized&lt;/code&gt;, which will inject the provided arguments in the constructor of the test class. Instead, the different arguments must be defined in the companion object of the test class.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Improving shared architecture for a Kotlin Multiplatform, Jetpack Compose and SwiftUI app</title>
       <link>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</link>
       <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2022/improved-kmm-shared-app-arch/</guid>
-      <description>A couple of years ago I started working on a pet project to manage personal finances, named MoneyFlow.
-This project soon became a personal playground for a Kotlin Multiplatform mobile app and in a previous article, I journaled all the steps that lead me to a satisfying (at least for that time) shared app architecture.
-Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-525&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-525/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;&#xA;    &lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=68710ad80a&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23309-%237874b4&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&#xA;    &lt;a href=&#34;https://jetc.dev/issues/123.html&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23123-blue?logo=Jetpack+Compose&amp;amp;logoColor=white&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;A couple of years ago I started working on a pet project to manage personal finances, named &lt;a href=&#34;https://github.com/prof18/MoneyFlow&#34;&gt;MoneyFlow&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;a href=&#34;https://www.marcogomiero.com/img/impr-kmm-arch/money-flow-dark.png&#34;&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/impr-kmm-arch/money-flow-dark.png&#34;&gt;&lt;/a&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;This project soon became a personal playground for a Kotlin Multiplatform mobile app and in a previous article, I journaled all the steps that lead me to a satisfying (at least for that time) shared app architecture.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/&#34;&gt;Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Moving from mobile to backend development with Ktor</title>
       <link>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</link>
       <pubDate>Mon, 06 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that were not easy to achieve out of the box.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=d1adea48f9&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23306-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: Moving from mobile to backend development with Ktor&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that were not easy to achieve out of the box. In this article, I will cover why I ended up using Ktor and how was my journey from the mobile to the backend world.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to schedule jobs with Quartz on Ktor</title>
       <link>https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/</link>
       <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=2e77a70931&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23301-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: How to schedule jobs with Quartz on Ktor&lt;/li&gt;&#xA;&lt;li&gt;Part 7: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/&#34;&gt;Moving from mobile to backend development with Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Sometimes, on a backend project, there is the need to run one or more tasks periodically, like for system administration, maintenance, backup, syncing content in the background, etc. These types of tasks can be scheduled “manually” with a &lt;a href=&#34;https://en.m.wikipedia.org/wiki/Cron&#34;&gt;cron job&lt;/a&gt; or with a scheduling library like &lt;a href=&#34;https://github.com/quartz-scheduler/quartz&#34;&gt;Quartz&lt;/a&gt;, that makes easy for example the persistence of the task’s state even after a reboot of the server.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Generate API documentation from Swagger on Ktor</title>
       <link>https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/</link>
       <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5: Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5: Generate API documentation from Swagger on Ktor&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/&#34;&gt;Moving from mobile to backend development with Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;When a backend project exposes some APIs, there should also be a place where the clients of those APIs can see and understand what can be consumed. This place can be a document, a text file, a website, etc.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to handle database migrations with Liquibase on Ktor</title>
       <link>https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/</link>
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Databases are an important and critical part of backend infrastructures.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=f4f6d67da0&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23289-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: How to handle database migrations with Liquibase on Ktor&lt;/li&gt;&#xA;&lt;li&gt;Part 5 &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/&#34;&gt;Moving from mobile to backend development with Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Databases are an important and critical part of backend infrastructures. They are the place where all the information is stored and that data cannot be compromised or lost. That’s why it is important to have proper management of the evolution of the database: it is necessary to be able to modify the schema, migrate the data, or roll back to a previous schema version if something unexpected happened.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to fix the &#34;Unable to locate a Java Runtime&#34; error on Xcode with Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2021/kmp-no-java-runtime-error-xcode/</link>
       <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/kmp-no-java-runtime-error-xcode/</guid>
-      <description>A couple of days ago I opened my Kotlin Multiplatform pet project MoneyFlow on a different machine than usual. When I tried to run the app on the iOS simulator on Xcode, the build failed with a very strange error: &amp;ldquo;The operation couldn&amp;rsquo;t be completed. Unable to locate a Java Runtime&amp;rdquo;.
-This was a very strange issue because the JDK is installed and everything is working on the command line and Android Studio/IntelliJ.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-499&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://androidweekly.net/issues/issue-499/badge&#34; /&gt;&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;A couple of days ago I opened my Kotlin Multiplatform pet project &lt;a href=&#34;https://github.com/prof18/MoneyFlow&#34;&gt;MoneyFlow&lt;/a&gt; on a different machine than usual. When I tried to run the app on the iOS simulator on Xcode, the build failed with a very strange error: &amp;ldquo;The operation couldn&amp;rsquo;t be completed. Unable to locate a Java Runtime&amp;rdquo;.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;a href=&#34;https://www.marcogomiero.com/img/xcode-jvm-runtime/xcode-java-runtime.jpeg&#34;&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/xcode-jvm-runtime/xcode-java-runtime.jpeg&#34;&gt;&lt;/a&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;This was a very strange issue because the JDK is installed and everything is working on the command line and Android Studio/IntelliJ.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to use an in-memory database for testing on Ktor</title>
       <link>https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/</link>
       <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;     &lt;a href=&#34;https://androidweekly.net/issues/issue-487&#34;&gt;&#xA;     &#x9;&lt;img src=&#34;https://androidweekly.net/issues/issue-487/badge&#34; /&gt;&#xA;     &lt;/a&gt;&#xA;     &lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=2b57b99606&#34;&gt;&#xA;     &#x9;&lt;img src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23271-%237874b4&#34;/&gt;&#xA;     &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: How to use an in-memory database for testing on Ktor&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5 &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/&#34;&gt;Moving from mobile to backend development with Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Usually, in a backend project, there are different instances of the same database: one for production (or more than one, it depends on the architecture), one for staging, and a local one that runs in the development machine.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Building an XCFramework on Kotlin Multiplatform from Kotlin 1.5.30</title>
       <link>https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support/</link>
       <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/kmp-xcframework-official-support/</guid>
-      <description>A few days ago, Kotlin 1.5.30 has been released. One of the features contained in the release is the official support for XCFrameworks on Kotlin Multiplatform.
-XCFramework is a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time). It has been introduced by Apple during the WWDC 2019 as a replacement for FatFrameworks.
-Before Kotlin 1.5.30, an XCFramework could be created only by running the xcrun command that will pack the frameworks for every different required platform into an XCFramework.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;     &lt;a href=&#34;https://mailchi.mp/kotlinweekly/kotlin-weekly-266&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23266-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;A few days ago, &lt;a href=&#34;https://kotlinlang.org/docs/whatsnew1530.html&#34;&gt;Kotlin 1.5.30 has been released&lt;/a&gt;. One of the features contained in the release is the official support for XCFrameworks on Kotlin Multiplatform.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://help.apple.com/xcode/mac/11.4/#/dev544efab96&#34;&gt;XCFramework&lt;/a&gt; is a binary that can contain multiple platform-specific variants (even for iOS and macOS at the same time). It has been introduced by Apple during the &lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/416/&#34;&gt;WWDC 2019&lt;/a&gt; as a replacement for FatFrameworks.&lt;/p&gt;&#xA;&lt;p&gt;Before Kotlin 1.5.30, an XCFramework could be created only by running the &lt;code&gt;xcrun&lt;/code&gt; command that will pack the frameworks for every different required platform into an XCFramework.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to build an XCFramework on Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/</link>
       <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/build-xcframework-kmp/</guid>
-      <description>When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.
-To understand how to integrate KMP into existing code, give a look at my previous article: “Introducing Kotlin Multiplatform in an existing project”</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-475&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-475/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;a href=&#34;https://mailchi.mp/kotlinweekly/kotlin-weekly-259&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23259-%237874b4&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;When you start integrating Kotlin Multiplatform (I’ll call it KMP in the rest of the article) in an existing project you most likely don’t have a mono-repo structure (and making a refactor to achieve this kind of architecture will not be easy). An example of architecture is the following, with a repository for every platform.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;a href=&#34;https://www.marcogomiero.com/img/kmp-existing-project/kmp-publish-arch.png&#34;&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/kmp-existing-projects/kmp-publish-arch.png&#34;&gt;&lt;/a&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;To understand how to integrate KMP into existing code, give a look at my previous article: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/kmp-existing-project/&#34;&gt;“Introducing Kotlin Multiplatform in an existing project”&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Connect to Open VPN during Gitlab Pipeline</title>
       <link>https://www.marcogomiero.com/posts/2021/gitlab-pipeline-vpn/</link>
       <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/gitlab-pipeline-vpn/</guid>
-      <description>Gitlab CI/CD offers the possibility to create a pipeline, which runs when something changes in the repository. A pipeline consists of one or more stages that run in order and in these stages, for example, it is possible to build the project, run the tests, create the artifacts, etc. For more information about Gitlab CI/CD, I suggest you look over the documentation.
-These out-of-the-box solutions really simplify the work to be done to have a CI up and running.</description>
+      <description>&lt;p&gt;Gitlab CI/CD offers the possibility to create a pipeline, which runs when something changes in the repository. A pipeline consists of one or more stages that run in order and in these stages, for example, it is possible to build the project, run the tests, create the artifacts, etc. For more information about Gitlab CI/CD, I suggest you look over the &lt;a href=&#34;https://docs.gitlab.com/ee/ci/&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;These out-of-the-box solutions really simplify the work to be done to have a CI up and running. For example, this is the configuration file (a file called &lt;code&gt;.gitlab-ci.yml&lt;/code&gt; placed at the repository’s root) needed for running all the tests of a Kotlin project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to persist Ktor logs</title>
       <link>https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/</link>
       <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor Logs are a vital part of software development.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=e568e58261&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23249-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: How to persist Ktor logs&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5 &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/&#34;&gt;Moving from mobile to backend development with Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Logs are a vital part of software development. They can be used for debugging, to track specific events during the lifecycle of the product, or to discover unexpected events.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Structuring a Ktor project</title>
       <link>https://www.marcogomiero.com/posts/2021/ktor-project-structure/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/ktor-project-structure/</guid>
-      <description>SERIES: Building a backend with Ktor
-Part 1: Structuring a Ktor project Part 2: How to persist Ktor logs Part 3: How to use an in-memory database for testing on Ktor Part 4: How to handle database migrations with Liquibase on Ktor Part 5 Generate API documentation from Swagger on Ktor Part 6: How to schedule jobs with Quartz on Ktor Part 7: Moving from mobile to backend development with Ktor It’s been a few months since I’ve started working with Ktor to build the backend of Revelop.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=b99d6298aa&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23245-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: Structuring a Ktor project&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5 &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/&#34;&gt;Moving from mobile to backend development with Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It’s been a few months since I’ve started working with &lt;a href=&#34;https://ktor.io/&#34;&gt;Ktor&lt;/a&gt; to build the backend of &lt;a href=&#34;https://revelop.app/&#34;&gt;Revelop&lt;/a&gt;. We decided to go with Ktor because it is a lightweight framework, easy to use and with a gentle learning curve even for a mobile developer.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>My audio &amp; video setup after 4 years of remote working</title>
       <link>https://www.marcogomiero.com/posts/2021/audio-video-setup/</link>
       <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/audio-video-setup/</guid>
-      <description>I’ve been working remotely for a while and during these years I kept improving my work setup. During the last year, I’ve also increased the overall video and audio quality and now I’m pretty confident I’ve ended up with something worth sharing.
-A little note before moving on. Some gears I will share are cheap and others are expensive but I think that every product is one of the best that can be found in its price range.</description>
+      <description>&lt;p&gt;I’ve been working remotely for a while and during these years I kept improving my work setup. During the last year, I’ve also increased the overall video and audio quality and now I’m pretty confident I’ve ended up with something worth sharing.&lt;/p&gt;&#xA;&lt;p&gt;A little note before moving on. Some gears I will share are cheap and others are expensive but I think that every product is one of the best that can be found in its price range. Because I think that for some stuff it is not worth spending too much to get the job done.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Introducing KMP FatFramework Cocoa, a Gradle plugin for iOS FatFramework</title>
       <link>https://www.marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release/</link>
       <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/kmp-fatframework-cocoa-release/</guid>
-      <description>Today I want to share KMP FatFramework Cocoa, a Gradle plugin for Kotlin Multiplatform projects that generate a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.
-The plugin is born from a set of unbundled Gradle tasks that I wrote to manage the building and the publishing process of Kotlin Multiplatform libraries for iOS that we use at Uniwhere and Revelop. The libraries are published in a FatFramework that contains the code for every required architecture (real devices use the Arm64 architecture, while the simulator uses the host computer architecture which in most of the cases is X64).</description>
+      <description>&lt;p&gt;Today I want to share &lt;a href=&#34;https://github.com/prof18/kmp-fatframework-cocoa&#34;&gt;&lt;strong&gt;KMP FatFramework Cocoa&lt;/strong&gt;&lt;/a&gt;, a Gradle plugin for Kotlin Multiplatform projects that generate a FatFramework for iOS targets and manages the publishing process in a CocoaPod Repository.&lt;/p&gt;&#xA;&lt;p&gt;The plugin is born from a set of unbundled Gradle tasks that I wrote to manage the building and the publishing process of Kotlin Multiplatform libraries for iOS that we use at &lt;a href=&#34;https://www.uniwhere.com/&#34;&gt;Uniwhere&lt;/a&gt; and &lt;a href=&#34;https://revelop.app/&#34;&gt;Revelop&lt;/a&gt;. The libraries are published in a &lt;strong&gt;FatFramework&lt;/strong&gt; that contains the code for every required architecture (real devices use the &lt;em&gt;Arm64&lt;/em&gt; architecture, while the simulator uses the host computer architecture which in most of the cases is &lt;em&gt;X64&lt;/em&gt;).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Introducing Kotlin Multiplatform in an existing project</title>
       <link>https://www.marcogomiero.com/posts/2021/kmp-existing-project/</link>
       <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/kmp-existing-project/</guid>
-      <description>After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).
-This is also the case for Kotlin Multiplatform (I’ll call it KMP in the rest of the article).
-When starting a new blank KMP project it is easier to have a mono-repo structure like this:</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-455&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-455/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=22e5320947&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23239-%237874b4&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;After discovering a new interesting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That’s because, the possibility to start with a blank canvas is rare (not impossible, but rare).&lt;/p&gt;&#xA;&lt;p&gt;This is also the case for Kotlin Multiplatform (I’ll call it KMP in the rest of the article).&lt;/p&gt;&#xA;&lt;p&gt;When starting a new blank KMP project it is easier to have a mono-repo structure like this:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Migrating old artifacts from JCenter to MavenCentral</title>
       <link>https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/</link>
       <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/move-libray-jcenter-to-maven/</guid>
-      <description>As you may have heard, JCenter is shutting down in May 2021.
-Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
-https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
-So, if you are using JCenter as the repository for your libraries (as me), it’s time to migrate.
-In this article, I will not go through the publishing process of a library to MavenCentral, because there are already plenty of resources available. For example, I followed the one written by Márton Braun.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://androidweekly.net/issues/issue-453&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://androidweekly.net/issues/issue-453/badge&#34; /&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;As you may have heard, JCenter is shutting down in May 2021.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter&lt;br&gt;&#xA;&lt;a href=&#34;https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/&#34;&gt;https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So, if you are using JCenter as the repository for your libraries (as me), it’s time to migrate.&lt;/p&gt;&#xA;&lt;p&gt;In this article, I will not go through the publishing process of a library to MavenCentral, because there are already plenty of resources available. For example, I followed the one written by Márton Braun.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Running a blog with iPad</title>
       <link>https://www.marcogomiero.com/posts/2021/running-blog-ipad/</link>
       <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2021/running-blog-ipad/</guid>
-      <description>It’s been a few years since I started writing this blog, and I quite like sharing my thoughts and experiences. After a short while spent on Medium, I decided I wanted to be the sole owner of my content, so I started experimenting with different solutions and ideas. After I finally landed on the &amp;ldquo;perfect&amp;rdquo; tech architecture (I know, I’m lying. There’s no perfect solution and Future Me will most likely refactor and (over)re-engineer the current solution), I started to seek the &amp;ldquo;perfect&amp;rdquo; writing setup.</description>
+      <description>&lt;p&gt;It’s been a few years since I started writing this blog, and I quite like sharing my thoughts and experiences. After a short while spent on Medium, I decided I wanted to be the sole owner of my content, so I started experimenting with different solutions and ideas. After I finally landed on the &amp;ldquo;perfect&amp;rdquo; tech architecture (I know, I’m lying. There’s no perfect solution and Future Me will most likely refactor and (over)re-engineer the current solution), I started to seek the &amp;ldquo;perfect&amp;rdquo; writing setup.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform</title>
       <link>https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/kotlin-serialization-alamofire/</guid>
-      <description>If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with Ktor. But if you don’t want to share the entire network layer but maybe only the DTOs? There could be many reasons for wanting this. Maybe you are starting to integrate Kotlin Multiplatform (I’ll call it KMP in the rest of the article) into an existing project and the work for sharing the entire network layer is simply too much.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-444&#34;&gt;&#xA;        &lt;img src=&#34;https://androidweekly.net/issues/issue-444/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=fc5413f3eb&#34;&gt;&#xA;        &lt;img src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4&#34;/&gt;&#xA;    &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;If you are starting a project with Kotlin Multiplatform and you want to share the network layer, the best way to go is definitely with &lt;a href=&#34;https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html&#34;&gt;Ktor&lt;/a&gt;. But if you don’t want to share the entire network layer but maybe only the DTOs?&#xA;There could be many reasons for wanting this. Maybe you are starting to integrate Kotlin Multiplatform (I’ll call it KMP in the rest of the article) into an existing project and the work for sharing the entire network layer is simply too much.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app</title>
       <link>https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/</link>
       <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/kmm-shared-app-architecture/</guid>
-      <description>Recently, I&amp;rsquo;ve started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I&amp;rsquo;ve thought and designed it almost a year ago but only now I&amp;rsquo;ve found the time to start writing actual code.
-A first design iteration, that will change a bit
-I’ve decided to make this project a personal playground for a Kotlin Multiplatform mobile app.</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;div class=&#34;post-award-container&#34;&gt;&#xA;    &lt;a href=&#34;https://androidweekly.net/issues/issue-437&#34;&gt;&#xA;        &lt;img style=&#34;margin: 0px;&#34; src=&#34;https://androidweekly.net/issues/issue-437/badge&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;img src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23221-%237874b4&#34;/&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;p&gt;Recently, I&amp;rsquo;ve started to work on (yet another) side project: Money Flow. As the name suggests, this is an application to help me track all the expenses and incomes. I&amp;rsquo;ve thought and designed it almost a year ago but only now I&amp;rsquo;ve found the time to start writing actual code.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;a href=&#34;https://www.marcogomiero.com/img/kmm-app-arch/app-design.png&#34;&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/kmm-app-arch/app-design.png&#34;&#xA;    alt=&#34;A first design iteration, that will change a bit&#34;&gt;&lt;/a&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;A first design iteration, that will change a bit&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>My 2 Cents about cross-platform</title>
       <link>https://www.marcogomiero.com/posts/2020/my-2cents-cross-platform/</link>
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/my-2cents-cross-platform/</guid>
-      <description>During my journey as a mobile developer, I had the chance to try and give a look at some cross-platform solutions both for work and fun reasons. Today, I want to share my thoughts and considerations about them and why/when you should use cross-platform. I hope that these thoughts will be helpful to anyone that is in the process of choosing the right solution for their product.
-Disclaimer: in this article, I will share some opinions based on my experience and they can apply to your situation or not.</description>
+      <description>&lt;p&gt;During my journey as a mobile developer, I had the chance to try and give a look at some cross-platform solutions both for work and fun reasons. Today, I want to share my thoughts and considerations about them and why/when you should use cross-platform. I hope that these thoughts will be helpful to anyone that is in the process of choosing the right solution for their product.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: in this article, I will share some opinions based on my experience and they can apply to your situation or not. If you want to share your considerations, feel free to reach me out on Twitter &lt;a href=&#34;https://twitter.com/marcoGomier&#34;&gt;@marcoGomier&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>QR Reader Secure - Privacy-Focused and Secure QR Reader</title>
       <link>https://www.marcogomiero.com/posts/2020/qr-reader-secure-release/</link>
       <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/qr-reader-secure-release/</guid>
-      <description>Last week my parents asked me to download to their phones a simple QR Reader. So I opened the Play Store and I started to search an easy to use application, without lot&amp;rsquo;s of noise (oh, I mean intrusive ads..) and without ulterior motives. Well, I wandered around the Play Store for an hour without finding an answer.
-Some apps will require all the imaginable permission only to scan a QR code.</description>
+      <description>&lt;p&gt;Last week my parents asked me to download to their phones a simple QR Reader. So I opened the Play Store and I started to search an easy to use application, without lot&amp;rsquo;s of noise (oh, I mean intrusive ads..) and without ulterior motives. Well, I wandered around the Play Store for an hour without finding an answer.&lt;/p&gt;&#xA;&lt;p&gt;Some apps will require all the imaginable permission only to scan a QR code. Come on, why do you need my contacts and my location for the scanning? 🤬&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Friends Tournament - Tournament creation and management made easy</title>
       <link>https://www.marcogomiero.com/posts/2020/friends-tournament-release/</link>
       <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/friends-tournament-release/</guid>
-      <description>Today I want to share Friends Tournament, a side project that I have been working on for the past year during my spare time.
-Friends Tournament is a simple application that will help you to manage and organize tournaments with your friends. You can use it to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament do you want. All you need to do is to provide the number of players, the number of matches and the numbers of player that can play at the same time.</description>
+      <description>&lt;p&gt;Today I want to share &lt;strong&gt;Friends Tournament&lt;/strong&gt;, a side project that I have been working on for the past year during my spare time.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/friends-tournament/banner_generic.png&#34;&#xA;    alt=&#34;image&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Friends Tournament is a simple application that will help you to manage and organize tournaments with your friends. You can use it to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament do you want. All you need to do is to provide the number of players, the number of matches and the numbers of player that can play at the same time. That&amp;rsquo;s all! Friends Tournament will then generate the matches and the rounds for you. You can then keep the score of each player and a leaderboard will be generated automatically.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flutter or React Native, a cross-platform dilemma - Serie wrap-up</title>
       <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-series/</link>
       <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-series/</guid>
-      <description>Which framework should I use? How to build UIs? How do things work under the hood? These are the types of questions that I&amp;rsquo;ve answered during the series of articles about Flutter and React Native.
-Some time ago I started learning Flutter for fun reasons and at the same time, I (had to) started learning React Native for work reasons. While learning and using them, I started to see some differences and some common concepts between them.</description>
+      <description>&lt;p&gt;Which framework should I use? How to build UIs? How do things work under the hood? These are the types of questions that I&amp;rsquo;ve answered during the series of articles about Flutter and React Native.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Some time ago I started learning Flutter for fun reasons and at the same time, I (had to) started learning React Native for work reasons.&#xA;While learning and using them, I started to see some differences and some common concepts between them. So I decided to share my findings with a talk in both local meetups and international conferences (If you are curious there is a &lt;a href=&#34;https://www.marcogomiero.com/talks/&#34;&gt;talk section&lt;/a&gt; in the website). From this talk, I&amp;rsquo;ve extracted a series of articles and here we are!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flutter or React Native, a cross-platform dilemma - How to chose &#43; Bonus - (Part 4)</title>
       <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-4-how-choose/</link>
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-4-how-choose/</guid>
-      <description>Welcome to the fourth and last part of this article series about React Native and Flutter.
-In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that they use.
-In the second episode, we have talked about User Interfaces and how to build them.
-In the third episode, we went deeper under the hood to understand how things work.
-And now it&amp;rsquo;s time to wrap things up by trying to understand how to choose the right framework for you.</description>
+      <description>&lt;p&gt;Welcome to the fourth and last part of this article series about React Native and Flutter.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/&#34;&gt;In the first episode&lt;/a&gt;, we have introduced the two frameworks with some history and with a comparison between the languages that they use.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://marcogomiero.com/posts/2019/rn-flutter-dilemma-2-ui/&#34;&gt;In the second episode&lt;/a&gt;, we have talked about User Interfaces and how to build them.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://marcogomiero.com/posts/2019/rn-flutter-dilemma-3-under-hood/&#34;&gt;In the third episode&lt;/a&gt;, we went deeper under the hood to understand how things work.&lt;/p&gt;&#xA;&lt;p&gt;And now it&amp;rsquo;s time to wrap things up by trying to understand how to choose the right framework for you.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flutter or React Native, a cross-platform dilemma - How they work - (Part 3)</title>
       <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-3-under-hood/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-3-under-hood/</guid>
-      <description>Welcome to the third part of this article series about React Native and Flutter. In the latest episode, we have talked about User Interfaces and how to build them in the two frameworks. In this article, we&amp;rsquo;ll go deeper under the hoods to understand how things work. But I will not go deeper with lot&amp;rsquo;s of details and implementation things, because I want to make you understand how the thing works at a high level.</description>
+      <description>&lt;p&gt;Welcome to the third part of this article series about React Native and Flutter. In the latest episode, we have talked about User Interfaces and how to build them in the two frameworks. In this article, we&amp;rsquo;ll go deeper under the hoods to understand how things work. But I will not go deeper with lot&amp;rsquo;s of details and implementation things, because I want to make you understand how the thing works at a high level. If you are interested to go deeper, I will leave across the article some links for further information.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)</title>
       <link>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</link>
       <pubDate>Tue, 07 Jan 2020 08:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/</guid>
-      <description>Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.
-If you have lost the first episode, I suggest you read it before moving on.
-Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)
-In this article, I will explain how to build user interfaces in React Native and Flutter.</description>
+      <description>&lt;p&gt;Welcome to the second part of this comparison about React Native and Flutter. In the first episode, we have introduced the two frameworks with some history and with a comparison between the languages that these two frameworks use.&lt;/p&gt;&#xA;&lt;p&gt;If you have lost the first episode, I suggest you read it before moving on.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/&#34;&gt;Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;In this article, I will explain how to build user interfaces in React Native and Flutter.&#xA;Disclaimer: This article will not cover all the deep aspects of the two frameworks, but I want to give you an overview to better understand the differences. For much deeper details, I suggest you look at the official documentation (&lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; - &lt;a href=&#34;https://flutter.dev/docs&#34;&gt;Flutter&lt;/a&gt;)&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)</title>
       <link>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/</guid>
-      <description>These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; React Native and the &amp;ldquo;freshman&amp;rdquo; Flutter.
-Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength&amp;hellip; so, all you need to know to help your choice.
-In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use.</description>
+      <description>&lt;p&gt;These days you have certainly heard about cross-platform mobile development, in particular about the &amp;ldquo;senior&amp;rdquo; &lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; and the &amp;ldquo;freshman&amp;rdquo; &lt;a href=&#34;https://flutter.dev/&#34;&gt;Flutter&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength&amp;hellip; so, all you need to know to help your choice.&lt;/p&gt;&#xA;&lt;p&gt;In this article, I want to introduce the two frameworks with a historical overview and an analysis of the languages that they use. Next, in the following articles, I will move the focus on how to build User Interfaces with these two frameworks and how they work internally.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How I take note at conferences</title>
       <link>https://www.marcogomiero.com/posts/2019/note-conferences/</link>
       <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2019/note-conferences/</guid>
-      <description>Today I want to share my setup of note-taking that I use during conferences.
-Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.</description>
+      <description>&lt;p&gt;Today I want to share my setup of note-taking that I use during conferences.&lt;/p&gt;&#xA;&lt;p&gt;Unfortunately, I’m not the guy able to take the beautiful, colorful sketchnotes that you can see on Twitter. That’s because I have never been able to draw, put colors and do manual graphics stuff in an orderly manner. My notes on paper would be colorless and cryptic. Moreover, I like the idea to have in one place, all the information regarding the talk that I watched, for example, link to the slides, photo, video, etc.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to publish and distribute your Android library</title>
       <link>https://www.marcogomiero.com/posts/2019/publish-librery-android/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2019/publish-librery-android/</guid>
-      <description>Update - February 2021 As you may have heard, JCenter is shutting down in May 2021.
-Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter
-https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
-So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter.
-I suggested you follow this guide written by Márton Braun.
-Publishing Android libraries to MavenCentral in 2021 https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/
-If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:</description>
+      <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://androidweekly.net/issues/issue-364&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://androidweekly.net/issues/issue-364/badge&#34; /&gt;&lt;/a&gt;&#xA;&lt;br&gt;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;h2 id=&#34;update---february-2021&#34;&gt;Update - February 2021&lt;/h2&gt;&#xA;&lt;p&gt;As you may have heard, JCenter is shutting down in May 2021.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Into the Sunset on May 1st: Bintray, JCenter, GoCenter, and ChartCenter&lt;br&gt;&#xA;&lt;a href=&#34;https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/&#34;&gt;https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So, this tutorial is no longer recommended because it explains how to publish an Android library to JCenter.&lt;/p&gt;&#xA;&lt;p&gt;I suggested you follow this guide written by Márton Braun.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Publishing Android libraries to MavenCentral in 2021&#xA;&lt;a href=&#34;https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/&#34;&gt;https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;If you have already published a library on JCenter and you want to migrate the old artifacts to MavenCentral, you can follow the guide that I’ve written:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bottom App Bar with Menu and Swipeable Tabs in Flutter</title>
       <link>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2019/bottom-bar-swipe-flutter/</guid>
-      <description>The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
-Image from Material Design Guidelines
-With Flutter is super easy to implement like shown in the official documentation. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
-Here’s a spoiler of the final result:</description>
+      <description>&lt;p&gt;The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/bottom-bar.png&#34;&#xA;    alt=&#34;image&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;&lt;em&gt;Image from &lt;a href=&#34;https://material.io/design/components/app-bars-bottom.html#&#34;&gt;Material Design Guidelines&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;With Flutter is super easy to implement like shown in the &lt;a href=&#34;https://docs.flutter.io/flutter/material/BottomAppBar-class.html&#34;&gt;official documentation&lt;/a&gt;. However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.&lt;/p&gt;&#xA;&lt;p&gt;Here’s a spoiler of the final result:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>A journey from Async Task to Kotlin Coroutines</title>
       <link>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</link>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2019/asynctask-to-coroutines/</guid>
-      <description>Photo by felipe lopez on Unsplash
-Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.
-RSS Parser 2.0: bye bye Async Task, welcome Coroutines This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version.</description>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/path.jpeg&#34;&#xA;    alt=&#34;image&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;&lt;em&gt;Photo by &lt;a href=&#34;https://unsplash.com/@flopez_nice&#34;&gt;felipe lopez&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Some weeks ago I released a new version of the RSS Parser Library and I talked about the update in a blog post.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://marco.gomiero.com/posts/bye-async-task&#34;&gt;RSS Parser 2.0: bye bye Async Task, welcome Coroutines&lt;/a&gt;&#xA;This update brought a huge change in the infrastructure of the library. SPOILER: Kotlin and coroutines. Today, in this post I want to talk about the transition process and all the decisions that I have made to develop this new version. In this way, I hope to inspire you to leave the Async Task and get into the coroutines world.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RSS Parser 2.0: bye bye Async Task, welcome Coroutines</title>
       <link>https://www.marcogomiero.com/posts/2018/bye-async-task/</link>
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2018/bye-async-task/</guid>
-      <description>Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.
-I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.</description>
+      <description>&lt;p&gt;Finally, I found some time to sit down and work on my library RSS Parser. Before starting to describe all the cool stuff that I’ve introduced with this update, I want to thank you all for the support. In fact this year, the library exceeded 100 stars on Github, that seems a little goal but it means a lot to me.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this library back in 2016 and now in 2018, the code was “ugly” compared to all the coolest stuff provided by Kotlin.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>New update for RSS Parser: featured image</title>
       <link>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</link>
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</guid>
-      <description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
-This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
-Thanks to the issues and the suggestions provided by the community, I&amp;rsquo;ve improved the parsing of the feature image of the article.</description>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser&lt;/p&gt;&#xA;&lt;p&gt;This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the &lt;a href=&#34;http://www.marcogomiero.com/posts/rss-parser-library/&#34;&gt;blog post&lt;/a&gt; dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.&lt;/p&gt;&#xA;&lt;p&gt;Thanks to the issues and the suggestions provided by the community, I&amp;rsquo;ve improved the parsing of the feature image of the article. &lt;br&gt;&#xA;Now the parser, first search a specific image content, next if nothing is found it search inside the description and next inside the content of ther article. In this way there are three different sources for the image, in order to minimize the absense.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to install Wordpress on Arch Linux</title>
       <link>https://www.marcogomiero.com/posts/2018/wordpress-arch/</link>
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2018/wordpress-arch/</guid>
-      <description>Every time I&amp;rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!
-In all the following commands I&amp;rsquo;ve omitted &amp;ldquo;sudo&amp;rdquo;. Please use it when it is necessary.
-Before starting make you sure that all the packages are updated.
-pacman -Syu Install Apache First of all, you need to install and configure Apache, the web server.</description>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://www.marcogomiero.com/img/arch/wordpress_arch.png&#34;&#xA;    alt=&#34;image&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Every time I&amp;rsquo;ve tried to install Wordpress on Arch Linux it was a tragedy. Sometimes a configuration was missing, sometimes stuff not well known was broken and I never found an updated and complete guide. So here you are!&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;In all the following commands I&amp;rsquo;ve omitted &amp;ldquo;sudo&amp;rdquo;. Please use it when it is necessary.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Before starting make you sure that all the packages are updated.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacman -Syu&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-apache&#34;&gt;Install Apache&lt;/h2&gt;&#xA;&lt;p&gt;First of all, you need to install and configure Apache, the web server.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>New update for RSS Parser: article categories</title>
       <link>https://www.marcogomiero.com/posts/2017/update-rss-lib/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2017/update-rss-lib/</guid>
-      <description>Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser
-This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the blog post dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.
-Starting from today you can get also the categories of the article, like shown in the screen below.</description>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve released a new version of the Android library RSS-Parser&lt;/p&gt;&#xA;&lt;p&gt;This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. If you don&amp;rsquo;t know RSS-Parser, you can give a look to the &lt;a href=&#34;http://www.marcogomiero.com/posts/rss-parser-library/&#34;&gt;blog post&lt;/a&gt; dedicated to it. In that post I&amp;rsquo;ll give also some tip about the library usage.&lt;/p&gt;&#xA;&lt;p&gt;Starting from today you can get also the categories of the article, like shown in the screen below.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to easily handle RSS Feeds on Android with RSS Parser</title>
       <link>https://www.marcogomiero.com/posts/2017/rss-parser-library/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2017/rss-parser-library/</guid>
-      <description>Two month ago I have talked about YoutubeParser, an Android Library that I developed. Today I want to talk about RSS-Parser, another library that I wrote.
-This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:
-Title Author Description Content Main Image Link Publication Date Here you can find an example of feed.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.marcogomiero.com/posts/update-yt-parser-2/&#34;&gt;Two month ago I have talked about YoutubeParser&lt;/a&gt;, an Android Library that I developed. Today I want to talk about  &lt;strong&gt;RSS-Parser&lt;/strong&gt;, another library that I wrote.&lt;/p&gt;&#xA;&lt;p&gt;This library allows you to easily download an (or multiple) RSS Feed in order to display it in your application. For every article it is possible to download the following information:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Title&lt;/li&gt;&#xA;&lt;li&gt;Author&lt;/li&gt;&#xA;&lt;li&gt;Description&lt;/li&gt;&#xA;&lt;li&gt;Content&lt;/li&gt;&#xA;&lt;li&gt;Main Image&lt;/li&gt;&#xA;&lt;li&gt;Link&lt;/li&gt;&#xA;&lt;li&gt;Publication Date&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.androidauthority.com/feed/&#34;&gt;Here&lt;/a&gt; you can find an example of feed.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>New big update for Youtube Parser: video stats and much more</title>
       <link>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2017/update-yt-parser-2/</guid>
-      <description>Finally I&amp;rsquo;ve released a new big update for YoutubeParser. For people who don&amp;rsquo;t know what I&amp;rsquo;m talking about, don&amp;rsquo;t worry now I&amp;rsquo;m going to explain all.
-YoutubeParser is the first Android library that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:
-Title Link Thumbnail, with three different image size. After a year I&amp;rsquo;ve released this new big update, named 2.</description>
+      <description>&lt;p&gt;Finally I&amp;rsquo;ve released a new big update for YoutubeParser. For people who don&amp;rsquo;t know what I&amp;rsquo;m talking about, don&amp;rsquo;t worry now I&amp;rsquo;m going to explain all.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;YoutubeParser&lt;/strong&gt; is the first &lt;strong&gt;Android library&lt;/strong&gt; that I ever wrote. With this library it is possible to get information of videos from Youtube channels. These information are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Title&lt;/li&gt;&#xA;&lt;li&gt;Link&lt;/li&gt;&#xA;&lt;li&gt;Thumbnail, with three different image size.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;After a year I&amp;rsquo;ve released this new big update, named 2.0, that introduces a bunch of new things. First of all, now it is possible to load more than 50 videos from the same channel. 50 is the maximum number of videos that can be retrieved with a single request.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to deal with backup &amp; restore on Android (Slide &amp; Video) </title>
       <link>https://www.marcogomiero.com/posts/2017/backup-restore/</link>
       <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2017/backup-restore/</guid>
-      <description>I know, I&amp;rsquo;m very very late.
-On 17th December 2016 I&amp;rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16). Despite the firsts scared thoughts this was an amazing experience! In fact I&amp;rsquo;ve replicated that, but I&amp;rsquo;ll talk about it with a future post (that won&amp;rsquo;t be published the next year - I promise :) ). The topic of the talk was a hot one: backup and restore on Android Application.</description>
+      <description>&lt;p&gt;I know, I&amp;rsquo;m very very late.&lt;/p&gt;&#xA;&lt;p&gt;On 17th December 2016 I&amp;rsquo;ve attended my first talk as speaker (GDG Venezia Tech Talks 17/12/16).&#xA;Despite the firsts scared thoughts this was an amazing experience!&#xA;In fact I&amp;rsquo;ve replicated that, but I&amp;rsquo;ll talk about it with a future post (that won&amp;rsquo;t be published the next year -&#xA;I promise :) ).&#xA;&lt;br&gt;&#xA;&lt;br&gt;&#xA;The topic of the talk was a hot one: backup and restore on Android Application. But&#xA;today I wanna only share the video and the slide of the talk (that is in Italian). In the following&#xA;article I&amp;rsquo;ll go deep on the argument and I will explain all.&#xA;&lt;br&gt;&#xA;&lt;br&gt;&#xA;&lt;b&gt;Video&lt;/b&gt;:&#xA;&lt;br&gt;&#xA;&lt;br&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hello World!</title>
       <link>https://www.marcogomiero.com/posts/2017/hello-world/</link>
       <pubDate>Thu, 26 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://www.marcogomiero.com/posts/2017/hello-world/</guid>
-      <description>Hello World!
-Finally I decided to create my personal website. You will find blog post, tutorial and much more. The main topics will be Android, Java, Python and all the stuff that will capture my attention.
-If you wanna know more about me and my projects you can give a look to the categories above!</description>
+      <description>&lt;p&gt;Hello World!&lt;/p&gt;&#xA;&lt;p&gt;Finally I decided to create my personal website. You will find blog post, tutorial&#xA;and much more. The main topics will be Android, Java, Python and all the stuff&#xA;that will capture my attention.&lt;/p&gt;&#xA;&lt;p&gt;If you wanna know more about me and my projects you can give a look to the&#xA;categories above!&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

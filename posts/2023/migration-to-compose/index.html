@@ -1,15 +1,27 @@
-<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Migrating to Jetpack Compose: a step by step journey - Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&rsquo;t require sneaky, strange, and useless permissions.
-The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process."><meta property="og:image" content><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><meta property="og:title" content="Migrating to Jetpack Compose: a step by step journey"><meta property="og:description" content="Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&rsquo;t require sneaky, strange, and useless permissions.
-The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process."><meta property="og:type" content="article"><meta property="og:url" content="https://www.marcogomiero.com/posts/2023/migration-to-compose/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-05-12T00:00:00+00:00"><meta property="article:modified_time" content="2023-05-12T00:00:00+00:00"><meta property="og:site_name" content="Marco Gomiero"><meta name=twitter:card content="summary"><meta name=twitter:title content="Migrating to Jetpack Compose: a step by step journey"><meta name=twitter:description content="Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&rsquo;t require sneaky, strange, and useless permissions.
-The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process."><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script>
-<script>var doNotTrack=!1,dnt;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script><script src=https://www.marcogomiero.com/js/feather.min.js></script>
-<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://www.marcogomiero.com/css/main.f2c7f60ec2d0155a784ade9b1b272143e1b8eb864a95bf75e606b49d8774389e.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://www.marcogomiero.com/css/dark.26c5bf79ef760a8f4feb8fc7be32ec86fc1f1da292b42c9fcc37879d4f774e3f.css disabled></head><body><div class=content><header><div class=main><a href=https://www.marcogomiero.com><h2>Marco Gomiero</h2></a></div><nav class=navbar><a href=/posts/><span>Write</span></a>
-<a href=/talks/><span>Speak</span></a>
-<a href=/projects/><span>Build</span></a>
-<a href=/about-me/><span>About</span></a>
-| <span class=dark-mode-toggle id=dark-mode-toggle onclick=toggleTheme()></span>
-<script src=https://www.marcogomiero.com/js/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title>Migrating to Jetpack Compose: a step by step journey</h1><div class=post-meta><span title='2023-05-12 00:00:00 +0000 UTC'>12 May 2023</span></div></div><section class=body><span class=raw-html><div class=post-award-container><a href=https://androidweekly.net/issues/issue-569><img src=https://androidweekly.net/issues/issue-569/badge></a>
-<a href=https://jetc.dev/issues/165.html><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23165-blue?logo=Jetpack+Compose&logoColor=white"></a></div></span><p>Some time ago, I decided to migrate <a href=https://github.com/prof18/Secure-QR-Reader>Secure QR Reader</a> to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&rsquo;t require sneaky, strange, and useless permissions.</p><p>The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process.</p><p>This article will be a journal that describes the journey to Compose step by step. There will be a correspondent commit for each step, so keeping track of the changes will be possible. This way, I want to be helpful to all the people that want to start the migration.</p><blockquote><p>Note: The migration happened about a year ago, so the dependencies are not entirely up to date, and some APIs could have changed in the meantime. The article&rsquo;s point is not to show how you can do things in detail but rather to give the idea of the approach that can be followed to migrate to Compose.</p></blockquote><h2 id=gradle-setup>Gradle Setup</h2><p>In every significant migration, there will always be some Gradle work involved. First, it is necessary to enable the Compose feature and set the Compose Compiler Kotlin version in the <code>build.gradle(.kts)</code> file.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>android {
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Migrating to Jetpack Compose: a step by step journey - Marco Gomiero</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+    
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&rsquo;t require sneaky, strange, and useless permissions.
+The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process."><meta property="og:image" content><meta name=google-site-verification content="7rDTNqn214SsZ9mmV8Ps5v2vqy8aXFWyoq08udChYCs"><meta property="og:url" content="https://www.marcogomiero.com/posts/2023/migration-to-compose/"><meta property="og:site_name" content="Marco Gomiero"><meta property="og:title" content="Migrating to Jetpack Compose: a step by step journey"><meta property="og:description" content="Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn’t require sneaky, strange, and useless permissions.
+The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-05-12T00:00:00+00:00"><meta property="article:modified_time" content="2023-05-12T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Migrating to Jetpack Compose: a step by step journey"><meta name=twitter:description content="Some time ago, I decided to migrate Secure QR Reader to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn’t require sneaky, strange, and useless permissions.
+The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process."><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script><script src=https://www.marcogomiero.com//js/feather.min.js></script><link href="https://fonts.googleapis.com/css?family=JetBrains+Mono" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://www.marcogomiero.com/css/main.ff49f6f79fa4500227b71575804e53b8b0d55aa543289c6b7dddc9cd1f34b8a8.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://www.marcogomiero.com/css/dark.26c5bf79ef760a8f4feb8fc7be32ec86fc1f1da292b42c9fcc37879d4f774e3f.css disabled></head><body><div class=content><header><div class=main><a href=https://www.marcogomiero.com/><h2>Marco Gomiero</h2></a></div><nav class=navbar><a href=/posts/><span>Write
+</span></a><a href=/talks/><span>Speak
+</span></a><a href=/projects/><span>Build
+</span></a><a href=/about-me/><span>About
+</span></a>| <span class=dark-mode-toggle id=dark-mode-toggle onclick=toggleTheme()></span>
+<script src=https://www.marcogomiero.com//js/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title>Migrating to Jetpack Compose: a step by step journey</h1><div class=post-meta>12 May 2023</div></div><section class=body><span class=raw-html><div class=post-award-container><a href=https://androidweekly.net/issues/issue-569><img src=https://androidweekly.net/issues/issue-569/badge>
+</a><a href=https://jetc.dev/issues/165.html><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23165-blue?logo=Jetpack+Compose&amp;logoColor=white"></a></div></span><p>Some time ago, I decided to migrate <a href=https://github.com/prof18/Secure-QR-Reader>Secure QR Reader</a> to Jetpack Compose (in the rest of the article, I will call it Compose, for brevity). QR Reader Secure is a simple QR Reader that I developed some years ago after a failed search for a simple and secure reader for my parents that doesn&rsquo;t require sneaky, strange, and useless permissions.</p><p>The app was basic and fully working with the old View system, but I wanted to move to Compose to experience the entire migration process.</p><p>This article will be a journal that describes the journey to Compose step by step. There will be a correspondent commit for each step, so keeping track of the changes will be possible. This way, I want to be helpful to all the people that want to start the migration.</p><blockquote><p>Note: The migration happened about a year ago, so the dependencies are not entirely up to date, and some APIs could have changed in the meantime. The article&rsquo;s point is not to show how you can do things in detail but rather to give the idea of the approach that can be followed to migrate to Compose.</p></blockquote><h2 id=gradle-setup>Gradle Setup</h2><p>In every significant migration, there will always be some Gradle work involved. First, it is necessary to enable the Compose feature and set the Compose Compiler Kotlin version in the <code>build.gradle(.kts)</code> file.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>android {
 </span></span><span style=display:flex><span>    buildFeatures {
 </span></span><span style=display:flex><span>        compose = <span style=color:#ff6ac1>true</span>
 </span></span><span style=display:flex><span>    }
@@ -101,7 +113,7 @@ And here comes the <a href=https://google.github.io/accompanist/themeadapter-mat
 </span></span><span style=display:flex><span>        <span style=color:#ff6ac1>val</span> qrResult: String? = arguments<span style=color:#ff6ac1>?.</span>getString(QR_RESULT)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#ff6ac1>return</span> ComposeView(requireContext()).apply {
-</span></span><span style=display:flex><span>            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+</span></span><span style=display:flex><span>            setViewCompositionStrategy(<span style=color:#f3f99d>ViewCompositionStrategy</span>.DisposeOnViewTreeLifecycleDestroyed)
 </span></span><span style=display:flex><span>            setContent {
 </span></span><span style=display:flex><span>                MdcTheme {
 </span></span><span style=display:flex><span>                    ResultScreen(
@@ -147,14 +159,14 @@ And here comes the <a href=https://google.github.io/accompanist/themeadapter-mat
 </span></span><span style=display:flex><span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#ff6ac1>internal</span> <span style=color:#ff6ac1>val</span> LightThemeColors = lightColors(
-</span></span><span style=display:flex><span>    primary = LightAppColors.primary,
-</span></span><span style=display:flex><span>    primaryVariant = LightAppColors.primaryVariant,
+</span></span><span style=display:flex><span>    primary = <span style=color:#f3f99d>LightAppColors</span>.primary,
+</span></span><span style=display:flex><span>    primaryVariant = <span style=color:#f3f99d>LightAppColors</span>.primaryVariant,
 </span></span><span style=display:flex><span>    <span style=color:#78787e>// ...
 </span></span></span><span style=display:flex><span><span style=color:#78787e></span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#ff6ac1>internal</span> <span style=color:#ff6ac1>val</span> DarkThemeColors = darkColors(
-</span></span><span style=display:flex><span>    primary = DarkAppColors.primary,
-</span></span><span style=display:flex><span>    primaryVariant = DarkAppColors.primaryVariant,
+</span></span><span style=display:flex><span>    primary = <span style=color:#f3f99d>DarkAppColors</span>.primary,
+</span></span><span style=display:flex><span>    primaryVariant = <span style=color:#f3f99d>DarkAppColors</span>.primaryVariant,
 </span></span><span style=display:flex><span>    <span style=color:#78787e>// ...
 </span></span></span><span style=display:flex><span><span style=color:#78787e></span>)
 </span></span></code></pre></div><p>Those customizations will be injected into the definition of the theme.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>Composable
@@ -188,26 +200,26 @@ And here comes the <a href=https://google.github.io/accompanist/themeadapter-mat
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>            NavHost(
 </span></span><span style=display:flex><span>                navController = navController, 
-</span></span><span style=display:flex><span>                startDestination = Screen.Splash.name
+</span></span><span style=display:flex><span>                startDestination = <span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>Splash</span>.name
 </span></span><span style=display:flex><span>            ) {
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>                composable(Screen.Splash.name) {
+</span></span><span style=display:flex><span>                composable(<span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>Splash</span>.name) {
 </span></span><span style=display:flex><span>                    SplashScreen()
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>                composable(Screen.WelcomeScreen.name) {
+</span></span><span style=display:flex><span>                composable(<span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>WelcomeScreen</span>.name) {
 </span></span><span style=display:flex><span>                    WelcomeScreen()
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>                composable(Screen.ScanScreen.name) {
+</span></span><span style=display:flex><span>                composable(<span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>ScanScreen</span>.name) {
 </span></span><span style=display:flex><span>                    ScanScreen()
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>                composable(Screen.ResultScreen.name) {
+</span></span><span style=display:flex><span>                composable(<span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>ResultScreen</span>.name) {
 </span></span><span style=display:flex><span>                    ResultScreen()
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>                composable(Screen.AboutScreen.name) {
+</span></span><span style=display:flex><span>                composable(<span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>AboutScreen</span>.name) {
 </span></span><span style=display:flex><span>                    AboutScreen()
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>            }
@@ -218,7 +230,7 @@ And here comes the <a href=https://google.github.io/accompanist/themeadapter-mat
 </span></span><span style=display:flex><span>    implementation <span style=color:#5af78e>&#34;com.google.accompanist:accompanist-permissions:&lt;version&gt;&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#ff6ac1>}</span>
 </span></span></code></pre></div><p>After that, it is possible to define a state with the requested permission, launch the permission request, and build a UI depending on the permission state. The <code>rememberPermissionState</code> will ensure that the status of the permission will be kept across different recompositions.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#ff6ac1>val</span> cameraPermissionState = rememberPermissionState(
-</span></span><span style=display:flex><span>    android.Manifest.permission.CAMERA
+</span></span><span style=display:flex><span>    android.<span style=color:#f3f99d>Manifest</span>.permission.CAMERA
 </span></span><span style=display:flex><span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>LaunchedEffect(Unit) {
@@ -226,11 +238,11 @@ And here comes the <a href=https://google.github.io/accompanist/themeadapter-mat
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#ff6ac1>when</span>(cameraPermissionState.status) {
-</span></span><span style=display:flex><span>    PermissionStatus.Granted <span style=color:#ff6ac1>-&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f3f99d>PermissionStatus</span>.Granted <span style=color:#ff6ac1>-&gt;</span> {
 </span></span><span style=display:flex><span>        <span style=color:#78787e>// ...
 </span></span></span><span style=display:flex><span><span style=color:#78787e></span>    }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>is</span> PermissionStatus.Denied <span style=color:#ff6ac1>-&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>is</span> <span style=color:#f3f99d>PermissionStatus</span>.Denied <span style=color:#ff6ac1>-&gt;</span> {
 </span></span><span style=display:flex><span>        <span style=color:#78787e>// ...
 </span></span></span><span style=display:flex><span><span style=color:#78787e></span>    }
 </span></span><span style=display:flex><span>}
@@ -253,23 +265,22 @@ And here comes the <a href=https://google.github.io/accompanist/themeadapter-mat
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>AnimatedNavHost(
 </span></span><span style=display:flex><span>    navController = navController,
-</span></span><span style=display:flex><span>    startDestination = Screen.Splash.name,
-</span></span><span style=display:flex><span>    enterTransition = { fadeIn() + slideIntoContainer(AnimatedContentScope.SlideDirection.Start) },
-</span></span><span style=display:flex><span>    exitTransition = { fadeOut() + slideOutOfContainer(AnimatedContentScope.SlideDirection.Start) },
-</span></span><span style=display:flex><span>    popEnterTransition = { fadeIn() + slideIntoContainer(AnimatedContentScope.SlideDirection.End) },
-</span></span><span style=display:flex><span>    popExitTransition = { fadeOut() + slideOutOfContainer(AnimatedContentScope.SlideDirection.End) }
+</span></span><span style=display:flex><span>    startDestination = <span style=color:#f3f99d>Screen</span>.<span style=color:#f3f99d>Splash</span>.name,
+</span></span><span style=display:flex><span>    enterTransition = { fadeIn() + slideIntoContainer(<span style=color:#f3f99d>AnimatedContentScope</span>.<span style=color:#f3f99d>SlideDirection</span>.Start) },
+</span></span><span style=display:flex><span>    exitTransition = { fadeOut() + slideOutOfContainer(<span style=color:#f3f99d>AnimatedContentScope</span>.<span style=color:#f3f99d>SlideDirection</span>.Start) },
+</span></span><span style=display:flex><span>    popEnterTransition = { fadeIn() + slideIntoContainer(<span style=color:#f3f99d>AnimatedContentScope</span>.<span style=color:#f3f99d>SlideDirection</span>.End) },
+</span></span><span style=display:flex><span>    popExitTransition = { fadeOut() + slideOutOfContainer(<span style=color:#f3f99d>AnimatedContentScope</span>.<span style=color:#f3f99d>SlideDirection</span>.End) }
 </span></span><span style=display:flex><span>) {
 </span></span><span style=display:flex><span>    <span style=color:#78787e>// ...
 </span></span></span><span style=display:flex><span><span style=color:#78787e></span>}    
-</span></span></code></pre></div><blockquote><p><a href=https://github.com/prof18/Secure-QR-Reader/commit/28628dd051f572f454c68aedbef62590391336a3>Commit: &ldquo;Move to Animated Nav Host&rdquo;</a></p></blockquote><h2 id=landscape-support>Landscape Support</h2><p>The final step in this migration journey is adding support for the landscape orientation. I guilty <del>skipped</del> YOLOed this step during the app&rsquo;s first iteration because it was too painful to support. But with Compose, it&rsquo;s not necessary to have different XMLs but only to check the current configuration and return a specific Composable function.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#ff6ac1>val</span> configuration = LocalConfiguration.current
+</span></span></code></pre></div><blockquote><p><a href=https://github.com/prof18/Secure-QR-Reader/commit/28628dd051f572f454c68aedbef62590391336a3>Commit: &ldquo;Move to Animated Nav Host&rdquo;</a></p></blockquote><h2 id=landscape-support>Landscape Support</h2><p>The final step in this migration journey is adding support for the landscape orientation. I guilty <del>skipped</del> YOLOed this step during the app&rsquo;s first iteration because it was too painful to support. But with Compose, it&rsquo;s not necessary to have different XMLs but only to check the current configuration and return a specific Composable function.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#ff6ac1>val</span> configuration = <span style=color:#f3f99d>LocalConfiguration</span>.current
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#ff6ac1>when</span> (configuration.orientation) {
-</span></span><span style=display:flex><span>    Configuration.ORIENTATION_LANDSCAPE <span style=color:#ff6ac1>-&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f3f99d>Configuration</span>.ORIENTATION_LANDSCAPE <span style=color:#ff6ac1>-&gt;</span> {
 </span></span><span style=display:flex><span>        LandscapeView(showOnGithubClicked, licensesClicked, nameClicked)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>    <span style=color:#ff6ac1>else</span> <span style=color:#ff6ac1>-&gt;</span> {
 </span></span><span style=display:flex><span>        PortraitView(showOnGithubClicked, licensesClicked, nameClicked)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><blockquote><p><a href=https://github.com/prof18/Secure-QR-Reader/commit/2a44136000730a8cba32ef6d91f3b88572433fb8>Commit:" Add horizontal orientation support"</a></p></blockquote><h2 id=conclusions>Conclusions</h2><p>And that was the journey of migrating Secure QR Reader to Jetpack Compose.</p><p>The main takeaway of this journey is that Compose can be iteratively introduced in an application without a big-bang approach. It&rsquo;s possible to migrate only a little UI element, an entire screen, or the whole application. The process can be done step by step as I did for my app, and it&rsquo;s even possible to stop in the middle of the process and keep having a fully functioning app.</p><p>I hope that this article will be helpful for all the developers embarking on their own migration journey to Jetpack Compose. You can check out Secure QR Reader on <a href=https://github.com/prof18/Secure-QR-Reader>Github</a> or download it from the <a href="https://play.google.com/store/apps/details?id=com.prof18.secureqrreader">Play Store</a>.</p></section><div class=article-footer><div class=body>To stay up to date with my writing and my projects, follow me on <a href=https://bsky.app/profile/marcogomiero.com target=_blank>Bluesky</a>, <a href=https://androiddev.social/@marcogom target=_blank>Mastodon</a> or <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div></article></main><footer class=footer><span>&copy; 2026 <a href=https://www.marcogomiero.com>Marco Gomiero</a></span></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script>
-<script>var doNotTrack=!1,dnt;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script></div></body></html>
+</span></span></code></pre></div><blockquote><p><a href=https://github.com/prof18/Secure-QR-Reader/commit/2a44136000730a8cba32ef6d91f3b88572433fb8>Commit:" Add horizontal orientation support"</a></p></blockquote><h2 id=conclusions>Conclusions</h2><p>And that was the journey of migrating Secure QR Reader to Jetpack Compose.</p><p>The main takeaway of this journey is that Compose can be iteratively introduced in an application without a big-bang approach. It&rsquo;s possible to migrate only a little UI element, an entire screen, or the whole application. The process can be done step by step as I did for my app, and it&rsquo;s even possible to stop in the middle of the process and keep having a fully functioning app.</p><p>I hope that this article will be helpful for all the developers embarking on their own migration journey to Jetpack Compose. You can check out Secure QR Reader on <a href=https://github.com/prof18/Secure-QR-Reader>Github</a> or download it from the <a href="https://play.google.com/store/apps/details?id=com.prof18.secureqrreader">Play Store</a>.</p></section><div class=article-footer><div class=body>To stay up to date with my writing and my projects, follow me on <a href=https://bsky.app/profile/marcogomiero.com target=_blank>Bluesky</a>, <a href=https://androiddev.social/@marcogom target=_blank>Mastodon</a> or <a href=https://twitter.com/marcoGomier target=_blank>Twitter</a>. If you have any questions, feel free to reach me out!</div></div></article></main><footer class=footer><span>&copy; 2026 <a href=https://www.marcogomiero.com/>Marco Gomiero</a></span></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-69FZ1TLE7E"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-69FZ1TLE7E")}</script></div></body></html>

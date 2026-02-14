@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.marcogomiero.com/posts/2026/building-shellporter/</loc>
-    <lastmod>2026-02-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/</loc>
+    <lastmod>2026-02-14T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/projects/</loc>
+    <lastmod>2026-02-14T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/projects/shellporter/</loc>
+    <lastmod>2026-02-14T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/posts/2026/building-shellporter/</loc>
     <lastmod>2026-02-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/</loc>
@@ -52,6 +58,9 @@
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</loc>
     <lastmod>2025-03-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.marcogomiero.com/projects/readerflow/</loc>
+    <lastmod>2025-02-14T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</loc>
     <lastmod>2025-01-14T00:00:00+00:00</lastmod>
@@ -161,9 +170,6 @@
     <loc>https://www.marcogomiero.com/projects/feed-flow/</loc>
     <lastmod>2023-08-11T17:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.marcogomiero.com/projects/</loc>
-    <lastmod>2023-08-11T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/projects/spoton/</loc>
     <lastmod>2023-08-11T17:45:00+00:00</lastmod>
   </url><url>
@@ -220,9 +226,6 @@
   </url><url>
     <loc>https://www.marcogomiero.com/projects/money-flow/</loc>
     <lastmod>2022-05-16T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/filmatic/</loc>
-    <lastmod>2022-05-15T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/projects/qr-reader-secure/</loc>
     <lastmod>2022-05-14T17:45:00+00:00</lastmod>
@@ -359,21 +362,6 @@
     <loc>https://www.marcogomiero.com/posts/2020/friends-tournament-release/</loc>
     <lastmod>2020-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.marcogomiero.com/projects/zeromag/</loc>
-    <lastmod>2020-05-15T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/mario-discepolo/</loc>
-    <lastmod>2020-05-14T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/taxitaly-tour/</loc>
-    <lastmod>2020-05-13T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/lupokkio-android/</loc>
-    <lastmod>2020-05-12T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/lupokkio-web/</loc>
-    <lastmod>2020-05-11T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-series/</loc>
     <lastmod>2020-05-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -449,15 +437,6 @@
     <loc>https://www.marcogomiero.com/talks/2018/library-devfestmi/</loc>
     <lastmod>2018-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.marcogomiero.com/projects/distributed-file-system/</loc>
-    <lastmod>2018-05-13T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/cyber-robot/</loc>
-    <lastmod>2018-05-12T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/banks/</loc>
-    <lastmod>2018-05-11T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/posts/2018/image-update-rss-lib/</loc>
     <lastmod>2018-05-06T00:00:00+00:00</lastmod>
   </url><url>
@@ -485,10 +464,14 @@
     <loc>https://www.marcogomiero.com/talks/2016/backup-restore-gdg/</loc>
     <lastmod>2016-12-17T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.marcogomiero.com/workshops/introducing-kotlin-multiplatform-in-an-existing-mobile-app/</loc>
+  </url><url>
     <loc>https://www.marcogomiero.com/about-me/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/categories/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/tags/</loc>
+  </url><url>
+    <loc>https://www.marcogomiero.com/workshops/</loc>
   </url>
 </urlset>

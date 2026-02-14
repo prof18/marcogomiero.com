@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshops on Marco Gomiero</title>
+    <link>https://www.marcogomiero.com/workshops/</link>
+    <description>Recent content in Workshops on Marco Gomiero</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://www.marcogomiero.com/workshops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://www.marcogomiero.com/workshops/introducing-kotlin-multiplatform-in-an-existing-mobile-app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.marcogomiero.com/workshops/introducing-kotlin-multiplatform-in-an-existing-mobile-app/</guid>
+      <description>&lt;!doctype html&gt;&#xA;&#xA;&lt;html&gt;&#xA;&lt;head&gt;&#xA;  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes&#34;&gt;&#xA;  &lt;meta name=&#34;theme-color&#34; content=&#34;#4F7DC9&#34;&gt;&#xA;  &lt;meta charset=&#34;UTF-8&#34;&gt;&#xA;  &lt;title&gt;Introducing Kotlin Multiplatform in an existing mobile app&lt;/title&gt;&#xA;  &lt;link rel=&#34;stylesheet&#34; href=&#34;//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono&#34;&gt;&#xA;  &lt;link rel=&#34;stylesheet&#34; href=&#34;//fonts.googleapis.com/icon?family=Material+Icons&#34;&gt;&#xA;  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://storage.googleapis.com/claat-public/codelab-elements.css&#34;&gt;&#xA;  &lt;style&gt;&#xA;    .success {&#xA;      color: #1e8e3e;&#xA;    }&#xA;    .error {&#xA;      color: red;&#xA;    }&#xA;  &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;  &lt;google-codelab codelab-gaid=&#34;&#34;&#xA;                  id=&#34;introducing-kotlin-multiplatform-in-an-existing-mobile-app&#34;&#xA;                  title=&#34;Introducing Kotlin Multiplatform in an existing mobile app&#34;&#xA;                  environment=&#34;web&#34;&#xA;                  feedback-link=&#34;https://marcogomiero.com&#34;&gt;&#xA;    &#xA;      &lt;google-codelab-step label=&#34;Introduction&#34; duration=&#34;0&#34;&gt;&#xA;        &lt;p&gt;&lt;strong&gt;Last Updated:&lt;/strong&gt; 2024-08-31&lt;/p&gt;&#xA;&lt;p&gt;After discovering a new, exciting technology or framework, you will probably start asking yourself how to integrate it into an existing project. That&amp;#39;s because the possibility of starting with a blank canvas is rare (not impossible, but rare).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

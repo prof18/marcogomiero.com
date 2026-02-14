@@ -320,12 +320,14 @@ table td{
   font-size: 13px;
   background: var(--primary);
   border-radius: calc(36px / 2);
-  padding: 12px;
-  margin: 16px 16px 16px 0;
-  display: flex;
-  justify-content: space-around;
+  padding: 8px 12px;
+  margin: 6px 8px 6px 0;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  width: 101px;
+  gap: 6px;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .project-button > svg {
@@ -343,6 +345,18 @@ table td{
 .project-description {
   margin-top: 10px;
   margin-bottom: 5px;
+}
+
+.project-links {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-links-spacer {
+  margin-bottom: 16px;
 }
 
 /* Homepage */
