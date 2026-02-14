@@ -2,7 +2,7 @@
 layout: post
 title:  "Organize your Views: Jetpack Compose edition"
 date:   2023-03-15
-show_in_homepage: true
+show_in_homepage: false
 ---
 
 {{< rawhtml >}}

@@ -2,7 +2,7 @@
 layout: post
 title: "Building Shellporter: From Idea to Production in a Week"
 date: 2026-02-14
-show_in_homepage: false
+show_in_homepage: true
 ---
 
 I work with multiple projects at the same time. My typical macOS setup is one Desktop/Workspace per project, with my IDE and a terminal window. I prefer using a standalone terminal over the one built into the IDE because TUIs, especially those from AI agents, tend to perform better there: no scrolling jank, no weird jumps, and a generally smoother experience. And also I prefer to have a full big window dedicated to the terminal with more stuff to read rather than a small window in the IDE.
@@ -30,7 +30,7 @@ When you press `Ctrl+Opt+Cmd+T`, Shellporter:
 
 If everything fails, a manual folder picker shows up as a last resort.
 
-It supports (at the time of writing of this article) JetBrains IDEs, VS Code, Cursor, Antigravity, and Xcode. On the terminal side: Terminal.app, iTerm2, Ghostty, Kitty, and a custom command option for anything else. This cover the current set of IDEs and terminals that I use daily, but if you need support for a different IDE or terminal, contributions are welcome. Feel free to [open a PR](https://github.com/prof18/shellporter/pulls) or [an issue](https://github.com/prof18/shellporter/issues).
+It supports (at the time of writing of this article) **JetBrains IDEs, Android Studio, VS Code, Cursor, Antigravity, and Xcode**. On the terminal side: **Terminal.app, iTerm2, Ghostty, Kitty**, and a custom command option for anything else. This cover the current set of IDEs and terminals that I use daily, but if you need support for a different IDE or terminal, contributions are welcome. Feel free to [open a PR](https://github.com/prof18/shellporter/pulls) or [an issue](https://github.com/prof18/shellporter/issues).
 
 Different IDEs expose project information in very different ways, so a "catch them all"™ approach doesn't work. Shellporter uses a chain of resolution strategies: window title parsing, Accessibility API document attributes, IDE metadata files (`recentProjects.xml` for JetBrains, `storage.json` for VS Code) and the chain order changes depending on the IDE family, prioritizing the most reliable source for each one.
 
@@ -63,11 +63,11 @@ To review, refine and refactor I've decided to use Claude Code and Opus 4.6, jus
 
 ## From idea to production
 
-I'm writing this announcement post on a Saturday morning and I've started the development on Monday evening. So the entire process from idea to production took less than a week which is quite astonishing. 
+I'm writing this announcement post on a Saturday morning and I've started the development on Monday evening. So the entire process from idea to production took **less than a week** which is quite astonishing. 
 
 As always, the blocker in this case is the publishing part. After 2 evenings I had the app working and I've started dogfooding it already with my workflow. I've spent the remaining 3 evenings to polish the code, prepare the release, documentations, announcements, websites, etc etc. 
 
-We've unlocked and sped up the development part, but we still need to speed up the publishing part. Even with publishing as the bottleneck, now it's the best time to build and put your idea out. 
+> We've unlocked and sped up the development part, but we still need to speed up the publishing part. Even with publishing as the bottleneck, now it's the best time to build and put your idea out. 
 
 
 ## Wrapping up
