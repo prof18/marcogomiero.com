@@ -1,7 +1,7 @@
 ---
 date: 2022-05-11T17:45:00Z
 title: "Youtube Parser"
-type: "Android Library"
+platforms: "Android Library"
 github: https://github.com/prof18/YoutubeParser
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2022-05-14T17:45:00Z
 title: "QR Reader Secure"
-type: "Native Android App"
+platforms: "Native Android App"
 deprecated: false
 github: https://github.com/prof18/Secure-QR-Reader
 playStore: https://play.google.com/store/apps/details?id=com.prof18.secureqrreader

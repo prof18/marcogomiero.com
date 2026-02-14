@@ -1,19 +1,17 @@
 ---
 date: 2023-08-11T17:45:00Z
 title: "FeedFlow"
-type: "Android, iOS, macOS, Window and Linux App"
+platforms: "Android, iOS, macOS, Windows and Linux"
 website: https://feedflow.dev
 github: https://github.com/prof18/feed-flow
 playStore: https://play.google.com/store/apps/details?id=com.prof18.feedflow
 appStore: https://apps.apple.com/us/app/feedflow-rss-reader/id6447210518
+windowsStore: https://apps.microsoft.com/detail/9n5t1rfbb6v5
+flatpak: https://flathub.org/apps/com.prof18.feedflow
 ---
 
-FeedFlow is a minimalistic and opinionated RSS Reader that's available on Android, iOS, macOS, Windows and Linux.
+FeedFlow is a minimal, uncluttered RSS reader available on Android, iOS, macOS, Windows and Linux.
 
-The majority of websites with an RSS feed don't share the article's content because they want you to go on their website. For this reason, FeedFlow always opens the original website, but the browser can be chosen (on mobile). For example, an article can be opened on DuckDuckGo or Firefox Focus with all the trackers disabled and then just kill all the navigation data. In this way, the reading experience is separated from the main browser instance.
+Minimalist design to keep the focus on what matters; seamless sync across devices with iCloud (iOS/macOS), Dropbox or Google Drive; FreshRSS, Miniflux, Feedbin and BazQux integration; flexible reading with reader mode or a preferred browser.
 
-An existing RSS collection can be easily imported: FeedFlow offers full and easy import and export capabilities through OPML files.
-
-FeedFlow is built with Jetpack Compose, Compose Multiplatform, and SwiftUI. All the logic is shared using Kotlin Multiplatform.
-
-FeedFlow uses [RSSParser](https://github.com/prof18/RSS-Parser), an RSS parsing library that I've built for Android and that now is Multiplatform!
+FeedFlow is built with Jetpack Compose, Compose Multiplatform, and SwiftUI, with shared logic via Kotlin Multiplatform, and uses [RSSParser](https://github.com/prof18/RSS-Parser), a multiplatform RSS parsing library I built.
