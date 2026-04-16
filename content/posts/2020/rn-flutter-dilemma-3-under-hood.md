@@ -32,7 +32,7 @@ Flutter instead works in a completely different way. In fact, all the widgets ar
 
 {{< figure src="/img/flutter-rn/engine.png" alt="image" caption="Flutter Engine" >}}
 
-As you can see, there is a block called "Skia". [Skia](https://skia.org/) is an open-source 2D graphic library managed by Google and you may already know about it, because it is used by Chrome, Chrome OS, Android, Firefox and many others. And in Flutter, Skia is responsible for rendering the widgets in a canvas. In this way, there isn't a continuous communication between the "cross-platform technology" and the native part and everything is faster. Moreover, all the Dart code is compiled to native code to speed things up. be aware that the compilation to native code is performed only for production build and for this reason debug builds can be slower. 
+As you can see, there is a block called "Skia". [Skia](https://skia.org/?utm_campaign=deveco_gdemembers&utm_source=deveco) is an open-source 2D graphic library managed by Google and you may already know about it, because it is used by Chrome, Chrome OS, Android, Firefox and many others. And in Flutter, Skia is responsible for rendering the widgets in a canvas. In this way, there isn't a continuous communication between the "cross-platform technology" and the native part and everything is faster. Moreover, all the Dart code is compiled to native code to speed things up. be aware that the compilation to native code is performed only for production build and for this reason debug builds can be slower. 
 
 ## Comparison
 
@@ -44,7 +44,7 @@ And finally, I want to conclude with some interesting features that both Flutter
 
 ### Hot Reload
 The first one is "**Hot Reload**", i.e. the capability of loading new changes without recompiling the entire application again. This feature is really really useful for example when you are trying different colors, font sizes, etc; waiting for an entire recompilation for these little changes it would be such a pain.
-In Flutter this feature is possible thanks to a combination of *Ahead-of-time* (AOT) and *Just-in-time* compilation. In fact, as mentioned earlier, Flutter generates machine code for production builds. For the debug builds instead, there is a virtual machine that can receive the new code, replace the old one and maintain the state. [Here](https://flutter.dev/docs/resources/technical-overview) you can find more information about hot reload in Flutter. 
+In Flutter this feature is possible thanks to a combination of *Ahead-of-time* (AOT) and *Just-in-time* compilation. In fact, as mentioned earlier, Flutter generates machine code for production builds. For the debug builds instead, there is a virtual machine that can receive the new code, replace the old one and maintain the state. [Here](https://flutter.dev/docs/resources/technical-overview?utm_campaign=deveco_gdemembers&utm_source=deveco) you can find more information about hot reload in Flutter. 
 
 In React Native instead, the Hot Reload is built on top of *Hot Module Replacement* by Webpack. Basically there is a runtime included in the app that receives the new code and it replaces the old one. If you are interested in the details, I suggest you read [this blog post](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) from Facebook.
 
@@ -62,7 +62,7 @@ Flutter instead builds an Element Tree as a representation of the UI but instead
 
 {{< figure src="/img/flutter-rn/element-tree.png" alt="image" caption="Flutter Element Tree" >}}
 
-For more information about it, you can give a look [to the Flutter documentation](https://flutter.dev/docs/resources/inside-flutter).
+For more information about it, you can give a look [to the Flutter documentation](https://flutter.dev/docs/resources/inside-flutter?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
 ## “Frankenstein” App
 
@@ -85,7 +85,7 @@ For more information, please visit the [official documentation](https://facebook
 
 Also in Flutter, you have to define a container view in your native application but instead, you don't need to write a kilometric command to generate bundle: you just add the Flutter project directly from Android Studio and that's it! ( for iOs there is more work to do: you have to add a Flutter SDK hook to the CocoaPods and to Xcode build phase ). 
 
-Again, for more information, I suggest you read the [official documentation](https://flutter.dev/docs/development/add-to-app)
+Again, for more information, I suggest you read the [official documentation](https://flutter.dev/docs/development/add-to-app?utm_campaign=deveco_gdemembers&utm_source=deveco)
 
 --- 
 

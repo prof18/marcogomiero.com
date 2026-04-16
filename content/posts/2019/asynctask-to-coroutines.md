@@ -19,7 +19,7 @@ But, before starting with the technical details, I want to share you some resour
 
 The first thing that you can do to get into the coroutine world is doing the codelab provided by Google.
 
-> [Using Kotlin Coroutines in your Android App](https://codelabs.developers.google.com/codelabs/kotlin-coroutines/)
+> [Using Kotlin Coroutines in your Android App](https://codelabs.developers.google.com/codelabs/kotlin-coroutines/?utm_campaign=deveco_gdemembers&utm_source=deveco)
 
 Don’t worry if you don’t understand all the concepts, the codelab is useful to make the first exploration and to receive the inputs and the tools to study a particular argument.
 

@@ -57,7 +57,7 @@ private val formats = listOf<DateTimeFormat<DateTimeComponents>>(
 )	
 ```
 
-After a search in the issues of the library, I found something similar! An issue that was closed because the problem could not be reproduced, both on  [JetBrains](https://github.com/Kotlin/kotlinx-datetime/issues/402) and [Google](https://issuetracker.google.com/issues/351858994) sides. But now [there's a reproducer!](https://github.com/prof18/DateTimeR8IssueRepro).
+After a search in the issues of the library, I found something similar! An issue that was closed because the problem could not be reproduced, both on  [JetBrains](https://github.com/Kotlin/kotlinx-datetime/issues/402) and [Google](https://issuetracker.google.com/issues/351858994?utm_campaign=deveco_gdemembers&utm_source=deveco) sides. But now [there's a reproducer!](https://github.com/prof18/DateTimeR8IssueRepro).
 
 Apparently, the issue could be that R8 removes classes that are backing some properties with delegation.
 

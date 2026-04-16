@@ -8,9 +8,9 @@ image: "/img/bottom.gif"
 
 The recent revamp of the Material Design has introduced new beautiful items, for example, the Bottom App Bar.
 
-{{< figure src="/img/bottom-bar.png" alt="image" caption="*Image from [Material Design Guidelines](https://material.io/design/components/app-bars-bottom.html#)*" >}}
+{{< figure src="/img/bottom-bar.png" alt="image" caption="*Image from [Material Design Guidelines](https://material.io/design/components/app-bars-bottom.html?utm_campaign=deveco_gdemembers&utm_source=deveco#)*" >}}
 
-With Flutter is super easy to implement like shown in the [official documentation](https://docs.flutter.io/flutter/material/BottomAppBar-class.html). However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
+With Flutter is super easy to implement like shown in the [official documentation](https://docs.flutter.io/flutter/material/BottomAppBar-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco). However, for me, the tricky part is to combine it with swipeable tabs so, in this article, I’ll explain all the steps that I’ve followed to obtain it.
 
 Here’s a spoiler of the final result:
 
@@ -35,9 +35,9 @@ class PlaceholderWidget extends StatelessWidget {
 }
 ```
 
-Now, its time to create the structure in which the Placeholder widgets will be shown by using a [*Scaffold*](https://docs.flutter.io/flutter/material/Scaffold-class.html) widget. In this case, the Scaffold Widget has three main children: a [**FloatingActionButton**](https://docs.flutter.io/flutter/material/FloatingActionButton-class.html), a [**TabBarView**](https://docs.flutter.io/flutter/material/TabBarView-class.html) and a [**BottomAppBar**](https://docs.flutter.io/flutter/material/BottomAppBar-class.html).
+Now, its time to create the structure in which the Placeholder widgets will be shown by using a [*Scaffold*](https://docs.flutter.io/flutter/material/Scaffold-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco) widget. In this case, the Scaffold Widget has three main children: a [**FloatingActionButton**](https://docs.flutter.io/flutter/material/FloatingActionButton-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco), a [**TabBarView**](https://docs.flutter.io/flutter/material/TabBarView-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco) and a [**BottomAppBar**](https://docs.flutter.io/flutter/material/BottomAppBar-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
-Let’s start with the **TabBarView**. Usually, the TabBarView is combined with the TabBar that creates an alternative to the swipe to change tab ( You can find an example [in the official Flutter doc](https://flutter.dev/docs/cookbook/design/tabs)). However, in this case, the alternative is provided by the menu callable from the BottomAppBar as shown in the GIF above.
+Let’s start with the **TabBarView**. Usually, the TabBarView is combined with the TabBar that creates an alternative to the swipe to change tab ( You can find an example [in the official Flutter doc](https://flutter.dev/docs/cookbook/design/tabs?utm_campaign=deveco_gdemembers&utm_source=deveco)). However, in this case, the alternative is provided by the menu callable from the BottomAppBar as shown in the GIF above.
 
 ```dart
 TabBarView(
@@ -55,7 +55,7 @@ TabBarView(
 }).toList()
 ```    
 
-As you can see, it is a very simple snippet that returns as children (i.e. the different tabs) the widgets contained in the variable _allPages. These widgets are all of the type PlaceholderWidget. In addition to the children, we have to provide a controller, that is the “guy” that keeps the selected tab and content sections in sync. In this case, we don’t use the DefaultTabController , but we create a [TabController](https://docs.flutter.io/flutter/material/TabController-class.html) to handle the tabs also from the menu. If the swipe is enough to change tabs, we could simply use the DefaultTabController.
+As you can see, it is a very simple snippet that returns as children (i.e. the different tabs) the widgets contained in the variable _allPages. These widgets are all of the type PlaceholderWidget. In addition to the children, we have to provide a controller, that is the “guy” that keeps the selected tab and content sections in sync. In this case, we don’t use the DefaultTabController , but we create a [TabController](https://docs.flutter.io/flutter/material/TabController-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco) to handle the tabs also from the menu. If the swipe is enough to change tabs, we could simply use the DefaultTabController.
 
 ```dart
 _controller = TabController(vsync: this, length: _allPages.length);
@@ -123,9 +123,9 @@ void _showModal() {
 }
 ```
 
-In order to create and show a [**Bottom Sheet**](https://docs.flutter.io/flutter/material/BottomSheet-class.html) we need to call the ```showModalBottomSheet<void>``` method and provide in the builder, the widgets that we want to show. In this case, we use a [Column](https://docs.flutter.io/flutter/widgets/Column-class.html) with [ListTile](https://docs.flutter.io/flutter/material/ListTile-class.html) widgets, i.e. a widget that can have a leading and a trailing icon and some text.
+In order to create and show a [**Bottom Sheet**](https://docs.flutter.io/flutter/material/BottomSheet-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco) we need to call the ```showModalBottomSheet<void>``` method and provide in the builder, the widgets that we want to show. In this case, we use a [Column](https://docs.flutter.io/flutter/widgets/Column-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco) with [ListTile](https://docs.flutter.io/flutter/material/ListTile-class.html?utm_campaign=deveco_gdemembers&utm_source=deveco) widgets, i.e. a widget that can have a leading and a trailing icon and some text.
 
-To navigate to the different tabs, we have to use the TabController defined above and call the method animateTo, by passing as parameter the number of tab that we want to show. After showing the tab we need to close the Bottom Sheet and to do that we can use Navigator.pop(context) that navigates to the first route. You can found more info about the Navigator [in the official doc.](https://flutter.dev/docs/cookbook/navigation/navigation-basics)
+To navigate to the different tabs, we have to use the TabController defined above and call the method animateTo, by passing as parameter the number of tab that we want to show. After showing the tab we need to close the Bottom Sheet and to do that we can use Navigator.pop(context) that navigates to the first route. You can found more info about the Navigator [in the official doc.](https://flutter.dev/docs/cookbook/navigation/navigation-basics?utm_campaign=deveco_gdemembers&utm_source=deveco)
 
 Finally, we have to place the **FloatingActionButton.**
 

@@ -5,7 +5,7 @@ date:   2023-07-31
 show_in_homepage: false
 ---
 
-After months of work, I can finally announce the release of [**FeedFlow**](https://www.feedflow.dev/), a minimalistic and opinionated RSS Reader that I've built for myself and that's now available on [Android](https://play.google.com/store/apps/details?id=com.prof18.feedflow), [iOS](https://apps.apple.com/us/app/feedflow-rss-reader/id6447210518), and [macOS](https://github.com/prof18/feed-flow/releases/latest).
+After months of work, I can finally announce the release of [**FeedFlow**](https://www.feedflow.dev/), a minimalistic and opinionated RSS Reader that I've built for myself and that's now available on [Android](https://play.google.com/store/apps/details?id=com.prof18.feedflow&utm_campaign=deveco_gdemembers&utm_source=deveco), [iOS](https://apps.apple.com/us/app/feedflow-rss-reader/id6447210518), and [macOS](https://github.com/prof18/feed-flow/releases/latest).
 
 {{< figure src="/img/feedflow/banner.png"  link="/img/feedflow/banner.png" >}}
 
@@ -42,7 +42,7 @@ In the meantime, you can check the code on [Github](https://github.com/prof18/fe
 
 From today, FeedFlow is available on Android, iOS, and macOS. Feel free to try it out and report any bugs! Feel free also to suggest any feature that could be missing.
 
-- [Google Play](https://play.google.com/store/apps/details?id=com.prof18.feedflow)
+- [Google Play](https://play.google.com/store/apps/details?id=com.prof18.feedflow&utm_campaign=deveco_gdemembers&utm_source=deveco)
 - [Apple Store](https://apps.apple.com/us/app/feedflow-rss-reader/id6447210518)
 - [macOS latest release](https://github.com/prof18/feed-flow/releases/latest)
 - [Github](https://github.com/prof18/feed-flow)

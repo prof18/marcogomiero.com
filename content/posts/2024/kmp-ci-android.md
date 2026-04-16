@@ -112,7 +112,7 @@ The action requires a key to identify the cache uniquely; in this case, the key 
 
 ## Setup Keystore
 
-Every release version of an Android app needs to be signed with a developer key. For security reasons, the [keystore](https://developer.android.com/studio/publish/app-signing#certificates-keystores) that contains certificates and private keys can't be publicly released, so storing it as a GitHub secret is a good approach
+Every release version of an Android app needs to be signed with a developer key. For security reasons, the [keystore](https://developer.android.com/studio/publish/app-signing?utm_campaign=deveco_gdemembers&utm_source=deveco#certificates-keystores) that contains certificates and private keys can't be publicly released, so storing it as a GitHub secret is a good approach
 
 A keystore, to be saved inside the secrets, needs to be in a "shareable and encrypted" format (ASCII-armor encrypted). This format can be generated with the following command and by providing a passphrase:
 
@@ -201,7 +201,7 @@ Then, the GitHub action can decode the content and create the file. For example,
 
 To publish the APK or AAB to the Play Console, I'm using the [Gradle Play Publisher plugin](https://github.com/Triple-T/gradle-play-publisher).
 
-To communicate and authenticate with the Play Console, the plugin requires a [Service Account](https://cloud.google.com/iam/docs/service-account-overview). The steps needed to create a Service Account for the Play Console are well described [in the plugin documentation](https://github.com/Triple-T/gradle-play-publisher#service-account). All the information required for the authentication will be contained in a JSON file that needs to be provided to the Gradle plugin:
+To communicate and authenticate with the Play Console, the plugin requires a [Service Account](https://cloud.google.com/iam/docs/service-account-overview?utm_campaign=deveco_gdemembers&utm_source=deveco). The steps needed to create a Service Account for the Play Console are well described [in the plugin documentation](https://github.com/Triple-T/gradle-play-publisher#service-account). All the information required for the authentication will be contained in a JSON file that needs to be provided to the Gradle plugin:
 
 ```kotlin
 play {

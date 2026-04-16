@@ -5,7 +5,7 @@ date: 2025-12-16
 show_in_homepage: false
 ---
 
-[**spoton**](https://play.google.com/store/apps/details?id=com.prof18.spoton&hl=en-US) is getting sunset.
+[**spoton**](https://play.google.com/store/apps/details?id=com.prof18.spoton&hl=en-US&utm_campaign=deveco_gdemembers&utm_source=deveco) is getting sunset.
 
 I started this project because I had a very specific (and very lazy) problem: I wanted to enable my phone hotspot without taking my phone out of my pocket. I do it often when I’m travelling or working somewhere without stable Wi-Fi, and every time it was the same ritual: unlock phone, quick settings, find the hotspot tile, toggle, put phone away.
 
@@ -78,7 +78,7 @@ internal fun startTethering(ctx: Context) {
 ## How the phone talked to the watch
 
 Communication with the Wear OS app was very simple: just passing a few booleans around using the Data Layer API. You can check the official docs for more information here:  
-[Handle Data Layer events on Wear](https://developer.android.com/training/wearables/data/events).
+[Handle Data Layer events on Wear](https://developer.android.com/training/wearables/data/events?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
 ## What changed in Android 16
 
@@ -91,7 +91,7 @@ At that point, continuing would mean requiring root access or doing some weird m
 
 ## What happens now
 
-- spoton still works on Android 15 and below, and it will remain on the [Play Store](https://play.google.com/store/apps/details?id=com.prof18.spoton&hl=en-US) (until some random policy change won't make me update it anymore).
+- spoton still works on Android 15 and below, and it will remain on the [Play Store](https://play.google.com/store/apps/details?id=com.prof18.spoton&hl=en-US&utm_campaign=deveco_gdemembers&utm_source=deveco) (until some random policy change won't make me update it anymore).
 - spoton does not work on Android 16+ as a normal Play Store app.
 - I’m sunsetting the project rather than keeping it half-broken.
 - The project is [now open source](https://github.com/prof18/spoton), so if someone wants to explore it or play with it, it’s all there.

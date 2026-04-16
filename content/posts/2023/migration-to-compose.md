@@ -42,9 +42,9 @@ android {
 }
 ```
 
-The Compose Compiler version is tied to the Kotlin version. A compatibility map to help with the choice can be found [in the documentation](https://developer.android.com/jetpack/androidx/releases/compose-kotlin).
+The Compose Compiler version is tied to the Kotlin version. A compatibility map to help with the choice can be found [in the documentation](https://developer.android.com/jetpack/androidx/releases/compose-kotlin?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
-The next step is adding some dependencies, depending on the application's needs. The Compose team recently introduced [the Compose BOM](https://developer.android.com/jetpack/compose/setup#using-the-bom) (Bill of Materials) that links together the stable version of all the different Compose libraries. In this way, it's only necessary to specify the BOM version, and the correct library's version will be pulled.
+The next step is adding some dependencies, depending on the application's needs. The Compose team recently introduced [the Compose BOM](https://developer.android.com/jetpack/compose/setup?utm_campaign=deveco_gdemembers&utm_source=deveco#using-the-bom) (Bill of Materials) that links together the stable version of all the different Compose libraries. In this way, it's only necessary to specify the BOM version, and the correct library's version will be pulled.
 
 
 ```kotlin
@@ -106,7 +106,7 @@ After this setup, Jetpack Compose is ready to be used.
 An existing application already has one or more themes defined in XML. With Compose instead, the theme definition is done with Kotlin code. 
 
 Rewriting the entire theming in Compose before moving on with the migration will be time-consuming and slow things down. Furthermore, since a theme is already defined, it would be amazing to have a bridge between the two worlds and postpone the theme migration. 
-And here comes the [Material Theme Adapter](https://google.github.io/accompanist/themeadapter-material/).
+And here comes the [Material Theme Adapter](https://google.github.io/accompanist/themeadapter-material/?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
 After importing the library into the project
 
@@ -165,7 +165,7 @@ This way, the migration to Compose can start without having to worry about the t
 
 After some housekeeping work, it's finally time to write some Composables. 
 
-Jetpack Compose is fully interoperable with the View system, and the degree of migration can be decided depending on the project. Furthermore, it is possible to choose what to write with Compose: a full app, the content of one Fragment, or an UI element. That is made possible by the [Interoperability APIs](https://developer.android.com/jetpack/compose/interop/interop-apis).
+Jetpack Compose is fully interoperable with the View system, and the degree of migration can be decided depending on the project. Furthermore, it is possible to choose what to write with Compose: a full app, the content of one Fragment, or an UI element. That is made possible by the [Interoperability APIs](https://developer.android.com/jetpack/compose/interop/interop-apis?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
 This is quite handy, especially in large projects, because it enables the migration without touching the existing architecture and navigation system. With `ComposeView`, for example, it will be possible to keep a current Fragment and replace the UI definition from the XML with a composable function. 
 
@@ -226,7 +226,7 @@ This way, the migration will be gradual and faster, not with a big-bang approach
 
 After migrating every screen to Compose, the next steps are focused on making the app "more Compose". The first thing that can be addressed is creating a Compose theme. This way, the XML themes definitions can be deleted. 
 
-Compose makes it easy to implement [Material 3](https://developer.android.com/jetpack/compose/designsystems/material3) and [Material 2](https://developer.android.com/jetpack/compose/designsystems/material) themes. 
+Compose makes it easy to implement [Material 3](https://developer.android.com/jetpack/compose/designsystems/material3?utm_campaign=deveco_gdemembers&utm_source=deveco) and [Material 2](https://developer.android.com/jetpack/compose/designsystems/material?utm_campaign=deveco_gdemembers&utm_source=deveco) themes. 
 
 For this application, I'm using Material 2. While defining a theme, it's possible to customize colors, shapes, and typography. 
 
@@ -354,14 +354,14 @@ class MainActivity : ComponentActivity() {
 
 The `NavHost` is placed in the `MainActivity`, the only Activity that will be kept with the new Compose-only app setup. 
 
-For more information about Navigation in Compose, you can look [at the official documentation](https://developer.android.com/jetpack/compose/navigation).
+For more information about Navigation in Compose, you can look [at the official documentation](https://developer.android.com/jetpack/compose/navigation?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
 
 ### Handling Permissions
 
-To easily manage [Android Runtime Permissions](https://developer.android.com/guide/topics/permissions/overview) on Compose, there is an Accompanist library called [Jetpack Compose Permissions](https://google.github.io/accompanist/permissions/).
+To easily manage [Android Runtime Permissions](https://developer.android.com/guide/topics/permissions/overview?utm_campaign=deveco_gdemembers&utm_source=deveco) on Compose, there is an Accompanist library called [Jetpack Compose Permissions](https://google.github.io/accompanist/permissions/?utm_campaign=deveco_gdemembers&utm_source=deveco).
 
-[Accompanist](https://google.github.io/accompanist/) is a group of libraries provided by Google to help with commonly required features not yet available in Jetpack Compose, for example, permissions, system UI controllers, navigation animation, etc. 
+[Accompanist](https://google.github.io/accompanist/?utm_campaign=deveco_gdemembers&utm_source=deveco) is a group of libraries provided by Google to help with commonly required features not yet available in Jetpack Compose, for example, permissions, system UI controllers, navigation animation, etc. 
 
 As usual, it is first necessary to import the library artifact:  
 
@@ -398,7 +398,7 @@ when(cameraPermissionState.status) {
 
 ### Status Bar color handling
 
-To delete more XML theming, I used [System UI Controller for Jetpack Compose](https://google.github.io/accompanist/systemuicontroller/) from Accompanist. The library provides some utilities for updating the System UI bar colors directly from Compose. As usual, it is first necessary to import the library:
+To delete more XML theming, I used [System UI Controller for Jetpack Compose](https://google.github.io/accompanist/systemuicontroller/?utm_campaign=deveco_gdemembers&utm_source=deveco) from Accompanist. The library provides some utilities for updating the System UI bar colors directly from Compose. As usual, it is first necessary to import the library:
 
 ```groovy
 dependencies {
@@ -425,7 +425,7 @@ SideEffect {
 
 ### Navigation Animations
 
-To have a better user experience, I decided to add some transitions between different screens. To do that, Accompanist comes to the rescue again, with the [Jetpack Navigation Compose Animation](https://google.github.io/accompanist/navigation-animation/) library.
+To have a better user experience, I decided to add some transitions between different screens. To do that, Accompanist comes to the rescue again, with the [Jetpack Navigation Compose Animation](https://google.github.io/accompanist/navigation-animation/?utm_campaign=deveco_gdemembers&utm_source=deveco) library.
 
 After adding the dependency:
 
@@ -481,4 +481,4 @@ And that was the journey of migrating Secure QR Reader to Jetpack Compose.
 
 The main takeaway of this journey is that Compose can be iteratively introduced in an application without a big-bang approach. It's possible to migrate only a little UI element, an entire screen, or the whole application. The process can be done step by step as I did for my app, and it's even possible to stop in the middle of the process and keep having a fully functioning app. 
 
-I hope that this article will be helpful for all the developers embarking on their own migration journey to Jetpack Compose. You can check out Secure QR Reader on [Github](https://github.com/prof18/Secure-QR-Reader) or download it from the [Play Store](https://play.google.com/store/apps/details?id=com.prof18.secureqrreader).   
+I hope that this article will be helpful for all the developers embarking on their own migration journey to Jetpack Compose. You can check out Secure QR Reader on [Github](https://github.com/prof18/Secure-QR-Reader) or download it from the [Play Store](https://play.google.com/store/apps/details?id=com.prof18.secureqrreader&utm_campaign=deveco_gdemembers&utm_source=deveco).   

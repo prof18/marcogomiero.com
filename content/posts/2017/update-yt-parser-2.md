@@ -46,7 +46,7 @@ Now let's look how it works. First of all you need to create a new *Parser* Obje
 * The Channel ID of a Youtube Channel. For example, for this link *youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg*, the Channel ID is: *UCVHFbqXqoYvEWM1Ddxl0QDg*
 * The maximum number of videos to show. This value can be maximum 50.
 * The type of ordering of the videos. It is possible to choose between two different type of ordering: by date or by views. To select the chosen value you have to use the constants: *Parser.ORDER_DATE* and *Parser.ORDER_VIEW_COUNT*
-* The API Key. The key is a *BROSWER API KEY* and to create it you can follow [this guide](https://support.google.com/cloud/answer/6158862?hl=en#creating-browser-api-keys)
+* The API Key. The key is a *BROSWER API KEY* and to create it you can follow [this guide](https://support.google.com/cloud/answer/6158862?hl=en&utm_campaign=deveco_gdemembers&utm_source=deveco#creating-browser-api-keys)
 
 If the data are correctly retrieved, you can do your stuff inside the *onTaskCompleted*. Here you have two variable: an *ArrayList* of *Video* items that you can use to populate your view for instance and a *token* that is necessary to load more data (see below for more details).
 

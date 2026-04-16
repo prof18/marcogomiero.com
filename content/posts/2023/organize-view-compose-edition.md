@@ -35,7 +35,7 @@ In this article, I will show how I organized the codebase of [MoneyFlow](https:/
 
 ## Jetpack Navigation and “god classes”
 
-[Jetpack Compose Navigation](https://developer.android.com/jetpack/compose/navigation) is the navigation solution for Compose provided by Google. With that, it is possible to create a “central” navigation graph, and then navigation between different screens can be triggered by using URIs.
+[Jetpack Compose Navigation](https://developer.android.com/jetpack/compose/navigation?utm_campaign=deveco_gdemembers&utm_source=deveco) is the navigation solution for Compose provided by Google. With that, it is possible to create a “central” navigation graph, and then navigation between different screens can be triggered by using URIs.
 
 The navigation graph can be created by defining a `NavHost` containing each route. A route is defined by a string (the URI of that route) and a composable function (the UI that the user will see).
  
@@ -265,8 +265,8 @@ private fun HomeScreenErrorPreview() {
 
 For more information about state and state hoisting, you can look at the Android documentation:
 
-- [State and Jetpack Compose](https://developer.android.com/jetpack/compose/state)
-- [Where to hoist state](https://developer.android.com/jetpack/compose/state-hoisting)
+- [State and Jetpack Compose](https://developer.android.com/jetpack/compose/state?utm_campaign=deveco_gdemembers&utm_source=deveco)
+- [Where to hoist state](https://developer.android.com/jetpack/compose/state-hoisting?utm_campaign=deveco_gdemembers&utm_source=deveco)
 
 And that’s all. With this approach, the readability and maintainability of the project really increased, especially when opening it after a few months of inactivity.
 

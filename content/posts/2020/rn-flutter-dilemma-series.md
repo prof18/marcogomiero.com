@@ -16,7 +16,7 @@ In the first episode, I'll introduce the two frameworks with a historical overvi
 
 > [Flutter or React Native, a cross-platform dilemma - Introduction - (Part 1)](https://www.marcogomiero.com/posts/2019/rn-flutter-dilemma-1-intro/)i
 
-In the second episode, I'll start to dive into the two frameworks, by understanding how to build user interfaces. We will see that many concepts are very similar in both Flutter and React Native. The post will not cover every deep aspect and secrets of UI building, to avoid a long and boring reading. The aim is to give you an overview of the differences and the common concepts and for more details, I always suggest to give a look to the official documentation ([React Native](https://facebook.github.io/react-native/) - [Flutter](https://flutter.dev/docs)), that I have to say, it's very well written and detailed.
+In the second episode, I'll start to dive into the two frameworks, by understanding how to build user interfaces. We will see that many concepts are very similar in both Flutter and React Native. The post will not cover every deep aspect and secrets of UI building, to avoid a long and boring reading. The aim is to give you an overview of the differences and the common concepts and for more details, I always suggest to give a look to the official documentation ([React Native](https://facebook.github.io/react-native/) - [Flutter](https://flutter.dev/docs?utm_campaign=deveco_gdemembers&utm_source=deveco)), that I have to say, it's very well written and detailed.
 
 > [Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)](https://www.marcogomiero.com/posts/2020/rn-flutter-dilemma-2-ui/)
 

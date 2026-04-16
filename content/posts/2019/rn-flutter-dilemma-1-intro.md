@@ -6,7 +6,7 @@ image: "https://www.marcogomiero.com/img/flutter-rn/trends.jpeg"
 show_in_homepage: false
 ---
 
-These days you have certainly heard about cross-platform mobile development, in particular about the "senior" [React Native](https://facebook.github.io/react-native/) and the "freshman" [Flutter](https://flutter.dev/). 
+These days you have certainly heard about cross-platform mobile development, in particular about the "senior" [React Native](https://facebook.github.io/react-native/) and the "freshman" [Flutter](https://flutter.dev/?utm_campaign=deveco_gdemembers&utm_source=deveco). 
 
 Today, I want to start a series of articles to understand the two frameworks. In particular, I want to describe their differences, their weaknesses, their strength... so, all you need to know to help your choice. 
 
@@ -26,7 +26,7 @@ Despite the youngness, Flutter is gaining lots of attention in the "cross-platfo
 
 The language used by React Native is Javascript, a language that you can love or you can hate, there isn't a half-measure. In general, people with an object-oriented background could encounter difficulties when they use Javascript for the first time. Some "weird" arguments can be the type conversion, the prototype-based inheritance, the fact that code can fail silently, etc. These are not random facts but happened to me to deal with them. Also, there is a little bit of confusion around the Javascript ecosystem: lots of libraries, frameworks, multiple approaches to perform the same thing. If you want to (or you have to) use React Native, I suggest you go with [Typescript](http://www.typescriptlang.org/) especially if you come from an object-oriented background. 
 
-Flutter instead uses [Dart](https://dart.dev/), an open-source, object-oriented language developed by Google in 2011. Google wanted to create a language that improves some of the pitfalls that Javascript has, for example, the handling of the types. So Dart is a strongly typed language but the type can be inferred. Dart is capable both to compile to native code (ARM & x64) for mobile, desktop and backend and to transpile to Javascript for the web. The syntax is very similar to object-oriented languages and the learning curve to learn the language is flat.
+Flutter instead uses [Dart](https://dart.dev/?utm_campaign=deveco_gdemembers&utm_source=deveco), an open-source, object-oriented language developed by Google in 2011. Google wanted to create a language that improves some of the pitfalls that Javascript has, for example, the handling of the types. So Dart is a strongly typed language but the type can be inferred. Dart is capable both to compile to native code (ARM & x64) for mobile, desktop and backend and to transpile to Javascript for the web. The syntax is very similar to object-oriented languages and the learning curve to learn the language is flat.
 
 Going with React Native can be tempting if you already have skills in web development since you will be going to use Javascript or Typescript. With Flutter instead, you have to learn a new language, even if is very simple to learn. However, with React Native often happens that you have to deal with Native code, especially for linking new third party libraries. With Flutter instead is rare that you have to touch native code unless you want to develop a custom plugin that uses native APIs.
 

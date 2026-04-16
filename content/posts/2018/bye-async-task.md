@@ -46,7 +46,7 @@ coroutineScope.launch(Dispatchers.Main) {
 
 A complete example with Kotlin is available on [Github](https://github.com/prof18/RSS-Parser/tree/master/samplekotlin).
 
-If you don’t know anything about the coroutines, I suggest you give a look to the [Codelab](https://codelabs.developers.google.com/codelabs/kotlin-coroutines/) provided by Google.
+If you don’t know anything about the coroutines, I suggest you give a look to the [Codelab](https://codelabs.developers.google.com/codelabs/kotlin-coroutines/?utm_campaign=deveco_gdemembers&utm_source=deveco) provided by Google.
 
 Instead, if you are still using **Java** in your Android project, the usage is pretty the same as the older version of the library. You need to create a *Parser* object, implements the callbacks that handle the result and the error and finally start the parsing by calling the *execute* method passing the *URL* as parameter.
 

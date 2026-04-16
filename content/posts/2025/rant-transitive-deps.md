@@ -9,7 +9,7 @@ show_in_homepage: false
 
 I was recently debugging a weird crash affecting some users. The issue was related to navigation, fragments, and backstacks.
 
-After weeks spent trying to reproduce it, reading online reports, and cross-referencing previous libraries and SDK updates, I finally had an illuminating moment after reading about a similar behavior in the [Google Issue Tracker](https://issuetracker.google.com/issues/340202276#comment3). It made me wonder: Could something have changed in the Android Manifest?
+After weeks spent trying to reproduce it, reading online reports, and cross-referencing previous libraries and SDK updates, I finally had an illuminating moment after reading about a similar behavior in the [Google Issue Tracker](https://issuetracker.google.com/issues/340202276?utm_campaign=deveco_gdemembers&utm_source=deveco#comment3). It made me wonder: Could something have changed in the Android Manifest?
 
 {{< figure src="/img/rant-transitive-deps/manifest.jpeg" link="/img/rant-transitive-deps/manifest.jpeg" >}}
 
