@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sliding Doors: ten years of RSS-Parser</title>
+      <link>https://www.marcogomiero.com/posts/2026/rss-parser-ten-years/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.marcogomiero.com/posts/2026/rss-parser-ten-years/</guid>
+      <description>&lt;p&gt;Today marks ten years since the first commit of &lt;a href=&#34;https://github.com/prof18/RSS-Parser&#34;&gt;&lt;strong&gt;RSS-Parser&lt;/strong&gt;&lt;/a&gt;. &lt;em&gt;TEN YEARS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I want to use this opportunity to reflect on the journey of this library, the sliding doors moments along the way, and the chain of events that made RSS-Parser an important part of my career.&lt;/p&gt;&#xA;&lt;p&gt;The bare bones of the library started earlier, though; it was 2015 when I wrote my first app that I’ve published to the Play Store. This app was for reading the articles of the tech blog that I was collaborating with (for a while I was reviewing apps, phones, consumer tech - that’s when I fell in love with mobile). The blog was built (of course) with the good old WordPress, and at the time I discovered that you can have the published articles formatted in XML - yes, I discovered the existence of RSS.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building Shellporter: From Idea to Production in a Week</title>
       <link>https://www.marcogomiero.com/posts/2026/building-shellporter/</link>
