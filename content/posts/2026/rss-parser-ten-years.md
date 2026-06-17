@@ -78,9 +78,9 @@ Making RSS-Parser Multiplatform and creating FeedFlow were other *sliding doors*
 In 2024, I got the chance to talk about the release process of FeedFlow [at KotlinConf](https://www.youtube.com/watch?v=JRlR4NWX-nc).
 
 <div style="display: flex; justify-content: center;">
-  <figure style="margin: 0; text-align: center;">
+  <figure style="margin: 0; text-align: center; width: 100%;">
     <a href="/img/rss-parser-ten-years/kotlinconf-2024.webp">
-      <img src="/img/rss-parser-ten-years/kotlinconf-2024.webp" alt="Talking at KotlinConf 2024" style="max-width: 600px; border-radius: 8px;" />
+      <img src="/img/rss-parser-ten-years/kotlinconf-2024.webp" alt="Talking at KotlinConf 2024" style="max-width: min(600px, 100%); width: 100%; border-radius: 8px;" />
     </a>
     <figcaption><em>Talking at KotlinConf 2024</em></figcaption>
   </figure>
@@ -90,9 +90,9 @@ In 2024, I got the chance to talk about the release process of FeedFlow [at Kotl
 And in 2025, I got the “golden ticket” to join WWDC live at Apple Park in Cupertino.
 
 <div style="display: flex; justify-content: center;">
-  <figure style="margin: 0; text-align: center;">
+  <figure style="margin: 0; text-align: center; width: 100%;">
     <a href="/img/rss-parser-ten-years/wwdc-keynote.webp">
-      <img src="/img/rss-parser-ten-years/wwdc-keynote.webp" alt="WWDC Keynote" style="max-width: 600px; border-radius: 8px;" />
+      <img src="/img/rss-parser-ten-years/wwdc-keynote.webp" alt="WWDC Keynote" style="max-width: min(600px, 100%); width: 100%; border-radius: 8px;" />
     </a>
     <figcaption><em>WWDC Keynote</em></figcaption>
   </figure>
@@ -101,9 +101,9 @@ And in 2025, I got the “golden ticket” to join WWDC live at Apple Park in Cu
 Seeing the FeedFlow icon on the big screen at WWDC was astonishing.
 
 <div style="display: flex; justify-content: center;">
-  <figure style="margin: 0; text-align: center;">
+  <figure style="margin: 0; text-align: center; width: 100%;">
     <a href="/img/rss-parser-ten-years/feedflow-wwdc.webp">
-      <img src="/img/rss-parser-ten-years/feedflow-wwdc.webp" alt="FeedFlow icon at WWDC" style="max-width: 600px; border-radius: 8px;" />
+      <img src="/img/rss-parser-ten-years/feedflow-wwdc.webp" alt="FeedFlow icon at WWDC" style="max-width: min(600px, 100%); width: 100%; border-radius: 8px;" />
     </a>
     <figcaption><em>FeedFlow icon at WWDC</em></figcaption>
   </figure>
