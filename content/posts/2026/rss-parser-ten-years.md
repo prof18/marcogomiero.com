@@ -11,20 +11,23 @@ I want to use this opportunity to reflect on the journey of this library, the sl
 
 The bare bones of the library started earlier, though; it was 2015 when I wrote my first app that I’ve published to the Play Store. This app was for reading the articles of the tech blog that I was collaborating with (for a while I was reviewing apps, phones, consumer tech - that’s when I fell in love with mobile). The blog was built (of course) with the good old WordPress, and at the time I discovered that you can have the published articles formatted in XML - yes, I discovered the existence of RSS.
 
-<div style="display: flex; gap: 16px; justify-content: center; align-items: flex-start;">
-  <figure style="margin: 0; flex: 1; text-align: center;">
-    <img src="/img/rss-parser-ten-years/app-early-1.webp" alt="Early iteration of the app" style="max-width: 100%; border-radius: 8px;" />
-  </figure>
-  <figure style="margin: 0; flex: 1; text-align: center;">
-    <img src="/img/rss-parser-ten-years/app-early-2.webp" alt="Early iteration of the app" style="max-width: 100%; border-radius: 8px;" />
-  </figure>
-</div>
-<p style="text-align: center;"><em>That's some early iterations of the app</em></p>
-
 <div style="display: flex; justify-content: center;">
   <figure style="margin: 0; text-align: center;">
+    <img src="/img/rss-parser-ten-years/app-early-1.webp" alt="Early iteration of the app" style="max-width: 300px; border-radius: 8px;" />
+    <figcaption><em>That's an early iteration of the app</em></figcaption>
+  </figure>
+</div>
+
+<br>
+
+<div style="display: flex; gap: 16px; justify-content: center; align-items: flex-start;">
+  <figure style="margin: 0; flex: 1; text-align: center;">
+    <img src="/img/rss-parser-ten-years/app-early-2.webp" alt="Early iteration of the app" style="max-width: 100%; border-radius: 8px;" />
+    <figcaption><em>Another early iteration</em></figcaption>
+  </figure>
+  <figure style="margin: 0; flex: 1; text-align: center;">
     <a href="/img/rss-parser-ten-years/app-final.webp">
-      <img src="/img/rss-parser-ten-years/app-final.webp" alt="Final shape of the app" style="max-width: 300px; border-radius: 8px;" />
+      <img src="/img/rss-parser-ten-years/app-final.webp" alt="Final shape of the app" style="max-width: 100%; border-radius: 8px;" />
     </a>
     <figcaption><em>And that's the final shape</em></figcaption>
   </figure>
@@ -34,7 +37,7 @@ It took a couple of years to realize (and to actually learn) that some parts of 
 
 It was a very good learning experience: still with Java, AsyncTasks and more - good old days!
 
-During the summer of the release in 2017, the first *sliding door* happened: I met with [Gian](https://giansegato.com/) to chat about starting to collaborate at Uniwhere. Having a library developed and published early in my career gave my pedigree “more points.” This led to my first job, the foundation and the “trampoline” of my career, and to knowing amazing people who became close friends.
+During the summer of the release in 2017, the first *sliding door* happened: I met with [Gian Segato](https://giansegato.com/) to chat about starting to collaborate at Uniwhere. Having a library developed and published early in my career gave my pedigree “more points.” This led to my first job, the foundation and the “trampoline” of my career, and to knowing amazing people who became close friends.
 
 The year after, I decided it was time to convert it to Kotlin and Coroutines: another great learning experience that I’ve shared in an article.
 
