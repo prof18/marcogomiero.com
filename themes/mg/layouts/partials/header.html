@@ -15,11 +15,23 @@
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+
+	{{- /* ---- SEO description: front-matter override, else truncated summary ---- */ -}}
+	{{- $desc := "" -}}
+	{{- with .Description -}}{{ $desc = . }}
+	{{- else -}}
+		{{- if .IsPage -}}{{ $desc = .Summary }}{{ else }}{{ $desc = .Site.Params.description }}{{ end -}}
+	{{- end -}}
+	{{- $desc = $desc | plainify | htmlUnescape | chomp -}}
+	{{- $desc = replaceRE `\s+` " " $desc | truncate 155 -}}
+
+	{{- /* ---- Generated Open Graph card ---- */ -}}
+	{{- $ogImage := partial "og_image.html" . -}}
+
+	<meta name="description" content="{{ $desc }}" />
 	{{- if .Params.noindex }}
 	<meta name="robots" content="noindex, nofollow" />
 	{{- end }}
-	<meta property="og:image" content="{{ .Site.Params.og_image }}"/>
 	{{ with .OutputFormats.Get "rss" -}}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end -}}
@@ -28,8 +40,29 @@
 		<meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
 	{{- end }}
 
-	{{- template "_internal/opengraph.html" . -}}
-	{{- template "_internal/twitter_cards.html" . -}}
+	{{- $ogTitle := cond .IsHome .Site.Title .Title -}}
+	<meta property="og:title" content="{{ $ogTitle }}" />
+	<meta property="og:description" content="{{ $desc }}" />
+	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+	<meta property="og:url" content="{{ .Permalink }}" />
+	<meta property="og:site_name" content="{{ .Site.Title }}" />
+	<meta property="og:locale" content="{{ .Site.Language.Lang }}" />
+	<meta property="og:image" content="{{ $ogImage }}" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="{{ $ogTitle }} — Marco Gomiero" />
+	{{- if .IsPage }}
+	<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+	<meta property="article:author" content="{{ .Params.author | default .Site.Params.author }}" />
+	{{- end }}
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@marcoGomier" />
+	<meta name="twitter:creator" content="@marcoGomier" />
+	<meta name="twitter:title" content="{{ $ogTitle }}" />
+	<meta name="twitter:description" content="{{ $desc }}" />
+	<meta name="twitter:image" content="{{ $ogImage }}" />
+	<meta name="twitter:image:alt" content="{{ $ogTitle }} — Marco Gomiero" />
 	{{ partial "google_analytics.html" . }}
 	{{ if and (isset .Site.Params "social") (.Site.Params.useCDN | default false) -}}
 		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>

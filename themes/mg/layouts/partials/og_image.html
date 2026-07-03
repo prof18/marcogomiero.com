@@ -1,0 +1,58 @@
+{{- /* Builds a branded 1200x630 Open Graph card at build time and returns its absolute URL. */ -}}
+{{- $base := resources.Get "images/og-base.png" -}}
+{{- $bold := resources.Get "fonts/JetBrainsMono-Bold.ttf" -}}
+{{- $reg := resources.Get "fonts/JetBrainsMono-Regular.ttf" -}}
+{{- $white := "#f8f8f2" -}}
+{{- $img := $base -}}
+
+{{- /* Site label, top-left */ -}}
+{{- $img = $img.Filter (images.Text "marcogomiero.com" (dict "color" "#57c7ff" "size" 30 "x" 80 "y" 92 "font" $bold)) -}}
+
+{{- /* Title, word-wrapped to max 3 lines */ -}}
+{{- $title := cond (ne .Title "") .Title .Site.Title -}}
+{{- if and (not .IsPage) (eq $title .Site.Title) -}}{{ $title = .Site.Params.description }}{{- end -}}
+{{- $max := 22 -}}
+{{- $lines := slice -}}
+{{- $cur := "" -}}
+{{- range (split $title " ") -}}
+  {{- $try := cond (eq $cur "") . (printf "%s %s" $cur .) -}}
+  {{- if gt (len $try) $max -}}
+    {{- if ne $cur "" -}}{{- $lines = $lines | append $cur -}}{{- end -}}
+    {{- $cur = . -}}
+  {{- else -}}
+    {{- $cur = $try -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $cur "" -}}{{- $lines = $lines | append $cur -}}{{- end -}}
+{{- if gt (len $lines) 3 -}}
+  {{- $lines = (first 2 $lines) | append (printf "%s…" (index $lines 2)) -}}
+{{- end -}}
+{{- $n := len $lines -}}
+{{- $y := sub 300 (mul (sub $n 1) 46) -}}
+{{- range $lines -}}
+  {{- $img = $img.Filter (images.Text . (dict "color" $white "size" 72 "x" 80 "y" $y "font" $bold)) -}}
+  {{- $y = add $y 92 -}}
+{{- end -}}
+
+{{- /* Author, bottom-left */ -}}
+{{- $img = $img.Filter (images.Text "Marco Gomiero" (dict "color" $white "size" 30 "x" 80 "y" 556 "font" $bold)) -}}
+
+{{- /* Context meta, bottom-right: "venue · date" for talks, platform for projects, date for posts */ -}}
+{{- $meta := "" -}}
+{{- $date := "" -}}
+{{- if .IsPage -}}
+  {{- with .Params.performDate -}}{{ $date = (. | time.Format "2 January 2006") }}
+  {{- else -}}{{- if not $.Date.IsZero -}}{{ $date = $.Date.Format "2 January 2006" }}{{- end -}}{{- end -}}
+{{- end -}}
+{{- with .Params.location -}}
+  {{- $meta = cond (ne $date "") (printf "%s · %s" (printf "%v" .) $date) (printf "%v" .) -}}
+{{- else -}}{{- with .Params.platforms -}}{{ $meta = printf "%v" . }}
+{{- else -}}{{ $meta = $date }}
+{{- end -}}{{- end -}}
+{{- $meta = trim (printf "%v" $meta) " " -}}
+{{- if ne $meta "" -}}
+  {{- $mx := sub 1120 (mul (len $meta) 18) -}}
+  {{- $img = $img.Filter (images.Text $meta (dict "color" "#9aedfe" "size" 30 "x" $mx "y" 556 "font" $reg)) -}}
+{{- end -}}
+
+{{- return $img.Permalink -}}
