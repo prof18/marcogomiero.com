@@ -6,8 +6,15 @@
     <description>Recent content on Marco Gomiero</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to import multiple iOS signing certificates to CI</title>
+      <link>https://www.marcogomiero.com/posts/2026/export-double-certificate-ci-ios/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.marcogomiero.com/posts/2026/export-double-certificate-ci-ios/</guid>
+      <description>&lt;p&gt;Some time ago, I shared the GitHub Actions workflow that I use for deploying the iOS version of &lt;a href=&#34;https://feedflow.dev&#34;&gt;FeedFlow&lt;/a&gt; to the App Store.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-ios&#34;&gt;How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;One step of that CI job is &lt;a href=&#34;https://www.marcogomiero.com/posts/2024/kmp-ci-ios#setup-signing-certificates&#34;&gt;setting up the required certificates&lt;/a&gt; for signing the app: &lt;code&gt;Apple Development&lt;/code&gt; and &lt;code&gt;Apple Distribution&lt;/code&gt;. In the past, it was possible to extract these two certificates from the local Keychain by selecting them and using the &lt;code&gt;Export 2 items…&lt;/code&gt; option.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Sliding Doors: ten years of RSS-Parser</title>
       <link>https://www.marcogomiero.com/posts/2026/rss-parser-ten-years/</link>
