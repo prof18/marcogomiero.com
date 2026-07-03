@@ -8,10 +8,14 @@
 {{- /* Site label, top-left */ -}}
 {{- $img = $img.Filter (images.Text "marcogomiero.com" (dict "color" "#57c7ff" "size" 30 "x" 80 "y" 92 "font" $bold)) -}}
 
-{{- /* Title, word-wrapped to max 3 lines */ -}}
+{{- /* Title: font size adapts to length so long titles shrink instead of truncating */ -}}
 {{- $title := cond (ne .Title "") .Title .Site.Title -}}
 {{- if and (not .IsPage) (eq $title .Site.Title) -}}{{ $title = .Site.Params.description }}{{- end -}}
-{{- $max := 22 -}}
+{{- $tlen := len $title -}}
+{{- $size := 72 -}}{{- $max := 23 -}}{{- $lh := 92 -}}{{- $maxlines := 3 -}}
+{{- if gt $tlen 78 -}}{{- $size = 46 -}}{{- $max = 36 -}}{{- $lh = 60 -}}{{- $maxlines = 5 -}}
+{{- else if gt $tlen 50 -}}{{- $size = 56 -}}{{- $max = 29 -}}{{- $lh = 72 -}}{{- $maxlines = 4 -}}
+{{- end -}}
 {{- $lines := slice -}}
 {{- $cur := "" -}}
 {{- range (split $title " ") -}}
@@ -24,14 +28,15 @@
   {{- end -}}
 {{- end -}}
 {{- if ne $cur "" -}}{{- $lines = $lines | append $cur -}}{{- end -}}
-{{- if gt (len $lines) 3 -}}
-  {{- $lines = (first 2 $lines) | append (printf "%s…" (index $lines 2)) -}}
+{{- if gt (len $lines) $maxlines -}}
+  {{- $li := sub $maxlines 1 -}}
+  {{- $lines = (first $li $lines) | append (printf "%s…" (index $lines $li)) -}}
 {{- end -}}
 {{- $n := len $lines -}}
-{{- $y := sub 300 (mul (sub $n 1) 46) -}}
+{{- $y := int (sub 320 (div (mul (sub $n 1) $lh) 2)) -}}
 {{- range $lines -}}
-  {{- $img = $img.Filter (images.Text . (dict "color" $white "size" 72 "x" 80 "y" $y "font" $bold)) -}}
-  {{- $y = add $y 92 -}}
+  {{- $img = $img.Filter (images.Text . (dict "color" $white "size" $size "x" 80 "y" $y "font" $bold)) -}}
+  {{- $y = add $y $lh -}}
 {{- end -}}
 
 {{- /* Author, bottom-left */ -}}
