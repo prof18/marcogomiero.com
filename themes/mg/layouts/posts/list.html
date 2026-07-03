@@ -9,7 +9,7 @@
 		<section class="post-list-entry">
 			<h2 class="postlist-entry-title">{{.Title}}</h2>
 	    	<div class="post-list-entry-content">
-				<p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+				<p>{{ partial "post_description.html" . }}</p>
 			</div>
 			<div class="post-list-entry-meta">
 				{{- partial "post_meta.html" . -}}

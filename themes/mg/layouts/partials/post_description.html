@@ -1,0 +1,5 @@
+{{- with .Description -}}
+{{- . | plainify | htmlUnescape -}}
+{{- else -}}
+{{- .Summary | plainify | htmlUnescape -}}{{- if .Truncated -}}...{{- end -}}
+{{- end -}}
