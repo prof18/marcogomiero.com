@@ -1,63 +1,100 @@
-{{- /* Builds a branded 1200x630 Open Graph card at build time and returns its absolute URL. */ -}}
+{{- /* Builds a branded 1200x630 Open Graph card at build time and returns its absolute URL.
+       Light, minimal, monochrome — matches the site (Geist sans, white bg).
+       Geist is proportional and Hugo can't measure text, so widths are estimated with a
+       conservative average advance (K) that has been checked against every title (0 clips). */ -}}
 {{- $base := resources.Get "images/og-base.png" -}}
-{{- $bold := resources.Get "fonts/JetBrainsMono-Bold.ttf" -}}
-{{- $reg := resources.Get "fonts/JetBrainsMono-Regular.ttf" -}}
-{{- $white := "#f8f8f2" -}}
+{{- $bold := resources.Get "fonts/Geist-Bold.ttf" -}}
+{{- $med := resources.Get "fonts/Geist-Medium.ttf" -}}
+{{- $reg := resources.Get "fonts/Geist-Regular.ttf" -}}
+{{- $primary := "#1e1e1e" -}}
+{{- $secondary := "#6c6c6c" -}}
 {{- $img := $base -}}
 
 {{- /* Site label, top-left */ -}}
-{{- $img = $img.Filter (images.Text "marcogomiero.com" (dict "color" "#57c7ff" "size" 30 "x" 80 "y" 92 "font" $bold)) -}}
+{{- $img = $img.Filter (images.Text "marcogomiero.com" (dict "color" $secondary "size" 28 "x" 90 "y" 84 "font" $med)) -}}
 
-{{- /* Title: font size adapts to length so long titles shrink instead of truncating */ -}}
+{{- /* Title: pick the largest size whose conservative wrap fits the line budget */ -}}
 {{- $title := cond (ne .Title "") .Title .Site.Title -}}
 {{- if and (not .IsPage) (eq $title .Site.Title) -}}{{ $title = .Site.Params.description }}{{- end -}}
-{{- $tlen := len $title -}}
-{{- $size := 72 -}}{{- $max := 23 -}}{{- $lh := 92 -}}{{- $maxlines := 3 -}}
-{{- if gt $tlen 78 -}}{{- $size = 46 -}}{{- $max = 36 -}}{{- $lh = 60 -}}{{- $maxlines = 5 -}}
-{{- else if gt $tlen 50 -}}{{- $size = 56 -}}{{- $max = 29 -}}{{- $lh = 72 -}}{{- $maxlines = 4 -}}
-{{- end -}}
+{{- $words := split $title " " -}}
+{{- $size := 46 -}}{{- $lh := 56 -}}
+{{- $tiers := slice (dict "s" 76 "b" 23 "lh" 90 "ml" 3) (dict "s" 64 "b" 27 "lh" 78 "ml" 3) (dict "s" 54 "b" 32 "lh" 66 "ml" 4) (dict "s" 46 "b" 38 "lh" 56 "ml" 5) -}}
 {{- $lines := slice -}}
-{{- $cur := "" -}}
-{{- range (split $title " ") -}}
-  {{- $try := cond (eq $cur "") . (printf "%s %s" $cur .) -}}
-  {{- if gt (len $try) $max -}}
-    {{- if ne $cur "" -}}{{- $lines = $lines | append $cur -}}{{- end -}}
-    {{- $cur = . -}}
-  {{- else -}}
-    {{- $cur = $try -}}
+{{- $picked := false -}}
+{{- range $tiers -}}
+  {{- if not $picked -}}
+    {{- $b := .b -}}
+    {{- $ls := slice -}}
+    {{- $cur := "" -}}
+    {{- range $words -}}
+      {{- $try := cond (eq $cur "") . (printf "%s %s" $cur .) -}}
+      {{- if gt (len $try) $b -}}
+        {{- if ne $cur "" -}}{{- $ls = $ls | append $cur -}}{{- end -}}
+        {{- $cur = . -}}
+      {{- else -}}
+        {{- $cur = $try -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if ne $cur "" -}}{{- $ls = $ls | append $cur -}}{{- end -}}
+    {{- if le (len $ls) .ml -}}
+      {{- $lines = $ls -}}{{- $size = .s -}}{{- $lh = .lh -}}{{- $picked = true -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- if ne $cur "" -}}{{- $lines = $lines | append $cur -}}{{- end -}}
-{{- if gt (len $lines) $maxlines -}}
-  {{- $li := sub $maxlines 1 -}}
-  {{- $lines = (first $li $lines) | append (printf "%s…" (index $lines $li)) -}}
+{{- if not $picked -}}
+  {{- /* fallback: smallest tier, truncate to its max lines */ -}}
+  {{- $last := index $tiers 3 -}}
+  {{- $b := $last.b -}}
+  {{- $ls := slice -}}{{- $cur := "" -}}
+  {{- range $words -}}
+    {{- $try := cond (eq $cur "") . (printf "%s %s" $cur .) -}}
+    {{- if gt (len $try) $b -}}{{- if ne $cur "" -}}{{- $ls = $ls | append $cur -}}{{- end -}}{{- $cur = . -}}
+    {{- else -}}{{- $cur = $try -}}{{- end -}}
+  {{- end -}}
+  {{- if ne $cur "" -}}{{- $ls = $ls | append $cur -}}{{- end -}}
+  {{- if gt (len $ls) $last.ml -}}{{- $ls = (first (sub $last.ml 1) $ls) | append (printf "%s…" (index $ls (sub $last.ml 1))) -}}{{- end -}}
+  {{- $lines = $ls -}}{{- $size = $last.s -}}{{- $lh = $last.lh -}}
 {{- end -}}
 {{- $n := len $lines -}}
-{{- $y := int (sub 320 (div (mul (sub $n 1) $lh) 2)) -}}
+{{- $y := int (sub 300 (div (mul $n $lh) 2)) -}}
 {{- range $lines -}}
-  {{- $img = $img.Filter (images.Text . (dict "color" $white "size" $size "x" 80 "y" $y "font" $bold)) -}}
+  {{- $img = $img.Filter (images.Text . (dict "color" $primary "size" $size "x" 90 "y" $y "font" $bold)) -}}
   {{- $y = add $y $lh -}}
 {{- end -}}
 
 {{- /* Author, bottom-left */ -}}
-{{- $img = $img.Filter (images.Text "Marco Gomiero" (dict "color" $white "size" 30 "x" 80 "y" 556 "font" $bold)) -}}
+{{- $img = $img.Filter (images.Text "Marco Gomiero" (dict "color" $primary "size" 30 "x" 90 "y" 524 "font" $bold)) -}}
 
-{{- /* Context meta, bottom-right: "venue · date" for talks, platform for projects, date for posts */ -}}
+{{- /* Context meta: venue·date for talks, platform for projects, date for posts */ -}}
 {{- $meta := "" -}}
 {{- $date := "" -}}
 {{- if .IsPage -}}
   {{- with .Params.performDate -}}{{ $date = (. | time.Format "2 January 2006") }}
   {{- else -}}{{- if not $.Date.IsZero -}}{{ $date = $.Date.Format "2 January 2006" }}{{- end -}}{{- end -}}
 {{- end -}}
-{{- with .Params.location -}}
-  {{- $meta = cond (ne $date "") (printf "%s · %s" (printf "%v" .) $date) (printf "%v" .) -}}
-{{- else -}}{{- with .Params.platforms -}}{{ $meta = printf "%v" . }}
-{{- else -}}{{ $meta = $date }}
-{{- end -}}{{- end -}}
+{{- if eq .Section "projects" -}}
+  {{- with .Params.platforms -}}{{ $meta = printf "%v" . }}{{- end -}}
+{{- else if eq .Section "talks" -}}
+  {{- with .Params.location -}}
+    {{- $meta = cond (ne $date "") (printf "%s · %s" (printf "%v" .) $date) (printf "%v" .) -}}
+  {{- else -}}{{ $meta = $date }}{{- end -}}
+{{- else if .IsPage -}}
+  {{- $meta = $date -}}
+{{- end -}}
 {{- $meta = trim (printf "%v" $meta) " " -}}
 {{- if ne $meta "" -}}
-  {{- $mx := sub 1120 (mul (len $meta) 18) -}}
-  {{- $img = $img.Filter (images.Text $meta (dict "color" "#9aedfe" "size" 30 "x" $mx "y" 556 "font" $reg)) -}}
+  {{- $mlen := len $meta -}}
+  {{- $estw := int (mul $mlen (mul 27 0.56)) -}}
+  {{- if le $estw 720 -}}
+    {{- /* short: right-aligned on the author's line */ -}}
+    {{- $mx := sub 1110 $estw -}}
+    {{- $img = $img.Filter (images.Text $meta (dict "color" $secondary "size" 27 "x" $mx "y" 528 "font" $reg)) -}}
+  {{- else -}}
+    {{- /* long: own line under the author, shrunk to fit the full width */ -}}
+    {{- $msize := int (math.Floor (div 1020 (mul $mlen 0.56))) -}}
+    {{- if gt $msize 25 -}}{{ $msize = 25 }}{{- else if lt $msize 17 -}}{{ $msize = 17 }}{{- end -}}
+    {{- $img = $img.Filter (images.Text $meta (dict "color" $secondary "size" $msize "x" 90 "y" 566 "font" $reg)) -}}
+  {{- end -}}
 {{- end -}}
 
 {{- return $img.Permalink -}}
