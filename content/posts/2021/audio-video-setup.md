@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "My audio & video setup after 4 years of remote working"
+description: "A remote-working home office setup refined over years, covering the audio, video, and desk gear worth using at every price range."
 date:   2021-03-24
 show_in_homepage: false
 image: "/img/audio-video-setup/desk-setup.jpeg"

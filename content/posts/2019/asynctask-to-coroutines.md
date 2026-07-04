@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "A journey from Async Task to Kotlin Coroutines"
+description: "The story behind rewriting the RSS Parser library with Kotlin Coroutines: the transition process and the decisions made along the way."
 image: "https://miro.medium.com/max/1400/0*BnjRJYi8CNeaKOq1"
 date:   2019-01-14
 show_in_homepage: false

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How to import multiple iOS signing certificates to CI"
+description: "Exporting two iOS signing certificates together stopped working and broke a CI setup. How to fix importing multiple signing certificates."
 date: 2026-07-02
 show_in_homepage: false
 ---

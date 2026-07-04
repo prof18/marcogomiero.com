@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Building Shellporter: From Idea to Production in a Week"
+description: "Building Shellporter, a macOS menu bar app that opens a terminal in the project directory of the active IDE window, from idea to production in a week."
 date: 2026-02-14
 show_in_homepage: true
 ---

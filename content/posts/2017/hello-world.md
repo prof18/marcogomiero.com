@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Hello World!"
+description: "The first post of a personal blog covering Android, Java, Python, and other development topics worth writing about."
 date:   2017-01-26
 show_in_homepage: false
 ---

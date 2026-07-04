@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Structuring a Ktor project"
+description: "Part one of the series on building a backend with Ktor: structuring a Ktor project in a clean and scalable way."
 date: 2021-04-07
 show_in_homepage: true
 image: "/img/ktor-series/ktor-wizard-Intellij.png"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to install Wordpress on Arch Linux"
-description: "Sometimes, installing Wordpress on Arch Linux can be a tragedy. In this tutorial we are going to see all the steps to make everything work!"
+description: "Installing WordPress on Arch Linux can be a tragedy. A tutorial covering all the steps needed to get everything working."
 image: "https://miro.medium.com/max/1400/1*48L-6F40OsGgwpgG4fthMg.png"
 date:   2018-01-19
 show_in_homepage: false

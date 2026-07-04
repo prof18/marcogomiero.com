@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "The curious case of a weird VerifyError crash"
+description: "Hunting down a nasty runtime VerifyError crash that appeared with R8 enabled after updating the Android Gradle Plugin to 8.7."
 date:   2025-04-06
 show_in_homepage: false
 ---

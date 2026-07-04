@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Migrating old artifacts from JCenter to MavenCentral"
+description: "With JCenter shutting down, a guide to migrating old library artifacts from JCenter to Maven Central."
 date:   2021-02-11
 show_in_homepage: false
 image: "/img/move-libray-jcenter-to-maven/bintray-dir.png"

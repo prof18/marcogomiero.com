@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Moving from mobile to backend development with Ktor"
+description: "The closing post of the Ktor series: reflections on moving from Android development to building a backend, and what knowledge carried over."
 date:   2022-06-06
 show_in_homepage: false
 image: "/img/ktor-series/commons-layers.png"

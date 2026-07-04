@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "From an Android to a Kotlin Multiplatform library"
+description: "Migrating an existing Android library, RSS-Parser, to Kotlin Multiplatform: the challenges involved and the solutions applied."
 date:   2025-03-16
 show_in_homepage: true 
 draft: false

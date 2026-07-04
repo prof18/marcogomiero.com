@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Using annotations to improve iOS APIs on Kotlin Multiplatform"
+description: "Using Kotlin 1.8's @HiddenFromObjC and @ObjCName annotations to clean up the iOS API surface of a Kotlin Multiplatform project."
 date:   2023-09-19
 show_in_homepage: false
 ---

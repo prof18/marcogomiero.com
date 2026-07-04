@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "RSS Parser 2.0: bye bye Async Task, welcome Coroutines"
+description: "A rewrite of the RSS Parser Android library using Kotlin and Coroutines to replace Async Task, with a look at the new usage."
 date:   2018-12-22
 show_in_homepage: false
 ---

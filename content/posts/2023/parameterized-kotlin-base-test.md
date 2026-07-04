@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to create a parameterized base test class in Kotlin"
+description: "Combining JUnit 4's Parameterized runner with a shared base test class in Kotlin without losing common setup."
 date:   2023-01-31
 show_in_homepage: false
 ---

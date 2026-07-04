@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to build an XCFramework on Kotlin Multiplatform"
+description: "How to create two Gradle tasks that automate building an XCFramework for the Apple targets of a Kotlin Multiplatform project."
 date:   2021-07-14
 show_in_homepage: false
 image: "/img/kmp-existing-projects/kmp-publish-arch.png"

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Using Retrofit and Alamofire with Kotlin Serialization on Kotlin Multiplatform"
+description: "How to use Kotlin Serialization with Retrofit and Alamofire in a Kotlin Multiplatform project to share networking code across Android and iOS."
 date:   2020-12-10
 show_in_homepage: false
 ---

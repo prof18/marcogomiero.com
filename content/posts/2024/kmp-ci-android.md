@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How to publish a Kotlin Multiplatform Android app on Play Store with GitHub Actions"
+description: "Part one of the CI series: a GitHub Actions pipeline to build and deploy the Kotlin Multiplatform Android app of FeedFlow to Google Play."
 date:   2024-04-30
 show_in_homepage: false
 ---

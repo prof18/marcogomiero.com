@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "My 2 Cents about cross-platform"
+description: "Considerations about cross-platform mobile development after using React Native, Flutter, and Kotlin Multiplatform: why and when to adopt it."
 date:   2020-08-04
 show_in_homepage: false
 image: "/img/2cents-cross/google-trend-cross.png"

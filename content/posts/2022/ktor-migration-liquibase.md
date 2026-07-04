@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How to handle database migrations with Liquibase on Ktor"
+description: "Part of the Ktor series: setting up Liquibase to manage and migrate a MySQL database schema safely in a Ktor backend."
 date: 2022-01-24
 show_in_homepage: false
 ---

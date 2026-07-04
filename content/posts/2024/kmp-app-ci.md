@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Publishing a Kotlin Multiplatform Android, iOS, and macOS app with GitHub Actions"
+description: "An index of the series on setting up GitHub Actions CI to publish FeedFlow, a Kotlin Multiplatform app, to Play Store, App Store, and GitHub Releases."
 date:   2024-05-21
 show_in_homepage: true
 ---

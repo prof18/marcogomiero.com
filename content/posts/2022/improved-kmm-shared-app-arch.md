@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Improving shared architecture for a Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
+description: "A follow-up on Money Flow's shared architecture: revisiting the MVVM setup with native ViewModels and UseCases across Android and iOS."
 date:   2022-06-26
 show_in_homepage: false
 image: "/img/impr-kmm-arch/money-flow-dark.png"

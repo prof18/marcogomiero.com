@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Running a blog with iPad"
+description: "Running a blog from an iPad: the Hugo tech stack behind the site and the writing setup that finally stuck."
 date:   2021-01-11
 show_in_homepage: false
 image: "/img/blogging-ipad/ipad-overview.jpeg"

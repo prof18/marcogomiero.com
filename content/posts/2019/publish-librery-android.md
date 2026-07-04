@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to publish and distribute your Android library"
+description: "A step-by-step guide to publishing and distributing an Android library so it can be reused across projects."
 date:   2019-05-28
 image: "https://miro.medium.com/max/1400/0*6Th4syvZgyIhhACo"
 show_in_homepage: false

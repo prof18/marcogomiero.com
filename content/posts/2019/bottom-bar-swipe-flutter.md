@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Bottom App Bar with Menu and Swipeable Tabs in Flutter"
+description: "How to combine a Bottom App Bar with swipeable tabs in Flutter, mixing a BottomAppBar, a BottomSheet, and a TabBarView together."
 date:   2019-03-20
 show_in_homepage: false
 image: "/img/bottom.gif"

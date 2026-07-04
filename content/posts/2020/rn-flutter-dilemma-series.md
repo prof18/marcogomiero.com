@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - Serie wrap-up"
+description: "A wrap-up of the full Flutter vs React Native series: languages, UIs, internals, and how to choose, all gathered in one place."
 date:   2020-05-10
 show_in_homepage: false
 ---

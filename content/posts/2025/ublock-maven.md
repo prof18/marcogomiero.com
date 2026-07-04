@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Don’t let Maven block you!"
+description: "CI build failures often come from a Maven repository failing to serve a dependency. How to avoid getting blocked when that happens."
 date:   2025-01-05
 show_in_homepage: false
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "QR Reader Secure - Privacy-Focused and Secure QR Reader"
+description: "QR Reader Secure: a simple, open source, privacy-focused QR scanner built as an alternative to apps full of ads and intrusive permissions."
 date:   2020-07-28
 show_in_homepage: false
 image: "/img/qr-reader/banner.png"

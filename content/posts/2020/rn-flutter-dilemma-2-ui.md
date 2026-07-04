@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - How to build User Interfaces - (Part 2)"
+description: "Part two of the React Native vs Flutter series: building user interfaces in both frameworks and where the approaches diverge."
 date:   2020-01-07T08:00:00
 show_in_homepage: false
 image: "/img/flutter-rn/widgets.png"

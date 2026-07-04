@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform macOS app on GitHub Releases with GitHub Actions"
+description: "Part three of the CI series: automating the publishing of FeedFlow's macOS app to GitHub Releases, outside the Mac App Store."
 date:   2024-05-14
 show_in_homepage: false
 ---

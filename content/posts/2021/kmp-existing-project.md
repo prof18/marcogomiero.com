@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Introducing Kotlin Multiplatform in an existing project"
+description: "How to introduce Kotlin Multiplatform into an existing project and start sharing code across platforms without a full rewrite."
 date:   2021-02-25
 show_in_homepage: false
 image: "/img/kmp-existing-projects/kmp-publish-arch.png"

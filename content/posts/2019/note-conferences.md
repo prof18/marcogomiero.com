@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How I take note at conferences"
+description: "A note-taking setup for conferences using OneNote to keep talks, slides, photos, and videos in one place, plus a handy PDF export hack."
 date:   2019-07-06
 image: "https://miro.medium.com/max/1400/0*LaTfRaHUQcKv11k3"
 show_in_homepage: false

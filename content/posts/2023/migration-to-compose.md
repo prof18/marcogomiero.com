@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Migrating to Jetpack Compose: a step by step journey"
+description: "A step-by-step migration of Secure QR Reader from the old View system to Jetpack Compose, with a matching commit for every step."
 date:   2023-05-12
 show_in_homepage: false
 ---

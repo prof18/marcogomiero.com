@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - How to chose + Bonus - (Part 4)"
+description: "The final part of the React Native vs Flutter series: how to pick the right framework for a project, plus a closing bonus."
 date:   2020-03-23
 show_in_homepage: false
 ---

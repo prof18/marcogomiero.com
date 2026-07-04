@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform iOS app on App Store with GitHub Actions"
+description: "Part two of the CI series: a GitHub Actions pipeline to build and ship the Kotlin Multiplatform iOS app of FeedFlow to the App Store."
 date:   2024-05-07
 show_in_homepage: false
 ---

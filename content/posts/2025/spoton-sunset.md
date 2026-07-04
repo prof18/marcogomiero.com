@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Sunsetting spoton: Android 16 killed the hotspot toggle trick"
+description: "Sunsetting spoton, a Wear OS app to toggle the phone hotspot from the wrist, after Android 16 made its core trick impossible."
 date: 2025-12-16
 show_in_homepage: false
 ---

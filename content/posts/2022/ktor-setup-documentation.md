@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Generate API documentation from Swagger on Ktor"
+description: "Part of the Ktor series: auto-generating API documentation from OpenAPI/Swagger definitions with the Gradle Swagger Generator Plugin."
 date: 2022-03-22
 show_in_homepage: false
 image: "/img/ktor-series/api-doc.png"

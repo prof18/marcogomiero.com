@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Publishing a Compose macOS app on App Store: architectures, sandboxing and native libraries"
+description: "Everything that broke moving FeedFlow's Compose Multiplatform macOS app from GitHub Releases to the App Store: sandboxing, architectures, and more."
 date:   2024-05-21
 show_in_homepage: true
 ---

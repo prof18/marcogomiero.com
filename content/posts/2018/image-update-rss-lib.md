@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "New update for RSS Parser: featured image"
-description: "Today I've released a new version of the Android library RSS-Parser. Let's see what changes!"
+description: "A new release of the RSS-Parser Android library, with improved parsing of the featured image of an article."
 date:   2018-05-06
 show_in_homepage: false
 ---

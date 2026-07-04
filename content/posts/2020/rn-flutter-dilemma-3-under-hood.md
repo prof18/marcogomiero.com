@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Flutter or React Native, a cross-platform dilemma - How they work - (Part 3)"
+description: "Part three of the React Native vs Flutter series: a look under the hood at how the two frameworks work internally."
 date:   2020-03-16
 show_in_homepage: false
 image: "/img/flutter-rn/virtual-dom.png"

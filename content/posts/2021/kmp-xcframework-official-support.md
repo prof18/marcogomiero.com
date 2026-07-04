@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Building an XCFramework on Kotlin Multiplatform from Kotlin 1.5.30"
+description: "With Kotlin 1.5.30 XCFrameworks are officially supported: how to replace the custom Gradle tasks with the official ones on Kotlin Multiplatform."
 date:   2021-08-30
 show_in_homepage: true
 ---

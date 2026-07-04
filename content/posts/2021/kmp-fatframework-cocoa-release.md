@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Introducing KMP FatFramework Cocoa, a Gradle plugin for iOS FatFramework"
+description: "KMP FatFramework Cocoa, a Gradle plugin that builds a FatFramework for the iOS targets of a KMP project and publishes it to CocoaPods."
 date:   2021-03-02
 show_in_homepage: false 
 ---

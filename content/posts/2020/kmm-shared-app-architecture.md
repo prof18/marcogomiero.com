@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Choosing the right architecture for a [new] Kotlin Multiplatform, Jetpack Compose and SwiftUI app"
+description: "Choosing the architecture for Money Flow, an app sharing code across platforms with Kotlin Multiplatform, Jetpack Compose, and SwiftUI."
 date:   2020-10-23
 show_in_homepage: false
 image: "/img/kmm-app-arch/app-design.png"

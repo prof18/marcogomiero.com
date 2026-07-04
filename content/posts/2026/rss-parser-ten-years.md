@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Sliding Doors: ten years of RSS-Parser"
+description: "Ten years since the first commit of RSS-Parser: a reflection on the library's journey and the sliding-doors moments that shaped a career."
 date: 2026-06-17
 show_in_homepage: false
 ---

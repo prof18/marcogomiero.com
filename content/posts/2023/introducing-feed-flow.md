@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Introducing FeedFlow, a minimalistic and opinionated RSS Reader"
+description: "Introducing FeedFlow, a minimalistic RSS reader for Android, iOS, and macOS built with Kotlin Multiplatform. An overview of the project."
 date:   2023-07-31
 show_in_homepage: false
 ---

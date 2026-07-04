@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How to use an in-memory database for testing on Ktor"
+description: "Part of the Ktor backend series: using an in-memory database to write fast and isolated tests for a Ktor application."
 date: 2021-10-04
 show_in_homepage: false
 ---

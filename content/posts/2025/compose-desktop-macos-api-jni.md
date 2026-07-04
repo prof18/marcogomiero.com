@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Accessing native macOS API in Compose Multiplatform"
+description: "Accessing native macOS APIs like iCloud from a Compose Multiplatform desktop app through a native dylib and JNI, with a FeedFlow example."
 date:   2025-09-22
 show_in_homepage: false
 ---

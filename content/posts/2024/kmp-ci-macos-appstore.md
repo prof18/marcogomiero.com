@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to publish a Kotlin Multiplatform macOS app on the App Store with GitHub Actions"
+description: "Part four of the CI series: a GitHub Actions pipeline that deploys FeedFlow's Compose Multiplatform macOS app to the App Store."
 date:   2024-05-20
 show_in_homepage: false
 ---

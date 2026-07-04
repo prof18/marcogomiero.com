@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Organize your Views: Jetpack Compose edition"
+description: "How to structure a Jetpack Compose codebase to avoid god classes, giant composables, and other messy-UI traps."
 date:   2023-03-15
 show_in_homepage: false
 ---

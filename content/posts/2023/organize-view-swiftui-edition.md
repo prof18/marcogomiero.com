@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Organize your Views: SwiftUI edition"
+description: "The SwiftUI companion to the Compose article: organizing a SwiftUI codebase with stateless views and state hoisting."
 date:   2023-03-23
 show_in_homepage: false
 ---

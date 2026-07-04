@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to fix the \"Unable to locate a Java Runtime\" error on Xcode with Kotlin Multiplatform"
+description: "How to fix the 'Unable to locate a Java Runtime' error on Xcode with a Kotlin Multiplatform project, caused by how sdkman installs the JDK."
 date:   2021-12-27
 show_in_homepage: false
 image: "/img/xcode-jvm-runtime/xcode-java-runtime.jpeg"

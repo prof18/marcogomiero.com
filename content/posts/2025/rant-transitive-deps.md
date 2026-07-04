@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Watch out for transitive dependencies: an “obvious” rant"
+description: "A short rant sparked by a weird crash: always double-check what changes when updating a library, since hidden bugs might be lurking."
 date:   2025-01-14
 show_in_homepage: false
 ---

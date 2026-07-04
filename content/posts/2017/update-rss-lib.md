@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "New update for RSS Parser: article categories"
-description: "Today I've released a new version of the Android library RSS-Parser. Let's see what changes!"
+description: "A new release of the RSS-Parser Android library that adds support for reading article categories from RSS feeds."
 date:   2017-12-11
 show_in_homepage: false
 ---

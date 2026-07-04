@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Testing a Gradle Plugin that interacts with Git"
+description: "How to test a Gradle plugin that interacts with a Git repository, using the KMP Framework Bundler plugin as a real-world example."
 date:   2025-05-13
 show_in_homepage: false
 ---

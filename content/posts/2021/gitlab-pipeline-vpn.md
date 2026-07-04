@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Connect to Open VPN during Gitlab Pipeline"
+description: "How to connect to an OpenVPN network during a GitLab CI/CD pipeline so jobs can reach resources hidden behind the VPN."
 date:   2021-06-28
 show_in_homepage: false 
 ---

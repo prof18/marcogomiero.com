@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Friends Tournament - Tournament creation and management made easy"
+description: "Friends Tournament, a Flutter side project to create and manage tournaments with friends. An overview of the app and how it works."
 date:   2020-06-12
 show_in_homepage: false
 image: "/img/friends-tournament/banner_generic.png"

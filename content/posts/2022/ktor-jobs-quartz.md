@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How to schedule jobs with Quartz on Ktor"
+description: "Part of the Ktor series: setting up Quartz to schedule and persist recurring background jobs in a Ktor backend project."
 date: 2022-04-22
 show_in_homepage: false
 image: "/img/ktor-series/quartz-tables.png"
