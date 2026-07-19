@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From messy inbox to actionable board, with one AI skill</title>
+      <link>https://www.marcogomiero.com/posts/2026/inbox-to-board-ai-skill/</link>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.marcogomiero.com/posts/2026/inbox-to-board-ai-skill/</guid>
+      <description>&lt;p&gt;Maintaining and developing a project is not only about building things. A significant portion of time is spent triaging issues, feature requests, and user questions. This is also the case for &lt;a href=&#34;https://feedflow.dev&#34;&gt;FeedFlow&lt;/a&gt;. I constantly receive feedback from different sources:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub issues, given that the project is open source&lt;/li&gt;&#xA;&lt;li&gt;Support emails&lt;/li&gt;&#xA;&lt;li&gt;Crash reporting: Sentry and Firebase Crashlytics&lt;/li&gt;&#xA;&lt;li&gt;Reviews on the stores: Play Store, App Store&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;From every notification, I need to determine what&amp;rsquo;s a real issue, what&amp;rsquo;s already fixed, what makes sense to add to the roadmap, etc.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How to import multiple iOS signing certificates to CI</title>
       <link>https://www.marcogomiero.com/posts/2026/export-double-certificate-ci-ios/</link>
