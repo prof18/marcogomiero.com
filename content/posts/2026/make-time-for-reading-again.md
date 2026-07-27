@@ -7,7 +7,7 @@ show_in_homepage: false
 hidden: true
 noindex: true
 url: "/posts/make-time-for-reading-again/"
-_build:
+build:
   render: always
   list: never
 sitemap:

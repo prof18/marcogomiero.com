@@ -4,6 +4,13 @@ pagination:
   pagerSize: 12
 theme: mg
 
+# This site includes a trusted, self-contained HTML codelab under content/workshops.
+# Hugo 0.162+ blocks HTML content by default unless it is explicitly allowed.
+security:
+  allowContent:
+    - "^text/markdown$"
+    - "^text/html$"
+
 # Allow raw HTML so {{< rawhtml >}} shortcode content is preserved (badges, video, etc.)
 markup:
   goldmark:
@@ -49,12 +56,12 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/prof18"
-    - name: mastodon
-      url: "https://androiddev.social/@marcogom"
-    - name: bluesky
-      url: "https://bsky.app/profile/marcogomiero.com"  
     - name: twitter
       url: "https://twitter.com/marcoGomier"
+    - name: bluesky
+      url: "https://bsky.app/profile/marcogomiero.com"
+    - name: mastodon
+      url: "https://androiddev.social/@marcogom"
     - name: linkedin
       url: "https://linkedin.com/in/marco-gomiero"
 
