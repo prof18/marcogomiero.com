@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Marco Gomiero</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.marcogomiero.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code review comments are the rules you forgot to write down</title>
+      <link>https://www.marcogomiero.com/posts/2026/code-review-agents-update/</link>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.marcogomiero.com/posts/2026/code-review-agents-update/</guid>
+      <description>&lt;p&gt;If you work with AI agents, you have an instruction file (and if you don&amp;rsquo;t, you should!) usually called &lt;code&gt;AGENTS.md&lt;/code&gt; (with &lt;code&gt;CLAUDE.md&lt;/code&gt; symlinked to it, because standards are hard to follow).&#xA;This Markdown file is automatically added to the AI context, and it should contain all the guidelines for the project and everything that the agent should be aware of. For example, how to build the project, styling, conventions, and anything else that should be known to achieve the best possible result.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>From messy inbox to actionable board, with one AI skill</title>
       <link>https://www.marcogomiero.com/posts/2026/inbox-to-board-ai-skill/</link>
