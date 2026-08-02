@@ -2,6 +2,13 @@
 <html>
 	{{- partial "header.html" . -}}
 	<body>
+		<script>
+			(function () {
+				if (/^\/projects\/.+/.test(window.location.pathname)) {
+					window.location.replace("{{ "projects/" | relLangURL }}");
+				}
+			})();
+		</script>
 		<div class="content">
 			{{- partial "head.html" . -}}
 			<main class="body">
