@@ -9,6 +9,111 @@
     <lastBuildDate>Mon, 27 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.marcogomiero.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>FeedFlow</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A minimal, uncluttered RSS reader with seamless cross-device sync and reader mode.</description>
+    </item>
+    <item>
+      <title>ReaderFlow</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A clean, privacy-focused read-it-later app that works completely offline, with on-device parsing.</description>
+    </item>
+    <item>
+      <title>Difftray</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A local-first app for reviewing Git changes across your projects, with drift detection and line-level comments you can turn into agent handoff prompts.</description>
+    </item>
+    <item>
+      <title>Slashgrab</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A menu bar utility that copies file paths to the clipboard when you drag files or folders onto its icon.</description>
+    </item>
+    <item>
+      <title>Shellporter</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A macOS menu bar utility that opens a terminal in the active IDE&amp;rsquo;s project directory with a single hotkey.</description>
+    </item>
+    <item>
+      <title>CueUp</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A presentation tool that plays video on the projector while keeping cues, speaker notes and playback controls on your own screen.</description>
+    </item>
+    <item>
+      <title>HTML Shelf</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>An Obsidian plugin that discovers and safely renders HTML files in your vault, with navigation, search and link support.</description>
+    </item>
+    <item>
+      <title>RSS Parser</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A Kotlin Multiplatform library for parsing RSS, Atom and RDF feeds across nine targets.</description>
+    </item>
+    <item>
+      <title>Friends Tournament</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A Flutter app that generates matches, rounds and leaderboards for any kind of tournament.</description>
+    </item>
+    <item>
+      <title>QR Reader Secure</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A simple QR reader focused on privacy: no ads, no trackers, camera permission only.</description>
+    </item>
+    <item>
+      <title>Scambio Chiaro</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A tool to read GSE Scambio sul Posto reports, showing contribution, energy exchanged, credit and alerts in a clear overview.</description>
+    </item>
+    <item>
+      <title>KMP Framework Bundler</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A Gradle plugin that builds XCFrameworks and FatFrameworks for Kotlin Multiplatform projects and publishes them to CocoaPods.</description>
+    </item>
+    <item>
+      <title>Youtube Parser</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>An Android library to fetch video information and statistics from YouTube channels.</description>
+    </item>
+    <item>
+      <title>MoneyFlow</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A Kotlin Multiplatform personal finance app built with Compose Multiplatform.</description>
+    </item>
+    <item>
+      <title>Spoton</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A Wear OS app to toggle your phone&amp;rsquo;s mobile hotspot straight from your smartwatch.</description>
+    </item>
+    <item>
       <title>Code review comments are the rules you forgot to write down</title>
       <link>https://www.marcogomiero.com/posts/2026/code-review-agents-update/</link>
       <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
@@ -35,13 +140,6 @@
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://www.marcogomiero.com/posts/2026/rss-parser-ten-years/</guid>
       <description>&lt;p&gt;Today marks ten years since the first commit of &lt;a href=&#34;https://github.com/prof18/RSS-Parser&#34;&gt;&lt;strong&gt;RSS-Parser&lt;/strong&gt;&lt;/a&gt;. &lt;em&gt;TEN YEARS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I want to use this opportunity to reflect on the journey of this library, the sliding doors moments along the way, and the chain of events that made RSS-Parser an important part of my career.&lt;/p&gt;&#xA;&lt;p&gt;The bare bones of the library started earlier, though; it was 2015 when I wrote my first app that I’ve published to the Play Store. This app was for reading the articles of the tech blog that I was collaborating with (for a while I was reviewing apps, phones, consumer tech - that’s when I fell in love with mobile). The blog was built (of course) with the good old WordPress, and at the time I discovered that you can have the published articles formatted in XML - yes, I discovered the existence of RSS.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Shellporter</title>
-      <link>https://www.marcogomiero.com/projects/shellporter/</link>
-      <pubDate>Sat, 14 Feb 2026 12:00:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/shellporter/</guid>
-      <description>&lt;p&gt;Shellporter is a macOS menu bar utility that opens a terminal in the project directory of the active IDE window with a single global hotkey or a click from the menu bar. It requires macOS 14 or later and Accessibility permission.&lt;/p&gt;&#xA;&lt;p&gt;Supported IDEs include JetBrains (IntelliJ, Android Studio, Fleet), VS Code, Cursor, Xcode, and Antigravity. Supported terminals include Terminal.app, iTerm2, Ghostty, Kitty, and a custom command option. Hotkeys and terminal are configurable in Settings. A second hotkey copies the project path to the clipboard. The app runs entirely on the machine; no network calls, telemetry, or analytics.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Shellporter: From Idea to Production in a Week</title>
@@ -140,13 +238,6 @@
       <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</guid>
       <description>&lt;p&gt;As Kotlin Multiplatform (KMP) continues to gain traction, more Android libraries are transitioning to support multiple platforms. However, this transition doesn’t always come for free; depending on the project, there could be different challenges.&lt;/p&gt;&#xA;&lt;p&gt;Recently, I migrated an existing Android library (&lt;a href=&#34;https://github.com/prof18/RSS-Parser&#34;&gt;RSS-Parser&lt;/a&gt;, a library to parse RSS feeds). In this article, I will share my experience, cover all the challenges I faced during this journey, and describe the solutions I implemented to overcome them, from preserving git history to handling platform-specific dependencies and testing across different platforms.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ReaderFlow</title>
-      <link>https://www.marcogomiero.com/projects/readerflow/</link>
-      <pubDate>Fri, 14 Feb 2025 12:00:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/readerflow/</guid>
-      <description>&lt;p&gt;ReaderFlow is a clean, privacy-focused read-it-later app that works completely offline. Articles can be saved and synced across devices with Dropbox (Android, iOS and macOS) or iCloud (iOS and macOS), for distraction-free reading anywhere.&lt;/p&gt;&#xA;&lt;p&gt;Content is processed and stored locally on the device with on-device parsing,no server in the middle. Migration from Pocket, Instapaper, Omnivore or custom CSV exports is supported. Articles can be tagged and archived; the same experience is available on Android, iOS and macOS.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Watch out for transitive dependencies: an “obvious” rant</title>
@@ -394,20 +485,6 @@
       <description>Back in 2016, out of my raising passion for Android development, I started working on RSSParser, a library for parsing RSS feeds on Android. Nowadays, out of my passion for Kotlin Multiplatform, I decided to make RSSParser Multiplatform&amp;hellip; How hard can it be? &lt;br&gt;&lt;br&gt; In this talk, I will share the journey of expanding an Android library into the iOS and JVM world. We will cover the challenges faced during the process, including how to handle platform-specific dependencies, code organization, and testing strategies. &lt;br&gt;&lt;br&gt; By the end of this talk, you&amp;rsquo;ll have a better understanding of the benefits and challenges of creating a Kotlin Multiplatform library, and you&amp;rsquo;ll be equipped with the knowledge and tools you need to conquer the Multiplatform world!</description>
     </item>
     <item>
-      <title>FeedFlow</title>
-      <link>https://www.marcogomiero.com/projects/feed-flow/</link>
-      <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/feed-flow/</guid>
-      <description>&lt;p&gt;FeedFlow is a minimal, uncluttered RSS reader available on Android, iOS, macOS, Windows and Linux.&lt;/p&gt;&#xA;&lt;p&gt;Minimalist design to keep the focus on what matters; seamless sync across devices with iCloud (iOS/macOS), Dropbox or Google Drive; FreshRSS, Miniflux, Feedbin and BazQux integration; flexible reading with reader mode or a preferred browser.&lt;/p&gt;&#xA;&lt;p&gt;FeedFlow is built with Jetpack Compose, Compose Multiplatform, and SwiftUI, with shared logic via Kotlin Multiplatform, and uses &lt;a href=&#34;https://github.com/prof18/RSS-Parser&#34;&gt;RSSParser&lt;/a&gt;, a multiplatform RSS parsing library I built.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spoton</title>
-      <link>https://www.marcogomiero.com/projects/spoton/</link>
-      <pubDate>Fri, 11 Aug 2023 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/spoton/</guid>
-      <description>&lt;p&gt;Spoton is a WearOS application that simplifies mobile hotspot management by allowing users to control their phone&amp;rsquo;s hotspot directly from their smartwatch.&lt;/p&gt;&#xA;&lt;p&gt;The app consists of two components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A WearOS app that provides a simple interface to toggle the hotspot&lt;/li&gt;&#xA;&lt;li&gt;A companion Android phone app that handles the background communication&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;With Spoton, users can enable or disable their phone&amp;rsquo;s mobile hotspot with a single tap on their watch, eliminating the need to take out and unlock their phone. This is particularly useful when frequently switching the hotspot on and off for connecting laptops, tablets, or other devices.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Introducing FeedFlow, a minimalistic and opinionated RSS Reader</title>
       <link>https://www.marcogomiero.com/posts/2023/introducing-feed-flow/</link>
       <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
@@ -520,53 +597,11 @@
       <description>&lt;span class=&#34;raw-html&#34;&gt;&#xA;    &#xA;&#xA;&lt;a href=&#34;https://us12.campaign-archive.com/?u=f39692e245b94f7fb693b6d82&amp;id=d1adea48f9&#34;&gt;&lt;img style=&#34;margin: 0px;&#34; src=&#34;https://img.shields.io/badge/Featured%20in%20kotlinweekly.net-Issue%20%23306-%237874b4&#34;/&gt;&lt;/a&gt;&#xA;&#xA;&#xA;&#xA;&lt;/span&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;SERIES: Building a backend with Ktor&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Part 1: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-project-structure/&#34;&gt;Structuring a Ktor project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 2: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-logging-on-disk/&#34;&gt;How to persist Ktor logs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 3: &lt;a href=&#34;https://www.marcogomiero.com/posts/2021/ktor-in-memory-db-testing/&#34;&gt;How to use an in-memory database for testing on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 4: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-migration-liquibase/&#34;&gt;How to handle database migrations with Liquibase on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 5: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-setup-documentation/&#34;&gt;Generate API documentation from Swagger on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 6: &lt;a href=&#34;https://www.marcogomiero.com/posts/2022/ktor-jobs-quartz/&#34;&gt;How to schedule jobs with Quartz on Ktor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Part 7: Moving from mobile to backend development with Ktor&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This article is the final instance of the series of posts dedicated to Ktor where I cover all the topics that made me struggle during development and that were not easy to achieve out of the box. In this article, I will cover why I ended up using Ktor and how was my journey from the mobile to the backend world.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>KMP Framework Bundler</title>
-      <link>https://www.marcogomiero.com/projects/kmp-framework-bundler/</link>
-      <pubDate>Tue, 17 May 2022 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/kmp-framework-bundler/</guid>
-      <description>&lt;p&gt;A Gradle plugin for Kotlin Multiplatform projects that generate a XCFramework for Apple targets or a FatFramework for iOS targets, and manages the publishing process in a CocoaPod Repository.&lt;/p&gt;&#xA;&lt;p&gt;The plugin is uploaded on MavenCentral.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>MoneyFlow</title>
-      <link>https://www.marcogomiero.com/projects/money-flow/</link>
-      <pubDate>Mon, 16 May 2022 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/money-flow/</guid>
-      <description>&lt;p&gt;MoneyFlow is a Kotlin Multiplatform personal finance app targeting Android and iOS with Compose Multiplatform. The app is in the middle of a rewrite with an updated architecture to better support Compose Multiplatform and keep the Android and iOS shells thin; the shared module is the source of truth.&lt;/p&gt;&#xA;&lt;p&gt;Planned and in-progress features include transaction entry and list, edit transaction, custom categories, recap screen with plots, budgeting, CSV import and export, currency selection, and lock view with biometrics. Progress can be tracked on &lt;a href=&#34;https://github.com/prof18/MoneyFlow&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>QR Reader Secure</title>
-      <link>https://www.marcogomiero.com/projects/qr-reader-secure/</link>
-      <pubDate>Sat, 14 May 2022 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/qr-reader-secure/</guid>
-      <description>&lt;p&gt;QR Reader Secure is a simple QR Reader designed and developed with a focus on privacy.&lt;/p&gt;&#xA;&lt;p&gt;I decided to develop it after a failed search for a simple and secure reader for my parents.&lt;/p&gt;&#xA;&lt;p&gt;The app is very simple (the aim is to scan a code and open the link, only this!) and it does not require sneaky, strange and useless permissions just for the sake of stealing your data. There aren&amp;rsquo;t ads, trackers of any sort and what do you scan remains on your phone. The only requested permission is for the camera.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Friends Tournament</title>
-      <link>https://www.marcogomiero.com/projects/friends-tournament/</link>
-      <pubDate>Fri, 13 May 2022 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/friends-tournament/</guid>
-      <description>&lt;p&gt;A mobile application to manage and create tournaments. Friends Tournament will help to generate videogames tournament, sports tournament, board games tournament, whatever type of tournament. All you need to do is to provide the number of players, the number of matches, and the number of players that can play at the same time. That&amp;rsquo;s all! Friends Tournament will then generate the matches and the rounds for you. Then you can keep track of the players&amp;rsquo; score and a nice leaderboard is automatically generated.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>RSS Parser</title>
-      <link>https://www.marcogomiero.com/projects/rss-parser/</link>
-      <pubDate>Thu, 12 May 2022 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/rss-parser/</guid>
-      <description>&lt;p&gt;RSS Parser is a Kotlin Multiplatform library for parsing RSS, Atom and RDF feeds. It supports Android, JVM, iOS, macOS, tvOS, watchOS, wasmJS and JS.&lt;/p&gt;&#xA;&lt;p&gt;The library can fetch and parse feeds from a URL or from an XML string. It is published on &lt;a href=&#34;https://central.sonatype.com/artifact/com.prof18.rssparser/rssparser&#34;&gt;Maven Central&lt;/a&gt;. &lt;a href=&#34;https://feedflow.dev&#34;&gt;FeedFlow&lt;/a&gt; uses it for multiplatform RSS parsing.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Imperative is dead, long live Declarative!</title>
       <link>https://www.marcogomiero.com/talks/2022/imperative-vs-declarative-appdevcon/</link>
       <pubDate>Wed, 11 May 2022 17:45:00 +0000</pubDate>
       <guid>https://www.marcogomiero.com/talks/2022/imperative-vs-declarative-appdevcon/</guid>
       <description>Nowadays, the mobile world has started to see larger adoption of the declarative style to build UI as opposed to the (not so) old imperative style. This pattern is borrowed from the web world, from frameworks like React and Vue.js and it started to appear in the mobile world first with React Native, then with Flutter and finally, it captured the attention of the &amp;ldquo;native world&amp;rdquo; with Jetpack Compose and Swift UI.&lt;br&gt;&lt;br&gt;In this talk, we will explore the declarative style of building UI compared with the imperative one. We will try to enter in this mindset by finding the differences and by looking at some examples of these patterns.</description>
-    </item>
-    <item>
-      <title>Youtube Parser</title>
-      <link>https://www.marcogomiero.com/projects/youtube-parser/</link>
-      <pubDate>Wed, 11 May 2022 17:45:00 +0000</pubDate>
-      <guid>https://www.marcogomiero.com/projects/youtube-parser/</guid>
-      <description>&lt;p&gt;An Android library to get video&amp;rsquo;s information from Youtube channels. You can retrieve title, link and thumbnails of a video from a specific channel. For each video you can also get statistics like views, number of like, dislike, favorite and comments. The library is uploaded on MavenCentral.&lt;/p&gt;</description>
     </item>
     <item>
       <title>From Mobile to Backend with Kotlin and Ktor</title>

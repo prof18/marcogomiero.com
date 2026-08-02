@@ -20,12 +20,6 @@
     <loc>https://www.marcogomiero.com/posts/2026/rss-parser-ten-years/</loc>
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.marcogomiero.com/projects/</loc>
-    <lastmod>2026-02-14T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/shellporter/</loc>
-    <lastmod>2026-02-14T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/posts/2026/building-shellporter/</loc>
     <lastmod>2026-02-14T00:00:00+00:00</lastmod>
   </url><url>
@@ -70,9 +64,6 @@
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2025/android-lib-to-kmp/</loc>
     <lastmod>2025-03-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/readerflow/</loc>
-    <lastmod>2025-02-14T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/posts/2025/rant-transitive-deps/</loc>
     <lastmod>2025-01-14T00:00:00+00:00</lastmod>
@@ -179,12 +170,6 @@
     <loc>https://www.marcogomiero.com/talks/2023/from-android-to-kmp-berlindroid/</loc>
     <lastmod>2023-08-27T17:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.marcogomiero.com/projects/feed-flow/</loc>
-    <lastmod>2023-08-11T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/spoton/</loc>
-    <lastmod>2023-08-11T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/posts/2023/introducing-feed-flow/</loc>
     <lastmod>2023-07-31T00:00:00+00:00</lastmod>
   </url><url>
@@ -233,25 +218,7 @@
     <loc>https://www.marcogomiero.com/posts/2022/backend-from-mobile-ktor/</loc>
     <lastmod>2022-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.marcogomiero.com/projects/kmp-framework-bundler/</loc>
-    <lastmod>2022-05-17T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/money-flow/</loc>
-    <lastmod>2022-05-16T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/qr-reader-secure/</loc>
-    <lastmod>2022-05-14T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/friends-tournament/</loc>
-    <lastmod>2022-05-13T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/rss-parser/</loc>
-    <lastmod>2022-05-12T17:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.marcogomiero.com/talks/2022/imperative-vs-declarative-appdevcon/</loc>
-    <lastmod>2022-05-11T17:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.marcogomiero.com/projects/youtube-parser/</loc>
     <lastmod>2022-05-11T17:45:00+00:00</lastmod>
   </url><url>
     <loc>https://www.marcogomiero.com/talks/2022/from-mobile-to-backend-ktor-droidcon-webinar/</loc>
@@ -479,6 +446,8 @@
     <loc>https://www.marcogomiero.com/workshops/introducing-kotlin-multiplatform-in-an-existing-mobile-app/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/about-me/</loc>
+  </url><url>
+    <loc>https://www.marcogomiero.com/projects/</loc>
   </url><url>
     <loc>https://www.marcogomiero.com/categories/</loc>
   </url><url>
