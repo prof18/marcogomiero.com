@@ -3,17 +3,19 @@ title = "About Me"
 type = "about"
 +++
 
-I’m Marco Gomiero, a software engineer driven by a passion for building mobile applications.  
+I’m Marco Gomiero, a software engineer. I build apps and the agent tooling that builds them.
 
-My expertise spans the full mobile spectrum, with deep experience in both native **Android** and **iOS** development. I believe in crafting high-quality native experiences while leveraging technologies like **Kotlin Multiplatform** to share code where it makes sense, offering flexibility without compromising the native feel.
+My background covers the full mobile spectrum, with deep experience in both native **Android** and **iOS** development, using **Kotlin Multiplatform** to share what’s worth sharing without giving up the native feel. I also build for the desktop, shipping on macOS, Windows and Linux.
 
-I’m currently working as a Senior Android Engineer at [Airalo](https://www.airalo.com/) and I am a Google Developer Expert for Android.
+I’m currently a Principal Android Engineer at [Airalo](https://www.airalo.com/) and a Google Developer Expert for Android.
 
-In my spare time, I maintain open source projects like [FeedFlow](https://feedflow.dev/), share knowledge through [blog posts](/posts) and [conference talks](/talks), organize events with the Google Developer Group Venezia, and when I’m away from the keyboard, you might find me on the basketball court.
+Lately I spend as much time on how software gets built as on building it. I build skills, subagents, scheduled automations and planning workflows, plus orchestration systems that take work from first discussion to a shipped pull request. I do this for my own projects and for engineering teams across Airalo, where I also run internal workshops on agentic engineering in practice.
+
+In my spare time I [build and ship apps](https://www.marcogomiero.com/projects/) for mobile and desktop, and share what I learn through [blog posts](/posts) and [conference talks](/talks).
 
 ## Work Experience
 
-### Airalo · Senior Android Engineer · November 2023 - Present
+### Airalo · Principal Android Engineer · November 2023 - Present
 
 [Airalo](https://www.airalo.com/) is the world’s first eSIM store for travelers to access over 200+ eSIMs at the most affordable, local rates from around the world, all via eSIM-compatible smartphone, tablet, or PC. Airalo offers you both connectivity and freedom - you’ll never have to carry multiple SIM cards or change your number again, no matter where you are in the world.
 
