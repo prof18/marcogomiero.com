@@ -162,6 +162,17 @@ h2, h3, h4, h5, h6 {
   margin: 12px 0px;
 }
 
+/* About page: breathing room before each top-level section */
+.about-body h2 {
+  margin-top: 48px;
+}
+
+/* About page: separate each entry from what precedes it, while keeping
+   the entry title tight to its own description */
+.about-body h3 {
+  margin-top: 28px;
+}
+
 .meta {
   color: #999;
   letter-spacing: -0.5px;
