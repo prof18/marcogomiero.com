@@ -29,6 +29,20 @@
       <description>A local-first app for reviewing Git changes across your projects, with drift detection and line-level comments you can turn into agent handoff prompts, plus a companion app for Android and iOS.</description>
     </item>
     <item>
+      <title>mgkit</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>An opinionated toolkit for building software with AI agents: roast the idea, plan it so a cheaper agent can build it, execute, review and ship.</description>
+    </item>
+    <item>
+      <title>Regesto</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A local knowledge base your agents consult before they act: decisions, preferences and conventions kept as plain Markdown files, one claim per file.</description>
+    </item>
+    <item>
       <title>PomoStats</title>
       <link></link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -64,6 +78,13 @@
       <description>An Obsidian plugin that discovers and safely renders HTML files in your vault, with navigation, search and link support.</description>
     </item>
     <item>
+      <title>Bases Kanban Toolbox</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>An Obsidian plugin that improves native Bases Kanban boards with manual card order, compact cards, collapsible columns and a card popup.</description>
+    </item>
+    <item>
       <title>pcenter</title>
       <link></link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -76,6 +97,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid></guid>
       <description>A Kotlin Multiplatform library for parsing RSS, Atom and RDF feeds across nine targets.</description>
+    </item>
+    <item>
+      <title>Klead</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>A Kotlin Multiplatform library that extracts the main content from web pages and returns clean Markdown or HTML, without navigation, ads and clutter.</description>
     </item>
     <item>
       <title>Friends Tournament</title>
